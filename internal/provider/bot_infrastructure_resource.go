@@ -172,6 +172,7 @@ func (r *BotInfrastructureResource) Schema(ctx context.Context, req resource.Sch
 			}),
 			"create_cloud_hosted": schema.SingleNestedBlock{
 				MarkdownDescription: "F5 Cloud Hosted.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("production", "testing")},
 
 				Attributes: map[string]schema.Attribute{
 					"ip_addresses": schema.ListAttribute{

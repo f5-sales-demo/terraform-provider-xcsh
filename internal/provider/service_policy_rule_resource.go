@@ -816,6 +816,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			}),
 			"waf_action": schema.SingleNestedBlock{
 				MarkdownDescription: "Modify App Firewall behavior for a matching request. The modification could either be to entirely skip firewall processing or to customize the firewall rules to be applied as defined by App Firewall Rule Control settings.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("app_firewall_detection_control", "none"), validators.ConflictingObjectAttributes("app_firewall_detection_control", "waf_skip_processing"), validators.ConflictingObjectAttributes("none", "waf_skip_processing")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -960,7 +961,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"arg_matchers": schema.ListNestedBlock{
 				MarkdownDescription: "List of predicates for all POST args that need to be matched. The criteria for matching each arg are described in individual instances of ArgMatcherType. The actual arg values are extracted from the request API as a list of strings for each arg selector name.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -1105,6 +1106,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"bot_action": schema.SingleNestedBlock{
 				MarkdownDescription: "Modify Bot protection behavior for a matching request. The modification could be to entirely skip Bot processing.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("bot_skip_processing", "none")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1155,7 +1157,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"cookie_matchers": schema.ListNestedBlock{
 				MarkdownDescription: "List of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -1234,7 +1236,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"headers": schema.ListNestedBlock{
 				MarkdownDescription: "List of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -1404,7 +1406,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"jwt_claims": schema.ListNestedBlock{
 				MarkdownDescription: "List of predicates for various JWT claims that need to match. The criteria for matching each JWT claim are described in individual JWTClaimMatcherType instances. The actual JWT claims values are extracted from the JWT payload as a list of strings.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -1475,6 +1477,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"mum_action": schema.SingleNestedBlock{
 				MarkdownDescription: "Modify behavior for a matching request. The modification could be to entirely skip processing.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default", "skip_processing")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1542,7 +1545,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"query_params": schema.ListNestedBlock{
 				MarkdownDescription: "List of predicates for all query parameters that need to be matched. The criteria for matching each query parameter are described in individual instances of QueryParameterMatcherType. The actual query parameter values are extracted from the request API as a list of strings for each query..",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("key")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("key"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -1599,6 +1602,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"request_constraints": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for request constraints.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("max_cookie_count_exceeds", "max_cookie_count_none"), validators.ConflictingObjectAttributes("max_cookie_key_size_exceeds", "max_cookie_key_size_none"), validators.ConflictingObjectAttributes("max_cookie_value_size_exceeds", "max_cookie_value_size_none"), validators.ConflictingObjectAttributes("max_header_count_exceeds", "max_header_count_none"), validators.ConflictingObjectAttributes("max_header_key_size_exceeds", "max_header_key_size_none"), validators.ConflictingObjectAttributes("max_header_value_size_exceeds", "max_header_value_size_none"), validators.ConflictingObjectAttributes("max_parameter_count_exceeds", "max_parameter_count_none"), validators.ConflictingObjectAttributes("max_parameter_name_size_exceeds", "max_parameter_name_size_none"), validators.ConflictingObjectAttributes("max_parameter_value_size_exceeds", "max_parameter_value_size_none"), validators.ConflictingObjectAttributes("max_query_size_exceeds", "max_query_size_none"), validators.ConflictingObjectAttributes("max_request_line_size_exceeds", "max_request_line_size_none"), validators.ConflictingObjectAttributes("max_request_size_exceeds", "max_request_size_none"), validators.ConflictingObjectAttributes("max_url_size_exceeds", "max_url_size_none")},
 
 				Attributes: map[string]schema.Attribute{
 					"max_cookie_count_exceeds": schema.Int64Attribute{
@@ -1737,6 +1741,7 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"segment_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "Configure source and destination segment for policy.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("dst_any", "dst_segments"), validators.ConflictingObjectAttributes("dst_any", "intra_segment"), validators.ConflictingObjectAttributes("dst_segments", "intra_segment"), validators.ConflictingObjectAttributes("src_any", "src_segments")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{

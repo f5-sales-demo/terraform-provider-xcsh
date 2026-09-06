@@ -682,7 +682,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 			}),
 			"access_info": schema.SingleNestedBlock{
 				MarkdownDescription: "HostAccessInfoType contains the information about how to connect to the remote host.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("server_endpoint")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("server_endpoint"), validators.ConflictingObjectAttributes("rest_auth_info", "vault_auth_info")},
 
 				Attributes: map[string]schema.Attribute{
 					"scheme": schema.StringAttribute{
@@ -703,6 +703,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 				Blocks: map[string]schema.Block{
 					"rest_auth_info": schema.SingleNestedBlock{
 						MarkdownDescription: "Authentication parameters for REST based hosts.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("basic_auth", "headers_auth"), validators.ConflictingObjectAttributes("basic_auth", "query_params_auth"), validators.ConflictingObjectAttributes("headers_auth", "query_params_auth")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"basic_auth": schema.SingleNestedBlock{
@@ -716,6 +717,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 								Blocks: map[string]schema.Block{
 									"password": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -782,6 +784,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 					},
 					"tls_config": schema.SingleNestedBlock{
 						MarkdownDescription: "TLS configuration for upstream connections.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("cert_params", "common_params"), validators.ConflictingObjectAttributes("default_session_key_caching", "disable_session_key_caching"), validators.ConflictingObjectAttributes("default_session_key_caching", "max_session_keys"), validators.ConflictingObjectAttributes("disable_session_key_caching", "max_session_keys"), validators.ConflictingObjectAttributes("disable_sni", "sni"), validators.ConflictingObjectAttributes("disable_sni", "use_host_header_as_sni"), validators.ConflictingObjectAttributes("sni", "use_host_header_as_sni")},
 						Attributes: map[string]schema.Attribute{
 							"max_session_keys": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [default_session_key_caching disable_session_key_caching] Number of session keys that are cached.",
@@ -861,6 +864,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 									},
 									"validation_params": schema.SingleNestedBlock{
 										MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url")},
 										Attributes: map[string]schema.Attribute{
 											"skip_hostname_verification": schema.BoolAttribute{
 												MarkdownDescription: "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
@@ -951,7 +955,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 								Blocks: map[string]schema.Block{
 									"tls_certificates": schema.ListNestedBlock{
 										MarkdownDescription: "TLS Certificates. Set of TLS certificates.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"certificate_url": schema.StringAttribute{
@@ -986,6 +990,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 												},
 												"private_key": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1036,6 +1041,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 									},
 									"validation_params": schema.SingleNestedBlock{
 										MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url")},
 										Attributes: map[string]schema.Attribute{
 											"skip_hostname_verification": schema.BoolAttribute{
 												MarkdownDescription: "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
@@ -1116,6 +1122,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 					},
 					"vault_auth_info": schema.SingleNestedBlock{
 						MarkdownDescription: "Authentication parameters for Hashicorp Vault hosts.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("app_role_auth", "token")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"app_role_auth": schema.SingleNestedBlock{
@@ -1129,6 +1136,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 								Blocks: map[string]schema.Block{
 									"secret_id": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1175,6 +1183,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 							},
 							"token": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1223,12 +1232,13 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 			},
 			"where": schema.SingleNestedBlock{
 				MarkdownDescription: "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_network"), validators.ConflictingObjectAttributes("site", "virtual_site"), validators.ConflictingObjectAttributes("virtual_network", "virtual_site")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"site": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies a direct reference to a site configuration object.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
@@ -1326,7 +1336,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 					},
 					"virtual_site": schema.SingleNestedBlock{
 						MarkdownDescription: "Virtual Site. A reference to virtual_site object.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",

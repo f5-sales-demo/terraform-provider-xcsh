@@ -3075,6 +3075,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("dns", "ssh"), validators.ConflictingListObjectAttributes("dns", "web_user_interface"), validators.ConflictingListObjectAttributes("ssh", "web_user_interface")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"network_type": schema.StringAttribute{
@@ -3108,7 +3109,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"bond_devices": schema.ListNestedBlock{
 						MarkdownDescription: "Bond Devices. List of bond devices.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingListObjectAttributes("active_backup", "lacp")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"devices": schema.ListAttribute{
@@ -3201,6 +3202,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"custom_network_config": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: custom_network_config, default_network_config; Default: default_network_config] VssNetworkConfiguration.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("default_config", "slo_config"), validators.ConflictingObjectAttributes("default_interface_config", "interface_list"), validators.ConflictingObjectAttributes("default_sli_config", "sli_config"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("site_to_site_tunnel_ip", "sm_connection_public_ip"), validators.ConflictingObjectAttributes("site_to_site_tunnel_ip", "sm_connection_pvt_ip"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{
 					"bgp_peer_address": schema.StringAttribute{
@@ -3398,6 +3400,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -3487,6 +3490,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"interfaces": schema.ListNestedBlock{
 								MarkdownDescription: "Configure network interfaces for this App Stack site.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("dc_cluster_group_connectivity_interface_disabled", "dc_cluster_group_connectivity_interface_enabled"), validators.ConflictingListObjectAttributes("dedicated_interface", "dedicated_management_interface"), validators.ConflictingListObjectAttributes("dedicated_interface", "ethernet_interface"), validators.ConflictingListObjectAttributes("dedicated_interface", "tunnel_interface"), validators.ConflictingListObjectAttributes("dedicated_management_interface", "ethernet_interface"), validators.ConflictingListObjectAttributes("dedicated_management_interface", "tunnel_interface"), validators.ConflictingListObjectAttributes("ethernet_interface", "tunnel_interface")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"description_spec": schema.StringAttribute{
@@ -3506,7 +3510,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"dedicated_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for dedicated interface.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("device"), validators.ConflictingObjectAttributes("cluster", "node"), validators.ConflictingObjectAttributes("is_primary", "not_primary"), validators.ConflictingObjectAttributes("monitor", "monitor_disabled")},
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
 													MarkdownDescription: "Name of the device for which interface is configured. Use wwan0 for 4G/LTE.",
@@ -3560,7 +3564,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"dedicated_management_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for dedicated management interface.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("device"), validators.ConflictingObjectAttributes("cluster", "node")},
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
 													MarkdownDescription: "Name of the device for which interface is configured.",
@@ -3595,7 +3599,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"ethernet_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for ethernet interface.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("device"), validators.ConflictingObjectAttributes("cluster", "node"), validators.ConflictingObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingObjectAttributes("is_primary", "not_primary"), validators.ConflictingObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network"), validators.ConflictingObjectAttributes("site_local_inside_network", "storage_network"), validators.ConflictingObjectAttributes("site_local_network", "storage_network"), validators.ConflictingObjectAttributes("untagged", "vlan_id")},
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
 													MarkdownDescription: "Interface configuration for the ethernet device.",
@@ -3645,7 +3649,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"dhcp_server": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for dhcp server.",
-													Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 													Attributes: map[string]schema.Attribute{
 														"dhcp_option82_tag": schema.StringAttribute{
 															MarkdownDescription: "DHCP option 82 tag.",
@@ -3666,6 +3670,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"dhcp_networks": schema.ListNestedBlock{
 															MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+															Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"dgw_address": schema.StringAttribute{
@@ -3750,6 +3755,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"ipv6_auto_config": schema.SingleNestedBlock{
 													MarkdownDescription: "IPV6AutoConfigType.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"host": schema.SingleNestedBlock{
@@ -3757,6 +3763,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"router": schema.SingleNestedBlock{
 															MarkdownDescription: "IPV6AutoConfigRouterType.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 															Attributes: map[string]schema.Attribute{
 																"network_prefix": schema.StringAttribute{
 																	MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -3769,6 +3776,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Blocks: map[string]schema.Block{
 																"dns_config": schema.SingleNestedBlock{
 																	MarkdownDescription: "IPV6DnsConfig.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"configured_list": schema.SingleNestedBlock{
@@ -3787,6 +3795,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		},
 																		"local_dns": schema.SingleNestedBlock{
 																			MarkdownDescription: "IPV6LocalDnsAddress.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 																			Attributes: map[string]schema.Attribute{
 																				"configured_address": schema.StringAttribute{
 																					MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -3810,7 +3819,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																},
 																"stateful": schema.SingleNestedBlock{
 																	MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																	Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 																	Attributes: map[string]schema.Attribute{
 																		"fixed_ip_map": schema.MapAttribute{
 																			MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -3907,6 +3916,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"static_ip": schema.SingleNestedBlock{
 													MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"cluster_static_ip": schema.SingleNestedBlock{
@@ -3949,6 +3959,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"static_ipv6_address": schema.SingleNestedBlock{
 													MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"cluster_static_ip": schema.SingleNestedBlock{
@@ -4002,6 +4013,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"tunnel_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for tunnel interface.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 											Attributes: map[string]schema.Attribute{
 												"mtu": schema.Int64Attribute{
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
@@ -4037,6 +4049,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"static_ip": schema.SingleNestedBlock{
 													MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"cluster_static_ip": schema.SingleNestedBlock{
@@ -4126,6 +4139,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"sli_config": schema.SingleNestedBlock{
 						MarkdownDescription: "Site local inside network configuration.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_static_routes", "static_routes"), validators.ConflictingObjectAttributes("no_v6_static_routes", "static_v6_routes")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"no_static_routes": schema.SingleNestedBlock{
@@ -4141,7 +4155,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static Routes. List of static routes.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4239,7 +4253,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4334,6 +4348,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"slo_config": schema.SingleNestedBlock{
 						MarkdownDescription: "Site Local Network Configuration. Site local network configuration.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("dc_cluster_group", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("no_static_routes", "static_routes"), validators.ConflictingObjectAttributes("no_static_v6_routes", "static_v6_routes")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"dc_cluster_group": schema.SingleNestedBlock{
@@ -4386,7 +4401,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static Routes. List of static routes.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4484,7 +4499,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4587,6 +4602,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"custom_storage_config": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: custom_storage_config, default_storage_config; Default: default_storage_config] VssStorageConfiguration.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_storage_class", "storage_class_list"), validators.ConflictingObjectAttributes("no_static_routes", "static_routes"), validators.ConflictingObjectAttributes("no_storage_device", "storage_device_list"), validators.ConflictingObjectAttributes("no_storage_interfaces", "storage_interface_list")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -4609,7 +4625,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_routes": schema.ListNestedBlock{
 								MarkdownDescription: "Static Routes. List of static routes.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"attrs": schema.ListAttribute{
@@ -4706,7 +4722,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"storage_classes": schema.ListNestedBlock{
 								MarkdownDescription: "List of Storage Classes. List of custom storage classes.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_class_name", "storage_device")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_class_name", "storage_device"), validators.ConflictingListObjectAttributes("custom_storage", "hpe_storage"), validators.ConflictingListObjectAttributes("custom_storage", "netapp_trident"), validators.ConflictingListObjectAttributes("custom_storage", "pure_service_orchestrator"), validators.ConflictingListObjectAttributes("hpe_storage", "netapp_trident"), validators.ConflictingListObjectAttributes("hpe_storage", "pure_service_orchestrator"), validators.ConflictingListObjectAttributes("netapp_trident", "pure_service_orchestrator")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"advanced_storage_parameters": schema.MapAttribute{
@@ -4917,7 +4933,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"storage_devices": schema.ListNestedBlock{
 								MarkdownDescription: "List of Storage Devices. List of custom storage devices.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_device")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_device"), validators.ConflictingListObjectAttributes("custom_storage", "hpe_storage"), validators.ConflictingListObjectAttributes("custom_storage", "netapp_trident"), validators.ConflictingListObjectAttributes("custom_storage", "pure_service_orchestrator"), validators.ConflictingListObjectAttributes("hpe_storage", "netapp_trident"), validators.ConflictingListObjectAttributes("hpe_storage", "pure_service_orchestrator"), validators.ConflictingListObjectAttributes("netapp_trident", "pure_service_orchestrator")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"advanced_advanced_parameters": schema.MapAttribute{
@@ -4981,6 +4997,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											Blocks: map[string]schema.Block{
 												"iscsi_chap_password": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -5025,6 +5042,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"password": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -5071,11 +5089,12 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"netapp_trident": schema.SingleNestedBlock{
 											MarkdownDescription: "Device configuration for NetApp Trident Storage.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("netapp_backend_ontap_nas", "netapp_backend_ontap_san")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"netapp_backend_ontap_nas": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration of storage backend for NetApp ONTAP NAS.",
-													Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username")},
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username"), validators.ConflictingObjectAttributes("data_lif_dns_name", "data_lif_ip"), validators.ConflictingObjectAttributes("management_lif_dns_name", "management_lif_ip")},
 													Attributes: map[string]schema.Attribute{
 														"auto_export_policy": schema.BoolAttribute{
 															MarkdownDescription: "Policy configuration for this feature.",
@@ -5195,6 +5214,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"client_private_key": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
@@ -5239,6 +5259,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"password": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
@@ -5298,6 +5319,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																Blocks: map[string]schema.Block{
 																	"volume_defaults": schema.SingleNestedBlock{
 																		MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("adaptive_qos_policy", "no_qos"), validators.ConflictingObjectAttributes("adaptive_qos_policy", "qos_policy"), validators.ConflictingObjectAttributes("no_qos", "qos_policy")},
 																		Attributes: map[string]schema.Attribute{
 																			"adaptive_qos_policy": schema.StringAttribute{
 																				MarkdownDescription: "Policy configuration for this feature.",
@@ -5368,6 +5390,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"volume_defaults": schema.SingleNestedBlock{
 															MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("adaptive_qos_policy", "no_qos"), validators.ConflictingObjectAttributes("adaptive_qos_policy", "qos_policy"), validators.ConflictingObjectAttributes("no_qos", "qos_policy")},
 															Attributes: map[string]schema.Attribute{
 																"adaptive_qos_policy": schema.StringAttribute{
 																	MarkdownDescription: "Policy configuration for this feature.",
@@ -5437,7 +5460,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"netapp_backend_ontap_san": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration of storage backend for NetApp ONTAP SAN.",
-													Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username")},
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username"), validators.ConflictingObjectAttributes("data_lif_dns_name", "data_lif_ip"), validators.ConflictingObjectAttributes("management_lif_dns_name", "management_lif_ip"), validators.ConflictingObjectAttributes("no_chap", "use_chap")},
 													Attributes: map[string]schema.Attribute{
 														"client_certificate": schema.StringAttribute{
 															MarkdownDescription: "Please Enter Base64-encoded value of client certificate. Used for certificate-based auth.",
@@ -5542,6 +5565,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"client_private_key": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
@@ -5589,6 +5613,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"password": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
@@ -5648,6 +5673,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																Blocks: map[string]schema.Block{
 																	"volume_defaults": schema.SingleNestedBlock{
 																		MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("adaptive_qos_policy", "no_qos"), validators.ConflictingObjectAttributes("adaptive_qos_policy", "qos_policy"), validators.ConflictingObjectAttributes("no_qos", "qos_policy")},
 																		Attributes: map[string]schema.Attribute{
 																			"adaptive_qos_policy": schema.StringAttribute{
 																				MarkdownDescription: "Policy configuration for this feature.",
@@ -5737,6 +5763,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Blocks: map[string]schema.Block{
 																"chap_initiator_secret": schema.SingleNestedBlock{
 																	MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"blindfold_secret_info": schema.SingleNestedBlock{
@@ -5781,6 +5808,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																},
 																"chap_target_initiator_secret": schema.SingleNestedBlock{
 																	MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"blindfold_secret_info": schema.SingleNestedBlock{
@@ -5827,6 +5855,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"volume_defaults": schema.SingleNestedBlock{
 															MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("adaptive_qos_policy", "no_qos"), validators.ConflictingObjectAttributes("adaptive_qos_policy", "qos_policy"), validators.ConflictingObjectAttributes("no_qos", "qos_policy")},
 															Attributes: map[string]schema.Attribute{
 																"adaptive_qos_policy": schema.StringAttribute{
 																	MarkdownDescription: "Policy configuration for this feature.",
@@ -5969,6 +5998,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Blocks: map[string]schema.Block{
 																"flash_arrays": schema.ListNestedBlock{
 																	MarkdownDescription: "For FlashArrays you must set the 'mgmt_endpoint' and 'api_token'.",
+																	Validators:          []validator.List{validators.ConflictingListObjectAttributes("mgmt_dns_name", "mgmt_ip")},
 																	NestedObject: schema.NestedBlockObject{
 																		Attributes: map[string]schema.Attribute{
 																			"labels": schema.MapAttribute{
@@ -5995,6 +6025,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Blocks: map[string]schema.Block{
 																			"api_token": schema.SingleNestedBlock{
 																				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"blindfold_secret_info": schema.SingleNestedBlock{
@@ -6061,6 +6092,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Blocks: map[string]schema.Block{
 																"flash_blades": schema.ListNestedBlock{
 																	MarkdownDescription: "For FlashBlades you must set the 'mgmt_endpoint', 'api_token' and nfs_endpoint.",
+																	Validators:          []validator.List{validators.ConflictingListObjectAttributes("mgmt_dns_name", "mgmt_ip"), validators.ConflictingListObjectAttributes("nfs_endpoint_dns_name", "nfs_endpoint_ip")},
 																	NestedObject: schema.NestedBlockObject{
 																		Attributes: map[string]schema.Attribute{
 																			"labels": schema.MapAttribute{
@@ -6102,6 +6134,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Blocks: map[string]schema.Block{
 																			"api_token": schema.SingleNestedBlock{
 																				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"blindfold_secret_info": schema.SingleNestedBlock{
@@ -6181,7 +6214,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"storage_interface": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for storage interface.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("device"), validators.ConflictingObjectAttributes("cluster", "node"), validators.ConflictingObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingObjectAttributes("is_primary", "not_primary"), validators.ConflictingObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network"), validators.ConflictingObjectAttributes("site_local_inside_network", "storage_network"), validators.ConflictingObjectAttributes("site_local_network", "storage_network"), validators.ConflictingObjectAttributes("untagged", "vlan_id")},
 											Attributes: map[string]schema.Attribute{
 												"device": schema.StringAttribute{
 													MarkdownDescription: "Interface configuration for the ethernet device.",
@@ -6231,7 +6264,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"dhcp_server": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for dhcp server.",
-													Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 													Attributes: map[string]schema.Attribute{
 														"dhcp_option82_tag": schema.StringAttribute{
 															MarkdownDescription: "DHCP option 82 tag.",
@@ -6252,6 +6285,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"dhcp_networks": schema.ListNestedBlock{
 															MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+															Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"dgw_address": schema.StringAttribute{
@@ -6336,6 +6370,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"ipv6_auto_config": schema.SingleNestedBlock{
 													MarkdownDescription: "IPV6AutoConfigType.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"host": schema.SingleNestedBlock{
@@ -6343,6 +6378,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"router": schema.SingleNestedBlock{
 															MarkdownDescription: "IPV6AutoConfigRouterType.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 															Attributes: map[string]schema.Attribute{
 																"network_prefix": schema.StringAttribute{
 																	MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -6355,6 +6391,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Blocks: map[string]schema.Block{
 																"dns_config": schema.SingleNestedBlock{
 																	MarkdownDescription: "IPV6DnsConfig.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"configured_list": schema.SingleNestedBlock{
@@ -6373,6 +6410,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		},
 																		"local_dns": schema.SingleNestedBlock{
 																			MarkdownDescription: "IPV6LocalDnsAddress.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 																			Attributes: map[string]schema.Attribute{
 																				"configured_address": schema.StringAttribute{
 																					MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -6396,7 +6434,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																},
 																"stateful": schema.SingleNestedBlock{
 																	MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																	Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 																	Attributes: map[string]schema.Attribute{
 																		"fixed_ip_map": schema.MapAttribute{
 																			MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -6493,6 +6531,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"static_ip": schema.SingleNestedBlock{
 													MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"cluster_static_ip": schema.SingleNestedBlock{
@@ -6535,6 +6574,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"static_ipv6_address": schema.SingleNestedBlock{
 													MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"cluster_static_ip": schema.SingleNestedBlock{
@@ -6676,6 +6716,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_upgrade_drain", "enable_upgrade_drain")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -6684,7 +6725,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout"), validators.ConflictingObjectAttributes("disable_vega_upgrade_mode", "enable_vega_upgrade_mode"), validators.ConflictingObjectAttributes("drain_max_unavailable_node_count", "drain_max_unavailable_node_percentage")},
 						Attributes: map[string]schema.Attribute{
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
@@ -6718,6 +6759,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"local_control_plane": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: local_control_plane, no_local_control_plane; Default: no_local_control_plane] Enable local control plane for L3VPN, SRV6, EVPN etc.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside_vn", "outside_vn")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -6736,6 +6778,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"peers": schema.ListNestedBlock{
 								MarkdownDescription: "Peers. BGP parameters for peer.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("bfd_disabled", "bfd_enabled"), validators.ConflictingListObjectAttributes("disable_spec", "routing_policies"), validators.ConflictingListObjectAttributes("passive_mode_disabled", "passive_mode_enabled")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"label": schema.StringAttribute{
@@ -6779,7 +6822,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"external": schema.SingleNestedBlock{
 											MarkdownDescription: "External BGP Peer. External BGP Peer parameters.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("asn", "port")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("asn", "port"), validators.ConflictingObjectAttributes("address", "default_gateway"), validators.ConflictingObjectAttributes("address", "disable_spec"), validators.ConflictingObjectAttributes("address", "external_connector"), validators.ConflictingObjectAttributes("address", "from_site"), validators.ConflictingObjectAttributes("address", "subnet_begin_offset"), validators.ConflictingObjectAttributes("address", "subnet_end_offset"), validators.ConflictingObjectAttributes("address_ipv6", "default_gateway_v6"), validators.ConflictingObjectAttributes("address_ipv6", "disable_v6"), validators.ConflictingObjectAttributes("address_ipv6", "from_site_v6"), validators.ConflictingObjectAttributes("address_ipv6", "subnet_begin_offset_v6"), validators.ConflictingObjectAttributes("address_ipv6", "subnet_end_offset_v6"), validators.ConflictingObjectAttributes("default_gateway", "disable_spec"), validators.ConflictingObjectAttributes("default_gateway", "external_connector"), validators.ConflictingObjectAttributes("default_gateway", "from_site"), validators.ConflictingObjectAttributes("default_gateway", "subnet_begin_offset"), validators.ConflictingObjectAttributes("default_gateway", "subnet_end_offset"), validators.ConflictingObjectAttributes("default_gateway_v6", "disable_v6"), validators.ConflictingObjectAttributes("default_gateway_v6", "from_site_v6"), validators.ConflictingObjectAttributes("default_gateway_v6", "subnet_begin_offset_v6"), validators.ConflictingObjectAttributes("default_gateway_v6", "subnet_end_offset_v6"), validators.ConflictingObjectAttributes("disable_spec", "external_connector"), validators.ConflictingObjectAttributes("disable_spec", "from_site"), validators.ConflictingObjectAttributes("disable_spec", "subnet_begin_offset"), validators.ConflictingObjectAttributes("disable_spec", "subnet_end_offset"), validators.ConflictingObjectAttributes("disable_v6", "from_site_v6"), validators.ConflictingObjectAttributes("disable_v6", "subnet_begin_offset_v6"), validators.ConflictingObjectAttributes("disable_v6", "subnet_end_offset_v6"), validators.ConflictingObjectAttributes("external_connector", "from_site"), validators.ConflictingObjectAttributes("external_connector", "subnet_begin_offset"), validators.ConflictingObjectAttributes("external_connector", "subnet_end_offset"), validators.ConflictingObjectAttributes("from_site", "subnet_begin_offset"), validators.ConflictingObjectAttributes("from_site", "subnet_end_offset"), validators.ConflictingObjectAttributes("from_site_v6", "subnet_begin_offset_v6"), validators.ConflictingObjectAttributes("from_site_v6", "subnet_end_offset_v6"), validators.ConflictingObjectAttributes("interface", "interface_list"), validators.ConflictingObjectAttributes("md5_auth_key", "no_authentication"), validators.ConflictingObjectAttributes("subnet_begin_offset", "subnet_end_offset"), validators.ConflictingObjectAttributes("subnet_begin_offset_v6", "subnet_end_offset_v6")},
 											Attributes: map[string]schema.Attribute{
 												"address": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [default_gateway disable external_connector from_site subnet_begin_offset subnet_end_offset] Specify IPv4 peer address.",
@@ -6862,6 +6905,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"family_inet": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for family inet.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"disable_spec": schema.SingleNestedBlock{
@@ -7013,7 +7057,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											Blocks: map[string]schema.Block{
 												"route_policy": schema.ListNestedBlock{
 													MarkdownDescription: "Policy configuration for this feature.",
-													Validators:          []validator.List{validators.RequiredListObjectAttributes("object_refs")},
+													Validators:          []validator.List{validators.RequiredListObjectAttributes("object_refs"), validators.ConflictingListObjectAttributes("all_nodes", "node_name"), validators.ConflictingListObjectAttributes("inbound", "outbound")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -7135,6 +7179,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"offline_survivability_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing configuration for upto 7..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("enable_offline_survivability_mode", "no_offline_survivability_mode")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -7148,6 +7193,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"os": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_os_version", "operating_system_version")},
 
 				Attributes: map[string]schema.Attribute{
 					"operating_system_version": schema.StringAttribute{
@@ -7193,6 +7239,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"sw": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_sw_version", "volterra_software_version")},
 
 				Attributes: map[string]schema.Attribute{
 					"volterra_software_version": schema.StringAttribute{

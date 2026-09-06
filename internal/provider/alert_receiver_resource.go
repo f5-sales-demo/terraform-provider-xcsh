@@ -585,6 +585,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"api_key": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -645,6 +646,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"routing_key": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -705,6 +707,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"url": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -766,6 +769,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"http_config": schema.SingleNestedBlock{
 						MarkdownDescription: "HTTP Configuration. Configuration for HTTP endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("auth_token", "basic_auth"), validators.ConflictingObjectAttributes("auth_token", "client_cert_obj"), validators.ConflictingObjectAttributes("auth_token", "no_authorization"), validators.ConflictingObjectAttributes("basic_auth", "client_cert_obj"), validators.ConflictingObjectAttributes("basic_auth", "no_authorization"), validators.ConflictingObjectAttributes("client_cert_obj", "no_authorization"), validators.ConflictingObjectAttributes("no_tls", "use_tls")},
 						Attributes: map[string]schema.Attribute{
 							"enable_http2": schema.BoolAttribute{
 								MarkdownDescription: "Enable HTTP2. Configure to use HTTP2 protocol.",
@@ -783,6 +787,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 								Blocks: map[string]schema.Block{
 									"token": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -842,6 +847,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 								Blocks: map[string]schema.Block{
 									"password": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -935,6 +941,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"use_tls": schema.SingleNestedBlock{
 								MarkdownDescription: "Configures the token request's TLS settings.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_sni", "sni"), validators.ConflictingObjectAttributes("use_server_verification", "volterra_trusted_ca")},
 								Attributes: map[string]schema.Attribute{
 									"max_version": schema.StringAttribute{
 										MarkdownDescription: "[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`. Defaults to `TLS_AUTO`.",
@@ -1018,6 +1025,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"url": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{

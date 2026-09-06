@@ -371,6 +371,7 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"response_cache": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for response cache.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_response_cache_parameters", "disable_spec"), validators.ConflictingObjectAttributes("default_response_cache_parameters", "response_cache_parameters"), validators.ConflictingObjectAttributes("disable_spec", "response_cache_parameters")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -417,7 +418,7 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Blocks: map[string]schema.Block{
 					"rules": schema.ListNestedBlock{
 						MarkdownDescription: "Load Balancing Rules. Rules to perform load balancing.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("score")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("score"), validators.ConflictingListObjectAttributes("asn_list", "asn_matcher"), validators.ConflictingListObjectAttributes("asn_list", "geo_location_label_selector"), validators.ConflictingListObjectAttributes("asn_list", "geo_location_set"), validators.ConflictingListObjectAttributes("asn_list", "ip_prefix_list"), validators.ConflictingListObjectAttributes("asn_list", "ip_prefix_set"), validators.ConflictingListObjectAttributes("asn_matcher", "geo_location_label_selector"), validators.ConflictingListObjectAttributes("asn_matcher", "geo_location_set"), validators.ConflictingListObjectAttributes("asn_matcher", "ip_prefix_list"), validators.ConflictingListObjectAttributes("asn_matcher", "ip_prefix_set"), validators.ConflictingListObjectAttributes("geo_location_label_selector", "geo_location_set"), validators.ConflictingListObjectAttributes("geo_location_label_selector", "ip_prefix_list"), validators.ConflictingListObjectAttributes("geo_location_label_selector", "ip_prefix_set"), validators.ConflictingListObjectAttributes("geo_location_set", "ip_prefix_list"), validators.ConflictingListObjectAttributes("geo_location_set", "ip_prefix_set"), validators.ConflictingListObjectAttributes("ip_prefix_list", "ip_prefix_set")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"score": schema.Int64Attribute{

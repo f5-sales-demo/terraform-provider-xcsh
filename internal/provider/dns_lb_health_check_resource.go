@@ -222,7 +222,7 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 			}),
 			"http_health_check": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: http_health_check, https_health_check, icmp_health_check, tcp_health_check, tcp_hex_health_check, udp_health_check] Configuration parameter for http health check.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("health_check_port")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("health_check_port"), validators.ConflictingObjectAttributes("disable_virtual_host", "virtual_host")},
 
 				Attributes: map[string]schema.Attribute{
 					"health_check_port": schema.Int64Attribute{
@@ -269,7 +269,7 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"https_health_check": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for https health check.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("health_check_port")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("health_check_port"), validators.ConflictingObjectAttributes("disable_virtual_host", "virtual_host")},
 
 				Attributes: map[string]schema.Attribute{
 					"health_check_port": schema.Int64Attribute{

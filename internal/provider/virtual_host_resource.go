@@ -1354,7 +1354,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"authentication": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: authentication, no_authentication; Default: no_authentication] Authentication related information. This allows to configure the URL to redirect after the authentication Authentication Object Reference, configuration of cookie params etc.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("auth_config")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("auth_config"), validators.ConflictingObjectAttributes("cookie_params", "use_auth_object_config"), validators.ConflictingObjectAttributes("redirect_dynamic", "redirect_url")},
 
 				Attributes: map[string]schema.Attribute{
 					"redirect_url": schema.StringAttribute{
@@ -1403,6 +1403,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 					"cookie_params": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies different cookie related config parameters for authentication.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("auth_hmac", "kms_key_hmac")},
 						Attributes: map[string]schema.Attribute{
 							"cookie_expiry": schema.Int64Attribute{
 								MarkdownDescription: "Specifies in seconds max duration of the allocated cookie. This maps to “Max-Age” attribute in the session cookie. This will act as an expiry duration on the client side after which client will not be setting the cookie as part of the request.",
@@ -1443,6 +1444,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 								Blocks: map[string]schema.Block{
 									"prim_key": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1487,6 +1489,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 									},
 									"sec_key": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1584,6 +1587,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"coalescing_options": schema.SingleNestedBlock{
 				MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1676,6 +1680,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"csrf_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_load_balancer_domains", "custom_domain_list"), validators.ConflictingObjectAttributes("all_load_balancer_domains", "disabled"), validators.ConflictingObjectAttributes("custom_domain_list", "disabled")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1776,6 +1781,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"http_protocol_options": schema.SingleNestedBlock{
 				MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1785,6 +1791,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						Blocks: map[string]schema.Block{
 							"header_transformation": schema.SingleNestedBlock{
 								MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"default_header_transformation": schema.SingleNestedBlock{
@@ -1889,7 +1896,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"request_cookies_to_add": schema.ListNestedBlock{
 				MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -1915,6 +1922,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					Blocks: map[string]schema.Block{
 						"secret_value": schema.SingleNestedBlock{
 							MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1962,7 +1970,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"request_headers_to_add": schema.ListNestedBlock{
 				MarkdownDescription: "Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -1988,6 +1996,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					Blocks: map[string]schema.Block{
 						"secret_value": schema.SingleNestedBlock{
 							MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2035,7 +2044,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"response_cookies_to_add": schema.ListNestedBlock{
 				MarkdownDescription: "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("add_domain", "ignore_domain"), validators.ConflictingListObjectAttributes("add_expiry", "ignore_expiry"), validators.ConflictingListObjectAttributes("add_httponly", "ignore_httponly"), validators.ConflictingListObjectAttributes("add_partitioned", "ignore_partitioned"), validators.ConflictingListObjectAttributes("add_path", "ignore_path"), validators.ConflictingListObjectAttributes("add_secure", "ignore_secure"), validators.ConflictingListObjectAttributes("ignore_max_age", "max_age_value"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_lax"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_none"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_strict"), validators.ConflictingListObjectAttributes("ignore_value", "secret_value"), validators.ConflictingListObjectAttributes("ignore_value", "value"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_none"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_strict"), validators.ConflictingListObjectAttributes("samesite_none", "samesite_strict"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -2134,6 +2143,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						},
 						"secret_value": schema.SingleNestedBlock{
 							MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2181,7 +2191,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"response_headers_to_add": schema.ListNestedBlock{
 				MarkdownDescription: "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied after headers from matched Route are applied.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -2207,6 +2217,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					Blocks: map[string]schema.Block{
 						"secret_value": schema.SingleNestedBlock{
 							MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2381,7 +2392,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"slow_ddos_mitigation": schema.SingleNestedBlock{
 				MarkdownDescription: "'Slow and low' attacks tie up server resources, leaving none available for servicing requests from actual users.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("request_headers_timeout")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("request_headers_timeout"), validators.ConflictingObjectAttributes("disable_request_timeout", "request_timeout")},
 
 				Attributes: map[string]schema.Attribute{
 					"request_headers_timeout": schema.Int64Attribute{
@@ -2407,7 +2418,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"tls_cert_params": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: tls_cert_params, tls_parameters] Certificate Parameters for authentication, TLS ciphers, and trust store.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates"), validators.ConflictingObjectAttributes("client_certificate_optional", "client_certificate_required"), validators.ConflictingObjectAttributes("client_certificate_optional", "no_client_certificate"), validators.ConflictingObjectAttributes("client_certificate_required", "no_client_certificate")},
 
 				Attributes: map[string]schema.Attribute{
 					"cipher_suites": schema.ListAttribute{
@@ -2482,6 +2493,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 					"validation_params": schema.SingleNestedBlock{
 						MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url")},
 						Attributes: map[string]schema.Attribute{
 							"skip_hostname_verification": schema.BoolAttribute{
 								MarkdownDescription: "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
@@ -2548,6 +2560,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"tls_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "TLS configuration for downstream connections.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("client_certificate_optional", "client_certificate_required"), validators.ConflictingObjectAttributes("client_certificate_optional", "no_client_certificate"), validators.ConflictingObjectAttributes("client_certificate_required", "no_client_certificate")},
 
 				Attributes: map[string]schema.Attribute{
 					"xfcc_header_elements": schema.ListAttribute{
@@ -2589,7 +2602,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						Blocks: map[string]schema.Block{
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "TLS Certificates. Set of TLS certificates.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -2624,6 +2637,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 										},
 										"private_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2674,6 +2688,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							},
 							"validation_params": schema.SingleNestedBlock{
 								MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url")},
 								Attributes: map[string]schema.Attribute{
 									"skip_hostname_verification": schema.BoolAttribute{
 										MarkdownDescription: "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
@@ -2781,6 +2796,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"waf_type": schema.SingleNestedBlock{
 				MarkdownDescription: "WAF instance will be pointing to an app_firewall object.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("app_firewall", "disable_waf"), validators.ConflictingObjectAttributes("app_firewall", "inherit_waf"), validators.ConflictingObjectAttributes("disable_waf", "inherit_waf")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{

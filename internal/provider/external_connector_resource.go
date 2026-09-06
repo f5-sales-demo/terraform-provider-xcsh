@@ -449,7 +449,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 				Blocks: map[string]schema.Block{
 					"gre_parameters": schema.SingleNestedBlock{
 						MarkdownDescription: "GRE configuration parameters required for GRE Connection type.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("tunnel_eps", "tunnel_mtu")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("tunnel_eps", "tunnel_mtu"), validators.ConflictingObjectAttributes("segment", "site_local_inside_network"), validators.ConflictingObjectAttributes("segment", "site_local_network"), validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 						Attributes: map[string]schema.Attribute{
 							"tunnel_mtu": schema.Int64Attribute{
 								MarkdownDescription: "Configure MTU for the GRE tunnel interface.",
@@ -556,6 +556,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 				Blocks: map[string]schema.Block{
 					"ike_parameters": schema.SingleNestedBlock{
 						MarkdownDescription: "IKE configuration parameters required for IPsec Connection type.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("dpd_disabled", "dpd_keep_alive_timer"), validators.ConflictingObjectAttributes("initiator", "responder"), validators.ConflictingObjectAttributes("rm_hostname", "rm_ip_address"), validators.ConflictingObjectAttributes("rm_hostname", "use_default_remote_ike_id"), validators.ConflictingObjectAttributes("rm_ip_address", "use_default_remote_ike_id")},
 						Attributes: map[string]schema.Attribute{
 							"rm_hostname": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [rm_ip_address use_default_remote_ike_id] Configure an hostname Remote IKE ID.",
@@ -649,6 +650,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 							},
 							"rm_ip_address": schema.SingleNestedBlock{
 								MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"ipv4": schema.SingleNestedBlock{
@@ -689,7 +691,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"ipsec_tunnel_parameters": schema.SingleNestedBlock{
 						MarkdownDescription: "In this section, we will configure the tunnel parameters, source, destination, IP addresses, and segment.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("psk", "tunnel_eps", "tunnel_mtu")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("psk", "tunnel_eps", "tunnel_mtu"), validators.ConflictingObjectAttributes("segment", "site_local_inside_network"), validators.ConflictingObjectAttributes("segment", "site_local_network"), validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 						Attributes: map[string]schema.Attribute{
 							"psk": schema.StringAttribute{
 								MarkdownDescription: "The IKE pre-shared key (PSK) is required to ensure the IKE peers can authenticate one another within IKE phase 1 negotiation.",

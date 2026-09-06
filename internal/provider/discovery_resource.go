@@ -646,6 +646,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 										Blocks: map[string]schema.Block{
 											"key_url": schema.SingleNestedBlock{
 												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
@@ -706,6 +707,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 								Blocks: map[string]schema.Block{
 									"passwd_url": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -754,6 +756,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"publish_info": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for publish info.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "publish")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -768,11 +771,13 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"discovery_k8s": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for discovery k8s.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_all", "namespace_mapping")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"access_info": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for access info.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("connection_info", "kubeconfig_url"), validators.ConflictingObjectAttributes("isolated", "reachable")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"connection_info": schema.SingleNestedBlock{
@@ -816,6 +821,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 										Blocks: map[string]schema.Block{
 											"key_url": schema.SingleNestedBlock{
 												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
@@ -867,6 +873,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 							},
 							"kubeconfig_url": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -952,6 +959,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"publish_info": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for publish info.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "dns_delegation"), validators.ConflictingObjectAttributes("disable_spec", "publish"), validators.ConflictingObjectAttributes("disable_spec", "publish_fqdns"), validators.ConflictingObjectAttributes("dns_delegation", "publish"), validators.ConflictingObjectAttributes("dns_delegation", "publish_fqdns"), validators.ConflictingObjectAttributes("publish", "publish_fqdns")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -1006,12 +1014,13 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"where": schema.SingleNestedBlock{
 				MarkdownDescription: "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_network"), validators.ConflictingObjectAttributes("site", "virtual_site"), validators.ConflictingObjectAttributes("virtual_network", "virtual_site")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"site": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies a direct reference to a site configuration object.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
@@ -1109,7 +1118,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"virtual_site": schema.SingleNestedBlock{
 						MarkdownDescription: "Virtual Site. A reference to virtual_site object.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",

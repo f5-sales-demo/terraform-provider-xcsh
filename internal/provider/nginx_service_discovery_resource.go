@@ -206,6 +206,7 @@ func (r *NginxServiceDiscoveryResource) Schema(ctx context.Context, req resource
 			}),
 			"discovery_target": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for discovery target.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("config_sync_group", "nginx_instance")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{

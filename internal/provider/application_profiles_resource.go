@@ -1447,6 +1447,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 			}),
 			"advanced_tcp_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for advanced tcp profile.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_tcp_advanced_profile", "enable_tcp_advanced_profile")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1460,6 +1461,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 			},
 			"ddos_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for ddos profile.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_ddos_mitigation", "enable_ddos_mitigation")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1509,6 +1511,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 			},
 			"virtual_server": schema.SingleNestedBlock{
 				MarkdownDescription: "Specifies configuration related to virtual server.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("http", "http3"), validators.ConflictingObjectAttributes("http", "https"), validators.ConflictingObjectAttributes("http", "tcp"), validators.ConflictingObjectAttributes("http", "udp"), validators.ConflictingObjectAttributes("http3", "https"), validators.ConflictingObjectAttributes("http3", "tcp"), validators.ConflictingObjectAttributes("http3", "udp"), validators.ConflictingObjectAttributes("https", "tcp"), validators.ConflictingObjectAttributes("https", "udp"), validators.ConflictingObjectAttributes("tcp", "udp")},
 
 				Attributes: map[string]schema.Attribute{
 					"connection_limit": schema.Int64Attribute{
@@ -1536,6 +1539,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 				Blocks: map[string]schema.Block{
 					"address_translation": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies, when checked (enabled), that the system translates the address of the virtual server. When cleared (disabled), specifies that the system uses the address without translation. This option is useful when the system is load balancing devices that have the same IP address.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("address_translation_disable", "address_translation_enable")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"address_translation_disable": schema.SingleNestedBlock{
@@ -1548,6 +1552,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					},
 					"auto_last_hop": schema.SingleNestedBlock{
 						MarkdownDescription: "When enabled, allows the system to send return traffic to the MAC address that transmitted the request, even if the routing table points to a different network or interface. As a result, the system can send return traffic to clients even when there is no matching route. For example, if the..",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_last_hop_default", "auto_last_hop_disable"), validators.ConflictingObjectAttributes("auto_last_hop_default", "auto_last_hop_enable"), validators.ConflictingObjectAttributes("auto_last_hop_disable", "auto_last_hop_enable")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"auto_last_hop_default": schema.SingleNestedBlock{
@@ -1633,6 +1638,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					},
 					"connection_rate_limit_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for connection rate limit mode.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("per_destination_address", "per_source_address"), validators.ConflictingObjectAttributes("per_destination_address", "per_source_destination_address"), validators.ConflictingObjectAttributes("per_destination_address", "per_virtual_server"), validators.ConflictingObjectAttributes("per_destination_address", "per_virtual_server_destination_address"), validators.ConflictingObjectAttributes("per_destination_address", "per_virtual_server_source_address"), validators.ConflictingObjectAttributes("per_destination_address", "per_virtual_server_source_destination_address"), validators.ConflictingObjectAttributes("per_source_address", "per_source_destination_address"), validators.ConflictingObjectAttributes("per_source_address", "per_virtual_server"), validators.ConflictingObjectAttributes("per_source_address", "per_virtual_server_destination_address"), validators.ConflictingObjectAttributes("per_source_address", "per_virtual_server_source_address"), validators.ConflictingObjectAttributes("per_source_address", "per_virtual_server_source_destination_address"), validators.ConflictingObjectAttributes("per_source_destination_address", "per_virtual_server"), validators.ConflictingObjectAttributes("per_source_destination_address", "per_virtual_server_destination_address"), validators.ConflictingObjectAttributes("per_source_destination_address", "per_virtual_server_source_address"), validators.ConflictingObjectAttributes("per_source_destination_address", "per_virtual_server_source_destination_address"), validators.ConflictingObjectAttributes("per_virtual_server", "per_virtual_server_destination_address"), validators.ConflictingObjectAttributes("per_virtual_server", "per_virtual_server_source_address"), validators.ConflictingObjectAttributes("per_virtual_server", "per_virtual_server_source_destination_address"), validators.ConflictingObjectAttributes("per_virtual_server_destination_address", "per_virtual_server_source_address"), validators.ConflictingObjectAttributes("per_virtual_server_destination_address", "per_virtual_server_source_destination_address"), validators.ConflictingObjectAttributes("per_virtual_server_source_address", "per_virtual_server_source_destination_address")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"per_destination_address": schema.SingleNestedBlock{
@@ -3041,6 +3047,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					},
 					"immediate_action_on_service_down": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies the immediate action the BIG-IP system should respond with upon the receipt of the initial client's SYN packet, if the availability status of the virtual server is Offline or Unavailable. This is supported for the virtual server of Standard type and TCP protocol. The default is None.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("immediate_action_on_service_down_drop", "immediate_action_on_service_down_none"), validators.ConflictingObjectAttributes("immediate_action_on_service_down_drop", "immediate_action_on_service_down_reset"), validators.ConflictingObjectAttributes("immediate_action_on_service_down_none", "immediate_action_on_service_down_reset")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"immediate_action_on_service_down_drop": schema.SingleNestedBlock{
@@ -3091,6 +3098,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					},
 					"nat64": schema.SingleNestedBlock{
 						MarkdownDescription: "When enabled, allows the system to send return traffic to the MAC address that transmitted the request, even if the routing table points to a different network or interface. As a result, the system can send return traffic to clients even when there is no matching route. For example, if the..",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("nat64_disable", "nat64_enable")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"nat64_disable": schema.SingleNestedBlock{
@@ -3103,6 +3111,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					},
 					"port_translation": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies, when checked (enabled), that the system translates the port of the virtual server. When cleared (disabled), specifies that the system uses the port without translation. Turning off port translation for a virtual server is useful if you want to use the virtual server to load balance..",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("port_translation_disable", "port_translation_enable")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"port_translation_disable": schema.SingleNestedBlock{
@@ -3150,6 +3159,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					},
 					"source_port": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies whether the system preserves the source port of the connection. The default is Preserve.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("source_port_change", "source_port_preserve"), validators.ConflictingObjectAttributes("source_port_change", "source_port_preserve_strict"), validators.ConflictingObjectAttributes("source_port_preserve", "source_port_preserve_strict")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"source_port_change": schema.SingleNestedBlock{
@@ -3527,6 +3537,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					},
 					"virtual_server_state": schema.SingleNestedBlock{
 						MarkdownDescription: "Displays the current state on the object.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("state_disabled", "state_enabled")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"state_disabled": schema.SingleNestedBlock{

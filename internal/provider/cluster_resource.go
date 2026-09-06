@@ -733,6 +733,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 				Blocks: map[string]schema.Block{
 					"header_transformation": schema.SingleNestedBlock{
 						MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"default_header_transformation": schema.SingleNestedBlock{
@@ -813,6 +814,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"tls_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "TLS configuration for upstream connections.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("cert_params", "common_params"), validators.ConflictingObjectAttributes("default_session_key_caching", "disable_session_key_caching"), validators.ConflictingObjectAttributes("default_session_key_caching", "max_session_keys"), validators.ConflictingObjectAttributes("disable_session_key_caching", "max_session_keys"), validators.ConflictingObjectAttributes("disable_sni", "sni"), validators.ConflictingObjectAttributes("disable_sni", "use_host_header_as_sni"), validators.ConflictingObjectAttributes("sni", "use_host_header_as_sni")},
 
 				Attributes: map[string]schema.Attribute{
 					"max_session_keys": schema.Int64Attribute{
@@ -893,6 +895,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 							},
 							"validation_params": schema.SingleNestedBlock{
 								MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url")},
 								Attributes: map[string]schema.Attribute{
 									"skip_hostname_verification": schema.BoolAttribute{
 										MarkdownDescription: "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
@@ -983,7 +986,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 						Blocks: map[string]schema.Block{
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "TLS Certificates. Set of TLS certificates.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -1018,6 +1021,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 										},
 										"private_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1068,6 +1072,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 							},
 							"validation_params": schema.SingleNestedBlock{
 								MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url")},
 								Attributes: map[string]schema.Attribute{
 									"skip_hostname_verification": schema.BoolAttribute{
 										MarkdownDescription: "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
@@ -1148,6 +1153,7 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"upstream_conn_pool_reuse_type": schema.SingleNestedBlock{
 				MarkdownDescription: "Select upstream connection pool reuse state for every downstream connection. This configuration choice is for HTTP(S) LB only.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_conn_pool_reuse", "enable_conn_pool_reuse")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{

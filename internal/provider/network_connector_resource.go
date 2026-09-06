@@ -339,6 +339,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"enable_forward_proxy": schema.SingleNestedBlock{
 				MarkdownDescription: "Fine tune forward proxy behavior Few configurations allowed are White listed ports and IP prefixes: Forward proxy does application protocol detection and server name(SNI) detection by peeking into the traffic on the incoming downstream connection. Few protocols doesn't have client sending the..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_interception", "tls_intercept")},
 
 				Attributes: map[string]schema.Attribute{
 					"connection_timeout": schema.Int64Attribute{
@@ -378,6 +379,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 					},
 					"tls_intercept": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration to enable TLS interception.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_certificate", "volterra_certificate"), validators.ConflictingObjectAttributes("enable_for_all_domains", "policy"), validators.ConflictingObjectAttributes("trusted_ca_url", "volterra_trusted_ca")},
 						Attributes: map[string]schema.Attribute{
 							"trusted_ca_url": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [volterra_trusted_ca] Custom Root CA Certificate for validating upstream server certificate.",
@@ -390,7 +392,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 						Blocks: map[string]schema.Block{
 							"custom_certificate": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for custom certificate.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("certificate_url")},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("certificate_url"), validators.ConflictingObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 								Attributes: map[string]schema.Attribute{
 									"certificate_url": schema.StringAttribute{
 										MarkdownDescription: "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
@@ -424,6 +426,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 									},
 									"private_key": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -481,6 +484,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 								Blocks: map[string]schema.Block{
 									"interception_rules": schema.ListNestedBlock{
 										MarkdownDescription: "List of ordered rules to enable or disable for TLS interception.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("disable_interception", "enable_interception")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
@@ -489,6 +493,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 												},
 												"domain_match": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for domain match.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
 													Attributes: map[string]schema.Attribute{
 														"exact_value": schema.StringAttribute{
 															MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",

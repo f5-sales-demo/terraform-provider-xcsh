@@ -1533,6 +1533,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"batch": schema.SingleNestedBlock{
 						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("max_bytes", "max_bytes_disabled"), validators.ConflictingObjectAttributes("max_events", "max_events_disabled"), validators.ConflictingObjectAttributes("timeout_seconds", "timeout_seconds_default")},
 						Attributes: map[string]schema.Attribute{
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
@@ -1567,6 +1568,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"compression": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for compression.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("compression_default", "compression_gzip"), validators.ConflictingObjectAttributes("compression_default", "compression_none"), validators.ConflictingObjectAttributes("compression_gzip", "compression_none")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"compression_default": schema.SingleNestedBlock{
@@ -1609,6 +1611,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				Blocks: map[string]schema.Block{
 					"connection_string": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1669,6 +1672,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				Blocks: map[string]schema.Block{
 					"batch": schema.SingleNestedBlock{
 						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("max_bytes", "max_bytes_disabled"), validators.ConflictingObjectAttributes("max_events", "max_events_disabled"), validators.ConflictingObjectAttributes("timeout_seconds", "timeout_seconds_default")},
 						Attributes: map[string]schema.Attribute{
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
@@ -1703,6 +1707,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"compression": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for compression.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("compression_default", "compression_gzip"), validators.ConflictingObjectAttributes("compression_default", "compression_none"), validators.ConflictingObjectAttributes("compression_gzip", "compression_none")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"compression_default": schema.SingleNestedBlock{
@@ -1718,6 +1723,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"connection_string": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1762,6 +1768,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"filename_options": schema.SingleNestedBlock{
 						MarkdownDescription: "Filename OPTIONS allow customization of filename and folder paths used by a destination endpoint bucket or file.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_folder", "log_type_folder"), validators.ConflictingObjectAttributes("custom_folder", "no_folder"), validators.ConflictingObjectAttributes("log_type_folder", "no_folder")},
 						Attributes: map[string]schema.Attribute{
 							"custom_folder": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [log_type_folder no_folder] Use your own folder name as the name of the folder in the endpoint bucket or file The folder name must match.",
@@ -1784,6 +1791,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"datadog_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Datadog Configuration. Configuration for Datadog endpoint.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("endpoint", "site"), validators.ConflictingObjectAttributes("no_tls", "use_tls")},
 
 				Attributes: map[string]schema.Attribute{
 					"endpoint": schema.StringAttribute{
@@ -1802,6 +1810,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				Blocks: map[string]schema.Block{
 					"batch": schema.SingleNestedBlock{
 						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("max_bytes", "max_bytes_disabled"), validators.ConflictingObjectAttributes("max_events", "max_events_disabled"), validators.ConflictingObjectAttributes("timeout_seconds", "timeout_seconds_default")},
 						Attributes: map[string]schema.Attribute{
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
@@ -1836,6 +1845,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"compression": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for compression.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("compression_default", "compression_gzip"), validators.ConflictingObjectAttributes("compression_default", "compression_none"), validators.ConflictingObjectAttributes("compression_gzip", "compression_none")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"compression_default": schema.SingleNestedBlock{
@@ -1851,6 +1861,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"datadog_api_key": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1898,6 +1909,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"use_tls": schema.SingleNestedBlock{
 						MarkdownDescription: "TLS Parameters for client connection to the endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_verify_certificate", "enable_verify_certificate"), validators.ConflictingObjectAttributes("disable_verify_hostname", "enable_verify_hostname"), validators.ConflictingObjectAttributes("mtls_disabled", "mtls_enable"), validators.ConflictingObjectAttributes("no_ca", "trusted_ca_url")},
 						Attributes: map[string]schema.Attribute{
 							"trusted_ca_url": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [no_ca] The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
@@ -1937,6 +1949,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 								Blocks: map[string]schema.Block{
 									"key_url": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2007,6 +2020,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				Blocks: map[string]schema.Block{
 					"batch": schema.SingleNestedBlock{
 						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("max_bytes", "max_bytes_disabled"), validators.ConflictingObjectAttributes("max_events", "max_events_disabled"), validators.ConflictingObjectAttributes("timeout_seconds", "timeout_seconds_default")},
 						Attributes: map[string]schema.Attribute{
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
@@ -2041,6 +2055,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"compression": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for compression.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("compression_default", "compression_gzip"), validators.ConflictingObjectAttributes("compression_default", "compression_none"), validators.ConflictingObjectAttributes("compression_gzip", "compression_none")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"compression_default": schema.SingleNestedBlock{
@@ -2056,6 +2071,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"filename_options": schema.SingleNestedBlock{
 						MarkdownDescription: "Filename OPTIONS allow customization of filename and folder paths used by a destination endpoint bucket or file.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_folder", "log_type_folder"), validators.ConflictingObjectAttributes("custom_folder", "no_folder"), validators.ConflictingObjectAttributes("log_type_folder", "no_folder")},
 						Attributes: map[string]schema.Attribute{
 							"custom_folder": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [log_type_folder no_folder] Use your own folder name as the name of the folder in the endpoint bucket or file The folder name must match.",
@@ -2109,7 +2125,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"http_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for http receiver.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("uri")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("uri"), validators.ConflictingObjectAttributes("auth_basic", "auth_none"), validators.ConflictingObjectAttributes("auth_basic", "auth_token"), validators.ConflictingObjectAttributes("auth_none", "auth_token"), validators.ConflictingObjectAttributes("no_tls", "use_tls")},
 
 				Attributes: map[string]schema.Attribute{
 					"uri": schema.StringAttribute{
@@ -2135,6 +2151,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 						Blocks: map[string]schema.Block{
 							"password": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2188,6 +2205,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 						Blocks: map[string]schema.Block{
 							"token": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2234,6 +2252,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"batch": schema.SingleNestedBlock{
 						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("max_bytes", "max_bytes_disabled"), validators.ConflictingObjectAttributes("max_events", "max_events_disabled"), validators.ConflictingObjectAttributes("timeout_seconds", "timeout_seconds_default")},
 						Attributes: map[string]schema.Attribute{
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
@@ -2268,6 +2287,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"compression": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for compression.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("compression_default", "compression_gzip"), validators.ConflictingObjectAttributes("compression_default", "compression_none"), validators.ConflictingObjectAttributes("compression_gzip", "compression_none")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"compression_default": schema.SingleNestedBlock{
@@ -2286,6 +2306,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"use_tls": schema.SingleNestedBlock{
 						MarkdownDescription: "TLS Parameters for client connection to the endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_verify_certificate", "enable_verify_certificate"), validators.ConflictingObjectAttributes("disable_verify_hostname", "enable_verify_hostname"), validators.ConflictingObjectAttributes("mtls_disabled", "mtls_enable"), validators.ConflictingObjectAttributes("no_ca", "trusted_ca_url")},
 						Attributes: map[string]schema.Attribute{
 							"trusted_ca_url": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [no_ca] The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
@@ -2325,6 +2346,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 								Blocks: map[string]schema.Block{
 									"key_url": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2378,7 +2400,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"kafka_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Kafka Configuration for Global Log Receiver.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("bootstrap_servers", "kafka_topic")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("bootstrap_servers", "kafka_topic"), validators.ConflictingObjectAttributes("no_tls", "use_tls")},
 
 				Attributes: map[string]schema.Attribute{
 					"bootstrap_servers": schema.ListAttribute{
@@ -2400,6 +2422,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				Blocks: map[string]schema.Block{
 					"batch": schema.SingleNestedBlock{
 						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("max_bytes", "max_bytes_disabled"), validators.ConflictingObjectAttributes("max_events", "max_events_disabled"), validators.ConflictingObjectAttributes("timeout_seconds", "timeout_seconds_default")},
 						Attributes: map[string]schema.Attribute{
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
@@ -2434,6 +2457,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"compression": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for compression.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("compression_default", "compression_gzip"), validators.ConflictingObjectAttributes("compression_default", "compression_none"), validators.ConflictingObjectAttributes("compression_gzip", "compression_none")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"compression_default": schema.SingleNestedBlock{
@@ -2452,6 +2476,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"use_tls": schema.SingleNestedBlock{
 						MarkdownDescription: "TLS Parameters for client connection to the endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_verify_certificate", "enable_verify_certificate"), validators.ConflictingObjectAttributes("disable_verify_hostname", "enable_verify_hostname"), validators.ConflictingObjectAttributes("mtls_disabled", "mtls_enable"), validators.ConflictingObjectAttributes("no_ca", "trusted_ca_url")},
 						Attributes: map[string]schema.Attribute{
 							"trusted_ca_url": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [no_ca] The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
@@ -2491,6 +2516,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 								Blocks: map[string]schema.Block{
 									"key_url": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2544,11 +2570,13 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"new_relic_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for new relic receiver.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("eu", "us")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"api_key": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2619,7 +2647,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"qradar_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for qradar receiver.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("uri")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("uri"), validators.ConflictingObjectAttributes("no_tls", "use_tls")},
 
 				Attributes: map[string]schema.Attribute{
 					"uri": schema.StringAttribute{
@@ -2633,6 +2661,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				Blocks: map[string]schema.Block{
 					"batch": schema.SingleNestedBlock{
 						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("max_bytes", "max_bytes_disabled"), validators.ConflictingObjectAttributes("max_events", "max_events_disabled"), validators.ConflictingObjectAttributes("timeout_seconds", "timeout_seconds_default")},
 						Attributes: map[string]schema.Attribute{
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
@@ -2667,6 +2696,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"compression": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for compression.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("compression_default", "compression_gzip"), validators.ConflictingObjectAttributes("compression_default", "compression_none"), validators.ConflictingObjectAttributes("compression_gzip", "compression_none")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"compression_default": schema.SingleNestedBlock{
@@ -2685,6 +2715,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"use_tls": schema.SingleNestedBlock{
 						MarkdownDescription: "TLS Parameters for client connection to the endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_verify_certificate", "enable_verify_certificate"), validators.ConflictingObjectAttributes("disable_verify_hostname", "enable_verify_hostname"), validators.ConflictingObjectAttributes("mtls_disabled", "mtls_enable"), validators.ConflictingObjectAttributes("no_ca", "trusted_ca_url")},
 						Attributes: map[string]schema.Attribute{
 							"trusted_ca_url": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [no_ca] The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
@@ -2724,6 +2755,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 								Blocks: map[string]schema.Block{
 									"key_url": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2777,6 +2809,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"request_logs": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration for request logs with sampling choice. Allows selection between sampled (default) or unsampled (full) request logs.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("sampled", "unsampled")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -2842,6 +2875,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"batch": schema.SingleNestedBlock{
 						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("max_bytes", "max_bytes_disabled"), validators.ConflictingObjectAttributes("max_events", "max_events_disabled"), validators.ConflictingObjectAttributes("timeout_seconds", "timeout_seconds_default")},
 						Attributes: map[string]schema.Attribute{
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
@@ -2876,6 +2910,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"compression": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for compression.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("compression_default", "compression_gzip"), validators.ConflictingObjectAttributes("compression_default", "compression_none"), validators.ConflictingObjectAttributes("compression_gzip", "compression_none")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"compression_default": schema.SingleNestedBlock{
@@ -2891,6 +2926,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"filename_options": schema.SingleNestedBlock{
 						MarkdownDescription: "Filename OPTIONS allow customization of filename and folder paths used by a destination endpoint bucket or file.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_folder", "log_type_folder"), validators.ConflictingObjectAttributes("custom_folder", "no_folder"), validators.ConflictingObjectAttributes("log_type_folder", "no_folder")},
 						Attributes: map[string]schema.Attribute{
 							"custom_folder": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [log_type_folder no_folder] Use your own folder name as the name of the folder in the endpoint bucket or file The folder name must match.",
@@ -2916,7 +2952,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 			},
 			"splunk_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration for Splunk HEC Logs endpoint.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("endpoint")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("endpoint"), validators.ConflictingObjectAttributes("no_tls", "use_tls")},
 
 				Attributes: map[string]schema.Attribute{
 					"endpoint": schema.StringAttribute{
@@ -2930,6 +2966,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				Blocks: map[string]schema.Block{
 					"batch": schema.SingleNestedBlock{
 						MarkdownDescription: "Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("max_bytes", "max_bytes_disabled"), validators.ConflictingObjectAttributes("max_events", "max_events_disabled"), validators.ConflictingObjectAttributes("timeout_seconds", "timeout_seconds_default")},
 						Attributes: map[string]schema.Attribute{
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
@@ -2964,6 +3001,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"compression": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for compression.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("compression_default", "compression_gzip"), validators.ConflictingObjectAttributes("compression_default", "compression_none"), validators.ConflictingObjectAttributes("compression_gzip", "compression_none")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"compression_default": schema.SingleNestedBlock{
@@ -2982,6 +3020,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"splunk_hec_token": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3026,6 +3065,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 					},
 					"use_tls": schema.SingleNestedBlock{
 						MarkdownDescription: "TLS Parameters for client connection to the endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_verify_certificate", "enable_verify_certificate"), validators.ConflictingObjectAttributes("disable_verify_hostname", "enable_verify_hostname"), validators.ConflictingObjectAttributes("mtls_disabled", "mtls_enable"), validators.ConflictingObjectAttributes("no_ca", "trusted_ca_url")},
 						Attributes: map[string]schema.Attribute{
 							"trusted_ca_url": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [no_ca] The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
@@ -3065,6 +3105,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 								Blocks: map[string]schema.Block{
 									"key_url": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3123,6 +3164,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				Blocks: map[string]schema.Block{
 					"url": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{

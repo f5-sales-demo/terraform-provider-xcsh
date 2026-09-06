@@ -236,6 +236,7 @@ func (r *WAFExclusionPolicyResource) Schema(ctx context.Context, req resource.Sc
 			}),
 			"waf_exclusion_rules": schema.ListNestedBlock{
 				MarkdownDescription: "WAF Exclusion Rules. An ordered list of rules.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "exact_value"), validators.ConflictingListObjectAttributes("any_domain", "suffix_value"), validators.ConflictingListObjectAttributes("any_path", "path_prefix"), validators.ConflictingListObjectAttributes("any_path", "path_regex"), validators.ConflictingListObjectAttributes("app_firewall_detection_control", "waf_skip_processing"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("path_prefix", "path_regex")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{

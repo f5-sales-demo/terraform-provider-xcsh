@@ -966,6 +966,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Blocks: map[string]schema.Block{
 					"advertise_where": schema.ListNestedBlock{
 						MarkdownDescription: "Where should this load balancer be available.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("advertise_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("port", "port_ranges"), validators.ConflictingListObjectAttributes("port", "use_default_port"), validators.ConflictingListObjectAttributes("port_ranges", "use_default_port"), validators.ConflictingListObjectAttributes("site", "virtual_network"), validators.ConflictingListObjectAttributes("site", "virtual_site"), validators.ConflictingListObjectAttributes("site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_network", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site_with_vip", "vk8s_service")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"port": schema.Int64Attribute{
@@ -1079,6 +1080,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 								"virtual_network": schema.SingleNestedBlock{
 									MarkdownDescription: "Parameters to advertise on a given virtual network.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_v6_vip", "specific_v6_vip"), validators.ConflictingObjectAttributes("default_vip", "specific_vip")},
 									Attributes: map[string]schema.Attribute{
 										"specific_v6_vip": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [default_v6_vip] Use given IPv6 address as VIP on virtual Network.",
@@ -1237,6 +1239,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								},
 								"vk8s_service": schema.SingleNestedBlock{
 									MarkdownDescription: "Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"site": schema.SingleNestedBlock{
@@ -1372,6 +1375,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"origin_pools_weights": schema.ListNestedBlock{
 				MarkdownDescription: "Origin pools and weights used for this load balancer.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("cluster", "pool")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -1461,12 +1465,13 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"tls_tcp": schema.SingleNestedBlock{
 				MarkdownDescription: "Choice for selecting TLS over TCP proxy with bring your own certificates.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("tls_cert_params", "tls_parameters")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"tls_cert_params": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for tls cert params.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"certificates": schema.ListNestedBlock{
@@ -1507,6 +1512,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"tls_config": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"custom_security": schema.SingleNestedBlock{
@@ -1547,6 +1553,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"use_mtls": schema.SingleNestedBlock{
 								MarkdownDescription: "Validation context for downstream client TLS connections.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 								Attributes: map[string]schema.Attribute{
 									"client_certificate_optional": schema.BoolAttribute{
 										MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -1646,7 +1653,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					},
 					"tls_parameters": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for tls parameters.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"no_mtls": schema.SingleNestedBlock{
@@ -1654,7 +1661,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -1689,6 +1696,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 										"private_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1739,6 +1747,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"tls_config": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"custom_security": schema.SingleNestedBlock{
@@ -1779,6 +1788,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							},
 							"use_mtls": schema.SingleNestedBlock{
 								MarkdownDescription: "Validation context for downstream client TLS connections.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 								Attributes: map[string]schema.Attribute{
 									"client_certificate_optional": schema.BoolAttribute{
 										MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -1880,6 +1890,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"tls_tcp_auto_cert": schema.SingleNestedBlock{
 				MarkdownDescription: "Choice for selecting TLS over TCP proxy with automatic certificates.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1888,6 +1899,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					},
 					"tls_config": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"custom_security": schema.SingleNestedBlock{
@@ -1928,6 +1940,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					},
 					"use_mtls": schema.SingleNestedBlock{
 						MarkdownDescription: "Validation context for downstream client TLS connections.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 						Attributes: map[string]schema.Attribute{
 							"client_certificate_optional": schema.BoolAttribute{
 								MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",

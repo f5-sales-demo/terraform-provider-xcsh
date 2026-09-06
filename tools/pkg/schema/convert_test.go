@@ -561,3 +561,26 @@ func TestReferencedFieldPreservesPropertyMutability(t *testing.T) {
 		}
 	}
 }
+
+func TestReferencePropertiesRetainOwnConflicts(t *testing.T) {
+	for _, wrapper := range []string{"ref", "allOf"} {
+		for _, conflicts := range [][]string{{"other_choice"}, {}} {
+			t.Run(wrapper+strings.Join(conflicts, ","), func(t *testing.T) {
+				spec := &openapi.Spec{Components: openapi.Components{Schemas: map[string]openapi.Schema{"Choice": {Type: "object", XF5XCConflictsWith: []string{"inherited"}}}}}
+				property := openapi.Schema{XF5XCConflictsWith: conflicts}
+				if wrapper == "ref" {
+					property.Ref = "#/components/schemas/Choice"
+				} else {
+					property.AllOf = []openapi.Schema{{Ref: "#/components/schemas/Choice"}}
+				}
+				got := ConvertToTerraformAttribute("choice", property, false, "", spec)
+				if !reflect.DeepEqual(got.ConflictsWith, conflicts) {
+					t.Fatalf("property conflicts lost: got %v want %v", got.ConflictsWith, conflicts)
+				}
+				if !reflect.DeepEqual(spec.Components.Schemas["Choice"].XF5XCConflictsWith, []string{"inherited"}) {
+					t.Fatal("conversion mutated the shared component")
+				}
+			})
+		}
+	}
+}

@@ -1044,6 +1044,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 			}),
 			"origin_servers": schema.ListNestedBlock{
 				MarkdownDescription: "Origin Servers. List of origin servers in this pool.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("cbip_service", "consul_service"), validators.ConflictingListObjectAttributes("cbip_service", "custom_endpoint_object"), validators.ConflictingListObjectAttributes("cbip_service", "k8s_service"), validators.ConflictingListObjectAttributes("cbip_service", "private_ip"), validators.ConflictingListObjectAttributes("cbip_service", "private_name"), validators.ConflictingListObjectAttributes("cbip_service", "public_ip"), validators.ConflictingListObjectAttributes("cbip_service", "public_name"), validators.ConflictingListObjectAttributes("cbip_service", "vn_private_ip"), validators.ConflictingListObjectAttributes("cbip_service", "vn_private_name"), validators.ConflictingListObjectAttributes("consul_service", "custom_endpoint_object"), validators.ConflictingListObjectAttributes("consul_service", "k8s_service"), validators.ConflictingListObjectAttributes("consul_service", "private_ip"), validators.ConflictingListObjectAttributes("consul_service", "private_name"), validators.ConflictingListObjectAttributes("consul_service", "public_ip"), validators.ConflictingListObjectAttributes("consul_service", "public_name"), validators.ConflictingListObjectAttributes("consul_service", "vn_private_ip"), validators.ConflictingListObjectAttributes("consul_service", "vn_private_name"), validators.ConflictingListObjectAttributes("custom_endpoint_object", "k8s_service"), validators.ConflictingListObjectAttributes("custom_endpoint_object", "private_ip"), validators.ConflictingListObjectAttributes("custom_endpoint_object", "private_name"), validators.ConflictingListObjectAttributes("custom_endpoint_object", "public_ip"), validators.ConflictingListObjectAttributes("custom_endpoint_object", "public_name"), validators.ConflictingListObjectAttributes("custom_endpoint_object", "vn_private_ip"), validators.ConflictingListObjectAttributes("custom_endpoint_object", "vn_private_name"), validators.ConflictingListObjectAttributes("k8s_service", "private_ip"), validators.ConflictingListObjectAttributes("k8s_service", "private_name"), validators.ConflictingListObjectAttributes("k8s_service", "public_ip"), validators.ConflictingListObjectAttributes("k8s_service", "public_name"), validators.ConflictingListObjectAttributes("k8s_service", "vn_private_ip"), validators.ConflictingListObjectAttributes("k8s_service", "vn_private_name"), validators.ConflictingListObjectAttributes("private_ip", "private_name"), validators.ConflictingListObjectAttributes("private_ip", "public_ip"), validators.ConflictingListObjectAttributes("private_ip", "public_name"), validators.ConflictingListObjectAttributes("private_ip", "vn_private_ip"), validators.ConflictingListObjectAttributes("private_ip", "vn_private_name"), validators.ConflictingListObjectAttributes("private_name", "public_ip"), validators.ConflictingListObjectAttributes("private_name", "public_name"), validators.ConflictingListObjectAttributes("private_name", "vn_private_ip"), validators.ConflictingListObjectAttributes("private_name", "vn_private_name"), validators.ConflictingListObjectAttributes("public_ip", "public_name"), validators.ConflictingListObjectAttributes("public_ip", "vn_private_ip"), validators.ConflictingListObjectAttributes("public_ip", "vn_private_name"), validators.ConflictingListObjectAttributes("public_name", "vn_private_ip"), validators.ConflictingListObjectAttributes("public_name", "vn_private_name"), validators.ConflictingListObjectAttributes("vn_private_ip", "vn_private_name")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -1066,7 +1067,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 						"consul_service": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with HashiCorp Consul service name and site information.",
-							Validators:          []validator.Object{validators.RequiredObjectAttributes("service_name")},
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("service_name"), validators.ConflictingObjectAttributes("inside_network", "outside_network")},
 							Attributes: map[string]schema.Attribute{
 								"service_name": schema.StringAttribute{
 									MarkdownDescription: "Consul service name of this origin server will be listed, including cluster-ID. The format is servicename:cluster-ID.",
@@ -1082,6 +1083,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"site_locator": schema.SingleNestedBlock{
 									MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"site": schema.SingleNestedBlock{
@@ -1150,6 +1152,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"snat_pool": schema.SingleNestedBlock{
 									MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"no_snat_pool": schema.SingleNestedBlock{
@@ -1211,6 +1214,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 						"k8s_service": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with K8s service name and site information.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside_network", "outside_network"), validators.ConflictingObjectAttributes("inside_network", "vk8s_networks"), validators.ConflictingObjectAttributes("outside_network", "vk8s_networks")},
 							Attributes: map[string]schema.Attribute{
 								"protocol": schema.StringAttribute{
 									MarkdownDescription: "[Enum: PROTOCOL_TCP|PROTOCOL_UDP] Type of protocol - PROTOCOL_TCP: TCP - PROTOCOL_UDP: UDP. Possible values are `PROTOCOL_TCP`, `PROTOCOL_UDP`. Defaults to `PROTOCOL_TCP`.",
@@ -1233,6 +1237,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"site_locator": schema.SingleNestedBlock{
 									MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"site": schema.SingleNestedBlock{
@@ -1301,6 +1306,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"snat_pool": schema.SingleNestedBlock{
 									MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"no_snat_pool": schema.SingleNestedBlock{
@@ -1328,6 +1334,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 						"private_ip": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with private or public IP address and site information.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside_network", "outside_network"), validators.ConflictingObjectAttributes("inside_network", "segment"), validators.ConflictingObjectAttributes("outside_network", "segment")},
 							Attributes: map[string]schema.Attribute{
 								"ip": schema.StringAttribute{
 									MarkdownDescription: "IP. Exclusive with [] Private IPv4 address.",
@@ -1378,6 +1385,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"site_locator": schema.SingleNestedBlock{
 									MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"site": schema.SingleNestedBlock{
@@ -1446,6 +1454,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"snat_pool": schema.SingleNestedBlock{
 									MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"no_snat_pool": schema.SingleNestedBlock{
@@ -1470,7 +1479,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 						"private_name": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with private or public DNS name and site information.",
-							Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_name")},
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("dns_name"), validators.ConflictingObjectAttributes("inside_network", "outside_network"), validators.ConflictingObjectAttributes("inside_network", "segment"), validators.ConflictingObjectAttributes("outside_network", "segment")},
 							Attributes: map[string]schema.Attribute{
 								"dns_name": schema.StringAttribute{
 									MarkdownDescription: "DNS Name. DNS Name",
@@ -1531,6 +1540,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"site_locator": schema.SingleNestedBlock{
 									MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"site": schema.SingleNestedBlock{
@@ -1599,6 +1609,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"snat_pool": schema.SingleNestedBlock{
 									MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"no_snat_pool": schema.SingleNestedBlock{
@@ -1755,6 +1766,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"advanced_options": schema.SingleNestedBlock{
 				MarkdownDescription: "Configure Advanced OPTIONS for origin pool.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_http_config", "http1_config"), validators.ConflictingObjectAttributes("auto_http_config", "http2_options"), validators.ConflictingObjectAttributes("circuit_breaker", "default_circuit_breaker"), validators.ConflictingObjectAttributes("circuit_breaker", "disable_circuit_breaker"), validators.ConflictingObjectAttributes("default_circuit_breaker", "disable_circuit_breaker"), validators.ConflictingObjectAttributes("disable_lb_source_ip_persistence", "enable_lb_source_ip_persistence"), validators.ConflictingObjectAttributes("disable_outlier_detection", "outlier_detection"), validators.ConflictingObjectAttributes("disable_proxy_protocol", "proxy_protocol_v1"), validators.ConflictingObjectAttributes("disable_proxy_protocol", "proxy_protocol_v2"), validators.ConflictingObjectAttributes("disable_subsets", "enable_subsets"), validators.ConflictingObjectAttributes("http1_config", "http2_options"), validators.ConflictingObjectAttributes("max_requests_per_connection", "no_request_limit_per_connection"), validators.ConflictingObjectAttributes("no_panic_threshold", "panic_threshold"), validators.ConflictingObjectAttributes("proxy_protocol_v1", "proxy_protocol_v2")},
 
 				Attributes: map[string]schema.Attribute{
 					"connection_timeout": schema.Int64Attribute{
@@ -1861,7 +1873,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"enable_subsets": schema.SingleNestedBlock{
 						MarkdownDescription: "Configure subset OPTIONS for origin pool.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("endpoint_subsets")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("endpoint_subsets"), validators.ConflictingObjectAttributes("any_endpoint", "default_subset"), validators.ConflictingObjectAttributes("any_endpoint", "fail_request"), validators.ConflictingObjectAttributes("default_subset", "fail_request")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"any_endpoint": schema.SingleNestedBlock{
@@ -1903,6 +1915,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"header_transformation": schema.SingleNestedBlock{
 								MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"default_header_transformation": schema.SingleNestedBlock{
@@ -1989,6 +2002,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"upstream_conn_pool_reuse_type": schema.SingleNestedBlock{
 				MarkdownDescription: "Select upstream connection pool reuse state for every downstream connection. This configuration choice is for HTTP(S) LB only.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_conn_pool_reuse", "enable_conn_pool_reuse")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -2002,6 +2016,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"use_tls": schema.SingleNestedBlock{
 				MarkdownDescription: "TLS Parameters for Origin Servers. Upstream TLS Parameters.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_session_key_caching", "disable_session_key_caching"), validators.ConflictingObjectAttributes("default_session_key_caching", "max_session_keys"), validators.ConflictingObjectAttributes("disable_session_key_caching", "max_session_keys"), validators.ConflictingObjectAttributes("disable_sni", "sni"), validators.ConflictingObjectAttributes("disable_sni", "use_host_header_as_sni"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls_obj"), validators.ConflictingObjectAttributes("skip_server_verification", "use_server_verification"), validators.ConflictingObjectAttributes("skip_server_verification", "volterra_trusted_ca"), validators.ConflictingObjectAttributes("sni", "use_host_header_as_sni"), validators.ConflictingObjectAttributes("use_mtls", "use_mtls_obj"), validators.ConflictingObjectAttributes("use_server_verification", "volterra_trusted_ca")},
 
 				Attributes: map[string]schema.Attribute{
 					"max_session_keys": schema.Int64Attribute{
@@ -2037,6 +2052,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"tls_config": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"custom_security": schema.SingleNestedBlock{
@@ -2085,7 +2101,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "MTLS Client Certificate. MTLS Client Certificate.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -2120,6 +2136,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"private_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2203,6 +2220,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"use_server_verification": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for use server verification.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url")},
 						Attributes: map[string]schema.Attribute{
 							"trusted_ca_url": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [trusted_ca] Upload a Root CA Certificate specifically for this Origin Pool for verification of server's certificate.",

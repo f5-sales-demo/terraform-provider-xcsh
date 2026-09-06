@@ -5,6 +5,8 @@ package provider_test
 import (
 	"encoding/json"
 	"fmt"
+	"regexp"
+	"strings"
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
@@ -95,7 +97,28 @@ resource "xcsh_securemesh_site_v2" "test" {
 		},
 		Steps: []resource.TestStep{
 			{Config: config("US", 50), Check: check("POST", "US", 50)},
+			{
+				Config:      strings.Replace(config("US", 50), `re_select { specific_geography = "US" }`, "re_select {\n specific_geography = \"US\"\n geo_proximity {}\n}", 1),
+				PlanOnly:    true,
+				ExpectError: regexp.MustCompile("Conflicting Configuration"),
+			},
+			{
+				Config:      strings.Replace(config("US", 50), "drain_max_unavailable_node_percentage = 50", "drain_max_unavailable_node_percentage = 50\n drain_max_unavailable_node_count = 1", 1),
+				PlanOnly:    true,
+				ExpectError: regexp.MustCompile("Conflicting Configuration"),
+			},
 			{PreConfig: mock.Server.ClearRequestLog, Config: config("EU", 25), Check: check("PUT", "EU", 25)},
+			{
+				Config: strings.Replace(config("EU", 25), `re_select { specific_geography = "EU" }`, `re_select {
+  geo_proximity {}
+  specific_re {
+    primary_re = "example-primary-re"
+    backup_re = "example-backup-re"
+  }
+}`, 1),
+				PlanOnly:    true,
+				ExpectError: regexp.MustCompile("Conflicting Configuration"),
+			},
 			{ResourceName: address, ImportState: true, ImportStateId: "system/" + name, ImportStateVerify: true, ImportStateVerifyIgnore: []string{"timeouts"}},
 			{Config: config("EU", 25), PlanOnly: true},
 		},

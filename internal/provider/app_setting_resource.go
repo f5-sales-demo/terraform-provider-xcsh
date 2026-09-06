@@ -340,6 +340,7 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 						"business_logic_markup_setting": schema.SingleNestedBlock{
 							MarkdownDescription: "Settings specifying how API Discovery will be performed.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"disable_spec": schema.SingleNestedBlock{
@@ -377,6 +378,7 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 						"user_behavior_analysis_setting": schema.SingleNestedBlock{
 							MarkdownDescription: "Configuration for user behavior analysis.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_detection", "enable_detection"), validators.ConflictingObjectAttributes("disable_learning", "enable_learning")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"disable_detection": schema.SingleNestedBlock{
@@ -387,6 +389,7 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"enable_detection": schema.SingleNestedBlock{
 									MarkdownDescription: "Various factors about user activity are monitored and analysed to determine malicious users. These settings allow tuning those factors used by the system to detect malicious users.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("bola_detection_automatic", "exclude_bola_detection"), validators.ConflictingObjectAttributes("exclude_bot_defense_activity", "include_bot_defense_activity"), validators.ConflictingObjectAttributes("exclude_failed_login_activity", "include_failed_login_activity"), validators.ConflictingObjectAttributes("exclude_forbidden_activity", "include_forbidden_activity"), validators.ConflictingObjectAttributes("exclude_ip_reputation", "include_ip_reputation"), validators.ConflictingObjectAttributes("exclude_non_existent_url_activity", "include_non_existent_url_activity_automatic"), validators.ConflictingObjectAttributes("exclude_non_existent_url_activity", "include_non_existent_url_activity_custom"), validators.ConflictingObjectAttributes("exclude_rate_limit", "include_rate_limit"), validators.ConflictingObjectAttributes("exclude_waf_activity", "include_waf_activity"), validators.ConflictingObjectAttributes("include_non_existent_url_activity_automatic", "include_non_existent_url_activity_custom")},
 									Attributes: map[string]schema.Attribute{
 										"cooling_off_period": schema.Int64Attribute{
 											MarkdownDescription: "Exclusive with [] Malicious user detection assigns a threat level to each user based on their activity. Once a threat level is assigned, the system continues tracking activity from this user and if no further malicious activity is seen, it gradually reduces the threat assessment to lower levels..",
@@ -458,6 +461,7 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"include_non_existent_url_activity_automatic": schema.SingleNestedBlock{
 											MarkdownDescription: "Non-existent URL Automatic Activity Settings.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("high", "low"), validators.ConflictingObjectAttributes("high", "medium"), validators.ConflictingObjectAttributes("low", "medium")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"high": schema.SingleNestedBlock{

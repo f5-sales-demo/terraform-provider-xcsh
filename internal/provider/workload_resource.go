@@ -8200,6 +8200,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						Blocks: map[string]schema.Block{
 							"parameters": schema.ListNestedBlock{
 								MarkdownDescription: "Parameters. Parameters for the workload.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("env_var", "file")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -8285,7 +8286,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"containers": schema.ListNestedBlock{
 						MarkdownDescription: "Containers. Containers to use for the job.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("custom_flavor", "default_flavor"), validators.ConflictingListObjectAttributes("custom_flavor", "flavor"), validators.ConflictingListObjectAttributes("default_flavor", "flavor")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"args": schema.ListAttribute{
@@ -8360,7 +8361,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"image": schema.SingleNestedBlock{
 									MarkdownDescription: "ImageType configures the image to use, how to pull the image, and the associated secrets to use if any.",
-									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name"), validators.ConflictingObjectAttributes("container_registry", "public")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "Name is a container image which are usually given a name such as alpine, ubuntu, or quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is not specified, the Docker public registry is assumed.",
@@ -8416,7 +8417,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"liveness_check": schema.SingleNestedBlock{
 									MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
-									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold"), validators.ConflictingObjectAttributes("exec_health_check", "http_health_check"), validators.ConflictingObjectAttributes("exec_health_check", "tcp_health_check"), validators.ConflictingObjectAttributes("http_health_check", "tcp_health_check")},
 									Attributes: map[string]schema.Attribute{
 										"healthy_threshold": schema.Int64Attribute{
 											MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -8496,6 +8497,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -8522,6 +8524,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -8546,7 +8549,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"readiness_check": schema.SingleNestedBlock{
 									MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
-									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold"), validators.ConflictingObjectAttributes("exec_health_check", "http_health_check"), validators.ConflictingObjectAttributes("exec_health_check", "tcp_health_check"), validators.ConflictingObjectAttributes("http_health_check", "tcp_health_check")},
 									Attributes: map[string]schema.Attribute{
 										"healthy_threshold": schema.Int64Attribute{
 											MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -8626,6 +8629,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -8652,6 +8656,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -8679,6 +8684,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"deploy_options": schema.SingleNestedBlock{
 						MarkdownDescription: "Deploy OPTIONS are used to configure the workload deployment OPTIONS.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_res", "default_virtual_sites"), validators.ConflictingObjectAttributes("all_res", "deploy_ce_sites"), validators.ConflictingObjectAttributes("all_res", "deploy_ce_virtual_sites"), validators.ConflictingObjectAttributes("all_res", "deploy_re_sites"), validators.ConflictingObjectAttributes("all_res", "deploy_re_virtual_sites"), validators.ConflictingObjectAttributes("default_virtual_sites", "deploy_ce_sites"), validators.ConflictingObjectAttributes("default_virtual_sites", "deploy_ce_virtual_sites"), validators.ConflictingObjectAttributes("default_virtual_sites", "deploy_re_sites"), validators.ConflictingObjectAttributes("default_virtual_sites", "deploy_re_virtual_sites"), validators.ConflictingObjectAttributes("deploy_ce_sites", "deploy_ce_virtual_sites"), validators.ConflictingObjectAttributes("deploy_ce_sites", "deploy_re_sites"), validators.ConflictingObjectAttributes("deploy_ce_sites", "deploy_re_virtual_sites"), validators.ConflictingObjectAttributes("deploy_ce_virtual_sites", "deploy_re_sites"), validators.ConflictingObjectAttributes("deploy_ce_virtual_sites", "deploy_re_virtual_sites"), validators.ConflictingObjectAttributes("deploy_re_sites", "deploy_re_virtual_sites")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"all_res": schema.SingleNestedBlock{
@@ -8851,6 +8857,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"volumes": schema.ListNestedBlock{
 						MarkdownDescription: "Volumes. Volumes for the job.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("empty_dir", "host_path"), validators.ConflictingListObjectAttributes("empty_dir", "persistent_volume"), validators.ConflictingListObjectAttributes("host_path", "persistent_volume")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -8976,7 +8983,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"storage": schema.SingleNestedBlock{
 											MarkdownDescription: "Persistent storage configuration is used to configure Persistent Volume Claim (PVC).",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_size")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_size"), validators.ConflictingObjectAttributes("class_name", "default")},
 											Attributes: map[string]schema.Attribute{
 												"access_mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: ACCESS_MODE_READ_WRITE_ONCE|ACCESS_MODE_READ_WRITE_MANY|ACCESS_MODE_READ_ONLY_MANY] Persistence storage access mode is used to configure access mode for persistent storage - ACCESS_MODE_READ_WRITE_ONCE: Read Write Once Read Write Once is used to mount persistent storage in read/write mode to exactly 1 host - ACCESS_MODE_READ_WRITE_MANY: Read Write Many Read Write Many is used.. Possible values are `ACCESS_MODE_READ_WRITE_ONCE`, `ACCESS_MODE_READ_WRITE_MANY`, `ACCESS_MODE_READ_ONLY_MANY`. Defaults to `ACCESS_MODE_READ_WRITE_ONCE`.",
@@ -9012,7 +9019,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"service": schema.SingleNestedBlock{
 				MarkdownDescription: "Service does not maintain per replica state, however it can be configured to use persistent storage that is shared amongst all the replicas. Replicas of a service are fungible and do not have a stable network identity or storage. Common examples of services are web servers, application servers..",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("containers")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("containers"), validators.ConflictingObjectAttributes("num_replicas", "scale_to_zero")},
 
 				Attributes: map[string]schema.Attribute{
 					"num_replicas": schema.Int64Attribute{
@@ -9026,6 +9033,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 				Blocks: map[string]schema.Block{
 					"advertise_options": schema.SingleNestedBlock{
 						MarkdownDescription: "Advertise OPTIONS are used to configure how and where to advertise the workload using load balancers.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("advertise_custom", "advertise_in_cluster"), validators.ConflictingObjectAttributes("advertise_custom", "advertise_on_public"), validators.ConflictingObjectAttributes("advertise_custom", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_in_cluster", "advertise_on_public"), validators.ConflictingObjectAttributes("advertise_in_cluster", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_on_public", "do_not_advertise")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"advertise_custom": schema.SingleNestedBlock{
@@ -9035,6 +9043,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Blocks: map[string]schema.Block{
 									"advertise_where": schema.ListNestedBlock{
 										MarkdownDescription: "Where should this load balancer be available.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("site", "virtual_site"), validators.ConflictingListObjectAttributes("site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site", "vk8s_service")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
@@ -9138,6 +9147,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 												"vk8s_service": schema.SingleNestedBlock{
 													MarkdownDescription: "Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"site": schema.SingleNestedBlock{
@@ -9209,12 +9219,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									},
 									"ports": schema.ListNestedBlock{
 										MarkdownDescription: "Ports. Ports to advertise.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("http_loadbalancer", "tcp_loadbalancer")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"http_loadbalancer": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for http loadbalancer.",
-													Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("domains"), validators.ConflictingObjectAttributes("default_route", "specific_routes"), validators.ConflictingObjectAttributes("http", "https"), validators.ConflictingObjectAttributes("http", "https_auto_cert"), validators.ConflictingObjectAttributes("https", "https_auto_cert")},
 													Attributes: map[string]schema.Attribute{
 														"domains": schema.ListAttribute{
 															MarkdownDescription: "List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: `` is invalid Domains are also used for SNI matching if the loadbalancer type is HTTPS Domains also indicate the..",
@@ -9228,6 +9239,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"default_route": schema.SingleNestedBlock{
 															MarkdownDescription: "Configuration parameter for default route.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_host_rewrite", "disable_host_rewrite"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("disable_host_rewrite", "host_rewrite")},
 															Attributes: map[string]schema.Attribute{
 																"host_rewrite": schema.StringAttribute{
 																	MarkdownDescription: "Exclusive with [auto_host_rewrite disable_host_rewrite] Host header will be swapped with this value.",
@@ -9248,6 +9260,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														},
 														"http": schema.SingleNestedBlock{
 															MarkdownDescription: "HTTP Choice. Choice for selecting HTTP proxy.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("port", "port_ranges")},
 															Attributes: map[string]schema.Attribute{
 																"dns_volterra_managed": schema.BoolAttribute{
 																	MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal.",
@@ -9271,6 +9284,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														},
 														"https": schema.SingleNestedBlock{
 															MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges"), validators.ConflictingObjectAttributes("tls_cert_params", "tls_parameters")},
 															Attributes: map[string]schema.Attribute{
 																"add_hsts": schema.BoolAttribute{
 																	MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -9319,6 +9333,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															Blocks: map[string]schema.Block{
 																"coalescing_options": schema.SingleNestedBlock{
 																	MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"default_coalescing": schema.SingleNestedBlock{
@@ -9343,6 +9358,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"http_protocol_options": schema.SingleNestedBlock{
 																	MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -9351,6 +9367,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"header_transformation": schema.SingleNestedBlock{
 																					MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"default_header_transformation": schema.SingleNestedBlock{
@@ -9382,7 +9399,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"tls_cert_params": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for tls cert params.",
-																	Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"certificates": schema.ListNestedBlock{
@@ -9423,6 +9440,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_config": schema.SingleNestedBlock{
 																			MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"custom_security": schema.SingleNestedBlock{
@@ -9463,6 +9481,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"use_mtls": schema.SingleNestedBlock{
 																			MarkdownDescription: "Validation context for downstream client TLS connections.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																			Attributes: map[string]schema.Attribute{
 																				"client_certificate_optional": schema.BoolAttribute{
 																					MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -9562,7 +9581,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"tls_parameters": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for tls parameters.",
-																	Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"no_mtls": schema.SingleNestedBlock{
@@ -9570,7 +9589,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_certificates": schema.ListNestedBlock{
 																			MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-																			Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+																			Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{
 																					"certificate_url": schema.StringAttribute{
@@ -9605,6 +9624,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"private_key": schema.SingleNestedBlock{
 																						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																						Attributes:          map[string]schema.Attribute{},
 																						Blocks: map[string]schema.Block{
 																							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -9655,6 +9675,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_config": schema.SingleNestedBlock{
 																			MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"custom_security": schema.SingleNestedBlock{
@@ -9695,6 +9716,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"use_mtls": schema.SingleNestedBlock{
 																			MarkdownDescription: "Validation context for downstream client TLS connections.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																			Attributes: map[string]schema.Attribute{
 																				"client_certificate_optional": schema.BoolAttribute{
 																					MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -9796,6 +9818,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														},
 														"https_auto_cert": schema.SingleNestedBlock{
 															MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 															Attributes: map[string]schema.Attribute{
 																"add_hsts": schema.BoolAttribute{
 																	MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -9844,6 +9867,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															Blocks: map[string]schema.Block{
 																"coalescing_options": schema.SingleNestedBlock{
 																	MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"default_coalescing": schema.SingleNestedBlock{
@@ -9868,6 +9892,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"http_protocol_options": schema.SingleNestedBlock{
 																	MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -9876,6 +9901,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"header_transformation": schema.SingleNestedBlock{
 																					MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"default_header_transformation": schema.SingleNestedBlock{
@@ -9910,6 +9936,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"tls_config": schema.SingleNestedBlock{
 																	MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"custom_security": schema.SingleNestedBlock{
@@ -9950,6 +9977,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"use_mtls": schema.SingleNestedBlock{
 																	MarkdownDescription: "Validation context for downstream client TLS connections.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																	Attributes: map[string]schema.Attribute{
 																		"client_certificate_optional": schema.BoolAttribute{
 																			MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -10053,11 +10081,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															Blocks: map[string]schema.Block{
 																"routes": schema.ListNestedBlock{
 																	MarkdownDescription: "Routes. Routes for this loadbalancer.",
+																	Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_route_object", "direct_response_route"), validators.ConflictingListObjectAttributes("custom_route_object", "redirect_route"), validators.ConflictingListObjectAttributes("custom_route_object", "simple_route"), validators.ConflictingListObjectAttributes("direct_response_route", "redirect_route"), validators.ConflictingListObjectAttributes("direct_response_route", "simple_route"), validators.ConflictingListObjectAttributes("redirect_route", "simple_route")},
 																	NestedObject: schema.NestedBlockObject{
 																		Attributes: map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"custom_route_object": schema.SingleNestedBlock{
 																				MarkdownDescription: "Custom route uses a route object created outside of this view.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("caching_disable", "caching_inherit")},
 																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"caching_disable": schema.SingleNestedBlock{
@@ -10113,7 +10143,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Blocks: map[string]schema.Block{
 																					"headers": schema.ListNestedBlock{
 																						MarkdownDescription: "Headers. List of (key, value) headers.",
-																						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+																						Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 																						NestedObject: schema.NestedBlockObject{
 																							Attributes: map[string]schema.Attribute{
 																								"exact": schema.StringAttribute{
@@ -10150,6 +10180,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"incoming_port": schema.SingleNestedBlock{
 																						MarkdownDescription: "Port match of the request can be a range or a specific port.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																						Attributes: map[string]schema.Attribute{
 																							"port": schema.Int64Attribute{
 																								MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -10174,6 +10205,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"path": schema.SingleNestedBlock{
 																						MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																						Attributes: map[string]schema.Attribute{
 																							"path": schema.StringAttribute{
 																								MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -10234,7 +10266,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Blocks: map[string]schema.Block{
 																					"headers": schema.ListNestedBlock{
 																						MarkdownDescription: "Headers. List of (key, value) headers.",
-																						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+																						Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 																						NestedObject: schema.NestedBlockObject{
 																							Attributes: map[string]schema.Attribute{
 																								"exact": schema.StringAttribute{
@@ -10271,6 +10303,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"incoming_port": schema.SingleNestedBlock{
 																						MarkdownDescription: "Port match of the request can be a range or a specific port.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																						Attributes: map[string]schema.Attribute{
 																							"port": schema.Int64Attribute{
 																								MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -10295,6 +10328,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"path": schema.SingleNestedBlock{
 																						MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																						Attributes: map[string]schema.Attribute{
 																							"path": schema.StringAttribute{
 																								MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -10321,6 +10355,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"route_redirect": schema.SingleNestedBlock{
 																						MarkdownDescription: "Route redirect parameters when match action is redirect.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("path_redirect", "prefix_rewrite"), validators.ConflictingObjectAttributes("remove_all_params", "replace_params"), validators.ConflictingObjectAttributes("remove_all_params", "retain_all_params"), validators.ConflictingObjectAttributes("replace_params", "retain_all_params")},
 																						Attributes: map[string]schema.Attribute{
 																							"host_redirect": schema.StringAttribute{
 																								MarkdownDescription: "Swap host part of incoming URL in redirect URL.",
@@ -10375,6 +10410,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			},
 																			"simple_route": schema.SingleNestedBlock{
 																				MarkdownDescription: "Simple route matches on path and/or HTTP method and forwards the matching traffic to the default origin pool specified outside.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_host_rewrite", "disable_host_rewrite"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("disable_host_rewrite", "host_rewrite")},
 																				Attributes: map[string]schema.Attribute{
 																					"host_rewrite": schema.StringAttribute{
 																						MarkdownDescription: "Exclusive with [auto_host_rewrite disable_host_rewrite] Host header will be swapped with this value.",
@@ -10400,6 +10436,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"path": schema.SingleNestedBlock{
 																						MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																						Attributes: map[string]schema.Attribute{
 																							"path": schema.StringAttribute{
 																								MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -10449,7 +10486,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"info": schema.SingleNestedBlock{
 															MarkdownDescription: "Port Information. Port information.",
-															Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("port"), validators.ConflictingObjectAttributes("same_as_port", "target_port")},
 															Attributes: map[string]schema.Attribute{
 																"port": schema.Int64Attribute{
 																	MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -10505,6 +10542,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"advertise_in_cluster": schema.SingleNestedBlock{
 								MarkdownDescription: "Advertise the workload locally in-cluster.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("multi_ports", "port")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"multi_ports": schema.SingleNestedBlock{
@@ -10529,7 +10567,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"info": schema.SingleNestedBlock{
 															MarkdownDescription: "Port Information. Port information.",
-															Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("port"), validators.ConflictingObjectAttributes("same_as_port", "target_port")},
 															Attributes: map[string]schema.Attribute{
 																"port": schema.Int64Attribute{
 																	MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -10570,7 +10608,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Blocks: map[string]schema.Block{
 											"info": schema.SingleNestedBlock{
 												MarkdownDescription: "Port Information. Port information.",
-												Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("port"), validators.ConflictingObjectAttributes("same_as_port", "target_port")},
 												Attributes: map[string]schema.Attribute{
 													"port": schema.Int64Attribute{
 														MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -10606,6 +10644,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"advertise_on_public": schema.SingleNestedBlock{
 								MarkdownDescription: "Advertise this workload via loadbalancer on Internet with default VIP.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("multi_ports", "port")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"multi_ports": schema.SingleNestedBlock{
@@ -10615,12 +10654,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Blocks: map[string]schema.Block{
 											"ports": schema.ListNestedBlock{
 												MarkdownDescription: "Ports. Ports to advertise.",
+												Validators:          []validator.List{validators.ConflictingListObjectAttributes("http_loadbalancer", "tcp_loadbalancer")},
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"http_loadbalancer": schema.SingleNestedBlock{
 															MarkdownDescription: "Configuration parameter for http loadbalancer.",
-															Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("domains"), validators.ConflictingObjectAttributes("default_route", "specific_routes"), validators.ConflictingObjectAttributes("http", "https"), validators.ConflictingObjectAttributes("http", "https_auto_cert"), validators.ConflictingObjectAttributes("https", "https_auto_cert")},
 															Attributes: map[string]schema.Attribute{
 																"domains": schema.ListAttribute{
 																	MarkdownDescription: "List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: `` is invalid Domains are also used for SNI matching if the loadbalancer type is HTTPS Domains also indicate the..",
@@ -10634,6 +10674,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															Blocks: map[string]schema.Block{
 																"default_route": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for default route.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_host_rewrite", "disable_host_rewrite"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("disable_host_rewrite", "host_rewrite")},
 																	Attributes: map[string]schema.Attribute{
 																		"host_rewrite": schema.StringAttribute{
 																			MarkdownDescription: "Exclusive with [auto_host_rewrite disable_host_rewrite] Host header will be swapped with this value.",
@@ -10654,6 +10695,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"http": schema.SingleNestedBlock{
 																	MarkdownDescription: "HTTP Choice. Choice for selecting HTTP proxy.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("port", "port_ranges")},
 																	Attributes: map[string]schema.Attribute{
 																		"dns_volterra_managed": schema.BoolAttribute{
 																			MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal.",
@@ -10677,6 +10719,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"https": schema.SingleNestedBlock{
 																	MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges"), validators.ConflictingObjectAttributes("tls_cert_params", "tls_parameters")},
 																	Attributes: map[string]schema.Attribute{
 																		"add_hsts": schema.BoolAttribute{
 																			MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -10725,6 +10768,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	Blocks: map[string]schema.Block{
 																		"coalescing_options": schema.SingleNestedBlock{
 																			MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"default_coalescing": schema.SingleNestedBlock{
@@ -10749,6 +10793,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"http_protocol_options": schema.SingleNestedBlock{
 																			MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -10757,6 +10802,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"header_transformation": schema.SingleNestedBlock{
 																							MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+																							Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 																							Attributes:          map[string]schema.Attribute{},
 																							Blocks: map[string]schema.Block{
 																								"default_header_transformation": schema.SingleNestedBlock{
@@ -10788,7 +10834,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_cert_params": schema.SingleNestedBlock{
 																			MarkdownDescription: "Configuration parameter for tls cert params.",
-																			Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"certificates": schema.ListNestedBlock{
@@ -10829,6 +10875,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"tls_config": schema.SingleNestedBlock{
 																					MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"custom_security": schema.SingleNestedBlock{
@@ -10869,6 +10916,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"use_mtls": schema.SingleNestedBlock{
 																					MarkdownDescription: "Validation context for downstream client TLS connections.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																					Attributes: map[string]schema.Attribute{
 																						"client_certificate_optional": schema.BoolAttribute{
 																							MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -10968,7 +11016,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_parameters": schema.SingleNestedBlock{
 																			MarkdownDescription: "Configuration parameter for tls parameters.",
-																			Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"no_mtls": schema.SingleNestedBlock{
@@ -10976,7 +11024,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"tls_certificates": schema.ListNestedBlock{
 																					MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-																					Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"certificate_url": schema.StringAttribute{
@@ -11011,6 +11059,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"private_key": schema.SingleNestedBlock{
 																								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																								Attributes:          map[string]schema.Attribute{},
 																								Blocks: map[string]schema.Block{
 																									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -11061,6 +11110,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"tls_config": schema.SingleNestedBlock{
 																					MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"custom_security": schema.SingleNestedBlock{
@@ -11101,6 +11151,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"use_mtls": schema.SingleNestedBlock{
 																					MarkdownDescription: "Validation context for downstream client TLS connections.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																					Attributes: map[string]schema.Attribute{
 																						"client_certificate_optional": schema.BoolAttribute{
 																							MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -11202,6 +11253,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"https_auto_cert": schema.SingleNestedBlock{
 																	MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																	Attributes: map[string]schema.Attribute{
 																		"add_hsts": schema.BoolAttribute{
 																			MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -11250,6 +11302,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	Blocks: map[string]schema.Block{
 																		"coalescing_options": schema.SingleNestedBlock{
 																			MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"default_coalescing": schema.SingleNestedBlock{
@@ -11274,6 +11327,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"http_protocol_options": schema.SingleNestedBlock{
 																			MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -11282,6 +11336,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"header_transformation": schema.SingleNestedBlock{
 																							MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+																							Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 																							Attributes:          map[string]schema.Attribute{},
 																							Blocks: map[string]schema.Block{
 																								"default_header_transformation": schema.SingleNestedBlock{
@@ -11316,6 +11371,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_config": schema.SingleNestedBlock{
 																			MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"custom_security": schema.SingleNestedBlock{
@@ -11356,6 +11412,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"use_mtls": schema.SingleNestedBlock{
 																			MarkdownDescription: "Validation context for downstream client TLS connections.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																			Attributes: map[string]schema.Attribute{
 																				"client_certificate_optional": schema.BoolAttribute{
 																					MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -11459,11 +11516,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	Blocks: map[string]schema.Block{
 																		"routes": schema.ListNestedBlock{
 																			MarkdownDescription: "Routes. Routes for this loadbalancer.",
+																			Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_route_object", "direct_response_route"), validators.ConflictingListObjectAttributes("custom_route_object", "redirect_route"), validators.ConflictingListObjectAttributes("custom_route_object", "simple_route"), validators.ConflictingListObjectAttributes("direct_response_route", "redirect_route"), validators.ConflictingListObjectAttributes("direct_response_route", "simple_route"), validators.ConflictingListObjectAttributes("redirect_route", "simple_route")},
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"custom_route_object": schema.SingleNestedBlock{
 																						MarkdownDescription: "Custom route uses a route object created outside of this view.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("caching_disable", "caching_inherit")},
 																						Attributes:          map[string]schema.Attribute{},
 																						Blocks: map[string]schema.Block{
 																							"caching_disable": schema.SingleNestedBlock{
@@ -11519,7 +11578,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						Blocks: map[string]schema.Block{
 																							"headers": schema.ListNestedBlock{
 																								MarkdownDescription: "Headers. List of (key, value) headers.",
-																								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+																								Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 																								NestedObject: schema.NestedBlockObject{
 																									Attributes: map[string]schema.Attribute{
 																										"exact": schema.StringAttribute{
@@ -11556,6 +11615,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"incoming_port": schema.SingleNestedBlock{
 																								MarkdownDescription: "Port match of the request can be a range or a specific port.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																								Attributes: map[string]schema.Attribute{
 																									"port": schema.Int64Attribute{
 																										MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -11580,6 +11640,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"path": schema.SingleNestedBlock{
 																								MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																								Attributes: map[string]schema.Attribute{
 																									"path": schema.StringAttribute{
 																										MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -11640,7 +11701,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						Blocks: map[string]schema.Block{
 																							"headers": schema.ListNestedBlock{
 																								MarkdownDescription: "Headers. List of (key, value) headers.",
-																								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+																								Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 																								NestedObject: schema.NestedBlockObject{
 																									Attributes: map[string]schema.Attribute{
 																										"exact": schema.StringAttribute{
@@ -11677,6 +11738,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"incoming_port": schema.SingleNestedBlock{
 																								MarkdownDescription: "Port match of the request can be a range or a specific port.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																								Attributes: map[string]schema.Attribute{
 																									"port": schema.Int64Attribute{
 																										MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -11701,6 +11763,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"path": schema.SingleNestedBlock{
 																								MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																								Attributes: map[string]schema.Attribute{
 																									"path": schema.StringAttribute{
 																										MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -11727,6 +11790,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"route_redirect": schema.SingleNestedBlock{
 																								MarkdownDescription: "Route redirect parameters when match action is redirect.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("path_redirect", "prefix_rewrite"), validators.ConflictingObjectAttributes("remove_all_params", "replace_params"), validators.ConflictingObjectAttributes("remove_all_params", "retain_all_params"), validators.ConflictingObjectAttributes("replace_params", "retain_all_params")},
 																								Attributes: map[string]schema.Attribute{
 																									"host_redirect": schema.StringAttribute{
 																										MarkdownDescription: "Swap host part of incoming URL in redirect URL.",
@@ -11781,6 +11845,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"simple_route": schema.SingleNestedBlock{
 																						MarkdownDescription: "Simple route matches on path and/or HTTP method and forwards the matching traffic to the default origin pool specified outside.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_host_rewrite", "disable_host_rewrite"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("disable_host_rewrite", "host_rewrite")},
 																						Attributes: map[string]schema.Attribute{
 																							"host_rewrite": schema.StringAttribute{
 																								MarkdownDescription: "Exclusive with [auto_host_rewrite disable_host_rewrite] Host header will be swapped with this value.",
@@ -11806,6 +11871,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"path": schema.SingleNestedBlock{
 																								MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																								Attributes: map[string]schema.Attribute{
 																									"path": schema.StringAttribute{
 																										MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -11855,7 +11921,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															Blocks: map[string]schema.Block{
 																"info": schema.SingleNestedBlock{
 																	MarkdownDescription: "Port Information. Port information.",
-																	Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("port"), validators.ConflictingObjectAttributes("same_as_port", "target_port")},
 																	Attributes: map[string]schema.Attribute{
 																		"port": schema.Int64Attribute{
 																			MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -11911,11 +11977,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									},
 									"port": schema.SingleNestedBlock{
 										MarkdownDescription: "Advertise Port. Advertise single port.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_loadbalancer", "tcp_loadbalancer")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"http_loadbalancer": schema.SingleNestedBlock{
 												MarkdownDescription: "Configuration parameter for http loadbalancer.",
-												Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("domains"), validators.ConflictingObjectAttributes("default_route", "specific_routes"), validators.ConflictingObjectAttributes("http", "https"), validators.ConflictingObjectAttributes("http", "https_auto_cert"), validators.ConflictingObjectAttributes("https", "https_auto_cert")},
 												Attributes: map[string]schema.Attribute{
 													"domains": schema.ListAttribute{
 														MarkdownDescription: "List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: `` is invalid Domains are also used for SNI matching if the loadbalancer type is HTTPS Domains also indicate the..",
@@ -11929,6 +11996,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												Blocks: map[string]schema.Block{
 													"default_route": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for default route.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_host_rewrite", "disable_host_rewrite"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("disable_host_rewrite", "host_rewrite")},
 														Attributes: map[string]schema.Attribute{
 															"host_rewrite": schema.StringAttribute{
 																MarkdownDescription: "Exclusive with [auto_host_rewrite disable_host_rewrite] Host header will be swapped with this value.",
@@ -11949,6 +12017,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 													"http": schema.SingleNestedBlock{
 														MarkdownDescription: "HTTP Choice. Choice for selecting HTTP proxy.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("port", "port_ranges")},
 														Attributes: map[string]schema.Attribute{
 															"dns_volterra_managed": schema.BoolAttribute{
 																MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal.",
@@ -11972,6 +12041,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 													"https": schema.SingleNestedBlock{
 														MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges"), validators.ConflictingObjectAttributes("tls_cert_params", "tls_parameters")},
 														Attributes: map[string]schema.Attribute{
 															"add_hsts": schema.BoolAttribute{
 																MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -12020,6 +12090,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														Blocks: map[string]schema.Block{
 															"coalescing_options": schema.SingleNestedBlock{
 																MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"default_coalescing": schema.SingleNestedBlock{
@@ -12044,6 +12115,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"http_protocol_options": schema.SingleNestedBlock{
 																MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -12052,6 +12124,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		Blocks: map[string]schema.Block{
 																			"header_transformation": schema.SingleNestedBlock{
 																				MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"default_header_transformation": schema.SingleNestedBlock{
@@ -12083,7 +12156,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"tls_cert_params": schema.SingleNestedBlock{
 																MarkdownDescription: "Configuration parameter for tls cert params.",
-																Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"certificates": schema.ListNestedBlock{
@@ -12124,6 +12197,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"tls_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"custom_security": schema.SingleNestedBlock{
@@ -12164,6 +12238,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"use_mtls": schema.SingleNestedBlock{
 																		MarkdownDescription: "Validation context for downstream client TLS connections.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																		Attributes: map[string]schema.Attribute{
 																			"client_certificate_optional": schema.BoolAttribute{
 																				MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -12263,7 +12338,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"tls_parameters": schema.SingleNestedBlock{
 																MarkdownDescription: "Configuration parameter for tls parameters.",
-																Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"no_mtls": schema.SingleNestedBlock{
@@ -12271,7 +12346,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"tls_certificates": schema.ListNestedBlock{
 																		MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-																		Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+																		Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 																		NestedObject: schema.NestedBlockObject{
 																			Attributes: map[string]schema.Attribute{
 																				"certificate_url": schema.StringAttribute{
@@ -12306,6 +12381,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"private_key": schema.SingleNestedBlock{
 																					MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"blindfold_secret_info": schema.SingleNestedBlock{
@@ -12356,6 +12432,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"tls_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"custom_security": schema.SingleNestedBlock{
@@ -12396,6 +12473,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"use_mtls": schema.SingleNestedBlock{
 																		MarkdownDescription: "Validation context for downstream client TLS connections.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																		Attributes: map[string]schema.Attribute{
 																			"client_certificate_optional": schema.BoolAttribute{
 																				MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -12497,6 +12575,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 													"https_auto_cert": schema.SingleNestedBlock{
 														MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 														Attributes: map[string]schema.Attribute{
 															"add_hsts": schema.BoolAttribute{
 																MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -12545,6 +12624,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														Blocks: map[string]schema.Block{
 															"coalescing_options": schema.SingleNestedBlock{
 																MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"default_coalescing": schema.SingleNestedBlock{
@@ -12569,6 +12649,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"http_protocol_options": schema.SingleNestedBlock{
 																MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -12577,6 +12658,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		Blocks: map[string]schema.Block{
 																			"header_transformation": schema.SingleNestedBlock{
 																				MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"default_header_transformation": schema.SingleNestedBlock{
@@ -12611,6 +12693,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"tls_config": schema.SingleNestedBlock{
 																MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"custom_security": schema.SingleNestedBlock{
@@ -12651,6 +12734,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"use_mtls": schema.SingleNestedBlock{
 																MarkdownDescription: "Validation context for downstream client TLS connections.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																Attributes: map[string]schema.Attribute{
 																	"client_certificate_optional": schema.BoolAttribute{
 																		MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -12754,11 +12838,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														Blocks: map[string]schema.Block{
 															"routes": schema.ListNestedBlock{
 																MarkdownDescription: "Routes. Routes for this loadbalancer.",
+																Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_route_object", "direct_response_route"), validators.ConflictingListObjectAttributes("custom_route_object", "redirect_route"), validators.ConflictingListObjectAttributes("custom_route_object", "simple_route"), validators.ConflictingListObjectAttributes("direct_response_route", "redirect_route"), validators.ConflictingListObjectAttributes("direct_response_route", "simple_route"), validators.ConflictingListObjectAttributes("redirect_route", "simple_route")},
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"custom_route_object": schema.SingleNestedBlock{
 																			MarkdownDescription: "Custom route uses a route object created outside of this view.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("caching_disable", "caching_inherit")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"caching_disable": schema.SingleNestedBlock{
@@ -12814,7 +12900,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"headers": schema.ListNestedBlock{
 																					MarkdownDescription: "Headers. List of (key, value) headers.",
-																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"exact": schema.StringAttribute{
@@ -12851,6 +12937,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"incoming_port": schema.SingleNestedBlock{
 																					MarkdownDescription: "Port match of the request can be a range or a specific port.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																					Attributes: map[string]schema.Attribute{
 																						"port": schema.Int64Attribute{
 																							MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -12875,6 +12962,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"path": schema.SingleNestedBlock{
 																					MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																					Attributes: map[string]schema.Attribute{
 																						"path": schema.StringAttribute{
 																							MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -12935,7 +13023,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"headers": schema.ListNestedBlock{
 																					MarkdownDescription: "Headers. List of (key, value) headers.",
-																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"exact": schema.StringAttribute{
@@ -12972,6 +13060,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"incoming_port": schema.SingleNestedBlock{
 																					MarkdownDescription: "Port match of the request can be a range or a specific port.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																					Attributes: map[string]schema.Attribute{
 																						"port": schema.Int64Attribute{
 																							MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -12996,6 +13085,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"path": schema.SingleNestedBlock{
 																					MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																					Attributes: map[string]schema.Attribute{
 																						"path": schema.StringAttribute{
 																							MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -13022,6 +13112,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"route_redirect": schema.SingleNestedBlock{
 																					MarkdownDescription: "Route redirect parameters when match action is redirect.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("path_redirect", "prefix_rewrite"), validators.ConflictingObjectAttributes("remove_all_params", "replace_params"), validators.ConflictingObjectAttributes("remove_all_params", "retain_all_params"), validators.ConflictingObjectAttributes("replace_params", "retain_all_params")},
 																					Attributes: map[string]schema.Attribute{
 																						"host_redirect": schema.StringAttribute{
 																							MarkdownDescription: "Swap host part of incoming URL in redirect URL.",
@@ -13076,6 +13167,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"simple_route": schema.SingleNestedBlock{
 																			MarkdownDescription: "Simple route matches on path and/or HTTP method and forwards the matching traffic to the default origin pool specified outside.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_host_rewrite", "disable_host_rewrite"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("disable_host_rewrite", "host_rewrite")},
 																			Attributes: map[string]schema.Attribute{
 																				"host_rewrite": schema.StringAttribute{
 																					MarkdownDescription: "Exclusive with [auto_host_rewrite disable_host_rewrite] Host header will be swapped with this value.",
@@ -13101,6 +13193,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"path": schema.SingleNestedBlock{
 																					MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																					Attributes: map[string]schema.Attribute{
 																						"path": schema.StringAttribute{
 																							MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -13140,7 +13233,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												Blocks: map[string]schema.Block{
 													"info": schema.SingleNestedBlock{
 														MarkdownDescription: "Port Information. Port information.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("port"), validators.ConflictingObjectAttributes("same_as_port", "target_port")},
 														Attributes: map[string]schema.Attribute{
 															"port": schema.Int64Attribute{
 																MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -13204,6 +13297,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						Blocks: map[string]schema.Block{
 							"parameters": schema.ListNestedBlock{
 								MarkdownDescription: "Parameters. Parameters for the workload.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("env_var", "file")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -13289,7 +13383,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"containers": schema.ListNestedBlock{
 						MarkdownDescription: "Containers. Containers to use for service.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("custom_flavor", "default_flavor"), validators.ConflictingListObjectAttributes("custom_flavor", "flavor"), validators.ConflictingListObjectAttributes("default_flavor", "flavor")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"args": schema.ListAttribute{
@@ -13364,7 +13458,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"image": schema.SingleNestedBlock{
 									MarkdownDescription: "ImageType configures the image to use, how to pull the image, and the associated secrets to use if any.",
-									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name"), validators.ConflictingObjectAttributes("container_registry", "public")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "Name is a container image which are usually given a name such as alpine, ubuntu, or quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is not specified, the Docker public registry is assumed.",
@@ -13420,7 +13514,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"liveness_check": schema.SingleNestedBlock{
 									MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
-									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold"), validators.ConflictingObjectAttributes("exec_health_check", "http_health_check"), validators.ConflictingObjectAttributes("exec_health_check", "tcp_health_check"), validators.ConflictingObjectAttributes("http_health_check", "tcp_health_check")},
 									Attributes: map[string]schema.Attribute{
 										"healthy_threshold": schema.Int64Attribute{
 											MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -13500,6 +13594,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -13526,6 +13621,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -13550,7 +13646,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"readiness_check": schema.SingleNestedBlock{
 									MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
-									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold"), validators.ConflictingObjectAttributes("exec_health_check", "http_health_check"), validators.ConflictingObjectAttributes("exec_health_check", "tcp_health_check"), validators.ConflictingObjectAttributes("http_health_check", "tcp_health_check")},
 									Attributes: map[string]schema.Attribute{
 										"healthy_threshold": schema.Int64Attribute{
 											MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -13630,6 +13726,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -13656,6 +13753,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -13683,6 +13781,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"deploy_options": schema.SingleNestedBlock{
 						MarkdownDescription: "Deploy OPTIONS are used to configure the workload deployment OPTIONS.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_res", "default_virtual_sites"), validators.ConflictingObjectAttributes("all_res", "deploy_ce_sites"), validators.ConflictingObjectAttributes("all_res", "deploy_ce_virtual_sites"), validators.ConflictingObjectAttributes("all_res", "deploy_re_sites"), validators.ConflictingObjectAttributes("all_res", "deploy_re_virtual_sites"), validators.ConflictingObjectAttributes("default_virtual_sites", "deploy_ce_sites"), validators.ConflictingObjectAttributes("default_virtual_sites", "deploy_ce_virtual_sites"), validators.ConflictingObjectAttributes("default_virtual_sites", "deploy_re_sites"), validators.ConflictingObjectAttributes("default_virtual_sites", "deploy_re_virtual_sites"), validators.ConflictingObjectAttributes("deploy_ce_sites", "deploy_ce_virtual_sites"), validators.ConflictingObjectAttributes("deploy_ce_sites", "deploy_re_sites"), validators.ConflictingObjectAttributes("deploy_ce_sites", "deploy_re_virtual_sites"), validators.ConflictingObjectAttributes("deploy_ce_virtual_sites", "deploy_re_sites"), validators.ConflictingObjectAttributes("deploy_ce_virtual_sites", "deploy_re_virtual_sites"), validators.ConflictingObjectAttributes("deploy_re_sites", "deploy_re_virtual_sites")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"all_res": schema.SingleNestedBlock{
@@ -13858,6 +13957,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"volumes": schema.ListNestedBlock{
 						MarkdownDescription: "Volumes. Volumes for the service.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("empty_dir", "host_path"), validators.ConflictingListObjectAttributes("empty_dir", "persistent_volume"), validators.ConflictingListObjectAttributes("host_path", "persistent_volume")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{
@@ -13983,7 +14083,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"storage": schema.SingleNestedBlock{
 											MarkdownDescription: "Persistent storage configuration is used to configure Persistent Volume Claim (PVC).",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_size")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_size"), validators.ConflictingObjectAttributes("class_name", "default")},
 											Attributes: map[string]schema.Attribute{
 												"access_mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: ACCESS_MODE_READ_WRITE_ONCE|ACCESS_MODE_READ_WRITE_MANY|ACCESS_MODE_READ_ONLY_MANY] Persistence storage access mode is used to configure access mode for persistent storage - ACCESS_MODE_READ_WRITE_ONCE: Read Write Once Read Write Once is used to mount persistent storage in read/write mode to exactly 1 host - ACCESS_MODE_READ_WRITE_MANY: Read Write Many Read Write Many is used.. Possible values are `ACCESS_MODE_READ_WRITE_ONCE`, `ACCESS_MODE_READ_WRITE_MANY`, `ACCESS_MODE_READ_ONLY_MANY`. Defaults to `ACCESS_MODE_READ_WRITE_ONCE`.",
@@ -14019,6 +14119,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"simple_service": schema.SingleNestedBlock{
 				MarkdownDescription: "SimpleService is a service having one container and one replica that is deployed on all Regional Edges and advertised on Internet via HTTP loadbalancer on default VIP.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disabled", "enabled"), validators.ConflictingObjectAttributes("do_not_advertise", "simple_advertise")},
 
 				Attributes: map[string]schema.Attribute{
 					"scale_to_zero": schema.BoolAttribute{
@@ -14033,6 +14134,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						Blocks: map[string]schema.Block{
 							"parameters": schema.ListNestedBlock{
 								MarkdownDescription: "Parameters. Parameters for the workload.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("env_var", "file")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -14118,7 +14220,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"container": schema.SingleNestedBlock{
 						MarkdownDescription: "ContainerType configures the container information.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("name"), validators.ConflictingObjectAttributes("custom_flavor", "default_flavor"), validators.ConflictingObjectAttributes("custom_flavor", "flavor"), validators.ConflictingObjectAttributes("default_flavor", "flavor")},
 						Attributes: map[string]schema.Attribute{
 							"args": schema.ListAttribute{
 								MarkdownDescription: "Arguments to the entrypoint. Overrides the docker image's CMD.",
@@ -14192,7 +14294,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"image": schema.SingleNestedBlock{
 								MarkdownDescription: "ImageType configures the image to use, how to pull the image, and the associated secrets to use if any.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("name"), validators.ConflictingObjectAttributes("container_registry", "public")},
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
 										MarkdownDescription: "Name is a container image which are usually given a name such as alpine, ubuntu, or quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is not specified, the Docker public registry is assumed.",
@@ -14248,7 +14350,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"liveness_check": schema.SingleNestedBlock{
 								MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold"), validators.ConflictingObjectAttributes("exec_health_check", "http_health_check"), validators.ConflictingObjectAttributes("exec_health_check", "tcp_health_check"), validators.ConflictingObjectAttributes("http_health_check", "tcp_health_check")},
 								Attributes: map[string]schema.Attribute{
 									"healthy_threshold": schema.Int64Attribute{
 										MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -14328,6 +14430,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Blocks: map[string]schema.Block{
 											"port": schema.SingleNestedBlock{
 												MarkdownDescription: "Port. Port",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -14354,6 +14457,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Blocks: map[string]schema.Block{
 											"port": schema.SingleNestedBlock{
 												MarkdownDescription: "Port. Port",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -14378,7 +14482,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"readiness_check": schema.SingleNestedBlock{
 								MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold"), validators.ConflictingObjectAttributes("exec_health_check", "http_health_check"), validators.ConflictingObjectAttributes("exec_health_check", "tcp_health_check"), validators.ConflictingObjectAttributes("http_health_check", "tcp_health_check")},
 								Attributes: map[string]schema.Attribute{
 									"healthy_threshold": schema.Int64Attribute{
 										MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -14458,6 +14562,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Blocks: map[string]schema.Block{
 											"port": schema.SingleNestedBlock{
 												MarkdownDescription: "Port. Port",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -14484,6 +14589,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Blocks: map[string]schema.Block{
 											"port": schema.SingleNestedBlock{
 												MarkdownDescription: "Port. Port",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -14560,7 +14666,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									},
 									"storage": schema.SingleNestedBlock{
 										MarkdownDescription: "Persistent storage configuration is used to configure Persistent Volume Claim (PVC).",
-										Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_size")},
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_size"), validators.ConflictingObjectAttributes("class_name", "default")},
 										Attributes: map[string]schema.Attribute{
 											"access_mode": schema.StringAttribute{
 												MarkdownDescription: "[Enum: ACCESS_MODE_READ_WRITE_ONCE|ACCESS_MODE_READ_WRITE_MANY|ACCESS_MODE_READ_ONLY_MANY] Persistence storage access mode is used to configure access mode for persistent storage - ACCESS_MODE_READ_WRITE_ONCE: Read Write Once Read Write Once is used to mount persistent storage in read/write mode to exactly 1 host - ACCESS_MODE_READ_WRITE_MANY: Read Write Many Read Write Many is used.. Possible values are `ACCESS_MODE_READ_WRITE_ONCE`, `ACCESS_MODE_READ_WRITE_MANY`, `ACCESS_MODE_READ_ONLY_MANY`. Defaults to `ACCESS_MODE_READ_WRITE_ONCE`.",
@@ -14616,7 +14722,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"stateful_service": schema.SingleNestedBlock{
 				MarkdownDescription: "StatefulService maintains per replica state and each replica has its own persistent storage. Each replica has a unique network identity and stable storage. Stateful service are used for distributed stateful applications like cassandra, mongodb, redis, etc.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("containers", "persistent_volumes")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("containers", "persistent_volumes"), validators.ConflictingObjectAttributes("num_replicas", "scale_to_zero")},
 
 				Attributes: map[string]schema.Attribute{
 					"num_replicas": schema.Int64Attribute{
@@ -14630,6 +14736,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 				Blocks: map[string]schema.Block{
 					"advertise_options": schema.SingleNestedBlock{
 						MarkdownDescription: "Advertise OPTIONS are used to configure how and where to advertise the workload using load balancers.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("advertise_custom", "advertise_in_cluster"), validators.ConflictingObjectAttributes("advertise_custom", "advertise_on_public"), validators.ConflictingObjectAttributes("advertise_custom", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_in_cluster", "advertise_on_public"), validators.ConflictingObjectAttributes("advertise_in_cluster", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_on_public", "do_not_advertise")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"advertise_custom": schema.SingleNestedBlock{
@@ -14639,6 +14746,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								Blocks: map[string]schema.Block{
 									"advertise_where": schema.ListNestedBlock{
 										MarkdownDescription: "Where should this load balancer be available.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("site", "virtual_site"), validators.ConflictingListObjectAttributes("site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site", "vk8s_service")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
@@ -14742,6 +14850,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 												"vk8s_service": schema.SingleNestedBlock{
 													MarkdownDescription: "Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"site": schema.SingleNestedBlock{
@@ -14813,12 +14922,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									},
 									"ports": schema.ListNestedBlock{
 										MarkdownDescription: "Ports. Ports to advertise.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("http_loadbalancer", "tcp_loadbalancer")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"http_loadbalancer": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for http loadbalancer.",
-													Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
+													Validators:          []validator.Object{validators.RequiredObjectAttributes("domains"), validators.ConflictingObjectAttributes("default_route", "specific_routes"), validators.ConflictingObjectAttributes("http", "https"), validators.ConflictingObjectAttributes("http", "https_auto_cert"), validators.ConflictingObjectAttributes("https", "https_auto_cert")},
 													Attributes: map[string]schema.Attribute{
 														"domains": schema.ListAttribute{
 															MarkdownDescription: "List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: `` is invalid Domains are also used for SNI matching if the loadbalancer type is HTTPS Domains also indicate the..",
@@ -14832,6 +14942,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"default_route": schema.SingleNestedBlock{
 															MarkdownDescription: "Configuration parameter for default route.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_host_rewrite", "disable_host_rewrite"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("disable_host_rewrite", "host_rewrite")},
 															Attributes: map[string]schema.Attribute{
 																"host_rewrite": schema.StringAttribute{
 																	MarkdownDescription: "Exclusive with [auto_host_rewrite disable_host_rewrite] Host header will be swapped with this value.",
@@ -14852,6 +14963,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														},
 														"http": schema.SingleNestedBlock{
 															MarkdownDescription: "HTTP Choice. Choice for selecting HTTP proxy.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("port", "port_ranges")},
 															Attributes: map[string]schema.Attribute{
 																"dns_volterra_managed": schema.BoolAttribute{
 																	MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal.",
@@ -14875,6 +14987,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														},
 														"https": schema.SingleNestedBlock{
 															MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges"), validators.ConflictingObjectAttributes("tls_cert_params", "tls_parameters")},
 															Attributes: map[string]schema.Attribute{
 																"add_hsts": schema.BoolAttribute{
 																	MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -14923,6 +15036,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															Blocks: map[string]schema.Block{
 																"coalescing_options": schema.SingleNestedBlock{
 																	MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"default_coalescing": schema.SingleNestedBlock{
@@ -14947,6 +15061,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"http_protocol_options": schema.SingleNestedBlock{
 																	MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -14955,6 +15070,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"header_transformation": schema.SingleNestedBlock{
 																					MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"default_header_transformation": schema.SingleNestedBlock{
@@ -14986,7 +15102,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"tls_cert_params": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for tls cert params.",
-																	Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"certificates": schema.ListNestedBlock{
@@ -15027,6 +15143,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_config": schema.SingleNestedBlock{
 																			MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"custom_security": schema.SingleNestedBlock{
@@ -15067,6 +15184,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"use_mtls": schema.SingleNestedBlock{
 																			MarkdownDescription: "Validation context for downstream client TLS connections.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																			Attributes: map[string]schema.Attribute{
 																				"client_certificate_optional": schema.BoolAttribute{
 																					MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -15166,7 +15284,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"tls_parameters": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for tls parameters.",
-																	Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"no_mtls": schema.SingleNestedBlock{
@@ -15174,7 +15292,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_certificates": schema.ListNestedBlock{
 																			MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-																			Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+																			Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{
 																					"certificate_url": schema.StringAttribute{
@@ -15209,6 +15327,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"private_key": schema.SingleNestedBlock{
 																						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																						Attributes:          map[string]schema.Attribute{},
 																						Blocks: map[string]schema.Block{
 																							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -15259,6 +15378,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_config": schema.SingleNestedBlock{
 																			MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"custom_security": schema.SingleNestedBlock{
@@ -15299,6 +15419,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"use_mtls": schema.SingleNestedBlock{
 																			MarkdownDescription: "Validation context for downstream client TLS connections.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																			Attributes: map[string]schema.Attribute{
 																				"client_certificate_optional": schema.BoolAttribute{
 																					MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -15400,6 +15521,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														},
 														"https_auto_cert": schema.SingleNestedBlock{
 															MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 															Attributes: map[string]schema.Attribute{
 																"add_hsts": schema.BoolAttribute{
 																	MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -15448,6 +15570,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															Blocks: map[string]schema.Block{
 																"coalescing_options": schema.SingleNestedBlock{
 																	MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"default_coalescing": schema.SingleNestedBlock{
@@ -15472,6 +15595,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"http_protocol_options": schema.SingleNestedBlock{
 																	MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -15480,6 +15604,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"header_transformation": schema.SingleNestedBlock{
 																					MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"default_header_transformation": schema.SingleNestedBlock{
@@ -15514,6 +15639,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"tls_config": schema.SingleNestedBlock{
 																	MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"custom_security": schema.SingleNestedBlock{
@@ -15554,6 +15680,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"use_mtls": schema.SingleNestedBlock{
 																	MarkdownDescription: "Validation context for downstream client TLS connections.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																	Attributes: map[string]schema.Attribute{
 																		"client_certificate_optional": schema.BoolAttribute{
 																			MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -15657,11 +15784,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															Blocks: map[string]schema.Block{
 																"routes": schema.ListNestedBlock{
 																	MarkdownDescription: "Routes. Routes for this loadbalancer.",
+																	Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_route_object", "direct_response_route"), validators.ConflictingListObjectAttributes("custom_route_object", "redirect_route"), validators.ConflictingListObjectAttributes("custom_route_object", "simple_route"), validators.ConflictingListObjectAttributes("direct_response_route", "redirect_route"), validators.ConflictingListObjectAttributes("direct_response_route", "simple_route"), validators.ConflictingListObjectAttributes("redirect_route", "simple_route")},
 																	NestedObject: schema.NestedBlockObject{
 																		Attributes: map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"custom_route_object": schema.SingleNestedBlock{
 																				MarkdownDescription: "Custom route uses a route object created outside of this view.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("caching_disable", "caching_inherit")},
 																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"caching_disable": schema.SingleNestedBlock{
@@ -15717,7 +15846,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Blocks: map[string]schema.Block{
 																					"headers": schema.ListNestedBlock{
 																						MarkdownDescription: "Headers. List of (key, value) headers.",
-																						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+																						Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 																						NestedObject: schema.NestedBlockObject{
 																							Attributes: map[string]schema.Attribute{
 																								"exact": schema.StringAttribute{
@@ -15754,6 +15883,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"incoming_port": schema.SingleNestedBlock{
 																						MarkdownDescription: "Port match of the request can be a range or a specific port.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																						Attributes: map[string]schema.Attribute{
 																							"port": schema.Int64Attribute{
 																								MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -15778,6 +15908,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"path": schema.SingleNestedBlock{
 																						MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																						Attributes: map[string]schema.Attribute{
 																							"path": schema.StringAttribute{
 																								MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -15838,7 +15969,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				Blocks: map[string]schema.Block{
 																					"headers": schema.ListNestedBlock{
 																						MarkdownDescription: "Headers. List of (key, value) headers.",
-																						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+																						Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 																						NestedObject: schema.NestedBlockObject{
 																							Attributes: map[string]schema.Attribute{
 																								"exact": schema.StringAttribute{
@@ -15875,6 +16006,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"incoming_port": schema.SingleNestedBlock{
 																						MarkdownDescription: "Port match of the request can be a range or a specific port.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																						Attributes: map[string]schema.Attribute{
 																							"port": schema.Int64Attribute{
 																								MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -15899,6 +16031,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"path": schema.SingleNestedBlock{
 																						MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																						Attributes: map[string]schema.Attribute{
 																							"path": schema.StringAttribute{
 																								MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -15925,6 +16058,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"route_redirect": schema.SingleNestedBlock{
 																						MarkdownDescription: "Route redirect parameters when match action is redirect.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("path_redirect", "prefix_rewrite"), validators.ConflictingObjectAttributes("remove_all_params", "replace_params"), validators.ConflictingObjectAttributes("remove_all_params", "retain_all_params"), validators.ConflictingObjectAttributes("replace_params", "retain_all_params")},
 																						Attributes: map[string]schema.Attribute{
 																							"host_redirect": schema.StringAttribute{
 																								MarkdownDescription: "Swap host part of incoming URL in redirect URL.",
@@ -15979,6 +16113,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			},
 																			"simple_route": schema.SingleNestedBlock{
 																				MarkdownDescription: "Simple route matches on path and/or HTTP method and forwards the matching traffic to the default origin pool specified outside.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_host_rewrite", "disable_host_rewrite"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("disable_host_rewrite", "host_rewrite")},
 																				Attributes: map[string]schema.Attribute{
 																					"host_rewrite": schema.StringAttribute{
 																						MarkdownDescription: "Exclusive with [auto_host_rewrite disable_host_rewrite] Host header will be swapped with this value.",
@@ -16004,6 +16139,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"path": schema.SingleNestedBlock{
 																						MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																						Attributes: map[string]schema.Attribute{
 																							"path": schema.StringAttribute{
 																								MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -16053,7 +16189,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"info": schema.SingleNestedBlock{
 															MarkdownDescription: "Port Information. Port information.",
-															Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("port"), validators.ConflictingObjectAttributes("same_as_port", "target_port")},
 															Attributes: map[string]schema.Attribute{
 																"port": schema.Int64Attribute{
 																	MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -16109,6 +16245,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"advertise_in_cluster": schema.SingleNestedBlock{
 								MarkdownDescription: "Advertise the workload locally in-cluster.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("multi_ports", "port")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"multi_ports": schema.SingleNestedBlock{
@@ -16133,7 +16270,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													Blocks: map[string]schema.Block{
 														"info": schema.SingleNestedBlock{
 															MarkdownDescription: "Port Information. Port information.",
-															Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("port"), validators.ConflictingObjectAttributes("same_as_port", "target_port")},
 															Attributes: map[string]schema.Attribute{
 																"port": schema.Int64Attribute{
 																	MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -16174,7 +16311,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Blocks: map[string]schema.Block{
 											"info": schema.SingleNestedBlock{
 												MarkdownDescription: "Port Information. Port information.",
-												Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("port"), validators.ConflictingObjectAttributes("same_as_port", "target_port")},
 												Attributes: map[string]schema.Attribute{
 													"port": schema.Int64Attribute{
 														MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -16210,6 +16347,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 							"advertise_on_public": schema.SingleNestedBlock{
 								MarkdownDescription: "Advertise this workload via loadbalancer on Internet with default VIP.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("multi_ports", "port")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"multi_ports": schema.SingleNestedBlock{
@@ -16219,12 +16357,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										Blocks: map[string]schema.Block{
 											"ports": schema.ListNestedBlock{
 												MarkdownDescription: "Ports. Ports to advertise.",
+												Validators:          []validator.List{validators.ConflictingListObjectAttributes("http_loadbalancer", "tcp_loadbalancer")},
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"http_loadbalancer": schema.SingleNestedBlock{
 															MarkdownDescription: "Configuration parameter for http loadbalancer.",
-															Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
+															Validators:          []validator.Object{validators.RequiredObjectAttributes("domains"), validators.ConflictingObjectAttributes("default_route", "specific_routes"), validators.ConflictingObjectAttributes("http", "https"), validators.ConflictingObjectAttributes("http", "https_auto_cert"), validators.ConflictingObjectAttributes("https", "https_auto_cert")},
 															Attributes: map[string]schema.Attribute{
 																"domains": schema.ListAttribute{
 																	MarkdownDescription: "List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: `` is invalid Domains are also used for SNI matching if the loadbalancer type is HTTPS Domains also indicate the..",
@@ -16238,6 +16377,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															Blocks: map[string]schema.Block{
 																"default_route": schema.SingleNestedBlock{
 																	MarkdownDescription: "Configuration parameter for default route.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_host_rewrite", "disable_host_rewrite"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("disable_host_rewrite", "host_rewrite")},
 																	Attributes: map[string]schema.Attribute{
 																		"host_rewrite": schema.StringAttribute{
 																			MarkdownDescription: "Exclusive with [auto_host_rewrite disable_host_rewrite] Host header will be swapped with this value.",
@@ -16258,6 +16398,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"http": schema.SingleNestedBlock{
 																	MarkdownDescription: "HTTP Choice. Choice for selecting HTTP proxy.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("port", "port_ranges")},
 																	Attributes: map[string]schema.Attribute{
 																		"dns_volterra_managed": schema.BoolAttribute{
 																			MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal.",
@@ -16281,6 +16422,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"https": schema.SingleNestedBlock{
 																	MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges"), validators.ConflictingObjectAttributes("tls_cert_params", "tls_parameters")},
 																	Attributes: map[string]schema.Attribute{
 																		"add_hsts": schema.BoolAttribute{
 																			MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -16329,6 +16471,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	Blocks: map[string]schema.Block{
 																		"coalescing_options": schema.SingleNestedBlock{
 																			MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"default_coalescing": schema.SingleNestedBlock{
@@ -16353,6 +16496,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"http_protocol_options": schema.SingleNestedBlock{
 																			MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -16361,6 +16505,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"header_transformation": schema.SingleNestedBlock{
 																							MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+																							Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 																							Attributes:          map[string]schema.Attribute{},
 																							Blocks: map[string]schema.Block{
 																								"default_header_transformation": schema.SingleNestedBlock{
@@ -16392,7 +16537,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_cert_params": schema.SingleNestedBlock{
 																			MarkdownDescription: "Configuration parameter for tls cert params.",
-																			Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"certificates": schema.ListNestedBlock{
@@ -16433,6 +16578,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"tls_config": schema.SingleNestedBlock{
 																					MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"custom_security": schema.SingleNestedBlock{
@@ -16473,6 +16619,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"use_mtls": schema.SingleNestedBlock{
 																					MarkdownDescription: "Validation context for downstream client TLS connections.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																					Attributes: map[string]schema.Attribute{
 																						"client_certificate_optional": schema.BoolAttribute{
 																							MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -16572,7 +16719,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_parameters": schema.SingleNestedBlock{
 																			MarkdownDescription: "Configuration parameter for tls parameters.",
-																			Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
+																			Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"no_mtls": schema.SingleNestedBlock{
@@ -16580,7 +16727,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"tls_certificates": schema.ListNestedBlock{
 																					MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-																					Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"certificate_url": schema.StringAttribute{
@@ -16615,6 +16762,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"private_key": schema.SingleNestedBlock{
 																								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																								Attributes:          map[string]schema.Attribute{},
 																								Blocks: map[string]schema.Block{
 																									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -16665,6 +16813,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"tls_config": schema.SingleNestedBlock{
 																					MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"custom_security": schema.SingleNestedBlock{
@@ -16705,6 +16854,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"use_mtls": schema.SingleNestedBlock{
 																					MarkdownDescription: "Validation context for downstream client TLS connections.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																					Attributes: map[string]schema.Attribute{
 																						"client_certificate_optional": schema.BoolAttribute{
 																							MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -16806,6 +16956,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																},
 																"https_auto_cert": schema.SingleNestedBlock{
 																	MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+																	Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																	Attributes: map[string]schema.Attribute{
 																		"add_hsts": schema.BoolAttribute{
 																			MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -16854,6 +17005,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	Blocks: map[string]schema.Block{
 																		"coalescing_options": schema.SingleNestedBlock{
 																			MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"default_coalescing": schema.SingleNestedBlock{
@@ -16878,6 +17030,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"http_protocol_options": schema.SingleNestedBlock{
 																			MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -16886,6 +17039,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					Blocks: map[string]schema.Block{
 																						"header_transformation": schema.SingleNestedBlock{
 																							MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+																							Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 																							Attributes:          map[string]schema.Attribute{},
 																							Blocks: map[string]schema.Block{
 																								"default_header_transformation": schema.SingleNestedBlock{
@@ -16920,6 +17074,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"tls_config": schema.SingleNestedBlock{
 																			MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"custom_security": schema.SingleNestedBlock{
@@ -16960,6 +17115,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"use_mtls": schema.SingleNestedBlock{
 																			MarkdownDescription: "Validation context for downstream client TLS connections.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																			Attributes: map[string]schema.Attribute{
 																				"client_certificate_optional": schema.BoolAttribute{
 																					MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -17063,11 +17219,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	Blocks: map[string]schema.Block{
 																		"routes": schema.ListNestedBlock{
 																			MarkdownDescription: "Routes. Routes for this loadbalancer.",
+																			Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_route_object", "direct_response_route"), validators.ConflictingListObjectAttributes("custom_route_object", "redirect_route"), validators.ConflictingListObjectAttributes("custom_route_object", "simple_route"), validators.ConflictingListObjectAttributes("direct_response_route", "redirect_route"), validators.ConflictingListObjectAttributes("direct_response_route", "simple_route"), validators.ConflictingListObjectAttributes("redirect_route", "simple_route")},
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"custom_route_object": schema.SingleNestedBlock{
 																						MarkdownDescription: "Custom route uses a route object created outside of this view.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("caching_disable", "caching_inherit")},
 																						Attributes:          map[string]schema.Attribute{},
 																						Blocks: map[string]schema.Block{
 																							"caching_disable": schema.SingleNestedBlock{
@@ -17123,7 +17281,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						Blocks: map[string]schema.Block{
 																							"headers": schema.ListNestedBlock{
 																								MarkdownDescription: "Headers. List of (key, value) headers.",
-																								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+																								Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 																								NestedObject: schema.NestedBlockObject{
 																									Attributes: map[string]schema.Attribute{
 																										"exact": schema.StringAttribute{
@@ -17160,6 +17318,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"incoming_port": schema.SingleNestedBlock{
 																								MarkdownDescription: "Port match of the request can be a range or a specific port.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																								Attributes: map[string]schema.Attribute{
 																									"port": schema.Int64Attribute{
 																										MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -17184,6 +17343,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"path": schema.SingleNestedBlock{
 																								MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																								Attributes: map[string]schema.Attribute{
 																									"path": schema.StringAttribute{
 																										MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -17244,7 +17404,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																						Blocks: map[string]schema.Block{
 																							"headers": schema.ListNestedBlock{
 																								MarkdownDescription: "Headers. List of (key, value) headers.",
-																								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+																								Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 																								NestedObject: schema.NestedBlockObject{
 																									Attributes: map[string]schema.Attribute{
 																										"exact": schema.StringAttribute{
@@ -17281,6 +17441,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"incoming_port": schema.SingleNestedBlock{
 																								MarkdownDescription: "Port match of the request can be a range or a specific port.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																								Attributes: map[string]schema.Attribute{
 																									"port": schema.Int64Attribute{
 																										MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -17305,6 +17466,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"path": schema.SingleNestedBlock{
 																								MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																								Attributes: map[string]schema.Attribute{
 																									"path": schema.StringAttribute{
 																										MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -17331,6 +17493,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"route_redirect": schema.SingleNestedBlock{
 																								MarkdownDescription: "Route redirect parameters when match action is redirect.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("path_redirect", "prefix_rewrite"), validators.ConflictingObjectAttributes("remove_all_params", "replace_params"), validators.ConflictingObjectAttributes("remove_all_params", "retain_all_params"), validators.ConflictingObjectAttributes("replace_params", "retain_all_params")},
 																								Attributes: map[string]schema.Attribute{
 																									"host_redirect": schema.StringAttribute{
 																										MarkdownDescription: "Swap host part of incoming URL in redirect URL.",
@@ -17385,6 +17548,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																					},
 																					"simple_route": schema.SingleNestedBlock{
 																						MarkdownDescription: "Simple route matches on path and/or HTTP method and forwards the matching traffic to the default origin pool specified outside.",
+																						Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_host_rewrite", "disable_host_rewrite"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("disable_host_rewrite", "host_rewrite")},
 																						Attributes: map[string]schema.Attribute{
 																							"host_rewrite": schema.StringAttribute{
 																								MarkdownDescription: "Exclusive with [auto_host_rewrite disable_host_rewrite] Host header will be swapped with this value.",
@@ -17410,6 +17574,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																							},
 																							"path": schema.SingleNestedBlock{
 																								MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																								Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																								Attributes: map[string]schema.Attribute{
 																									"path": schema.StringAttribute{
 																										MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -17459,7 +17624,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															Blocks: map[string]schema.Block{
 																"info": schema.SingleNestedBlock{
 																	MarkdownDescription: "Port Information. Port information.",
-																	Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
+																	Validators:          []validator.Object{validators.RequiredObjectAttributes("port"), validators.ConflictingObjectAttributes("same_as_port", "target_port")},
 																	Attributes: map[string]schema.Attribute{
 																		"port": schema.Int64Attribute{
 																			MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -17515,11 +17680,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									},
 									"port": schema.SingleNestedBlock{
 										MarkdownDescription: "Advertise Port. Advertise single port.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_loadbalancer", "tcp_loadbalancer")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"http_loadbalancer": schema.SingleNestedBlock{
 												MarkdownDescription: "Configuration parameter for http loadbalancer.",
-												Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("domains"), validators.ConflictingObjectAttributes("default_route", "specific_routes"), validators.ConflictingObjectAttributes("http", "https"), validators.ConflictingObjectAttributes("http", "https_auto_cert"), validators.ConflictingObjectAttributes("https", "https_auto_cert")},
 												Attributes: map[string]schema.Attribute{
 													"domains": schema.ListAttribute{
 														MarkdownDescription: "List of domains (host/authority header) that will be matched to loadbalancer. Wildcard hosts are supported in the suffix or prefix form Domain search order: 1. Exact domain names: `` is invalid Domains are also used for SNI matching if the loadbalancer type is HTTPS Domains also indicate the..",
@@ -17533,6 +17699,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												Blocks: map[string]schema.Block{
 													"default_route": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for default route.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_host_rewrite", "disable_host_rewrite"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("disable_host_rewrite", "host_rewrite")},
 														Attributes: map[string]schema.Attribute{
 															"host_rewrite": schema.StringAttribute{
 																MarkdownDescription: "Exclusive with [auto_host_rewrite disable_host_rewrite] Host header will be swapped with this value.",
@@ -17553,6 +17720,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 													"http": schema.SingleNestedBlock{
 														MarkdownDescription: "HTTP Choice. Choice for selecting HTTP proxy.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("port", "port_ranges")},
 														Attributes: map[string]schema.Attribute{
 															"dns_volterra_managed": schema.BoolAttribute{
 																MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal.",
@@ -17576,6 +17744,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 													"https": schema.SingleNestedBlock{
 														MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges"), validators.ConflictingObjectAttributes("tls_cert_params", "tls_parameters")},
 														Attributes: map[string]schema.Attribute{
 															"add_hsts": schema.BoolAttribute{
 																MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -17624,6 +17793,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														Blocks: map[string]schema.Block{
 															"coalescing_options": schema.SingleNestedBlock{
 																MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"default_coalescing": schema.SingleNestedBlock{
@@ -17648,6 +17818,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"http_protocol_options": schema.SingleNestedBlock{
 																MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -17656,6 +17827,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		Blocks: map[string]schema.Block{
 																			"header_transformation": schema.SingleNestedBlock{
 																				MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"default_header_transformation": schema.SingleNestedBlock{
@@ -17687,7 +17859,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"tls_cert_params": schema.SingleNestedBlock{
 																MarkdownDescription: "Configuration parameter for tls cert params.",
-																Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"certificates": schema.ListNestedBlock{
@@ -17728,6 +17900,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"tls_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"custom_security": schema.SingleNestedBlock{
@@ -17768,6 +17941,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"use_mtls": schema.SingleNestedBlock{
 																		MarkdownDescription: "Validation context for downstream client TLS connections.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																		Attributes: map[string]schema.Attribute{
 																			"client_certificate_optional": schema.BoolAttribute{
 																				MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -17867,7 +18041,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"tls_parameters": schema.SingleNestedBlock{
 																MarkdownDescription: "Configuration parameter for tls parameters.",
-																Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
+																Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"no_mtls": schema.SingleNestedBlock{
@@ -17875,7 +18049,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"tls_certificates": schema.ListNestedBlock{
 																		MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-																		Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+																		Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 																		NestedObject: schema.NestedBlockObject{
 																			Attributes: map[string]schema.Attribute{
 																				"certificate_url": schema.StringAttribute{
@@ -17910,6 +18084,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"private_key": schema.SingleNestedBlock{
 																					MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																					Attributes:          map[string]schema.Attribute{},
 																					Blocks: map[string]schema.Block{
 																						"blindfold_secret_info": schema.SingleNestedBlock{
@@ -17960,6 +18135,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"tls_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"custom_security": schema.SingleNestedBlock{
@@ -18000,6 +18176,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																	},
 																	"use_mtls": schema.SingleNestedBlock{
 																		MarkdownDescription: "Validation context for downstream client TLS connections.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																		Attributes: map[string]schema.Attribute{
 																			"client_certificate_optional": schema.BoolAttribute{
 																				MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -18101,6 +18278,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													},
 													"https_auto_cert": schema.SingleNestedBlock{
 														MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 														Attributes: map[string]schema.Attribute{
 															"add_hsts": schema.BoolAttribute{
 																MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -18149,6 +18327,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														Blocks: map[string]schema.Block{
 															"coalescing_options": schema.SingleNestedBlock{
 																MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"default_coalescing": schema.SingleNestedBlock{
@@ -18173,6 +18352,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"http_protocol_options": schema.SingleNestedBlock{
 																MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -18181,6 +18361,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		Blocks: map[string]schema.Block{
 																			"header_transformation": schema.SingleNestedBlock{
 																				MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"default_header_transformation": schema.SingleNestedBlock{
@@ -18215,6 +18396,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"tls_config": schema.SingleNestedBlock{
 																MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"custom_security": schema.SingleNestedBlock{
@@ -18255,6 +18437,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 															},
 															"use_mtls": schema.SingleNestedBlock{
 																MarkdownDescription: "Validation context for downstream client TLS connections.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 																Attributes: map[string]schema.Attribute{
 																	"client_certificate_optional": schema.BoolAttribute{
 																		MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -18358,11 +18541,13 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 														Blocks: map[string]schema.Block{
 															"routes": schema.ListNestedBlock{
 																MarkdownDescription: "Routes. Routes for this loadbalancer.",
+																Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_route_object", "direct_response_route"), validators.ConflictingListObjectAttributes("custom_route_object", "redirect_route"), validators.ConflictingListObjectAttributes("custom_route_object", "simple_route"), validators.ConflictingListObjectAttributes("direct_response_route", "redirect_route"), validators.ConflictingListObjectAttributes("direct_response_route", "simple_route"), validators.ConflictingListObjectAttributes("redirect_route", "simple_route")},
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"custom_route_object": schema.SingleNestedBlock{
 																			MarkdownDescription: "Custom route uses a route object created outside of this view.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("caching_disable", "caching_inherit")},
 																			Attributes:          map[string]schema.Attribute{},
 																			Blocks: map[string]schema.Block{
 																				"caching_disable": schema.SingleNestedBlock{
@@ -18418,7 +18603,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"headers": schema.ListNestedBlock{
 																					MarkdownDescription: "Headers. List of (key, value) headers.",
-																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"exact": schema.StringAttribute{
@@ -18455,6 +18640,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"incoming_port": schema.SingleNestedBlock{
 																					MarkdownDescription: "Port match of the request can be a range or a specific port.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																					Attributes: map[string]schema.Attribute{
 																						"port": schema.Int64Attribute{
 																							MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -18479,6 +18665,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"path": schema.SingleNestedBlock{
 																					MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																					Attributes: map[string]schema.Attribute{
 																						"path": schema.StringAttribute{
 																							MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -18539,7 +18726,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																			Blocks: map[string]schema.Block{
 																				"headers": schema.ListNestedBlock{
 																					MarkdownDescription: "Headers. List of (key, value) headers.",
-																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+																					Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 																					NestedObject: schema.NestedBlockObject{
 																						Attributes: map[string]schema.Attribute{
 																							"exact": schema.StringAttribute{
@@ -18576,6 +18763,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"incoming_port": schema.SingleNestedBlock{
 																					MarkdownDescription: "Port match of the request can be a range or a specific port.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 																					Attributes: map[string]schema.Attribute{
 																						"port": schema.Int64Attribute{
 																							MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -18600,6 +18788,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"path": schema.SingleNestedBlock{
 																					MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																					Attributes: map[string]schema.Attribute{
 																						"path": schema.StringAttribute{
 																							MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -18626,6 +18815,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"route_redirect": schema.SingleNestedBlock{
 																					MarkdownDescription: "Route redirect parameters when match action is redirect.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("path_redirect", "prefix_rewrite"), validators.ConflictingObjectAttributes("remove_all_params", "replace_params"), validators.ConflictingObjectAttributes("remove_all_params", "retain_all_params"), validators.ConflictingObjectAttributes("replace_params", "retain_all_params")},
 																					Attributes: map[string]schema.Attribute{
 																						"host_redirect": schema.StringAttribute{
 																							MarkdownDescription: "Swap host part of incoming URL in redirect URL.",
@@ -18680,6 +18870,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																		},
 																		"simple_route": schema.SingleNestedBlock{
 																			MarkdownDescription: "Simple route matches on path and/or HTTP method and forwards the matching traffic to the default origin pool specified outside.",
+																			Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_host_rewrite", "disable_host_rewrite"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("disable_host_rewrite", "host_rewrite")},
 																			Attributes: map[string]schema.Attribute{
 																				"host_rewrite": schema.StringAttribute{
 																					MarkdownDescription: "Exclusive with [auto_host_rewrite disable_host_rewrite] Host header will be swapped with this value.",
@@ -18705,6 +18896,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 																				},
 																				"path": schema.SingleNestedBlock{
 																					MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+																					Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 																					Attributes: map[string]schema.Attribute{
 																						"path": schema.StringAttribute{
 																							MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -18744,7 +18936,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												Blocks: map[string]schema.Block{
 													"info": schema.SingleNestedBlock{
 														MarkdownDescription: "Port Information. Port information.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("port")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("port"), validators.ConflictingObjectAttributes("same_as_port", "target_port")},
 														Attributes: map[string]schema.Attribute{
 															"port": schema.Int64Attribute{
 																MarkdownDescription: "Port. Port the workload can be reached on.",
@@ -18808,6 +19000,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 						Blocks: map[string]schema.Block{
 							"parameters": schema.ListNestedBlock{
 								MarkdownDescription: "Parameters. Parameters for the workload.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("env_var", "file")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -18893,7 +19086,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"containers": schema.ListNestedBlock{
 						MarkdownDescription: "Containers. Containers to use for service.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("custom_flavor", "default_flavor"), validators.ConflictingListObjectAttributes("custom_flavor", "flavor"), validators.ConflictingListObjectAttributes("default_flavor", "flavor")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"args": schema.ListAttribute{
@@ -18968,7 +19161,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"image": schema.SingleNestedBlock{
 									MarkdownDescription: "ImageType configures the image to use, how to pull the image, and the associated secrets to use if any.",
-									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("name"), validators.ConflictingObjectAttributes("container_registry", "public")},
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
 											MarkdownDescription: "Name is a container image which are usually given a name such as alpine, ubuntu, or quay.I/O/etcd:0.13. The format is registry/image:tag or registry/image@image-digest. If registry is not specified, the Docker public registry is assumed.",
@@ -19024,7 +19217,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"liveness_check": schema.SingleNestedBlock{
 									MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
-									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold"), validators.ConflictingObjectAttributes("exec_health_check", "http_health_check"), validators.ConflictingObjectAttributes("exec_health_check", "tcp_health_check"), validators.ConflictingObjectAttributes("http_health_check", "tcp_health_check")},
 									Attributes: map[string]schema.Attribute{
 										"healthy_threshold": schema.Int64Attribute{
 											MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -19104,6 +19297,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -19130,6 +19324,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -19154,7 +19349,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"readiness_check": schema.SingleNestedBlock{
 									MarkdownDescription: "HealthCheckType describes a health check to be performed against a container to determine whether it has started up or is alive or ready to receive traffic.",
-									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("healthy_threshold", "interval", "timeout", "unhealthy_threshold"), validators.ConflictingObjectAttributes("exec_health_check", "http_health_check"), validators.ConflictingObjectAttributes("exec_health_check", "tcp_health_check"), validators.ConflictingObjectAttributes("http_health_check", "tcp_health_check")},
 									Attributes: map[string]schema.Attribute{
 										"healthy_threshold": schema.Int64Attribute{
 											MarkdownDescription: "Number of consecutive successful responses after having failed before declaring healthy. In other words, this is the number of healthy health checks required before marking healthy. Note that during startup and liveliness, only a single successful health check is required to mark a container..",
@@ -19234,6 +19429,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -19260,6 +19456,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											Blocks: map[string]schema.Block{
 												"port": schema.SingleNestedBlock{
 													MarkdownDescription: "Port. Port",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("name", "num")},
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
 															MarkdownDescription: "Port Name. Exclusive with [num] Port Name.",
@@ -19287,6 +19484,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"deploy_options": schema.SingleNestedBlock{
 						MarkdownDescription: "Deploy OPTIONS are used to configure the workload deployment OPTIONS.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_res", "default_virtual_sites"), validators.ConflictingObjectAttributes("all_res", "deploy_ce_sites"), validators.ConflictingObjectAttributes("all_res", "deploy_ce_virtual_sites"), validators.ConflictingObjectAttributes("all_res", "deploy_re_sites"), validators.ConflictingObjectAttributes("all_res", "deploy_re_virtual_sites"), validators.ConflictingObjectAttributes("default_virtual_sites", "deploy_ce_sites"), validators.ConflictingObjectAttributes("default_virtual_sites", "deploy_ce_virtual_sites"), validators.ConflictingObjectAttributes("default_virtual_sites", "deploy_re_sites"), validators.ConflictingObjectAttributes("default_virtual_sites", "deploy_re_virtual_sites"), validators.ConflictingObjectAttributes("deploy_ce_sites", "deploy_ce_virtual_sites"), validators.ConflictingObjectAttributes("deploy_ce_sites", "deploy_re_sites"), validators.ConflictingObjectAttributes("deploy_ce_sites", "deploy_re_virtual_sites"), validators.ConflictingObjectAttributes("deploy_ce_virtual_sites", "deploy_re_sites"), validators.ConflictingObjectAttributes("deploy_ce_virtual_sites", "deploy_re_virtual_sites"), validators.ConflictingObjectAttributes("deploy_re_sites", "deploy_re_virtual_sites")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"all_res": schema.SingleNestedBlock{
@@ -19504,7 +19702,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"storage": schema.SingleNestedBlock{
 											MarkdownDescription: "Persistent storage configuration is used to configure Persistent Volume Claim (PVC).",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_size")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_size"), validators.ConflictingObjectAttributes("class_name", "default")},
 											Attributes: map[string]schema.Attribute{
 												"access_mode": schema.StringAttribute{
 													MarkdownDescription: "[Enum: ACCESS_MODE_READ_WRITE_ONCE|ACCESS_MODE_READ_WRITE_MANY|ACCESS_MODE_READ_ONLY_MANY] Persistence storage access mode is used to configure access mode for persistent storage - ACCESS_MODE_READ_WRITE_ONCE: Read Write Once Read Write Once is used to mount persistent storage in read/write mode to exactly 1 host - ACCESS_MODE_READ_WRITE_MANY: Read Write Many Read Write Many is used.. Possible values are `ACCESS_MODE_READ_WRITE_ONCE`, `ACCESS_MODE_READ_WRITE_MANY`, `ACCESS_MODE_READ_ONLY_MANY`. Defaults to `ACCESS_MODE_READ_WRITE_ONCE`.",
@@ -19541,6 +19739,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"volumes": schema.ListNestedBlock{
 						MarkdownDescription: "Ephemeral Volumes. Ephemeral volumes for the service.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("empty_dir", "host_path")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"name": schema.StringAttribute{

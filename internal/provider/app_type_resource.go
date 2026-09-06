@@ -160,6 +160,7 @@ func (r *AppTypeResource) Schema(ctx context.Context, req resource.SchemaRequest
 			}),
 			"business_logic_markup_setting": schema.SingleNestedBlock{
 				MarkdownDescription: "Settings specifying how API Discovery will be performed.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{

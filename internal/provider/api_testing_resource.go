@@ -396,7 +396,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 					Blocks: map[string]schema.Block{
 						"credentials": schema.ListNestedBlock{
 							MarkdownDescription: "Add credentials for API testing to use in the selected environment.",
-							Validators:          []validator.List{validators.RequiredListObjectAttributes("credential_name")},
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("credential_name"), validators.ConflictingListObjectAttributes("admin", "standard"), validators.ConflictingListObjectAttributes("api_key", "basic_auth"), validators.ConflictingListObjectAttributes("api_key", "bearer_token"), validators.ConflictingListObjectAttributes("api_key", "login_endpoint"), validators.ConflictingListObjectAttributes("basic_auth", "bearer_token"), validators.ConflictingListObjectAttributes("basic_auth", "login_endpoint"), validators.ConflictingListObjectAttributes("bearer_token", "login_endpoint")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"credential_name": schema.StringAttribute{
@@ -426,6 +426,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										Blocks: map[string]schema.Block{
 											"value": schema.SingleNestedBlock{
 												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
@@ -485,6 +486,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										Blocks: map[string]schema.Block{
 											"password": schema.SingleNestedBlock{
 												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
@@ -535,6 +537,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										Blocks: map[string]schema.Block{
 											"token": schema.SingleNestedBlock{
 												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
@@ -605,6 +608,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										Blocks: map[string]schema.Block{
 											"json_payload": schema.SingleNestedBlock{
 												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{

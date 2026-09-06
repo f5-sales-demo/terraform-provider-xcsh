@@ -1675,6 +1675,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			}),
 			"admin_password": schema.SingleNestedBlock{
 				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1728,6 +1729,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Blocks: map[string]schema.Block{
 					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("dns", "ssh"), validators.ConflictingListObjectAttributes("dns", "web_user_interface"), validators.ConflictingListObjectAttributes("ssh", "web_user_interface")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"network_type": schema.StringAttribute{
@@ -1844,7 +1846,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"ingress_egress_gw": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: ingress_egress_gw, ingress_gw, voltstack_cluster] Configuration parameter for ingress egress gw.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("gcp_certified_hw", "gcp_zone_names")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("gcp_certified_hw", "gcp_zone_names"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "dc_cluster_group_outside_vn"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("dc_cluster_group_outside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("inside_static_routes", "no_inside_static_routes"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{
 					"gcp_certified_hw": schema.StringAttribute{
@@ -2061,6 +2063,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -2145,6 +2148,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"inside_network": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_network", "new_network"), validators.ConflictingObjectAttributes("existing_network", "new_network_autogenerate"), validators.ConflictingObjectAttributes("new_network", "new_network_autogenerate")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"existing_network": schema.SingleNestedBlock{
@@ -2185,6 +2189,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -2259,6 +2264,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -2293,6 +2299,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -2348,6 +2355,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"inside_subnet": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet", "new_subnet")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"existing_subnet": schema.SingleNestedBlock{
@@ -2402,6 +2410,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"outside_network": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_network", "new_network"), validators.ConflictingObjectAttributes("existing_network", "new_network_autogenerate"), validators.ConflictingObjectAttributes("new_network", "new_network_autogenerate")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"existing_network": schema.SingleNestedBlock{
@@ -2442,6 +2451,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -2516,6 +2526,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -2550,6 +2561,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -2605,6 +2617,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"outside_subnet": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet", "new_subnet")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"existing_subnet": schema.SingleNestedBlock{
@@ -2641,10 +2654,12 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"performance_enhancement_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"jumbo": schema.SingleNestedBlock{
@@ -2657,6 +2672,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"jumbo_disabled": schema.SingleNestedBlock{
@@ -2706,6 +2722,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Blocks: map[string]schema.Block{
 					"local_network": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_network", "new_network"), validators.ConflictingObjectAttributes("existing_network", "new_network_autogenerate"), validators.ConflictingObjectAttributes("new_network", "new_network_autogenerate")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"existing_network": schema.SingleNestedBlock{
@@ -2741,6 +2758,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"local_subnet": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet", "new_subnet")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"existing_subnet": schema.SingleNestedBlock{
@@ -2777,10 +2795,12 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"performance_enhancement_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"jumbo": schema.SingleNestedBlock{
@@ -2793,6 +2813,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"jumbo_disabled": schema.SingleNestedBlock{
@@ -2809,6 +2830,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_upgrade_drain", "enable_upgrade_drain")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -2817,7 +2839,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout"), validators.ConflictingObjectAttributes("disable_vega_upgrade_mode", "enable_vega_upgrade_mode"), validators.ConflictingObjectAttributes("drain_max_unavailable_node_count", "drain_max_unavailable_node_percentage")},
 						Attributes: map[string]schema.Attribute{
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
@@ -2886,6 +2908,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"offline_survivability_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing configuration for upto 7..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("enable_offline_survivability_mode", "no_offline_survivability_mode")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -2899,6 +2922,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"os": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_os_version", "operating_system_version")},
 
 				Attributes: map[string]schema.Attribute{
 					"operating_system_version": schema.StringAttribute{
@@ -2920,6 +2944,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"private_connectivity": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for private connectivity.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside", "outside")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -2964,6 +2989,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"sw": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_sw_version", "volterra_software_version")},
 
 				Attributes: map[string]schema.Attribute{
 					"volterra_software_version": schema.StringAttribute{
@@ -2982,7 +3008,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"voltstack_cluster": schema.SingleNestedBlock{
 				MarkdownDescription: "App Stack cluster of single interface GCP site.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("gcp_certified_hw", "gcp_zone_names")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("gcp_certified_hw", "gcp_zone_names"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("dc_cluster_group", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("default_storage", "storage_class_list"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("k8s_cluster", "no_k8s_cluster"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{
 					"gcp_certified_hw": schema.StringAttribute{
@@ -3171,6 +3197,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -3309,6 +3336,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -3383,6 +3411,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -3417,6 +3446,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -3472,6 +3502,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"site_local_network": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_network", "new_network"), validators.ConflictingObjectAttributes("existing_network", "new_network_autogenerate"), validators.ConflictingObjectAttributes("new_network", "new_network_autogenerate")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"existing_network": schema.SingleNestedBlock{
@@ -3507,6 +3538,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"site_local_subnet": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet", "new_subnet")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"existing_subnet": schema.SingleNestedBlock{

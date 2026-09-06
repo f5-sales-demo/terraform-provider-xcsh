@@ -1638,7 +1638,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"dynamic_proxy": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: dynamic_proxy, http_proxy] Configuration parameter for dynamic proxy.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("domains"), validators.ConflictingObjectAttributes("disable_dns_masquerade", "enable_dns_masquerade"), validators.ConflictingObjectAttributes("http_proxy", "https_proxy"), validators.ConflictingObjectAttributes("http_proxy", "sni_proxy"), validators.ConflictingObjectAttributes("https_proxy", "sni_proxy")},
 
 				Attributes: map[string]schema.Attribute{
 					"domains": schema.ListAttribute{
@@ -1663,6 +1663,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						Blocks: map[string]schema.Block{
 							"more_option": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to define a route.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("max_requests_per_connection", "no_request_limit_per_connection")},
 								Attributes: map[string]schema.Attribute{
 									"custom_errors": schema.MapAttribute{
 										MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
@@ -1784,7 +1785,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"request_cookies_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -1809,6 +1810,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"secret_value": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1856,7 +1858,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"request_headers_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"append": schema.BoolAttribute{
@@ -1881,6 +1883,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"secret_value": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1928,7 +1931,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"response_cookies_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("add_domain", "ignore_domain"), validators.ConflictingListObjectAttributes("add_expiry", "ignore_expiry"), validators.ConflictingListObjectAttributes("add_httponly", "ignore_httponly"), validators.ConflictingListObjectAttributes("add_partitioned", "ignore_partitioned"), validators.ConflictingListObjectAttributes("add_path", "ignore_path"), validators.ConflictingListObjectAttributes("add_secure", "ignore_secure"), validators.ConflictingListObjectAttributes("ignore_max_age", "max_age_value"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_lax"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_none"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_strict"), validators.ConflictingListObjectAttributes("ignore_value", "secret_value"), validators.ConflictingListObjectAttributes("ignore_value", "value"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_none"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_strict"), validators.ConflictingListObjectAttributes("samesite_none", "samesite_strict"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"add_domain": schema.StringAttribute{
@@ -2026,6 +2029,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"secret_value": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2073,7 +2077,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"response_headers_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied after headers from matched Route are applied.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"append": schema.BoolAttribute{
@@ -2098,6 +2102,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"secret_value": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2153,6 +2158,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						Blocks: map[string]schema.Block{
 							"more_option": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to define a route.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("max_requests_per_connection", "no_request_limit_per_connection")},
 								Attributes: map[string]schema.Attribute{
 									"custom_errors": schema.MapAttribute{
 										MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
@@ -2274,7 +2280,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"request_cookies_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"name": schema.StringAttribute{
@@ -2299,6 +2305,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"secret_value": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2346,7 +2353,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"request_headers_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"append": schema.BoolAttribute{
@@ -2371,6 +2378,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"secret_value": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2418,7 +2426,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"response_cookies_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("add_domain", "ignore_domain"), validators.ConflictingListObjectAttributes("add_expiry", "ignore_expiry"), validators.ConflictingListObjectAttributes("add_httponly", "ignore_httponly"), validators.ConflictingListObjectAttributes("add_partitioned", "ignore_partitioned"), validators.ConflictingListObjectAttributes("add_path", "ignore_path"), validators.ConflictingListObjectAttributes("add_secure", "ignore_secure"), validators.ConflictingListObjectAttributes("ignore_max_age", "max_age_value"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_lax"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_none"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_strict"), validators.ConflictingListObjectAttributes("ignore_value", "secret_value"), validators.ConflictingListObjectAttributes("ignore_value", "value"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_none"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_strict"), validators.ConflictingListObjectAttributes("samesite_none", "samesite_strict"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"add_domain": schema.StringAttribute{
@@ -2516,6 +2524,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"secret_value": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2563,7 +2572,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"response_headers_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied after headers from matched Route are applied.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"append": schema.BoolAttribute{
@@ -2588,6 +2597,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"secret_value": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2637,7 +2647,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							},
 							"tls_params": schema.SingleNestedBlock{
 								MarkdownDescription: "Inline TLS Parameters. Inline TLS parameters.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"no_mtls": schema.SingleNestedBlock{
@@ -2645,7 +2655,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"tls_certificates": schema.ListNestedBlock{
 										MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"certificate_url": schema.StringAttribute{
@@ -2680,6 +2690,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"private_key": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2730,6 +2741,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"tls_config": schema.SingleNestedBlock{
 										MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"custom_security": schema.SingleNestedBlock{
@@ -2770,6 +2782,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"use_mtls": schema.SingleNestedBlock{
 										MarkdownDescription: "Validation context for downstream client TLS connections.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 										Attributes: map[string]schema.Attribute{
 											"client_certificate_optional": schema.BoolAttribute{
 												MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -2893,6 +2906,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					},
 					"more_option": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines various OPTIONS to define a route.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("max_requests_per_connection", "no_request_limit_per_connection")},
 						Attributes: map[string]schema.Attribute{
 							"custom_errors": schema.MapAttribute{
 								MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
@@ -3014,7 +3028,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							},
 							"request_cookies_to_add": schema.ListNestedBlock{
 								MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -3039,6 +3053,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									Blocks: map[string]schema.Block{
 										"secret_value": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3086,7 +3101,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							},
 							"request_headers_to_add": schema.ListNestedBlock{
 								MarkdownDescription: "Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"append": schema.BoolAttribute{
@@ -3111,6 +3126,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									Blocks: map[string]schema.Block{
 										"secret_value": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3158,7 +3174,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							},
 							"response_cookies_to_add": schema.ListNestedBlock{
 								MarkdownDescription: "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("add_domain", "ignore_domain"), validators.ConflictingListObjectAttributes("add_expiry", "ignore_expiry"), validators.ConflictingListObjectAttributes("add_httponly", "ignore_httponly"), validators.ConflictingListObjectAttributes("add_partitioned", "ignore_partitioned"), validators.ConflictingListObjectAttributes("add_path", "ignore_path"), validators.ConflictingListObjectAttributes("add_secure", "ignore_secure"), validators.ConflictingListObjectAttributes("ignore_max_age", "max_age_value"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_lax"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_none"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_strict"), validators.ConflictingListObjectAttributes("ignore_value", "secret_value"), validators.ConflictingListObjectAttributes("ignore_value", "value"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_none"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_strict"), validators.ConflictingListObjectAttributes("samesite_none", "samesite_strict"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"add_domain": schema.StringAttribute{
@@ -3256,6 +3272,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 										"secret_value": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3303,7 +3320,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							},
 							"response_headers_to_add": schema.ListNestedBlock{
 								MarkdownDescription: "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied after headers from matched Route are applied.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"append": schema.BoolAttribute{
@@ -3328,6 +3345,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									Blocks: map[string]schema.Block{
 										"secret_value": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3397,6 +3415,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Blocks: map[string]schema.Block{
 					"advertise_where": schema.ListNestedBlock{
 						MarkdownDescription: "Where should this load balancer be available.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("port", "use_default_port"), validators.ConflictingListObjectAttributes("site", "virtual_site")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"port": schema.Int64Attribute{
@@ -3516,6 +3535,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"tls_intercept": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration to enable TLS interception.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_certificate", "volterra_certificate"), validators.ConflictingObjectAttributes("enable_for_all_domains", "policy"), validators.ConflictingObjectAttributes("trusted_ca_url", "volterra_trusted_ca")},
 
 				Attributes: map[string]schema.Attribute{
 					"trusted_ca_url": schema.StringAttribute{
@@ -3529,7 +3549,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Blocks: map[string]schema.Block{
 					"custom_certificate": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for custom certificate.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("certificate_url")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("certificate_url"), validators.ConflictingObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 						Attributes: map[string]schema.Attribute{
 							"certificate_url": schema.StringAttribute{
 								MarkdownDescription: "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
@@ -3563,6 +3583,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							},
 							"private_key": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3620,6 +3641,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						Blocks: map[string]schema.Block{
 							"interception_rules": schema.ListNestedBlock{
 								MarkdownDescription: "List of ordered rules to enable or disable for TLS interception.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("disable_interception", "enable_interception")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -3628,6 +3650,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 										"domain_match": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for domain match.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
 											Attributes: map[string]schema.Attribute{
 												"exact_value": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",

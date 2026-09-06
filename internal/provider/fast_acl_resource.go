@@ -545,6 +545,7 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"re_acl": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: re_acl, site_acl] Fast ACL for RE. Fast ACL definition for RE.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_public_vips", "default_tenant_vip"), validators.ConflictingObjectAttributes("all_public_vips", "selected_tenant_vip"), validators.ConflictingObjectAttributes("default_tenant_vip", "selected_tenant_vip")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -556,11 +557,13 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 					},
 					"fast_acl_rules": schema.ListNestedBlock{
 						MarkdownDescription: "Rules. Fast ACL rules to match. Defaults to `[]`. Server applies default when omitted.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("ip_prefix_set", "prefix")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"action": schema.SingleNestedBlock{
 									MarkdownDescription: "FastAclRuleAction specifies possible action to be applied on traffic, possible action include dropping, forwarding or ratelimiting the traffic.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("policer_action", "protocol_policer_action"), validators.ConflictingObjectAttributes("policer_action", "simple_action"), validators.ConflictingObjectAttributes("protocol_policer_action", "simple_action")},
 									Attributes: map[string]schema.Attribute{
 										"simple_action": schema.StringAttribute{
 											MarkdownDescription: "[Enum: DENY|ALLOW] FastAclRuleSimpleAction specifies simple action like PASS or DENY Drop the traffic Forward the traffic. Possible values are `DENY`, `ALLOW`. Defaults to `DENY`.",
@@ -718,6 +721,7 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"port": schema.ListNestedBlock{
 									MarkdownDescription: "Source Ports. L4 port numbers to match.",
+									Validators:          []validator.List{validators.ConflictingListObjectAttributes("all", "dns"), validators.ConflictingListObjectAttributes("all", "user_defined"), validators.ConflictingListObjectAttributes("dns", "user_defined")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"user_defined": schema.Int64Attribute{
@@ -803,6 +807,7 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"site_acl": schema.SingleNestedBlock{
 				MarkdownDescription: "Fast ACL for Site. Fast ACL definition for Site.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_services", "interface_services"), validators.ConflictingObjectAttributes("all_services", "vip_services"), validators.ConflictingObjectAttributes("inside_network", "outside_network"), validators.ConflictingObjectAttributes("interface_services", "vip_services")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -811,11 +816,13 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 					},
 					"fast_acl_rules": schema.ListNestedBlock{
 						MarkdownDescription: "Rules. Fast ACL rules to match.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("ip_prefix_set", "prefix")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"action": schema.SingleNestedBlock{
 									MarkdownDescription: "FastAclRuleAction specifies possible action to be applied on traffic, possible action include dropping, forwarding or ratelimiting the traffic.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("policer_action", "protocol_policer_action"), validators.ConflictingObjectAttributes("policer_action", "simple_action"), validators.ConflictingObjectAttributes("protocol_policer_action", "simple_action")},
 									Attributes: map[string]schema.Attribute{
 										"simple_action": schema.StringAttribute{
 											MarkdownDescription: "[Enum: DENY|ALLOW] FastAclRuleSimpleAction specifies simple action like PASS or DENY Drop the traffic Forward the traffic. Possible values are `DENY`, `ALLOW`. Defaults to `DENY`.",
@@ -973,6 +980,7 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"port": schema.ListNestedBlock{
 									MarkdownDescription: "Source Ports. L4 port numbers to match.",
+									Validators:          []validator.List{validators.ConflictingListObjectAttributes("all", "dns"), validators.ConflictingListObjectAttributes("all", "user_defined"), validators.ConflictingListObjectAttributes("dns", "user_defined")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"user_defined": schema.Int64Attribute{

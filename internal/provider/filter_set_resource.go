@@ -188,7 +188,7 @@ func (r *FilterSetResource) Schema(ctx context.Context, req resource.SchemaReque
 			}),
 			"filter_fields": schema.ListNestedBlock{
 				MarkdownDescription: "List of fields and their values selected by the user.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("field_id")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("field_id"), validators.ConflictingListObjectAttributes("date_field", "filter_expression_field"), validators.ConflictingListObjectAttributes("date_field", "string_field"), validators.ConflictingListObjectAttributes("filter_expression_field", "string_field")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -200,6 +200,7 @@ func (r *FilterSetResource) Schema(ctx context.Context, req resource.SchemaReque
 					Blocks: map[string]schema.Block{
 						"date_field": schema.SingleNestedBlock{
 							MarkdownDescription: "Either an absolute time range or a relative time interval.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("absolute", "relative")},
 							Attributes: map[string]schema.Attribute{
 								"relative": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [absolute] relative time duration.",

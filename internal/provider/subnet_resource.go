@@ -201,6 +201,7 @@ func (r *SubnetResource) Schema(ctx context.Context, req resource.SchemaRequest,
 			}),
 			"site_subnet_params": schema.ListNestedBlock{
 				MarkdownDescription: "Site Subnet Parameters. Configure subnet parameters per site.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("dhcp", "static_ip")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{},

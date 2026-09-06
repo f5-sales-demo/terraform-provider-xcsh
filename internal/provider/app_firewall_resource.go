@@ -438,6 +438,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 				Blocks: map[string]schema.Block{
 					"anonymization_config": schema.ListNestedBlock{
 						MarkdownDescription: "List of HTTP headers, cookies and query parameters whose values will be masked.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("cookie", "http_header"), validators.ConflictingListObjectAttributes("cookie", "query_parameter"), validators.ConflictingListObjectAttributes("http_header", "query_parameter")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
@@ -484,6 +485,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"detection_settings": schema.SingleNestedBlock{
 				MarkdownDescription: "Specifies detection settings to be used by WAF.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("bot_protection_setting", "default_bot_setting"), validators.ConflictingObjectAttributes("default_violation_settings", "violation_settings"), validators.ConflictingObjectAttributes("disable_staging", "stage_new_and_updated_signatures"), validators.ConflictingObjectAttributes("disable_staging", "stage_new_signatures"), validators.ConflictingObjectAttributes("disable_suppression", "enable_suppression"), validators.ConflictingObjectAttributes("disable_threat_campaigns", "enable_threat_campaigns"), validators.ConflictingObjectAttributes("stage_new_and_updated_signatures", "stage_new_signatures")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -536,6 +538,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 					"signature_selection_setting": schema.SingleNestedBlock{
 						MarkdownDescription: "Attack Signatures are patterns that identify attacks on a web application and its components.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("attack_type_settings", "default_attack_type_settings"), validators.ConflictingObjectAttributes("high_medium_accuracy_signatures", "high_medium_low_accuracy_signatures"), validators.ConflictingObjectAttributes("high_medium_accuracy_signatures", "only_high_accuracy_signatures"), validators.ConflictingObjectAttributes("high_medium_low_accuracy_signatures", "only_high_accuracy_signatures")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"attack_type_settings": schema.SingleNestedBlock{
@@ -644,6 +647,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"enable_ai_enhancements": schema.SingleNestedBlock{
 				MarkdownDescription: "Actions complimented by the additional intelligence of the F5 AI Powered Risk-based analysis.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("mitigate_high_medium_risk_action", "mitigate_high_risk_action")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{

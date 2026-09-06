@@ -359,7 +359,7 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 			}),
 			"aws_assume_role": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: aws_assume_role, aws_secret_key, azure_client_secret, azure_pfx_certificate, gcp_cred_file] AWS Assume Role to Handle Delegated Access.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("duration_seconds", "role_arn", "session_name")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("duration_seconds", "role_arn", "session_name"), validators.ConflictingObjectAttributes("custom_external_id", "external_id_is_optional"), validators.ConflictingObjectAttributes("custom_external_id", "external_id_is_tenant_id"), validators.ConflictingObjectAttributes("external_id_is_optional", "external_id_is_tenant_id")},
 
 				Attributes: map[string]schema.Attribute{
 					"custom_external_id": schema.StringAttribute{
@@ -421,6 +421,7 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 				Blocks: map[string]schema.Block{
 					"secret_key": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -495,6 +496,7 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 				Blocks: map[string]schema.Block{
 					"client_secret": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -576,6 +578,7 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 				Blocks: map[string]schema.Block{
 					"password": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -627,6 +630,7 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 				Blocks: map[string]schema.Block{
 					"credential_file": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{

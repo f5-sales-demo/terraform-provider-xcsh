@@ -148,6 +148,7 @@ func (r *K8SPodSecurityAdmissionResource) Schema(ctx context.Context, req resour
 			}),
 			"pod_security_admission_specs": schema.ListNestedBlock{
 				MarkdownDescription: "K8s Pod Security Admission. Uniform Resource Identifier",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("audit", "enforce"), validators.ConflictingListObjectAttributes("audit", "warn"), validators.ConflictingListObjectAttributes("baseline", "privileged"), validators.ConflictingListObjectAttributes("baseline", "restricted"), validators.ConflictingListObjectAttributes("enforce", "warn"), validators.ConflictingListObjectAttributes("privileged", "restricted")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{},

@@ -215,7 +215,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"http_health_check": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: http_health_check, tcp_health_check, udp_icmp_health_check] Healthy if 'GET' method on URL 'HTTP(s)://<host>/<path>' with optional '<header>' returns success. 'host' is not used for DNS resolution. It is used as HTTP Header in the request.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("path"), validators.ConflictingObjectAttributes("host_header", "use_origin_server_name")},
 
 				Attributes: map[string]schema.Attribute{
 					"expected_response": schema.StringAttribute{

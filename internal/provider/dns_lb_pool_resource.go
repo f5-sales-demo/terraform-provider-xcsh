@@ -345,7 +345,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 			}),
 			"a_pool": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: a_pool, aaaa_pool, cname_pool, mx_pool, srv_pool] Pool for A Record.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("max_answers", "members")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("max_answers", "members"), validators.ConflictingObjectAttributes("disable_health_check", "health_check")},
 
 				Attributes: map[string]schema.Attribute{
 					"max_answers": schema.Int64Attribute{
@@ -493,7 +493,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"cname_pool": schema.SingleNestedBlock{
 				MarkdownDescription: "Pool for CNAME Record.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("members")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("members"), validators.ConflictingObjectAttributes("disable_health_check", "health_check")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{

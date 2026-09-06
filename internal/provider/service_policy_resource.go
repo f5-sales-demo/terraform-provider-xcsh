@@ -1071,6 +1071,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"allow_list": schema.SingleNestedBlock{
 				MarkdownDescription: "List of sources. A request belongs to this list if it satisfies any of the match criteria.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_action_allow", "default_action_deny"), validators.ConflictingObjectAttributes("default_action_allow", "default_action_next_policy"), validators.ConflictingObjectAttributes("default_action_deny", "default_action_next_policy")},
 
 				Attributes: map[string]schema.Attribute{
 					"country_list": schema.ListAttribute{
@@ -1208,6 +1209,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"deny_list": schema.SingleNestedBlock{
 				MarkdownDescription: "List of sources. A request belongs to this list if it satisfies any of the match criteria.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_action_allow", "default_action_deny"), validators.ConflictingObjectAttributes("default_action_allow", "default_action_next_policy"), validators.ConflictingObjectAttributes("default_action_deny", "default_action_next_policy")},
 
 				Attributes: map[string]schema.Attribute{
 					"country_list": schema.ListAttribute{
@@ -1372,7 +1374,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 								"spec": schema.SingleNestedBlock{
 									MarkdownDescription: "Shape of service_policy_rule in the storage backend.",
-									Validators:          []validator.Object{validators.RequiredObjectAttributes("action", "waf_action")},
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("action", "waf_action"), validators.ConflictingObjectAttributes("any_asn", "asn_list"), validators.ConflictingObjectAttributes("any_asn", "asn_matcher"), validators.ConflictingObjectAttributes("any_client", "client_name"), validators.ConflictingObjectAttributes("any_client", "client_name_matcher"), validators.ConflictingObjectAttributes("any_client", "client_selector"), validators.ConflictingObjectAttributes("any_client", "ip_threat_category_list"), validators.ConflictingObjectAttributes("any_ip", "ip_matcher"), validators.ConflictingObjectAttributes("any_ip", "ip_prefix_list"), validators.ConflictingObjectAttributes("asn_list", "asn_matcher"), validators.ConflictingObjectAttributes("client_name", "client_name_matcher"), validators.ConflictingObjectAttributes("client_name", "client_selector"), validators.ConflictingObjectAttributes("client_name", "ip_threat_category_list"), validators.ConflictingObjectAttributes("client_name_matcher", "client_selector"), validators.ConflictingObjectAttributes("client_name_matcher", "ip_threat_category_list"), validators.ConflictingObjectAttributes("client_selector", "ip_threat_category_list"), validators.ConflictingObjectAttributes("ip_matcher", "ip_prefix_list"), validators.ConflictingObjectAttributes("ja4_tls_fingerprint", "tls_fingerprint_matcher")},
 									Attributes: map[string]schema.Attribute{
 										"action": schema.StringAttribute{
 											MarkdownDescription: "[Enum: DENY|ALLOW|NEXT_POLICY] The rule action determines the disposition of the input request API. If a policy matches a rule with an ALLOW action, the processing of the request proceeds forward. If it matches a rule with a DENY action, the processing of the request is terminated and an appropriate message/code returned to.. Possible values are `DENY`, `ALLOW`, `NEXT_POLICY`. Defaults to `DENY`.",
@@ -1427,7 +1429,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"arg_matchers": schema.ListNestedBlock{
 											MarkdownDescription: "List of predicates for all POST args that need to be matched. The criteria for matching each arg are described in individual instances of ArgMatcherType. The actual arg values are extracted from the request API as a list of strings for each arg selector name.",
-											Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"invert_matcher": schema.BoolAttribute{
@@ -1568,6 +1570,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"bot_action": schema.SingleNestedBlock{
 											MarkdownDescription: "Modify Bot protection behavior for a matching request. The modification could be to entirely skip Bot processing.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("bot_skip_processing", "none")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"bot_skip_processing": schema.SingleNestedBlock{
@@ -1623,7 +1626,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"cookie_matchers": schema.ListNestedBlock{
 											MarkdownDescription: "List of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name.",
-											Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"invert_matcher": schema.BoolAttribute{
@@ -1708,7 +1711,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"headers": schema.ListNestedBlock{
 											MarkdownDescription: "List of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type.",
-											Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"invert_matcher": schema.BoolAttribute{
@@ -1872,7 +1875,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"jwt_claims": schema.ListNestedBlock{
 											MarkdownDescription: "List of predicates for various JWT claims that need to match. The criteria for matching each JWT claim are described in individual JWTClaimMatcherType instances. The actual JWT claims values are extracted from the JWT payload as a list of strings.",
-											Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"invert_matcher": schema.BoolAttribute{
@@ -1941,6 +1944,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"mum_action": schema.SingleNestedBlock{
 											MarkdownDescription: "Modify behavior for a matching request. The modification could be to entirely skip processing.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("default", "skip_processing")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"default": schema.SingleNestedBlock{
@@ -2024,7 +2028,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"query_params": schema.ListNestedBlock{
 											MarkdownDescription: "List of predicates for all query parameters that need to be matched. The criteria for matching each query parameter are described in individual instances of QueryParameterMatcherType. The actual query parameter values are extracted from the request API as a list of strings for each query..",
-											Validators:          []validator.List{validators.RequiredListObjectAttributes("key")},
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("key"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"invert_matcher": schema.BoolAttribute{
@@ -2080,6 +2084,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"request_constraints": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for request constraints.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("max_cookie_count_exceeds", "max_cookie_count_none"), validators.ConflictingObjectAttributes("max_cookie_key_size_exceeds", "max_cookie_key_size_none"), validators.ConflictingObjectAttributes("max_cookie_value_size_exceeds", "max_cookie_value_size_none"), validators.ConflictingObjectAttributes("max_header_count_exceeds", "max_header_count_none"), validators.ConflictingObjectAttributes("max_header_key_size_exceeds", "max_header_key_size_none"), validators.ConflictingObjectAttributes("max_header_value_size_exceeds", "max_header_value_size_none"), validators.ConflictingObjectAttributes("max_parameter_count_exceeds", "max_parameter_count_none"), validators.ConflictingObjectAttributes("max_parameter_name_size_exceeds", "max_parameter_name_size_none"), validators.ConflictingObjectAttributes("max_parameter_value_size_exceeds", "max_parameter_value_size_none"), validators.ConflictingObjectAttributes("max_query_size_exceeds", "max_query_size_none"), validators.ConflictingObjectAttributes("max_request_line_size_exceeds", "max_request_line_size_none"), validators.ConflictingObjectAttributes("max_request_size_exceeds", "max_request_size_none"), validators.ConflictingObjectAttributes("max_url_size_exceeds", "max_url_size_none")},
 											Attributes: map[string]schema.Attribute{
 												"max_cookie_count_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Match on the Count for all Cookies that exceed this value. Exclusive with [max_cookie_count_none]",
@@ -2217,6 +2222,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"segment_policy": schema.SingleNestedBlock{
 											MarkdownDescription: "Configure source and destination segment for policy.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("dst_any", "dst_segments"), validators.ConflictingObjectAttributes("dst_any", "intra_segment"), validators.ConflictingObjectAttributes("dst_segments", "intra_segment"), validators.ConflictingObjectAttributes("src_any", "src_segments")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"dst_any": schema.SingleNestedBlock{
@@ -2362,6 +2368,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"waf_action": schema.SingleNestedBlock{
 											MarkdownDescription: "Modify App Firewall behavior for a matching request. The modification could either be to entirely skip firewall processing or to customize the firewall rules to be applied as defined by App Firewall Rule Control settings.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("app_firewall_detection_control", "none"), validators.ConflictingObjectAttributes("app_firewall_detection_control", "waf_skip_processing"), validators.ConflictingObjectAttributes("none", "waf_skip_processing")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"app_firewall_detection_control": schema.SingleNestedBlock{

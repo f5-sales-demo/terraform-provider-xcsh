@@ -334,3 +334,19 @@ from read-back. That result does not establish an equivalent replacement or
 verified removal. Private ADN remains unresolved and is not added to the provider.
 All probe objects were removed and their absence verified. Actual Regional Edge
 selection and percentage-based draining during an upgrade remain unverified.
+
+## Nested choice validation
+
+Negative Terraform tests exposed missing local conflict validation for nested
+choices: geographic selection could coexist with proximity selection, and drain
+count could coexist with drain percentage. A separate test showed that two
+referenced selection blocks could coexist because resolving `$ref` and `allOf`
+discarded their property-level conflict metadata.
+
+The generator now preserves that metadata and emits sibling conflict validators
+for configured objects and each nested list element. The validators distinguish
+null and unknown values from known empty blocks and scalar zero values. Errors
+identify the nested field and list index without including configured values.
+Conflict pairs are sorted, deduplicated and resolved to Terraform field names.
+These checks enforce declared mutual exclusion; they do not establish the live
+behavior of the selected feature.

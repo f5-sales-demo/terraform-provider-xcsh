@@ -358,6 +358,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Blocks: map[string]schema.Block{
 					"cluster_wide_apps": schema.ListNestedBlock{
 						MarkdownDescription: "Cluster Wide Application List. List of cluster wide applications.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("argo_cd", "dashboard"), validators.ConflictingListObjectAttributes("argo_cd", "metrics_server"), validators.ConflictingListObjectAttributes("argo_cd", "prometheus"), validators.ConflictingListObjectAttributes("dashboard", "metrics_server"), validators.ConflictingListObjectAttributes("dashboard", "prometheus"), validators.ConflictingListObjectAttributes("metrics_server", "prometheus")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
@@ -367,7 +368,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"local_domain": schema.SingleNestedBlock{
 											MarkdownDescription: "Parameters required to enable local access.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("local_domain")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("local_domain"), validators.ConflictingObjectAttributes("default_port", "port")},
 											Attributes: map[string]schema.Attribute{
 												"local_domain": schema.StringAttribute{
 													MarkdownDescription: "ArgoCD will be accessible at <site name>.<local domain>.",
@@ -390,6 +391,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"password": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -470,7 +472,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"local_access_config": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: local_access_config, no_local_access; Default: no_local_access] Parameters required to enable local access.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("local_domain")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("local_domain"), validators.ConflictingObjectAttributes("default_port", "port")},
 
 				Attributes: map[string]schema.Attribute{
 					"local_domain": schema.StringAttribute{

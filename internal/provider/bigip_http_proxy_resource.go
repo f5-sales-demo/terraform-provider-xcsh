@@ -1321,6 +1321,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 			}),
 			"advanced_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines various advanced Profile OPTIONS for a Loadbalancer.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable_default_profile")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1334,6 +1335,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"ddos_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for ddos profile.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_ddos_mitigation", "enable_ddos_mitigation")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1428,7 +1430,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							Blocks: map[string]schema.Block{
 								"origin_servers": schema.SingleNestedBlock{
 									MarkdownDescription: "List of origin Servers for the BIG-IP HTTP Proxy.",
-									Validators:          []validator.Object{validators.RequiredObjectAttributes("origin_servers")},
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("origin_servers"), validators.ConflictingObjectAttributes("automatic_port", "lb_port"), validators.ConflictingObjectAttributes("automatic_port", "port"), validators.ConflictingObjectAttributes("lb_port", "port")},
 									Attributes: map[string]schema.Attribute{
 										"port": schema.Int64Attribute{
 											MarkdownDescription: "Exclusive with [automatic_port lb_port] Endpoint service is available on this port.",
@@ -1478,6 +1480,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											Blocks: map[string]schema.Block{
 												"health_check": schema.ListNestedBlock{
 													MarkdownDescription: "List of Health Checks. List of Health Checks.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("icmp_health_check", "tcp_health_check")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -1514,11 +1517,13 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										},
 										"origin_servers": schema.ListNestedBlock{
 											MarkdownDescription: "List of Origin Servers. List of origin servers for Proxy.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("k8s_service", "private_ip"), validators.ConflictingListObjectAttributes("k8s_service", "public_ip"), validators.ConflictingListObjectAttributes("k8s_service", "public_name"), validators.ConflictingListObjectAttributes("private_ip", "public_ip"), validators.ConflictingListObjectAttributes("private_ip", "public_name"), validators.ConflictingListObjectAttributes("public_ip", "public_name")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"k8s_service": schema.SingleNestedBlock{
 														MarkdownDescription: "Specify origin server with K8s service name and site information.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside_network", "outside_network"), validators.ConflictingObjectAttributes("inside_network", "vk8s_networks"), validators.ConflictingObjectAttributes("outside_network", "vk8s_networks")},
 														Attributes: map[string]schema.Attribute{
 															"protocol": schema.StringAttribute{
 																MarkdownDescription: "[Enum: PROTOCOL_TCP|PROTOCOL_UDP] Type of protocol - PROTOCOL_TCP: TCP - PROTOCOL_UDP: UDP. Possible values are `PROTOCOL_TCP`, `PROTOCOL_UDP`. Defaults to `PROTOCOL_TCP`.",
@@ -1541,6 +1546,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 															},
 															"site_locator": schema.SingleNestedBlock{
 																MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"site": schema.SingleNestedBlock{
@@ -1609,6 +1615,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 															},
 															"snat_pool": schema.SingleNestedBlock{
 																MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"no_snat_pool": schema.SingleNestedBlock{
@@ -1636,6 +1643,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													},
 													"private_ip": schema.SingleNestedBlock{
 														MarkdownDescription: "Specify origin server with private or public IP address and site information.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside_network", "outside_network"), validators.ConflictingObjectAttributes("inside_network", "segment"), validators.ConflictingObjectAttributes("outside_network", "segment")},
 														Attributes: map[string]schema.Attribute{
 															"ip": schema.StringAttribute{
 																MarkdownDescription: "IP. Exclusive with [] Private IPv4 address.",
@@ -1686,6 +1694,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 															},
 															"site_locator": schema.SingleNestedBlock{
 																MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"site": schema.SingleNestedBlock{
@@ -1754,6 +1763,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 															},
 															"snat_pool": schema.SingleNestedBlock{
 																MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"no_snat_pool": schema.SingleNestedBlock{
@@ -1824,6 +1834,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"proxy_advertisement": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for proxy advertisement.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("advertise_custom", "do_not_advertise")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1834,6 +1845,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 						Blocks: map[string]schema.Block{
 							"advertise_where": schema.ListNestedBlock{
 								MarkdownDescription: "Where should this load balancer be available.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("advertise_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("port", "port_ranges"), validators.ConflictingListObjectAttributes("port", "use_default_port"), validators.ConflictingListObjectAttributes("port_ranges", "use_default_port"), validators.ConflictingListObjectAttributes("site", "virtual_network"), validators.ConflictingListObjectAttributes("site", "virtual_site"), validators.ConflictingListObjectAttributes("site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_network", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site_with_vip", "vk8s_service")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"port": schema.Int64Attribute{
@@ -1947,6 +1959,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										},
 										"virtual_network": schema.SingleNestedBlock{
 											MarkdownDescription: "Parameters to advertise on a given virtual network.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_v6_vip", "specific_v6_vip"), validators.ConflictingObjectAttributes("default_vip", "specific_vip")},
 											Attributes: map[string]schema.Attribute{
 												"specific_v6_vip": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [default_v6_vip] Use given IPv6 address as VIP on virtual Network.",
@@ -2105,6 +2118,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										},
 										"vk8s_service": schema.SingleNestedBlock{
 											MarkdownDescription: "Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"site": schema.SingleNestedBlock{
@@ -2183,7 +2197,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"proxy_config": schema.SingleNestedBlock{
 				MarkdownDescription: "HTTP/HTTPS Load Balancer. HTTP/HTTPS Load balancer.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("domains"), validators.ConflictingObjectAttributes("http", "https"), validators.ConflictingObjectAttributes("http", "https_auto_cert"), validators.ConflictingObjectAttributes("https", "https_auto_cert")},
 
 				Attributes: map[string]schema.Attribute{
 					"domains": schema.ListAttribute{
@@ -2198,6 +2212,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 				Blocks: map[string]schema.Block{
 					"http": schema.SingleNestedBlock{
 						MarkdownDescription: "HTTP Choice. Choice for selecting HTTP proxy.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("port", "port_ranges")},
 						Attributes: map[string]schema.Attribute{
 							"dns_volterra_managed": schema.BoolAttribute{
 								MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal.",
@@ -2221,6 +2236,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 					},
 					"https": schema.SingleNestedBlock{
 						MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges"), validators.ConflictingObjectAttributes("tls_cert_params", "tls_parameters")},
 						Attributes: map[string]schema.Attribute{
 							"add_hsts": schema.BoolAttribute{
 								MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -2269,6 +2285,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 						Blocks: map[string]schema.Block{
 							"coalescing_options": schema.SingleNestedBlock{
 								MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"default_coalescing": schema.SingleNestedBlock{
@@ -2293,6 +2310,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"http_protocol_options": schema.SingleNestedBlock{
 								MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -2301,6 +2319,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										Blocks: map[string]schema.Block{
 											"header_transformation": schema.SingleNestedBlock{
 												MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"default_header_transformation": schema.SingleNestedBlock{
@@ -2332,7 +2351,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"tls_cert_params": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for tls cert params.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"certificates": schema.ListNestedBlock{
@@ -2373,6 +2392,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 									},
 									"tls_config": schema.SingleNestedBlock{
 										MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"custom_security": schema.SingleNestedBlock{
@@ -2413,6 +2433,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 									},
 									"use_mtls": schema.SingleNestedBlock{
 										MarkdownDescription: "Validation context for downstream client TLS connections.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 										Attributes: map[string]schema.Attribute{
 											"client_certificate_optional": schema.BoolAttribute{
 												MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -2512,7 +2533,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"tls_parameters": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for tls parameters.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"no_mtls": schema.SingleNestedBlock{
@@ -2520,7 +2541,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 									},
 									"tls_certificates": schema.ListNestedBlock{
 										MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"certificate_url": schema.StringAttribute{
@@ -2555,6 +2576,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												},
 												"private_key": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2605,6 +2627,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 									},
 									"tls_config": schema.SingleNestedBlock{
 										MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"custom_security": schema.SingleNestedBlock{
@@ -2645,6 +2668,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 									},
 									"use_mtls": schema.SingleNestedBlock{
 										MarkdownDescription: "Validation context for downstream client TLS connections.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 										Attributes: map[string]schema.Attribute{
 											"client_certificate_optional": schema.BoolAttribute{
 												MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -2746,6 +2770,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 					},
 					"https_auto_cert": schema.SingleNestedBlock{
 						MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 						Attributes: map[string]schema.Attribute{
 							"add_hsts": schema.BoolAttribute{
 								MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -2794,6 +2819,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 						Blocks: map[string]schema.Block{
 							"coalescing_options": schema.SingleNestedBlock{
 								MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"default_coalescing": schema.SingleNestedBlock{
@@ -2818,6 +2844,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"http_protocol_options": schema.SingleNestedBlock{
 								MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"http_protocol_enable_v1_only": schema.SingleNestedBlock{
@@ -2826,6 +2853,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										Blocks: map[string]schema.Block{
 											"header_transformation": schema.SingleNestedBlock{
 												MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"default_header_transformation": schema.SingleNestedBlock{
@@ -2860,6 +2888,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"tls_config": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"custom_security": schema.SingleNestedBlock{
@@ -2900,6 +2929,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"use_mtls": schema.SingleNestedBlock{
 								MarkdownDescription: "Validation context for downstream client TLS connections.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 								Attributes: map[string]schema.Attribute{
 									"client_certificate_optional": schema.BoolAttribute{
 										MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",

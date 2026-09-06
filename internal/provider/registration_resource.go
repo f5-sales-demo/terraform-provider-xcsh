@@ -1086,7 +1086,7 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 			},
 			"passport": schema.SingleNestedBlock{
 				MarkdownDescription: "Passport stores information about identification and node configuration provided by CE during registration. It can be manually updated by user during approval.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("cluster_name", "cluster_type", "latitude", "longitude")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("cluster_name", "cluster_type", "latitude", "longitude"), validators.ConflictingObjectAttributes("default_os_version", "operating_system_version"), validators.ConflictingObjectAttributes("default_sw_version", "volterra_software_version")},
 				PlanModifiers:       []planmodifier.Object{objectplanmodifier.RequiresReplace()},
 
 				Attributes: map[string]schema.Attribute{

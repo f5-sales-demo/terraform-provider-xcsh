@@ -243,6 +243,7 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"syslog": schema.SingleNestedBlock{
 				MarkdownDescription: "Syslog Server Configuration. Configuration for syslog server.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("tcp_server", "tls_server"), validators.ConflictingObjectAttributes("tcp_server", "udp_server"), validators.ConflictingObjectAttributes("tls_server", "udp_server")},
 
 				Attributes: map[string]schema.Attribute{
 					"syslog_rfc5424": schema.Int64Attribute{
@@ -276,7 +277,7 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 					"tls_server": schema.SingleNestedBlock{
 						MarkdownDescription: "TLS config for client of discovery service.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("server_name")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("server_name"), validators.ConflictingObjectAttributes("default_https_port", "default_syslog_tls_port"), validators.ConflictingObjectAttributes("default_https_port", "port"), validators.ConflictingObjectAttributes("default_syslog_tls_port", "port"), validators.ConflictingObjectAttributes("mtls_disabled", "mtls_enable"), validators.ConflictingObjectAttributes("trusted_ca_url", "volterra_ca")},
 						Attributes: map[string]schema.Attribute{
 							"port": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [default_https_port default_syslog_tls_port] Custom port number used for communication.",
@@ -324,6 +325,7 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 								Blocks: map[string]schema.Block{
 									"key_url": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{

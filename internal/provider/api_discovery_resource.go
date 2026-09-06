@@ -233,6 +233,7 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 			}),
 			"user_defined_api_discovery_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "Rules are evaluated sequentially, top to bottom. If no rules are added, all traffic will be discovered or ignored based on the selection in the 'Default Behaviour of the Rule Set' field.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("exclusive", "inclusive")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -266,6 +267,7 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 								},
 								"rule_properties": schema.SingleNestedBlock{
 									MarkdownDescription: "Determines whether matching endpoints are included in API Discovery or excluded.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exclusion", "inclusion"), validators.ConflictingObjectAttributes("http_header_criteria", "pattern")},
 									Attributes: map[string]schema.Attribute{
 										"pattern": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [http_header_criteria] Patterns are matched against the request path to identify endpoints by path structure, file extension, or version prefix. Endpoints that match this pattern are affected by the rule.",
@@ -278,6 +280,7 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 									Blocks: map[string]schema.Block{
 										"exclusion": schema.SingleNestedBlock{
 											MarkdownDescription: "Exclusion Configuration. Configuration for exclusion action.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("archive", "ignore")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"archive": schema.SingleNestedBlock{
@@ -332,6 +335,7 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 					},
 					"exclusive": schema.SingleNestedBlock{
 						MarkdownDescription: "Exclusion Configuration. Configuration for exclusion action.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("archive", "ignore")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"archive": schema.SingleNestedBlock{

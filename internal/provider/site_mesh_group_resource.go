@@ -254,6 +254,7 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"full_mesh": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: full_mesh, hub_mesh, spoke_mesh] Full Mesh. Details of Full Mesh Group Type.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("control_and_data_plane_mesh", "data_plane_mesh")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -267,6 +268,7 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"hub_mesh": schema.SingleNestedBlock{
 				MarkdownDescription: "Hub Full Mesh. Details of Hub Full Mesh Group Type.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("control_and_data_plane_mesh", "data_plane_mesh")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -280,6 +282,7 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"spoke_mesh": schema.SingleNestedBlock{
 				MarkdownDescription: "Spoke. Details of Spoke Mesh Group Type.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("control_and_data_plane_mesh", "data_plane_mesh")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{

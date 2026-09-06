@@ -1353,7 +1353,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"enabled_ssh_access": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for enabled ssh access.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("domain_suffix", "node_ssh_ports")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("domain_suffix", "node_ssh_ports"), validators.ConflictingObjectAttributes("advertise_on_sli", "advertise_on_slo"), validators.ConflictingObjectAttributes("advertise_on_sli", "advertise_on_slo_sli"), validators.ConflictingObjectAttributes("advertise_on_slo", "advertise_on_slo_sli")},
 
 				Attributes: map[string]schema.Attribute{
 					"domain_suffix": schema.StringAttribute{
@@ -1426,6 +1426,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Blocks: map[string]schema.Block{
 					"admin_password": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1507,6 +1508,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"endpoint_service": schema.SingleNestedBlock{
 						MarkdownDescription: "Endpoint Service is a type of NFV service where the packets are destined to NFV and service modifies the destination with a new destination address.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("advertise_on_slo_ip", "advertise_on_slo_ip_external"), validators.ConflictingObjectAttributes("advertise_on_slo_ip", "disable_advertise_on_slo_ip"), validators.ConflictingObjectAttributes("advertise_on_slo_ip_external", "disable_advertise_on_slo_ip"), validators.ConflictingObjectAttributes("automatic_vip", "configured_vip"), validators.ConflictingObjectAttributes("custom_tcp_ports", "default_tcp_ports"), validators.ConflictingObjectAttributes("custom_tcp_ports", "http_port"), validators.ConflictingObjectAttributes("custom_tcp_ports", "https_port"), validators.ConflictingObjectAttributes("custom_tcp_ports", "no_tcp_ports"), validators.ConflictingObjectAttributes("custom_udp_ports", "no_udp_ports"), validators.ConflictingObjectAttributes("default_tcp_ports", "http_port"), validators.ConflictingObjectAttributes("default_tcp_ports", "https_port"), validators.ConflictingObjectAttributes("default_tcp_ports", "no_tcp_ports"), validators.ConflictingObjectAttributes("http_port", "https_port"), validators.ConflictingObjectAttributes("http_port", "no_tcp_ports"), validators.ConflictingObjectAttributes("https_port", "no_tcp_ports")},
 						Attributes: map[string]schema.Attribute{
 							"configured_vip": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [automatic_vip] Enter IP address for the default VIP.",
@@ -1577,6 +1579,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"market_place_image": schema.SingleNestedBlock{
 						MarkdownDescription: "BIG-IP AWS Pay as You Go Image Selection.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("awafpay_g200_mbps", "awafpay_g3_gbps")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"awafpay_g200_mbps": schema.SingleNestedBlock{
@@ -1589,7 +1592,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"nodes": schema.ListNestedBlock{
 						MarkdownDescription: "Specify how and where the service nodes are spawned.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("aws_az_name", "node_name")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("aws_az_name", "node_name"), validators.ConflictingListObjectAttributes("automatic_prefix", "tunnel_prefix"), validators.ConflictingListObjectAttributes("mgmt_subnet", "reserved_mgmt_subnet")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"aws_az_name": schema.StringAttribute{
@@ -1617,6 +1620,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"mgmt_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for mgmt subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet_id", "subnet_param")},
 									Attributes: map[string]schema.Attribute{
 										"existing_subnet_id": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [subnet_param] Information about existing subnet ID.",
@@ -1649,7 +1653,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"https_management": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for https management.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("domain_suffix")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("domain_suffix"), validators.ConflictingObjectAttributes("advertise_on_internet", "advertise_on_internet_default_vip"), validators.ConflictingObjectAttributes("advertise_on_internet", "advertise_on_sli_vip"), validators.ConflictingObjectAttributes("advertise_on_internet", "advertise_on_slo_internet_vip"), validators.ConflictingObjectAttributes("advertise_on_internet", "advertise_on_slo_sli"), validators.ConflictingObjectAttributes("advertise_on_internet", "advertise_on_slo_vip"), validators.ConflictingObjectAttributes("advertise_on_internet_default_vip", "advertise_on_sli_vip"), validators.ConflictingObjectAttributes("advertise_on_internet_default_vip", "advertise_on_slo_internet_vip"), validators.ConflictingObjectAttributes("advertise_on_internet_default_vip", "advertise_on_slo_sli"), validators.ConflictingObjectAttributes("advertise_on_internet_default_vip", "advertise_on_slo_vip"), validators.ConflictingObjectAttributes("advertise_on_sli_vip", "advertise_on_slo_internet_vip"), validators.ConflictingObjectAttributes("advertise_on_sli_vip", "advertise_on_slo_sli"), validators.ConflictingObjectAttributes("advertise_on_sli_vip", "advertise_on_slo_vip"), validators.ConflictingObjectAttributes("advertise_on_slo_internet_vip", "advertise_on_slo_sli"), validators.ConflictingObjectAttributes("advertise_on_slo_internet_vip", "advertise_on_slo_vip"), validators.ConflictingObjectAttributes("advertise_on_slo_sli", "advertise_on_slo_vip"), validators.ConflictingObjectAttributes("default_https_port", "https_port")},
 
 				Attributes: map[string]schema.Attribute{
 					"domain_suffix": schema.StringAttribute{
@@ -1710,7 +1714,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"advertise_on_sli_vip": schema.SingleNestedBlock{
 						MarkdownDescription: "Inline TLS Parameters. Inline TLS parameters.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"no_mtls": schema.SingleNestedBlock{
@@ -1718,7 +1722,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -1753,6 +1757,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"private_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1803,6 +1808,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tls_config": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"custom_security": schema.SingleNestedBlock{
@@ -1843,6 +1849,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"use_mtls": schema.SingleNestedBlock{
 								MarkdownDescription: "Validation context for downstream client TLS connections.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 								Attributes: map[string]schema.Attribute{
 									"client_certificate_optional": schema.BoolAttribute{
 										MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -1942,7 +1949,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"advertise_on_slo_internet_vip": schema.SingleNestedBlock{
 						MarkdownDescription: "Inline TLS Parameters. Inline TLS parameters.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"no_mtls": schema.SingleNestedBlock{
@@ -1950,7 +1957,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -1985,6 +1992,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"private_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2035,6 +2043,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tls_config": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"custom_security": schema.SingleNestedBlock{
@@ -2075,6 +2084,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"use_mtls": schema.SingleNestedBlock{
 								MarkdownDescription: "Validation context for downstream client TLS connections.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 								Attributes: map[string]schema.Attribute{
 									"client_certificate_optional": schema.BoolAttribute{
 										MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -2174,7 +2184,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"advertise_on_slo_sli": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for advertise on slo sli.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"no_mtls": schema.SingleNestedBlock{
@@ -2182,7 +2192,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -2217,6 +2227,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"private_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2267,6 +2278,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tls_config": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"custom_security": schema.SingleNestedBlock{
@@ -2307,6 +2319,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"use_mtls": schema.SingleNestedBlock{
 								MarkdownDescription: "Validation context for downstream client TLS connections.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 								Attributes: map[string]schema.Attribute{
 									"client_certificate_optional": schema.BoolAttribute{
 										MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -2406,7 +2419,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"advertise_on_slo_vip": schema.SingleNestedBlock{
 						MarkdownDescription: "Inline TLS Parameters. Inline TLS parameters.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"no_mtls": schema.SingleNestedBlock{
@@ -2414,7 +2427,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -2449,6 +2462,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 										"private_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2499,6 +2513,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"tls_config": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"custom_security": schema.SingleNestedBlock{
@@ -2539,6 +2554,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"use_mtls": schema.SingleNestedBlock{
 								MarkdownDescription: "Validation context for downstream client TLS connections.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 								Attributes: map[string]schema.Attribute{
 									"client_certificate_optional": schema.BoolAttribute{
 										MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
@@ -2643,6 +2659,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"palo_alto_fw_service": schema.SingleNestedBlock{
 				MarkdownDescription: "Palo Alto Networks VM-Series next-generation firewall configuration.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_setup", "ssh_key"), validators.ConflictingObjectAttributes("disable_panaroma", "panorama_server"), validators.ConflictingObjectAttributes("pan_ami_bundle1", "pan_ami_bundle2")},
 
 				Attributes: map[string]schema.Attribute{
 					"instance_type": schema.StringAttribute{
@@ -2688,6 +2705,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"admin_password": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2745,6 +2763,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 								Blocks: map[string]schema.Block{
 									"private_key": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2861,6 +2880,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"authorization_key": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2912,7 +2932,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"nodes": schema.ListNestedBlock{
 								MarkdownDescription: "Palo Alto Networks AZ Nodes. Configuration parameter for nodes",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("aws_az_name", "node_name")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("aws_az_name", "node_name"), validators.ConflictingListObjectAttributes("mgmt_subnet", "reserved_mgmt_subnet")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"aws_az_name": schema.StringAttribute{
@@ -2933,6 +2953,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 									Blocks: map[string]schema.Block{
 										"mgmt_subnet": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for mgmt subnet.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet_id", "subnet_param")},
 											Attributes: map[string]schema.Attribute{
 												"existing_subnet_id": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [subnet_param] Information about existing subnet ID.",

@@ -344,6 +344,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"routes": schema.ListNestedBlock{
 				MarkdownDescription: "Set of routes to match the incoming alert. The routes are evaluated in the specified order and terminates on the first match.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("alertname", "alertname_regex"), validators.ConflictingListObjectAttributes("alertname", "any"), validators.ConflictingListObjectAttributes("alertname", "custom"), validators.ConflictingListObjectAttributes("alertname", "group"), validators.ConflictingListObjectAttributes("alertname", "severity"), validators.ConflictingListObjectAttributes("alertname_regex", "any"), validators.ConflictingListObjectAttributes("alertname_regex", "custom"), validators.ConflictingListObjectAttributes("alertname_regex", "group"), validators.ConflictingListObjectAttributes("alertname_regex", "severity"), validators.ConflictingListObjectAttributes("any", "custom"), validators.ConflictingListObjectAttributes("any", "group"), validators.ConflictingListObjectAttributes("any", "severity"), validators.ConflictingListObjectAttributes("custom", "group"), validators.ConflictingListObjectAttributes("custom", "severity"), validators.ConflictingListObjectAttributes("dont_send", "send"), validators.ConflictingListObjectAttributes("group", "severity")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -372,6 +373,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 								"alertname": schema.SingleNestedBlock{
 									MarkdownDescription: "Label Matcher.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_match", "regex_match")},
 									Attributes: map[string]schema.Attribute{
 										"exact_match": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [regex_match] Equality match value for the label.",
@@ -385,6 +387,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 								"group": schema.SingleNestedBlock{
 									MarkdownDescription: "Label Matcher.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_match", "regex_match")},
 									Attributes: map[string]schema.Attribute{
 										"exact_match": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [regex_match] Equality match value for the label.",
@@ -398,6 +401,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 								"severity": schema.SingleNestedBlock{
 									MarkdownDescription: "Label Matcher.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_match", "regex_match")},
 									Attributes: map[string]schema.Attribute{
 										"exact_match": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [regex_match] Equality match value for the label.",
@@ -426,6 +430,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 						},
 						"notification_parameters": schema.SingleNestedBlock{
 							MarkdownDescription: "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom", "default"), validators.ConflictingObjectAttributes("custom", "individual"), validators.ConflictingObjectAttributes("custom", "ves_io_group"), validators.ConflictingObjectAttributes("default", "individual"), validators.ConflictingObjectAttributes("default", "ves_io_group"), validators.ConflictingObjectAttributes("individual", "ves_io_group")},
 							Attributes: map[string]schema.Attribute{
 								"group_interval": schema.StringAttribute{
 									MarkdownDescription: "Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: [0-9][smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval..",
@@ -483,6 +488,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"notification_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom", "default"), validators.ConflictingObjectAttributes("custom", "individual"), validators.ConflictingObjectAttributes("custom", "ves_io_group"), validators.ConflictingObjectAttributes("default", "individual"), validators.ConflictingObjectAttributes("default", "ves_io_group"), validators.ConflictingObjectAttributes("individual", "ves_io_group")},
 
 				Attributes: map[string]schema.Attribute{
 					"group_interval": schema.StringAttribute{

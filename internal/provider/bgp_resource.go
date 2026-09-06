@@ -462,6 +462,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 			}),
 			"peers": schema.ListNestedBlock{
 				MarkdownDescription: "Peers. List of peers.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("bfd_disabled", "bfd_enabled"), validators.ConflictingListObjectAttributes("disable_spec", "routing_policies"), validators.ConflictingListObjectAttributes("passive_mode_disabled", "passive_mode_enabled")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -506,7 +507,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 						},
 						"external": schema.SingleNestedBlock{
 							MarkdownDescription: "External BGP Peer. External BGP Peer parameters.",
-							Validators:          []validator.Object{validators.RequiredObjectAttributes("asn", "port")},
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("asn", "port"), validators.ConflictingObjectAttributes("address", "default_gateway"), validators.ConflictingObjectAttributes("address", "disable_spec"), validators.ConflictingObjectAttributes("address", "external_connector"), validators.ConflictingObjectAttributes("address", "from_site"), validators.ConflictingObjectAttributes("address", "subnet_begin_offset"), validators.ConflictingObjectAttributes("address", "subnet_end_offset"), validators.ConflictingObjectAttributes("address_ipv6", "default_gateway_v6"), validators.ConflictingObjectAttributes("address_ipv6", "disable_v6"), validators.ConflictingObjectAttributes("address_ipv6", "from_site_v6"), validators.ConflictingObjectAttributes("address_ipv6", "subnet_begin_offset_v6"), validators.ConflictingObjectAttributes("address_ipv6", "subnet_end_offset_v6"), validators.ConflictingObjectAttributes("default_gateway", "disable_spec"), validators.ConflictingObjectAttributes("default_gateway", "external_connector"), validators.ConflictingObjectAttributes("default_gateway", "from_site"), validators.ConflictingObjectAttributes("default_gateway", "subnet_begin_offset"), validators.ConflictingObjectAttributes("default_gateway", "subnet_end_offset"), validators.ConflictingObjectAttributes("default_gateway_v6", "disable_v6"), validators.ConflictingObjectAttributes("default_gateway_v6", "from_site_v6"), validators.ConflictingObjectAttributes("default_gateway_v6", "subnet_begin_offset_v6"), validators.ConflictingObjectAttributes("default_gateway_v6", "subnet_end_offset_v6"), validators.ConflictingObjectAttributes("disable_spec", "external_connector"), validators.ConflictingObjectAttributes("disable_spec", "from_site"), validators.ConflictingObjectAttributes("disable_spec", "subnet_begin_offset"), validators.ConflictingObjectAttributes("disable_spec", "subnet_end_offset"), validators.ConflictingObjectAttributes("disable_v6", "from_site_v6"), validators.ConflictingObjectAttributes("disable_v6", "subnet_begin_offset_v6"), validators.ConflictingObjectAttributes("disable_v6", "subnet_end_offset_v6"), validators.ConflictingObjectAttributes("external_connector", "from_site"), validators.ConflictingObjectAttributes("external_connector", "subnet_begin_offset"), validators.ConflictingObjectAttributes("external_connector", "subnet_end_offset"), validators.ConflictingObjectAttributes("from_site", "subnet_begin_offset"), validators.ConflictingObjectAttributes("from_site", "subnet_end_offset"), validators.ConflictingObjectAttributes("from_site_v6", "subnet_begin_offset_v6"), validators.ConflictingObjectAttributes("from_site_v6", "subnet_end_offset_v6"), validators.ConflictingObjectAttributes("interface", "interface_list"), validators.ConflictingObjectAttributes("md5_auth_key", "no_authentication"), validators.ConflictingObjectAttributes("subnet_begin_offset", "subnet_end_offset"), validators.ConflictingObjectAttributes("subnet_begin_offset_v6", "subnet_end_offset_v6")},
 							Attributes: map[string]schema.Attribute{
 								"address": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [default_gateway disable external_connector from_site subnet_begin_offset subnet_end_offset] Specify IPv4 peer address.",
@@ -589,6 +590,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 								},
 								"family_inet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for family inet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"disable_spec": schema.SingleNestedBlock{
@@ -740,7 +742,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 							Blocks: map[string]schema.Block{
 								"route_policy": schema.ListNestedBlock{
 									MarkdownDescription: "Policy configuration for this feature.",
-									Validators:          []validator.List{validators.RequiredListObjectAttributes("object_refs")},
+									Validators:          []validator.List{validators.RequiredListObjectAttributes("object_refs"), validators.ConflictingListObjectAttributes("all_nodes", "node_name"), validators.ConflictingListObjectAttributes("inbound", "outbound")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
@@ -808,7 +810,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 			},
 			"bgp_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for bgp parameters.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("asn")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("asn"), validators.ConflictingObjectAttributes("from_site", "ip_address"), validators.ConflictingObjectAttributes("from_site", "local_address"), validators.ConflictingObjectAttributes("ip_address", "local_address")},
 
 				Attributes: map[string]schema.Attribute{
 					"asn": schema.Int64Attribute{
@@ -838,12 +840,13 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 			},
 			"where": schema.SingleNestedBlock{
 				MarkdownDescription: "VirtualSiteSiteRefSelector defines a union of reference to site or reference to virtual_site It used to refer site or a group of sites indicated by virtual site.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"site": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies a direct reference to a site configuration object.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
@@ -899,7 +902,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 					},
 					"virtual_site": schema.SingleNestedBlock{
 						MarkdownDescription: "Virtual Site. A reference to virtual_site object.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",

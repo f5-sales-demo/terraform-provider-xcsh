@@ -117,7 +117,7 @@ func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) 
 		"renderNestedAttrs":               RenderNestedAttributes,
 		"renderNestedBlocks":              RenderNestedBlocks,
 		"renderBlockPlanModifiers":        RenderBlockPlanModifiers,
-		"renderConditionalRequired":       RenderConditionalRequiredValidators,
+		"renderBlockValidators":           RenderBlockValidators,
 		"renderNestedModelTypes":          RenderNestedModelTypes,
 		"renderBlockFields":               RenderBlockFields,
 		"renderSpecStructFields":          RenderSpecStructFields,

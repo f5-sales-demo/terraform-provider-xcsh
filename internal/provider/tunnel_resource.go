@@ -351,6 +351,7 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 			}),
 			"local_ip": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines the OPTIONS to select local IP address and virtual network for tunnel object OPTIONS available are - 1. Local Interface - Network Interface from which IP address and network will be selected 2. IP Address - IP address and network can be configured explicitly.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("intf", "ip_address")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -397,6 +398,7 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 					},
 					"ip_address": schema.SingleNestedBlock{
 						MarkdownDescription: "Provides the configuration to pick up source IP and network for transporting encapsulated packet.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto", "ip_address")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"auto": schema.SingleNestedBlock{
@@ -404,6 +406,7 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 							},
 							"ip_address": schema.SingleNestedBlock{
 								MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"ipv4": schema.SingleNestedBlock{
@@ -436,6 +439,7 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 							},
 							"virtual_network_type": schema.SingleNestedBlock{
 								MarkdownDescription: "Different types of virtual networks understood by the system.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("public", "site_local"), validators.ConflictingObjectAttributes("public", "site_local_inside"), validators.ConflictingObjectAttributes("site_local", "site_local_inside")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"public": schema.SingleNestedBlock{
@@ -464,6 +468,7 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 						Blocks: map[string]schema.Block{
 							"ipsec_psk": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -512,6 +517,7 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 			},
 			"remote_ip": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines the OPTIONS to select remote IP address for tunnel object OPTIONS available are - 1. IP Address - Specifies the remote IP to which tunnel has to be connected 2. Remote endpoint - Is a map of IP address on per ver node basis.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("endpoints", "ip")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -526,6 +532,7 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 					},
 					"ip": schema.SingleNestedBlock{
 						MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"ipv4": schema.SingleNestedBlock{

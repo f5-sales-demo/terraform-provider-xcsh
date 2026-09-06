@@ -440,7 +440,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 								Blocks: map[string]schema.Block{
 									"vpc_list": schema.ListNestedBlock{
 										MarkdownDescription: "VPC List. Collection of items or values",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("vpc_id")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("vpc_id"), validators.ConflictingListObjectAttributes("custom_routing", "default_route"), validators.ConflictingListObjectAttributes("custom_routing", "manual_routing"), validators.ConflictingListObjectAttributes("default_route", "manual_routing")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"vpc_id": schema.StringAttribute{
@@ -484,6 +484,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 												},
 												"default_route": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for default route.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_route_tables", "selective_route_tables")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"all_route_tables": schema.SingleNestedBlock{
@@ -558,7 +559,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 						Blocks: map[string]schema.Block{
 							"vnet_list": schema.ListNestedBlock{
 								MarkdownDescription: "VNet List. Collection of items or values",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("subscription_id", "vnet_id")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("subscription_id", "vnet_id"), validators.ConflictingListObjectAttributes("custom_routing", "default_route"), validators.ConflictingListObjectAttributes("custom_routing", "manual_routing"), validators.ConflictingListObjectAttributes("default_route", "manual_routing")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"subscription_id": schema.StringAttribute{
@@ -609,6 +610,7 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 										},
 										"default_route": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for default route.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_route_tables", "selective_route_tables")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"all_route_tables": schema.SingleNestedBlock{

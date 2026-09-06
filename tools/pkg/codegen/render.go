@@ -7,6 +7,7 @@ package codegen
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -1536,7 +1537,7 @@ func RenderNestedBlocks(attrs []openapi.TerraformAttribute, indent string) strin
 
 		sb.WriteString(fmt.Sprintf("%s\t\"%s\": schema.%s{\n", indent, attr.TfsdkTag, blockType))
 		sb.WriteString(fmt.Sprintf("%s\t\tMarkdownDescription: \"%s\",\n", indent, desc))
-		sb.WriteString(RenderConditionalRequiredValidators(attr, indent+"\t\t"))
+		sb.WriteString(RenderBlockValidators(attr, indent+"\t\t"))
 		sb.WriteString(RenderBlockPlanModifiers(attr, indent+"\t\t"))
 
 		if attr.NestedBlockType == "list" {
@@ -1574,11 +1575,9 @@ func RenderBlockPlanModifiers(attr openapi.TerraformAttribute, indent string) st
 	return fmt.Sprintf("%sPlanModifiers: []planmodifier.Object{objectplanmodifier.RequiresReplace()},\n", indent)
 }
 
-// RenderConditionalRequiredValidators emits a parent-block validator for
-// direct children carrying x-f5xc-required-for.create. Keeping those children
-// Optional in Terraform schema lets the parent block remain absent; the
-// validator enforces them only when the parent object/list element exists.
-func RenderConditionalRequiredValidators(attr openapi.TerraformAttribute, indent string) string {
+// RenderBlockValidators enforces required children and sibling conflicts within
+// each configured parent object or list element. Absent parents remain optional.
+func RenderBlockValidators(attr openapi.TerraformAttribute, indent string) string {
 	required := make([]string, 0)
 	for _, child := range attr.NestedAttributes {
 		// app_firewall detection_settings.violations_view is labeled required by
@@ -1592,15 +1591,66 @@ func RenderConditionalRequiredValidators(attr openapi.TerraformAttribute, indent
 			required = append(required, child.TfsdkTag)
 		}
 	}
-	if len(required) == 0 {
+	kind, suffix := "Object", "ObjectAttributes"
+	if attr.NestedBlockType == "list" {
+		kind, suffix = "List", "ListObjectAttributes"
+	}
+	var checks []string
+	if len(required) > 0 {
+		quoted := make([]string, len(required))
+		for i, name := range required {
+			quoted[i] = fmt.Sprintf("%q", name)
+		}
+		checks = append(checks, fmt.Sprintf("validators.Required%s(%s)", suffix, strings.Join(quoted, ", ")))
+	}
+	for _, pair := range nestedConflictPairs(attr.NestedAttributes) {
+		checks = append(checks, fmt.Sprintf("validators.Conflicting%s(%q, %q)", suffix, pair[0], pair[1]))
+	}
+	if len(checks) == 0 {
 		return ""
 	}
-	quoted := make([]string, len(required))
-	for i, name := range required {
-		quoted[i] = fmt.Sprintf("%q", name)
+	return fmt.Sprintf("%sValidators: []validator.%s{%s},\n", indent, kind, strings.Join(checks, ", "))
+}
+
+// Resolve wire aliases to real sibling Terraform names, then sort and deduplicate
+// the undirected pairs. A reference to an absent field cannot be a sibling conflict.
+func nestedConflictPairs(children []openapi.TerraformAttribute) [][2]string {
+	names := make(map[string]string)
+	for _, child := range children {
+		if child.TfsdkTag == "" {
+			continue
+		}
+		names[child.TfsdkTag] = child.TfsdkTag
+		if child.JsonName != "" {
+			names[child.JsonName] = child.TfsdkTag
+		}
 	}
-	if attr.NestedBlockType == "list" {
-		return fmt.Sprintf("%sValidators: []validator.List{validators.RequiredListObjectAttributes(%s)},\n", indent, strings.Join(quoted, ", "))
+	seen := make(map[[2]string]bool)
+	var pairs [][2]string
+	for _, child := range children {
+		if child.TfsdkTag == "" {
+			continue
+		}
+		for _, target := range child.ConflictsWith {
+			right, exists := names[target]
+			if !exists || right == child.TfsdkTag {
+				continue
+			}
+			pair := [2]string{child.TfsdkTag, right}
+			if pair[0] > pair[1] {
+				pair[0], pair[1] = pair[1], pair[0]
+			}
+			if !seen[pair] {
+				seen[pair] = true
+				pairs = append(pairs, pair)
+			}
+		}
 	}
-	return fmt.Sprintf("%sValidators: []validator.Object{validators.RequiredObjectAttributes(%s)},\n", indent, strings.Join(quoted, ", "))
+	sort.Slice(pairs, func(i, j int) bool {
+		if pairs[i][0] == pairs[j][0] {
+			return pairs[i][1] < pairs[j][1]
+		}
+		return pairs[i][0] < pairs[j][0]
+	})
+	return pairs
 }

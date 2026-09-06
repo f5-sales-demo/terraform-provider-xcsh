@@ -1673,6 +1673,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"blocked_services": schema.ListNestedBlock{
 				MarkdownDescription: "Disable node local services on this site.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("dns", "ssh"), validators.ConflictingListObjectAttributes("dns", "web_user_interface"), validators.ConflictingListObjectAttributes("ssh", "web_user_interface")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -1705,7 +1706,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Blocks: map[string]schema.Block{
 					"bond_devices": schema.ListNestedBlock{
 						MarkdownDescription: "Bond Devices. List of bond devices.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingListObjectAttributes("active_backup", "lacp")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"devices": schema.ListAttribute{
@@ -2039,6 +2040,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_upgrade_drain", "enable_upgrade_drain")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -2047,7 +2049,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					},
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout"), validators.ConflictingObjectAttributes("disable_vega_upgrade_mode", "enable_vega_upgrade_mode"), validators.ConflictingObjectAttributes("drain_max_unavailable_node_count", "drain_max_unavailable_node_percentage")},
 						Attributes: map[string]schema.Attribute{
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
@@ -2239,11 +2241,13 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"performance_enhancement_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"jumbo": schema.SingleNestedBlock{
@@ -2256,6 +2260,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					},
 					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"jumbo_disabled": schema.SingleNestedBlock{
@@ -2302,7 +2307,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Blocks: map[string]schema.Block{
 					"storage_classes": schema.ListNestedBlock{
 						MarkdownDescription: "List of Storage Classes. List of custom storage classes.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_class_name", "storage_device")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_class_name", "storage_device"), validators.ConflictingListObjectAttributes("custom_storage", "hpe_storage"), validators.ConflictingListObjectAttributes("custom_storage", "netapp_trident"), validators.ConflictingListObjectAttributes("custom_storage", "pure_service_orchestrator"), validators.ConflictingListObjectAttributes("hpe_storage", "netapp_trident"), validators.ConflictingListObjectAttributes("hpe_storage", "pure_service_orchestrator"), validators.ConflictingListObjectAttributes("netapp_trident", "pure_service_orchestrator")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"advanced_storage_parameters": schema.MapAttribute{
@@ -2514,7 +2519,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Blocks: map[string]schema.Block{
 					"storage_devices": schema.ListNestedBlock{
 						MarkdownDescription: "List of Storage Devices. List of custom storage devices.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_device")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_device"), validators.ConflictingListObjectAttributes("custom_storage", "hpe_storage"), validators.ConflictingListObjectAttributes("custom_storage", "netapp_trident"), validators.ConflictingListObjectAttributes("custom_storage", "pure_service_orchestrator"), validators.ConflictingListObjectAttributes("hpe_storage", "netapp_trident"), validators.ConflictingListObjectAttributes("hpe_storage", "pure_service_orchestrator"), validators.ConflictingListObjectAttributes("netapp_trident", "pure_service_orchestrator")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"advanced_advanced_parameters": schema.MapAttribute{
@@ -2578,6 +2583,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									Blocks: map[string]schema.Block{
 										"iscsi_chap_password": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2622,6 +2628,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 										"password": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2668,11 +2675,12 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"netapp_trident": schema.SingleNestedBlock{
 									MarkdownDescription: "Device configuration for NetApp Trident Storage.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("netapp_backend_ontap_nas", "netapp_backend_ontap_san")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"netapp_backend_ontap_nas": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration of storage backend for NetApp ONTAP NAS.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username"), validators.ConflictingObjectAttributes("data_lif_dns_name", "data_lif_ip"), validators.ConflictingObjectAttributes("management_lif_dns_name", "management_lif_ip")},
 											Attributes: map[string]schema.Attribute{
 												"auto_export_policy": schema.BoolAttribute{
 													MarkdownDescription: "Policy configuration for this feature.",
@@ -2792,6 +2800,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"client_private_key": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2836,6 +2845,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"password": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2895,6 +2905,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														Blocks: map[string]schema.Block{
 															"volume_defaults": schema.SingleNestedBlock{
 																MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("adaptive_qos_policy", "no_qos"), validators.ConflictingObjectAttributes("adaptive_qos_policy", "qos_policy"), validators.ConflictingObjectAttributes("no_qos", "qos_policy")},
 																Attributes: map[string]schema.Attribute{
 																	"adaptive_qos_policy": schema.StringAttribute{
 																		MarkdownDescription: "Policy configuration for this feature.",
@@ -2965,6 +2976,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"volume_defaults": schema.SingleNestedBlock{
 													MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("adaptive_qos_policy", "no_qos"), validators.ConflictingObjectAttributes("adaptive_qos_policy", "qos_policy"), validators.ConflictingObjectAttributes("no_qos", "qos_policy")},
 													Attributes: map[string]schema.Attribute{
 														"adaptive_qos_policy": schema.StringAttribute{
 															MarkdownDescription: "Policy configuration for this feature.",
@@ -3034,7 +3046,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 										"netapp_backend_ontap_san": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration of storage backend for NetApp ONTAP SAN.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username"), validators.ConflictingObjectAttributes("data_lif_dns_name", "data_lif_ip"), validators.ConflictingObjectAttributes("management_lif_dns_name", "management_lif_ip"), validators.ConflictingObjectAttributes("no_chap", "use_chap")},
 											Attributes: map[string]schema.Attribute{
 												"client_certificate": schema.StringAttribute{
 													MarkdownDescription: "Please Enter Base64-encoded value of client certificate. Used for certificate-based auth.",
@@ -3139,6 +3151,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"client_private_key": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3186,6 +3199,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"password": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3245,6 +3259,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														Blocks: map[string]schema.Block{
 															"volume_defaults": schema.SingleNestedBlock{
 																MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("adaptive_qos_policy", "no_qos"), validators.ConflictingObjectAttributes("adaptive_qos_policy", "qos_policy"), validators.ConflictingObjectAttributes("no_qos", "qos_policy")},
 																Attributes: map[string]schema.Attribute{
 																	"adaptive_qos_policy": schema.StringAttribute{
 																		MarkdownDescription: "Policy configuration for this feature.",
@@ -3334,6 +3349,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"chap_initiator_secret": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3378,6 +3394,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"chap_target_initiator_secret": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3424,6 +3441,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"volume_defaults": schema.SingleNestedBlock{
 													MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("adaptive_qos_policy", "no_qos"), validators.ConflictingObjectAttributes("adaptive_qos_policy", "qos_policy"), validators.ConflictingObjectAttributes("no_qos", "qos_policy")},
 													Attributes: map[string]schema.Attribute{
 														"adaptive_qos_policy": schema.StringAttribute{
 															MarkdownDescription: "Policy configuration for this feature.",
@@ -3566,6 +3584,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"flash_arrays": schema.ListNestedBlock{
 															MarkdownDescription: "For FlashArrays you must set the 'mgmt_endpoint' and 'api_token'.",
+															Validators:          []validator.List{validators.ConflictingListObjectAttributes("mgmt_dns_name", "mgmt_ip")},
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"labels": schema.MapAttribute{
@@ -3592,6 +3611,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																Blocks: map[string]schema.Block{
 																	"api_token": schema.SingleNestedBlock{
 																		MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3658,6 +3678,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"flash_blades": schema.ListNestedBlock{
 															MarkdownDescription: "For FlashBlades you must set the 'mgmt_endpoint', 'api_token' and nfs_endpoint.",
+															Validators:          []validator.List{validators.ConflictingListObjectAttributes("mgmt_dns_name", "mgmt_ip"), validators.ConflictingListObjectAttributes("nfs_endpoint_dns_name", "nfs_endpoint_ip")},
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"labels": schema.MapAttribute{
@@ -3699,6 +3720,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																Blocks: map[string]schema.Block{
 																	"api_token": schema.SingleNestedBlock{
 																		MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3869,6 +3891,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 										"nexthop_address": schema.SingleNestedBlock{
 											MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"ipv4": schema.SingleNestedBlock{
@@ -3903,6 +3926,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"subnets": schema.ListNestedBlock{
 									MarkdownDescription: "Subnets. List of route prefixes.",
+									Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{

@@ -140,6 +140,7 @@ func (r *DcClusterGroupResource) Schema(ctx context.Context, req resource.Schema
 			}),
 			"type": schema.SingleNestedBlock{
 				MarkdownDescription: "DC Cluster Group Mesh Type. Details of DC Cluster Group Mesh Type.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("control_and_data_plane_mesh", "data_plane_mesh")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{

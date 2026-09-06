@@ -533,6 +533,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 			},
 			"allow_list": schema.SingleNestedBlock{
 				MarkdownDescription: "URL(s) and domains policy for forward proxy for a connection type (TLS or HTTP).",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_action_allow", "default_action_deny"), validators.ConflictingObjectAttributes("default_action_allow", "default_action_next_policy"), validators.ConflictingObjectAttributes("default_action_deny", "default_action_next_policy")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -578,6 +579,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 					},
 					"http_list": schema.ListNestedBlock{
 						MarkdownDescription: "HTTP URLs. URLs for HTTP connections.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_path", "path_exact_value"), validators.ConflictingListObjectAttributes("any_path", "path_prefix_value"), validators.ConflictingListObjectAttributes("any_path", "path_regex_value"), validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_prefix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_regex_value"), validators.ConflictingListObjectAttributes("path_prefix_value", "path_regex_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"exact_value": schema.StringAttribute{
@@ -632,6 +634,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 					},
 					"tls_list": schema.ListNestedBlock{
 						MarkdownDescription: "TLS Domains. Domains in SNI for TLS connections.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"exact_value": schema.StringAttribute{
@@ -665,6 +668,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 			},
 			"deny_list": schema.SingleNestedBlock{
 				MarkdownDescription: "URL(s) and domains policy for forward proxy for a connection type (TLS or HTTP).",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_action_allow", "default_action_deny"), validators.ConflictingObjectAttributes("default_action_allow", "default_action_next_policy"), validators.ConflictingObjectAttributes("default_action_deny", "default_action_next_policy")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -710,6 +714,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 					},
 					"http_list": schema.ListNestedBlock{
 						MarkdownDescription: "HTTP URLs. URLs for HTTP connections.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_path", "path_exact_value"), validators.ConflictingListObjectAttributes("any_path", "path_prefix_value"), validators.ConflictingListObjectAttributes("any_path", "path_regex_value"), validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_prefix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_regex_value"), validators.ConflictingListObjectAttributes("path_prefix_value", "path_regex_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"exact_value": schema.StringAttribute{
@@ -764,6 +769,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 					},
 					"tls_list": schema.ListNestedBlock{
 						MarkdownDescription: "TLS Domains. Domains in SNI for TLS connections.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"exact_value": schema.StringAttribute{
@@ -850,6 +856,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 				Blocks: map[string]schema.Block{
 					"rules": schema.ListNestedBlock{
 						MarkdownDescription: "Custom Rule List. List of custom rules.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("all_destinations", "dst_asn_list"), validators.ConflictingListObjectAttributes("all_destinations", "dst_asn_set"), validators.ConflictingListObjectAttributes("all_destinations", "dst_ip_prefix_set"), validators.ConflictingListObjectAttributes("all_destinations", "dst_label_selector"), validators.ConflictingListObjectAttributes("all_destinations", "dst_prefix_list"), validators.ConflictingListObjectAttributes("all_destinations", "http_list"), validators.ConflictingListObjectAttributes("all_destinations", "tls_list"), validators.ConflictingListObjectAttributes("all_destinations", "url_category_list"), validators.ConflictingListObjectAttributes("all_sources", "ip_prefix_set"), validators.ConflictingListObjectAttributes("all_sources", "label_selector"), validators.ConflictingListObjectAttributes("all_sources", "prefix_list"), validators.ConflictingListObjectAttributes("dst_asn_list", "dst_asn_set"), validators.ConflictingListObjectAttributes("dst_asn_list", "dst_ip_prefix_set"), validators.ConflictingListObjectAttributes("dst_asn_list", "dst_label_selector"), validators.ConflictingListObjectAttributes("dst_asn_list", "dst_prefix_list"), validators.ConflictingListObjectAttributes("dst_asn_list", "http_list"), validators.ConflictingListObjectAttributes("dst_asn_list", "tls_list"), validators.ConflictingListObjectAttributes("dst_asn_list", "url_category_list"), validators.ConflictingListObjectAttributes("dst_asn_set", "dst_ip_prefix_set"), validators.ConflictingListObjectAttributes("dst_asn_set", "dst_label_selector"), validators.ConflictingListObjectAttributes("dst_asn_set", "dst_prefix_list"), validators.ConflictingListObjectAttributes("dst_asn_set", "http_list"), validators.ConflictingListObjectAttributes("dst_asn_set", "tls_list"), validators.ConflictingListObjectAttributes("dst_asn_set", "url_category_list"), validators.ConflictingListObjectAttributes("dst_ip_prefix_set", "dst_label_selector"), validators.ConflictingListObjectAttributes("dst_ip_prefix_set", "dst_prefix_list"), validators.ConflictingListObjectAttributes("dst_ip_prefix_set", "http_list"), validators.ConflictingListObjectAttributes("dst_ip_prefix_set", "tls_list"), validators.ConflictingListObjectAttributes("dst_ip_prefix_set", "url_category_list"), validators.ConflictingListObjectAttributes("dst_label_selector", "dst_prefix_list"), validators.ConflictingListObjectAttributes("dst_label_selector", "http_list"), validators.ConflictingListObjectAttributes("dst_label_selector", "tls_list"), validators.ConflictingListObjectAttributes("dst_label_selector", "url_category_list"), validators.ConflictingListObjectAttributes("dst_prefix_list", "http_list"), validators.ConflictingListObjectAttributes("dst_prefix_list", "tls_list"), validators.ConflictingListObjectAttributes("dst_prefix_list", "url_category_list"), validators.ConflictingListObjectAttributes("http_list", "tls_list"), validators.ConflictingListObjectAttributes("http_list", "url_category_list"), validators.ConflictingListObjectAttributes("ip_prefix_set", "label_selector"), validators.ConflictingListObjectAttributes("ip_prefix_set", "prefix_list"), validators.ConflictingListObjectAttributes("label_selector", "prefix_list"), validators.ConflictingListObjectAttributes("no_http_connect_port", "port_matcher"), validators.ConflictingListObjectAttributes("tls_list", "url_category_list")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"action": schema.StringAttribute{
@@ -976,6 +983,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 									Blocks: map[string]schema.Block{
 										"http_list": schema.ListNestedBlock{
 											MarkdownDescription: "HTTP URLs. URLs for HTTP connections.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_path", "path_exact_value"), validators.ConflictingListObjectAttributes("any_path", "path_prefix_value"), validators.ConflictingListObjectAttributes("any_path", "path_regex_value"), validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_prefix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_regex_value"), validators.ConflictingListObjectAttributes("path_prefix_value", "path_regex_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"exact_value": schema.StringAttribute{
@@ -1135,6 +1143,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 									Blocks: map[string]schema.Block{
 										"tls_list": schema.ListNestedBlock{
 											MarkdownDescription: "TLS Domains. Domains in SNI for TLS connections.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"exact_value": schema.StringAttribute{

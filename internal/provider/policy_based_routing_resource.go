@@ -485,7 +485,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 				Blocks: map[string]schema.Block{
 					"forward_proxy_pbr_rules": schema.ListNestedBlock{
 						MarkdownDescription: "L3/L4 routing rules. Network(L3/L4) routing policy rules.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("forwarding_class_list")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("forwarding_class_list"), validators.ConflictingListObjectAttributes("all_destinations", "http_list"), validators.ConflictingListObjectAttributes("all_destinations", "tls_list"), validators.ConflictingListObjectAttributes("all_sources", "ip_prefix_set"), validators.ConflictingListObjectAttributes("all_sources", "label_selector"), validators.ConflictingListObjectAttributes("all_sources", "prefix_list"), validators.ConflictingListObjectAttributes("http_list", "tls_list"), validators.ConflictingListObjectAttributes("ip_prefix_set", "label_selector"), validators.ConflictingListObjectAttributes("ip_prefix_set", "prefix_list"), validators.ConflictingListObjectAttributes("label_selector", "prefix_list")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
@@ -534,6 +534,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 									Blocks: map[string]schema.Block{
 										"http_list": schema.ListNestedBlock{
 											MarkdownDescription: "HTTP URLs. URLs for HTTP connections.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_path", "path_exact_value"), validators.ConflictingListObjectAttributes("any_path", "path_prefix_value"), validators.ConflictingListObjectAttributes("any_path", "path_regex_value"), validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_prefix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_regex_value"), validators.ConflictingListObjectAttributes("path_prefix_value", "path_regex_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"exact_value": schema.StringAttribute{
@@ -672,6 +673,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 									Blocks: map[string]schema.Block{
 										"tls_list": schema.ListNestedBlock{
 											MarkdownDescription: "TLS Domains. Domains in SNI for TLS connections.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"exact_value": schema.StringAttribute{
@@ -707,6 +709,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 			},
 			"network_pbr": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for network pbr.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("any", "label_selector"), validators.ConflictingObjectAttributes("any", "prefix_list"), validators.ConflictingObjectAttributes("label_selector", "prefix_list")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -729,7 +732,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 					},
 					"network_pbr_rules": schema.ListNestedBlock{
 						MarkdownDescription: "L3/L4 Destination Routing Rules. Network(L3/L4) routing policy rule.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("forwarding_class_list")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("forwarding_class_list"), validators.ConflictingListObjectAttributes("all_tcp_traffic", "all_traffic"), validators.ConflictingListObjectAttributes("all_tcp_traffic", "all_udp_traffic"), validators.ConflictingListObjectAttributes("all_tcp_traffic", "applications"), validators.ConflictingListObjectAttributes("all_tcp_traffic", "protocol_port_range"), validators.ConflictingListObjectAttributes("all_traffic", "all_udp_traffic"), validators.ConflictingListObjectAttributes("all_traffic", "applications"), validators.ConflictingListObjectAttributes("all_traffic", "protocol_port_range"), validators.ConflictingListObjectAttributes("all_udp_traffic", "applications"), validators.ConflictingListObjectAttributes("all_udp_traffic", "protocol_port_range"), validators.ConflictingListObjectAttributes("any", "dns_name"), validators.ConflictingListObjectAttributes("any", "ip_prefix_set"), validators.ConflictingListObjectAttributes("any", "prefix_list"), validators.ConflictingListObjectAttributes("applications", "protocol_port_range"), validators.ConflictingListObjectAttributes("dns_name", "ip_prefix_set"), validators.ConflictingListObjectAttributes("dns_name", "prefix_list"), validators.ConflictingListObjectAttributes("ip_prefix_set", "prefix_list")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"dns_name": schema.StringAttribute{

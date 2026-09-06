@@ -598,7 +598,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 			}),
 			"dedicated_interface": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: dedicated_interface, dedicated_management_interface, ethernet_interface, layer2_interface, tunnel_interface] Configuration parameter for dedicated interface.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("device"), validators.ConflictingObjectAttributes("cluster", "node"), validators.ConflictingObjectAttributes("is_primary", "not_primary"), validators.ConflictingObjectAttributes("monitor", "monitor_disabled")},
 
 				Attributes: map[string]schema.Attribute{
 					"device": schema.StringAttribute{
@@ -653,7 +653,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"dedicated_management_interface": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for dedicated management interface.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("device"), validators.ConflictingObjectAttributes("cluster", "node")},
 
 				Attributes: map[string]schema.Attribute{
 					"device": schema.StringAttribute{
@@ -689,7 +689,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"ethernet_interface": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for ethernet interface.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("device"), validators.ConflictingObjectAttributes("cluster", "node"), validators.ConflictingObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingObjectAttributes("is_primary", "not_primary"), validators.ConflictingObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network"), validators.ConflictingObjectAttributes("site_local_inside_network", "storage_network"), validators.ConflictingObjectAttributes("site_local_network", "storage_network"), validators.ConflictingObjectAttributes("untagged", "vlan_id")},
 
 				Attributes: map[string]schema.Attribute{
 					"device": schema.StringAttribute{
@@ -740,7 +740,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					},
 					"dhcp_server": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for dhcp server.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 						Attributes: map[string]schema.Attribute{
 							"dhcp_option82_tag": schema.StringAttribute{
 								MarkdownDescription: "DHCP option 82 tag.",
@@ -761,6 +761,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 							},
 							"dhcp_networks": schema.ListNestedBlock{
 								MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"dgw_address": schema.StringAttribute{
@@ -845,6 +846,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					},
 					"ipv6_auto_config": schema.SingleNestedBlock{
 						MarkdownDescription: "IPV6AutoConfigType.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"host": schema.SingleNestedBlock{
@@ -852,6 +854,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 							},
 							"router": schema.SingleNestedBlock{
 								MarkdownDescription: "IPV6AutoConfigRouterType.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 								Attributes: map[string]schema.Attribute{
 									"network_prefix": schema.StringAttribute{
 										MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -864,6 +867,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 								Blocks: map[string]schema.Block{
 									"dns_config": schema.SingleNestedBlock{
 										MarkdownDescription: "IPV6DnsConfig.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"configured_list": schema.SingleNestedBlock{
@@ -882,6 +886,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 											},
 											"local_dns": schema.SingleNestedBlock{
 												MarkdownDescription: "IPV6LocalDnsAddress.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 												Attributes: map[string]schema.Attribute{
 													"configured_address": schema.StringAttribute{
 														MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -905,7 +910,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 									},
 									"stateful": schema.SingleNestedBlock{
 										MarkdownDescription: "DHCPIPV6 Stateful Server.",
-										Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 										Attributes: map[string]schema.Attribute{
 											"fixed_ip_map": schema.MapAttribute{
 												MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -1002,6 +1007,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					},
 					"static_ip": schema.SingleNestedBlock{
 						MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"cluster_static_ip": schema.SingleNestedBlock{
@@ -1044,6 +1050,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					},
 					"static_ipv6_address": schema.SingleNestedBlock{
 						MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"cluster_static_ip": schema.SingleNestedBlock{
@@ -1094,12 +1101,13 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"layer2_interface": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for layer2 interface.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("l2sriov_interface", "l2vlan_interface"), validators.ConflictingObjectAttributes("l2sriov_interface", "l2vlan_slo_interface"), validators.ConflictingObjectAttributes("l2vlan_interface", "l2vlan_slo_interface")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"l2sriov_interface": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for l2sriov interface.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("device")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("device"), validators.ConflictingObjectAttributes("untagged", "vlan_id")},
 						Attributes: map[string]schema.Attribute{
 							"device": schema.StringAttribute{
 								MarkdownDescription: "Ethernet Device. Physical ethernet interface.",
@@ -1159,6 +1167,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 			},
 			"tunnel_interface": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for tunnel interface.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 
 				Attributes: map[string]schema.Attribute{
 					"mtu": schema.Int64Attribute{
@@ -1195,6 +1204,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					},
 					"static_ip": schema.SingleNestedBlock{
 						MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"cluster_static_ip": schema.SingleNestedBlock{

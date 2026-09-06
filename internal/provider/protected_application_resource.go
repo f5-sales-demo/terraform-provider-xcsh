@@ -1314,7 +1314,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 			},
 			"cloudflare": schema.SingleNestedBlock{
 				MarkdownDescription: "Bot Defense policy configuration for Cloudflare.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("protected_endpoints")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("protected_endpoints"), validators.ConflictingObjectAttributes("disable_js_insert", "js_insertion_rules"), validators.ConflictingObjectAttributes("disable_js_insert", "manual_js_insert"), validators.ConflictingObjectAttributes("disable_mobile_sdk", "mobile_sdk_config"), validators.ConflictingObjectAttributes("js_insertion_rules", "manual_js_insert")},
 
 				Attributes: map[string]schema.Attribute{
 					"continue_mitigation_action_hdr": schema.StringAttribute{
@@ -1365,6 +1365,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 						Blocks: map[string]schema.Block{
 							"exclude_list": schema.ListNestedBlock{
 								MarkdownDescription: "Optional JavaScript insertions exclude list of domain and path matchers.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -1373,6 +1374,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"domain": schema.SingleNestedBlock{
 											MarkdownDescription: "Domain name for routing and identification.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
 											Attributes: map[string]schema.Attribute{
 												"exact_value": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
@@ -1419,6 +1421,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"path": schema.SingleNestedBlock{
 											MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 											Attributes: map[string]schema.Attribute{
 												"path": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -1448,6 +1451,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 							},
 							"rules": schema.ListNestedBlock{
 								MarkdownDescription: "Required list of pages to insert Bot Defense client JavaScript.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain"), validators.ConflictingListObjectAttributes("exact_path", "glob"), validators.ConflictingListObjectAttributes("exact_path", "prefix"), validators.ConflictingListObjectAttributes("glob", "prefix")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"exact_path": schema.StringAttribute{
@@ -1478,6 +1482,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"domain": schema.SingleNestedBlock{
 											MarkdownDescription: "Domain name for routing and identification.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
 											Attributes: map[string]schema.Attribute{
 												"exact_value": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
@@ -1546,7 +1551,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								Blocks: map[string]schema.Block{
 									"headers": schema.ListNestedBlock{
 										MarkdownDescription: "List of headers that can be used to identify mobile traffic.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "regex")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"exact": schema.StringAttribute{
@@ -1579,7 +1584,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					},
 					"protected_endpoints": schema.ListNestedBlock{
 						MarkdownDescription: "List of protected endpoints (max 128 items).",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("http_methods")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("http_methods"), validators.ConflictingListObjectAttributes("any_domain", "domain"), validators.ConflictingListObjectAttributes("mobile_client", "web_client"), validators.ConflictingListObjectAttributes("mobile_client", "web_mobile_client"), validators.ConflictingListObjectAttributes("web_client", "web_mobile_client")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"http_methods": schema.ListAttribute{
@@ -1604,6 +1609,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"domain": schema.SingleNestedBlock{
 									MarkdownDescription: "Domain name for routing and identification.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
 									Attributes: map[string]schema.Attribute{
 										"exact_value": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
@@ -1650,6 +1656,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"mobile_client": schema.SingleNestedBlock{
 									MarkdownDescription: "Mobile Client. Mobile client configuration OPTIONS.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("block", "continue")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"block": schema.SingleNestedBlock{
@@ -1680,6 +1687,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"continue": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"add_header": schema.SingleNestedBlock{
@@ -1711,6 +1719,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"web_client": schema.SingleNestedBlock{
 									MarkdownDescription: "Web Client. Web client configuration OPTIONS.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("block", "continue"), validators.ConflictingObjectAttributes("block", "redirect"), validators.ConflictingObjectAttributes("continue", "redirect")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"block": schema.SingleNestedBlock{
@@ -1741,6 +1750,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"continue": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"add_header": schema.SingleNestedBlock{
@@ -1775,6 +1785,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"web_mobile_client": schema.SingleNestedBlock{
 									MarkdownDescription: "Web and Mobile client configuration OPTIONS.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("block_mobile", "continue_mobile"), validators.ConflictingObjectAttributes("block_web", "continue_web"), validators.ConflictingObjectAttributes("block_web", "redirect_web"), validators.ConflictingObjectAttributes("continue_web", "redirect_web")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"block_mobile": schema.SingleNestedBlock{
@@ -1831,6 +1842,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"continue_mobile": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"add_header": schema.SingleNestedBlock{
@@ -1843,6 +1855,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"continue_web": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"add_header": schema.SingleNestedBlock{
@@ -1880,6 +1893,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					},
 					"trusted_clients": schema.ListNestedBlock{
 						MarkdownDescription: "Define your allowlists to skip Bot Defense inference processing.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("http_header", "ip_prefix")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"ip_prefix": schema.StringAttribute{
@@ -1899,7 +1913,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 									Blocks: map[string]schema.Block{
 										"headers": schema.ListNestedBlock{
 											MarkdownDescription: "List of HTTP header name and value pairs.",
-											Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "regex")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"exact": schema.StringAttribute{
@@ -1955,7 +1969,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 			},
 			"cloudfront": schema.SingleNestedBlock{
 				MarkdownDescription: "Bot Defense policy configuration for AWS Cloudfront.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("protected_endpoints")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("protected_endpoints"), validators.ConflictingObjectAttributes("aws_configuration_id_selector", "aws_configuration_tag_selector"), validators.ConflictingObjectAttributes("aws_configuration_id_selector", "disable_aws_configuration"), validators.ConflictingObjectAttributes("aws_configuration_tag_selector", "disable_aws_configuration"), validators.ConflictingObjectAttributes("disable_js_insert", "js_insertion_rules"), validators.ConflictingObjectAttributes("disable_js_insert", "manual_js_insert"), validators.ConflictingObjectAttributes("disable_mobile_sdk", "mobile_sdk_config"), validators.ConflictingObjectAttributes("js_insertion_rules", "manual_js_insert")},
 
 				Attributes: map[string]schema.Attribute{
 					"continue_mitigation_action_hdr": schema.StringAttribute{
@@ -2048,6 +2062,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 						Blocks: map[string]schema.Block{
 							"exclude_list": schema.ListNestedBlock{
 								MarkdownDescription: "Optional JavaScript insertions exclude list of domain and path matchers.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -2056,6 +2071,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"domain": schema.SingleNestedBlock{
 											MarkdownDescription: "Domain name for routing and identification.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
 											Attributes: map[string]schema.Attribute{
 												"exact_value": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
@@ -2102,6 +2118,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"path": schema.SingleNestedBlock{
 											MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 											Attributes: map[string]schema.Attribute{
 												"path": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -2131,6 +2148,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 							},
 							"rules": schema.ListNestedBlock{
 								MarkdownDescription: "Required list of pages to insert Bot Defense client JavaScript.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain"), validators.ConflictingListObjectAttributes("exact_path", "glob"), validators.ConflictingListObjectAttributes("exact_path", "prefix"), validators.ConflictingListObjectAttributes("glob", "prefix")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"exact_path": schema.StringAttribute{
@@ -2161,6 +2179,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"domain": schema.SingleNestedBlock{
 											MarkdownDescription: "Domain name for routing and identification.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
 											Attributes: map[string]schema.Attribute{
 												"exact_value": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
@@ -2236,7 +2255,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								Blocks: map[string]schema.Block{
 									"headers": schema.ListNestedBlock{
 										MarkdownDescription: "List of headers that can be used to identify mobile traffic.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "regex")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"exact": schema.StringAttribute{
@@ -2269,7 +2288,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					},
 					"protected_endpoints": schema.ListNestedBlock{
 						MarkdownDescription: "List of protected endpoints (max 128 items).",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("http_methods", "path")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("http_methods", "path"), validators.ConflictingListObjectAttributes("any_domain", "domain"), validators.ConflictingListObjectAttributes("flow_label", "undefined_flow_label"), validators.ConflictingListObjectAttributes("mobile_client", "web_client"), validators.ConflictingListObjectAttributes("mobile_client", "web_mobile_client"), validators.ConflictingListObjectAttributes("web_client", "web_mobile_client")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"http_methods": schema.ListAttribute{
@@ -2301,6 +2320,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"domain": schema.SingleNestedBlock{
 									MarkdownDescription: "Domain name for routing and identification.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
 									Attributes: map[string]schema.Attribute{
 										"exact_value": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
@@ -2327,10 +2347,12 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"flow_label": schema.SingleNestedBlock{
 									MarkdownDescription: "Bot Defense Flow Label Category allows to associate traffic with selected category.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("account_management", "authentication"), validators.ConflictingObjectAttributes("account_management", "financial_services"), validators.ConflictingObjectAttributes("account_management", "flight"), validators.ConflictingObjectAttributes("account_management", "profile_management"), validators.ConflictingObjectAttributes("account_management", "search"), validators.ConflictingObjectAttributes("account_management", "shopping_gift_cards"), validators.ConflictingObjectAttributes("authentication", "financial_services"), validators.ConflictingObjectAttributes("authentication", "flight"), validators.ConflictingObjectAttributes("authentication", "profile_management"), validators.ConflictingObjectAttributes("authentication", "search"), validators.ConflictingObjectAttributes("authentication", "shopping_gift_cards"), validators.ConflictingObjectAttributes("financial_services", "flight"), validators.ConflictingObjectAttributes("financial_services", "profile_management"), validators.ConflictingObjectAttributes("financial_services", "search"), validators.ConflictingObjectAttributes("financial_services", "shopping_gift_cards"), validators.ConflictingObjectAttributes("flight", "profile_management"), validators.ConflictingObjectAttributes("flight", "search"), validators.ConflictingObjectAttributes("flight", "shopping_gift_cards"), validators.ConflictingObjectAttributes("profile_management", "search"), validators.ConflictingObjectAttributes("profile_management", "shopping_gift_cards"), validators.ConflictingObjectAttributes("search", "shopping_gift_cards")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"account_management": schema.SingleNestedBlock{
 											MarkdownDescription: "Bot Defense Flow Label Account Management Category.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("create", "password_reset")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"create": schema.SingleNestedBlock{
@@ -2343,10 +2365,12 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"authentication": schema.SingleNestedBlock{
 											MarkdownDescription: "Bot Defense Flow Label Authentication Category.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("login", "login_mfa"), validators.ConflictingObjectAttributes("login", "login_partner"), validators.ConflictingObjectAttributes("login", "logout"), validators.ConflictingObjectAttributes("login", "token_refresh"), validators.ConflictingObjectAttributes("login_mfa", "login_partner"), validators.ConflictingObjectAttributes("login_mfa", "logout"), validators.ConflictingObjectAttributes("login_mfa", "token_refresh"), validators.ConflictingObjectAttributes("login_partner", "logout"), validators.ConflictingObjectAttributes("login_partner", "token_refresh"), validators.ConflictingObjectAttributes("logout", "token_refresh")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"login": schema.SingleNestedBlock{
 													MarkdownDescription: "Bot Defense Transaction Result. Bot Defense Transaction Result.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_transaction_result", "transaction_result")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"disable_transaction_result": schema.SingleNestedBlock{
@@ -2434,6 +2458,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"financial_services": schema.SingleNestedBlock{
 											MarkdownDescription: "Bot Defense Flow Label Financial Services Category.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("apply", "money_transfer")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"apply": schema.SingleNestedBlock{
@@ -2455,6 +2480,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"profile_management": schema.SingleNestedBlock{
 											MarkdownDescription: "Bot Defense Flow Label Profile Management Category.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("create", "update"), validators.ConflictingObjectAttributes("create", "view"), validators.ConflictingObjectAttributes("update", "view")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"create": schema.SingleNestedBlock{
@@ -2470,6 +2496,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"search": schema.SingleNestedBlock{
 											MarkdownDescription: "Bot Defense Flow Label Search Category. Bot Defense Flow Label Search Category.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("flight_search", "product_search"), validators.ConflictingObjectAttributes("flight_search", "reservation_search"), validators.ConflictingObjectAttributes("flight_search", "room_search"), validators.ConflictingObjectAttributes("product_search", "reservation_search"), validators.ConflictingObjectAttributes("product_search", "room_search"), validators.ConflictingObjectAttributes("reservation_search", "room_search")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"flight_search": schema.SingleNestedBlock{
@@ -2488,6 +2515,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"shopping_gift_cards": schema.SingleNestedBlock{
 											MarkdownDescription: "Bot Defense Flow Label Shopping & Gift Cards Category.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "gift_card_validation"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_add_to_cart"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_checkout"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_choose_seat"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_enter_drawing_submission"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_make_payment"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_order"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_price_inquiry"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_update_quantity"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_add_to_cart"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_checkout"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_choose_seat"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_enter_drawing_submission"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_make_payment"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_order"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_price_inquiry"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_checkout"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_choose_seat"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_enter_drawing_submission"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_make_payment"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_order"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_price_inquiry"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_checkout", "shop_choose_seat"), validators.ConflictingObjectAttributes("shop_checkout", "shop_enter_drawing_submission"), validators.ConflictingObjectAttributes("shop_checkout", "shop_make_payment"), validators.ConflictingObjectAttributes("shop_checkout", "shop_order"), validators.ConflictingObjectAttributes("shop_checkout", "shop_price_inquiry"), validators.ConflictingObjectAttributes("shop_checkout", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_checkout", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_checkout", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_enter_drawing_submission"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_make_payment"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_order"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_price_inquiry"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_enter_drawing_submission", "shop_make_payment"), validators.ConflictingObjectAttributes("shop_enter_drawing_submission", "shop_order"), validators.ConflictingObjectAttributes("shop_enter_drawing_submission", "shop_price_inquiry"), validators.ConflictingObjectAttributes("shop_enter_drawing_submission", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_enter_drawing_submission", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_enter_drawing_submission", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_make_payment", "shop_order"), validators.ConflictingObjectAttributes("shop_make_payment", "shop_price_inquiry"), validators.ConflictingObjectAttributes("shop_make_payment", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_make_payment", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_make_payment", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_order", "shop_price_inquiry"), validators.ConflictingObjectAttributes("shop_order", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_order", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_order", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_price_inquiry", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_price_inquiry", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_price_inquiry", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_promo_code_validation", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_promo_code_validation", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_purchase_gift_card", "shop_update_quantity")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"gift_card_make_purchase_with_gift_card": schema.SingleNestedBlock{
@@ -2552,6 +2580,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"mobile_client": schema.SingleNestedBlock{
 									MarkdownDescription: "Mobile Client. Mobile client configuration OPTIONS.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("block", "continue")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"block": schema.SingleNestedBlock{
@@ -2582,6 +2611,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"continue": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"add_header": schema.SingleNestedBlock{
@@ -2599,6 +2629,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"web_client": schema.SingleNestedBlock{
 									MarkdownDescription: "Web Client. Web client configuration OPTIONS.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("block", "continue"), validators.ConflictingObjectAttributes("block", "redirect"), validators.ConflictingObjectAttributes("continue", "redirect")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"block": schema.SingleNestedBlock{
@@ -2629,6 +2660,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"continue": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"add_header": schema.SingleNestedBlock{
@@ -2663,6 +2695,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 								"web_mobile_client": schema.SingleNestedBlock{
 									MarkdownDescription: "Web and Mobile client configuration OPTIONS.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("block_mobile", "continue_mobile"), validators.ConflictingObjectAttributes("block_web", "continue_web"), validators.ConflictingObjectAttributes("block_web", "redirect_web"), validators.ConflictingObjectAttributes("continue_web", "redirect_web")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"block_mobile": schema.SingleNestedBlock{
@@ -2719,6 +2752,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"continue_mobile": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"add_header": schema.SingleNestedBlock{
@@ -2731,6 +2765,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 										"continue_web": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"add_header": schema.SingleNestedBlock{
@@ -2768,6 +2803,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					},
 					"trusted_clients": schema.ListNestedBlock{
 						MarkdownDescription: "Define your allowlists to skip Bot Defense inference processing.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("http_header", "ip_prefix")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"ip_prefix": schema.StringAttribute{
@@ -2787,7 +2823,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 									Blocks: map[string]schema.Block{
 										"headers": schema.ListNestedBlock{
 											MarkdownDescription: "List of HTTP header name and value pairs.",
-											Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "regex")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"exact": schema.StringAttribute{

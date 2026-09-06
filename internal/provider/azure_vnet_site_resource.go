@@ -3361,6 +3361,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			}),
 			"admin_password": schema.SingleNestedBlock{
 				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -3443,6 +3444,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("dns", "ssh"), validators.ConflictingListObjectAttributes("dns", "web_user_interface"), validators.ConflictingListObjectAttributes("ssh", "web_user_interface")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"network_type": schema.StringAttribute{
@@ -3530,7 +3532,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"ingress_egress_gw": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: ingress_egress_gw, ingress_egress_gw_ar, ingress_gw, ingress_gw_ar, voltstack_cluster, voltstack_cluster_ar] Two interface Azure ingress/egress site.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("az_nodes", "azure_certified_hw")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("az_nodes", "azure_certified_hw"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "dc_cluster_group_outside_vn"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("dc_cluster_group_outside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("hub", "not_hub"), validators.ConflictingObjectAttributes("inside_static_routes", "no_inside_static_routes"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
@@ -3545,6 +3547,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
 						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -3691,11 +3694,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							Blocks: map[string]schema.Block{
 								"inside_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for inside subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"subnet": schema.SingleNestedBlock{
 											MarkdownDescription: "Subnet specification for network segmentation.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 											Attributes: map[string]schema.Attribute{
 												"subnet_name": schema.StringAttribute{
 													MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -3732,11 +3736,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 								"outside_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for outside subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"subnet": schema.SingleNestedBlock{
 											MarkdownDescription: "Subnet specification for network segmentation.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 											Attributes: map[string]schema.Attribute{
 												"subnet_name": schema.StringAttribute{
 													MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -3846,6 +3851,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -3930,6 +3936,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"hub": schema.SingleNestedBlock{
 						MarkdownDescription: "Hub VNet type. Hub VNet type.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("express_route_disabled", "express_route_enabled")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"express_route_disabled": schema.SingleNestedBlock{
@@ -3937,7 +3944,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"express_route_enabled": schema.SingleNestedBlock{
 								MarkdownDescription: "Express Route Configuration. Express Route Configuration.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("connections")},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("connections"), validators.ConflictingObjectAttributes("advertise_to_route_server", "do_not_advertise_to_route_server"), validators.ConflictingObjectAttributes("auto_asn", "custom_asn"), validators.ConflictingObjectAttributes("site_registration_over_express_route", "site_registration_over_internet"), validators.ConflictingObjectAttributes("sku_ergw1az", "sku_ergw2az"), validators.ConflictingObjectAttributes("sku_ergw1az", "sku_high_perf"), validators.ConflictingObjectAttributes("sku_ergw1az", "sku_standard"), validators.ConflictingObjectAttributes("sku_ergw2az", "sku_high_perf"), validators.ConflictingObjectAttributes("sku_ergw2az", "sku_standard"), validators.ConflictingObjectAttributes("sku_high_perf", "sku_standard")},
 								Attributes: map[string]schema.Attribute{
 									"custom_asn": schema.Int64Attribute{
 										MarkdownDescription: "Exclusive with [auto_asn] Set custom ASN for F5XC Site.",
@@ -3956,6 +3963,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 									},
 									"connections": schema.ListNestedBlock{
 										MarkdownDescription: "Add the ExpressRoute Circuit Connections to this site.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("circuit_id", "other_subscription")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"circuit_id": schema.StringAttribute{
@@ -4005,6 +4013,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"authorized_key": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
@@ -4057,6 +4066,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 									},
 									"gateway_subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Configuration parameter for gateway subnet.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto", "subnet"), validators.ConflictingObjectAttributes("auto", "subnet_param"), validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"auto": schema.SingleNestedBlock{
@@ -4064,6 +4074,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 											"subnet": schema.SingleNestedBlock{
 												MarkdownDescription: "Parameters for Azure special subnet which name is reserved. (i.e GatewaySubnet or RouteServerSubnet).",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 												Attributes: map[string]schema.Attribute{
 													"subnet_resource_grp": schema.StringAttribute{
 														MarkdownDescription: "Exclusive with [vnet_resource_group] Specify name of Resource Group.",
@@ -4093,6 +4104,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 									},
 									"route_server_subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Configuration parameter for route server subnet.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto", "subnet"), validators.ConflictingObjectAttributes("auto", "subnet_param"), validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"auto": schema.SingleNestedBlock{
@@ -4100,6 +4112,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 											"subnet": schema.SingleNestedBlock{
 												MarkdownDescription: "Parameters for Azure special subnet which name is reserved. (i.e GatewaySubnet or RouteServerSubnet).",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 												Attributes: map[string]schema.Attribute{
 													"subnet_resource_grp": schema.StringAttribute{
 														MarkdownDescription: "Exclusive with [vnet_resource_group] Specify name of Resource Group.",
@@ -4159,6 +4172,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"spoke_vnets": schema.ListNestedBlock{
 								MarkdownDescription: "Spoke VNet Peering (Legacy). Spoke VNet Peering.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("auto", "manual")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -4173,7 +4187,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"vnet": schema.SingleNestedBlock{
 											MarkdownDescription: "Resource group and name of existing Azure VNet.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("resource_group", "vnet_name")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("resource_group", "vnet_name"), validators.ConflictingObjectAttributes("f5_orchestrated_routing", "manual_routing")},
 											Attributes: map[string]schema.Attribute{
 												"resource_group": schema.StringAttribute{
 													MarkdownDescription: "Existing VNet Resource Group. Resource group of existing VNet.",
@@ -4211,6 +4225,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -4285,6 +4300,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -4319,6 +4335,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -4400,6 +4417,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -4474,6 +4492,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -4508,6 +4527,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -4563,10 +4583,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"performance_enhancement_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"jumbo": schema.SingleNestedBlock{
@@ -4579,6 +4601,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"jumbo_disabled": schema.SingleNestedBlock{
@@ -4601,7 +4624,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"ingress_egress_gw_ar": schema.SingleNestedBlock{
 				MarkdownDescription: "Two interface Azure ingress/egress site on Alternate Region with no support for zones.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("azure_certified_hw")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("azure_certified_hw"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "dc_cluster_group_outside_vn"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("dc_cluster_group_outside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("hub", "not_hub"), validators.ConflictingObjectAttributes("inside_static_routes", "no_inside_static_routes"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
@@ -4616,6 +4639,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
 						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -4818,6 +4842,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -4902,6 +4927,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"hub": schema.SingleNestedBlock{
 						MarkdownDescription: "Hub VNet type. Hub VNet type.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("express_route_disabled", "express_route_enabled")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"express_route_disabled": schema.SingleNestedBlock{
@@ -4909,7 +4935,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"express_route_enabled": schema.SingleNestedBlock{
 								MarkdownDescription: "Express Route Configuration. Express Route Configuration.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("connections")},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("connections"), validators.ConflictingObjectAttributes("advertise_to_route_server", "do_not_advertise_to_route_server"), validators.ConflictingObjectAttributes("auto_asn", "custom_asn"), validators.ConflictingObjectAttributes("site_registration_over_express_route", "site_registration_over_internet"), validators.ConflictingObjectAttributes("sku_ergw1az", "sku_ergw2az"), validators.ConflictingObjectAttributes("sku_ergw1az", "sku_high_perf"), validators.ConflictingObjectAttributes("sku_ergw1az", "sku_standard"), validators.ConflictingObjectAttributes("sku_ergw2az", "sku_high_perf"), validators.ConflictingObjectAttributes("sku_ergw2az", "sku_standard"), validators.ConflictingObjectAttributes("sku_high_perf", "sku_standard")},
 								Attributes: map[string]schema.Attribute{
 									"custom_asn": schema.Int64Attribute{
 										MarkdownDescription: "Exclusive with [auto_asn] Set custom ASN for F5XC Site.",
@@ -4928,6 +4954,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 									},
 									"connections": schema.ListNestedBlock{
 										MarkdownDescription: "Add the ExpressRoute Circuit Connections to this site.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("circuit_id", "other_subscription")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"circuit_id": schema.StringAttribute{
@@ -4977,6 +5004,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"authorized_key": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
@@ -5029,6 +5057,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 									},
 									"gateway_subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Configuration parameter for gateway subnet.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto", "subnet"), validators.ConflictingObjectAttributes("auto", "subnet_param"), validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"auto": schema.SingleNestedBlock{
@@ -5036,6 +5065,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 											"subnet": schema.SingleNestedBlock{
 												MarkdownDescription: "Parameters for Azure special subnet which name is reserved. (i.e GatewaySubnet or RouteServerSubnet).",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 												Attributes: map[string]schema.Attribute{
 													"subnet_resource_grp": schema.StringAttribute{
 														MarkdownDescription: "Exclusive with [vnet_resource_group] Specify name of Resource Group.",
@@ -5065,6 +5095,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 									},
 									"route_server_subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Configuration parameter for route server subnet.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto", "subnet"), validators.ConflictingObjectAttributes("auto", "subnet_param"), validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"auto": schema.SingleNestedBlock{
@@ -5072,6 +5103,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 											"subnet": schema.SingleNestedBlock{
 												MarkdownDescription: "Parameters for Azure special subnet which name is reserved. (i.e GatewaySubnet or RouteServerSubnet).",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 												Attributes: map[string]schema.Attribute{
 													"subnet_resource_grp": schema.StringAttribute{
 														MarkdownDescription: "Exclusive with [vnet_resource_group] Specify name of Resource Group.",
@@ -5131,6 +5163,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"spoke_vnets": schema.ListNestedBlock{
 								MarkdownDescription: "Spoke VNet Peering (Legacy). Spoke VNet Peering.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("auto", "manual")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -5145,7 +5178,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 										"vnet": schema.SingleNestedBlock{
 											MarkdownDescription: "Resource group and name of existing Azure VNet.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("resource_group", "vnet_name")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("resource_group", "vnet_name"), validators.ConflictingObjectAttributes("f5_orchestrated_routing", "manual_routing")},
 											Attributes: map[string]schema.Attribute{
 												"resource_group": schema.StringAttribute{
 													MarkdownDescription: "Existing VNet Resource Group. Resource group of existing VNet.",
@@ -5183,6 +5216,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -5257,6 +5291,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -5291,6 +5326,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -5388,11 +5424,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"inside_subnet": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for inside subnet.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Subnet specification for network segmentation.",
-										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 										Attributes: map[string]schema.Attribute{
 											"subnet_name": schema.StringAttribute{
 												MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -5429,11 +5466,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"outside_subnet": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for outside subnet.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Subnet specification for network segmentation.",
-										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 										Attributes: map[string]schema.Attribute{
 											"subnet_name": schema.StringAttribute{
 												MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -5480,6 +5518,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -5554,6 +5593,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -5588,6 +5628,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -5643,10 +5684,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"performance_enhancement_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"jumbo": schema.SingleNestedBlock{
@@ -5659,6 +5702,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"jumbo_disabled": schema.SingleNestedBlock{
@@ -5696,6 +5740,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
 						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen. Server applies default when omitted.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -5722,11 +5767,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							Blocks: map[string]schema.Block{
 								"local_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for local subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"subnet": schema.SingleNestedBlock{
 											MarkdownDescription: "Subnet specification for network segmentation.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 											Attributes: map[string]schema.Attribute{
 												"subnet_name": schema.StringAttribute{
 													MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -5766,10 +5812,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"performance_enhancement_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default. Server applies default when omitted.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"jumbo": schema.SingleNestedBlock{
@@ -5782,6 +5830,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"jumbo_disabled": schema.SingleNestedBlock{
@@ -5813,6 +5862,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
 						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -5849,11 +5899,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"local_subnet": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for local subnet.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Subnet specification for network segmentation.",
-										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 										Attributes: map[string]schema.Attribute{
 											"subnet_name": schema.StringAttribute{
 												MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -5892,10 +5943,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"performance_enhancement_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"jumbo": schema.SingleNestedBlock{
@@ -5908,6 +5961,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"jumbo_disabled": schema.SingleNestedBlock{
@@ -5924,6 +5978,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_upgrade_drain", "enable_upgrade_drain")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -5932,7 +5987,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout"), validators.ConflictingObjectAttributes("disable_vega_upgrade_mode", "enable_vega_upgrade_mode"), validators.ConflictingObjectAttributes("drain_max_unavailable_node_count", "drain_max_unavailable_node_percentage")},
 						Attributes: map[string]schema.Attribute{
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
@@ -5998,6 +6053,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"offline_survivability_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing configuration for upto 7..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("enable_offline_survivability_mode", "no_offline_survivability_mode")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -6011,6 +6067,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"os": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_os_version", "operating_system_version")},
 
 				Attributes: map[string]schema.Attribute{
 					"operating_system_version": schema.StringAttribute{
@@ -6029,6 +6086,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"sw": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_sw_version", "volterra_software_version")},
 
 				Attributes: map[string]schema.Attribute{
 					"volterra_software_version": schema.StringAttribute{
@@ -6047,12 +6105,13 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"vnet": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines choice about Azure VNet for a view.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_vnet", "new_vnet")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"existing_vnet": schema.SingleNestedBlock{
 						MarkdownDescription: "Resource group and name of existing Azure VNet.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("resource_group", "vnet_name")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("resource_group", "vnet_name"), validators.ConflictingObjectAttributes("f5_orchestrated_routing", "manual_routing")},
 						Attributes: map[string]schema.Attribute{
 							"resource_group": schema.StringAttribute{
 								MarkdownDescription: "Existing VNet Resource Group. Resource group of existing VNet.",
@@ -6080,7 +6139,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"new_vnet": schema.SingleNestedBlock{
 						MarkdownDescription: "Azure VNet Parameters. Parameters to create a new Azure VNet.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("primary_ipv4")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("primary_ipv4"), validators.ConflictingObjectAttributes("autogenerate", "name")},
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [autogenerate] Specify the VNet Name.",
@@ -6104,7 +6163,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"voltstack_cluster": schema.SingleNestedBlock{
 				MarkdownDescription: "App Stack Cluster of single interface Azure nodes.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("az_nodes", "azure_certified_hw")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("az_nodes", "azure_certified_hw"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("dc_cluster_group", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("default_storage", "storage_class_list"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("k8s_cluster", "no_k8s_cluster"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
@@ -6119,6 +6178,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
 						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -6265,11 +6325,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							Blocks: map[string]schema.Block{
 								"local_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for local subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"subnet": schema.SingleNestedBlock{
 											MarkdownDescription: "Subnet specification for network segmentation.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 											Attributes: map[string]schema.Attribute{
 												"subnet_name": schema.StringAttribute{
 													MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -6351,6 +6412,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -6489,6 +6551,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -6563,6 +6626,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -6597,6 +6661,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -6685,7 +6750,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"voltstack_cluster_ar": schema.SingleNestedBlock{
 				MarkdownDescription: "App Stack Cluster of single interface Azure nodes.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("azure_certified_hw")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("azure_certified_hw"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("dc_cluster_group", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("default_storage", "storage_class_list"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("k8s_cluster", "no_k8s_cluster"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
@@ -6700,6 +6765,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
 						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -6874,6 +6940,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -7031,11 +7098,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"local_subnet": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for local subnet.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Subnet specification for network segmentation.",
-										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 										Attributes: map[string]schema.Attribute{
 											"subnet_name": schema.StringAttribute{
 												MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -7079,6 +7147,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -7153,6 +7222,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -7187,6 +7257,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{

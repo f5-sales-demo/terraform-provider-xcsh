@@ -252,6 +252,7 @@ func (r *FastACLRuleResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"port": schema.ListNestedBlock{
 				MarkdownDescription: "Source Ports. L4 port numbers to match.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("all", "dns"), validators.ConflictingListObjectAttributes("all", "user_defined"), validators.ConflictingListObjectAttributes("dns", "user_defined")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -275,6 +276,7 @@ func (r *FastACLRuleResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"action": schema.SingleNestedBlock{
 				MarkdownDescription: "FastAclRuleAction specifies possible action to be applied on traffic, possible action include dropping, forwarding or ratelimiting the traffic.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("policer_action", "protocol_policer_action"), validators.ConflictingObjectAttributes("policer_action", "simple_action"), validators.ConflictingObjectAttributes("protocol_policer_action", "simple_action")},
 
 				Attributes: map[string]schema.Attribute{
 					"simple_action": schema.StringAttribute{

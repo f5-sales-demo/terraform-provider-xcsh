@@ -1279,7 +1279,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			}),
 			"aws_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "Setup AWS services VPC, transit gateway and site.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("aws_region", "az_nodes", "instance_type", "ssh_key")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("aws_region", "az_nodes", "instance_type", "ssh_key"), validators.ConflictingObjectAttributes("custom_security_group", "f5xc_security_group"), validators.ConflictingObjectAttributes("disable_encryption", "enable_encryption"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip"), validators.ConflictingObjectAttributes("existing_tgw", "new_tgw"), validators.ConflictingObjectAttributes("new_vpc", "vpc_id"), validators.ConflictingObjectAttributes("no_worker_nodes", "nodes_per_az"), validators.ConflictingObjectAttributes("no_worker_nodes", "total_nodes"), validators.ConflictingObjectAttributes("nodes_per_az", "total_nodes"), validators.ConflictingObjectAttributes("reserved_tgw_cidr", "tgw_cidr")},
 
 				Attributes: map[string]schema.Attribute{
 					"aws_region": schema.StringAttribute{
@@ -1332,6 +1332,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Blocks: map[string]schema.Block{
 					"admin_password": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1407,7 +1408,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"az_nodes": schema.ListNestedBlock{
 						MarkdownDescription: "Only Single AZ or Three AZ(s) nodes are supported currently.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("aws_az_name")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("aws_az_name"), validators.ConflictingListObjectAttributes("inside_subnet", "reserved_inside_subnet")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"aws_az_name": schema.StringAttribute{
@@ -1418,6 +1419,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							Blocks: map[string]schema.Block{
 								"inside_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for inside subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet_id", "subnet_param")},
 									Attributes: map[string]schema.Attribute{
 										"existing_subnet_id": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [subnet_param] Information about existing subnet ID.",
@@ -1442,6 +1444,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"outside_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for outside subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet_id", "subnet_param")},
 									Attributes: map[string]schema.Attribute{
 										"existing_subnet_id": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [subnet_param] Information about existing subnet ID.",
@@ -1469,6 +1472,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"workload_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for workload subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet_id", "subnet_param")},
 									Attributes: map[string]schema.Attribute{
 										"existing_subnet_id": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [subnet_param] Information about existing subnet ID.",
@@ -1563,6 +1567,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"new_tgw": schema.SingleNestedBlock{
 						MarkdownDescription: "TGWParamsType.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("system_generated", "user_assigned")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"system_generated": schema.SingleNestedBlock{
@@ -1591,7 +1596,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"new_vpc": schema.SingleNestedBlock{
 						MarkdownDescription: "AWS VPC Parameters. Parameters to create new AWS VPC.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("primary_ipv4")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("primary_ipv4"), validators.ConflictingObjectAttributes("autogenerate", "name_tag")},
 						Attributes: map[string]schema.Attribute{
 							"name_tag": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [autogenerate] Specify the VPC Name.",
@@ -1639,6 +1644,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Blocks: map[string]schema.Block{
 					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("dns", "ssh"), validators.ConflictingListObjectAttributes("dns", "web_user_interface"), validators.ConflictingListObjectAttributes("ssh", "web_user_interface")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"network_type": schema.StringAttribute{
@@ -1708,6 +1714,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"direct_connect_enabled": schema.SingleNestedBlock{
 				MarkdownDescription: "Direct Connect Configuration. Direct Connect Configuration.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_asn", "custom_asn"), validators.ConflictingObjectAttributes("hosted_vifs", "standard_vifs")},
 
 				Attributes: map[string]schema.Attribute{
 					"custom_asn": schema.Int64Attribute{
@@ -1724,6 +1731,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"hosted_vifs": schema.SingleNestedBlock{
 						MarkdownDescription: "AWS Direct Connect Hosted VIF Configuration.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_registration_over_direct_connect", "site_registration_over_internet")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"site_registration_over_direct_connect": schema.SingleNestedBlock{
@@ -1744,7 +1752,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"vif_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Hosted VIF Config. List of Hosted VIF Config.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("vif_id")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("vif_id"), validators.ConflictingListObjectAttributes("other_region", "same_as_site_region")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"other_region": schema.StringAttribute{
@@ -1778,6 +1786,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_upgrade_drain", "enable_upgrade_drain")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1786,7 +1795,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout"), validators.ConflictingObjectAttributes("disable_vega_upgrade_mode", "enable_vega_upgrade_mode"), validators.ConflictingObjectAttributes("drain_max_unavailable_node_count", "drain_max_unavailable_node_percentage")},
 						Attributes: map[string]schema.Attribute{
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
@@ -1855,6 +1864,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"offline_survivability_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing configuration for upto 7..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("enable_offline_survivability_mode", "no_offline_survivability_mode")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1868,6 +1878,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"os": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_os_version", "operating_system_version")},
 
 				Attributes: map[string]schema.Attribute{
 					"operating_system_version": schema.StringAttribute{
@@ -1886,11 +1897,13 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"performance_enhancement_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"jumbo": schema.SingleNestedBlock{
@@ -1903,6 +1916,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"jumbo_disabled": schema.SingleNestedBlock{
@@ -1917,6 +1931,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"private_connectivity": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for private connectivity.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside", "outside")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1961,6 +1976,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"sw": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_sw_version", "volterra_software_version")},
 
 				Attributes: map[string]schema.Attribute{
 					"volterra_software_version": schema.StringAttribute{
@@ -1979,6 +1995,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"tgw_security": schema.SingleNestedBlock{
 				MarkdownDescription: "Security Configuration for transit gateway.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("active_east_west_service_policies", "east_west_service_policy_allow_all"), validators.ConflictingObjectAttributes("active_east_west_service_policies", "no_east_west_policy"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("east_west_service_policy_allow_all", "no_east_west_policy"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -2160,11 +2177,13 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"vn_config": schema.SingleNestedBlock{
 				MarkdownDescription: "Virtual Network Configuration. Virtual Network Configuration.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "dc_cluster_group_outside_vn"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("dc_cluster_group_outside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("inside_static_routes", "no_inside_static_routes"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"allowed_vip_port": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_ports", "disable_allowed_vip_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_https_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_port"), validators.ConflictingObjectAttributes("custom_ports", "use_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_http_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_port", "use_https_port")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"custom_ports": schema.SingleNestedBlock{
@@ -2196,6 +2215,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"allowed_vip_port_sli": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_ports", "disable_allowed_vip_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_https_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_port"), validators.ConflictingObjectAttributes("custom_ports", "use_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_http_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_port", "use_https_port")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"custom_ports": schema.SingleNestedBlock{
@@ -2294,6 +2314,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -2383,6 +2404,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -2457,6 +2479,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -2491,6 +2514,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -2563,6 +2587,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -2637,6 +2662,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -2671,6 +2697,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{

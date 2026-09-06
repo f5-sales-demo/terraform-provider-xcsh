@@ -175,6 +175,7 @@ func (r *ProtocolInspectionResource) Schema(ctx context.Context, req resource.Sc
 			}),
 			"enable_disable_compliance_checks": schema.SingleNestedBlock{
 				MarkdownDescription: "Enable Disable Compliance Checks Choice.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_compliance_checks", "enable_compliance_checks")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -216,6 +217,7 @@ func (r *ProtocolInspectionResource) Schema(ctx context.Context, req resource.Sc
 			},
 			"enable_disable_signatures": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for enable disable signatures.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_signature", "enable_signature")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{

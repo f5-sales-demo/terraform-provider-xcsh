@@ -688,6 +688,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			}),
 			"cache_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "DNS Cache specifies cache configuration.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("cache_size", "disable_cache_profile")},
 
 				Attributes: map[string]schema.Attribute{
 					"cache_size": schema.Int64Attribute{
@@ -706,6 +707,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"ddos_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for ddos profile.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_ddos_mitigation", "enable_ddos_mitigation")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -803,6 +805,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 						Blocks: map[string]schema.Block{
 							"health_check": schema.ListNestedBlock{
 								MarkdownDescription: "List of Health Checks. List of Health Checks.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("dns_health_check", "icmp_health_check"), validators.ConflictingListObjectAttributes("dns_health_check", "tcp_health_check"), validators.ConflictingListObjectAttributes("icmp_health_check", "tcp_health_check")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -881,11 +884,13 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"origin_servers": schema.ListNestedBlock{
 						MarkdownDescription: "List Of Origin Servers. List of origin servers for Proxy.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("k8s_service", "public_ip"), validators.ConflictingListObjectAttributes("k8s_service", "public_name"), validators.ConflictingListObjectAttributes("no_preference", "site_preferences"), validators.ConflictingListObjectAttributes("public_ip", "public_name")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"k8s_service": schema.SingleNestedBlock{
 									MarkdownDescription: "Specify origin server with K8s service name and site information.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside_network", "outside_network"), validators.ConflictingObjectAttributes("inside_network", "vk8s_networks"), validators.ConflictingObjectAttributes("outside_network", "vk8s_networks")},
 									Attributes: map[string]schema.Attribute{
 										"protocol": schema.StringAttribute{
 											MarkdownDescription: "[Enum: PROTOCOL_TCP|PROTOCOL_UDP] Type of protocol - PROTOCOL_TCP: TCP - PROTOCOL_UDP: UDP. Possible values are `PROTOCOL_TCP`, `PROTOCOL_UDP`. Defaults to `PROTOCOL_TCP`.",
@@ -908,6 +913,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"site_locator": schema.SingleNestedBlock{
 											MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"site": schema.SingleNestedBlock{
@@ -976,6 +982,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"snat_pool": schema.SingleNestedBlock{
 											MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"no_snat_pool": schema.SingleNestedBlock{
@@ -1118,6 +1125,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"proxy_advertisement": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for proxy advertisement.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("advertise_custom", "advertise_on_public"), validators.ConflictingObjectAttributes("advertise_custom", "advertise_on_public_default_vip"), validators.ConflictingObjectAttributes("advertise_custom", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_on_public", "advertise_on_public_default_vip"), validators.ConflictingObjectAttributes("advertise_on_public", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_on_public_default_vip", "do_not_advertise")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1128,6 +1136,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 						Blocks: map[string]schema.Block{
 							"advertise_where": schema.ListNestedBlock{
 								MarkdownDescription: "Where should this load balancer be available.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("advertise_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("port", "port_ranges"), validators.ConflictingListObjectAttributes("port", "use_default_port"), validators.ConflictingListObjectAttributes("port_ranges", "use_default_port"), validators.ConflictingListObjectAttributes("site", "virtual_network"), validators.ConflictingListObjectAttributes("site", "virtual_site"), validators.ConflictingListObjectAttributes("site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_network", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site_with_vip", "vk8s_service")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"port": schema.Int64Attribute{
@@ -1241,6 +1250,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"virtual_network": schema.SingleNestedBlock{
 											MarkdownDescription: "Parameters to advertise on a given virtual network.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_v6_vip", "specific_v6_vip"), validators.ConflictingObjectAttributes("default_vip", "specific_vip")},
 											Attributes: map[string]schema.Attribute{
 												"specific_v6_vip": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [default_v6_vip] Use given IPv6 address as VIP on virtual Network.",
@@ -1399,6 +1409,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"vk8s_service": schema.SingleNestedBlock{
 											MarkdownDescription: "Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"site": schema.SingleNestedBlock{

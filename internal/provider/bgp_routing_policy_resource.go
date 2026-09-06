@@ -223,6 +223,7 @@ func (r *BGPRoutingPolicyResource) Schema(ctx context.Context, req resource.Sche
 					Blocks: map[string]schema.Block{
 						"action": schema.SingleNestedBlock{
 							MarkdownDescription: "Action to be enforced if the BGP route matches the rule.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("allow", "as_path"), validators.ConflictingObjectAttributes("allow", "community"), validators.ConflictingObjectAttributes("allow", "deny"), validators.ConflictingObjectAttributes("allow", "local_preference"), validators.ConflictingObjectAttributes("allow", "metric"), validators.ConflictingObjectAttributes("as_path", "community"), validators.ConflictingObjectAttributes("as_path", "deny"), validators.ConflictingObjectAttributes("as_path", "local_preference"), validators.ConflictingObjectAttributes("as_path", "metric"), validators.ConflictingObjectAttributes("community", "deny"), validators.ConflictingObjectAttributes("community", "local_preference"), validators.ConflictingObjectAttributes("community", "metric"), validators.ConflictingObjectAttributes("deny", "local_preference"), validators.ConflictingObjectAttributes("deny", "metric"), validators.ConflictingObjectAttributes("local_preference", "metric")},
 							Attributes: map[string]schema.Attribute{
 								"as_path": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [allow community deny local_preference metric] AS-Path Prepending is generally used to influence incoming traffic.",
@@ -262,6 +263,7 @@ func (r *BGPRoutingPolicyResource) Schema(ctx context.Context, req resource.Sche
 						},
 						"match": schema.SingleNestedBlock{
 							MarkdownDescription: "Predicates which have to match information in route for action to be applied.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("as_path", "community"), validators.ConflictingObjectAttributes("as_path", "ip_prefixes"), validators.ConflictingObjectAttributes("community", "ip_prefixes")},
 							Attributes: map[string]schema.Attribute{
 								"as_path": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [community ip_prefixes] AS path can also be a regex, which will be matched against route information.",
@@ -290,6 +292,7 @@ func (r *BGPRoutingPolicyResource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"prefixes": schema.ListNestedBlock{
 											MarkdownDescription: "Prefix list. List of IP prefix.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("equal_or_longer_than", "exact_match"), validators.ConflictingListObjectAttributes("equal_or_longer_than", "longer_than"), validators.ConflictingListObjectAttributes("exact_match", "longer_than")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"ip_prefixes": schema.StringAttribute{

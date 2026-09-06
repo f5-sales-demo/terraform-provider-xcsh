@@ -346,6 +346,7 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 			}),
 			"psp_spec": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: psp_spec, yaml] Pod Security Policy Specification. Form based pod security specification.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("allowed_capabilities", "no_allowed_capabilities"), validators.ConflictingObjectAttributes("default_capabilities", "no_default_capabilities"), validators.ConflictingObjectAttributes("drop_capabilities", "no_drop_capabilities"), validators.ConflictingObjectAttributes("fs_group_strategy_options", "no_fs_groups"), validators.ConflictingObjectAttributes("no_run_as_group", "run_as_group"), validators.ConflictingObjectAttributes("no_run_as_user", "run_as_user"), validators.ConflictingObjectAttributes("no_supplemental_groups", "supplemental_groups")},
 
 				Attributes: map[string]schema.Attribute{
 					"allow_privilege_escalation": schema.BoolAttribute{

@@ -947,6 +947,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			}),
 			"routes": schema.ListNestedBlock{
 				MarkdownDescription: "List of routes to match for incoming request.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("bot_defense_javascript_injection", "inherited_bot_defense_javascript_injection"), validators.ConflictingListObjectAttributes("inherited_waf_exclusion", "waf_exclusion_policy"), validators.ConflictingListObjectAttributes("route_destination", "route_direct_response"), validators.ConflictingListObjectAttributes("route_destination", "route_redirect"), validators.ConflictingListObjectAttributes("route_direct_response", "route_redirect")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -1062,7 +1063,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								Blocks: map[string]schema.Block{
 									"headers": schema.ListNestedBlock{
 										MarkdownDescription: "Headers. List of (key, value) headers.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"exact": schema.StringAttribute{
@@ -1099,6 +1100,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"incoming_port": schema.SingleNestedBlock{
 										MarkdownDescription: "Port match of the request can be a range or a specific port.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 										Attributes: map[string]schema.Attribute{
 											"port": schema.Int64Attribute{
 												MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -1123,6 +1125,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"path": schema.SingleNestedBlock{
 										MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 										Attributes: map[string]schema.Attribute{
 											"path": schema.StringAttribute{
 												MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -1149,7 +1152,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"query_params": schema.ListNestedBlock{
 										MarkdownDescription: "Query Parameters. List of (key, value) query parameters.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("key")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("key"), validators.ConflictingListObjectAttributes("exact", "regex")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"exact": schema.StringAttribute{
@@ -1178,7 +1181,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"request_cookies_to_add": schema.ListNestedBlock{
 							MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream.",
-							Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
@@ -1203,6 +1206,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								Blocks: map[string]schema.Block{
 									"secret_value": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1250,7 +1254,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"request_headers_to_add": schema.ListNestedBlock{
 							MarkdownDescription: "Headers are key-value pairs to be added to HTTP requests being sent towards upstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level.",
-							Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"append": schema.BoolAttribute{
@@ -1275,6 +1279,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								Blocks: map[string]schema.Block{
 									"secret_value": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1322,7 +1327,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"response_cookies_to_add": schema.ListNestedBlock{
 							MarkdownDescription: "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream.",
-							Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("add_domain", "ignore_domain"), validators.ConflictingListObjectAttributes("add_expiry", "ignore_expiry"), validators.ConflictingListObjectAttributes("add_httponly", "ignore_httponly"), validators.ConflictingListObjectAttributes("add_partitioned", "ignore_partitioned"), validators.ConflictingListObjectAttributes("add_path", "ignore_path"), validators.ConflictingListObjectAttributes("add_secure", "ignore_secure"), validators.ConflictingListObjectAttributes("ignore_max_age", "max_age_value"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_lax"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_none"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_strict"), validators.ConflictingListObjectAttributes("ignore_value", "secret_value"), validators.ConflictingListObjectAttributes("ignore_value", "value"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_none"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_strict"), validators.ConflictingListObjectAttributes("samesite_none", "samesite_strict"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"add_domain": schema.StringAttribute{
@@ -1420,6 +1425,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"secret_value": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1467,7 +1473,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"response_headers_to_add": schema.ListNestedBlock{
 							MarkdownDescription: "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level.",
-							Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"append": schema.BoolAttribute{
@@ -1492,6 +1498,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								Blocks: map[string]schema.Block{
 									"secret_value": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1539,7 +1546,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"route_destination": schema.SingleNestedBlock{
 							MarkdownDescription: "List of destination to choose if the route is match.",
-							Validators:          []validator.Object{validators.RequiredObjectAttributes("destinations")},
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("destinations"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("do_not_retract_cluster", "retract_cluster"), validators.ConflictingObjectAttributes("prefix_rewrite", "regex_rewrite")},
 							Attributes: map[string]schema.Attribute{
 								"auto_host_rewrite": schema.BoolAttribute{
 									MarkdownDescription: "Exclusive with [host_rewrite] Indicates that during forwarding, the host header will be swapped with the hostname of the upstream host chosen by the cluster.",
@@ -1641,6 +1648,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"csrf_policy": schema.SingleNestedBlock{
 									MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent..",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_load_balancer_domains", "custom_domain_list"), validators.ConflictingObjectAttributes("all_load_balancer_domains", "disabled"), validators.ConflictingObjectAttributes("custom_domain_list", "disabled")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"all_load_balancer_domains": schema.SingleNestedBlock{
@@ -1735,6 +1743,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"hash_policy": schema.ListNestedBlock{
 									MarkdownDescription: "Specifies a list of hash policies to use for ring hash load balancing. Each hash policy is evaluated individually and the combined result is used to route the request.",
+									Validators:          []validator.List{validators.ConflictingListObjectAttributes("cookie", "header_name"), validators.ConflictingListObjectAttributes("cookie", "source_ip"), validators.ConflictingListObjectAttributes("header_name", "source_ip")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"header_name": schema.StringAttribute{
@@ -1756,7 +1765,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										Blocks: map[string]schema.Block{
 											"cookie": schema.SingleNestedBlock{
 												MarkdownDescription: "Two types of cookie affinity: 1. Passive. Takes a cookie that's present in the cookies header and hashes on its value. 2. Generated. Generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets..",
-												Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("name"), validators.ConflictingObjectAttributes("add_httponly", "ignore_httponly"), validators.ConflictingObjectAttributes("add_secure", "ignore_secure"), validators.ConflictingObjectAttributes("ignore_samesite", "samesite_lax"), validators.ConflictingObjectAttributes("ignore_samesite", "samesite_none"), validators.ConflictingObjectAttributes("ignore_samesite", "samesite_strict"), validators.ConflictingObjectAttributes("samesite_lax", "samesite_none"), validators.ConflictingObjectAttributes("samesite_lax", "samesite_strict"), validators.ConflictingObjectAttributes("samesite_none", "samesite_strict")},
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														MarkdownDescription: "The name of the cookie that will be used to obtain the hash key. If the cookie is not present and TTL below is not set, no hash will be produced.",
@@ -1865,6 +1874,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"query_params": schema.SingleNestedBlock{
 									MarkdownDescription: "Handling of incoming query parameters in simple route.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("remove_all_params", "replace_params"), validators.ConflictingObjectAttributes("remove_all_params", "retain_all_params"), validators.ConflictingObjectAttributes("replace_params", "retain_all_params")},
 									Attributes: map[string]schema.Attribute{
 										"replace_params": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [remove_all_params retain_all_params].",
@@ -2001,6 +2011,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"route_redirect": schema.SingleNestedBlock{
 							MarkdownDescription: "Route redirect parameters when match action is redirect.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("path_redirect", "prefix_rewrite"), validators.ConflictingObjectAttributes("remove_all_params", "replace_params"), validators.ConflictingObjectAttributes("remove_all_params", "retain_all_params"), validators.ConflictingObjectAttributes("replace_params", "retain_all_params")},
 							Attributes: map[string]schema.Attribute{
 								"host_redirect": schema.StringAttribute{
 									MarkdownDescription: "Swap host part of incoming URL in redirect URL.",
@@ -2093,6 +2104,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"waf_type": schema.SingleNestedBlock{
 							MarkdownDescription: "WAF instance will be pointing to an app_firewall object.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("app_firewall", "disable_waf"), validators.ConflictingObjectAttributes("app_firewall", "inherit_waf"), validators.ConflictingObjectAttributes("disable_waf", "inherit_waf")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"app_firewall": schema.SingleNestedBlock{

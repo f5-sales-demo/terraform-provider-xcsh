@@ -472,7 +472,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 			}),
 			"rules": schema.ListNestedBlock{
 				MarkdownDescription: "List of rules to apply under the NAT Policy. Rule that matches first would be applied.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("cloud_connect", "node_interface"), validators.ConflictingListObjectAttributes("cloud_connect", "segment"), validators.ConflictingListObjectAttributes("cloud_connect", "virtual_network"), validators.ConflictingListObjectAttributes("disable_spec", "enable"), validators.ConflictingListObjectAttributes("node_interface", "segment"), validators.ConflictingListObjectAttributes("node_interface", "virtual_network"), validators.ConflictingListObjectAttributes("segment", "virtual_network")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -488,6 +488,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 					Blocks: map[string]schema.Block{
 						"action": schema.SingleNestedBlock{
 							MarkdownDescription: "Action to apply on the packet if the NAT rule is applied.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("dynamic", "virtual_cidr")},
 							Attributes: map[string]schema.Attribute{
 								"virtual_cidr": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [dynamic] Virtual Subnet NAT is static NAT that does a one-to-one translation between the real source IP CIDR in the policy and the virtual CIDR in a bidirectional fashion. The range of the real CIDR and virtual CIDRs should be the same (e.g. If the real CIDR has the CIDR..",
@@ -501,6 +502,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 							Blocks: map[string]schema.Block{
 								"dynamic": schema.SingleNestedBlock{
 									MarkdownDescription: "Dynamic Pool. Dynamic Pool Configuration.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("elastic_ips", "pools")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"elastic_ips": schema.SingleNestedBlock{
@@ -606,6 +608,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 						},
 						"criteria": schema.SingleNestedBlock{
 							MarkdownDescription: "Match criteria of the packet to apply the NAT Rule.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("any", "icmp"), validators.ConflictingObjectAttributes("any", "tcp"), validators.ConflictingObjectAttributes("any", "udp"), validators.ConflictingObjectAttributes("icmp", "tcp"), validators.ConflictingObjectAttributes("icmp", "udp"), validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network"), validators.ConflictingObjectAttributes("tcp", "udp")},
 							Attributes: map[string]schema.Attribute{
 								"destination_cidr": schema.ListAttribute{
 									MarkdownDescription: "Destination IP. Destination IP of the packet to match.",
@@ -637,6 +640,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 									Blocks: map[string]schema.Block{
 										"destination_port": schema.SingleNestedBlock{
 											MarkdownDescription: "Port match of the request can be a range or a specific port.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 											Attributes: map[string]schema.Attribute{
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -661,6 +665,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 										},
 										"source_port": schema.SingleNestedBlock{
 											MarkdownDescription: "Port match of the request can be a range or a specific port.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 											Attributes: map[string]schema.Attribute{
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -691,6 +696,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 									Blocks: map[string]schema.Block{
 										"destination_port": schema.SingleNestedBlock{
 											MarkdownDescription: "Port match of the request can be a range or a specific port.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 											Attributes: map[string]schema.Attribute{
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
@@ -715,6 +721,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 										},
 										"source_port": schema.SingleNestedBlock{
 											MarkdownDescription: "Port match of the request can be a range or a specific port.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 											Attributes: map[string]schema.Attribute{
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",

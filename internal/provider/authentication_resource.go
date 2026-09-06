@@ -304,6 +304,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 			}),
 			"cookie_params": schema.SingleNestedBlock{
 				MarkdownDescription: "Specifies different cookie related config parameters for authentication.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("auth_hmac", "kms_key_hmac")},
 
 				Attributes: map[string]schema.Attribute{
 					"cookie_expiry": schema.Int64Attribute{
@@ -345,6 +346,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 						Blocks: map[string]schema.Block{
 							"prim_key": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -389,6 +391,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"sec_key": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -440,7 +443,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"oidc_auth": schema.SingleNestedBlock{
 				MarkdownDescription: "OIDCAuthType.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("oidc_client_id")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("oidc_client_id"), validators.ConflictingObjectAttributes("oidc_auth_params", "oidc_well_known_config_url")},
 
 				Attributes: map[string]schema.Attribute{
 					"oidc_client_id": schema.StringAttribute{
@@ -461,6 +464,7 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 				Blocks: map[string]schema.Block{
 					"client_secret": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{

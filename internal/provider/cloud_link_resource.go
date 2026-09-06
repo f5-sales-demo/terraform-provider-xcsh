@@ -386,7 +386,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 						Blocks: map[string]schema.Block{
 							"connections": schema.ListNestedBlock{
 								MarkdownDescription: "List of Bring You Own Connections. These AWS Direct Connect connections are not managed by F5XC but will be used for connecting sites and REs.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("bgp_asn", "connection_id", "region", "vlan")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("bgp_asn", "connection_id", "region", "vlan"), validators.ConflictingListObjectAttributes("system_generated_name", "user_assigned_name")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"bgp_asn": schema.Int64Attribute{
@@ -440,6 +440,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 									Blocks: map[string]schema.Block{
 										"auth_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -555,7 +556,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 						Blocks: map[string]schema.Block{
 							"connections": schema.ListNestedBlock{
 								MarkdownDescription: "Each 'Bring Your Own Connection' represents a virtual connection that the customer has provisioned in the Cloud (.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("interconnect_attachment_name", "region")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("interconnect_attachment_name", "region"), validators.ConflictingListObjectAttributes("project", "same_as_credential")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"interconnect_attachment_name": schema.StringAttribute{

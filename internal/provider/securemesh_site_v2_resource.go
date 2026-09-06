@@ -5563,6 +5563,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				Blocks: map[string]schema.Block{
 					"admin_password": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -5645,6 +5646,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"interface_list": schema.ListNestedBlock{
 											MarkdownDescription: "Manage interfaces belonging to this node.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("bond_interface", "ethernet_interface"), validators.ConflictingListObjectAttributes("bond_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingListObjectAttributes("dhcp_client", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingListObjectAttributes("dhcp_server", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingListObjectAttributes("ethernet_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingListObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingListObjectAttributes("no_ipv4_address", "static_ip"), validators.ConflictingListObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingListObjectAttributes("site_to_site_connectivity_interface_disabled", "site_to_site_connectivity_interface_enabled")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"description_spec": schema.StringAttribute{
@@ -5695,7 +5697,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingObjectAttributes("active_backup", "lacp")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -5751,7 +5753,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"dhcp_server": schema.SingleNestedBlock{
 														MarkdownDescription: "DHCPServerParametersType.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 														Attributes: map[string]schema.Attribute{
 															"dhcp_option82_tag": schema.StringAttribute{
 																MarkdownDescription: "DHCP option 82 tag.",
@@ -5772,6 +5774,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"dhcp_networks": schema.ListNestedBlock{
 																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{
 																		"dgw_address": schema.StringAttribute{
@@ -5877,6 +5880,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ipv6_auto_config": schema.SingleNestedBlock{
 														MarkdownDescription: "IPV6AutoConfigType.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"host": schema.SingleNestedBlock{
@@ -5884,6 +5888,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"router": schema.SingleNestedBlock{
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
 																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -5896,6 +5901,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																Blocks: map[string]schema.Block{
 																	"dns_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "IPV6DnsConfig.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
@@ -5914,6 +5920,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			},
 																			"local_dns": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6LocalDnsAddress.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 																				Attributes: map[string]schema.Attribute{
 																					"configured_address": schema.StringAttribute{
 																						MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -5937,7 +5944,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -6019,6 +6026,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"network_option": schema.SingleNestedBlock{
 														MarkdownDescription: "Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"site_local_inside_network": schema.SingleNestedBlock{
@@ -6069,6 +6077,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ipv6_address": schema.SingleNestedBlock{
 														MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"cluster_static_ip": schema.SingleNestedBlock{
@@ -6177,6 +6186,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"interface_list": schema.ListNestedBlock{
 											MarkdownDescription: "Manage interfaces belonging to this node.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("bond_interface", "ethernet_interface"), validators.ConflictingListObjectAttributes("bond_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingListObjectAttributes("dhcp_client", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingListObjectAttributes("dhcp_server", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingListObjectAttributes("ethernet_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingListObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingListObjectAttributes("no_ipv4_address", "static_ip"), validators.ConflictingListObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingListObjectAttributes("site_to_site_connectivity_interface_disabled", "site_to_site_connectivity_interface_enabled")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"description_spec": schema.StringAttribute{
@@ -6227,7 +6237,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingObjectAttributes("active_backup", "lacp")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -6283,7 +6293,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"dhcp_server": schema.SingleNestedBlock{
 														MarkdownDescription: "DHCPServerParametersType.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 														Attributes: map[string]schema.Attribute{
 															"dhcp_option82_tag": schema.StringAttribute{
 																MarkdownDescription: "DHCP option 82 tag.",
@@ -6304,6 +6314,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"dhcp_networks": schema.ListNestedBlock{
 																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{
 																		"dgw_address": schema.StringAttribute{
@@ -6409,6 +6420,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ipv6_auto_config": schema.SingleNestedBlock{
 														MarkdownDescription: "IPV6AutoConfigType.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"host": schema.SingleNestedBlock{
@@ -6416,6 +6428,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"router": schema.SingleNestedBlock{
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
 																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -6428,6 +6441,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																Blocks: map[string]schema.Block{
 																	"dns_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "IPV6DnsConfig.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
@@ -6446,6 +6460,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			},
 																			"local_dns": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6LocalDnsAddress.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 																				Attributes: map[string]schema.Attribute{
 																					"configured_address": schema.StringAttribute{
 																						MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -6469,7 +6484,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -6551,6 +6566,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"network_option": schema.SingleNestedBlock{
 														MarkdownDescription: "Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"site_local_inside_network": schema.SingleNestedBlock{
@@ -6601,6 +6617,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ipv6_address": schema.SingleNestedBlock{
 														MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"cluster_static_ip": schema.SingleNestedBlock{
@@ -6709,6 +6726,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"interface_list": schema.ListNestedBlock{
 											MarkdownDescription: "Manage interfaces belonging to this node.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("bond_interface", "ethernet_interface"), validators.ConflictingListObjectAttributes("bond_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingListObjectAttributes("dhcp_client", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingListObjectAttributes("dhcp_server", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingListObjectAttributes("ethernet_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingListObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingListObjectAttributes("no_ipv4_address", "static_ip"), validators.ConflictingListObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingListObjectAttributes("site_to_site_connectivity_interface_disabled", "site_to_site_connectivity_interface_enabled")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"description_spec": schema.StringAttribute{
@@ -6759,7 +6777,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingObjectAttributes("active_backup", "lacp")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -6815,7 +6833,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"dhcp_server": schema.SingleNestedBlock{
 														MarkdownDescription: "DHCPServerParametersType.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 														Attributes: map[string]schema.Attribute{
 															"dhcp_option82_tag": schema.StringAttribute{
 																MarkdownDescription: "DHCP option 82 tag.",
@@ -6836,6 +6854,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"dhcp_networks": schema.ListNestedBlock{
 																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{
 																		"dgw_address": schema.StringAttribute{
@@ -6941,6 +6960,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ipv6_auto_config": schema.SingleNestedBlock{
 														MarkdownDescription: "IPV6AutoConfigType.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"host": schema.SingleNestedBlock{
@@ -6948,6 +6968,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"router": schema.SingleNestedBlock{
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
 																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -6960,6 +6981,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																Blocks: map[string]schema.Block{
 																	"dns_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "IPV6DnsConfig.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
@@ -6978,6 +7000,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			},
 																			"local_dns": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6LocalDnsAddress.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 																				Attributes: map[string]schema.Attribute{
 																					"configured_address": schema.StringAttribute{
 																						MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -7001,7 +7024,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -7083,6 +7106,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"network_option": schema.SingleNestedBlock{
 														MarkdownDescription: "Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"site_local_inside_network": schema.SingleNestedBlock{
@@ -7133,6 +7157,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ipv6_address": schema.SingleNestedBlock{
 														MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"cluster_static_ip": schema.SingleNestedBlock{
@@ -7213,6 +7238,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				Blocks: map[string]schema.Block{
 					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("dns", "ssh"), validators.ConflictingListObjectAttributes("dns", "web_user_interface"), validators.ConflictingListObjectAttributes("ssh", "web_user_interface")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"network_type": schema.StringAttribute{
@@ -7240,7 +7266,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"custom_proxy": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: custom_proxy, f5_proxy] Configuration parameter for custom proxy.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("proxy_ip_address", "proxy_port")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("proxy_ip_address", "proxy_port"), validators.ConflictingObjectAttributes("disable_re_tunnel", "enable_re_tunnel")},
 
 				Attributes: map[string]schema.Attribute{
 					"proxy_ip_address": schema.StringAttribute{
@@ -7272,6 +7298,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					},
 					"password": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -7411,6 +7438,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"dns_ntp_config": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify DNS and NTP servers that will be used by the nodes in this Customer Edge site.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_dns", "f5_dns_default"), validators.ConflictingObjectAttributes("custom_ntp", "f5_ntp_default")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -7501,6 +7529,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"interface_list": schema.ListNestedBlock{
 											MarkdownDescription: "Manage interfaces belonging to this node.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("bond_interface", "ethernet_interface"), validators.ConflictingListObjectAttributes("bond_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingListObjectAttributes("dhcp_client", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingListObjectAttributes("dhcp_server", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingListObjectAttributes("ethernet_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingListObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingListObjectAttributes("no_ipv4_address", "static_ip"), validators.ConflictingListObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingListObjectAttributes("site_to_site_connectivity_interface_disabled", "site_to_site_connectivity_interface_enabled")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"description_spec": schema.StringAttribute{
@@ -7551,7 +7580,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingObjectAttributes("active_backup", "lacp")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -7607,7 +7636,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"dhcp_server": schema.SingleNestedBlock{
 														MarkdownDescription: "DHCPServerParametersType.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 														Attributes: map[string]schema.Attribute{
 															"dhcp_option82_tag": schema.StringAttribute{
 																MarkdownDescription: "DHCP option 82 tag.",
@@ -7628,6 +7657,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"dhcp_networks": schema.ListNestedBlock{
 																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{
 																		"dgw_address": schema.StringAttribute{
@@ -7733,6 +7763,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ipv6_auto_config": schema.SingleNestedBlock{
 														MarkdownDescription: "IPV6AutoConfigType.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"host": schema.SingleNestedBlock{
@@ -7740,6 +7771,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"router": schema.SingleNestedBlock{
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
 																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -7752,6 +7784,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																Blocks: map[string]schema.Block{
 																	"dns_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "IPV6DnsConfig.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
@@ -7770,6 +7803,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			},
 																			"local_dns": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6LocalDnsAddress.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 																				Attributes: map[string]schema.Attribute{
 																					"configured_address": schema.StringAttribute{
 																						MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -7793,7 +7827,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -7875,6 +7909,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"network_option": schema.SingleNestedBlock{
 														MarkdownDescription: "Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"site_local_inside_network": schema.SingleNestedBlock{
@@ -7925,6 +7960,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ipv6_address": schema.SingleNestedBlock{
 														MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"cluster_static_ip": schema.SingleNestedBlock{
@@ -8036,6 +8072,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"interface_list": schema.ListNestedBlock{
 											MarkdownDescription: "Manage interfaces belonging to this node.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("bond_interface", "ethernet_interface"), validators.ConflictingListObjectAttributes("bond_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingListObjectAttributes("dhcp_client", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingListObjectAttributes("dhcp_server", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingListObjectAttributes("ethernet_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingListObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingListObjectAttributes("no_ipv4_address", "static_ip"), validators.ConflictingListObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingListObjectAttributes("site_to_site_connectivity_interface_disabled", "site_to_site_connectivity_interface_enabled")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"description_spec": schema.StringAttribute{
@@ -8086,7 +8123,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingObjectAttributes("active_backup", "lacp")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -8142,7 +8179,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"dhcp_server": schema.SingleNestedBlock{
 														MarkdownDescription: "DHCPServerParametersType.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 														Attributes: map[string]schema.Attribute{
 															"dhcp_option82_tag": schema.StringAttribute{
 																MarkdownDescription: "DHCP option 82 tag.",
@@ -8163,6 +8200,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"dhcp_networks": schema.ListNestedBlock{
 																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{
 																		"dgw_address": schema.StringAttribute{
@@ -8268,6 +8306,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ipv6_auto_config": schema.SingleNestedBlock{
 														MarkdownDescription: "IPV6AutoConfigType.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"host": schema.SingleNestedBlock{
@@ -8275,6 +8314,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"router": schema.SingleNestedBlock{
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
 																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -8287,6 +8327,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																Blocks: map[string]schema.Block{
 																	"dns_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "IPV6DnsConfig.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
@@ -8305,6 +8346,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			},
 																			"local_dns": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6LocalDnsAddress.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 																				Attributes: map[string]schema.Attribute{
 																					"configured_address": schema.StringAttribute{
 																						MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -8328,7 +8370,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -8410,6 +8452,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"network_option": schema.SingleNestedBlock{
 														MarkdownDescription: "Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"site_local_inside_network": schema.SingleNestedBlock{
@@ -8460,6 +8503,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ipv6_address": schema.SingleNestedBlock{
 														MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"cluster_static_ip": schema.SingleNestedBlock{
@@ -8568,6 +8612,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"interface_list": schema.ListNestedBlock{
 											MarkdownDescription: "Manage interfaces belonging to this node.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("bond_interface", "ethernet_interface"), validators.ConflictingListObjectAttributes("bond_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingListObjectAttributes("dhcp_client", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingListObjectAttributes("dhcp_server", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingListObjectAttributes("ethernet_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingListObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingListObjectAttributes("no_ipv4_address", "static_ip"), validators.ConflictingListObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingListObjectAttributes("site_to_site_connectivity_interface_disabled", "site_to_site_connectivity_interface_enabled")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"description_spec": schema.StringAttribute{
@@ -8618,7 +8663,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingObjectAttributes("active_backup", "lacp")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -8674,7 +8719,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"dhcp_server": schema.SingleNestedBlock{
 														MarkdownDescription: "DHCPServerParametersType.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 														Attributes: map[string]schema.Attribute{
 															"dhcp_option82_tag": schema.StringAttribute{
 																MarkdownDescription: "DHCP option 82 tag.",
@@ -8695,6 +8740,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"dhcp_networks": schema.ListNestedBlock{
 																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{
 																		"dgw_address": schema.StringAttribute{
@@ -8800,6 +8846,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ipv6_auto_config": schema.SingleNestedBlock{
 														MarkdownDescription: "IPV6AutoConfigType.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"host": schema.SingleNestedBlock{
@@ -8807,6 +8854,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"router": schema.SingleNestedBlock{
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
 																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -8819,6 +8867,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																Blocks: map[string]schema.Block{
 																	"dns_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "IPV6DnsConfig.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
@@ -8837,6 +8886,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			},
 																			"local_dns": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6LocalDnsAddress.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 																				Attributes: map[string]schema.Attribute{
 																					"configured_address": schema.StringAttribute{
 																						MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -8860,7 +8910,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -8942,6 +8992,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"network_option": schema.SingleNestedBlock{
 														MarkdownDescription: "Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"site_local_inside_network": schema.SingleNestedBlock{
@@ -8992,6 +9043,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ipv6_address": schema.SingleNestedBlock{
 														MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"cluster_static_ip": schema.SingleNestedBlock{
@@ -9077,6 +9129,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"local_vrf": schema.SingleNestedBlock{
 				MarkdownDescription: "There can be two local VRFs on each site. The Site Local Outside (SLO) local VRF is used to connect WAN side workloads to this site and to connect the site to F5 Distributed Cloud for management. All sites are required to have an SLO local VRF.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_config", "slo_config"), validators.ConflictingObjectAttributes("default_sli_config", "sli_config")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -9088,6 +9141,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					},
 					"sli_config": schema.SingleNestedBlock{
 						MarkdownDescription: "Site Local Network Configuration. Site local network configuration.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_static_routes", "static_routes"), validators.ConflictingObjectAttributes("no_v6_static_routes", "static_v6_routes")},
 						Attributes: map[string]schema.Attribute{
 							"labels": schema.MapAttribute{
 								MarkdownDescription: "Add Labels for this network, these labels can be used in firewall policy.",
@@ -9133,7 +9187,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Configuration parameter for static routes.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -9231,7 +9285,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -9326,6 +9380,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					},
 					"slo_config": schema.SingleNestedBlock{
 						MarkdownDescription: "Site Local Network Configuration. Site local network configuration.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_static_routes", "static_routes"), validators.ConflictingObjectAttributes("no_v6_static_routes", "static_v6_routes")},
 						Attributes: map[string]schema.Attribute{
 							"labels": schema.MapAttribute{
 								MarkdownDescription: "Add Labels for this network, these labels can be used in firewall policy.",
@@ -9371,7 +9426,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Configuration parameter for static routes.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -9469,7 +9524,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -9566,6 +9621,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"log_receiver_with_net": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: log_receiver_with_net, logs_streaming_disabled] Select log receiver for logs streaming with network option.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("use_management_network", "use_slo_sli")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -9664,6 +9720,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"interface_list": schema.ListNestedBlock{
 											MarkdownDescription: "Manage interfaces belonging to this node.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("bond_interface", "ethernet_interface"), validators.ConflictingListObjectAttributes("bond_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingListObjectAttributes("dhcp_client", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingListObjectAttributes("dhcp_server", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingListObjectAttributes("ethernet_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingListObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingListObjectAttributes("no_ipv4_address", "static_ip"), validators.ConflictingListObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingListObjectAttributes("site_to_site_connectivity_interface_disabled", "site_to_site_connectivity_interface_enabled")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"description_spec": schema.StringAttribute{
@@ -9714,7 +9771,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingObjectAttributes("active_backup", "lacp")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -9770,7 +9827,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"dhcp_server": schema.SingleNestedBlock{
 														MarkdownDescription: "DHCPServerParametersType.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 														Attributes: map[string]schema.Attribute{
 															"dhcp_option82_tag": schema.StringAttribute{
 																MarkdownDescription: "DHCP option 82 tag.",
@@ -9791,6 +9848,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"dhcp_networks": schema.ListNestedBlock{
 																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{
 																		"dgw_address": schema.StringAttribute{
@@ -9896,6 +9954,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ipv6_auto_config": schema.SingleNestedBlock{
 														MarkdownDescription: "IPV6AutoConfigType.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"host": schema.SingleNestedBlock{
@@ -9903,6 +9962,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"router": schema.SingleNestedBlock{
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
 																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -9915,6 +9975,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																Blocks: map[string]schema.Block{
 																	"dns_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "IPV6DnsConfig.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
@@ -9933,6 +9994,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			},
 																			"local_dns": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6LocalDnsAddress.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 																				Attributes: map[string]schema.Attribute{
 																					"configured_address": schema.StringAttribute{
 																						MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -9956,7 +10018,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -10038,6 +10100,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"network_option": schema.SingleNestedBlock{
 														MarkdownDescription: "Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"site_local_inside_network": schema.SingleNestedBlock{
@@ -10088,6 +10151,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ipv6_address": schema.SingleNestedBlock{
 														MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"cluster_static_ip": schema.SingleNestedBlock{
@@ -10196,6 +10260,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"interface_list": schema.ListNestedBlock{
 											MarkdownDescription: "Manage interfaces belonging to this node.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("bond_interface", "ethernet_interface"), validators.ConflictingListObjectAttributes("bond_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingListObjectAttributes("dhcp_client", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingListObjectAttributes("dhcp_server", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingListObjectAttributes("ethernet_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingListObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingListObjectAttributes("no_ipv4_address", "static_ip"), validators.ConflictingListObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingListObjectAttributes("site_to_site_connectivity_interface_disabled", "site_to_site_connectivity_interface_enabled")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"description_spec": schema.StringAttribute{
@@ -10246,7 +10311,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingObjectAttributes("active_backup", "lacp")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -10302,7 +10367,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"dhcp_server": schema.SingleNestedBlock{
 														MarkdownDescription: "DHCPServerParametersType.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 														Attributes: map[string]schema.Attribute{
 															"dhcp_option82_tag": schema.StringAttribute{
 																MarkdownDescription: "DHCP option 82 tag.",
@@ -10323,6 +10388,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"dhcp_networks": schema.ListNestedBlock{
 																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{
 																		"dgw_address": schema.StringAttribute{
@@ -10428,6 +10494,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ipv6_auto_config": schema.SingleNestedBlock{
 														MarkdownDescription: "IPV6AutoConfigType.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"host": schema.SingleNestedBlock{
@@ -10435,6 +10502,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"router": schema.SingleNestedBlock{
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
 																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -10447,6 +10515,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																Blocks: map[string]schema.Block{
 																	"dns_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "IPV6DnsConfig.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
@@ -10465,6 +10534,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			},
 																			"local_dns": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6LocalDnsAddress.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 																				Attributes: map[string]schema.Attribute{
 																					"configured_address": schema.StringAttribute{
 																						MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -10488,7 +10558,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -10570,6 +10640,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"network_option": schema.SingleNestedBlock{
 														MarkdownDescription: "Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"site_local_inside_network": schema.SingleNestedBlock{
@@ -10620,6 +10691,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ipv6_address": schema.SingleNestedBlock{
 														MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"cluster_static_ip": schema.SingleNestedBlock{
@@ -10692,6 +10764,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"offline_survivability_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing configuration for upto 7..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("enable_offline_survivability_mode", "no_offline_survivability_mode")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -10741,6 +10814,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"interface_list": schema.ListNestedBlock{
 											MarkdownDescription: "Manage interfaces belonging to this node.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("bond_interface", "ethernet_interface"), validators.ConflictingListObjectAttributes("bond_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingListObjectAttributes("dhcp_client", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingListObjectAttributes("dhcp_server", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingListObjectAttributes("ethernet_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingListObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingListObjectAttributes("no_ipv4_address", "static_ip"), validators.ConflictingListObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingListObjectAttributes("site_to_site_connectivity_interface_disabled", "site_to_site_connectivity_interface_enabled")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"description_spec": schema.StringAttribute{
@@ -10791,7 +10865,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingObjectAttributes("active_backup", "lacp")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -10847,7 +10921,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"dhcp_server": schema.SingleNestedBlock{
 														MarkdownDescription: "DHCPServerParametersType.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 														Attributes: map[string]schema.Attribute{
 															"dhcp_option82_tag": schema.StringAttribute{
 																MarkdownDescription: "DHCP option 82 tag.",
@@ -10868,6 +10942,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"dhcp_networks": schema.ListNestedBlock{
 																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{
 																		"dgw_address": schema.StringAttribute{
@@ -10973,6 +11048,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ipv6_auto_config": schema.SingleNestedBlock{
 														MarkdownDescription: "IPV6AutoConfigType.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"host": schema.SingleNestedBlock{
@@ -10980,6 +11056,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"router": schema.SingleNestedBlock{
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
 																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -10992,6 +11069,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																Blocks: map[string]schema.Block{
 																	"dns_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "IPV6DnsConfig.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
@@ -11010,6 +11088,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			},
 																			"local_dns": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6LocalDnsAddress.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 																				Attributes: map[string]schema.Attribute{
 																					"configured_address": schema.StringAttribute{
 																						MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -11033,7 +11112,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -11115,6 +11194,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"network_option": schema.SingleNestedBlock{
 														MarkdownDescription: "Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"site_local_inside_network": schema.SingleNestedBlock{
@@ -11165,6 +11245,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ipv6_address": schema.SingleNestedBlock{
 														MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"cluster_static_ip": schema.SingleNestedBlock{
@@ -11273,6 +11354,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"interface_list": schema.ListNestedBlock{
 											MarkdownDescription: "Manage interfaces belonging to this node.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("bond_interface", "ethernet_interface"), validators.ConflictingListObjectAttributes("bond_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingListObjectAttributes("dhcp_client", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingListObjectAttributes("dhcp_server", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingListObjectAttributes("ethernet_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingListObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingListObjectAttributes("no_ipv4_address", "static_ip"), validators.ConflictingListObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingListObjectAttributes("site_to_site_connectivity_interface_disabled", "site_to_site_connectivity_interface_enabled")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"description_spec": schema.StringAttribute{
@@ -11323,7 +11405,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingObjectAttributes("active_backup", "lacp")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -11379,7 +11461,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"dhcp_server": schema.SingleNestedBlock{
 														MarkdownDescription: "DHCPServerParametersType.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 														Attributes: map[string]schema.Attribute{
 															"dhcp_option82_tag": schema.StringAttribute{
 																MarkdownDescription: "DHCP option 82 tag.",
@@ -11400,6 +11482,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"dhcp_networks": schema.ListNestedBlock{
 																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{
 																		"dgw_address": schema.StringAttribute{
@@ -11505,6 +11588,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ipv6_auto_config": schema.SingleNestedBlock{
 														MarkdownDescription: "IPV6AutoConfigType.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"host": schema.SingleNestedBlock{
@@ -11512,6 +11596,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"router": schema.SingleNestedBlock{
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
 																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -11524,6 +11609,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																Blocks: map[string]schema.Block{
 																	"dns_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "IPV6DnsConfig.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
@@ -11542,6 +11628,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			},
 																			"local_dns": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6LocalDnsAddress.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 																				Attributes: map[string]schema.Attribute{
 																					"configured_address": schema.StringAttribute{
 																						MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -11565,7 +11652,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -11647,6 +11734,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"network_option": schema.SingleNestedBlock{
 														MarkdownDescription: "Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"site_local_inside_network": schema.SingleNestedBlock{
@@ -11697,6 +11785,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ipv6_address": schema.SingleNestedBlock{
 														MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"cluster_static_ip": schema.SingleNestedBlock{
@@ -11769,11 +11858,13 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"performance_enhancement_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"jumbo": schema.SingleNestedBlock{
@@ -11786,6 +11877,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					},
 					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"jumbo_disabled": schema.SingleNestedBlock{
@@ -11800,6 +11892,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"re_select": schema.SingleNestedBlock{
 				MarkdownDescription: "Selection criteria to connect the site with F5 Distributed Cloud Regional Edge(s).",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("geo_proximity", "specific_geography"), validators.ConflictingObjectAttributes("geo_proximity", "specific_re"), validators.ConflictingObjectAttributes("specific_geography", "specific_re")},
 
 				Attributes: map[string]schema.Attribute{
 					"specific_geography": schema.StringAttribute{
@@ -11837,6 +11930,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					Blocks: map[string]schema.Block{
 						"segment_config": schema.SingleNestedBlock{
 							MarkdownDescription: "Segment Network Configuration. Segment Network Configuration.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_static_routes", "static_routes"), validators.ConflictingObjectAttributes("no_v6_static_routes", "static_v6_routes")},
 							Attributes: map[string]schema.Attribute{
 								"nameserver": schema.StringAttribute{
 									MarkdownDescription: "Optional IPv4 DNS server to be used for name resolution.",
@@ -11869,7 +11963,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"static_routes": schema.ListNestedBlock{
 											MarkdownDescription: "Configuration parameter for static routes.",
-											Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"attrs": schema.ListAttribute{
@@ -11967,7 +12061,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"static_routes": schema.ListNestedBlock{
 											MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
-											Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"attrs": schema.ListAttribute{
@@ -12098,6 +12192,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 			},
 			"site_mesh_group_on_slo": schema.SingleNestedBlock{
 				MarkdownDescription: "Select how the site mesh group will be connected. By default, public IPs of the control nodes of the site will be used.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_site_mesh_group", "site_mesh_group"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -12150,6 +12245,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				Blocks: map[string]schema.Block{
 					"os": schema.SingleNestedBlock{
 						MarkdownDescription: "Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_os_version", "operating_system_version")},
 						Attributes: map[string]schema.Attribute{
 							"operating_system_version": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [default_os_version] Specify a OS version to be used e.g. 9.2024.6.",
@@ -12167,6 +12263,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					},
 					"sw": schema.SingleNestedBlock{
 						MarkdownDescription: "Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_sw_version", "volterra_software_version")},
 						Attributes: map[string]schema.Attribute{
 							"volterra_software_version": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [default_sw_version] Specify a F5XC Software Version to be used e.g. Crt-20210329-1002.",
@@ -12191,6 +12288,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				Blocks: map[string]schema.Block{
 					"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_upgrade_drain", "enable_upgrade_drain")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_upgrade_drain": schema.SingleNestedBlock{
@@ -12198,7 +12296,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 							},
 							"enable_upgrade_drain": schema.SingleNestedBlock{
 								MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout"), validators.ConflictingObjectAttributes("disable_vega_upgrade_mode", "enable_vega_upgrade_mode"), validators.ConflictingObjectAttributes("drain_max_unavailable_node_count", "drain_max_unavailable_node_percentage")},
 								Attributes: map[string]schema.Attribute{
 									"drain_max_unavailable_node_count": schema.Int64Attribute{
 										MarkdownDescription: "Node Batch Size Count. Exclusive with []",
@@ -12270,6 +12368,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									Blocks: map[string]schema.Block{
 										"interface_list": schema.ListNestedBlock{
 											MarkdownDescription: "Manage interfaces belonging to this node.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("bond_interface", "ethernet_interface"), validators.ConflictingListObjectAttributes("bond_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("dhcp_client", "dhcp_server"), validators.ConflictingListObjectAttributes("dhcp_client", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_client", "static_ip"), validators.ConflictingListObjectAttributes("dhcp_server", "no_ipv4_address"), validators.ConflictingListObjectAttributes("dhcp_server", "static_ip"), validators.ConflictingListObjectAttributes("ethernet_interface", "vlan_interface"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "no_ipv6_address"), validators.ConflictingListObjectAttributes("ipv6_auto_config", "static_ipv6_address"), validators.ConflictingListObjectAttributes("monitor", "monitor_disabled"), validators.ConflictingListObjectAttributes("no_ipv4_address", "static_ip"), validators.ConflictingListObjectAttributes("no_ipv6_address", "static_ipv6_address"), validators.ConflictingListObjectAttributes("site_to_site_connectivity_interface_disabled", "site_to_site_connectivity_interface_enabled")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"description_spec": schema.StringAttribute{
@@ -12320,7 +12419,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 												Blocks: map[string]schema.Block{
 													"bond_interface": schema.SingleNestedBlock{
 														MarkdownDescription: "Configuration parameter for bond interface.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingObjectAttributes("active_backup", "lacp")},
 														Attributes: map[string]schema.Attribute{
 															"devices": schema.ListAttribute{
 																MarkdownDescription: "Ethernet devices that will make up this bond.",
@@ -12376,7 +12475,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"dhcp_server": schema.SingleNestedBlock{
 														MarkdownDescription: "DHCPServerParametersType.",
-														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+														Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 														Attributes: map[string]schema.Attribute{
 															"dhcp_option82_tag": schema.StringAttribute{
 																MarkdownDescription: "DHCP option 82 tag.",
@@ -12397,6 +12496,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"dhcp_networks": schema.ListNestedBlock{
 																MarkdownDescription: "List of networks from which DHCP Server can allocate IPv4 Addresses.",
+																Validators:          []validator.List{validators.ConflictingListObjectAttributes("dgw_address", "first_address"), validators.ConflictingListObjectAttributes("dgw_address", "last_address"), validators.ConflictingListObjectAttributes("dns_address", "same_as_dgw"), validators.ConflictingListObjectAttributes("first_address", "last_address")},
 																NestedObject: schema.NestedBlockObject{
 																	Attributes: map[string]schema.Attribute{
 																		"dgw_address": schema.StringAttribute{
@@ -12502,6 +12602,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"ipv6_auto_config": schema.SingleNestedBlock{
 														MarkdownDescription: "IPV6AutoConfigType.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("host", "router")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"host": schema.SingleNestedBlock{
@@ -12509,6 +12610,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															},
 															"router": schema.SingleNestedBlock{
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("network_prefix", "stateful")},
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
 																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
@@ -12521,6 +12623,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																Blocks: map[string]schema.Block{
 																	"dns_config": schema.SingleNestedBlock{
 																		MarkdownDescription: "IPV6DnsConfig.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_list", "local_dns")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"configured_list": schema.SingleNestedBlock{
@@ -12539,6 +12642,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																			},
 																			"local_dns": schema.SingleNestedBlock{
 																				MarkdownDescription: "IPV6LocalDnsAddress.",
+																				Validators:          []validator.Object{validators.ConflictingObjectAttributes("configured_address", "first_address"), validators.ConflictingObjectAttributes("configured_address", "last_address"), validators.ConflictingObjectAttributes("first_address", "last_address")},
 																				Attributes: map[string]schema.Attribute{
 																					"configured_address": schema.StringAttribute{
 																						MarkdownDescription: "Exclusive with [first_address last_address] Configured address from the network prefix is chosen as DNS server.",
@@ -12562,7 +12666,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	},
 																	"stateful": schema.SingleNestedBlock{
 																		MarkdownDescription: "DHCPIPV6 Stateful Server.",
-																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks")},
+																		Validators:          []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"), validators.ConflictingObjectAttributes("automatic_from_end", "automatic_from_start"), validators.ConflictingObjectAttributes("automatic_from_end", "interface_ip_map"), validators.ConflictingObjectAttributes("automatic_from_start", "interface_ip_map")},
 																		Attributes: map[string]schema.Attribute{
 																			"fixed_ip_map": schema.MapAttribute{
 																				MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
@@ -12644,6 +12748,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"network_option": schema.SingleNestedBlock{
 														MarkdownDescription: "Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"site_local_inside_network": schema.SingleNestedBlock{
@@ -12694,6 +12799,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													},
 													"static_ipv6_address": schema.SingleNestedBlock{
 														MarkdownDescription: "Static IP Parameters. Configure Static IP parameters.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip", "node_static_ip")},
 														Attributes:          map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
 															"cluster_static_ip": schema.SingleNestedBlock{

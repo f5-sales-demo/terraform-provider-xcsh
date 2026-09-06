@@ -237,6 +237,7 @@ func (r *ProtocolPolicerResource) Schema(ctx context.Context, req resource.Schem
 						},
 						"protocol": schema.SingleNestedBlock{
 							MarkdownDescription: "Protocol and protocol specific flags to be matched in packet.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("dns", "icmp"), validators.ConflictingObjectAttributes("dns", "tcp"), validators.ConflictingObjectAttributes("dns", "udp"), validators.ConflictingObjectAttributes("icmp", "tcp"), validators.ConflictingObjectAttributes("icmp", "udp"), validators.ConflictingObjectAttributes("tcp", "udp")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"dns": schema.SingleNestedBlock{

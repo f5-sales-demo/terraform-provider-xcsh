@@ -2022,7 +2022,7 @@ func TestRenderNestedAttributes_DiscontinuousInt64Range(t *testing.T) {
 	}
 }
 
-func TestRenderConditionalRequiredValidators(t *testing.T) {
+func TestRenderBlockValidators(t *testing.T) {
 	child := openapi.TerraformAttribute{TfsdkTag: "required_child", CreateRequired: true}
 	for _, test := range []struct {
 		name  string
@@ -2033,7 +2033,7 @@ func TestRenderConditionalRequiredValidators(t *testing.T) {
 		{"list", openapi.TerraformAttribute{NestedBlockType: "list", NestedAttributes: []openapi.TerraformAttribute{child}}, `Validators: []validator.List{validators.RequiredListObjectAttributes("required_child")}`},
 	} {
 		t.Run(test.name, func(t *testing.T) {
-			got := RenderConditionalRequiredValidators(test.block, "\t")
+			got := RenderBlockValidators(test.block, "\t")
 			if !strings.Contains(got, test.want) {
 				t.Fatalf("got %q, want %q", got, test.want)
 			}
@@ -2041,7 +2041,7 @@ func TestRenderConditionalRequiredValidators(t *testing.T) {
 	}
 }
 
-func TestRenderConditionalRequiredValidators_ServerMaterializedViolationsView(t *testing.T) {
+func TestRenderBlockValidators_ServerMaterializedViolationsView(t *testing.T) {
 	block := openapi.TerraformAttribute{
 		NestedBlockType: "single",
 		NestedAttributes: []openapi.TerraformAttribute{{
@@ -2049,7 +2049,7 @@ func TestRenderConditionalRequiredValidators_ServerMaterializedViolationsView(t 
 			CreateRequired: true,
 		}},
 	}
-	if got := RenderConditionalRequiredValidators(block, "\t"); got != "" {
+	if got := RenderBlockValidators(block, "\t"); got != "" {
 		t.Fatalf("server-materialized violations_view must not be required in configuration: %q", got)
 	}
 }
@@ -2497,5 +2497,29 @@ func TestImmutableTopLevelBlockRequiresReplacement(t *testing.T) {
 	}
 	if !strings.Contains(string(contents), "objectplanmodifier.RequiresReplace()") {
 		t.Fatal("top-level immutable block lost replacement semantics")
+	}
+}
+
+func TestRenderNestedConflictValidators(t *testing.T) {
+	for _, kind := range []string{"single", "list"} {
+		t.Run(kind, func(t *testing.T) {
+			block := openapi.TerraformAttribute{IsBlock: true, NestedBlockType: kind, NestedAttributes: []openapi.TerraformAttribute{
+				{TfsdkTag: "choice_a", ConflictsWith: []string{"wire_b", "missing", "choice_a"}},
+				{TfsdkTag: "choice_b", JsonName: "wire_b", IsBlock: true, ConflictsWith: []string{"choice_a"}},
+				{TfsdkTag: "timeout", CreateRequired: true},
+			}}
+			got := RenderBlockValidators(block, "")
+			constructor := "ConflictingObjectAttributes"
+			if kind == "list" {
+				constructor = "ConflictingListObjectAttributes"
+			}
+			want := constructor + `("choice_a", "choice_b")`
+			if strings.Count(got, want) != 1 || !strings.Contains(got, `Attributes("timeout")`) {
+				t.Fatalf("missing or duplicated sibling conflict, or lost required validator: %s", got)
+			}
+			if strings.Contains(got, "missing") {
+				t.Fatal("emitted nonexistent conflict target")
+			}
+		})
 	}
 }

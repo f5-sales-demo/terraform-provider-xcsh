@@ -260,6 +260,7 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 	validationRules := schema.XVesValidationRules
 	complexity := schema.XF5XCComplexity
 	useCases := schema.XF5XCUseCases
+	conflictsWith := schema.XF5XCConflictsWith
 	// Resolved BEFORE any $ref resolution: x-f5xc-wire-name describes THIS property's
 	// on-the-wire key, so it must never be inherited from a referenced component (a
 	// shared component carrying it would otherwise rename every property that $refs
@@ -281,6 +282,9 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 	if schema.Ref != "" {
 		schema = ResolveRef(schema.Ref, spec)
 		// Restore preserved extensions (property-level extensions take precedence)
+		if conflictsWith != nil {
+			schema.XF5XCConflictsWith = append([]string{}, conflictsWith...)
+		}
 		if fieldMutability != "" {
 			schema.XFieldMutability = fieldMutability
 		}

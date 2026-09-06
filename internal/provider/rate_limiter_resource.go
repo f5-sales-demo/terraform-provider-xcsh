@@ -213,7 +213,7 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"limits": schema.ListNestedBlock{
 				MarkdownDescription: "List of RateLimitValues that specifies the total number of allowed requests for each specified period.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("total_number")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("total_number"), validators.ConflictingListObjectAttributes("action_block", "disabled"), validators.ConflictingListObjectAttributes("leaky_bucket", "token_bucket")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -249,6 +249,7 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 					Blocks: map[string]schema.Block{
 						"action_block": schema.SingleNestedBlock{
 							MarkdownDescription: "Action where a user is blocked from making further requests after exceeding rate limit threshold.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("hours", "minutes"), validators.ConflictingObjectAttributes("hours", "seconds"), validators.ConflictingObjectAttributes("minutes", "seconds")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"hours": schema.SingleNestedBlock{

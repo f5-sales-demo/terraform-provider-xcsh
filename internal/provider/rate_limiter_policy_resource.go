@@ -543,6 +543,7 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 						},
 						"spec": schema.SingleNestedBlock{
 							MarkdownDescription: "Rate Limiter Rule Specification. Shape of Rate Limiter Rule.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("any_asn", "asn_list"), validators.ConflictingObjectAttributes("any_asn", "asn_matcher"), validators.ConflictingObjectAttributes("any_country", "country_list"), validators.ConflictingObjectAttributes("any_ip", "ip_matcher"), validators.ConflictingObjectAttributes("any_ip", "ip_prefix_list"), validators.ConflictingObjectAttributes("apply_rate_limiter", "bypass_rate_limiter"), validators.ConflictingObjectAttributes("apply_rate_limiter", "custom_rate_limiter"), validators.ConflictingObjectAttributes("asn_list", "asn_matcher"), validators.ConflictingObjectAttributes("bypass_rate_limiter", "custom_rate_limiter"), validators.ConflictingObjectAttributes("ip_matcher", "ip_prefix_list")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"any_asn": schema.SingleNestedBlock{
@@ -688,7 +689,7 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 								},
 								"headers": schema.ListNestedBlock{
 									MarkdownDescription: "List of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type.",
-									Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+									Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"invert_matcher": schema.BoolAttribute{
@@ -878,6 +879,7 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 								},
 								"segment_policy": schema.SingleNestedBlock{
 									MarkdownDescription: "Configure source and destination segment for policy.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("dst_any", "dst_segments"), validators.ConflictingObjectAttributes("dst_any", "intra_segment"), validators.ConflictingObjectAttributes("dst_segments", "intra_segment"), validators.ConflictingObjectAttributes("src_any", "src_segments")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"dst_any": schema.SingleNestedBlock{

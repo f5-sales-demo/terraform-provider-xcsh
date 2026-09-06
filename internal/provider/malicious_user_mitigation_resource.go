@@ -184,6 +184,7 @@ func (r *MaliciousUserMitigationResource) Schema(ctx context.Context, req resour
 							Blocks: map[string]schema.Block{
 								"mitigation_action": schema.SingleNestedBlock{
 									MarkdownDescription: "Supported actions that can be taken to mitigate malicious activity from a user.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("block_temporarily", "captcha_challenge"), validators.ConflictingObjectAttributes("block_temporarily", "javascript_challenge"), validators.ConflictingObjectAttributes("captcha_challenge", "javascript_challenge")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"block_temporarily": schema.SingleNestedBlock{
@@ -199,6 +200,7 @@ func (r *MaliciousUserMitigationResource) Schema(ctx context.Context, req resour
 								},
 								"threat_level": schema.SingleNestedBlock{
 									MarkdownDescription: "Threat level estimated for each user based on the user's activity and reputation.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("high", "low"), validators.ConflictingObjectAttributes("high", "medium"), validators.ConflictingObjectAttributes("low", "medium")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"high": schema.SingleNestedBlock{
