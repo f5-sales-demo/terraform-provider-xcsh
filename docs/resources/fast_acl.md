@@ -39,7 +39,7 @@ resource "xcsh_fast_acl" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -89,13 +89,21 @@ A [`protocol_policer`](#protocol-policer) block supports the following:
 
 A [`re_acl`](#re-acl) block supports the following:
 
-<a id="re-acl-all-public-vips"></a>&#x2022; [`all_public_vips`](#re-acl-all-public-vips) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<a id="re-acl-all-public-vips"></a>&#x2022; [`all_public_vips`](#re-acl-all-public-vips) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
-<a id="re-acl-default-tenant-vip"></a>&#x2022; [`default_tenant_vip`](#re-acl-default-tenant-vip) - Optional Block<br>Enable this option
+<a id="re-acl-default-tenant-vip"></a>&#x2022; [`default_tenant_vip`](#re-acl-default-tenant-vip) - Optional Object<br>Enable this option
 
 <a id="re-acl-fast-acl-rules"></a>&#x2022; [`fast_acl_rules`](#re-acl-fast-acl-rules) - Optional Block  Defaults to `[]`<br>Rules. Fast ACL rules to match.  Server applies default when omitted<br>See [Fast ACL Rules](#re-acl-fast-acl-rules) below.
 
 <a id="re-acl-selected-tenant-vip"></a>&#x2022; [`selected_tenant_vip`](#re-acl-selected-tenant-vip) - Optional Block<br>Specific Tenant VIP. Select various tenant public VIP(s)<br>See [Selected Tenant VIP](#re-acl-selected-tenant-vip) below.
+
+#### RE ACL All Public Vips
+
+An [`all_public_vips`](#re-acl-all-public-vips) block (within [`re_acl`](#re-acl)) supports the following:
+
+#### RE ACL Default Tenant VIP
+
+A [`default_tenant_vip`](#re-acl-default-tenant-vip) block (within [`re_acl`](#re-acl)) supports the following:
 
 #### RE ACL Fast ACL Rules
 
@@ -158,11 +166,19 @@ A [`metadata`](#re-acl-fast-acl-rules-metadata) block (within [`re_acl.fast_acl_
 
 A [`port`](#re-acl-fast-acl-rules-port) block (within [`re_acl.fast_acl_rules`](#re-acl-fast-acl-rules)) supports the following:
 
-<a id="re-acl-fast-acl-rules-port-all"></a>&#x2022; [`all`](#re-acl-fast-acl-rules-port-all) - Optional Block<br>Enable this option
+<a id="re-acl-fast-acl-rules-port-all"></a>&#x2022; [`all`](#re-acl-fast-acl-rules-port-all) - Optional Object<br>Enable this option
 
-<a id="re-acl-fast-acl-rules-port-dns"></a>&#x2022; [`dns`](#re-acl-fast-acl-rules-port-dns) - Optional Block<br>Enable this option
+<a id="re-acl-fast-acl-rules-port-dns"></a>&#x2022; [`dns`](#re-acl-fast-acl-rules-port-dns) - Optional Object<br>Enable this option
 
 <a id="re-acl-fast-acl-rules-port-user-defined"></a>&#x2022; [`user_defined`](#re-acl-fast-acl-rules-port-user-defined) - Optional Number<br>Matches the user defined port
+
+#### RE ACL Fast ACL Rules Port All
+
+An [`all`](#re-acl-fast-acl-rules-port-all) block (within [`re_acl.fast_acl_rules.port`](#re-acl-fast-acl-rules-port)) supports the following:
+
+#### RE ACL Fast ACL Rules Port DNS
+
+A [`dns`](#re-acl-fast-acl-rules-port-dns) block (within [`re_acl.fast_acl_rules.port`](#re-acl-fast-acl-rules-port)) supports the following:
 
 #### RE ACL Fast ACL Rules Prefix
 
@@ -186,17 +202,21 @@ A [`selected_tenant_vip`](#re-acl-selected-tenant-vip) block (within [`re_acl`](
 
 A [`site_acl`](#site-acl) block supports the following:
 
-<a id="site-acl-all-services"></a>&#x2022; [`all_services`](#site-acl-all-services) - Optional Block<br>Configuration parameter for all services
+<a id="site-acl-all-services"></a>&#x2022; [`all_services`](#site-acl-all-services) - Optional Object<br>Configuration parameter for all services
 
 <a id="site-acl-fast-acl-rules"></a>&#x2022; [`fast_acl_rules`](#site-acl-fast-acl-rules) - Optional Block<br>Rules. Fast ACL rules to match<br>See [Fast ACL Rules](#site-acl-fast-acl-rules) below.
 
-<a id="site-acl-inside-network"></a>&#x2022; [`inside_network`](#site-acl-inside-network) - Optional Block<br>Configuration parameter for inside network
+<a id="site-acl-inside-network"></a>&#x2022; [`inside_network`](#site-acl-inside-network) - Optional Object<br>Configuration parameter for inside network
 
-<a id="site-acl-interface-services"></a>&#x2022; [`interface_services`](#site-acl-interface-services) - Optional Block<br>Configuration parameter for interface services
+<a id="site-acl-interface-services"></a>&#x2022; [`interface_services`](#site-acl-interface-services) - Optional Object<br>Configuration parameter for interface services
 
-<a id="site-acl-outside-network"></a>&#x2022; [`outside_network`](#site-acl-outside-network) - Optional Block<br>Configuration parameter for outside network
+<a id="site-acl-outside-network"></a>&#x2022; [`outside_network`](#site-acl-outside-network) - Optional Object<br>Configuration parameter for outside network
 
-<a id="site-acl-vip-services"></a>&#x2022; [`vip_services`](#site-acl-vip-services) - Optional Block<br>Enable this option
+<a id="site-acl-vip-services"></a>&#x2022; [`vip_services`](#site-acl-vip-services) - Optional Object<br>Enable this option
+
+#### Site ACL All Services
+
+An [`all_services`](#site-acl-all-services) block (within [`site_acl`](#site-acl)) supports the following:
 
 #### Site ACL Fast ACL Rules
 
@@ -259,17 +279,41 @@ A [`metadata`](#site-acl-fast-acl-rules-metadata) block (within [`site_acl.fast_
 
 A [`port`](#site-acl-fast-acl-rules-port) block (within [`site_acl.fast_acl_rules`](#site-acl-fast-acl-rules)) supports the following:
 
-<a id="site-acl-fast-acl-rules-port-all"></a>&#x2022; [`all`](#site-acl-fast-acl-rules-port-all) - Optional Block<br>Enable this option
+<a id="site-acl-fast-acl-rules-port-all"></a>&#x2022; [`all`](#site-acl-fast-acl-rules-port-all) - Optional Object<br>Enable this option
 
-<a id="site-acl-fast-acl-rules-port-dns"></a>&#x2022; [`dns`](#site-acl-fast-acl-rules-port-dns) - Optional Block<br>Enable this option
+<a id="site-acl-fast-acl-rules-port-dns"></a>&#x2022; [`dns`](#site-acl-fast-acl-rules-port-dns) - Optional Object<br>Enable this option
 
 <a id="defined-3dc64a"></a>&#x2022; [`user_defined`](#defined-3dc64a) - Optional Number<br>Matches the user defined port
+
+#### Site ACL Fast ACL Rules Port All
+
+An [`all`](#site-acl-fast-acl-rules-port-all) block (within [`site_acl.fast_acl_rules.port`](#site-acl-fast-acl-rules-port)) supports the following:
+
+#### Site ACL Fast ACL Rules Port DNS
+
+A [`dns`](#site-acl-fast-acl-rules-port-dns) block (within [`site_acl.fast_acl_rules.port`](#site-acl-fast-acl-rules-port)) supports the following:
 
 #### Site ACL Fast ACL Rules Prefix
 
 A [`prefix`](#site-acl-fast-acl-rules-prefix) block (within [`site_acl.fast_acl_rules`](#site-acl-fast-acl-rules)) supports the following:
 
 <a id="site-acl-fast-acl-rules-prefix-prefix"></a>&#x2022; [`prefix`](#site-acl-fast-acl-rules-prefix-prefix) - Optional List<br>IP Address prefix in string format. String must contain both prefix and prefix-length
+
+#### Site ACL Inside Network
+
+An [`inside_network`](#site-acl-inside-network) block (within [`site_acl`](#site-acl)) supports the following:
+
+#### Site ACL Interface Services
+
+An [`interface_services`](#site-acl-interface-services) block (within [`site_acl`](#site-acl)) supports the following:
+
+#### Site ACL Outside Network
+
+An [`outside_network`](#site-acl-outside-network) block (within [`site_acl`](#site-acl)) supports the following:
+
+#### Site ACL VIP Services
+
+A [`vip_services`](#site-acl-vip-services) block (within [`site_acl`](#site-acl)) supports the following:
 
 #### Timeouts
 

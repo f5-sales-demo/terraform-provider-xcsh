@@ -1511,9 +1511,11 @@ func transformDoc(filePath string) error {
 				typeInfo = "Bool"
 			} else if strings.Contains(desc, "(`Number`)") {
 				typeInfo = "Number"
+			} else if strings.Contains(desc, "(`Object`)") {
+				typeInfo = "Object"
 			}
 			// Clean the type annotation from desc
-			desc = regexp.MustCompile(`\s*\(\x60(String|Bool|Number|List|Map|Block|Set)\x60\)\.?$`).ReplaceAllString(desc, "")
+			desc = regexp.MustCompile(`\s*\(\x60(String|Bool|Number|List|Map|Block|Set|Object)\x60\)\.?$`).ReplaceAllString(desc, "")
 			desc = strings.TrimSuffix(desc, ".")
 			matched = true
 		}
@@ -2947,6 +2949,9 @@ func extractSimpleType(typeInfo string) string {
 	}
 	if strings.Contains(typeInfo, "Bool") {
 		return "Bool"
+	}
+	if strings.Contains(typeInfo, "Object") {
+		return "Object"
 	}
 	return "String"
 }

@@ -18,8 +18,8 @@ func TestSMSv2DeviceEditPlansUpdateForSingleNodeNonHA(t *testing.T) {
 	after := awsSMSv2ContractFixture(t, []contractInterface{{mac: "02:00:00:00:00:01", role: "slo"}, {mac: "02:00:00:00:00:02", role: "sli", device: "ens6"}})
 	before = smsv2ComputedInterfaceFixture(t, before, false)
 	after = smsv2ComputedInterfaceFixture(t, after, true)
-	before.DisableHA = &SecuremeshSiteV2EmptyModel{}
-	after.DisableHA = &SecuremeshSiteV2EmptyModel{}
+	before.DisableHA = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	after.DisableHA = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 	r := &SecuremeshSiteV2Resource{}
 	schema := resource.SchemaResponse{}
 	r.Schema(ctx, resource.SchemaRequest{}, &schema)

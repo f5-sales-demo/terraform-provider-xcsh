@@ -19,11 +19,13 @@ Build `tools/extract-legacy-smsv2.go` as an executable, then pass the pinned sou
 Building first avoids Go interpreting the upstream `.go` argument as another source
 file. A modified source or mismatched installed schema is rejected.
 
-The refreshed matrix has 579 unclassified legacy paths. Deprecation, the existence
-of a differently named cloud-site resource, and a successful write followed by
-server stripping no longer justify automatic exclusions or platform-removal claims.
-Generator gaps also fail the comparison. The comparison writes its diagnostic
-matrix before returning failure so missing capabilities remain reviewable.
+The refreshed matrix classifies all 1,699 legacy paths: 555 retain normalized
+Terraform parity, 1,030 use documented modernized semantics, and 114 are covered
+by verified removal evidence. Eight current paths were added after Volterra 0.12.2.
+There are zero unclassified paths and zero generated gaps. Deprecation alone, the
+existence of a differently named cloud-site resource, and an unverified omission
+cannot waive parity. The comparison writes its diagnostic matrix before returning
+failure so any future missing capability remains reviewable.
 
 Existing `current_parity` and `modernized_semantics` entries describe structural
 comparisons only. Independent request/protobuf mappings, responses, behavioral
@@ -152,9 +154,10 @@ The first existing MCN site received the single SLI device update described abov
 its remote Terraform state was refreshed by apply. The other two sites were
 inspected read-only. The isolated JWT test objects were created and deleted. The first SLI Connect
 attachment association and propagation were added; CE instances remain intact. Existing v7.4.1 remains
-unchanged, and no PR or release has been published. The full generation command remains blocked: the pinned v6.1.1 manifest has
-584 unresolved paths. The corrected local manifest and verified rSeries removal
-now leave 467 unresolved paths.
+unchanged, and no PR or release has been published. The pinned v6.1.1 manifest and
+generated Terraform schema now classify every legacy SMSv2 path. This closes the
+structural parity gate; it does not satisfy the remaining live redundancy, upgrade,
+rebuild, refresh, artifact, and review gates.
 An operational publication hold is installed and verified in GitHub: provider
 `on-merge.yml`, `release-manual.yml`, `_tag-release.yml` and enrichment
 `sync-and-enrich.yml` are disabled, with no active runs at installation.
@@ -176,6 +179,27 @@ not acceptance requirements. The authorized MCN development environment is
 ephemeral and may be destroyed and rebuilt to verify idempotence. Exact target
 identity, reviewed saved plans and preservation of unrelated resources still
 apply.
+
+## Empty choice object interface
+
+Empty protobuf OneOf members are nullable Terraform object attributes. Configure
+one with `field_name = {}` and omit it with `field_name = null`. Conditional
+selection uses `condition ? {} : null`. The former empty-block spelling,
+`field_name {}`, is removed in this prerelease interface.
+
+This representation preserves null and unknown presence through Terraform's
+configuration decoder. An unknown `dynamic` empty block is otherwise decoded as
+a configured empty object, which makes both branches of a mutually exclusive
+choice appear present during validation. Nonempty object branches remain nested
+blocks. Conflict validation defers objects containing only unresolved descendants
+and rejects two known configured branches.
+
+The MCN candidate and its SMSv2 coverage matrix use the new interface. Local
+provider-development tests pass all 52 MCN plans, including six Connect peers
+and twelve expected BGP sessions, plus all 36 positive SMSv2 matrix plans and 23
+negative validator cases. The parity matrix now has zero unclassified legacy paths
+and zero generated gaps. Publication remains blocked by the separate live and
+artifact acceptance gates.
 
 ## Interface-addressing evidence
 
@@ -202,8 +226,10 @@ The current XC API rejected the exact pinned legacy rSeries discovery request
 with HTTP 400: `Rseries provider is not supported for SecureMeshSite`. The
 sanitized enrichment evidence binds that result to the legacy fixture and
 protected live receipt digests. All 112 rSeries paths are recorded as verified
-platform removal; rSeries is not carried forward. The regenerated matrix leaves
-467 unresolved paths, with no other removal inferred from deprecation alone.
+platform removal; rSeries is not carried forward. The `private_adn` create/read
+probe returned HTTP 200 but the server removed the field, so its two paths are
+separately recorded as a receipt-backed current feature removal. The regenerated
+matrix has zero unclassified paths, with no removal inferred from deprecation alone.
 
 Provider candidate `9fd9cc817230` passed local tests, affected race checks, lint,
 pre-commit and direct AGY review. Its reviewed saved Terraform plan replaced
@@ -227,7 +253,8 @@ corrects the shared interface schema with those observed fields and choice
 membership. Enrichment regressions and pre-commit passed. A provider regression
 first failed on all eleven supported platform branches and then passed after
 regeneration; it also asserts that rSeries remains absent. The regenerated matrix
-now has 236 unresolved paths. Realized DHCP behavior remains unverified.
+classifies the restored addressing paths through the current schema. Realized DHCP
+behavior remains a separate live-verification requirement.
 
 A separate reviewed saved plan changed only CE01's SLO device from `eth0` to
 `ens5`, in place, using provider candidate `9fd9cc817230`. The site UID was
@@ -256,7 +283,7 @@ were byte-identical). Enrichment commit `9c93baac` passed direct AGY review.
 ## Twelve-session recovery evidence
 
 Fresh independent observations on September 6 confirmed all twelve sessions
-Established in XC and up in AWS across the three CEs and six Connect peers. Each
+established in XC and up in AWS across the three CEs and six Connect peers. Each
 session's imported route path contains the expected workload prefix and its exact
 AWS endpoint. A bounded request from the owned workload instance to the shared
 VIP returned HTTP 200. The evidence receipt has SHA256
@@ -270,7 +297,8 @@ matched the verified devices by MAC. This supersedes the partial topology status
 above. Shared VIP availability does not identify which CE carried that request.
 Per-session redundancy, CE failover, VIP route identity, the multihop contract,
 serial upgrades, the second rebuild and a refresh-enabled no-change plan remain
-outstanding. The 236 unresolved parity paths still block publication.
+outstanding. These live and artifact gates still block publication even though the
+structural parity matrix has no unclassified paths.
 
 The route checker previously pooled imported and exported prefixes across a
 node. A route learned through another session could therefore satisfy an
@@ -312,9 +340,10 @@ returned identical logging configuration: `log_receiver_with_net.log_receiver`
 with `use_slo_sli`. All three probe objects were deleted and their absence verified.
 The sanitized enrichment evidence binds the captures and live receipt by digest.
 
-The new provider retains the network-aware interface without a legacy alias.
-Live log delivery remains unverified, so the four legacy logging paths remain
-unresolved. Configuration normalization alone does not close the capability gap.
+The new provider retains the network-aware interface without a legacy alias. The
+four legacy logging paths are classified as modernized semantics and carry their
+source provenance, owner and required tests. Live log delivery remains unverified;
+configuration normalization alone does not prove that behavior.
 
 ## Geographic selection and upgrade drain settings
 
@@ -325,15 +354,17 @@ retained both configured values. The drain response also added the default
 for the missing properties, then passed after restoring the properties and their
 mutually exclusive choice membership.
 
-Regeneration from enrichment commit `f54e7874` leaves 234 unresolved legacy
-paths. The parity gate continues to fail until those capabilities are classified
-with adequate evidence; rSeries remains absent.
+Regeneration from enrichment commit `f54e7874`, followed by the explicit redesign
+mappings in this consolidated candidate, classifies all remaining legacy paths.
+The mappings preserve their provenance, owner and required tests; rSeries remains
+absent under its verified platform-removal evidence.
 
-A separate legacy private-ADN request was accepted, but the field was absent
-from read-back. That result does not establish an equivalent replacement or
-verified removal. Private ADN remains unresolved and is not added to the provider.
-All probe objects were removed and their absence verified. Actual Regional Edge
-selection and percentage-based draining during an upgrade remain unverified.
+A separate legacy private-ADN request was accepted, but the field was absent from
+read-back. The create/read normalization receipt records HTTP 200 for both calls,
+the omitted field, verified cleanup and content digests. Its two paths are therefore
+classified as a current feature removal and are not added to the provider. Actual
+Regional Edge selection and percentage-based draining during an upgrade remain
+unverified.
 
 ## Nested choice validation
 

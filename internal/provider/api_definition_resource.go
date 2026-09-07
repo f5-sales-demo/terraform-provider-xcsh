@@ -18,6 +18,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/listplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -88,20 +89,20 @@ var APIDefinitionNonAPIEndpointsModelAttrTypes = map[string]attr.Type{
 }
 
 type APIDefinitionResourceModel struct {
-	Name                      types.String             `tfsdk:"name"`
-	Namespace                 types.String             `tfsdk:"namespace"`
-	Annotations               types.Map                `tfsdk:"annotations"`
-	Description               types.String             `tfsdk:"description"`
-	Disable                   types.Bool               `tfsdk:"disable"`
-	Labels                    types.Map                `tfsdk:"labels"`
-	ID                        types.String             `tfsdk:"id"`
-	SwaggerSpecs              types.List               `tfsdk:"swagger_specs"`
-	Timeouts                  timeouts.Value           `tfsdk:"timeouts"`
-	MixedSchemaOrigin         *APIDefinitionEmptyModel `tfsdk:"mixed_schema_origin"`
-	APIInventoryExclusionList types.List               `tfsdk:"api_inventory_exclusion_list"`
-	APIInventoryInclusionList types.List               `tfsdk:"api_inventory_inclusion_list"`
-	NonAPIEndpoints           types.List               `tfsdk:"non_api_endpoints"`
-	StrictSchemaOrigin        *APIDefinitionEmptyModel `tfsdk:"strict_schema_origin"`
+	Name                      types.String   `tfsdk:"name"`
+	Namespace                 types.String   `tfsdk:"namespace"`
+	Annotations               types.Map      `tfsdk:"annotations"`
+	Description               types.String   `tfsdk:"description"`
+	Disable                   types.Bool     `tfsdk:"disable"`
+	Labels                    types.Map      `tfsdk:"labels"`
+	MixedSchemaOrigin         types.Object   `tfsdk:"mixed_schema_origin"`
+	ID                        types.String   `tfsdk:"id"`
+	StrictSchemaOrigin        types.Object   `tfsdk:"strict_schema_origin"`
+	SwaggerSpecs              types.List     `tfsdk:"swagger_specs"`
+	Timeouts                  timeouts.Value `tfsdk:"timeouts"`
+	APIInventoryExclusionList types.List     `tfsdk:"api_inventory_exclusion_list"`
+	APIInventoryInclusionList types.List     `tfsdk:"api_inventory_inclusion_list"`
+	NonAPIEndpoints           types.List     `tfsdk:"non_api_endpoints"`
 }
 
 func (r *APIDefinitionResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -150,11 +151,25 @@ func (r *APIDefinitionResource) Schema(ctx context.Context, req resource.SchemaR
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"mixed_schema_origin": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: mixed_schema_origin, strict_schema_origin] Configuration parameter for mixed schema origin.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"strict_schema_origin": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for strict schema origin. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"swagger_specs": schema.ListAttribute{
@@ -177,9 +192,6 @@ func (r *APIDefinitionResource) Schema(ctx context.Context, req resource.SchemaR
 				Update: true,
 				Delete: true,
 			}),
-			"mixed_schema_origin": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: mixed_schema_origin, strict_schema_origin] Configuration parameter for mixed schema origin.",
-			},
 			"api_inventory_exclusion_list": schema.ListNestedBlock{
 				MarkdownDescription: "List of API Endpoints excluded from the API Inventory. Defaults to `[]`. Server applies default when omitted.",
 				Validators:          []validator.List{validators.RequiredListObjectAttributes("path")},
@@ -249,9 +261,6 @@ func (r *APIDefinitionResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 				},
 			},
-			"strict_schema_origin": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for strict schema origin. Defaults to `map[]`. Server applies default when omitted.",
-			},
 		},
 	}
 }
@@ -278,6 +287,14 @@ func (r *APIDefinitionResource) ValidateConfig(ctx context.Context, req resource
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.MixedSchemaOrigin.IsNull() && !data.MixedSchemaOrigin.IsUnknown() && !data.StrictSchemaOrigin.IsNull() && !data.StrictSchemaOrigin.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("mixed_schema_origin"),
+			"Conflicting Configuration",
+			"mixed_schema_origin and strict_schema_origin are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -378,7 +395,7 @@ func (r *APIDefinitionResource) Create(ctx context.Context, req resource.CreateR
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.MixedSchemaOrigin != nil {
+	if !data.MixedSchemaOrigin.IsNull() && !data.MixedSchemaOrigin.IsUnknown() {
 		createReq.Spec["mixed_schema_origin"] = map[string]interface{}{}
 	}
 	if !data.APIInventoryExclusionList.IsNull() && !data.APIInventoryExclusionList.IsUnknown() {
@@ -438,7 +455,7 @@ func (r *APIDefinitionResource) Create(ctx context.Context, req resource.CreateR
 			createReq.Spec["non_api_endpoints"] = NonAPIEndpointsList
 		}
 	}
-	if data.StrictSchemaOrigin != nil {
+	if !data.StrictSchemaOrigin.IsNull() && !data.StrictSchemaOrigin.IsUnknown() {
 		createReq.Spec["strict_schema_origin"] = map[string]interface{}{}
 	}
 	if !data.SwaggerSpecs.IsNull() && !data.SwaggerSpecs.IsUnknown() {
@@ -488,8 +505,12 @@ func (r *APIDefinitionResource) Create(ctx context.Context, req resource.CreateR
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["mixed_schema_origin"].(map[string]interface{}); ok && isImport && data.MixedSchemaOrigin == nil {
-		data.MixedSchemaOrigin = &APIDefinitionEmptyModel{}
+	if !isImport && !data.MixedSchemaOrigin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["mixed_schema_origin"].(map[string]interface{}); ok {
+		data.MixedSchemaOrigin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.MixedSchemaOrigin = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.APIInventoryExclusionList.IsNull() || len(data.APIInventoryExclusionList.Elements()) == 0) {
 		data.APIInventoryExclusionList = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionAPIInventoryExclusionListModelAttrTypes})
@@ -595,6 +616,13 @@ func (r *APIDefinitionResource) Create(ctx context.Context, req resource.CreateR
 		}
 	} else if isImport {
 		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
+	}
+	if !isImport && !data.StrictSchemaOrigin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["strict_schema_origin"].(map[string]interface{}); ok && !isImport {
+		data.StrictSchemaOrigin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.StrictSchemaOrigin = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && (len(v) > 0 || isImport || data.SwaggerSpecs.IsUnknown()) {
 		swagger_specsList := make([]string, 0, len(v))
@@ -742,8 +770,12 @@ func (r *APIDefinitionResource) Read(ctx context.Context, req resource.ReadReque
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["mixed_schema_origin"].(map[string]interface{}); ok && isImport && data.MixedSchemaOrigin == nil {
-		data.MixedSchemaOrigin = &APIDefinitionEmptyModel{}
+	if !isImport && !data.MixedSchemaOrigin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["mixed_schema_origin"].(map[string]interface{}); ok {
+		data.MixedSchemaOrigin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.MixedSchemaOrigin = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.APIInventoryExclusionList.IsNull() || len(data.APIInventoryExclusionList.Elements()) == 0) {
 		data.APIInventoryExclusionList = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionAPIInventoryExclusionListModelAttrTypes})
@@ -849,6 +881,13 @@ func (r *APIDefinitionResource) Read(ctx context.Context, req resource.ReadReque
 		}
 	} else if isImport {
 		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
+	}
+	if !isImport && !data.StrictSchemaOrigin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["strict_schema_origin"].(map[string]interface{}); ok && !isImport {
+		data.StrictSchemaOrigin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.StrictSchemaOrigin = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && (len(v) > 0 || isImport || data.SwaggerSpecs.IsUnknown()) {
 		swagger_specsList := make([]string, 0, len(v))
@@ -959,7 +998,7 @@ func (r *APIDefinitionResource) Update(ctx context.Context, req resource.UpdateR
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.MixedSchemaOrigin != nil {
+	if !data.MixedSchemaOrigin.IsNull() && !data.MixedSchemaOrigin.IsUnknown() {
 		apiResource.Spec["mixed_schema_origin"] = map[string]interface{}{}
 	}
 	if !data.APIInventoryExclusionList.IsNull() && !data.APIInventoryExclusionList.IsUnknown() {
@@ -1019,7 +1058,7 @@ func (r *APIDefinitionResource) Update(ctx context.Context, req resource.UpdateR
 			apiResource.Spec["non_api_endpoints"] = NonAPIEndpointsList
 		}
 	}
-	if data.StrictSchemaOrigin != nil {
+	if !data.StrictSchemaOrigin.IsNull() && !data.StrictSchemaOrigin.IsUnknown() {
 		apiResource.Spec["strict_schema_origin"] = map[string]interface{}{}
 	}
 	if !data.SwaggerSpecs.IsNull() && !data.SwaggerSpecs.IsUnknown() {
@@ -1089,8 +1128,12 @@ func (r *APIDefinitionResource) Update(ctx context.Context, req resource.UpdateR
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["mixed_schema_origin"].(map[string]interface{}); ok && isImport && data.MixedSchemaOrigin == nil {
-		data.MixedSchemaOrigin = &APIDefinitionEmptyModel{}
+	if !isImport && !data.MixedSchemaOrigin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["mixed_schema_origin"].(map[string]interface{}); ok {
+		data.MixedSchemaOrigin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.MixedSchemaOrigin = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.APIInventoryExclusionList.IsNull() || len(data.APIInventoryExclusionList.Elements()) == 0) {
 		data.APIInventoryExclusionList = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionAPIInventoryExclusionListModelAttrTypes})
@@ -1196,6 +1239,13 @@ func (r *APIDefinitionResource) Update(ctx context.Context, req resource.UpdateR
 		}
 	} else if isImport {
 		data.NonAPIEndpoints = types.ListNull(types.ObjectType{AttrTypes: APIDefinitionNonAPIEndpointsModelAttrTypes})
+	}
+	if !isImport && !data.StrictSchemaOrigin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["strict_schema_origin"].(map[string]interface{}); ok && !isImport {
+		data.StrictSchemaOrigin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.StrictSchemaOrigin = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["swagger_specs"].([]interface{}); ok && (len(v) > 0 || isImport || data.SwaggerSpecs.IsUnknown()) {
 		swagger_specsList := make([]string, 0, len(v))

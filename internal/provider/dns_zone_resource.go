@@ -55,8 +55,8 @@ type DNSZoneEmptyModel struct {
 // DNSZonePrimaryModel represents primary block
 type DNSZonePrimaryModel struct {
 	AllowHTTPLBManagedRecords types.Bool                        `tfsdk:"allow_http_lb_managed_records"`
+	DefaultSoaParameters      types.Object                      `tfsdk:"default_soa_parameters"`
 	DefaultRrSetGroup         types.List                        `tfsdk:"default_rr_set_group"`
-	DefaultSoaParameters      *DNSZoneEmptyModel                `tfsdk:"default_soa_parameters"`
 	DnssecMode                *DNSZonePrimaryDnssecModeModel    `tfsdk:"dnssec_mode"`
 	RrSetGroup                types.List                        `tfsdk:"rr_set_group"`
 	SoaParameters             *DNSZonePrimarySoaParametersModel `tfsdk:"soa_parameters"`
@@ -65,8 +65,8 @@ type DNSZonePrimaryModel struct {
 // DNSZonePrimaryModelAttrTypes defines the attribute types for DNSZonePrimaryModel
 var DNSZonePrimaryModelAttrTypes = map[string]attr.Type{
 	"allow_http_lb_managed_records": types.BoolType,
-	"default_rr_set_group":          types.ListType{ElemType: types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupModelAttrTypes}},
 	"default_soa_parameters":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"default_rr_set_group":          types.ListType{ElemType: types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupModelAttrTypes}},
 	"dnssec_mode":                   types.ObjectType{AttrTypes: DNSZonePrimaryDnssecModeModelAttrTypes},
 	"rr_set_group":                  types.ListType{ElemType: types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupModelAttrTypes}},
 	"soa_parameters":                types.ObjectType{AttrTypes: DNSZonePrimarySoaParametersModelAttrTypes},
@@ -660,8 +660,8 @@ var DNSZonePrimaryDefaultRrSetGroupTxtRecordModelAttrTypes = map[string]attr.Typ
 
 // DNSZonePrimaryDnssecModeModel represents dnssec_mode block
 type DNSZonePrimaryDnssecModeModel struct {
-	DisableSpec *DNSZoneEmptyModel `tfsdk:"disable_spec"`
-	Enable      *DNSZoneEmptyModel `tfsdk:"enable"`
+	DisableSpec types.Object `tfsdk:"disable_spec"`
+	Enable      types.Object `tfsdk:"enable"`
 }
 
 // DNSZonePrimaryDnssecModeModelAttrTypes defines the attribute types for DNSZonePrimaryDnssecModeModel
@@ -1437,6 +1437,11 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 					"allow_http_lb_managed_records": schema.BoolAttribute{
 						MarkdownDescription: "Option to allow user-created HTTP, TCP, and CDN load balancer related resource records to be automatically managed in a protected RRset.",
 						Optional:            true,
+					},
+					"default_soa_parameters": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default soa parameters.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -2315,19 +2320,19 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 							},
 						},
 					},
-					"default_soa_parameters": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for default soa parameters.",
-					},
 					"dnssec_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Disable",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"disable_spec": schema.SingleNestedBlock{
+						Attributes: map[string]schema.Attribute{
+							"disable_spec": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"enable": schema.SingleNestedBlock{
+							"enable": schema.ObjectAttribute{
 								MarkdownDescription: "Enable. DNSSEC enable.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -4034,15 +4039,15 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 				PrimaryMap["default_rr_set_group"] = DefaultRrSetGroupList
 			}
 		}
-		if data.Primary.DefaultSoaParameters != nil {
+		if !data.Primary.DefaultSoaParameters.IsNull() && !data.Primary.DefaultSoaParameters.IsUnknown() {
 			PrimaryMap["default_soa_parameters"] = map[string]interface{}{}
 		}
 		if data.Primary.DnssecMode != nil {
 			PrimaryDnssecModeMap := make(map[string]interface{})
-			if data.Primary.DnssecMode.DisableSpec != nil {
+			if !data.Primary.DnssecMode.DisableSpec.IsNull() && !data.Primary.DnssecMode.DisableSpec.IsUnknown() {
 				PrimaryDnssecModeMap["disable"] = map[string]interface{}{}
 			}
-			if data.Primary.DnssecMode.Enable != nil {
+			if !data.Primary.DnssecMode.Enable.IsNull() && !data.Primary.DnssecMode.Enable.IsUnknown() {
 				PrimaryDnssecModeMap["enable"] = map[string]interface{}{}
 			}
 			PrimaryMap["dnssec_mode"] = PrimaryDnssecModeMap
@@ -5754,14 +5759,14 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 				}
 				return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupModelAttrTypes})
 			}(),
-			DefaultSoaParameters: func() *DNSZoneEmptyModel {
-				if !isImport && data.Primary != nil {
+			DefaultSoaParameters: func() types.Object {
+				if !isImport && data.Primary != nil && !data.Primary.DefaultSoaParameters.IsUnknown() {
 					return data.Primary.DefaultSoaParameters
 				}
 				if _, ok := blockData["default_soa_parameters"].(map[string]interface{}); ok {
-					return &DNSZoneEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DnssecMode: func() *DNSZonePrimaryDnssecModeModel {
 				if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
@@ -5769,23 +5774,23 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 				}
 				if DnssecModeData, ok := blockData["dnssec_mode"].(map[string]interface{}); ok {
 					return &DNSZonePrimaryDnssecModeModel{
-						DisableSpec: func() *DNSZoneEmptyModel {
-							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil && !data.Primary.DnssecMode.DisableSpec.IsUnknown() {
 								return data.Primary.DnssecMode.DisableSpec
 							}
 							if _, ok := DnssecModeData["disable"].(map[string]interface{}); ok {
-								return &DNSZoneEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *DNSZoneEmptyModel {
-							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+						Enable: func() types.Object {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil && !data.Primary.DnssecMode.Enable.IsUnknown() {
 								return data.Primary.DnssecMode.Enable
 							}
 							if _, ok := DnssecModeData["enable"].(map[string]interface{}); ok {
-								return &DNSZoneEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -8158,14 +8163,14 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 				}
 				return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupModelAttrTypes})
 			}(),
-			DefaultSoaParameters: func() *DNSZoneEmptyModel {
-				if !isImport && data.Primary != nil {
+			DefaultSoaParameters: func() types.Object {
+				if !isImport && data.Primary != nil && !data.Primary.DefaultSoaParameters.IsUnknown() {
 					return data.Primary.DefaultSoaParameters
 				}
 				if _, ok := blockData["default_soa_parameters"].(map[string]interface{}); ok {
-					return &DNSZoneEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DnssecMode: func() *DNSZonePrimaryDnssecModeModel {
 				if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
@@ -8173,23 +8178,23 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 				}
 				if DnssecModeData, ok := blockData["dnssec_mode"].(map[string]interface{}); ok {
 					return &DNSZonePrimaryDnssecModeModel{
-						DisableSpec: func() *DNSZoneEmptyModel {
-							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil && !data.Primary.DnssecMode.DisableSpec.IsUnknown() {
 								return data.Primary.DnssecMode.DisableSpec
 							}
 							if _, ok := DnssecModeData["disable"].(map[string]interface{}); ok {
-								return &DNSZoneEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *DNSZoneEmptyModel {
-							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+						Enable: func() types.Object {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil && !data.Primary.DnssecMode.Enable.IsUnknown() {
 								return data.Primary.DnssecMode.Enable
 							}
 							if _, ok := DnssecModeData["enable"].(map[string]interface{}); ok {
-								return &DNSZoneEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -10051,15 +10056,15 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 				PrimaryMap["default_rr_set_group"] = DefaultRrSetGroupList
 			}
 		}
-		if data.Primary.DefaultSoaParameters != nil {
+		if !data.Primary.DefaultSoaParameters.IsNull() && !data.Primary.DefaultSoaParameters.IsUnknown() {
 			PrimaryMap["default_soa_parameters"] = map[string]interface{}{}
 		}
 		if data.Primary.DnssecMode != nil {
 			PrimaryDnssecModeMap := make(map[string]interface{})
-			if data.Primary.DnssecMode.DisableSpec != nil {
+			if !data.Primary.DnssecMode.DisableSpec.IsNull() && !data.Primary.DnssecMode.DisableSpec.IsUnknown() {
 				PrimaryDnssecModeMap["disable"] = map[string]interface{}{}
 			}
-			if data.Primary.DnssecMode.Enable != nil {
+			if !data.Primary.DnssecMode.Enable.IsNull() && !data.Primary.DnssecMode.Enable.IsUnknown() {
 				PrimaryDnssecModeMap["enable"] = map[string]interface{}{}
 			}
 			PrimaryMap["dnssec_mode"] = PrimaryDnssecModeMap
@@ -11791,14 +11796,14 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 				}
 				return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupModelAttrTypes})
 			}(),
-			DefaultSoaParameters: func() *DNSZoneEmptyModel {
-				if !isImport && data.Primary != nil {
+			DefaultSoaParameters: func() types.Object {
+				if !isImport && data.Primary != nil && !data.Primary.DefaultSoaParameters.IsUnknown() {
 					return data.Primary.DefaultSoaParameters
 				}
 				if _, ok := blockData["default_soa_parameters"].(map[string]interface{}); ok {
-					return &DNSZoneEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DnssecMode: func() *DNSZonePrimaryDnssecModeModel {
 				if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
@@ -11806,23 +11811,23 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 				}
 				if DnssecModeData, ok := blockData["dnssec_mode"].(map[string]interface{}); ok {
 					return &DNSZonePrimaryDnssecModeModel{
-						DisableSpec: func() *DNSZoneEmptyModel {
-							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil && !data.Primary.DnssecMode.DisableSpec.IsUnknown() {
 								return data.Primary.DnssecMode.DisableSpec
 							}
 							if _, ok := DnssecModeData["disable"].(map[string]interface{}); ok {
-								return &DNSZoneEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *DNSZoneEmptyModel {
-							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+						Enable: func() types.Object {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil && !data.Primary.DnssecMode.Enable.IsUnknown() {
 								return data.Primary.DnssecMode.Enable
 							}
 							if _, ok := DnssecModeData["enable"].(map[string]interface{}); ok {
-								return &DNSZoneEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}

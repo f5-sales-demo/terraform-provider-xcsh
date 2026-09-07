@@ -39,7 +39,7 @@ resource "xcsh_udp_loadbalancer" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -61,23 +61,23 @@ resource "xcsh_udp_loadbalancer" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="active-service-policies"></a>[`active_service_policies`](#active-service-policies) - Optional Block<br>Configuration parameter for active service policies<br>See [Active Service Policies](#active-service-policies) below for details.
-<br><br>&#x2022; <a id="no-service-policies"></a>[`no_service_policies`](#no-service-policies) - Optional Block<br>Configuration parameter for no service policies
+<br><br>&#x2022; <a id="no-service-policies"></a>[`no_service_policies`](#no-service-policies) - Optional Object<br>Configuration parameter for no service policies
 
 -> **One of the following:**
 &#x2022; <a id="advertise-custom"></a>[`advertise_custom`](#advertise-custom) - Optional Block<br>Defines a way to advertise a VIP on specific sites<br>See [Advertise Custom](#advertise-custom) below for details.
 <br><br>&#x2022; <a id="advertise-on-public"></a>[`advertise_on_public`](#advertise-on-public) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise On Public](#advertise-on-public) below for details.
-<br><br>&#x2022; <a id="advertise-on-public-default-vip"></a>[`advertise_on_public_default_vip`](#advertise-on-public-default-vip) - Optional Block<br>Enable this option
+<br><br>&#x2022; <a id="advertise-on-public-default-vip"></a>[`advertise_on_public_default_vip`](#advertise-on-public-default-vip) - Optional Object<br>Enable this option
 
 <a id="dns-volterra-managed"></a>&#x2022; [`dns_volterra_managed`](#dns-volterra-managed) - Optional Bool<br>DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain to be delegated to F5 Distributed Cloud using the Delegated Domain feature or a DNS CNAME record must be created in your DNS provider's portal
 
-<a id="do-not-advertise"></a>&#x2022; [`do_not_advertise`](#do-not-advertise) - Optional Block<br>Configuration parameter for do not advertise
+<a id="do-not-advertise"></a>&#x2022; [`do_not_advertise`](#do-not-advertise) - Optional Object<br>Configuration parameter for do not advertise
 
 <a id="domains"></a>&#x2022; [`domains`](#domains) - Optional List<br>List of domains (host/authority header) that will be matched to this load balancer
 
 -> **One of the following:**
-&#x2022; <a id="hash-policy-choice-random"></a>[`hash_policy_choice_random`](#hash-policy-choice-random) - Optional Block<br>Configuration parameter for hash policy choice random
-<br><br>&#x2022; <a id="hash-policy-choice-round-robin"></a>[`hash_policy_choice_round_robin`](#hash-policy-choice-round-robin) - Optional Block<br>Configuration parameter for hash policy choice round robin
-<br><br>&#x2022; <a id="hash-policy-choice-source-ip-stickiness"></a>[`hash_policy_choice_source_ip_stickiness`](#hash-policy-choice-source-ip-stickiness) - Optional Block<br>Enable this option
+&#x2022; <a id="hash-policy-choice-random"></a>[`hash_policy_choice_random`](#hash-policy-choice-random) - Optional Object<br>Configuration parameter for hash policy choice random
+<br><br>&#x2022; <a id="hash-policy-choice-round-robin"></a>[`hash_policy_choice_round_robin`](#hash-policy-choice-round-robin) - Optional Object<br>Configuration parameter for hash policy choice round robin
+<br><br>&#x2022; <a id="hash-policy-choice-source-ip-stickiness"></a>[`hash_policy_choice_source_ip_stickiness`](#hash-policy-choice-source-ip-stickiness) - Optional Object<br>Enable this option
 
 <a id="idle-timeout"></a>&#x2022; [`idle_timeout`](#idle-timeout) - Optional Number<br>The amount of time that a session can exist without upstream or downstream activity, in milliseconds
 
@@ -87,7 +87,7 @@ resource "xcsh_udp_loadbalancer" "example" {
 
 <a id="origin-pools-weights"></a>&#x2022; [`origin_pools_weights`](#origin-pools-weights) - Optional Block<br>Origin pools with weights and priorities used for this load balancer<br>See [Origin Pools Weights](#origin-pools-weights) below for details.
 
-<a id="service-policies-from-namespace"></a>&#x2022; [`service_policies_from_namespace`](#service-policies-from-namespace) - Optional Block<br>Enable this option
+<a id="service-policies-from-namespace"></a>&#x2022; [`service_policies_from_namespace`](#service-policies-from-namespace) - Optional Object<br>Enable this option
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
@@ -136,7 +136,7 @@ An [`advertise_where`](#advertise-custom-advertise-where) block (within [`advert
 
 <a id="advertise-custom-advertise-where-site"></a>&#x2022; [`site`](#advertise-custom-advertise-where-site) - Optional Block<br>Defines a reference to a CE site along with network type and an optional IP address where a load balancer could be advertised<br>See [Site](#advertise-custom-advertise-where-site) below.
 
-<a id="port-b19c4f"></a>&#x2022; [`use_default_port`](#port-b19c4f) - Optional Block<br>Enable this option
+<a id="port-b19c4f"></a>&#x2022; [`use_default_port`](#port-b19c4f) - Optional Object<br>Enable this option
 
 <a id="network-a20be3"></a>&#x2022; [`virtual_network`](#network-a20be3) - Optional Block<br>Parameters to advertise on a given virtual network<br>See [Virtual Network](#network-a20be3) below.
 
@@ -177,19 +177,31 @@ A [`site`](#site-7ecf1d) block (within [`advertise_custom.advertise_where.site`]
 
 <a id="tenant-8a632a"></a>&#x2022; [`tenant`](#tenant-8a632a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Advertise Custom Advertise Where Use Default Port
+
+An [`use_default_port`](#port-b19c4f) block (within [`advertise_custom.advertise_where`](#advertise-custom-advertise-where)) supports the following:
+
 #### Advertise Custom Advertise Where Virtual Network
 
 A [`virtual_network`](#network-a20be3) block (within [`advertise_custom.advertise_where`](#advertise-custom-advertise-where)) supports the following:
 
-<a id="vip-26d874"></a>&#x2022; [`default_v6_vip`](#vip-26d874) - Optional Block<br>Enable this option
+<a id="vip-26d874"></a>&#x2022; [`default_v6_vip`](#vip-26d874) - Optional Object<br>Enable this option
 
-<a id="vip-c51931"></a>&#x2022; [`default_vip`](#vip-c51931) - Optional Block<br>Enable this option
+<a id="vip-c51931"></a>&#x2022; [`default_vip`](#vip-c51931) - Optional Object<br>Enable this option
 
 <a id="vip-bb67d7"></a>&#x2022; [`specific_v6_vip`](#vip-bb67d7) - Optional String<br>Use given IPv6 address as VIP on virtual Network
 
 <a id="vip-943090"></a>&#x2022; [`specific_vip`](#vip-943090) - Optional String<br>Use given IPv4 address as VIP on virtual Network
 
 <a id="network-bff334"></a>&#x2022; [`virtual_network`](#network-bff334) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Virtual Network](#network-bff334) below.
+
+#### Advertise Custom Advertise Where Virtual Network Default V6 VIP
+
+<a id="deep-822aa0"></a>Deeply nested **VIP** block collapsed for readability.
+
+#### Advertise Custom Advertise Where Virtual Network Default VIP
+
+<a id="deep-cf0c89"></a>Deeply nested **VIP** block collapsed for readability.
 
 #### Advertise Custom Advertise Where Virtual Network Virtual Network
 
@@ -254,6 +266,30 @@ A [`public_ip`](#advertise-on-public-public-ip) block (within [`advertise_on_pub
 
 <a id="advertise-on-public-public-ip-tenant"></a>&#x2022; [`tenant`](#advertise-on-public-public-ip-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Advertise On Public Default VIP
+
+An [`advertise_on_public_default_vip`](#advertise-on-public-default-vip) block supports the following:
+
+#### Do Not Advertise
+
+A [`do_not_advertise`](#do-not-advertise) block supports the following:
+
+#### Hash Policy Choice Random
+
+A [`hash_policy_choice_random`](#hash-policy-choice-random) block supports the following:
+
+#### Hash Policy Choice Round Robin
+
+A [`hash_policy_choice_round_robin`](#hash-policy-choice-round-robin) block supports the following:
+
+#### Hash Policy Choice Source IP Stickiness
+
+A [`hash_policy_choice_source_ip_stickiness`](#hash-policy-choice-source-ip-stickiness) block supports the following:
+
+#### No Service Policies
+
+A [`no_service_policies`](#no-service-policies) block supports the following:
+
 #### Origin Pools Weights
 
 An [`origin_pools_weights`](#origin-pools-weights) block supports the following:
@@ -289,6 +325,10 @@ A [`pool`](#origin-pools-weights-pool) block (within [`origin_pools_weights`](#o
 <a id="origin-pools-weights-pool-namespace"></a>&#x2022; [`namespace`](#origin-pools-weights-pool-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="origin-pools-weights-pool-tenant"></a>&#x2022; [`tenant`](#origin-pools-weights-pool-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Service Policies From Namespace
+
+A [`service_policies_from_namespace`](#service-policies-from-namespace) block supports the following:
 
 #### Timeouts
 

@@ -41,7 +41,7 @@ resource "xcsh_secret_management_access" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -140,17 +140,17 @@ A [`tls_config`](#access-info-tls-config) block (within [`access_info`](#access-
 
 <a id="access-info-tls-config-common-params"></a>&#x2022; [`common_params`](#access-info-tls-config-common-params) - Optional Block<br>Information of different aspects for TLS authentication related to ciphers, certificates and trust store<br>See [Common Params](#access-info-tls-config-common-params) below.
 
-<a id="caching-0f2bd1"></a>&#x2022; [`default_session_key_caching`](#caching-0f2bd1) - Optional Block<br>Configuration parameter for default session key caching
+<a id="caching-0f2bd1"></a>&#x2022; [`default_session_key_caching`](#caching-0f2bd1) - Optional Object<br>Configuration parameter for default session key caching
 
-<a id="caching-c17b8f"></a>&#x2022; [`disable_session_key_caching`](#caching-c17b8f) - Optional Block<br>Configuration parameter for disable session key caching
+<a id="caching-c17b8f"></a>&#x2022; [`disable_session_key_caching`](#caching-c17b8f) - Optional Object<br>Configuration parameter for disable session key caching
 
-<a id="access-info-tls-config-disable-sni"></a>&#x2022; [`disable_sni`](#access-info-tls-config-disable-sni) - Optional Block<br>Configuration parameter for disable sni
+<a id="access-info-tls-config-disable-sni"></a>&#x2022; [`disable_sni`](#access-info-tls-config-disable-sni) - Optional Object<br>Configuration parameter for disable sni
 
 <a id="access-info-tls-config-max-session-keys"></a>&#x2022; [`max_session_keys`](#access-info-tls-config-max-session-keys) - Optional Number<br>Number of session keys that are cached
 
 <a id="access-info-tls-config-sni"></a>&#x2022; [`sni`](#access-info-tls-config-sni) - Optional String<br>SNI value to be used
 
-<a id="sni-493d0a"></a>&#x2022; [`use_host_header_as_sni`](#sni-493d0a) - Optional Block<br>Enable this option
+<a id="sni-493d0a"></a>&#x2022; [`use_host_header_as_sni`](#sni-493d0a) - Optional Object<br>Enable this option
 
 #### Access Info TLS Config Cert Params
 
@@ -214,6 +214,10 @@ A [`common_params`](#access-info-tls-config-common-params) block (within [`acces
 
 <a id="deep-1488ef"></a>Deeply nested **Algorithms** block collapsed for readability.
 
+#### Access Info TLS Config Common Params TLS Certificates Disable OCSP Stapling
+
+<a id="deep-5be496"></a>Deeply nested **Stapling** block collapsed for readability.
+
 #### Access Info TLS Config Common Params TLS Certificates Private Key
 
 <a id="deep-4156c5"></a>Deeply nested **Key** block collapsed for readability.
@@ -226,6 +230,10 @@ A [`common_params`](#access-info-tls-config-common-params) block (within [`acces
 
 <a id="deep-196841"></a>Deeply nested **Info** block collapsed for readability.
 
+#### Access Info TLS Config Common Params TLS Certificates Use System Defaults
+
+<a id="deep-9dad13"></a>Deeply nested **Defaults** block collapsed for readability.
+
 #### Access Info TLS Config Common Params Validation Params
 
 <a id="deep-219aa6"></a>Deeply nested **Params** block collapsed for readability.
@@ -237,6 +245,22 @@ A [`common_params`](#access-info-tls-config-common-params) block (within [`acces
 #### Access Info TLS Config Common Params Validation Params Trusted CA Trusted CA List
 
 <a id="deep-dd547c"></a>Deeply nested **List** block collapsed for readability.
+
+#### Access Info TLS Config Default Session Key Caching
+
+<a id="deep-49eeac"></a>Deeply nested **Caching** block collapsed for readability.
+
+#### Access Info TLS Config Disable Session Key Caching
+
+<a id="deep-a00d76"></a>Deeply nested **Caching** block collapsed for readability.
+
+#### Access Info TLS Config Disable Sni
+
+A [`disable_sni`](#access-info-tls-config-disable-sni) block (within [`access_info.tls_config`](#access-info-tls-config)) supports the following:
+
+#### Access Info TLS Config Use Host Header As Sni
+
+<a id="deep-151af4"></a>Deeply nested **Sni** block collapsed for readability.
 
 #### Access Info Vault Auth Info
 
@@ -304,9 +328,9 @@ A [`where`](#where) block supports the following:
 
 A [`site`](#where-site) block (within [`where`](#where)) supports the following:
 
-<a id="where-site-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#where-site-disable-internet-vip) - Optional Block<br>Enable this option
+<a id="where-site-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#where-site-disable-internet-vip) - Optional Object<br>Enable this option
 
-<a id="where-site-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#where-site-enable-internet-vip) - Optional Block<br>Enable this option
+<a id="where-site-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#where-site-enable-internet-vip) - Optional Object<br>Enable this option
 
 <a id="where-site-network-type"></a>&#x2022; [`network_type`](#where-site-network-type) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
@@ -314,6 +338,14 @@ VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
 <a id="where-site-ref"></a>&#x2022; [`ref`](#where-site-ref) - Optional Block<br>Reference. A site direct reference<br>See [Ref](#where-site-ref) below.
+
+#### Where Site Disable internet VIP
+
+A [`disable_internet_vip`](#where-site-disable-internet-vip) block (within [`where.site`](#where-site)) supports the following:
+
+#### Where Site Enable internet VIP
+
+An [`enable_internet_vip`](#where-site-enable-internet-vip) block (within [`where.site`](#where-site)) supports the following:
 
 #### Where Site Ref
 
@@ -353,9 +385,9 @@ A [`ref`](#where-virtual-network-ref) block (within [`where.virtual_network`](#w
 
 A [`virtual_site`](#where-virtual-site) block (within [`where`](#where)) supports the following:
 
-<a id="where-virtual-site-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#where-virtual-site-disable-internet-vip) - Optional Block<br>Enable this option
+<a id="where-virtual-site-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#where-virtual-site-disable-internet-vip) - Optional Object<br>Enable this option
 
-<a id="where-virtual-site-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#where-virtual-site-enable-internet-vip) - Optional Block<br>Enable this option
+<a id="where-virtual-site-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#where-virtual-site-enable-internet-vip) - Optional Object<br>Enable this option
 
 <a id="where-virtual-site-network-type"></a>&#x2022; [`network_type`](#where-virtual-site-network-type) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
@@ -363,6 +395,14 @@ VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
 <a id="where-virtual-site-ref"></a>&#x2022; [`ref`](#where-virtual-site-ref) - Optional Block<br>Reference. A virtual_site direct reference<br>See [Ref](#where-virtual-site-ref) below.
+
+#### Where Virtual Site Disable internet VIP
+
+A [`disable_internet_vip`](#where-virtual-site-disable-internet-vip) block (within [`where.virtual_site`](#where-virtual-site)) supports the following:
+
+#### Where Virtual Site Enable internet VIP
+
+An [`enable_internet_vip`](#where-virtual-site-enable-internet-vip) block (within [`where.virtual_site`](#where-virtual-site)) supports the following:
 
 #### Where Virtual Site Ref
 

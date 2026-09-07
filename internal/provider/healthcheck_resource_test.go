@@ -1153,7 +1153,7 @@ resource "xcsh_healthcheck" "test" {
 
   http_health_check {
     path = %[2]q
-    use_origin_server_name {}
+    use_origin_server_name = {}
   }
 }
 `, name, path)
@@ -1230,7 +1230,7 @@ resource "xcsh_healthcheck" "test" {
   timeout             = 3
   interval            = 5
 
-  udp_icmp_health_check {}
+  udp_icmp_health_check = {}
 }
 `, name)
 }

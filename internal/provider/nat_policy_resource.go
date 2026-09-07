@@ -54,12 +54,12 @@ type NATPolicyEmptyModel struct {
 
 // NATPolicyRulesModel represents rules block
 type NATPolicyRulesModel struct {
+	DisableSpec    types.Object                       `tfsdk:"disable_spec"`
+	Enable         types.Object                       `tfsdk:"enable"`
 	Name           types.String                       `tfsdk:"name"`
 	Action         *NATPolicyRulesActionModel         `tfsdk:"action"`
 	CloudConnect   *NATPolicyRulesCloudConnectModel   `tfsdk:"cloud_connect"`
 	Criteria       *NATPolicyRulesCriteriaModel       `tfsdk:"criteria"`
-	DisableSpec    *NATPolicyEmptyModel               `tfsdk:"disable_spec"`
-	Enable         *NATPolicyEmptyModel               `tfsdk:"enable"`
 	NodeInterface  *NATPolicyRulesNodeInterfaceModel  `tfsdk:"node_interface"`
 	Segment        *NATPolicyRulesSegmentModel        `tfsdk:"segment"`
 	VirtualNetwork *NATPolicyRulesVirtualNetworkModel `tfsdk:"virtual_network"`
@@ -67,12 +67,12 @@ type NATPolicyRulesModel struct {
 
 // NATPolicyRulesModelAttrTypes defines the attribute types for NATPolicyRulesModel
 var NATPolicyRulesModelAttrTypes = map[string]attr.Type{
+	"disable_spec":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enable":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"name":            types.StringType,
 	"action":          types.ObjectType{AttrTypes: NATPolicyRulesActionModelAttrTypes},
 	"cloud_connect":   types.ObjectType{AttrTypes: NATPolicyRulesCloudConnectModelAttrTypes},
 	"criteria":        types.ObjectType{AttrTypes: NATPolicyRulesCriteriaModelAttrTypes},
-	"disable_spec":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"node_interface":  types.ObjectType{AttrTypes: NATPolicyRulesNodeInterfaceModelAttrTypes},
 	"segment":         types.ObjectType{AttrTypes: NATPolicyRulesSegmentModelAttrTypes},
 	"virtual_network": types.ObjectType{AttrTypes: NATPolicyRulesVirtualNetworkModelAttrTypes},
@@ -170,24 +170,24 @@ var NATPolicyRulesCloudConnectRefsModelAttrTypes = map[string]attr.Type{
 
 // NATPolicyRulesCriteriaModel represents criteria block
 type NATPolicyRulesCriteriaModel struct {
+	Any                    types.Object                    `tfsdk:"any"`
 	DestinationCIDR        types.List                      `tfsdk:"destination_cidr"`
+	ICMP                   types.Object                    `tfsdk:"icmp"`
+	SiteLocalInsideNetwork types.Object                    `tfsdk:"site_local_inside_network"`
+	SiteLocalNetwork       types.Object                    `tfsdk:"site_local_network"`
 	SourceCIDR             types.List                      `tfsdk:"source_cidr"`
-	Any                    *NATPolicyEmptyModel            `tfsdk:"any"`
-	ICMP                   *NATPolicyEmptyModel            `tfsdk:"icmp"`
-	SiteLocalInsideNetwork *NATPolicyEmptyModel            `tfsdk:"site_local_inside_network"`
-	SiteLocalNetwork       *NATPolicyEmptyModel            `tfsdk:"site_local_network"`
 	TCP                    *NATPolicyRulesCriteriaTCPModel `tfsdk:"tcp"`
 	UDP                    *NATPolicyRulesCriteriaUDPModel `tfsdk:"udp"`
 }
 
 // NATPolicyRulesCriteriaModelAttrTypes defines the attribute types for NATPolicyRulesCriteriaModel
 var NATPolicyRulesCriteriaModelAttrTypes = map[string]attr.Type{
-	"destination_cidr":          types.ListType{ElemType: types.StringType},
-	"source_cidr":               types.ListType{ElemType: types.StringType},
 	"any":                       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"destination_cidr":          types.ListType{ElemType: types.StringType},
 	"icmp":                      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"site_local_inside_network": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"site_local_network":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"source_cidr":               types.ListType{ElemType: types.StringType},
 	"tcp":                       types.ObjectType{AttrTypes: NATPolicyRulesCriteriaTCPModelAttrTypes},
 	"udp":                       types.ObjectType{AttrTypes: NATPolicyRulesCriteriaUDPModelAttrTypes},
 }
@@ -206,30 +206,30 @@ var NATPolicyRulesCriteriaTCPModelAttrTypes = map[string]attr.Type{
 
 // NATPolicyRulesCriteriaTCPDestinationPortModel represents destination_port block
 type NATPolicyRulesCriteriaTCPDestinationPortModel struct {
-	Port        types.Int64          `tfsdk:"port"`
-	PortRanges  types.String         `tfsdk:"port_ranges"`
-	NoPortMatch *NATPolicyEmptyModel `tfsdk:"no_port_match"`
+	NoPortMatch types.Object `tfsdk:"no_port_match"`
+	Port        types.Int64  `tfsdk:"port"`
+	PortRanges  types.String `tfsdk:"port_ranges"`
 }
 
 // NATPolicyRulesCriteriaTCPDestinationPortModelAttrTypes defines the attribute types for NATPolicyRulesCriteriaTCPDestinationPortModel
 var NATPolicyRulesCriteriaTCPDestinationPortModelAttrTypes = map[string]attr.Type{
+	"no_port_match": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port":          types.Int64Type,
 	"port_ranges":   types.StringType,
-	"no_port_match": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // NATPolicyRulesCriteriaTCPSourcePortModel represents source_port block
 type NATPolicyRulesCriteriaTCPSourcePortModel struct {
-	Port        types.Int64          `tfsdk:"port"`
-	PortRanges  types.String         `tfsdk:"port_ranges"`
-	NoPortMatch *NATPolicyEmptyModel `tfsdk:"no_port_match"`
+	NoPortMatch types.Object `tfsdk:"no_port_match"`
+	Port        types.Int64  `tfsdk:"port"`
+	PortRanges  types.String `tfsdk:"port_ranges"`
 }
 
 // NATPolicyRulesCriteriaTCPSourcePortModelAttrTypes defines the attribute types for NATPolicyRulesCriteriaTCPSourcePortModel
 var NATPolicyRulesCriteriaTCPSourcePortModelAttrTypes = map[string]attr.Type{
+	"no_port_match": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port":          types.Int64Type,
 	"port_ranges":   types.StringType,
-	"no_port_match": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // NATPolicyRulesCriteriaUDPModel represents udp block
@@ -246,30 +246,30 @@ var NATPolicyRulesCriteriaUDPModelAttrTypes = map[string]attr.Type{
 
 // NATPolicyRulesCriteriaUDPDestinationPortModel represents destination_port block
 type NATPolicyRulesCriteriaUDPDestinationPortModel struct {
-	Port        types.Int64          `tfsdk:"port"`
-	PortRanges  types.String         `tfsdk:"port_ranges"`
-	NoPortMatch *NATPolicyEmptyModel `tfsdk:"no_port_match"`
+	NoPortMatch types.Object `tfsdk:"no_port_match"`
+	Port        types.Int64  `tfsdk:"port"`
+	PortRanges  types.String `tfsdk:"port_ranges"`
 }
 
 // NATPolicyRulesCriteriaUDPDestinationPortModelAttrTypes defines the attribute types for NATPolicyRulesCriteriaUDPDestinationPortModel
 var NATPolicyRulesCriteriaUDPDestinationPortModelAttrTypes = map[string]attr.Type{
+	"no_port_match": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port":          types.Int64Type,
 	"port_ranges":   types.StringType,
-	"no_port_match": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // NATPolicyRulesCriteriaUDPSourcePortModel represents source_port block
 type NATPolicyRulesCriteriaUDPSourcePortModel struct {
-	Port        types.Int64          `tfsdk:"port"`
-	PortRanges  types.String         `tfsdk:"port_ranges"`
-	NoPortMatch *NATPolicyEmptyModel `tfsdk:"no_port_match"`
+	NoPortMatch types.Object `tfsdk:"no_port_match"`
+	Port        types.Int64  `tfsdk:"port"`
+	PortRanges  types.String `tfsdk:"port_ranges"`
 }
 
 // NATPolicyRulesCriteriaUDPSourcePortModelAttrTypes defines the attribute types for NATPolicyRulesCriteriaUDPSourcePortModel
 var NATPolicyRulesCriteriaUDPSourcePortModelAttrTypes = map[string]attr.Type{
+	"no_port_match": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port":          types.Int64Type,
 	"port_ranges":   types.StringType,
-	"no_port_match": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // NATPolicyRulesNodeInterfaceModel represents node_interface block
@@ -476,6 +476,16 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
+						"disable_spec": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"enable": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
 						"name": schema.StringAttribute{
 							MarkdownDescription: "Name. Name of the Rule.",
 							Optional:            true,
@@ -610,10 +620,30 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 							MarkdownDescription: "Match criteria of the packet to apply the NAT Rule.",
 							Validators:          []validator.Object{validators.ConflictingObjectAttributes("any", "icmp"), validators.ConflictingObjectAttributes("any", "tcp"), validators.ConflictingObjectAttributes("any", "udp"), validators.ConflictingObjectAttributes("icmp", "tcp"), validators.ConflictingObjectAttributes("icmp", "udp"), validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network"), validators.ConflictingObjectAttributes("tcp", "udp")},
 							Attributes: map[string]schema.Attribute{
+								"any": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"destination_cidr": schema.ListAttribute{
 									MarkdownDescription: "Destination IP. Destination IP of the packet to match.",
 									Optional:            true,
 									ElementType:         types.StringType,
+								},
+								"icmp": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"site_local_inside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"site_local_network": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
 								"source_cidr": schema.ListAttribute{
 									MarkdownDescription: "Source IP. Source IP of the packet to match.",
@@ -622,18 +652,6 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 								},
 							},
 							Blocks: map[string]schema.Block{
-								"any": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
-								"icmp": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
-								"site_local_inside_network": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
-								"site_local_network": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
 								"tcp": schema.SingleNestedBlock{
 									MarkdownDescription: "Action to apply on the packet if the NAT rule is applied.",
 									Attributes:          map[string]schema.Attribute{},
@@ -642,6 +660,11 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 											MarkdownDescription: "Port match of the request can be a range or a specific port.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 											Attributes: map[string]schema.Attribute{
+												"no_port_match": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
 													Optional:            true,
@@ -655,11 +678,6 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 32),
 													},
-												},
-											},
-											Blocks: map[string]schema.Block{
-												"no_port_match": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
 												},
 											},
 										},
@@ -667,6 +685,11 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 											MarkdownDescription: "Port match of the request can be a range or a specific port.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 											Attributes: map[string]schema.Attribute{
+												"no_port_match": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
 													Optional:            true,
@@ -680,11 +703,6 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 32),
 													},
-												},
-											},
-											Blocks: map[string]schema.Block{
-												"no_port_match": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
 												},
 											},
 										},
@@ -698,6 +716,11 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 											MarkdownDescription: "Port match of the request can be a range or a specific port.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 											Attributes: map[string]schema.Attribute{
+												"no_port_match": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
 													Optional:            true,
@@ -711,11 +734,6 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 32),
 													},
-												},
-											},
-											Blocks: map[string]schema.Block{
-												"no_port_match": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
 												},
 											},
 										},
@@ -723,6 +741,11 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 											MarkdownDescription: "Port match of the request can be a range or a specific port.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 											Attributes: map[string]schema.Attribute{
+												"no_port_match": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
 													Optional:            true,
@@ -738,21 +761,10 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 													},
 												},
 											},
-											Blocks: map[string]schema.Block{
-												"no_port_match": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-											},
 										},
 									},
 								},
 							},
-						},
-						"disable_spec": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
-						"enable": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
 						},
 						"node_interface": schema.SingleNestedBlock{
 							MarkdownDescription: "On multinode site, this type holds the information about per node interfaces.",
@@ -1142,7 +1154,7 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 				}
 				if RulesItem.Criteria != nil {
 					RulesCriteriaMap := make(map[string]interface{})
-					if RulesItem.Criteria.Any != nil {
+					if !RulesItem.Criteria.Any.IsNull() && !RulesItem.Criteria.Any.IsUnknown() {
 						RulesCriteriaMap["any"] = map[string]interface{}{}
 					}
 					if !RulesItem.Criteria.DestinationCIDR.IsNull() && !RulesItem.Criteria.DestinationCIDR.IsUnknown() {
@@ -1153,13 +1165,13 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 							RulesCriteriaMap["destination_cidr"] = DestinationCIDRItems
 						}
 					}
-					if RulesItem.Criteria.ICMP != nil {
+					if !RulesItem.Criteria.ICMP.IsNull() && !RulesItem.Criteria.ICMP.IsUnknown() {
 						RulesCriteriaMap["icmp"] = map[string]interface{}{}
 					}
-					if RulesItem.Criteria.SiteLocalInsideNetwork != nil {
+					if !RulesItem.Criteria.SiteLocalInsideNetwork.IsNull() && !RulesItem.Criteria.SiteLocalInsideNetwork.IsUnknown() {
 						RulesCriteriaMap["site_local_inside_network"] = map[string]interface{}{}
 					}
-					if RulesItem.Criteria.SiteLocalNetwork != nil {
+					if !RulesItem.Criteria.SiteLocalNetwork.IsNull() && !RulesItem.Criteria.SiteLocalNetwork.IsUnknown() {
 						RulesCriteriaMap["site_local_network"] = map[string]interface{}{}
 					}
 					if !RulesItem.Criteria.SourceCIDR.IsNull() && !RulesItem.Criteria.SourceCIDR.IsUnknown() {
@@ -1174,7 +1186,7 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 						RulesCriteriaTCPMap := make(map[string]interface{})
 						if RulesItem.Criteria.TCP.DestinationPort != nil {
 							RulesCriteriaTCPDestinationPortMap := make(map[string]interface{})
-							if RulesItem.Criteria.TCP.DestinationPort.NoPortMatch != nil {
+							if !RulesItem.Criteria.TCP.DestinationPort.NoPortMatch.IsNull() && !RulesItem.Criteria.TCP.DestinationPort.NoPortMatch.IsUnknown() {
 								RulesCriteriaTCPDestinationPortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.TCP.DestinationPort.Port.IsNull() && !RulesItem.Criteria.TCP.DestinationPort.Port.IsUnknown() {
@@ -1187,7 +1199,7 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 						}
 						if RulesItem.Criteria.TCP.SourcePort != nil {
 							RulesCriteriaTCPSourcePortMap := make(map[string]interface{})
-							if RulesItem.Criteria.TCP.SourcePort.NoPortMatch != nil {
+							if !RulesItem.Criteria.TCP.SourcePort.NoPortMatch.IsNull() && !RulesItem.Criteria.TCP.SourcePort.NoPortMatch.IsUnknown() {
 								RulesCriteriaTCPSourcePortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.TCP.SourcePort.Port.IsNull() && !RulesItem.Criteria.TCP.SourcePort.Port.IsUnknown() {
@@ -1204,7 +1216,7 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 						RulesCriteriaUDPMap := make(map[string]interface{})
 						if RulesItem.Criteria.UDP.DestinationPort != nil {
 							RulesCriteriaUDPDestinationPortMap := make(map[string]interface{})
-							if RulesItem.Criteria.UDP.DestinationPort.NoPortMatch != nil {
+							if !RulesItem.Criteria.UDP.DestinationPort.NoPortMatch.IsNull() && !RulesItem.Criteria.UDP.DestinationPort.NoPortMatch.IsUnknown() {
 								RulesCriteriaUDPDestinationPortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.UDP.DestinationPort.Port.IsNull() && !RulesItem.Criteria.UDP.DestinationPort.Port.IsUnknown() {
@@ -1217,7 +1229,7 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 						}
 						if RulesItem.Criteria.UDP.SourcePort != nil {
 							RulesCriteriaUDPSourcePortMap := make(map[string]interface{})
-							if RulesItem.Criteria.UDP.SourcePort.NoPortMatch != nil {
+							if !RulesItem.Criteria.UDP.SourcePort.NoPortMatch.IsNull() && !RulesItem.Criteria.UDP.SourcePort.NoPortMatch.IsUnknown() {
 								RulesCriteriaUDPSourcePortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.UDP.SourcePort.Port.IsNull() && !RulesItem.Criteria.UDP.SourcePort.Port.IsUnknown() {
@@ -1232,10 +1244,10 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 					}
 					RulesItemMap["criteria"] = RulesCriteriaMap
 				}
-				if RulesItem.DisableSpec != nil {
+				if !RulesItem.DisableSpec.IsNull() && !RulesItem.DisableSpec.IsUnknown() {
 					RulesItemMap["disable"] = map[string]interface{}{}
 				}
-				if RulesItem.Enable != nil {
+				if !RulesItem.Enable.IsNull() && !RulesItem.Enable.IsUnknown() {
 					RulesItemMap["enable"] = map[string]interface{}{}
 				}
 				if !RulesItem.Name.IsNull() && !RulesItem.Name.IsUnknown() {
@@ -1570,14 +1582,14 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 					Criteria: func() *NATPolicyRulesCriteriaModel {
 						if CriteriaData, ok := itemMap["criteria"].(map[string]interface{}); ok {
 							return &NATPolicyRulesCriteriaModel{
-								Any: func() *NATPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+								Any: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && !existingRulesItems[listIdx].Criteria.Any.IsUnknown() {
 										return existingRulesItems[listIdx].Criteria.Any
 									}
 									if _, ok := CriteriaData["any"].(map[string]interface{}); ok {
-										return &NATPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								DestinationCIDR: func() types.List {
 									if v, ok := CriteriaData["destination_cidr"].([]interface{}); ok && len(v) > 0 {
@@ -1593,32 +1605,32 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 									}
 									return types.ListNull(types.StringType)
 								}(),
-								ICMP: func() *NATPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+								ICMP: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && !existingRulesItems[listIdx].Criteria.ICMP.IsUnknown() {
 										return existingRulesItems[listIdx].Criteria.ICMP
 									}
 									if _, ok := CriteriaData["icmp"].(map[string]interface{}); ok {
-										return &NATPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								SiteLocalInsideNetwork: func() *NATPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+								SiteLocalInsideNetwork: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && !existingRulesItems[listIdx].Criteria.SiteLocalInsideNetwork.IsUnknown() {
 										return existingRulesItems[listIdx].Criteria.SiteLocalInsideNetwork
 									}
 									if _, ok := CriteriaData["site_local_inside_network"].(map[string]interface{}); ok {
-										return &NATPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								SiteLocalNetwork: func() *NATPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+								SiteLocalNetwork: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && !existingRulesItems[listIdx].Criteria.SiteLocalNetwork.IsUnknown() {
 										return existingRulesItems[listIdx].Criteria.SiteLocalNetwork
 									}
 									if _, ok := CriteriaData["site_local_network"].(map[string]interface{}); ok {
-										return &NATPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								SourceCIDR: func() types.List {
 									if v, ok := CriteriaData["source_cidr"].([]interface{}); ok && len(v) > 0 {
@@ -1646,14 +1658,14 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 												}
 												if DestinationPortData, ok := TCPData["destination_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaTCPDestinationPortModel{
-														NoPortMatch: func() *NATPolicyEmptyModel {
-															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil {
+														NoPortMatch: func() types.Object {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.TCP.DestinationPort.NoPortMatch.IsUnknown() {
 																return existingRulesItems[listIdx].Criteria.TCP.DestinationPort.NoPortMatch
 															}
 															if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
-																return &NATPolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Port: func() types.Int64 {
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.TCP.DestinationPort.Port.IsUnknown() {
@@ -1680,14 +1692,14 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 												}
 												if SourcePortData, ok := TCPData["source_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaTCPSourcePortModel{
-														NoPortMatch: func() *NATPolicyEmptyModel {
-															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil {
+														NoPortMatch: func() types.Object {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.TCP.SourcePort.NoPortMatch.IsUnknown() {
 																return existingRulesItems[listIdx].Criteria.TCP.SourcePort.NoPortMatch
 															}
 															if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
-																return &NATPolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Port: func() types.Int64 {
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.TCP.SourcePort.Port.IsUnknown() {
@@ -1724,14 +1736,14 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 												}
 												if DestinationPortData, ok := UDPData["destination_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaUDPDestinationPortModel{
-														NoPortMatch: func() *NATPolicyEmptyModel {
-															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil {
+														NoPortMatch: func() types.Object {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.UDP.DestinationPort.NoPortMatch.IsUnknown() {
 																return existingRulesItems[listIdx].Criteria.UDP.DestinationPort.NoPortMatch
 															}
 															if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
-																return &NATPolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Port: func() types.Int64 {
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.UDP.DestinationPort.Port.IsUnknown() {
@@ -1758,14 +1770,14 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 												}
 												if SourcePortData, ok := UDPData["source_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaUDPSourcePortModel{
-														NoPortMatch: func() *NATPolicyEmptyModel {
-															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil {
+														NoPortMatch: func() types.Object {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.UDP.SourcePort.NoPortMatch.IsUnknown() {
 																return existingRulesItems[listIdx].Criteria.UDP.SourcePort.NoPortMatch
 															}
 															if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
-																return &NATPolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Port: func() types.Int64 {
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.UDP.SourcePort.Port.IsUnknown() {
@@ -1794,23 +1806,23 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 						}
 						return nil
 					}(),
-					DisableSpec: func() *NATPolicyEmptyModel {
-						if !isImport && len(existingRulesItems) > listIdx {
+					DisableSpec: func() types.Object {
+						if !isImport && len(existingRulesItems) > listIdx && !existingRulesItems[listIdx].DisableSpec.IsUnknown() {
 							return existingRulesItems[listIdx].DisableSpec
 						}
 						if _, ok := itemMap["disable"].(map[string]interface{}); ok {
-							return &NATPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Enable: func() *NATPolicyEmptyModel {
-						if !isImport && len(existingRulesItems) > listIdx {
+					Enable: func() types.Object {
+						if !isImport && len(existingRulesItems) > listIdx && !existingRulesItems[listIdx].Enable.IsUnknown() {
 							return existingRulesItems[listIdx].Enable
 						}
 						if _, ok := itemMap["enable"].(map[string]interface{}); ok {
-							return &NATPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Name: func() types.String {
 						if v, ok := itemMap["name"].(string); ok && v != "" {
@@ -2398,14 +2410,14 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 					Criteria: func() *NATPolicyRulesCriteriaModel {
 						if CriteriaData, ok := itemMap["criteria"].(map[string]interface{}); ok {
 							return &NATPolicyRulesCriteriaModel{
-								Any: func() *NATPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+								Any: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && !existingRulesItems[listIdx].Criteria.Any.IsUnknown() {
 										return existingRulesItems[listIdx].Criteria.Any
 									}
 									if _, ok := CriteriaData["any"].(map[string]interface{}); ok {
-										return &NATPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								DestinationCIDR: func() types.List {
 									if v, ok := CriteriaData["destination_cidr"].([]interface{}); ok && len(v) > 0 {
@@ -2421,32 +2433,32 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 									}
 									return types.ListNull(types.StringType)
 								}(),
-								ICMP: func() *NATPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+								ICMP: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && !existingRulesItems[listIdx].Criteria.ICMP.IsUnknown() {
 										return existingRulesItems[listIdx].Criteria.ICMP
 									}
 									if _, ok := CriteriaData["icmp"].(map[string]interface{}); ok {
-										return &NATPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								SiteLocalInsideNetwork: func() *NATPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+								SiteLocalInsideNetwork: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && !existingRulesItems[listIdx].Criteria.SiteLocalInsideNetwork.IsUnknown() {
 										return existingRulesItems[listIdx].Criteria.SiteLocalInsideNetwork
 									}
 									if _, ok := CriteriaData["site_local_inside_network"].(map[string]interface{}); ok {
-										return &NATPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								SiteLocalNetwork: func() *NATPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+								SiteLocalNetwork: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && !existingRulesItems[listIdx].Criteria.SiteLocalNetwork.IsUnknown() {
 										return existingRulesItems[listIdx].Criteria.SiteLocalNetwork
 									}
 									if _, ok := CriteriaData["site_local_network"].(map[string]interface{}); ok {
-										return &NATPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								SourceCIDR: func() types.List {
 									if v, ok := CriteriaData["source_cidr"].([]interface{}); ok && len(v) > 0 {
@@ -2474,14 +2486,14 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 												}
 												if DestinationPortData, ok := TCPData["destination_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaTCPDestinationPortModel{
-														NoPortMatch: func() *NATPolicyEmptyModel {
-															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil {
+														NoPortMatch: func() types.Object {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.TCP.DestinationPort.NoPortMatch.IsUnknown() {
 																return existingRulesItems[listIdx].Criteria.TCP.DestinationPort.NoPortMatch
 															}
 															if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
-																return &NATPolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Port: func() types.Int64 {
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.TCP.DestinationPort.Port.IsUnknown() {
@@ -2508,14 +2520,14 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 												}
 												if SourcePortData, ok := TCPData["source_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaTCPSourcePortModel{
-														NoPortMatch: func() *NATPolicyEmptyModel {
-															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil {
+														NoPortMatch: func() types.Object {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.TCP.SourcePort.NoPortMatch.IsUnknown() {
 																return existingRulesItems[listIdx].Criteria.TCP.SourcePort.NoPortMatch
 															}
 															if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
-																return &NATPolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Port: func() types.Int64 {
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.TCP.SourcePort.Port.IsUnknown() {
@@ -2552,14 +2564,14 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 												}
 												if DestinationPortData, ok := UDPData["destination_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaUDPDestinationPortModel{
-														NoPortMatch: func() *NATPolicyEmptyModel {
-															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil {
+														NoPortMatch: func() types.Object {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.UDP.DestinationPort.NoPortMatch.IsUnknown() {
 																return existingRulesItems[listIdx].Criteria.UDP.DestinationPort.NoPortMatch
 															}
 															if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
-																return &NATPolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Port: func() types.Int64 {
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.UDP.DestinationPort.Port.IsUnknown() {
@@ -2586,14 +2598,14 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 												}
 												if SourcePortData, ok := UDPData["source_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaUDPSourcePortModel{
-														NoPortMatch: func() *NATPolicyEmptyModel {
-															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil {
+														NoPortMatch: func() types.Object {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.UDP.SourcePort.NoPortMatch.IsUnknown() {
 																return existingRulesItems[listIdx].Criteria.UDP.SourcePort.NoPortMatch
 															}
 															if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
-																return &NATPolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Port: func() types.Int64 {
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.UDP.SourcePort.Port.IsUnknown() {
@@ -2622,23 +2634,23 @@ func (r *NATPolicyResource) Read(ctx context.Context, req resource.ReadRequest, 
 						}
 						return nil
 					}(),
-					DisableSpec: func() *NATPolicyEmptyModel {
-						if !isImport && len(existingRulesItems) > listIdx {
+					DisableSpec: func() types.Object {
+						if !isImport && len(existingRulesItems) > listIdx && !existingRulesItems[listIdx].DisableSpec.IsUnknown() {
 							return existingRulesItems[listIdx].DisableSpec
 						}
 						if _, ok := itemMap["disable"].(map[string]interface{}); ok {
-							return &NATPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Enable: func() *NATPolicyEmptyModel {
-						if !isImport && len(existingRulesItems) > listIdx {
+					Enable: func() types.Object {
+						if !isImport && len(existingRulesItems) > listIdx && !existingRulesItems[listIdx].Enable.IsUnknown() {
 							return existingRulesItems[listIdx].Enable
 						}
 						if _, ok := itemMap["enable"].(map[string]interface{}); ok {
-							return &NATPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Name: func() types.String {
 						if v, ok := itemMap["name"].(string); ok && v != "" {
@@ -3091,7 +3103,7 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 				}
 				if RulesItem.Criteria != nil {
 					RulesCriteriaMap := make(map[string]interface{})
-					if RulesItem.Criteria.Any != nil {
+					if !RulesItem.Criteria.Any.IsNull() && !RulesItem.Criteria.Any.IsUnknown() {
 						RulesCriteriaMap["any"] = map[string]interface{}{}
 					}
 					if !RulesItem.Criteria.DestinationCIDR.IsNull() && !RulesItem.Criteria.DestinationCIDR.IsUnknown() {
@@ -3102,13 +3114,13 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 							RulesCriteriaMap["destination_cidr"] = DestinationCIDRItems
 						}
 					}
-					if RulesItem.Criteria.ICMP != nil {
+					if !RulesItem.Criteria.ICMP.IsNull() && !RulesItem.Criteria.ICMP.IsUnknown() {
 						RulesCriteriaMap["icmp"] = map[string]interface{}{}
 					}
-					if RulesItem.Criteria.SiteLocalInsideNetwork != nil {
+					if !RulesItem.Criteria.SiteLocalInsideNetwork.IsNull() && !RulesItem.Criteria.SiteLocalInsideNetwork.IsUnknown() {
 						RulesCriteriaMap["site_local_inside_network"] = map[string]interface{}{}
 					}
-					if RulesItem.Criteria.SiteLocalNetwork != nil {
+					if !RulesItem.Criteria.SiteLocalNetwork.IsNull() && !RulesItem.Criteria.SiteLocalNetwork.IsUnknown() {
 						RulesCriteriaMap["site_local_network"] = map[string]interface{}{}
 					}
 					if !RulesItem.Criteria.SourceCIDR.IsNull() && !RulesItem.Criteria.SourceCIDR.IsUnknown() {
@@ -3123,7 +3135,7 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 						RulesCriteriaTCPMap := make(map[string]interface{})
 						if RulesItem.Criteria.TCP.DestinationPort != nil {
 							RulesCriteriaTCPDestinationPortMap := make(map[string]interface{})
-							if RulesItem.Criteria.TCP.DestinationPort.NoPortMatch != nil {
+							if !RulesItem.Criteria.TCP.DestinationPort.NoPortMatch.IsNull() && !RulesItem.Criteria.TCP.DestinationPort.NoPortMatch.IsUnknown() {
 								RulesCriteriaTCPDestinationPortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.TCP.DestinationPort.Port.IsNull() && !RulesItem.Criteria.TCP.DestinationPort.Port.IsUnknown() {
@@ -3136,7 +3148,7 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 						}
 						if RulesItem.Criteria.TCP.SourcePort != nil {
 							RulesCriteriaTCPSourcePortMap := make(map[string]interface{})
-							if RulesItem.Criteria.TCP.SourcePort.NoPortMatch != nil {
+							if !RulesItem.Criteria.TCP.SourcePort.NoPortMatch.IsNull() && !RulesItem.Criteria.TCP.SourcePort.NoPortMatch.IsUnknown() {
 								RulesCriteriaTCPSourcePortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.TCP.SourcePort.Port.IsNull() && !RulesItem.Criteria.TCP.SourcePort.Port.IsUnknown() {
@@ -3153,7 +3165,7 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 						RulesCriteriaUDPMap := make(map[string]interface{})
 						if RulesItem.Criteria.UDP.DestinationPort != nil {
 							RulesCriteriaUDPDestinationPortMap := make(map[string]interface{})
-							if RulesItem.Criteria.UDP.DestinationPort.NoPortMatch != nil {
+							if !RulesItem.Criteria.UDP.DestinationPort.NoPortMatch.IsNull() && !RulesItem.Criteria.UDP.DestinationPort.NoPortMatch.IsUnknown() {
 								RulesCriteriaUDPDestinationPortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.UDP.DestinationPort.Port.IsNull() && !RulesItem.Criteria.UDP.DestinationPort.Port.IsUnknown() {
@@ -3166,7 +3178,7 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 						}
 						if RulesItem.Criteria.UDP.SourcePort != nil {
 							RulesCriteriaUDPSourcePortMap := make(map[string]interface{})
-							if RulesItem.Criteria.UDP.SourcePort.NoPortMatch != nil {
+							if !RulesItem.Criteria.UDP.SourcePort.NoPortMatch.IsNull() && !RulesItem.Criteria.UDP.SourcePort.NoPortMatch.IsUnknown() {
 								RulesCriteriaUDPSourcePortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.UDP.SourcePort.Port.IsNull() && !RulesItem.Criteria.UDP.SourcePort.Port.IsUnknown() {
@@ -3181,10 +3193,10 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 					}
 					RulesItemMap["criteria"] = RulesCriteriaMap
 				}
-				if RulesItem.DisableSpec != nil {
+				if !RulesItem.DisableSpec.IsNull() && !RulesItem.DisableSpec.IsUnknown() {
 					RulesItemMap["disable"] = map[string]interface{}{}
 				}
-				if RulesItem.Enable != nil {
+				if !RulesItem.Enable.IsNull() && !RulesItem.Enable.IsUnknown() {
 					RulesItemMap["enable"] = map[string]interface{}{}
 				}
 				if !RulesItem.Name.IsNull() && !RulesItem.Name.IsUnknown() {
@@ -3539,14 +3551,14 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 					Criteria: func() *NATPolicyRulesCriteriaModel {
 						if CriteriaData, ok := itemMap["criteria"].(map[string]interface{}); ok {
 							return &NATPolicyRulesCriteriaModel{
-								Any: func() *NATPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+								Any: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && !existingRulesItems[listIdx].Criteria.Any.IsUnknown() {
 										return existingRulesItems[listIdx].Criteria.Any
 									}
 									if _, ok := CriteriaData["any"].(map[string]interface{}); ok {
-										return &NATPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								DestinationCIDR: func() types.List {
 									if v, ok := CriteriaData["destination_cidr"].([]interface{}); ok && len(v) > 0 {
@@ -3562,32 +3574,32 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 									}
 									return types.ListNull(types.StringType)
 								}(),
-								ICMP: func() *NATPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+								ICMP: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && !existingRulesItems[listIdx].Criteria.ICMP.IsUnknown() {
 										return existingRulesItems[listIdx].Criteria.ICMP
 									}
 									if _, ok := CriteriaData["icmp"].(map[string]interface{}); ok {
-										return &NATPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								SiteLocalInsideNetwork: func() *NATPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+								SiteLocalInsideNetwork: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && !existingRulesItems[listIdx].Criteria.SiteLocalInsideNetwork.IsUnknown() {
 										return existingRulesItems[listIdx].Criteria.SiteLocalInsideNetwork
 									}
 									if _, ok := CriteriaData["site_local_inside_network"].(map[string]interface{}); ok {
-										return &NATPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								SiteLocalNetwork: func() *NATPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil {
+								SiteLocalNetwork: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && !existingRulesItems[listIdx].Criteria.SiteLocalNetwork.IsUnknown() {
 										return existingRulesItems[listIdx].Criteria.SiteLocalNetwork
 									}
 									if _, ok := CriteriaData["site_local_network"].(map[string]interface{}); ok {
-										return &NATPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								SourceCIDR: func() types.List {
 									if v, ok := CriteriaData["source_cidr"].([]interface{}); ok && len(v) > 0 {
@@ -3615,14 +3627,14 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 												}
 												if DestinationPortData, ok := TCPData["destination_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaTCPDestinationPortModel{
-														NoPortMatch: func() *NATPolicyEmptyModel {
-															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil {
+														NoPortMatch: func() types.Object {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.TCP.DestinationPort.NoPortMatch.IsUnknown() {
 																return existingRulesItems[listIdx].Criteria.TCP.DestinationPort.NoPortMatch
 															}
 															if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
-																return &NATPolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Port: func() types.Int64 {
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.TCP.DestinationPort.Port.IsUnknown() {
@@ -3649,14 +3661,14 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 												}
 												if SourcePortData, ok := TCPData["source_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaTCPSourcePortModel{
-														NoPortMatch: func() *NATPolicyEmptyModel {
-															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil {
+														NoPortMatch: func() types.Object {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.TCP.SourcePort.NoPortMatch.IsUnknown() {
 																return existingRulesItems[listIdx].Criteria.TCP.SourcePort.NoPortMatch
 															}
 															if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
-																return &NATPolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Port: func() types.Int64 {
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.TCP != nil && existingRulesItems[listIdx].Criteria.TCP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.TCP.SourcePort.Port.IsUnknown() {
@@ -3693,14 +3705,14 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 												}
 												if DestinationPortData, ok := UDPData["destination_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaUDPDestinationPortModel{
-														NoPortMatch: func() *NATPolicyEmptyModel {
-															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil {
+														NoPortMatch: func() types.Object {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.UDP.DestinationPort.NoPortMatch.IsUnknown() {
 																return existingRulesItems[listIdx].Criteria.UDP.DestinationPort.NoPortMatch
 															}
 															if _, ok := DestinationPortData["no_port_match"].(map[string]interface{}); ok {
-																return &NATPolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Port: func() types.Int64 {
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.DestinationPort != nil && !existingRulesItems[listIdx].Criteria.UDP.DestinationPort.Port.IsUnknown() {
@@ -3727,14 +3739,14 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 												}
 												if SourcePortData, ok := UDPData["source_port"].(map[string]interface{}); ok {
 													return &NATPolicyRulesCriteriaUDPSourcePortModel{
-														NoPortMatch: func() *NATPolicyEmptyModel {
-															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil {
+														NoPortMatch: func() types.Object {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.UDP.SourcePort.NoPortMatch.IsUnknown() {
 																return existingRulesItems[listIdx].Criteria.UDP.SourcePort.NoPortMatch
 															}
 															if _, ok := SourcePortData["no_port_match"].(map[string]interface{}); ok {
-																return &NATPolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Port: func() types.Int64 {
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Criteria != nil && existingRulesItems[listIdx].Criteria.UDP != nil && existingRulesItems[listIdx].Criteria.UDP.SourcePort != nil && !existingRulesItems[listIdx].Criteria.UDP.SourcePort.Port.IsUnknown() {
@@ -3763,23 +3775,23 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 						}
 						return nil
 					}(),
-					DisableSpec: func() *NATPolicyEmptyModel {
-						if !isImport && len(existingRulesItems) > listIdx {
+					DisableSpec: func() types.Object {
+						if !isImport && len(existingRulesItems) > listIdx && !existingRulesItems[listIdx].DisableSpec.IsUnknown() {
 							return existingRulesItems[listIdx].DisableSpec
 						}
 						if _, ok := itemMap["disable"].(map[string]interface{}); ok {
-							return &NATPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Enable: func() *NATPolicyEmptyModel {
-						if !isImport && len(existingRulesItems) > listIdx {
+					Enable: func() types.Object {
+						if !isImport && len(existingRulesItems) > listIdx && !existingRulesItems[listIdx].Enable.IsUnknown() {
 							return existingRulesItems[listIdx].Enable
 						}
 						if _, ok := itemMap["enable"].(map[string]interface{}); ok {
-							return &NATPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Name: func() types.String {
 						if v, ok := itemMap["name"].(string); ok && v != "" {

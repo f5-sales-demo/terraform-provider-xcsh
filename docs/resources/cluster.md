@@ -39,7 +39,7 @@ resource "xcsh_cluster" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -60,7 +60,7 @@ resource "xcsh_cluster" "example" {
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="auto-http-config"></a>[`auto_http_config`](#auto-http-config) - Optional Block<br>Enable this option
+&#x2022; <a id="auto-http-config"></a>[`auto_http_config`](#auto-http-config) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="http1-config"></a>[`http1_config`](#http1-config) - Optional Block<br>HTTP/1.1 Protocol OPTIONS for upstream connections<br>See [Http1 Config](#http1-config) below for details.
 <br><br>&#x2022; <a id="http2-options"></a>[`http2_options`](#http2-options) - Optional Block<br>Http2 Protocol OPTIONS for upstream connections<br>See [Http2 Options](#http2-options) below for details.
 
@@ -71,8 +71,8 @@ resource "xcsh_cluster" "example" {
 <a id="default-subset"></a>&#x2022; [`default_subset`](#default-subset) - Optional Block<br>List of key-value pairs that define default subset. This subset can be referred in fallback_policy which gets used when route specifies no metadata or no subset matching the metadata exists
 
 -> **One of the following:**
-&#x2022; <a id="disable-proxy-protocol"></a>[`disable_proxy_protocol`](#disable-proxy-protocol) - Optional Block<br>Configuration parameter for disable proxy protocol
-<br><br>&#x2022; <a id="proxy-protocol-v1"></a>[`proxy_protocol_v1`](#proxy-protocol-v1) - Optional Block<br>Configuration parameter for proxy protocol v1
+&#x2022; <a id="disable-proxy-protocol"></a>[`disable_proxy_protocol`](#disable-proxy-protocol) - Optional Object<br>Configuration parameter for disable proxy protocol
+<br><br>&#x2022; <a id="proxy-protocol-v1"></a>[`proxy_protocol_v1`](#proxy-protocol-v1) - Optional Object<br>Configuration parameter for proxy protocol v1
 
 <a id="endpoint-selection"></a>&#x2022; [`endpoint_selection`](#endpoint-selection) - Optional String  Defaults to `DISTRIBUTED`<br>Possible values are `DISTRIBUTED`, `LOCAL_ONLY`, `LOCAL_PREFERRED`<br>[Enum: DISTRIBUTED|LOCAL_ONLY|LOCAL_PREFERRED] Policy for selection of endpoints from local site/remote site/both Consider both remote and local endpoints for load balancing LOCAL_ONLY: Consider
 only local endpoints for load balancing Enable this policy to load balance ONLY among locally discovered endpoints Prefer the local endpoints for
@@ -95,16 +95,16 @@ is required, the load balancer uses loadbalancer_algorithm to determine which ho
 &#x2022; <a id="max-requests-per-connection"></a>[`max_requests_per_connection`](#max-requests-per-connection) - Optional Number<br>Sets the maximum number of requests allowed per connection to the origin server. Enter a value >=1 to define the request limit per connection
 
 -> **One of the following:**
-&#x2022; <a id="no-panic-threshold"></a>[`no_panic_threshold`](#no-panic-threshold) - Optional Block<br>Configuration parameter for no panic threshold
+&#x2022; <a id="no-panic-threshold"></a>[`no_panic_threshold`](#no-panic-threshold) - Optional Object<br>Configuration parameter for no panic threshold
 
-<a id="no-request-limit-per-connection"></a>&#x2022; [`no_request_limit_per_connection`](#no-request-limit-per-connection) - Optional Block<br>Configuration parameter for no request limit per connection
+<a id="no-request-limit-per-connection"></a>&#x2022; [`no_request_limit_per_connection`](#no-request-limit-per-connection) - Optional Object<br>Configuration parameter for no request limit per connection
 
 <a id="outlier-detection"></a>&#x2022; [`outlier_detection`](#outlier-detection) - Optional Block<br>Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1<br>See [Outlier
 Detection](#outlier-detection) below for details.
 
 <a id="panic-threshold"></a>&#x2022; [`panic_threshold`](#panic-threshold) - Optional Number<br>Configure a threshold (percentage of unhealthy endpoints) below which all endpoints will be considered for loadbalancing ignoring its health status
 
-<a id="proxy-protocol-v2"></a>&#x2022; [`proxy_protocol_v2`](#proxy-protocol-v2) - Optional Block<br>Configuration parameter for proxy protocol v2
+<a id="proxy-protocol-v2"></a>&#x2022; [`proxy_protocol_v2`](#proxy-protocol-v2) - Optional Object<br>Configuration parameter for proxy protocol v2
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
@@ -182,17 +182,37 @@ A [`http1_config`](#http1-config) block supports the following:
 
 A [`header_transformation`](#http1-config-header-transformation) block (within [`http1_config`](#http1-config)) supports the following:
 
-<a id="transformation-489a65"></a>&#x2022; [`default_header_transformation`](#transformation-489a65) - Optional Block<br>Use the platform's current default HTTP header transformation behavior
+<a id="transformation-489a65"></a>&#x2022; [`default_header_transformation`](#transformation-489a65) - Optional Object<br>Use the platform's current default HTTP header transformation behavior
 
-<a id="transformation-61c351"></a>&#x2022; [`preserve_case_header_transformation`](#transformation-61c351) - Optional Block<br>Preserve HTTP header-name case when upstream case must remain unchanged
+<a id="transformation-61c351"></a>&#x2022; [`preserve_case_header_transformation`](#transformation-61c351) - Optional Object<br>Preserve HTTP header-name case when upstream case must remain unchanged
 
-<a id="transformation-17cea9"></a>&#x2022; [`proper_case_header_transformation`](#transformation-17cea9) - Optional Block<br>Transform HTTP header names to proper case when explicit transformation is required
+<a id="transformation-17cea9"></a>&#x2022; [`proper_case_header_transformation`](#transformation-17cea9) - Optional Object<br>Transform HTTP header names to proper case when explicit transformation is required
+
+#### Http1 Config Header Transformation Default Header Transformation
+
+A [`default_header_transformation`](#transformation-489a65) block (within [`http1_config.header_transformation`](#http1-config-header-transformation)) supports the following:
+
+#### Http1 Config Header Transformation Preserve Case Header Transformation
+
+<a id="deep-082f1b"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Http1 Config Header Transformation Proper Case Header Transformation
+
+<a id="deep-4157ff"></a>Deeply nested **Transformation** block collapsed for readability.
 
 #### Http2 Options
 
 A [`http2_options`](#http2-options) block supports the following:
 
 <a id="http2-options-enabled"></a>&#x2022; [`enabled`](#http2-options-enabled) - Optional Bool<br>Enable/disable HTTP2 Protocol for upstream connections
+
+#### No Panic Threshold
+
+A [`no_panic_threshold`](#no-panic-threshold) block supports the following:
+
+#### No Request Limit Per Connection
+
+A [`no_request_limit_per_connection`](#no-request-limit-per-connection) block supports the following:
 
 #### Outlier Detection
 
@@ -208,6 +228,14 @@ consecutive_5xx indicates the
 <a id="outlier-detection-interval"></a>&#x2022; [`interval`](#outlier-detection-interval) - Optional Number  Defaults to `10000ms`<br>The time interval between ejection analysis sweeps. This can result in both new ejections as well as endpoints being returned to service
 
 <a id="outlier-detection-max-ejection-percent"></a>&#x2022; [`max_ejection_percent`](#outlier-detection-max-ejection-percent) - Optional Number  Defaults to `10%`<br>The maximum % of an upstream cluster that can be ejected due to outlier detection. but will eject at least one host regardless of the value
+
+#### Proxy Protocol V1
+
+A [`proxy_protocol_v1`](#proxy-protocol-v1) block supports the following:
+
+#### Proxy Protocol V2
+
+A [`proxy_protocol_v2`](#proxy-protocol-v2) block supports the following:
 
 #### Timeouts
 
@@ -229,17 +257,17 @@ A [`tls_parameters`](#tls-parameters) block supports the following:
 
 <a id="tls-parameters-common-params"></a>&#x2022; [`common_params`](#tls-parameters-common-params) - Optional Block<br>Information of different aspects for TLS authentication related to ciphers, certificates and trust store<br>See [Common Params](#tls-parameters-common-params) below.
 
-<a id="caching-2e557f"></a>&#x2022; [`default_session_key_caching`](#caching-2e557f) - Optional Block<br>Configuration parameter for default session key caching
+<a id="caching-2e557f"></a>&#x2022; [`default_session_key_caching`](#caching-2e557f) - Optional Object<br>Configuration parameter for default session key caching
 
-<a id="caching-d819c5"></a>&#x2022; [`disable_session_key_caching`](#caching-d819c5) - Optional Block<br>Configuration parameter for disable session key caching
+<a id="caching-d819c5"></a>&#x2022; [`disable_session_key_caching`](#caching-d819c5) - Optional Object<br>Configuration parameter for disable session key caching
 
-<a id="tls-parameters-disable-sni"></a>&#x2022; [`disable_sni`](#tls-parameters-disable-sni) - Optional Block<br>Configuration parameter for disable sni
+<a id="tls-parameters-disable-sni"></a>&#x2022; [`disable_sni`](#tls-parameters-disable-sni) - Optional Object<br>Configuration parameter for disable sni
 
 <a id="tls-parameters-max-session-keys"></a>&#x2022; [`max_session_keys`](#tls-parameters-max-session-keys) - Optional Number<br>Number of session keys that are cached
 
 <a id="tls-parameters-sni"></a>&#x2022; [`sni`](#tls-parameters-sni) - Optional String<br>SNI value to be used
 
-<a id="tls-parameters-use-host-header-as-sni"></a>&#x2022; [`use_host_header_as_sni`](#tls-parameters-use-host-header-as-sni) - Optional Block<br>Enable this option
+<a id="tls-parameters-use-host-header-as-sni"></a>&#x2022; [`use_host_header_as_sni`](#tls-parameters-use-host-header-as-sni) - Optional Object<br>Enable this option
 
 #### TLS Parameters Cert Params
 
@@ -313,15 +341,19 @@ A [`tls_certificates`](#certificates-c9caff) block (within [`tls_parameters.comm
 
 <a id="spec-5af02c"></a>&#x2022; [`description_spec`](#spec-5af02c) - Optional String<br>Description. Description for the certificate
 
-<a id="stapling-c091fa"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-c091fa) - Optional Block<br>Configuration parameter for disable OCSP stapling
+<a id="stapling-c091fa"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-c091fa) - Optional Object<br>Configuration parameter for disable OCSP stapling
 
 <a id="key-da7979"></a>&#x2022; [`private_key`](#key-da7979) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Private Key](#key-da7979) below.
 
-<a id="defaults-f58bc7"></a>&#x2022; [`use_system_defaults`](#defaults-f58bc7) - Optional Block<br>Configuration parameter for use system defaults
+<a id="defaults-f58bc7"></a>&#x2022; [`use_system_defaults`](#defaults-f58bc7) - Optional Object<br>Configuration parameter for use system defaults
 
 #### TLS Parameters Common Params TLS Certificates Custom Hash Algorithms
 
 <a id="deep-2bb8e0"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Disable OCSP Stapling
+
+<a id="deep-4477da"></a>Deeply nested **Stapling** block collapsed for readability.
 
 #### TLS Parameters Common Params TLS Certificates Private Key
 
@@ -334,6 +366,10 @@ A [`tls_certificates`](#certificates-c9caff) block (within [`tls_parameters.comm
 #### TLS Parameters Common Params TLS Certificates Private Key Clear Secret Info
 
 <a id="deep-fbf9ed"></a>Deeply nested **Info** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Use System Defaults
+
+<a id="deep-82b16e"></a>Deeply nested **Defaults** block collapsed for readability.
 
 #### TLS Parameters Common Params Validation Params
 
@@ -355,13 +391,37 @@ A [`validation_params`](#params-6e95a6) block (within [`tls_parameters.common_pa
 
 <a id="deep-7e09ed"></a>Deeply nested **List** block collapsed for readability.
 
+#### TLS Parameters Default Session Key Caching
+
+A [`default_session_key_caching`](#caching-2e557f) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
+#### TLS Parameters Disable Session Key Caching
+
+A [`disable_session_key_caching`](#caching-d819c5) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
+#### TLS Parameters Disable Sni
+
+A [`disable_sni`](#tls-parameters-disable-sni) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
+#### TLS Parameters Use Host Header As Sni
+
+An [`use_host_header_as_sni`](#tls-parameters-use-host-header-as-sni) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
 #### Upstream Conn Pool Reuse Type
 
 An [`upstream_conn_pool_reuse_type`](#upstream-conn-pool-reuse-type) block supports the following:
 
-<a id="reuse-008a14"></a>&#x2022; [`disable_conn_pool_reuse`](#reuse-008a14) - Optional Block<br>Configuration parameter for disable conn pool reuse
+<a id="reuse-008a14"></a>&#x2022; [`disable_conn_pool_reuse`](#reuse-008a14) - Optional Object<br>Configuration parameter for disable conn pool reuse
 
-<a id="reuse-ad4462"></a>&#x2022; [`enable_conn_pool_reuse`](#reuse-ad4462) - Optional Block<br>Configuration parameter for enable conn pool reuse
+<a id="reuse-ad4462"></a>&#x2022; [`enable_conn_pool_reuse`](#reuse-ad4462) - Optional Object<br>Configuration parameter for enable conn pool reuse
+
+#### Upstream Conn Pool Reuse Type Disable Conn Pool Reuse
+
+<a id="deep-8ac9f8"></a>Deeply nested **Reuse** block collapsed for readability.
+
+#### Upstream Conn Pool Reuse Type Enable Conn Pool Reuse
+
+<a id="deep-9e83b5"></a>Deeply nested **Reuse** block collapsed for readability.
 
 ---
 

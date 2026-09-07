@@ -688,7 +688,7 @@ resource "xcsh_rate_limiter" "test" {
     unit             = "SECOND"
     burst_multiplier = 5
 
-    token_bucket {}
+    token_bucket = {}
   }
 }
 `, rlName)
@@ -705,7 +705,7 @@ resource "xcsh_rate_limiter" "test" {
     unit             = %[2]q
     burst_multiplier = 2
 
-    leaky_bucket {}
+    leaky_bucket = {}
   }
 }
 `, rlName, unit, totalNumber)
@@ -724,7 +724,7 @@ resource "xcsh_rate_limiter" "test" {
     burst_multiplier  = 2
     period_multiplier = 1
 
-    leaky_bucket {}
+    leaky_bucket = {}
   }
 }
 `, rlName)

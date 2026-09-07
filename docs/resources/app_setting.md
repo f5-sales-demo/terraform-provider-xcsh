@@ -39,7 +39,7 @@ resource "xcsh_app_setting" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -101,9 +101,17 @@ An [`app_type_ref`](#app-type-settings-app-type-ref) block (within [`app_type_se
 
 A [`business_logic_markup_setting`](#setting-ebbad6) block (within [`app_type_settings`](#app-type-settings)) supports the following:
 
-<a id="spec-b147ce"></a>&#x2022; [`disable_spec`](#spec-b147ce) - Optional Block<br>Enable this option
+<a id="spec-b147ce"></a>&#x2022; [`disable_spec`](#spec-b147ce) - Optional Object<br>Enable this option
 
-<a id="enable-280dfb"></a>&#x2022; [`enable`](#enable-280dfb) - Optional Block<br>Enable this option
+<a id="enable-280dfb"></a>&#x2022; [`enable`](#enable-280dfb) - Optional Object<br>Enable this option
+
+#### App Type Settings Business Logic Markup Setting Disable Spec
+
+<a id="deep-4c3dbb"></a>Deeply nested **Spec** block collapsed for readability.
+
+#### App Type Settings Business Logic Markup Setting Enable
+
+<a id="deep-34324f"></a>Deeply nested **Enable** block collapsed for readability.
 
 #### App Type Settings Timeseries Analyses Setting
 
@@ -119,17 +127,65 @@ A [`timeseries_analyses_setting`](#setting-7d0042) block (within [`app_type_sett
 
 An [`user_behavior_analysis_setting`](#setting-2c7217) block (within [`app_type_settings`](#app-type-settings)) supports the following:
 
-<a id="detection-dd4d64"></a>&#x2022; [`disable_detection`](#detection-dd4d64) - Optional Block<br>Configuration parameter for disable detection
+<a id="detection-dd4d64"></a>&#x2022; [`disable_detection`](#detection-dd4d64) - Optional Object<br>Configuration parameter for disable detection
 
-<a id="learning-b549ee"></a>&#x2022; [`disable_learning`](#learning-b549ee) - Optional Block<br>Configuration parameter for disable learning
+<a id="learning-b549ee"></a>&#x2022; [`disable_learning`](#learning-b549ee) - Optional Object<br>Configuration parameter for disable learning
 
 <a id="detection-4127d2"></a>&#x2022; [`enable_detection`](#detection-4127d2) - Optional Block<br>Various factors about user activity are monitored and analysed to determine malicious users. These settings allow tuning those factors used by the system to detect malicious users<br>See [Enable Detection](#detection-4127d2) below.
 
-<a id="learning-94d2dc"></a>&#x2022; [`enable_learning`](#learning-94d2dc) - Optional Block<br>Configuration parameter for enable learning
+<a id="learning-94d2dc"></a>&#x2022; [`enable_learning`](#learning-94d2dc) - Optional Object<br>Configuration parameter for enable learning
+
+#### App Type Settings User Behavior Analysis Setting Disable Detection
+
+<a id="deep-070a66"></a>Deeply nested **Detection** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Disable Learning
+
+<a id="deep-b7d2a4"></a>Deeply nested **Learning** block collapsed for readability.
 
 #### App Type Settings User Behavior Analysis Setting Enable Detection
 
 <a id="deep-83e793"></a>Deeply nested **Detection** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Bola Detection Automatic
+
+<a id="deep-06c8ac"></a>Deeply nested **Automatic** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Exclude Bola Detection
+
+<a id="deep-d0d47b"></a>Deeply nested **Detection** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Exclude Bot Defense Activity
+
+<a id="deep-77479e"></a>Deeply nested **Activity** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Exclude Failed Login Activity
+
+<a id="deep-1725ed"></a>Deeply nested **Activity** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Exclude Forbidden Activity
+
+<a id="deep-c709d3"></a>Deeply nested **Activity** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Exclude IP Reputation
+
+<a id="deep-231bf3"></a>Deeply nested **Reputation** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Exclude Non Existent URL Activity
+
+<a id="deep-a555d3"></a>Deeply nested **Activity** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Exclude Rate Limit
+
+<a id="deep-313e38"></a>Deeply nested **Limit** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Exclude WAF Activity
+
+<a id="deep-8ad937"></a>Deeply nested **Activity** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Include Bot Defense Activity
+
+<a id="deep-c0a336"></a>Deeply nested **Activity** block collapsed for readability.
 
 #### App Type Settings User Behavior Analysis Setting Enable Detection Include Failed Login Activity
 
@@ -139,13 +195,41 @@ An [`user_behavior_analysis_setting`](#setting-2c7217) block (within [`app_type_
 
 <a id="deep-1bf571"></a>Deeply nested **Activity** block collapsed for readability.
 
+#### App Type Settings User Behavior Analysis Setting Enable Detection Include IP Reputation
+
+<a id="deep-ef0dea"></a>Deeply nested **Reputation** block collapsed for readability.
+
 #### App Type Settings User Behavior Analysis Setting Enable Detection Include Non Existent URL Activity Automatic
 
 <a id="deep-82c999"></a>Deeply nested **Automatic** block collapsed for readability.
 
+#### App Type Settings User Behavior Analysis Setting Enable Detection Include Non Existent URL Activity Automatic High
+
+<a id="deep-e114bd"></a>Deeply nested **High** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Include Non Existent URL Activity Automatic Low
+
+<a id="deep-3e2a8f"></a>Deeply nested **Low** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Include Non Existent URL Activity Automatic Medium
+
+<a id="deep-e51d9e"></a>Deeply nested **Medium** block collapsed for readability.
+
 #### App Type Settings User Behavior Analysis Setting Enable Detection Include Non Existent URL Activity Custom
 
 <a id="deep-96f372"></a>Deeply nested **Custom** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Include Rate Limit
+
+<a id="deep-0102f8"></a>Deeply nested **Limit** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Detection Include WAF Activity
+
+<a id="deep-c1d14d"></a>Deeply nested **Activity** block collapsed for readability.
+
+#### App Type Settings User Behavior Analysis Setting Enable Learning
+
+<a id="deep-5fcdbc"></a>Deeply nested **Learning** block collapsed for readability.
 
 #### Timeouts
 

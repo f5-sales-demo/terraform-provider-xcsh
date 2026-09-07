@@ -198,7 +198,7 @@ resource "xcsh_certificate" "test" {
     }
   }
 
-  disable_ocsp_stapling {}
+  disable_ocsp_stapling = {}
 }
 `, nsName, name, certs.ServerCertBase64, certs.ServerKeyBase64))
 }
@@ -243,7 +243,7 @@ resource "xcsh_certificate" "test" {
     }
   }
 
-  disable_ocsp_stapling {}
+  disable_ocsp_stapling = {}
 }
 
 resource "xcsh_origin_pool" "test" {
@@ -259,8 +259,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 `, nsName, name, certs.ServerCertBase64, certs.ServerKeyBase64, certs.RootCABase64))
 }

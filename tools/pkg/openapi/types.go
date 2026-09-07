@@ -163,6 +163,7 @@ type TerraformAttribute struct {
 	NestedAttributes   []TerraformAttribute
 	NestedBlockType    string
 	IsBlock            bool
+	EmptyObjectMarker  bool   // Empty protobuf oneof member exposed as a nullable object attribute.
 	ConversionError    string // Tracks controlled generator errors during conversion
 	OneOfGroup         string
 	PlanModifier       string

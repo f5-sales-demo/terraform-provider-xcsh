@@ -630,7 +630,7 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -653,7 +653,7 @@ resource "xcsh_http_loadbalancer" "test" {
           namespace = %[2]q
         }
       }
-      use_default_port {}
+      use_default_port = {}
     }
   }
 }
@@ -701,7 +701,7 @@ resource "xcsh_http_loadbalancer" "test" {
           namespace = xcsh_namespace.test.name
         }
       }
-      use_default_port {}
+      use_default_port = {}
     }
   }
 }
@@ -727,7 +727,7 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -751,7 +751,7 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -1036,7 +1036,7 @@ resource "xcsh_http_loadbalancer" "test" {
     cookie_expiry   = 3600
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -1052,9 +1052,9 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  least_active {}
+  least_active = {}
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -1070,9 +1070,9 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  source_ip_stickiness {}
+  source_ip_stickiness = {}
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -1094,10 +1094,10 @@ resource "xcsh_http_loadbalancer" "test" {
       unit             = "MINUTE"
       burst_multiplier = 10
     }
-    no_ip_allowed_list {}
+    no_ip_allowed_list = {}
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -1109,7 +1109,7 @@ resource "xcsh_user_identification" "test" {
   namespace = "system"
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 
@@ -1127,7 +1127,7 @@ resource "xcsh_http_loadbalancer" "test" {
     namespace = "system"
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -1143,7 +1143,7 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  do_not_advertise {}
+  do_not_advertise = {}
 }
 `, name)
 }
@@ -1163,7 +1163,7 @@ resource "xcsh_http_loadbalancer" "test" {
     ip_threat_categories = ["SPAM_SOURCES"]
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -1181,13 +1181,13 @@ resource "xcsh_http_loadbalancer" "test" {
 
   https_auto_cert {
     add_hsts              = false
-    no_mtls               {}
-    default_header        {}
-    enable_path_normalize {}
-    non_default_loadbalancer {}
+    no_mtls               = {}
+    default_header        = {}
+    enable_path_normalize = {}
+    non_default_loadbalancer = {}
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -1202,13 +1202,13 @@ resource "xcsh_http_loadbalancer" "test" {
 
   https_auto_cert {
     add_hsts              = false
-    no_mtls               {}
-    default_header        {}
-    enable_path_normalize {}
-    non_default_loadbalancer {}
+    no_mtls               = {}
+    default_header        = {}
+    enable_path_normalize = {}
+    non_default_loadbalancer = {}
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -1226,8 +1226,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls                = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_http_loadbalancer" "test" {
@@ -1249,7 +1249,7 @@ resource "xcsh_http_loadbalancer" "test" {
     priority = 1
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -1260,12 +1260,12 @@ resource "xcsh_app_firewall" "test" {
   name      = %[1]q
   namespace = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes = {}
+  blocking = {}
+  use_default_blocking_page = {}
+  default_bot_setting = {}
+  default_anonymization = {}
 }
 
 resource "xcsh_http_loadbalancer" "test" {
@@ -1283,7 +1283,7 @@ resource "xcsh_http_loadbalancer" "test" {
     namespace = "system"
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -1321,20 +1321,20 @@ resource "xcsh_origin_pool" "test" {
     namespace = "system"
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls                = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_app_firewall" "test" {
   name      = %[1]q
   namespace = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes = {}
+  blocking = {}
+  use_default_blocking_page = {}
+  default_bot_setting = {}
+  default_anonymization = {}
 }
 
 resource "xcsh_http_loadbalancer" "test" {
@@ -1361,10 +1361,10 @@ resource "xcsh_http_loadbalancer" "test" {
     namespace = "system"
   }
 
-  enable_malicious_user_detection {}
-  enable_threat_mesh {}
+  enable_malicious_user_detection = {}
+  enable_threat_mesh = {}
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -1386,7 +1386,7 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name, env)
 }
@@ -1415,8 +1415,8 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  advertise_on_public_default_vip {}
-  do_not_advertise {}
+  advertise_on_public_default_vip = {}
+  do_not_advertise = {}
 }
 `, rName),
 				ExpectError: regexp.MustCompile(`(?i)(conflict|mutually exclusive|only one|Client Error|BAD_REQUEST|Invalid|these attributes cannot)`),
@@ -1453,9 +1453,9 @@ resource "xcsh_http_loadbalancer" "test" {
     js_script_delay = 5000
     cookie_expiry   = 3600
   }
-  no_challenge {}
+  no_challenge = {}
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, rName),
 				ExpectError: regexp.MustCompile(`(?i)(conflict|mutually exclusive|only one|Client Error|BAD_REQUEST|Invalid|these attributes cannot)`),
@@ -1488,10 +1488,10 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  round_robin {}
-  least_active {}
+  round_robin = {}
+  least_active = {}
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, rName),
 				ExpectError: regexp.MustCompile(`(?i)(conflict|mutually exclusive|only one|Client Error|BAD_REQUEST|Invalid|these attributes cannot)`),

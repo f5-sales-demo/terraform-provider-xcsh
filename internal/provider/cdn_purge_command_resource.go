@@ -70,15 +70,15 @@ type CDNPurgeCommandResourceModel struct {
 	Annotations types.Map                        `tfsdk:"annotations"`
 	Description types.String                     `tfsdk:"description"`
 	Disable     types.Bool                       `tfsdk:"disable"`
+	HardPurge   types.Object                     `tfsdk:"hard_purge"`
 	Labels      types.Map                        `tfsdk:"labels"`
+	PurgeAll    types.Object                     `tfsdk:"purge_all"`
+	SoftPurge   types.Object                     `tfsdk:"soft_purge"`
 	ID          types.String                     `tfsdk:"id"`
 	Hostname    types.String                     `tfsdk:"hostname"`
 	Pattern     types.String                     `tfsdk:"pattern"`
 	URLPath     types.String                     `tfsdk:"url_path"`
 	Timeouts    timeouts.Value                   `tfsdk:"timeouts"`
-	HardPurge   *CDNPurgeCommandEmptyModel       `tfsdk:"hard_purge"`
-	PurgeAll    *CDNPurgeCommandEmptyModel       `tfsdk:"purge_all"`
-	SoftPurge   *CDNPurgeCommandEmptyModel       `tfsdk:"soft_purge"`
 	VirtualHost *CDNPurgeCommandVirtualHostModel `tfsdk:"virtual_host"`
 }
 
@@ -132,12 +132,36 @@ func (r *CDNPurgeCommandResource) Schema(ctx context.Context, req resource.Schem
 					boolplanmodifier.RequiresReplace(),
 				},
 			},
+			"hard_purge": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: hard_purge, soft_purge] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.RequiresReplace(),
+				},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
 				PlanModifiers: []planmodifier.Map{
 					mapplanmodifier.RequiresReplace(),
+				},
+			},
+			"purge_all": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.RequiresReplace(),
+				},
+			},
+			"soft_purge": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.RequiresReplace(),
 				},
 			},
 			"id": schema.StringAttribute{
@@ -185,18 +209,6 @@ func (r *CDNPurgeCommandResource) Schema(ctx context.Context, req resource.Schem
 				Update: true,
 				Delete: true,
 			}),
-			"hard_purge": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: hard_purge, soft_purge] Enable this option",
-				PlanModifiers:       []planmodifier.Object{objectplanmodifier.RequiresReplace()},
-			},
-			"purge_all": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-				PlanModifiers:       []planmodifier.Object{objectplanmodifier.RequiresReplace()},
-			},
-			"soft_purge": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-				PlanModifiers:       []planmodifier.Object{objectplanmodifier.RequiresReplace()},
-			},
 			"virtual_host": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -256,21 +268,49 @@ func (r *CDNPurgeCommandResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.Hostname.IsNull() && !data.Pattern.IsNull() {
+	if !data.HardPurge.IsNull() && !data.HardPurge.IsUnknown() && !data.SoftPurge.IsNull() && !data.SoftPurge.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hard_purge"),
+			"Conflicting Configuration",
+			"hard_purge and soft_purge are mutually exclusive.",
+		)
+	}
+	if !data.PurgeAll.IsNull() && !data.PurgeAll.IsUnknown() && !data.Hostname.IsNull() && !data.Hostname.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("purge_all"),
+			"Conflicting Configuration",
+			"purge_all and hostname are mutually exclusive.",
+		)
+	}
+	if !data.PurgeAll.IsNull() && !data.PurgeAll.IsUnknown() && !data.Pattern.IsNull() && !data.Pattern.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("purge_all"),
+			"Conflicting Configuration",
+			"purge_all and pattern are mutually exclusive.",
+		)
+	}
+	if !data.PurgeAll.IsNull() && !data.PurgeAll.IsUnknown() && !data.URLPath.IsNull() && !data.URLPath.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("purge_all"),
+			"Conflicting Configuration",
+			"purge_all and url_path are mutually exclusive.",
+		)
+	}
+	if !data.Hostname.IsNull() && !data.Hostname.IsUnknown() && !data.Pattern.IsNull() && !data.Pattern.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("hostname"),
 			"Conflicting Configuration",
 			"hostname and pattern are mutually exclusive.",
 		)
 	}
-	if !data.Hostname.IsNull() && !data.URLPath.IsNull() {
+	if !data.Hostname.IsNull() && !data.Hostname.IsUnknown() && !data.URLPath.IsNull() && !data.URLPath.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("hostname"),
 			"Conflicting Configuration",
 			"hostname and url_path are mutually exclusive.",
 		)
 	}
-	if !data.Pattern.IsNull() && !data.URLPath.IsNull() {
+	if !data.Pattern.IsNull() && !data.Pattern.IsUnknown() && !data.URLPath.IsNull() && !data.URLPath.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("pattern"),
 			"Conflicting Configuration",
@@ -378,13 +418,13 @@ func (r *CDNPurgeCommandResource) Create(ctx context.Context, req resource.Creat
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.HardPurge != nil {
+	if !data.HardPurge.IsNull() && !data.HardPurge.IsUnknown() {
 		createReq.Spec["hard_purge"] = map[string]interface{}{}
 	}
-	if data.PurgeAll != nil {
+	if !data.PurgeAll.IsNull() && !data.PurgeAll.IsUnknown() {
 		createReq.Spec["purge_all"] = map[string]interface{}{}
 	}
-	if data.SoftPurge != nil {
+	if !data.SoftPurge.IsNull() && !data.SoftPurge.IsUnknown() {
 		createReq.Spec["soft_purge"] = map[string]interface{}{}
 	}
 	if data.VirtualHost != nil {
@@ -428,14 +468,26 @@ func (r *CDNPurgeCommandResource) Create(ctx context.Context, req resource.Creat
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["hard_purge"].(map[string]interface{}); ok && isImport && data.HardPurge == nil {
-		data.HardPurge = &CDNPurgeCommandEmptyModel{}
+	if !isImport && !data.HardPurge.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hard_purge"].(map[string]interface{}); ok {
+		data.HardPurge = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HardPurge = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["purge_all"].(map[string]interface{}); ok && isImport && data.PurgeAll == nil {
-		data.PurgeAll = &CDNPurgeCommandEmptyModel{}
+	if !isImport && !data.PurgeAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["purge_all"].(map[string]interface{}); ok {
+		data.PurgeAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.PurgeAll = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["soft_purge"].(map[string]interface{}); ok && isImport && data.SoftPurge == nil {
-		data.SoftPurge = &CDNPurgeCommandEmptyModel{}
+	if !isImport && !data.SoftPurge.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["soft_purge"].(map[string]interface{}); ok {
+		data.SoftPurge = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SoftPurge = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["virtual_host"].(map[string]interface{}); ok && (isImport || data.VirtualHost != nil) {
 		data.VirtualHost = &CDNPurgeCommandVirtualHostModel{
@@ -595,14 +647,26 @@ func (r *CDNPurgeCommandResource) Read(ctx context.Context, req resource.ReadReq
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["hard_purge"].(map[string]interface{}); ok && isImport && data.HardPurge == nil {
-		data.HardPurge = &CDNPurgeCommandEmptyModel{}
+	if !isImport && !data.HardPurge.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hard_purge"].(map[string]interface{}); ok {
+		data.HardPurge = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HardPurge = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["purge_all"].(map[string]interface{}); ok && isImport && data.PurgeAll == nil {
-		data.PurgeAll = &CDNPurgeCommandEmptyModel{}
+	if !isImport && !data.PurgeAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["purge_all"].(map[string]interface{}); ok {
+		data.PurgeAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.PurgeAll = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["soft_purge"].(map[string]interface{}); ok && isImport && data.SoftPurge == nil {
-		data.SoftPurge = &CDNPurgeCommandEmptyModel{}
+	if !isImport && !data.SoftPurge.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["soft_purge"].(map[string]interface{}); ok {
+		data.SoftPurge = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SoftPurge = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["virtual_host"].(map[string]interface{}); ok && (isImport || data.VirtualHost != nil) {
 		data.VirtualHost = &CDNPurgeCommandVirtualHostModel{

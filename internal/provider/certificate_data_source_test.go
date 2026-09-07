@@ -68,7 +68,7 @@ resource "xcsh_certificate" "test" {
     }
   }
 
-  disable_ocsp_stapling {}
+  disable_ocsp_stapling = {}
 }
 
 data "xcsh_certificate" "test" {

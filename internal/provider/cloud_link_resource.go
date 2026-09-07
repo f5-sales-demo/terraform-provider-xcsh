@@ -93,6 +93,7 @@ type CloudLinkAWSByocConnectionsModel struct {
 	BGPAsn               types.Int64                               `tfsdk:"bgp_asn"`
 	ConnectionID         types.String                              `tfsdk:"connection_id"`
 	Region               types.String                              `tfsdk:"region"`
+	SystemGeneratedName  types.Object                              `tfsdk:"system_generated_name"`
 	Tags                 types.Map                                 `tfsdk:"tags"`
 	UserAssignedName     types.String                              `tfsdk:"user_assigned_name"`
 	VirtualInterfaceType types.String                              `tfsdk:"virtual_interface_type"`
@@ -100,7 +101,6 @@ type CloudLinkAWSByocConnectionsModel struct {
 	AuthKey              *CloudLinkAWSByocConnectionsAuthKeyModel  `tfsdk:"auth_key"`
 	Ipv4                 *CloudLinkAWSByocConnectionsIpv4Model     `tfsdk:"ipv4"`
 	Metadata             *CloudLinkAWSByocConnectionsMetadataModel `tfsdk:"metadata"`
-	SystemGeneratedName  *CloudLinkEmptyModel                      `tfsdk:"system_generated_name"`
 }
 
 // CloudLinkAWSByocConnectionsModelAttrTypes defines the attribute types for CloudLinkAWSByocConnectionsModel
@@ -108,6 +108,7 @@ var CloudLinkAWSByocConnectionsModelAttrTypes = map[string]attr.Type{
 	"bgp_asn":                types.Int64Type,
 	"connection_id":          types.StringType,
 	"region":                 types.StringType,
+	"system_generated_name":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"tags":                   types.MapType{ElemType: types.StringType},
 	"user_assigned_name":     types.StringType,
 	"virtual_interface_type": types.StringType,
@@ -115,7 +116,6 @@ var CloudLinkAWSByocConnectionsModelAttrTypes = map[string]attr.Type{
 	"auth_key":               types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsAuthKeyModelAttrTypes},
 	"ipv4":                   types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsIpv4ModelAttrTypes},
 	"metadata":               types.ObjectType{AttrTypes: CloudLinkAWSByocConnectionsMetadataModelAttrTypes},
-	"system_generated_name":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // CloudLinkAWSByocConnectionsAuthKeyModel represents auth_key block
@@ -217,8 +217,8 @@ type CloudLinkGCPByocConnectionsModel struct {
 	InterconnectAttachmentName types.String                              `tfsdk:"interconnect_attachment_name"`
 	Project                    types.String                              `tfsdk:"project"`
 	Region                     types.String                              `tfsdk:"region"`
+	SameAsCredential           types.Object                              `tfsdk:"same_as_credential"`
 	Metadata                   *CloudLinkGCPByocConnectionsMetadataModel `tfsdk:"metadata"`
-	SameAsCredential           *CloudLinkEmptyModel                      `tfsdk:"same_as_credential"`
 }
 
 // CloudLinkGCPByocConnectionsModelAttrTypes defines the attribute types for CloudLinkGCPByocConnectionsModel
@@ -226,8 +226,8 @@ var CloudLinkGCPByocConnectionsModelAttrTypes = map[string]attr.Type{
 	"interconnect_attachment_name": types.StringType,
 	"project":                      types.StringType,
 	"region":                       types.StringType,
-	"metadata":                     types.ObjectType{AttrTypes: CloudLinkGCPByocConnectionsMetadataModelAttrTypes},
 	"same_as_credential":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"metadata":                     types.ObjectType{AttrTypes: CloudLinkGCPByocConnectionsMetadataModelAttrTypes},
 }
 
 // CloudLinkGCPByocConnectionsMetadataModel represents metadata block
@@ -262,11 +262,11 @@ type CloudLinkResourceModel struct {
 	Annotations types.Map              `tfsdk:"annotations"`
 	Description types.String           `tfsdk:"description"`
 	Disable     types.Bool             `tfsdk:"disable"`
+	Disabled    types.Object           `tfsdk:"disabled"`
 	Labels      types.Map              `tfsdk:"labels"`
 	ID          types.String           `tfsdk:"id"`
 	Timeouts    timeouts.Value         `tfsdk:"timeouts"`
 	AWS         *CloudLinkAWSModel     `tfsdk:"aws"`
-	Disabled    *CloudLinkEmptyModel   `tfsdk:"disabled"`
 	Enabled     *CloudLinkEnabledModel `tfsdk:"enabled"`
 	GCP         *CloudLinkGCPModel     `tfsdk:"gcp"`
 }
@@ -311,6 +311,11 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
+			},
+			"disabled": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disabled, enabled] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
@@ -409,6 +414,11 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 											Validators: []validator.String{
 												stringvalidator.OneOf("ap-northeast-1", "ap-southeast-1", "eu-central-1", "eu-west-1", "eu-west-3", "sa-east-1", "us-east-1", "us-east-2", "us-west-2", "ca-central-1", "af-south-1", "ap-east-1", "ap-south-1", "ap-northeast-2", "ap-southeast-2", "eu-south-1", "eu-north-1", "eu-west-2", "me-south-1", "us-west-1", "ap-southeast-3"),
 											},
+										},
+										"system_generated_name": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
 										"tags": schema.MapAttribute{
 											MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console. Specified tags will be added to Virtual interface along with any F5XC specific tags.",
@@ -517,18 +527,12 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 												},
 											},
 										},
-										"system_generated_name": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 									},
 								},
 							},
 						},
 					},
 				},
-			},
-			"disabled": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disabled, enabled] Enable this option",
 			},
 			"enabled": schema.SingleNestedBlock{
 				MarkdownDescription: "CloudLink ADN Network Config.",
@@ -580,6 +584,11 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 												stringvalidator.OneOf("asia-east1", "asia-east2", "asia-northeast1", "asia-northeast2", "asia-northeast3", "asia-southeast1", "asia-southeast2", "europe-central2", "europe-north1", "europe-west1", "europe-west2", "europe-west3", "europe-west4", "europe-west6", "europe-west8", "europe-west9", "europe-west10", "europe-west12", "europe-southwest1", "me-west1", "me-central1", "me-central2", "northamerica-northeast1", "northamerica-northeast2", "us-central1", "us-east1", "us-east4", "us-east5", "us-south1", "us-west1", "us-west2", "us-west3", "us-west4", "southamerica-east1", "southamerica-west1", "australia-southeast1", "australia-southeast2", "asia-south1", "asia-south2"),
 											},
 										},
+										"same_as_credential": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for same as credential.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 									},
 									Blocks: map[string]schema.Block{
 										"metadata": schema.SingleNestedBlock{
@@ -601,9 +610,6 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 													},
 												},
 											},
-										},
-										"same_as_credential": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for same as credential.",
 										},
 									},
 								},
@@ -847,7 +853,7 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 						if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
 							ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
 						}
-						if ConnectionsItem.SystemGeneratedName != nil {
+						if !ConnectionsItem.SystemGeneratedName.IsNull() && !ConnectionsItem.SystemGeneratedName.IsUnknown() {
 							ConnectionsItemMap["system_generated_name"] = map[string]interface{}{}
 						}
 						if !ConnectionsItem.Tags.IsNull() && !ConnectionsItem.Tags.IsUnknown() {
@@ -879,7 +885,7 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 		}
 		createReq.Spec["aws"] = AWSMap
 	}
-	if data.Disabled != nil {
+	if !data.Disabled.IsNull() && !data.Disabled.IsUnknown() {
 		createReq.Spec["disabled"] = map[string]interface{}{}
 	}
 	if data.Enabled != nil {
@@ -920,7 +926,7 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 						if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
 							ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
 						}
-						if ConnectionsItem.SameAsCredential != nil {
+						if !ConnectionsItem.SameAsCredential.IsNull() && !ConnectionsItem.SameAsCredential.IsUnknown() {
 							ConnectionsItemMap["same_as_credential"] = map[string]interface{}{}
 						}
 						ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
@@ -1141,14 +1147,14 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 												}
 												return types.StringNull()
 											}(),
-											SystemGeneratedName: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+											SystemGeneratedName: func() types.Object {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && !ConnectionsExisting[ConnectionsIdx].SystemGeneratedName.IsUnknown() {
 													return ConnectionsExisting[ConnectionsIdx].SystemGeneratedName
 												}
 												if _, ok := ConnectionsItemMap["system_generated_name"].(map[string]interface{}); ok {
-													return &CloudLinkEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Tags: UnmarshalStringMapForRead(ctx, ConnectionsItemMap["tags"], func() types.Map {
 												if len(ConnectionsExisting) > ConnectionsIdx {
@@ -1197,8 +1203,12 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok && isImport && data.Disabled == nil {
-		data.Disabled = &CloudLinkEmptyModel{}
+	if !isImport && !data.Disabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok {
+		data.Disabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Disabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enabled"].(map[string]interface{}); ok && (isImport || data.Enabled != nil) {
 		data.Enabled = &CloudLinkEnabledModel{
@@ -1269,14 +1279,14 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 												}
 												return types.StringNull()
 											}(),
-											SameAsCredential: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+											SameAsCredential: func() types.Object {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && !ConnectionsExisting[ConnectionsIdx].SameAsCredential.IsUnknown() {
 													return ConnectionsExisting[ConnectionsIdx].SameAsCredential
 												}
 												if _, ok := ConnectionsItemMap["same_as_credential"].(map[string]interface{}); ok {
-													return &CloudLinkEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -1608,14 +1618,14 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 												}
 												return types.StringNull()
 											}(),
-											SystemGeneratedName: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+											SystemGeneratedName: func() types.Object {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && !ConnectionsExisting[ConnectionsIdx].SystemGeneratedName.IsUnknown() {
 													return ConnectionsExisting[ConnectionsIdx].SystemGeneratedName
 												}
 												if _, ok := ConnectionsItemMap["system_generated_name"].(map[string]interface{}); ok {
-													return &CloudLinkEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Tags: UnmarshalStringMapForRead(ctx, ConnectionsItemMap["tags"], func() types.Map {
 												if len(ConnectionsExisting) > ConnectionsIdx {
@@ -1664,8 +1674,12 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok && isImport && data.Disabled == nil {
-		data.Disabled = &CloudLinkEmptyModel{}
+	if !isImport && !data.Disabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok {
+		data.Disabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Disabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enabled"].(map[string]interface{}); ok && (isImport || data.Enabled != nil) {
 		data.Enabled = &CloudLinkEnabledModel{
@@ -1736,14 +1750,14 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 												}
 												return types.StringNull()
 											}(),
-											SameAsCredential: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+											SameAsCredential: func() types.Object {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && !ConnectionsExisting[ConnectionsIdx].SameAsCredential.IsUnknown() {
 													return ConnectionsExisting[ConnectionsIdx].SameAsCredential
 												}
 												if _, ok := ConnectionsItemMap["same_as_credential"].(map[string]interface{}); ok {
-													return &CloudLinkEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -1956,7 +1970,7 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 						if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
 							ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
 						}
-						if ConnectionsItem.SystemGeneratedName != nil {
+						if !ConnectionsItem.SystemGeneratedName.IsNull() && !ConnectionsItem.SystemGeneratedName.IsUnknown() {
 							ConnectionsItemMap["system_generated_name"] = map[string]interface{}{}
 						}
 						if !ConnectionsItem.Tags.IsNull() && !ConnectionsItem.Tags.IsUnknown() {
@@ -1988,7 +2002,7 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 		}
 		apiResource.Spec["aws"] = AWSMap
 	}
-	if data.Disabled != nil {
+	if !data.Disabled.IsNull() && !data.Disabled.IsUnknown() {
 		apiResource.Spec["disabled"] = map[string]interface{}{}
 	}
 	if data.Enabled != nil {
@@ -2029,7 +2043,7 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 						if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
 							ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
 						}
-						if ConnectionsItem.SameAsCredential != nil {
+						if !ConnectionsItem.SameAsCredential.IsNull() && !ConnectionsItem.SameAsCredential.IsUnknown() {
 							ConnectionsItemMap["same_as_credential"] = map[string]interface{}{}
 						}
 						ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
@@ -2270,14 +2284,14 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 												}
 												return types.StringNull()
 											}(),
-											SystemGeneratedName: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+											SystemGeneratedName: func() types.Object {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && !ConnectionsExisting[ConnectionsIdx].SystemGeneratedName.IsUnknown() {
 													return ConnectionsExisting[ConnectionsIdx].SystemGeneratedName
 												}
 												if _, ok := ConnectionsItemMap["system_generated_name"].(map[string]interface{}); ok {
-													return &CloudLinkEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Tags: UnmarshalStringMapForRead(ctx, ConnectionsItemMap["tags"], func() types.Map {
 												if len(ConnectionsExisting) > ConnectionsIdx {
@@ -2326,8 +2340,12 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok && isImport && data.Disabled == nil {
-		data.Disabled = &CloudLinkEmptyModel{}
+	if !isImport && !data.Disabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok {
+		data.Disabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Disabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enabled"].(map[string]interface{}); ok && (isImport || data.Enabled != nil) {
 		data.Enabled = &CloudLinkEnabledModel{
@@ -2398,14 +2416,14 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 												}
 												return types.StringNull()
 											}(),
-											SameAsCredential: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+											SameAsCredential: func() types.Object {
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && !ConnectionsExisting[ConnectionsIdx].SameAsCredential.IsUnknown() {
 													return ConnectionsExisting[ConnectionsIdx].SameAsCredential
 												}
 												if _, ok := ConnectionsItemMap["same_as_credential"].(map[string]interface{}); ok {
-													return &CloudLinkEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}

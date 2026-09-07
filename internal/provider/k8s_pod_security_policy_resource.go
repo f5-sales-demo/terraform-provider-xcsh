@@ -64,6 +64,13 @@ type K8SPodSecurityPolicyPspSpecModel struct {
 	HostNetwork                     types.Bool                                              `tfsdk:"host_network"`
 	HostPid                         types.Bool                                              `tfsdk:"host_pid"`
 	HostPortRanges                  types.String                                            `tfsdk:"host_port_ranges"`
+	NoAllowedCapabilities           types.Object                                            `tfsdk:"no_allowed_capabilities"`
+	NoDefaultCapabilities           types.Object                                            `tfsdk:"no_default_capabilities"`
+	NoDropCapabilities              types.Object                                            `tfsdk:"no_drop_capabilities"`
+	NoFsGroups                      types.Object                                            `tfsdk:"no_fs_groups"`
+	NoRunAsGroup                    types.Object                                            `tfsdk:"no_run_as_group"`
+	NoRunAsUser                     types.Object                                            `tfsdk:"no_run_as_user"`
+	NoSupplementalGroups            types.Object                                            `tfsdk:"no_supplemental_groups"`
 	Privileged                      types.Bool                                              `tfsdk:"privileged"`
 	ReadOnlyRootFilesystem          types.Bool                                              `tfsdk:"read_only_root_filesystem"`
 	Volumes                         types.List                                              `tfsdk:"volumes"`
@@ -72,15 +79,8 @@ type K8SPodSecurityPolicyPspSpecModel struct {
 	DefaultCapabilities             *K8SPodSecurityPolicyPspSpecDefaultCapabilitiesModel    `tfsdk:"default_capabilities"`
 	DropCapabilities                *K8SPodSecurityPolicyPspSpecDropCapabilitiesModel       `tfsdk:"drop_capabilities"`
 	FsGroupStrategyOptions          *K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsModel `tfsdk:"fs_group_strategy_options"`
-	NoAllowedCapabilities           *K8SPodSecurityPolicyEmptyModel                         `tfsdk:"no_allowed_capabilities"`
-	NoDefaultCapabilities           *K8SPodSecurityPolicyEmptyModel                         `tfsdk:"no_default_capabilities"`
-	NoDropCapabilities              *K8SPodSecurityPolicyEmptyModel                         `tfsdk:"no_drop_capabilities"`
-	NoFsGroups                      *K8SPodSecurityPolicyEmptyModel                         `tfsdk:"no_fs_groups"`
-	NoRunAsGroup                    *K8SPodSecurityPolicyEmptyModel                         `tfsdk:"no_run_as_group"`
-	NoRunAsUser                     *K8SPodSecurityPolicyEmptyModel                         `tfsdk:"no_run_as_user"`
 	NoRuntimeClass                  *K8SPodSecurityPolicyEmptyModel                         `tfsdk:"no_runtime_class"`
 	NoSeLinuxOptions                *K8SPodSecurityPolicyEmptyModel                         `tfsdk:"no_se_linux_options"`
-	NoSupplementalGroups            *K8SPodSecurityPolicyEmptyModel                         `tfsdk:"no_supplemental_groups"`
 	RunAsGroup                      *K8SPodSecurityPolicyPspSpecRunAsGroupModel             `tfsdk:"run_as_group"`
 	RunAsUser                       *K8SPodSecurityPolicyPspSpecRunAsUserModel              `tfsdk:"run_as_user"`
 	SupplementalGroups              *K8SPodSecurityPolicyPspSpecSupplementalGroupsModel     `tfsdk:"supplemental_groups"`
@@ -99,6 +99,13 @@ var K8SPodSecurityPolicyPspSpecModelAttrTypes = map[string]attr.Type{
 	"host_network":                       types.BoolType,
 	"host_pid":                           types.BoolType,
 	"host_port_ranges":                   types.StringType,
+	"no_allowed_capabilities":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_default_capabilities":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_drop_capabilities":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_fs_groups":                       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_run_as_group":                    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_run_as_user":                     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_supplemental_groups":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"privileged":                         types.BoolType,
 	"read_only_root_filesystem":          types.BoolType,
 	"volumes":                            types.ListType{ElemType: types.StringType},
@@ -107,15 +114,8 @@ var K8SPodSecurityPolicyPspSpecModelAttrTypes = map[string]attr.Type{
 	"default_capabilities":               types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecDefaultCapabilitiesModelAttrTypes},
 	"drop_capabilities":                  types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecDropCapabilitiesModelAttrTypes},
 	"fs_group_strategy_options":          types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsModelAttrTypes},
-	"no_allowed_capabilities":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_default_capabilities":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_drop_capabilities":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_fs_groups":                       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_run_as_group":                    types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_run_as_user":                     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_runtime_class":                   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_se_linux_options":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_supplemental_groups":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"run_as_group":                       types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecRunAsGroupModelAttrTypes},
 	"run_as_user":                        types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecRunAsUserModelAttrTypes},
 	"supplemental_groups":                types.ObjectType{AttrTypes: K8SPodSecurityPolicyPspSpecSupplementalGroupsModelAttrTypes},
@@ -413,6 +413,41 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 						MarkdownDescription: "Host port ranges determines which ports ranges are allowed to be exposed.",
 						Optional:            true,
 					},
+					"no_allowed_capabilities": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no allowed capabilities.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_default_capabilities": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no default capabilities.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_drop_capabilities": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no drop capabilities.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_fs_groups": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_run_as_group": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no run as group.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_run_as_user": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no run as user.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_supplemental_groups": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"privileged": schema.BoolAttribute{
 						MarkdownDescription: "Privileged determines if a pod can request to be run as privileged.",
 						Optional:            true,
@@ -529,32 +564,11 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 							},
 						},
 					},
-					"no_allowed_capabilities": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no allowed capabilities.",
-					},
-					"no_default_capabilities": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no default capabilities.",
-					},
-					"no_drop_capabilities": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no drop capabilities.",
-					},
-					"no_fs_groups": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_run_as_group": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no run as group.",
-					},
-					"no_run_as_user": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no run as user.",
-					},
 					"no_runtime_class": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for no runtime class.",
 					},
 					"no_se_linux_options": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for no se linux options.",
-					},
-					"no_supplemental_groups": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 					"run_as_group": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for run as group.",
@@ -936,22 +950,22 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 		if !data.PspSpec.HostPortRanges.IsNull() && !data.PspSpec.HostPortRanges.IsUnknown() {
 			PspSpecMap["host_port_ranges"] = data.PspSpec.HostPortRanges.ValueString()
 		}
-		if data.PspSpec.NoAllowedCapabilities != nil {
+		if !data.PspSpec.NoAllowedCapabilities.IsNull() && !data.PspSpec.NoAllowedCapabilities.IsUnknown() {
 			PspSpecMap["no_allowed_capabilities"] = map[string]interface{}{}
 		}
-		if data.PspSpec.NoDefaultCapabilities != nil {
+		if !data.PspSpec.NoDefaultCapabilities.IsNull() && !data.PspSpec.NoDefaultCapabilities.IsUnknown() {
 			PspSpecMap["no_default_capabilities"] = map[string]interface{}{}
 		}
-		if data.PspSpec.NoDropCapabilities != nil {
+		if !data.PspSpec.NoDropCapabilities.IsNull() && !data.PspSpec.NoDropCapabilities.IsUnknown() {
 			PspSpecMap["no_drop_capabilities"] = map[string]interface{}{}
 		}
-		if data.PspSpec.NoFsGroups != nil {
+		if !data.PspSpec.NoFsGroups.IsNull() && !data.PspSpec.NoFsGroups.IsUnknown() {
 			PspSpecMap["no_fs_groups"] = map[string]interface{}{}
 		}
-		if data.PspSpec.NoRunAsGroup != nil {
+		if !data.PspSpec.NoRunAsGroup.IsNull() && !data.PspSpec.NoRunAsGroup.IsUnknown() {
 			PspSpecMap["no_run_as_group"] = map[string]interface{}{}
 		}
-		if data.PspSpec.NoRunAsUser != nil {
+		if !data.PspSpec.NoRunAsUser.IsNull() && !data.PspSpec.NoRunAsUser.IsUnknown() {
 			PspSpecMap["no_run_as_user"] = map[string]interface{}{}
 		}
 		if data.PspSpec.NoRuntimeClass != nil {
@@ -960,7 +974,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 		if data.PspSpec.NoSeLinuxOptions != nil {
 			PspSpecMap["no_se_linux_options"] = map[string]interface{}{}
 		}
-		if data.PspSpec.NoSupplementalGroups != nil {
+		if !data.PspSpec.NoSupplementalGroups.IsNull() && !data.PspSpec.NoSupplementalGroups.IsUnknown() {
 			PspSpecMap["no_supplemental_groups"] = map[string]interface{}{}
 		}
 		if !data.PspSpec.Privileged.IsNull() && !data.PspSpec.Privileged.IsUnknown() {
@@ -1378,59 +1392,59 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 				}
 				return types.StringNull()
 			}(),
-			NoAllowedCapabilities: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoAllowedCapabilities: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoAllowedCapabilities.IsUnknown() {
 					return data.PspSpec.NoAllowedCapabilities
 				}
 				if _, ok := blockData["no_allowed_capabilities"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoDefaultCapabilities: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoDefaultCapabilities: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoDefaultCapabilities.IsUnknown() {
 					return data.PspSpec.NoDefaultCapabilities
 				}
 				if _, ok := blockData["no_default_capabilities"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoDropCapabilities: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoDropCapabilities: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoDropCapabilities.IsUnknown() {
 					return data.PspSpec.NoDropCapabilities
 				}
 				if _, ok := blockData["no_drop_capabilities"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoFsGroups: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoFsGroups: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoFsGroups.IsUnknown() {
 					return data.PspSpec.NoFsGroups
 				}
 				if _, ok := blockData["no_fs_groups"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoRunAsGroup: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoRunAsGroup: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoRunAsGroup.IsUnknown() {
 					return data.PspSpec.NoRunAsGroup
 				}
 				if _, ok := blockData["no_run_as_group"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoRunAsUser: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoRunAsUser: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoRunAsUser.IsUnknown() {
 					return data.PspSpec.NoRunAsUser
 				}
 				if _, ok := blockData["no_run_as_user"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NoRuntimeClass: func() *K8SPodSecurityPolicyEmptyModel {
 				if !isImport && data.PspSpec != nil {
@@ -1450,14 +1464,14 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 				}
 				return nil
 			}(),
-			NoSupplementalGroups: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoSupplementalGroups: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoSupplementalGroups.IsUnknown() {
 					return data.PspSpec.NoSupplementalGroups
 				}
 				if _, ok := blockData["no_supplemental_groups"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Privileged: func() types.Bool {
 				if !isImport && data.PspSpec != nil && !data.PspSpec.Privileged.IsUnknown() {
@@ -2058,59 +2072,59 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 				}
 				return types.StringNull()
 			}(),
-			NoAllowedCapabilities: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoAllowedCapabilities: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoAllowedCapabilities.IsUnknown() {
 					return data.PspSpec.NoAllowedCapabilities
 				}
 				if _, ok := blockData["no_allowed_capabilities"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoDefaultCapabilities: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoDefaultCapabilities: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoDefaultCapabilities.IsUnknown() {
 					return data.PspSpec.NoDefaultCapabilities
 				}
 				if _, ok := blockData["no_default_capabilities"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoDropCapabilities: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoDropCapabilities: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoDropCapabilities.IsUnknown() {
 					return data.PspSpec.NoDropCapabilities
 				}
 				if _, ok := blockData["no_drop_capabilities"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoFsGroups: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoFsGroups: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoFsGroups.IsUnknown() {
 					return data.PspSpec.NoFsGroups
 				}
 				if _, ok := blockData["no_fs_groups"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoRunAsGroup: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoRunAsGroup: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoRunAsGroup.IsUnknown() {
 					return data.PspSpec.NoRunAsGroup
 				}
 				if _, ok := blockData["no_run_as_group"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoRunAsUser: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoRunAsUser: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoRunAsUser.IsUnknown() {
 					return data.PspSpec.NoRunAsUser
 				}
 				if _, ok := blockData["no_run_as_user"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NoRuntimeClass: func() *K8SPodSecurityPolicyEmptyModel {
 				if !isImport && data.PspSpec != nil {
@@ -2130,14 +2144,14 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 				}
 				return nil
 			}(),
-			NoSupplementalGroups: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoSupplementalGroups: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoSupplementalGroups.IsUnknown() {
 					return data.PspSpec.NoSupplementalGroups
 				}
 				if _, ok := blockData["no_supplemental_groups"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Privileged: func() types.Bool {
 				if !isImport && data.PspSpec != nil && !data.PspSpec.Privileged.IsUnknown() {
@@ -2563,22 +2577,22 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 		if !data.PspSpec.HostPortRanges.IsNull() && !data.PspSpec.HostPortRanges.IsUnknown() {
 			PspSpecMap["host_port_ranges"] = data.PspSpec.HostPortRanges.ValueString()
 		}
-		if data.PspSpec.NoAllowedCapabilities != nil {
+		if !data.PspSpec.NoAllowedCapabilities.IsNull() && !data.PspSpec.NoAllowedCapabilities.IsUnknown() {
 			PspSpecMap["no_allowed_capabilities"] = map[string]interface{}{}
 		}
-		if data.PspSpec.NoDefaultCapabilities != nil {
+		if !data.PspSpec.NoDefaultCapabilities.IsNull() && !data.PspSpec.NoDefaultCapabilities.IsUnknown() {
 			PspSpecMap["no_default_capabilities"] = map[string]interface{}{}
 		}
-		if data.PspSpec.NoDropCapabilities != nil {
+		if !data.PspSpec.NoDropCapabilities.IsNull() && !data.PspSpec.NoDropCapabilities.IsUnknown() {
 			PspSpecMap["no_drop_capabilities"] = map[string]interface{}{}
 		}
-		if data.PspSpec.NoFsGroups != nil {
+		if !data.PspSpec.NoFsGroups.IsNull() && !data.PspSpec.NoFsGroups.IsUnknown() {
 			PspSpecMap["no_fs_groups"] = map[string]interface{}{}
 		}
-		if data.PspSpec.NoRunAsGroup != nil {
+		if !data.PspSpec.NoRunAsGroup.IsNull() && !data.PspSpec.NoRunAsGroup.IsUnknown() {
 			PspSpecMap["no_run_as_group"] = map[string]interface{}{}
 		}
-		if data.PspSpec.NoRunAsUser != nil {
+		if !data.PspSpec.NoRunAsUser.IsNull() && !data.PspSpec.NoRunAsUser.IsUnknown() {
 			PspSpecMap["no_run_as_user"] = map[string]interface{}{}
 		}
 		if data.PspSpec.NoRuntimeClass != nil {
@@ -2587,7 +2601,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 		if data.PspSpec.NoSeLinuxOptions != nil {
 			PspSpecMap["no_se_linux_options"] = map[string]interface{}{}
 		}
-		if data.PspSpec.NoSupplementalGroups != nil {
+		if !data.PspSpec.NoSupplementalGroups.IsNull() && !data.PspSpec.NoSupplementalGroups.IsUnknown() {
 			PspSpecMap["no_supplemental_groups"] = map[string]interface{}{}
 		}
 		if !data.PspSpec.Privileged.IsNull() && !data.PspSpec.Privileged.IsUnknown() {
@@ -3032,59 +3046,59 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 				}
 				return types.StringNull()
 			}(),
-			NoAllowedCapabilities: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoAllowedCapabilities: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoAllowedCapabilities.IsUnknown() {
 					return data.PspSpec.NoAllowedCapabilities
 				}
 				if _, ok := blockData["no_allowed_capabilities"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoDefaultCapabilities: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoDefaultCapabilities: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoDefaultCapabilities.IsUnknown() {
 					return data.PspSpec.NoDefaultCapabilities
 				}
 				if _, ok := blockData["no_default_capabilities"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoDropCapabilities: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoDropCapabilities: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoDropCapabilities.IsUnknown() {
 					return data.PspSpec.NoDropCapabilities
 				}
 				if _, ok := blockData["no_drop_capabilities"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoFsGroups: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoFsGroups: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoFsGroups.IsUnknown() {
 					return data.PspSpec.NoFsGroups
 				}
 				if _, ok := blockData["no_fs_groups"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoRunAsGroup: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoRunAsGroup: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoRunAsGroup.IsUnknown() {
 					return data.PspSpec.NoRunAsGroup
 				}
 				if _, ok := blockData["no_run_as_group"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoRunAsUser: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoRunAsUser: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoRunAsUser.IsUnknown() {
 					return data.PspSpec.NoRunAsUser
 				}
 				if _, ok := blockData["no_run_as_user"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NoRuntimeClass: func() *K8SPodSecurityPolicyEmptyModel {
 				if !isImport && data.PspSpec != nil {
@@ -3104,14 +3118,14 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 				}
 				return nil
 			}(),
-			NoSupplementalGroups: func() *K8SPodSecurityPolicyEmptyModel {
-				if !isImport && data.PspSpec != nil {
+			NoSupplementalGroups: func() types.Object {
+				if !isImport && data.PspSpec != nil && !data.PspSpec.NoSupplementalGroups.IsUnknown() {
 					return data.PspSpec.NoSupplementalGroups
 				}
 				if _, ok := blockData["no_supplemental_groups"].(map[string]interface{}); ok {
-					return &K8SPodSecurityPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Privileged: func() types.Bool {
 				if !isImport && data.PspSpec != nil && !data.PspSpec.Privileged.IsUnknown() {

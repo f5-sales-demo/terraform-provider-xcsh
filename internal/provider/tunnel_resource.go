@@ -92,7 +92,7 @@ var TunnelLocalIPIntfLocalIntfModelAttrTypes = map[string]attr.Type{
 
 // TunnelLocalIPIPAddressModel represents ip_address block
 type TunnelLocalIPIPAddressModel struct {
-	Auto               *TunnelEmptyModel                              `tfsdk:"auto"`
+	Auto               types.Object                                   `tfsdk:"auto"`
 	IPAddress          *TunnelLocalIPIPAddressIPAddressModel          `tfsdk:"ip_address"`
 	VirtualNetworkType *TunnelLocalIPIPAddressVirtualNetworkTypeModel `tfsdk:"virtual_network_type"`
 }
@@ -138,9 +138,9 @@ var TunnelLocalIPIPAddressIPAddressIpv6ModelAttrTypes = map[string]attr.Type{
 
 // TunnelLocalIPIPAddressVirtualNetworkTypeModel represents virtual_network_type block
 type TunnelLocalIPIPAddressVirtualNetworkTypeModel struct {
-	Public          *TunnelEmptyModel `tfsdk:"public"`
-	SiteLocal       *TunnelEmptyModel `tfsdk:"site_local"`
-	SiteLocalInside *TunnelEmptyModel `tfsdk:"site_local_inside"`
+	Public          types.Object `tfsdk:"public"`
+	SiteLocal       types.Object `tfsdk:"site_local"`
+	SiteLocalInside types.Object `tfsdk:"site_local_inside"`
 }
 
 // TunnelLocalIPIPAddressVirtualNetworkTypeModelAttrTypes defines the attribute types for TunnelLocalIPIPAddressVirtualNetworkTypeModel
@@ -399,11 +399,14 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 					"ip_address": schema.SingleNestedBlock{
 						MarkdownDescription: "Provides the configuration to pick up source IP and network for transporting encapsulated packet.",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto", "ip_address")},
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"auto": schema.SingleNestedBlock{
+						Attributes: map[string]schema.Attribute{
+							"auto": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
+						},
+						Blocks: map[string]schema.Block{
 							"ip_address": schema.SingleNestedBlock{
 								MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
 								Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
@@ -440,16 +443,21 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 							"virtual_network_type": schema.SingleNestedBlock{
 								MarkdownDescription: "Different types of virtual networks understood by the system.",
 								Validators:          []validator.Object{validators.ConflictingObjectAttributes("public", "site_local"), validators.ConflictingObjectAttributes("public", "site_local_inside"), validators.ConflictingObjectAttributes("site_local", "site_local_inside")},
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"public": schema.SingleNestedBlock{
+								Attributes: map[string]schema.Attribute{
+									"public": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"site_local": schema.SingleNestedBlock{
+									"site_local": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"site_local_inside": schema.SingleNestedBlock{
+									"site_local_inside": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
@@ -718,7 +726,7 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 		}
 		if data.LocalIP.IPAddress != nil {
 			LocalIPIPAddressMap := make(map[string]interface{})
-			if data.LocalIP.IPAddress.Auto != nil {
+			if !data.LocalIP.IPAddress.Auto.IsNull() && !data.LocalIP.IPAddress.Auto.IsUnknown() {
 				LocalIPIPAddressMap["auto"] = map[string]interface{}{}
 			}
 			if data.LocalIP.IPAddress.IPAddress != nil {
@@ -741,13 +749,13 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 			}
 			if data.LocalIP.IPAddress.VirtualNetworkType != nil {
 				LocalIPIPAddressVirtualNetworkTypeMap := make(map[string]interface{})
-				if data.LocalIP.IPAddress.VirtualNetworkType.Public != nil {
+				if !data.LocalIP.IPAddress.VirtualNetworkType.Public.IsNull() && !data.LocalIP.IPAddress.VirtualNetworkType.Public.IsUnknown() {
 					LocalIPIPAddressVirtualNetworkTypeMap["public"] = map[string]interface{}{}
 				}
-				if data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal != nil {
+				if !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal.IsNull() && !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal.IsUnknown() {
 					LocalIPIPAddressVirtualNetworkTypeMap["site_local"] = map[string]interface{}{}
 				}
-				if data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside != nil {
+				if !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside.IsNull() && !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside.IsUnknown() {
 					LocalIPIPAddressVirtualNetworkTypeMap["site_local_inside"] = map[string]interface{}{}
 				}
 				LocalIPIPAddressMap["virtual_network_type"] = LocalIPIPAddressVirtualNetworkTypeMap
@@ -929,14 +937,14 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 				}
 				if IPAddressData, ok := blockData["ip_address"].(map[string]interface{}); ok {
 					return &TunnelLocalIPIPAddressModel{
-						Auto: func() *TunnelEmptyModel {
-							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil {
+						Auto: func() types.Object {
+							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && !data.LocalIP.IPAddress.Auto.IsUnknown() {
 								return data.LocalIP.IPAddress.Auto
 							}
 							if _, ok := IPAddressData["auto"].(map[string]interface{}); ok {
-								return &TunnelEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						IPAddress: func() *TunnelLocalIPIPAddressIPAddressModel {
 							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil {
@@ -986,32 +994,32 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 							}
 							if VirtualNetworkTypeData, ok := IPAddressData["virtual_network_type"].(map[string]interface{}); ok {
 								return &TunnelLocalIPIPAddressVirtualNetworkTypeModel{
-									Public: func() *TunnelEmptyModel {
-										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+									Public: func() types.Object {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil && !data.LocalIP.IPAddress.VirtualNetworkType.Public.IsUnknown() {
 											return data.LocalIP.IPAddress.VirtualNetworkType.Public
 										}
 										if _, ok := VirtualNetworkTypeData["public"].(map[string]interface{}); ok {
-											return &TunnelEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SiteLocal: func() *TunnelEmptyModel {
-										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+									SiteLocal: func() types.Object {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil && !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal.IsUnknown() {
 											return data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal
 										}
 										if _, ok := VirtualNetworkTypeData["site_local"].(map[string]interface{}); ok {
-											return &TunnelEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SiteLocalInside: func() *TunnelEmptyModel {
-										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+									SiteLocalInside: func() types.Object {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil && !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside.IsUnknown() {
 											return data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside
 										}
 										if _, ok := VirtualNetworkTypeData["site_local_inside"].(map[string]interface{}); ok {
-											return &TunnelEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -1365,14 +1373,14 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 				}
 				if IPAddressData, ok := blockData["ip_address"].(map[string]interface{}); ok {
 					return &TunnelLocalIPIPAddressModel{
-						Auto: func() *TunnelEmptyModel {
-							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil {
+						Auto: func() types.Object {
+							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && !data.LocalIP.IPAddress.Auto.IsUnknown() {
 								return data.LocalIP.IPAddress.Auto
 							}
 							if _, ok := IPAddressData["auto"].(map[string]interface{}); ok {
-								return &TunnelEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						IPAddress: func() *TunnelLocalIPIPAddressIPAddressModel {
 							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil {
@@ -1422,32 +1430,32 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 							}
 							if VirtualNetworkTypeData, ok := IPAddressData["virtual_network_type"].(map[string]interface{}); ok {
 								return &TunnelLocalIPIPAddressVirtualNetworkTypeModel{
-									Public: func() *TunnelEmptyModel {
-										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+									Public: func() types.Object {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil && !data.LocalIP.IPAddress.VirtualNetworkType.Public.IsUnknown() {
 											return data.LocalIP.IPAddress.VirtualNetworkType.Public
 										}
 										if _, ok := VirtualNetworkTypeData["public"].(map[string]interface{}); ok {
-											return &TunnelEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SiteLocal: func() *TunnelEmptyModel {
-										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+									SiteLocal: func() types.Object {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil && !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal.IsUnknown() {
 											return data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal
 										}
 										if _, ok := VirtualNetworkTypeData["site_local"].(map[string]interface{}); ok {
-											return &TunnelEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SiteLocalInside: func() *TunnelEmptyModel {
-										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+									SiteLocalInside: func() types.Object {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil && !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside.IsUnknown() {
 											return data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside
 										}
 										if _, ok := VirtualNetworkTypeData["site_local_inside"].(map[string]interface{}); ok {
-											return &TunnelEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -1724,7 +1732,7 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 		}
 		if data.LocalIP.IPAddress != nil {
 			LocalIPIPAddressMap := make(map[string]interface{})
-			if data.LocalIP.IPAddress.Auto != nil {
+			if !data.LocalIP.IPAddress.Auto.IsNull() && !data.LocalIP.IPAddress.Auto.IsUnknown() {
 				LocalIPIPAddressMap["auto"] = map[string]interface{}{}
 			}
 			if data.LocalIP.IPAddress.IPAddress != nil {
@@ -1747,13 +1755,13 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 			}
 			if data.LocalIP.IPAddress.VirtualNetworkType != nil {
 				LocalIPIPAddressVirtualNetworkTypeMap := make(map[string]interface{})
-				if data.LocalIP.IPAddress.VirtualNetworkType.Public != nil {
+				if !data.LocalIP.IPAddress.VirtualNetworkType.Public.IsNull() && !data.LocalIP.IPAddress.VirtualNetworkType.Public.IsUnknown() {
 					LocalIPIPAddressVirtualNetworkTypeMap["public"] = map[string]interface{}{}
 				}
-				if data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal != nil {
+				if !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal.IsNull() && !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal.IsUnknown() {
 					LocalIPIPAddressVirtualNetworkTypeMap["site_local"] = map[string]interface{}{}
 				}
-				if data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside != nil {
+				if !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside.IsNull() && !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside.IsUnknown() {
 					LocalIPIPAddressVirtualNetworkTypeMap["site_local_inside"] = map[string]interface{}{}
 				}
 				LocalIPIPAddressMap["virtual_network_type"] = LocalIPIPAddressVirtualNetworkTypeMap
@@ -1962,14 +1970,14 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 				}
 				if IPAddressData, ok := blockData["ip_address"].(map[string]interface{}); ok {
 					return &TunnelLocalIPIPAddressModel{
-						Auto: func() *TunnelEmptyModel {
-							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil {
+						Auto: func() types.Object {
+							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && !data.LocalIP.IPAddress.Auto.IsUnknown() {
 								return data.LocalIP.IPAddress.Auto
 							}
 							if _, ok := IPAddressData["auto"].(map[string]interface{}); ok {
-								return &TunnelEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						IPAddress: func() *TunnelLocalIPIPAddressIPAddressModel {
 							if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.IPAddress != nil {
@@ -2019,32 +2027,32 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 							}
 							if VirtualNetworkTypeData, ok := IPAddressData["virtual_network_type"].(map[string]interface{}); ok {
 								return &TunnelLocalIPIPAddressVirtualNetworkTypeModel{
-									Public: func() *TunnelEmptyModel {
-										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+									Public: func() types.Object {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil && !data.LocalIP.IPAddress.VirtualNetworkType.Public.IsUnknown() {
 											return data.LocalIP.IPAddress.VirtualNetworkType.Public
 										}
 										if _, ok := VirtualNetworkTypeData["public"].(map[string]interface{}); ok {
-											return &TunnelEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SiteLocal: func() *TunnelEmptyModel {
-										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+									SiteLocal: func() types.Object {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil && !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal.IsUnknown() {
 											return data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal
 										}
 										if _, ok := VirtualNetworkTypeData["site_local"].(map[string]interface{}); ok {
-											return &TunnelEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SiteLocalInside: func() *TunnelEmptyModel {
-										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil {
+									SiteLocalInside: func() types.Object {
+										if !isImport && data.LocalIP != nil && data.LocalIP.IPAddress != nil && data.LocalIP.IPAddress.VirtualNetworkType != nil && !data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside.IsUnknown() {
 											return data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside
 										}
 										if _, ok := VirtualNetworkTypeData["site_local_inside"].(map[string]interface{}); ok {
-											return &TunnelEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}

@@ -119,14 +119,14 @@ type CertificateResourceModel struct {
 	Annotations          types.Map                             `tfsdk:"annotations"`
 	Description          types.String                          `tfsdk:"description"`
 	Disable              types.Bool                            `tfsdk:"disable"`
+	DisableOCSPStapling  types.Object                          `tfsdk:"disable_ocsp_stapling"`
 	Labels               types.Map                             `tfsdk:"labels"`
+	UseSystemDefaults    types.Object                          `tfsdk:"use_system_defaults"`
 	ID                   types.String                          `tfsdk:"id"`
 	Timeouts             timeouts.Value                        `tfsdk:"timeouts"`
 	CertificateChain     *CertificateCertificateChainModel     `tfsdk:"certificate_chain"`
 	CustomHashAlgorithms *CertificateCustomHashAlgorithmsModel `tfsdk:"custom_hash_algorithms"`
-	DisableOCSPStapling  *CertificateEmptyModel                `tfsdk:"disable_ocsp_stapling"`
 	PrivateKey           *CertificatePrivateKeyModel           `tfsdk:"private_key"`
-	UseSystemDefaults    *CertificateEmptyModel                `tfsdk:"use_system_defaults"`
 }
 
 func (r *CertificateResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -177,10 +177,20 @@ func (r *CertificateResource) Schema(ctx context.Context, req resource.SchemaReq
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"disable_ocsp_stapling": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"use_system_defaults": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for use system defaults.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -244,9 +254,6 @@ func (r *CertificateResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 				},
 			},
-			"disable_ocsp_stapling": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
-			},
 			"private_key": schema.SingleNestedBlock{
 				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
@@ -293,9 +300,6 @@ func (r *CertificateResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 				},
 			},
-			"use_system_defaults": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for use system defaults.",
-			},
 		},
 	}
 }
@@ -322,6 +326,14 @@ func (r *CertificateResource) ValidateConfig(ctx context.Context, req resource.V
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.DisableOCSPStapling.IsNull() && !data.DisableOCSPStapling.IsUnknown() && !data.UseSystemDefaults.IsNull() && !data.UseSystemDefaults.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_ocsp_stapling"),
+			"Conflicting Configuration",
+			"disable_ocsp_stapling and use_system_defaults are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -447,7 +459,7 @@ func (r *CertificateResource) Create(ctx context.Context, req resource.CreateReq
 		}
 		createReq.Spec["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 	}
-	if data.DisableOCSPStapling != nil {
+	if !data.DisableOCSPStapling.IsNull() && !data.DisableOCSPStapling.IsUnknown() {
 		createReq.Spec["disable_ocsp_stapling"] = map[string]interface{}{}
 	}
 	if data.PrivateKey != nil {
@@ -477,7 +489,7 @@ func (r *CertificateResource) Create(ctx context.Context, req resource.CreateReq
 		}
 		createReq.Spec["private_key"] = PrivateKeyMap
 	}
-	if data.UseSystemDefaults != nil {
+	if !data.UseSystemDefaults.IsNull() && !data.UseSystemDefaults.IsUnknown() {
 		createReq.Spec["use_system_defaults"] = map[string]interface{}{}
 	}
 
@@ -564,8 +576,12 @@ func (r *CertificateResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_ocsp_stapling"].(map[string]interface{}); ok && isImport && data.DisableOCSPStapling == nil {
-		data.DisableOCSPStapling = &CertificateEmptyModel{}
+	if !isImport && !data.DisableOCSPStapling.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_ocsp_stapling"].(map[string]interface{}); ok {
+		data.DisableOCSPStapling = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableOCSPStapling = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["private_key"].(map[string]interface{}); ok && (isImport || data.PrivateKey != nil) {
 		data.PrivateKey = &CertificatePrivateKeyModel{
@@ -621,8 +637,12 @@ func (r *CertificateResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_system_defaults"].(map[string]interface{}); ok && isImport && data.UseSystemDefaults == nil {
-		data.UseSystemDefaults = &CertificateEmptyModel{}
+	if !isImport && !data.UseSystemDefaults.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_system_defaults"].(map[string]interface{}); ok {
+		data.UseSystemDefaults = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseSystemDefaults = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	tflog.Trace(ctx, "created Certificate resource")
@@ -800,8 +820,12 @@ func (r *CertificateResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_ocsp_stapling"].(map[string]interface{}); ok && isImport && data.DisableOCSPStapling == nil {
-		data.DisableOCSPStapling = &CertificateEmptyModel{}
+	if !isImport && !data.DisableOCSPStapling.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_ocsp_stapling"].(map[string]interface{}); ok {
+		data.DisableOCSPStapling = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableOCSPStapling = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["private_key"].(map[string]interface{}); ok && (isImport || data.PrivateKey != nil) {
 		data.PrivateKey = &CertificatePrivateKeyModel{
@@ -857,8 +881,12 @@ func (r *CertificateResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_system_defaults"].(map[string]interface{}); ok && isImport && data.UseSystemDefaults == nil {
-		data.UseSystemDefaults = &CertificateEmptyModel{}
+	if !isImport && !data.UseSystemDefaults.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_system_defaults"].(map[string]interface{}); ok {
+		data.UseSystemDefaults = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseSystemDefaults = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -979,7 +1007,7 @@ func (r *CertificateResource) Update(ctx context.Context, req resource.UpdateReq
 		}
 		apiResource.Spec["custom_hash_algorithms"] = CustomHashAlgorithmsMap
 	}
-	if data.DisableOCSPStapling != nil {
+	if !data.DisableOCSPStapling.IsNull() && !data.DisableOCSPStapling.IsUnknown() {
 		apiResource.Spec["disable_ocsp_stapling"] = map[string]interface{}{}
 	}
 	if data.PrivateKey != nil {
@@ -1009,7 +1037,7 @@ func (r *CertificateResource) Update(ctx context.Context, req resource.UpdateReq
 		}
 		apiResource.Spec["private_key"] = PrivateKeyMap
 	}
-	if data.UseSystemDefaults != nil {
+	if !data.UseSystemDefaults.IsNull() && !data.UseSystemDefaults.IsUnknown() {
 		apiResource.Spec["use_system_defaults"] = map[string]interface{}{}
 	}
 
@@ -1116,8 +1144,12 @@ func (r *CertificateResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_ocsp_stapling"].(map[string]interface{}); ok && isImport && data.DisableOCSPStapling == nil {
-		data.DisableOCSPStapling = &CertificateEmptyModel{}
+	if !isImport && !data.DisableOCSPStapling.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_ocsp_stapling"].(map[string]interface{}); ok {
+		data.DisableOCSPStapling = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableOCSPStapling = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["private_key"].(map[string]interface{}); ok && (isImport || data.PrivateKey != nil) {
 		data.PrivateKey = &CertificatePrivateKeyModel{
@@ -1173,8 +1205,12 @@ func (r *CertificateResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_system_defaults"].(map[string]interface{}); ok && isImport && data.UseSystemDefaults == nil {
-		data.UseSystemDefaults = &CertificateEmptyModel{}
+	if !isImport && !data.UseSystemDefaults.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_system_defaults"].(map[string]interface{}); ok {
+		data.UseSystemDefaults = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseSystemDefaults = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

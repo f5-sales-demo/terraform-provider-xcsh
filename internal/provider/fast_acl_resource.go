@@ -18,6 +18,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
@@ -69,8 +70,8 @@ var FastACLProtocolPolicerModelAttrTypes = map[string]attr.Type{
 
 // FastACLREACLModel represents re_acl block
 type FastACLREACLModel struct {
-	AllPublicVips     *FastACLEmptyModel                  `tfsdk:"all_public_vips"`
-	DefaultTenantVIP  *FastACLEmptyModel                  `tfsdk:"default_tenant_vip"`
+	AllPublicVips     types.Object                        `tfsdk:"all_public_vips"`
+	DefaultTenantVIP  types.Object                        `tfsdk:"default_tenant_vip"`
 	FastACLRules      types.List                          `tfsdk:"fast_acl_rules"`
 	SelectedTenantVIP *FastACLREACLSelectedTenantVIPModel `tfsdk:"selected_tenant_vip"`
 }
@@ -213,16 +214,16 @@ var FastACLREACLFastACLRulesMetadataModelAttrTypes = map[string]attr.Type{
 
 // FastACLREACLFastACLRulesPortModel represents port block
 type FastACLREACLFastACLRulesPortModel struct {
-	UserDefined types.Int64        `tfsdk:"user_defined"`
-	All         *FastACLEmptyModel `tfsdk:"all"`
-	DNS         *FastACLEmptyModel `tfsdk:"dns"`
+	All         types.Object `tfsdk:"all"`
+	DNS         types.Object `tfsdk:"dns"`
+	UserDefined types.Int64  `tfsdk:"user_defined"`
 }
 
 // FastACLREACLFastACLRulesPortModelAttrTypes defines the attribute types for FastACLREACLFastACLRulesPortModel
 var FastACLREACLFastACLRulesPortModelAttrTypes = map[string]attr.Type{
-	"user_defined": types.Int64Type,
 	"all":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"dns":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"user_defined": types.Int64Type,
 }
 
 // FastACLREACLFastACLRulesPrefixModel represents prefix block
@@ -263,22 +264,22 @@ var FastACLREACLSelectedTenantVIPPublicIPRefsModelAttrTypes = map[string]attr.Ty
 
 // FastACLSiteACLModel represents site_acl block
 type FastACLSiteACLModel struct {
-	AllServices       *FastACLEmptyModel `tfsdk:"all_services"`
-	FastACLRules      types.List         `tfsdk:"fast_acl_rules"`
-	InsideNetwork     *FastACLEmptyModel `tfsdk:"inside_network"`
-	InterfaceServices *FastACLEmptyModel `tfsdk:"interface_services"`
-	OutsideNetwork    *FastACLEmptyModel `tfsdk:"outside_network"`
-	VIPServices       *FastACLEmptyModel `tfsdk:"vip_services"`
+	AllServices       types.Object `tfsdk:"all_services"`
+	InsideNetwork     types.Object `tfsdk:"inside_network"`
+	InterfaceServices types.Object `tfsdk:"interface_services"`
+	OutsideNetwork    types.Object `tfsdk:"outside_network"`
+	VIPServices       types.Object `tfsdk:"vip_services"`
+	FastACLRules      types.List   `tfsdk:"fast_acl_rules"`
 }
 
 // FastACLSiteACLModelAttrTypes defines the attribute types for FastACLSiteACLModel
 var FastACLSiteACLModelAttrTypes = map[string]attr.Type{
 	"all_services":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"fast_acl_rules":     types.ListType{ElemType: types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes}},
 	"inside_network":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"interface_services": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"outside_network":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"vip_services":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"fast_acl_rules":     types.ListType{ElemType: types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes}},
 }
 
 // FastACLSiteACLFastACLRulesModel represents fast_acl_rules block
@@ -411,16 +412,16 @@ var FastACLSiteACLFastACLRulesMetadataModelAttrTypes = map[string]attr.Type{
 
 // FastACLSiteACLFastACLRulesPortModel represents port block
 type FastACLSiteACLFastACLRulesPortModel struct {
-	UserDefined types.Int64        `tfsdk:"user_defined"`
-	All         *FastACLEmptyModel `tfsdk:"all"`
-	DNS         *FastACLEmptyModel `tfsdk:"dns"`
+	All         types.Object `tfsdk:"all"`
+	DNS         types.Object `tfsdk:"dns"`
+	UserDefined types.Int64  `tfsdk:"user_defined"`
 }
 
 // FastACLSiteACLFastACLRulesPortModelAttrTypes defines the attribute types for FastACLSiteACLFastACLRulesPortModel
 var FastACLSiteACLFastACLRulesPortModelAttrTypes = map[string]attr.Type{
-	"user_defined": types.Int64Type,
 	"all":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"dns":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"user_defined": types.Int64Type,
 }
 
 // FastACLSiteACLFastACLRulesPrefixModel represents prefix block
@@ -547,14 +548,23 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 				MarkdownDescription: "[OneOf: re_acl, site_acl] Fast ACL for RE. Fast ACL definition for RE.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_public_vips", "default_tenant_vip"), validators.ConflictingObjectAttributes("all_public_vips", "selected_tenant_vip"), validators.ConflictingObjectAttributes("default_tenant_vip", "selected_tenant_vip")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"all_public_vips": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"all_public_vips": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Object{
+							objectplanmodifier.UseStateForUnknown(),
+						},
+						AttributeTypes: map[string]attr.Type{},
 					},
-					"default_tenant_vip": schema.SingleNestedBlock{
+					"default_tenant_vip": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+				},
+				Blocks: map[string]schema.Block{
 					"fast_acl_rules": schema.ListNestedBlock{
 						MarkdownDescription: "Rules. Fast ACL rules to match. Defaults to `[]`. Server applies default when omitted.",
 						Validators:          []validator.List{validators.ConflictingListObjectAttributes("ip_prefix_set", "prefix")},
@@ -724,20 +734,22 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Validators:          []validator.List{validators.ConflictingListObjectAttributes("all", "dns"), validators.ConflictingListObjectAttributes("all", "user_defined"), validators.ConflictingListObjectAttributes("dns", "user_defined")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
+											"all": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+											"dns": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
 											"user_defined": schema.Int64Attribute{
 												MarkdownDescription: "Exclusive with [all DNS] Matches the user defined port.",
 												Optional:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 65535),
 												},
-											},
-										},
-										Blocks: map[string]schema.Block{
-											"all": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
-											"dns": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
 											},
 										},
 									},
@@ -809,11 +821,34 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 				MarkdownDescription: "Fast ACL for Site. Fast ACL definition for Site.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_services", "interface_services"), validators.ConflictingObjectAttributes("all_services", "vip_services"), validators.ConflictingObjectAttributes("inside_network", "outside_network"), validators.ConflictingObjectAttributes("interface_services", "vip_services")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"all_services": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"all_services": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for all services.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+					"inside_network": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for inside network.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"interface_services": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for interface services.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"outside_network": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for outside network.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"vip_services": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Blocks: map[string]schema.Block{
 					"fast_acl_rules": schema.ListNestedBlock{
 						MarkdownDescription: "Rules. Fast ACL rules to match.",
 						Validators:          []validator.List{validators.ConflictingListObjectAttributes("ip_prefix_set", "prefix")},
@@ -983,20 +1018,22 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Validators:          []validator.List{validators.ConflictingListObjectAttributes("all", "dns"), validators.ConflictingListObjectAttributes("all", "user_defined"), validators.ConflictingListObjectAttributes("dns", "user_defined")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
+											"all": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+											"dns": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
 											"user_defined": schema.Int64Attribute{
 												MarkdownDescription: "Exclusive with [all DNS] Matches the user defined port.",
 												Optional:            true,
 												Validators: []validator.Int64{
 													int64validator.Between(1, 65535),
 												},
-											},
-										},
-										Blocks: map[string]schema.Block{
-											"all": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
-											"dns": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
 											},
 										},
 									},
@@ -1016,18 +1053,6 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 							},
 						},
-					},
-					"inside_network": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for inside network.",
-					},
-					"interface_services": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for interface services.",
-					},
-					"outside_network": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for outside network.",
-					},
-					"vip_services": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 				},
 			},
@@ -1169,10 +1194,10 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 	}
 	if data.REACL != nil {
 		REACLMap := make(map[string]interface{})
-		if data.REACL.AllPublicVips != nil {
+		if !data.REACL.AllPublicVips.IsNull() && !data.REACL.AllPublicVips.IsUnknown() {
 			REACLMap["all_public_vips"] = map[string]interface{}{}
 		}
-		if data.REACL.DefaultTenantVIP != nil {
+		if !data.REACL.DefaultTenantVIP.IsNull() && !data.REACL.DefaultTenantVIP.IsUnknown() {
 			REACLMap["default_tenant_vip"] = map[string]interface{}{}
 		}
 		if !data.REACL.FastACLRules.IsNull() && !data.REACL.FastACLRules.IsUnknown() {
@@ -1277,10 +1302,10 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 							var PortList []map[string]interface{}
 							for _, PortItem := range PortElems {
 								PortItemMap := make(map[string]interface{})
-								if PortItem.All != nil {
+								if !PortItem.All.IsNull() && !PortItem.All.IsUnknown() {
 									PortItemMap["all"] = map[string]interface{}{}
 								}
-								if PortItem.DNS != nil {
+								if !PortItem.DNS.IsNull() && !PortItem.DNS.IsUnknown() {
 									PortItemMap["dns"] = map[string]interface{}{}
 								}
 								if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
@@ -1338,7 +1363,7 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 	}
 	if data.SiteACL != nil {
 		SiteACLMap := make(map[string]interface{})
-		if data.SiteACL.AllServices != nil {
+		if !data.SiteACL.AllServices.IsNull() && !data.SiteACL.AllServices.IsUnknown() {
 			SiteACLMap["all_services"] = map[string]interface{}{}
 		}
 		if !data.SiteACL.FastACLRules.IsNull() && !data.SiteACL.FastACLRules.IsUnknown() {
@@ -1443,10 +1468,10 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 							var PortList []map[string]interface{}
 							for _, PortItem := range PortElems {
 								PortItemMap := make(map[string]interface{})
-								if PortItem.All != nil {
+								if !PortItem.All.IsNull() && !PortItem.All.IsUnknown() {
 									PortItemMap["all"] = map[string]interface{}{}
 								}
-								if PortItem.DNS != nil {
+								if !PortItem.DNS.IsNull() && !PortItem.DNS.IsUnknown() {
 									PortItemMap["dns"] = map[string]interface{}{}
 								}
 								if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
@@ -1474,16 +1499,16 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 				SiteACLMap["fast_acl_rules"] = FastACLRulesList
 			}
 		}
-		if data.SiteACL.InsideNetwork != nil {
+		if !data.SiteACL.InsideNetwork.IsNull() && !data.SiteACL.InsideNetwork.IsUnknown() {
 			SiteACLMap["inside_network"] = map[string]interface{}{}
 		}
-		if data.SiteACL.InterfaceServices != nil {
+		if !data.SiteACL.InterfaceServices.IsNull() && !data.SiteACL.InterfaceServices.IsUnknown() {
 			SiteACLMap["interface_services"] = map[string]interface{}{}
 		}
-		if data.SiteACL.OutsideNetwork != nil {
+		if !data.SiteACL.OutsideNetwork.IsNull() && !data.SiteACL.OutsideNetwork.IsUnknown() {
 			SiteACLMap["outside_network"] = map[string]interface{}{}
 		}
-		if data.SiteACL.VIPServices != nil {
+		if !data.SiteACL.VIPServices.IsNull() && !data.SiteACL.VIPServices.IsUnknown() {
 			SiteACLMap["vip_services"] = map[string]interface{}{}
 		}
 		createReq.Spec["site_acl"] = SiteACLMap
@@ -1551,23 +1576,23 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 	}
 	if blockData, ok := apiResource.Spec["re_acl"].(map[string]interface{}); ok && (isImport || data.REACL != nil) {
 		data.REACL = &FastACLREACLModel{
-			AllPublicVips: func() *FastACLEmptyModel {
-				if !isImport && data.REACL != nil {
+			AllPublicVips: func() types.Object {
+				if !isImport && data.REACL != nil && !data.REACL.AllPublicVips.IsUnknown() {
 					return data.REACL.AllPublicVips
 				}
 				if _, ok := blockData["all_public_vips"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultTenantVIP: func() *FastACLEmptyModel {
-				if !isImport && data.REACL != nil {
+			DefaultTenantVIP: func() types.Object {
+				if !isImport && data.REACL != nil && !data.REACL.DefaultTenantVIP.IsUnknown() {
 					return data.REACL.DefaultTenantVIP
 				}
 				if _, ok := blockData["default_tenant_vip"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			FastACLRules: func() types.List {
 				if !isImport && data.REACL != nil && (data.REACL.FastACLRules.IsNull() || len(data.REACL.FastACLRules.Elements()) == 0) {
@@ -1806,23 +1831,23 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 											_ = PortIdx
 											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
 												PortResult = append(PortResult, FastACLREACLFastACLRulesPortModel{
-													All: func() *FastACLEmptyModel {
-														if !isImport && len(PortExisting) > PortIdx {
+													All: func() types.Object {
+														if !isImport && len(PortExisting) > PortIdx && !PortExisting[PortIdx].All.IsUnknown() {
 															return PortExisting[PortIdx].All
 														}
 														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
-															return &FastACLEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
-													DNS: func() *FastACLEmptyModel {
-														if !isImport && len(PortExisting) > PortIdx {
+													DNS: func() types.Object {
+														if !isImport && len(PortExisting) > PortIdx && !PortExisting[PortIdx].DNS.IsUnknown() {
 															return PortExisting[PortIdx].DNS
 														}
 														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
-															return &FastACLEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
 													UserDefined: func() types.Int64 {
 														if v, ok := PortItemMap["user_defined"].(float64); ok && v != 0 {
@@ -1927,14 +1952,14 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 	}
 	if blockData, ok := apiResource.Spec["site_acl"].(map[string]interface{}); ok && (isImport || data.SiteACL != nil) {
 		data.SiteACL = &FastACLSiteACLModel{
-			AllServices: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			AllServices: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.AllServices.IsUnknown() {
 					return data.SiteACL.AllServices
 				}
 				if _, ok := blockData["all_services"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			FastACLRules: func() types.List {
 				if !isImport && data.SiteACL != nil && (data.SiteACL.FastACLRules.IsNull() || len(data.SiteACL.FastACLRules.Elements()) == 0) {
@@ -2173,23 +2198,23 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 											_ = PortIdx
 											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
 												PortResult = append(PortResult, FastACLSiteACLFastACLRulesPortModel{
-													All: func() *FastACLEmptyModel {
-														if !isImport && len(PortExisting) > PortIdx {
+													All: func() types.Object {
+														if !isImport && len(PortExisting) > PortIdx && !PortExisting[PortIdx].All.IsUnknown() {
 															return PortExisting[PortIdx].All
 														}
 														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
-															return &FastACLEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
-													DNS: func() *FastACLEmptyModel {
-														if !isImport && len(PortExisting) > PortIdx {
+													DNS: func() types.Object {
+														if !isImport && len(PortExisting) > PortIdx && !PortExisting[PortIdx].DNS.IsUnknown() {
 															return PortExisting[PortIdx].DNS
 														}
 														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
-															return &FastACLEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
 													UserDefined: func() types.Int64 {
 														if v, ok := PortItemMap["user_defined"].(float64); ok && v != 0 {
@@ -2234,41 +2259,41 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 				}
 				return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes})
 			}(),
-			InsideNetwork: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			InsideNetwork: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.InsideNetwork.IsUnknown() {
 					return data.SiteACL.InsideNetwork
 				}
 				if _, ok := blockData["inside_network"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			InterfaceServices: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			InterfaceServices: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.InterfaceServices.IsUnknown() {
 					return data.SiteACL.InterfaceServices
 				}
 				if _, ok := blockData["interface_services"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			OutsideNetwork: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			OutsideNetwork: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.OutsideNetwork.IsUnknown() {
 					return data.SiteACL.OutsideNetwork
 				}
 				if _, ok := blockData["outside_network"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			VIPServices: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			VIPServices: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.VIPServices.IsUnknown() {
 					return data.SiteACL.VIPServices
 				}
 				if _, ok := blockData["vip_services"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -2427,23 +2452,23 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 	}
 	if blockData, ok := apiResource.Spec["re_acl"].(map[string]interface{}); ok && (isImport || data.REACL != nil) {
 		data.REACL = &FastACLREACLModel{
-			AllPublicVips: func() *FastACLEmptyModel {
-				if !isImport && data.REACL != nil {
+			AllPublicVips: func() types.Object {
+				if !isImport && data.REACL != nil && !data.REACL.AllPublicVips.IsUnknown() {
 					return data.REACL.AllPublicVips
 				}
 				if _, ok := blockData["all_public_vips"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultTenantVIP: func() *FastACLEmptyModel {
-				if !isImport && data.REACL != nil {
+			DefaultTenantVIP: func() types.Object {
+				if !isImport && data.REACL != nil && !data.REACL.DefaultTenantVIP.IsUnknown() {
 					return data.REACL.DefaultTenantVIP
 				}
 				if _, ok := blockData["default_tenant_vip"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			FastACLRules: func() types.List {
 				if !isImport && data.REACL != nil && (data.REACL.FastACLRules.IsNull() || len(data.REACL.FastACLRules.Elements()) == 0) {
@@ -2682,23 +2707,23 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 											_ = PortIdx
 											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
 												PortResult = append(PortResult, FastACLREACLFastACLRulesPortModel{
-													All: func() *FastACLEmptyModel {
-														if !isImport && len(PortExisting) > PortIdx {
+													All: func() types.Object {
+														if !isImport && len(PortExisting) > PortIdx && !PortExisting[PortIdx].All.IsUnknown() {
 															return PortExisting[PortIdx].All
 														}
 														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
-															return &FastACLEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
-													DNS: func() *FastACLEmptyModel {
-														if !isImport && len(PortExisting) > PortIdx {
+													DNS: func() types.Object {
+														if !isImport && len(PortExisting) > PortIdx && !PortExisting[PortIdx].DNS.IsUnknown() {
 															return PortExisting[PortIdx].DNS
 														}
 														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
-															return &FastACLEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
 													UserDefined: func() types.Int64 {
 														if v, ok := PortItemMap["user_defined"].(float64); ok && v != 0 {
@@ -2803,14 +2828,14 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 	}
 	if blockData, ok := apiResource.Spec["site_acl"].(map[string]interface{}); ok && (isImport || data.SiteACL != nil) {
 		data.SiteACL = &FastACLSiteACLModel{
-			AllServices: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			AllServices: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.AllServices.IsUnknown() {
 					return data.SiteACL.AllServices
 				}
 				if _, ok := blockData["all_services"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			FastACLRules: func() types.List {
 				if !isImport && data.SiteACL != nil && (data.SiteACL.FastACLRules.IsNull() || len(data.SiteACL.FastACLRules.Elements()) == 0) {
@@ -3049,23 +3074,23 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 											_ = PortIdx
 											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
 												PortResult = append(PortResult, FastACLSiteACLFastACLRulesPortModel{
-													All: func() *FastACLEmptyModel {
-														if !isImport && len(PortExisting) > PortIdx {
+													All: func() types.Object {
+														if !isImport && len(PortExisting) > PortIdx && !PortExisting[PortIdx].All.IsUnknown() {
 															return PortExisting[PortIdx].All
 														}
 														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
-															return &FastACLEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
-													DNS: func() *FastACLEmptyModel {
-														if !isImport && len(PortExisting) > PortIdx {
+													DNS: func() types.Object {
+														if !isImport && len(PortExisting) > PortIdx && !PortExisting[PortIdx].DNS.IsUnknown() {
 															return PortExisting[PortIdx].DNS
 														}
 														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
-															return &FastACLEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
 													UserDefined: func() types.Int64 {
 														if v, ok := PortItemMap["user_defined"].(float64); ok && v != 0 {
@@ -3110,41 +3135,41 @@ func (r *FastACLResource) Read(ctx context.Context, req resource.ReadRequest, re
 				}
 				return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes})
 			}(),
-			InsideNetwork: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			InsideNetwork: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.InsideNetwork.IsUnknown() {
 					return data.SiteACL.InsideNetwork
 				}
 				if _, ok := blockData["inside_network"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			InterfaceServices: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			InterfaceServices: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.InterfaceServices.IsUnknown() {
 					return data.SiteACL.InterfaceServices
 				}
 				if _, ok := blockData["interface_services"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			OutsideNetwork: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			OutsideNetwork: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.OutsideNetwork.IsUnknown() {
 					return data.SiteACL.OutsideNetwork
 				}
 				if _, ok := blockData["outside_network"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			VIPServices: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			VIPServices: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.VIPServices.IsUnknown() {
 					return data.SiteACL.VIPServices
 				}
 				if _, ok := blockData["vip_services"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -3254,10 +3279,10 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 	}
 	if data.REACL != nil {
 		REACLMap := make(map[string]interface{})
-		if data.REACL.AllPublicVips != nil {
+		if !data.REACL.AllPublicVips.IsNull() && !data.REACL.AllPublicVips.IsUnknown() {
 			REACLMap["all_public_vips"] = map[string]interface{}{}
 		}
-		if data.REACL.DefaultTenantVIP != nil {
+		if !data.REACL.DefaultTenantVIP.IsNull() && !data.REACL.DefaultTenantVIP.IsUnknown() {
 			REACLMap["default_tenant_vip"] = map[string]interface{}{}
 		}
 		if !data.REACL.FastACLRules.IsNull() && !data.REACL.FastACLRules.IsUnknown() {
@@ -3362,10 +3387,10 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 							var PortList []map[string]interface{}
 							for _, PortItem := range PortElems {
 								PortItemMap := make(map[string]interface{})
-								if PortItem.All != nil {
+								if !PortItem.All.IsNull() && !PortItem.All.IsUnknown() {
 									PortItemMap["all"] = map[string]interface{}{}
 								}
-								if PortItem.DNS != nil {
+								if !PortItem.DNS.IsNull() && !PortItem.DNS.IsUnknown() {
 									PortItemMap["dns"] = map[string]interface{}{}
 								}
 								if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
@@ -3423,7 +3448,7 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 	}
 	if data.SiteACL != nil {
 		SiteACLMap := make(map[string]interface{})
-		if data.SiteACL.AllServices != nil {
+		if !data.SiteACL.AllServices.IsNull() && !data.SiteACL.AllServices.IsUnknown() {
 			SiteACLMap["all_services"] = map[string]interface{}{}
 		}
 		if !data.SiteACL.FastACLRules.IsNull() && !data.SiteACL.FastACLRules.IsUnknown() {
@@ -3528,10 +3553,10 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 							var PortList []map[string]interface{}
 							for _, PortItem := range PortElems {
 								PortItemMap := make(map[string]interface{})
-								if PortItem.All != nil {
+								if !PortItem.All.IsNull() && !PortItem.All.IsUnknown() {
 									PortItemMap["all"] = map[string]interface{}{}
 								}
-								if PortItem.DNS != nil {
+								if !PortItem.DNS.IsNull() && !PortItem.DNS.IsUnknown() {
 									PortItemMap["dns"] = map[string]interface{}{}
 								}
 								if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
@@ -3559,16 +3584,16 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 				SiteACLMap["fast_acl_rules"] = FastACLRulesList
 			}
 		}
-		if data.SiteACL.InsideNetwork != nil {
+		if !data.SiteACL.InsideNetwork.IsNull() && !data.SiteACL.InsideNetwork.IsUnknown() {
 			SiteACLMap["inside_network"] = map[string]interface{}{}
 		}
-		if data.SiteACL.InterfaceServices != nil {
+		if !data.SiteACL.InterfaceServices.IsNull() && !data.SiteACL.InterfaceServices.IsUnknown() {
 			SiteACLMap["interface_services"] = map[string]interface{}{}
 		}
-		if data.SiteACL.OutsideNetwork != nil {
+		if !data.SiteACL.OutsideNetwork.IsNull() && !data.SiteACL.OutsideNetwork.IsUnknown() {
 			SiteACLMap["outside_network"] = map[string]interface{}{}
 		}
-		if data.SiteACL.VIPServices != nil {
+		if !data.SiteACL.VIPServices.IsNull() && !data.SiteACL.VIPServices.IsUnknown() {
 			SiteACLMap["vip_services"] = map[string]interface{}{}
 		}
 		apiResource.Spec["site_acl"] = SiteACLMap
@@ -3656,23 +3681,23 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 	}
 	if blockData, ok := apiResource.Spec["re_acl"].(map[string]interface{}); ok && (isImport || data.REACL != nil) {
 		data.REACL = &FastACLREACLModel{
-			AllPublicVips: func() *FastACLEmptyModel {
-				if !isImport && data.REACL != nil {
+			AllPublicVips: func() types.Object {
+				if !isImport && data.REACL != nil && !data.REACL.AllPublicVips.IsUnknown() {
 					return data.REACL.AllPublicVips
 				}
 				if _, ok := blockData["all_public_vips"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultTenantVIP: func() *FastACLEmptyModel {
-				if !isImport && data.REACL != nil {
+			DefaultTenantVIP: func() types.Object {
+				if !isImport && data.REACL != nil && !data.REACL.DefaultTenantVIP.IsUnknown() {
 					return data.REACL.DefaultTenantVIP
 				}
 				if _, ok := blockData["default_tenant_vip"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			FastACLRules: func() types.List {
 				if !isImport && data.REACL != nil && (data.REACL.FastACLRules.IsNull() || len(data.REACL.FastACLRules.Elements()) == 0) {
@@ -3911,23 +3936,23 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 											_ = PortIdx
 											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
 												PortResult = append(PortResult, FastACLREACLFastACLRulesPortModel{
-													All: func() *FastACLEmptyModel {
-														if !isImport && len(PortExisting) > PortIdx {
+													All: func() types.Object {
+														if !isImport && len(PortExisting) > PortIdx && !PortExisting[PortIdx].All.IsUnknown() {
 															return PortExisting[PortIdx].All
 														}
 														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
-															return &FastACLEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
-													DNS: func() *FastACLEmptyModel {
-														if !isImport && len(PortExisting) > PortIdx {
+													DNS: func() types.Object {
+														if !isImport && len(PortExisting) > PortIdx && !PortExisting[PortIdx].DNS.IsUnknown() {
 															return PortExisting[PortIdx].DNS
 														}
 														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
-															return &FastACLEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
 													UserDefined: func() types.Int64 {
 														if v, ok := PortItemMap["user_defined"].(float64); ok && v != 0 {
@@ -4032,14 +4057,14 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 	}
 	if blockData, ok := apiResource.Spec["site_acl"].(map[string]interface{}); ok && (isImport || data.SiteACL != nil) {
 		data.SiteACL = &FastACLSiteACLModel{
-			AllServices: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			AllServices: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.AllServices.IsUnknown() {
 					return data.SiteACL.AllServices
 				}
 				if _, ok := blockData["all_services"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			FastACLRules: func() types.List {
 				if !isImport && data.SiteACL != nil && (data.SiteACL.FastACLRules.IsNull() || len(data.SiteACL.FastACLRules.Elements()) == 0) {
@@ -4278,23 +4303,23 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 											_ = PortIdx
 											if PortItemMap, ok := PortItem.(map[string]interface{}); ok {
 												PortResult = append(PortResult, FastACLSiteACLFastACLRulesPortModel{
-													All: func() *FastACLEmptyModel {
-														if !isImport && len(PortExisting) > PortIdx {
+													All: func() types.Object {
+														if !isImport && len(PortExisting) > PortIdx && !PortExisting[PortIdx].All.IsUnknown() {
 															return PortExisting[PortIdx].All
 														}
 														if _, ok := PortItemMap["all"].(map[string]interface{}); ok {
-															return &FastACLEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
-													DNS: func() *FastACLEmptyModel {
-														if !isImport && len(PortExisting) > PortIdx {
+													DNS: func() types.Object {
+														if !isImport && len(PortExisting) > PortIdx && !PortExisting[PortIdx].DNS.IsUnknown() {
 															return PortExisting[PortIdx].DNS
 														}
 														if _, ok := PortItemMap["dns"].(map[string]interface{}); ok {
-															return &FastACLEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
 													UserDefined: func() types.Int64 {
 														if v, ok := PortItemMap["user_defined"].(float64); ok && v != 0 {
@@ -4339,41 +4364,41 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 				}
 				return types.ListNull(types.ObjectType{AttrTypes: FastACLSiteACLFastACLRulesModelAttrTypes})
 			}(),
-			InsideNetwork: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			InsideNetwork: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.InsideNetwork.IsUnknown() {
 					return data.SiteACL.InsideNetwork
 				}
 				if _, ok := blockData["inside_network"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			InterfaceServices: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			InterfaceServices: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.InterfaceServices.IsUnknown() {
 					return data.SiteACL.InterfaceServices
 				}
 				if _, ok := blockData["interface_services"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			OutsideNetwork: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			OutsideNetwork: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.OutsideNetwork.IsUnknown() {
 					return data.SiteACL.OutsideNetwork
 				}
 				if _, ok := blockData["outside_network"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			VIPServices: func() *FastACLEmptyModel {
-				if !isImport && data.SiteACL != nil {
+			VIPServices: func() types.Object {
+				if !isImport && data.SiteACL != nil && !data.SiteACL.VIPServices.IsUnknown() {
 					return data.SiteACL.VIPServices
 				}
 				if _, ok := blockData["vip_services"].(map[string]interface{}); ok {
-					return &FastACLEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

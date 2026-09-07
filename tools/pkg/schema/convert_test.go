@@ -584,3 +584,23 @@ func TestReferencePropertiesRetainOwnConflicts(t *testing.T) {
 		}
 	}
 }
+
+func TestEmptyConflictingObjectUsesNullableAttribute(t *testing.T) {
+	spec := &openapi.Spec{Components: openapi.Components{Schemas: map[string]openapi.Schema{
+		"Empty": {Type: "object"},
+	}}}
+	for _, wrapper := range []string{"ref", "allOf"} {
+		t.Run(wrapper, func(t *testing.T) {
+			property := openapi.Schema{XF5XCConflictsWith: []string{"other"}}
+			if wrapper == "ref" {
+				property.Ref = "#/components/schemas/Empty"
+			} else {
+				property.AllOf = []openapi.Schema{{Ref: "#/components/schemas/Empty"}}
+			}
+			got := ConvertToTerraformAttributeWithDepth("marker", property, false, "choice", spec, 2, "parent.marker")
+			if got.IsBlock || got.Type != "object" || !got.EmptyObjectMarker || !got.Optional {
+				t.Fatalf("empty choice marker must preserve unknown presence as an object attribute: %+v", got)
+			}
+		})
+	}
+}

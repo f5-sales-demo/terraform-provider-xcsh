@@ -93,7 +93,7 @@ resource "xcsh_protocol_policer" "test" {
 
   protocol_policer {
     protocol {
-      dns {}
+      dns = {}
     }
 
     policer {

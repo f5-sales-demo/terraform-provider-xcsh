@@ -39,7 +39,7 @@ resource "xcsh_log_receiver" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -97,11 +97,11 @@ A [`tcp_server`](#syslog-tcp-server) block (within [`syslog`](#syslog)) supports
 
 A [`tls_server`](#syslog-tls-server) block (within [`syslog`](#syslog)) supports the following:
 
-<a id="syslog-tls-server-default-https-port"></a>&#x2022; [`default_https_port`](#syslog-tls-server-default-https-port) - Optional Block<br>Enable this option
+<a id="syslog-tls-server-default-https-port"></a>&#x2022; [`default_https_port`](#syslog-tls-server-default-https-port) - Optional Object<br>Enable this option
 
-<a id="port-c39d1c"></a>&#x2022; [`default_syslog_tls_port`](#port-c39d1c) - Optional Block<br>Enable this option
+<a id="port-c39d1c"></a>&#x2022; [`default_syslog_tls_port`](#port-c39d1c) - Optional Object<br>Enable this option
 
-<a id="syslog-tls-server-mtls-disabled"></a>&#x2022; [`mtls_disabled`](#syslog-tls-server-mtls-disabled) - Optional Block<br>Enable this option
+<a id="syslog-tls-server-mtls-disabled"></a>&#x2022; [`mtls_disabled`](#syslog-tls-server-mtls-disabled) - Optional Object<br>Enable this option
 
 <a id="syslog-tls-server-mtls-enable"></a>&#x2022; [`mtls_enable`](#syslog-tls-server-mtls-enable) - Optional Block<br>Configuration parameter for mTLS enable<br>See [mTLS Enable](#syslog-tls-server-mtls-enable) below.
 
@@ -111,7 +111,19 @@ A [`tls_server`](#syslog-tls-server) block (within [`syslog`](#syslog)) supports
 
 <a id="syslog-tls-server-trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#syslog-tls-server-trusted-ca-url) - Optional String<br>The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers
 
-<a id="syslog-tls-server-volterra-ca"></a>&#x2022; [`volterra_ca`](#syslog-tls-server-volterra-ca) - Optional Block<br>Configuration parameter for volterra CA
+<a id="syslog-tls-server-volterra-ca"></a>&#x2022; [`volterra_ca`](#syslog-tls-server-volterra-ca) - Optional Object<br>Configuration parameter for volterra CA
+
+#### Syslog TLS Server Default HTTPS Port
+
+A [`default_https_port`](#syslog-tls-server-default-https-port) block (within [`syslog.tls_server`](#syslog-tls-server)) supports the following:
+
+#### Syslog TLS Server Default Syslog TLS Port
+
+A [`default_syslog_tls_port`](#port-c39d1c) block (within [`syslog.tls_server`](#syslog-tls-server)) supports the following:
+
+#### Syslog TLS Server mTLS Disabled
+
+A [`mtls_disabled`](#syslog-tls-server-mtls-disabled) block (within [`syslog.tls_server`](#syslog-tls-server)) supports the following:
 
 #### Syslog TLS Server mTLS Enable
 
@@ -136,6 +148,10 @@ A [`key_url`](#syslog-tls-server-mtls-enable-key-url) block (within [`syslog.tls
 #### Syslog TLS Server mTLS Enable Key URL Clear Secret Info
 
 <a id="deep-fa3192"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Syslog TLS Server Volterra CA
+
+A [`volterra_ca`](#syslog-tls-server-volterra-ca) block (within [`syslog.tls_server`](#syslog-tls-server)) supports the following:
 
 #### Syslog UDP Server
 

@@ -39,7 +39,7 @@ resource "xcsh_authentication" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -84,7 +84,7 @@ A [`cookie_params`](#cookie-params) block supports the following:
 <a id="cookie-params-cookie-refresh-interval"></a>&#x2022; [`cookie_refresh_interval`](#cookie-params-cookie-refresh-interval) - Optional Number<br>Specifies in seconds refresh interval for session cookie. This is used to keep the active user active and reduce RE-login. When an incoming cookie's session expiry is still valid, and time to expire falls behind this interval, RE-issue a cookie with
 new expiry and with the same original session
 
-<a id="cookie-params-kms-key-hmac"></a>&#x2022; [`kms_key_hmac`](#cookie-params-kms-key-hmac) - Optional Block<br>Configuration parameter for kms key HMAC
+<a id="cookie-params-kms-key-hmac"></a>&#x2022; [`kms_key_hmac`](#cookie-params-kms-key-hmac) - Optional Object<br>Configuration parameter for kms key HMAC
 
 <a id="cookie-params-session-expiry"></a>&#x2022; [`session_expiry`](#cookie-params-session-expiry) - Optional Number<br>Specifies in seconds max lifetime of an authenticated session after which the user will be forced to login again. Default session expiry is 86400 seconds(24 hours)
 
@@ -131,6 +131,10 @@ A [`sec_key`](#cookie-params-auth-hmac-sec-key) block (within [`cookie_params.au
 #### Cookie Params Auth HMAC Sec Key Clear Secret Info
 
 <a id="deep-636e81"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Cookie Params Kms Key HMAC
+
+A [`kms_key_hmac`](#cookie-params-kms-key-hmac) block (within [`cookie_params`](#cookie-params)) supports the following:
 
 #### OIDC Auth
 

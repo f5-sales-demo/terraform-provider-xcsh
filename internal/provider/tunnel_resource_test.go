@@ -110,9 +110,9 @@ resource "xcsh_tunnel" "test" {
 
   local_ip {
     ip_address {
-      auto {}
+      auto = {}
       virtual_network_type {
-        site_local {}
+        site_local = {}
       }
     }
   }

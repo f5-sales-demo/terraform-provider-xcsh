@@ -129,9 +129,9 @@ var ClusterHttp1ConfigModelAttrTypes = map[string]attr.Type{
 
 // ClusterHttp1ConfigHeaderTransformationModel represents header_transformation block
 type ClusterHttp1ConfigHeaderTransformationModel struct {
-	DefaultHeaderTransformation      *ClusterEmptyModel `tfsdk:"default_header_transformation"`
-	PreserveCaseHeaderTransformation *ClusterEmptyModel `tfsdk:"preserve_case_header_transformation"`
-	ProperCaseHeaderTransformation   *ClusterEmptyModel `tfsdk:"proper_case_header_transformation"`
+	DefaultHeaderTransformation      types.Object `tfsdk:"default_header_transformation"`
+	PreserveCaseHeaderTransformation types.Object `tfsdk:"preserve_case_header_transformation"`
+	ProperCaseHeaderTransformation   types.Object `tfsdk:"proper_case_header_transformation"`
 }
 
 // ClusterHttp1ConfigHeaderTransformationModelAttrTypes defines the attribute types for ClusterHttp1ConfigHeaderTransformationModel
@@ -171,26 +171,26 @@ var ClusterOutlierDetectionModelAttrTypes = map[string]attr.Type{
 
 // ClusterTLSParametersModel represents tls_parameters block
 type ClusterTLSParametersModel struct {
+	DefaultSessionKeyCaching types.Object                           `tfsdk:"default_session_key_caching"`
+	DisableSessionKeyCaching types.Object                           `tfsdk:"disable_session_key_caching"`
+	DisableSni               types.Object                           `tfsdk:"disable_sni"`
 	MaxSessionKeys           types.Int64                            `tfsdk:"max_session_keys"`
 	Sni                      types.String                           `tfsdk:"sni"`
+	UseHostHeaderAsSni       types.Object                           `tfsdk:"use_host_header_as_sni"`
 	CertParams               *ClusterTLSParametersCertParamsModel   `tfsdk:"cert_params"`
 	CommonParams             *ClusterTLSParametersCommonParamsModel `tfsdk:"common_params"`
-	DefaultSessionKeyCaching *ClusterEmptyModel                     `tfsdk:"default_session_key_caching"`
-	DisableSessionKeyCaching *ClusterEmptyModel                     `tfsdk:"disable_session_key_caching"`
-	DisableSni               *ClusterEmptyModel                     `tfsdk:"disable_sni"`
-	UseHostHeaderAsSni       *ClusterEmptyModel                     `tfsdk:"use_host_header_as_sni"`
 }
 
 // ClusterTLSParametersModelAttrTypes defines the attribute types for ClusterTLSParametersModel
 var ClusterTLSParametersModelAttrTypes = map[string]attr.Type{
-	"max_session_keys":            types.Int64Type,
-	"sni":                         types.StringType,
-	"cert_params":                 types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsModelAttrTypes},
-	"common_params":               types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsModelAttrTypes},
 	"default_session_key_caching": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_session_key_caching": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_sni":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_session_keys":            types.Int64Type,
+	"sni":                         types.StringType,
 	"use_host_header_as_sni":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"cert_params":                 types.ObjectType{AttrTypes: ClusterTLSParametersCertParamsModelAttrTypes},
+	"common_params":               types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsModelAttrTypes},
 }
 
 // ClusterTLSParametersCertParamsModel represents cert_params block
@@ -295,20 +295,20 @@ var ClusterTLSParametersCommonParamsModelAttrTypes = map[string]attr.Type{
 type ClusterTLSParametersCommonParamsTLSCertificatesModel struct {
 	CertificateURL       types.String                                                              `tfsdk:"certificate_url"`
 	DescriptionSpec      types.String                                                              `tfsdk:"description_spec"`
+	DisableOCSPStapling  types.Object                                                              `tfsdk:"disable_ocsp_stapling"`
+	UseSystemDefaults    types.Object                                                              `tfsdk:"use_system_defaults"`
 	CustomHashAlgorithms *ClusterTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel `tfsdk:"custom_hash_algorithms"`
-	DisableOCSPStapling  *ClusterEmptyModel                                                        `tfsdk:"disable_ocsp_stapling"`
 	PrivateKey           *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel           `tfsdk:"private_key"`
-	UseSystemDefaults    *ClusterEmptyModel                                                        `tfsdk:"use_system_defaults"`
 }
 
 // ClusterTLSParametersCommonParamsTLSCertificatesModelAttrTypes defines the attribute types for ClusterTLSParametersCommonParamsTLSCertificatesModel
 var ClusterTLSParametersCommonParamsTLSCertificatesModelAttrTypes = map[string]attr.Type{
 	"certificate_url":        types.StringType,
 	"description_spec":       types.StringType,
-	"custom_hash_algorithms": types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
 	"disable_ocsp_stapling":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"private_key":            types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModelAttrTypes},
 	"use_system_defaults":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_hash_algorithms": types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
+	"private_key":            types.ObjectType{AttrTypes: ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModelAttrTypes},
 }
 
 // ClusterTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel represents custom_hash_algorithms block
@@ -405,8 +405,8 @@ var ClusterTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModelA
 
 // ClusterUpstreamConnPoolReuseTypeModel represents upstream_conn_pool_reuse_type block
 type ClusterUpstreamConnPoolReuseTypeModel struct {
-	DisableConnPoolReuse *ClusterEmptyModel `tfsdk:"disable_conn_pool_reuse"`
-	EnableConnPoolReuse  *ClusterEmptyModel `tfsdk:"enable_conn_pool_reuse"`
+	DisableConnPoolReuse types.Object `tfsdk:"disable_conn_pool_reuse"`
+	EnableConnPoolReuse  types.Object `tfsdk:"enable_conn_pool_reuse"`
 }
 
 // ClusterUpstreamConnPoolReuseTypeModelAttrTypes defines the attribute types for ClusterUpstreamConnPoolReuseTypeModel
@@ -419,9 +419,15 @@ type ClusterResourceModel struct {
 	Name                        types.String                           `tfsdk:"name"`
 	Namespace                   types.String                           `tfsdk:"namespace"`
 	Annotations                 types.Map                              `tfsdk:"annotations"`
+	AutoHTTPConfig              types.Object                           `tfsdk:"auto_http_config"`
 	Description                 types.String                           `tfsdk:"description"`
 	Disable                     types.Bool                             `tfsdk:"disable"`
+	DisableProxyProtocol        types.Object                           `tfsdk:"disable_proxy_protocol"`
 	Labels                      types.Map                              `tfsdk:"labels"`
+	NoPanicThreshold            types.Object                           `tfsdk:"no_panic_threshold"`
+	NoRequestLimitPerConnection types.Object                           `tfsdk:"no_request_limit_per_connection"`
+	ProxyProtocolV1             types.Object                           `tfsdk:"proxy_protocol_v1"`
+	ProxyProtocolV2             types.Object                           `tfsdk:"proxy_protocol_v2"`
 	ID                          types.String                           `tfsdk:"id"`
 	ConnectionTimeout           types.Int64                            `tfsdk:"connection_timeout"`
 	EndpointSelection           types.String                           `tfsdk:"endpoint_selection"`
@@ -431,20 +437,14 @@ type ClusterResourceModel struct {
 	MaxRequestsPerConnection    types.Int64                            `tfsdk:"max_requests_per_connection"`
 	PanicThreshold              types.Int64                            `tfsdk:"panic_threshold"`
 	Timeouts                    timeouts.Value                         `tfsdk:"timeouts"`
-	AutoHTTPConfig              *ClusterEmptyModel                     `tfsdk:"auto_http_config"`
 	CircuitBreaker              *ClusterCircuitBreakerModel            `tfsdk:"circuit_breaker"`
 	DefaultSubset               *ClusterEmptyModel                     `tfsdk:"default_subset"`
-	DisableProxyProtocol        *ClusterEmptyModel                     `tfsdk:"disable_proxy_protocol"`
 	EndpointSubsets             types.List                             `tfsdk:"endpoint_subsets"`
 	Endpoints                   types.List                             `tfsdk:"endpoints"`
 	HealthChecks                types.List                             `tfsdk:"health_checks"`
 	Http1Config                 *ClusterHttp1ConfigModel               `tfsdk:"http1_config"`
 	Http2Options                *ClusterHttp2OptionsModel              `tfsdk:"http2_options"`
-	NoPanicThreshold            *ClusterEmptyModel                     `tfsdk:"no_panic_threshold"`
-	NoRequestLimitPerConnection *ClusterEmptyModel                     `tfsdk:"no_request_limit_per_connection"`
 	OutlierDetection            *ClusterOutlierDetectionModel          `tfsdk:"outlier_detection"`
-	ProxyProtocolV1             *ClusterEmptyModel                     `tfsdk:"proxy_protocol_v1"`
-	ProxyProtocolV2             *ClusterEmptyModel                     `tfsdk:"proxy_protocol_v2"`
 	TLSParameters               *ClusterTLSParametersModel             `tfsdk:"tls_parameters"`
 	UpstreamConnPoolReuseType   *ClusterUpstreamConnPoolReuseTypeModel `tfsdk:"upstream_conn_pool_reuse_type"`
 }
@@ -482,6 +482,11 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"auto_http_config": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: auto_http_config, http1_config, http2_options] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
@@ -490,10 +495,35 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"disable_proxy_protocol": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable_proxy_protocol, proxy_protocol_v1, proxy_protocol_v2; Default: disable_proxy_protocol] Configuration parameter for disable proxy protocol.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"no_panic_threshold": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: no_panic_threshold, panic_threshold; Default: no_panic_threshold] Configuration parameter for no panic threshold.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_request_limit_per_connection": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for no request limit per connection.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"proxy_protocol_v1": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for proxy protocol v1.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"proxy_protocol_v2": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for proxy protocol v2.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -587,9 +617,6 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 				Update: true,
 				Delete: true,
 			}),
-			"auto_http_config": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: auto_http_config, http1_config, http2_options] Enable this option",
-			},
 			"circuit_breaker": schema.SingleNestedBlock{
 				MarkdownDescription: "CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly.",
 
@@ -633,9 +660,6 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			},
 			"default_subset": schema.SingleNestedBlock{
 				MarkdownDescription: "List of key-value pairs that define default subset. This subset can be referred in fallback_policy which gets used when route specifies no metadata or no subset matching the metadata exists.",
-			},
-			"disable_proxy_protocol": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disable_proxy_protocol, proxy_protocol_v1, proxy_protocol_v2; Default: disable_proxy_protocol] Configuration parameter for disable proxy protocol.",
 			},
 			"endpoint_subsets": schema.ListNestedBlock{
 				MarkdownDescription: "Configure endpoint groups based on metadata labels for traffic routing. Supports weighted distribution and session affinity across labeled endpoints.",
@@ -734,16 +758,21 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 					"header_transformation": schema.SingleNestedBlock{
 						MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"default_header_transformation": schema.SingleNestedBlock{
+						Attributes: map[string]schema.Attribute{
+							"default_header_transformation": schema.ObjectAttribute{
 								MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"preserve_case_header_transformation": schema.SingleNestedBlock{
+							"preserve_case_header_transformation": schema.ObjectAttribute{
 								MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"proper_case_header_transformation": schema.SingleNestedBlock{
+							"proper_case_header_transformation": schema.ObjectAttribute{
 								MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -758,12 +787,6 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 						Optional:            true,
 					},
 				},
-			},
-			"no_panic_threshold": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: no_panic_threshold, panic_threshold; Default: no_panic_threshold] Configuration parameter for no panic threshold.",
-			},
-			"no_request_limit_per_connection": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for no request limit per connection.",
 			},
 			"outlier_detection": schema.SingleNestedBlock{
 				MarkdownDescription: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1.",
@@ -806,17 +829,26 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 					},
 				},
 			},
-			"proxy_protocol_v1": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for proxy protocol v1.",
-			},
-			"proxy_protocol_v2": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for proxy protocol v2.",
-			},
 			"tls_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "TLS configuration for upstream connections.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("cert_params", "common_params"), validators.ConflictingObjectAttributes("default_session_key_caching", "disable_session_key_caching"), validators.ConflictingObjectAttributes("default_session_key_caching", "max_session_keys"), validators.ConflictingObjectAttributes("disable_session_key_caching", "max_session_keys"), validators.ConflictingObjectAttributes("disable_sni", "sni"), validators.ConflictingObjectAttributes("disable_sni", "use_host_header_as_sni"), validators.ConflictingObjectAttributes("sni", "use_host_header_as_sni")},
 
 				Attributes: map[string]schema.Attribute{
+					"default_session_key_caching": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default session key caching.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_session_key_caching": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable session key caching.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_sni": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable sni.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"max_session_keys": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [default_session_key_caching disable_session_key_caching] Number of session keys that are cached.",
 						Optional:            true,
@@ -830,6 +862,11 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(256),
 						},
+					},
+					"use_host_header_as_sni": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -1000,6 +1037,16 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "Description. Description for the certificate.",
 											Optional:            true,
 										},
+										"disable_ocsp_stapling": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"use_system_defaults": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for use system defaults.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 									},
 									Blocks: map[string]schema.Block{
 										"custom_hash_algorithms": schema.SingleNestedBlock{
@@ -1015,9 +1062,6 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 													},
 												},
 											},
-										},
-										"disable_ocsp_stapling": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
 										},
 										"private_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
@@ -1063,9 +1107,6 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 													},
 												},
 											},
-										},
-										"use_system_defaults": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for use system defaults.",
 										},
 									},
 								},
@@ -1137,31 +1178,22 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 							},
 						},
 					},
-					"default_session_key_caching": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for default session key caching.",
-					},
-					"disable_session_key_caching": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable session key caching.",
-					},
-					"disable_sni": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable sni.",
-					},
-					"use_host_header_as_sni": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 				},
 			},
 			"upstream_conn_pool_reuse_type": schema.SingleNestedBlock{
 				MarkdownDescription: "Select upstream connection pool reuse state for every downstream connection. This configuration choice is for HTTP(S) LB only.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_conn_pool_reuse", "enable_conn_pool_reuse")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_conn_pool_reuse": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_conn_pool_reuse": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for disable conn pool reuse.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"enable_conn_pool_reuse": schema.SingleNestedBlock{
+					"enable_conn_pool_reuse": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for enable conn pool reuse.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
@@ -1191,6 +1223,42 @@ func (r *ClusterResource) ValidateConfig(ctx context.Context, req resource.Valid
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.DisableProxyProtocol.IsNull() && !data.DisableProxyProtocol.IsUnknown() && !data.ProxyProtocolV1.IsNull() && !data.ProxyProtocolV1.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_proxy_protocol"),
+			"Conflicting Configuration",
+			"disable_proxy_protocol and proxy_protocol_v1 are mutually exclusive.",
+		)
+	}
+	if !data.DisableProxyProtocol.IsNull() && !data.DisableProxyProtocol.IsUnknown() && !data.ProxyProtocolV2.IsNull() && !data.ProxyProtocolV2.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_proxy_protocol"),
+			"Conflicting Configuration",
+			"disable_proxy_protocol and proxy_protocol_v2 are mutually exclusive.",
+		)
+	}
+	if !data.NoPanicThreshold.IsNull() && !data.NoPanicThreshold.IsUnknown() && !data.PanicThreshold.IsNull() && !data.PanicThreshold.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_panic_threshold"),
+			"Conflicting Configuration",
+			"no_panic_threshold and panic_threshold are mutually exclusive.",
+		)
+	}
+	if !data.NoRequestLimitPerConnection.IsNull() && !data.NoRequestLimitPerConnection.IsUnknown() && !data.MaxRequestsPerConnection.IsNull() && !data.MaxRequestsPerConnection.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_request_limit_per_connection"),
+			"Conflicting Configuration",
+			"no_request_limit_per_connection and max_requests_per_connection are mutually exclusive.",
+		)
+	}
+	if !data.ProxyProtocolV1.IsNull() && !data.ProxyProtocolV1.IsUnknown() && !data.ProxyProtocolV2.IsNull() && !data.ProxyProtocolV2.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("proxy_protocol_v1"),
+			"Conflicting Configuration",
+			"proxy_protocol_v1 and proxy_protocol_v2 are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -1291,7 +1359,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.AutoHTTPConfig != nil {
+	if !data.AutoHTTPConfig.IsNull() && !data.AutoHTTPConfig.IsUnknown() {
 		createReq.Spec["auto_http_config"] = map[string]interface{}{}
 	}
 	if data.CircuitBreaker != nil {
@@ -1316,7 +1384,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 	if data.DefaultSubset != nil {
 		createReq.Spec["default_subset"] = map[string]interface{}{}
 	}
-	if data.DisableProxyProtocol != nil {
+	if !data.DisableProxyProtocol.IsNull() && !data.DisableProxyProtocol.IsUnknown() {
 		createReq.Spec["disable_proxy_protocol"] = map[string]interface{}{}
 	}
 	if !data.EndpointSubsets.IsNull() && !data.EndpointSubsets.IsUnknown() {
@@ -1382,13 +1450,13 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 		Http1ConfigMap := make(map[string]interface{})
 		if data.Http1Config.HeaderTransformation != nil {
 			Http1ConfigHeaderTransformationMap := make(map[string]interface{})
-			if data.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
+			if !data.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsNull() && !data.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 				Http1ConfigHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 			}
-			if data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+			if !data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsNull() && !data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 				Http1ConfigHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 			}
-			if data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+			if !data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsNull() && !data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 				Http1ConfigHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 			}
 			Http1ConfigMap["header_transformation"] = Http1ConfigHeaderTransformationMap
@@ -1402,10 +1470,10 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 		}
 		createReq.Spec["http2_options"] = Http2OptionsMap
 	}
-	if data.NoPanicThreshold != nil {
+	if !data.NoPanicThreshold.IsNull() && !data.NoPanicThreshold.IsUnknown() {
 		createReq.Spec["no_panic_threshold"] = map[string]interface{}{}
 	}
-	if data.NoRequestLimitPerConnection != nil {
+	if !data.NoRequestLimitPerConnection.IsNull() && !data.NoRequestLimitPerConnection.IsUnknown() {
 		createReq.Spec["no_request_limit_per_connection"] = map[string]interface{}{}
 	}
 	if data.OutlierDetection != nil {
@@ -1427,10 +1495,10 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 		}
 		createReq.Spec["outlier_detection"] = OutlierDetectionMap
 	}
-	if data.ProxyProtocolV1 != nil {
+	if !data.ProxyProtocolV1.IsNull() && !data.ProxyProtocolV1.IsUnknown() {
 		createReq.Spec["proxy_protocol_v1"] = map[string]interface{}{}
 	}
-	if data.ProxyProtocolV2 != nil {
+	if !data.ProxyProtocolV2.IsNull() && !data.ProxyProtocolV2.IsUnknown() {
 		createReq.Spec["proxy_protocol_v2"] = map[string]interface{}{}
 	}
 	if data.TLSParameters != nil {
@@ -1555,7 +1623,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
+						if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
@@ -1585,7 +1653,7 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 							}
 							TLSCertificatesItemMap["private_key"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyMap
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
+						if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -1636,13 +1704,13 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			}
 			TLSParametersMap["common_params"] = TLSParametersCommonParamsMap
 		}
-		if data.TLSParameters.DefaultSessionKeyCaching != nil {
+		if !data.TLSParameters.DefaultSessionKeyCaching.IsNull() && !data.TLSParameters.DefaultSessionKeyCaching.IsUnknown() {
 			TLSParametersMap["default_session_key_caching"] = map[string]interface{}{}
 		}
-		if data.TLSParameters.DisableSessionKeyCaching != nil {
+		if !data.TLSParameters.DisableSessionKeyCaching.IsNull() && !data.TLSParameters.DisableSessionKeyCaching.IsUnknown() {
 			TLSParametersMap["disable_session_key_caching"] = map[string]interface{}{}
 		}
-		if data.TLSParameters.DisableSni != nil {
+		if !data.TLSParameters.DisableSni.IsNull() && !data.TLSParameters.DisableSni.IsUnknown() {
 			TLSParametersMap["disable_sni"] = map[string]interface{}{}
 		}
 		if !data.TLSParameters.MaxSessionKeys.IsNull() && !data.TLSParameters.MaxSessionKeys.IsUnknown() {
@@ -1651,17 +1719,17 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 		if !data.TLSParameters.Sni.IsNull() && !data.TLSParameters.Sni.IsUnknown() {
 			TLSParametersMap["sni"] = data.TLSParameters.Sni.ValueString()
 		}
-		if data.TLSParameters.UseHostHeaderAsSni != nil {
+		if !data.TLSParameters.UseHostHeaderAsSni.IsNull() && !data.TLSParameters.UseHostHeaderAsSni.IsUnknown() {
 			TLSParametersMap["use_host_header_as_sni"] = map[string]interface{}{}
 		}
 		createReq.Spec["tls_parameters"] = TLSParametersMap
 	}
 	if data.UpstreamConnPoolReuseType != nil {
 		UpstreamConnPoolReuseTypeMap := make(map[string]interface{})
-		if data.UpstreamConnPoolReuseType.DisableConnPoolReuse != nil {
+		if !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsNull() && !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsUnknown() {
 			UpstreamConnPoolReuseTypeMap["disable_conn_pool_reuse"] = map[string]interface{}{}
 		}
-		if data.UpstreamConnPoolReuseType.EnableConnPoolReuse != nil {
+		if !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsNull() && !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsUnknown() {
 			UpstreamConnPoolReuseTypeMap["enable_conn_pool_reuse"] = map[string]interface{}{}
 		}
 		createReq.Spec["upstream_conn_pool_reuse_type"] = UpstreamConnPoolReuseTypeMap
@@ -1726,8 +1794,12 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["auto_http_config"].(map[string]interface{}); ok && isImport && data.AutoHTTPConfig == nil {
-		data.AutoHTTPConfig = &ClusterEmptyModel{}
+	if !isImport && !data.AutoHTTPConfig.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["auto_http_config"].(map[string]interface{}); ok {
+		data.AutoHTTPConfig = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AutoHTTPConfig = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["circuit_breaker"].(map[string]interface{}); ok && (isImport || data.CircuitBreaker != nil) {
 		data.CircuitBreaker = &ClusterCircuitBreakerModel{
@@ -1778,8 +1850,12 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 	if _, ok := apiResource.Spec["default_subset"].(map[string]interface{}); ok && isImport && data.DefaultSubset == nil {
 		data.DefaultSubset = &ClusterEmptyModel{}
 	}
-	if _, ok := apiResource.Spec["disable_proxy_protocol"].(map[string]interface{}); ok && isImport && data.DisableProxyProtocol == nil {
-		data.DisableProxyProtocol = &ClusterEmptyModel{}
+	if !isImport && !data.DisableProxyProtocol.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_proxy_protocol"].(map[string]interface{}); ok {
+		data.DisableProxyProtocol = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableProxyProtocol = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.EndpointSubsets.IsNull() || len(data.EndpointSubsets.Elements()) == 0) {
 		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
@@ -1932,32 +2008,32 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				}
 				if HeaderTransformationData, ok := blockData["header_transformation"].(map[string]interface{}); ok {
 					return &ClusterHttp1ConfigHeaderTransformationModel{
-						DefaultHeaderTransformation: func() *ClusterEmptyModel {
-							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+						DefaultHeaderTransformation: func() types.Object {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil && !data.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 								return data.Http1Config.HeaderTransformation.DefaultHeaderTransformation
 							}
 							if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-								return &ClusterEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						PreserveCaseHeaderTransformation: func() *ClusterEmptyModel {
-							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+						PreserveCaseHeaderTransformation: func() types.Object {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil && !data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 								return data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
 							}
 							if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-								return &ClusterEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						ProperCaseHeaderTransformation: func() *ClusterEmptyModel {
-							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+						ProperCaseHeaderTransformation: func() types.Object {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil && !data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 								return data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation
 							}
 							if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-								return &ClusterEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -1978,11 +2054,19 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["no_panic_threshold"].(map[string]interface{}); ok && isImport && data.NoPanicThreshold == nil {
-		data.NoPanicThreshold = &ClusterEmptyModel{}
+	if !isImport && !data.NoPanicThreshold.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_panic_threshold"].(map[string]interface{}); ok {
+		data.NoPanicThreshold = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoPanicThreshold = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok && isImport && data.NoRequestLimitPerConnection == nil {
-		data.NoRequestLimitPerConnection = &ClusterEmptyModel{}
+	if !isImport && !data.NoRequestLimitPerConnection.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok {
+		data.NoRequestLimitPerConnection = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoRequestLimitPerConnection = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["outlier_detection"].(map[string]interface{}); ok && (isImport || data.OutlierDetection != nil) {
 		data.OutlierDetection = &ClusterOutlierDetectionModel{
@@ -2033,11 +2117,19 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["proxy_protocol_v1"].(map[string]interface{}); ok && isImport && data.ProxyProtocolV1 == nil {
-		data.ProxyProtocolV1 = &ClusterEmptyModel{}
+	if !isImport && !data.ProxyProtocolV1.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["proxy_protocol_v1"].(map[string]interface{}); ok {
+		data.ProxyProtocolV1 = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ProxyProtocolV1 = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["proxy_protocol_v2"].(map[string]interface{}); ok && isImport && data.ProxyProtocolV2 == nil {
-		data.ProxyProtocolV2 = &ClusterEmptyModel{}
+	if !isImport && !data.ProxyProtocolV2.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["proxy_protocol_v2"].(map[string]interface{}); ok {
+		data.ProxyProtocolV2 = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ProxyProtocolV2 = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &ClusterTLSParametersModel{
@@ -2297,14 +2389,14 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *ClusterEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &ClusterEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -2363,14 +2455,14 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *ClusterEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &ClusterEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -2479,32 +2571,32 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				}
 				return nil
 			}(),
-			DefaultSessionKeyCaching: func() *ClusterEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			DefaultSessionKeyCaching: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.DefaultSessionKeyCaching.IsUnknown() {
 					return data.TLSParameters.DefaultSessionKeyCaching
 				}
 				if _, ok := blockData["default_session_key_caching"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSessionKeyCaching: func() *ClusterEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			DisableSessionKeyCaching: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.DisableSessionKeyCaching.IsUnknown() {
 					return data.TLSParameters.DisableSessionKeyCaching
 				}
 				if _, ok := blockData["disable_session_key_caching"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSni: func() *ClusterEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			DisableSni: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.DisableSni.IsUnknown() {
 					return data.TLSParameters.DisableSni
 				}
 				if _, ok := blockData["disable_sni"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			MaxSessionKeys: func() types.Int64 {
 				if !isImport && data.TLSParameters != nil && !data.TLSParameters.MaxSessionKeys.IsUnknown() {
@@ -2521,36 +2613,36 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 				}
 				return types.StringNull()
 			}(),
-			UseHostHeaderAsSni: func() *ClusterEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			UseHostHeaderAsSni: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.UseHostHeaderAsSni.IsUnknown() {
 					return data.TLSParameters.UseHostHeaderAsSni
 				}
 				if _, ok := blockData["use_host_header_as_sni"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && (isImport || data.UpstreamConnPoolReuseType != nil) {
 		data.UpstreamConnPoolReuseType = &ClusterUpstreamConnPoolReuseTypeModel{
-			DisableConnPoolReuse: func() *ClusterEmptyModel {
-				if !isImport && data.UpstreamConnPoolReuseType != nil {
+			DisableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsUnknown() {
 					return data.UpstreamConnPoolReuseType.DisableConnPoolReuse
 				}
 				if _, ok := blockData["disable_conn_pool_reuse"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableConnPoolReuse: func() *ClusterEmptyModel {
-				if !isImport && data.UpstreamConnPoolReuseType != nil {
+			EnableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsUnknown() {
 					return data.UpstreamConnPoolReuseType.EnableConnPoolReuse
 				}
 				if _, ok := blockData["enable_conn_pool_reuse"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -2720,8 +2812,12 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["auto_http_config"].(map[string]interface{}); ok && isImport && data.AutoHTTPConfig == nil {
-		data.AutoHTTPConfig = &ClusterEmptyModel{}
+	if !isImport && !data.AutoHTTPConfig.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["auto_http_config"].(map[string]interface{}); ok {
+		data.AutoHTTPConfig = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AutoHTTPConfig = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["circuit_breaker"].(map[string]interface{}); ok && (isImport || data.CircuitBreaker != nil) {
 		data.CircuitBreaker = &ClusterCircuitBreakerModel{
@@ -2772,8 +2868,12 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 	if _, ok := apiResource.Spec["default_subset"].(map[string]interface{}); ok && isImport && data.DefaultSubset == nil {
 		data.DefaultSubset = &ClusterEmptyModel{}
 	}
-	if _, ok := apiResource.Spec["disable_proxy_protocol"].(map[string]interface{}); ok && isImport && data.DisableProxyProtocol == nil {
-		data.DisableProxyProtocol = &ClusterEmptyModel{}
+	if !isImport && !data.DisableProxyProtocol.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_proxy_protocol"].(map[string]interface{}); ok {
+		data.DisableProxyProtocol = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableProxyProtocol = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.EndpointSubsets.IsNull() || len(data.EndpointSubsets.Elements()) == 0) {
 		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
@@ -2926,32 +3026,32 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				}
 				if HeaderTransformationData, ok := blockData["header_transformation"].(map[string]interface{}); ok {
 					return &ClusterHttp1ConfigHeaderTransformationModel{
-						DefaultHeaderTransformation: func() *ClusterEmptyModel {
-							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+						DefaultHeaderTransformation: func() types.Object {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil && !data.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 								return data.Http1Config.HeaderTransformation.DefaultHeaderTransformation
 							}
 							if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-								return &ClusterEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						PreserveCaseHeaderTransformation: func() *ClusterEmptyModel {
-							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+						PreserveCaseHeaderTransformation: func() types.Object {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil && !data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 								return data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
 							}
 							if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-								return &ClusterEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						ProperCaseHeaderTransformation: func() *ClusterEmptyModel {
-							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+						ProperCaseHeaderTransformation: func() types.Object {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil && !data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 								return data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation
 							}
 							if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-								return &ClusterEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -2972,11 +3072,19 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["no_panic_threshold"].(map[string]interface{}); ok && isImport && data.NoPanicThreshold == nil {
-		data.NoPanicThreshold = &ClusterEmptyModel{}
+	if !isImport && !data.NoPanicThreshold.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_panic_threshold"].(map[string]interface{}); ok {
+		data.NoPanicThreshold = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoPanicThreshold = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok && isImport && data.NoRequestLimitPerConnection == nil {
-		data.NoRequestLimitPerConnection = &ClusterEmptyModel{}
+	if !isImport && !data.NoRequestLimitPerConnection.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok {
+		data.NoRequestLimitPerConnection = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoRequestLimitPerConnection = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["outlier_detection"].(map[string]interface{}); ok && (isImport || data.OutlierDetection != nil) {
 		data.OutlierDetection = &ClusterOutlierDetectionModel{
@@ -3027,11 +3135,19 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["proxy_protocol_v1"].(map[string]interface{}); ok && isImport && data.ProxyProtocolV1 == nil {
-		data.ProxyProtocolV1 = &ClusterEmptyModel{}
+	if !isImport && !data.ProxyProtocolV1.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["proxy_protocol_v1"].(map[string]interface{}); ok {
+		data.ProxyProtocolV1 = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ProxyProtocolV1 = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["proxy_protocol_v2"].(map[string]interface{}); ok && isImport && data.ProxyProtocolV2 == nil {
-		data.ProxyProtocolV2 = &ClusterEmptyModel{}
+	if !isImport && !data.ProxyProtocolV2.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["proxy_protocol_v2"].(map[string]interface{}); ok {
+		data.ProxyProtocolV2 = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ProxyProtocolV2 = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &ClusterTLSParametersModel{
@@ -3291,14 +3407,14 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *ClusterEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &ClusterEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -3357,14 +3473,14 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *ClusterEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &ClusterEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -3473,32 +3589,32 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				}
 				return nil
 			}(),
-			DefaultSessionKeyCaching: func() *ClusterEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			DefaultSessionKeyCaching: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.DefaultSessionKeyCaching.IsUnknown() {
 					return data.TLSParameters.DefaultSessionKeyCaching
 				}
 				if _, ok := blockData["default_session_key_caching"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSessionKeyCaching: func() *ClusterEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			DisableSessionKeyCaching: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.DisableSessionKeyCaching.IsUnknown() {
 					return data.TLSParameters.DisableSessionKeyCaching
 				}
 				if _, ok := blockData["disable_session_key_caching"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSni: func() *ClusterEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			DisableSni: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.DisableSni.IsUnknown() {
 					return data.TLSParameters.DisableSni
 				}
 				if _, ok := blockData["disable_sni"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			MaxSessionKeys: func() types.Int64 {
 				if !isImport && data.TLSParameters != nil && !data.TLSParameters.MaxSessionKeys.IsUnknown() {
@@ -3515,36 +3631,36 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 				}
 				return types.StringNull()
 			}(),
-			UseHostHeaderAsSni: func() *ClusterEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			UseHostHeaderAsSni: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.UseHostHeaderAsSni.IsUnknown() {
 					return data.TLSParameters.UseHostHeaderAsSni
 				}
 				if _, ok := blockData["use_host_header_as_sni"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && (isImport || data.UpstreamConnPoolReuseType != nil) {
 		data.UpstreamConnPoolReuseType = &ClusterUpstreamConnPoolReuseTypeModel{
-			DisableConnPoolReuse: func() *ClusterEmptyModel {
-				if !isImport && data.UpstreamConnPoolReuseType != nil {
+			DisableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsUnknown() {
 					return data.UpstreamConnPoolReuseType.DisableConnPoolReuse
 				}
 				if _, ok := blockData["disable_conn_pool_reuse"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableConnPoolReuse: func() *ClusterEmptyModel {
-				if !isImport && data.UpstreamConnPoolReuseType != nil {
+			EnableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsUnknown() {
 					return data.UpstreamConnPoolReuseType.EnableConnPoolReuse
 				}
 				if _, ok := blockData["enable_conn_pool_reuse"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -3677,7 +3793,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.AutoHTTPConfig != nil {
+	if !data.AutoHTTPConfig.IsNull() && !data.AutoHTTPConfig.IsUnknown() {
 		apiResource.Spec["auto_http_config"] = map[string]interface{}{}
 	}
 	if data.CircuitBreaker != nil {
@@ -3702,7 +3818,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 	if data.DefaultSubset != nil {
 		apiResource.Spec["default_subset"] = map[string]interface{}{}
 	}
-	if data.DisableProxyProtocol != nil {
+	if !data.DisableProxyProtocol.IsNull() && !data.DisableProxyProtocol.IsUnknown() {
 		apiResource.Spec["disable_proxy_protocol"] = map[string]interface{}{}
 	}
 	if !data.EndpointSubsets.IsNull() && !data.EndpointSubsets.IsUnknown() {
@@ -3768,13 +3884,13 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 		Http1ConfigMap := make(map[string]interface{})
 		if data.Http1Config.HeaderTransformation != nil {
 			Http1ConfigHeaderTransformationMap := make(map[string]interface{})
-			if data.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
+			if !data.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsNull() && !data.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 				Http1ConfigHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 			}
-			if data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+			if !data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsNull() && !data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 				Http1ConfigHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 			}
-			if data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+			if !data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsNull() && !data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 				Http1ConfigHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 			}
 			Http1ConfigMap["header_transformation"] = Http1ConfigHeaderTransformationMap
@@ -3788,10 +3904,10 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 		}
 		apiResource.Spec["http2_options"] = Http2OptionsMap
 	}
-	if data.NoPanicThreshold != nil {
+	if !data.NoPanicThreshold.IsNull() && !data.NoPanicThreshold.IsUnknown() {
 		apiResource.Spec["no_panic_threshold"] = map[string]interface{}{}
 	}
-	if data.NoRequestLimitPerConnection != nil {
+	if !data.NoRequestLimitPerConnection.IsNull() && !data.NoRequestLimitPerConnection.IsUnknown() {
 		apiResource.Spec["no_request_limit_per_connection"] = map[string]interface{}{}
 	}
 	if data.OutlierDetection != nil {
@@ -3813,10 +3929,10 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 		}
 		apiResource.Spec["outlier_detection"] = OutlierDetectionMap
 	}
-	if data.ProxyProtocolV1 != nil {
+	if !data.ProxyProtocolV1.IsNull() && !data.ProxyProtocolV1.IsUnknown() {
 		apiResource.Spec["proxy_protocol_v1"] = map[string]interface{}{}
 	}
-	if data.ProxyProtocolV2 != nil {
+	if !data.ProxyProtocolV2.IsNull() && !data.ProxyProtocolV2.IsUnknown() {
 		apiResource.Spec["proxy_protocol_v2"] = map[string]interface{}{}
 	}
 	if data.TLSParameters != nil {
@@ -3941,7 +4057,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
+						if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
@@ -3971,7 +4087,7 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 							}
 							TLSCertificatesItemMap["private_key"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyMap
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
+						if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -4022,13 +4138,13 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			}
 			TLSParametersMap["common_params"] = TLSParametersCommonParamsMap
 		}
-		if data.TLSParameters.DefaultSessionKeyCaching != nil {
+		if !data.TLSParameters.DefaultSessionKeyCaching.IsNull() && !data.TLSParameters.DefaultSessionKeyCaching.IsUnknown() {
 			TLSParametersMap["default_session_key_caching"] = map[string]interface{}{}
 		}
-		if data.TLSParameters.DisableSessionKeyCaching != nil {
+		if !data.TLSParameters.DisableSessionKeyCaching.IsNull() && !data.TLSParameters.DisableSessionKeyCaching.IsUnknown() {
 			TLSParametersMap["disable_session_key_caching"] = map[string]interface{}{}
 		}
-		if data.TLSParameters.DisableSni != nil {
+		if !data.TLSParameters.DisableSni.IsNull() && !data.TLSParameters.DisableSni.IsUnknown() {
 			TLSParametersMap["disable_sni"] = map[string]interface{}{}
 		}
 		if !data.TLSParameters.MaxSessionKeys.IsNull() && !data.TLSParameters.MaxSessionKeys.IsUnknown() {
@@ -4037,17 +4153,17 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 		if !data.TLSParameters.Sni.IsNull() && !data.TLSParameters.Sni.IsUnknown() {
 			TLSParametersMap["sni"] = data.TLSParameters.Sni.ValueString()
 		}
-		if data.TLSParameters.UseHostHeaderAsSni != nil {
+		if !data.TLSParameters.UseHostHeaderAsSni.IsNull() && !data.TLSParameters.UseHostHeaderAsSni.IsUnknown() {
 			TLSParametersMap["use_host_header_as_sni"] = map[string]interface{}{}
 		}
 		apiResource.Spec["tls_parameters"] = TLSParametersMap
 	}
 	if data.UpstreamConnPoolReuseType != nil {
 		UpstreamConnPoolReuseTypeMap := make(map[string]interface{})
-		if data.UpstreamConnPoolReuseType.DisableConnPoolReuse != nil {
+		if !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsNull() && !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsUnknown() {
 			UpstreamConnPoolReuseTypeMap["disable_conn_pool_reuse"] = map[string]interface{}{}
 		}
-		if data.UpstreamConnPoolReuseType.EnableConnPoolReuse != nil {
+		if !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsNull() && !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsUnknown() {
 			UpstreamConnPoolReuseTypeMap["enable_conn_pool_reuse"] = map[string]interface{}{}
 		}
 		apiResource.Spec["upstream_conn_pool_reuse_type"] = UpstreamConnPoolReuseTypeMap
@@ -4181,8 +4297,12 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["auto_http_config"].(map[string]interface{}); ok && isImport && data.AutoHTTPConfig == nil {
-		data.AutoHTTPConfig = &ClusterEmptyModel{}
+	if !isImport && !data.AutoHTTPConfig.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["auto_http_config"].(map[string]interface{}); ok {
+		data.AutoHTTPConfig = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AutoHTTPConfig = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["circuit_breaker"].(map[string]interface{}); ok && (isImport || data.CircuitBreaker != nil) {
 		data.CircuitBreaker = &ClusterCircuitBreakerModel{
@@ -4233,8 +4353,12 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 	if _, ok := apiResource.Spec["default_subset"].(map[string]interface{}); ok && isImport && data.DefaultSubset == nil {
 		data.DefaultSubset = &ClusterEmptyModel{}
 	}
-	if _, ok := apiResource.Spec["disable_proxy_protocol"].(map[string]interface{}); ok && isImport && data.DisableProxyProtocol == nil {
-		data.DisableProxyProtocol = &ClusterEmptyModel{}
+	if !isImport && !data.DisableProxyProtocol.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_proxy_protocol"].(map[string]interface{}); ok {
+		data.DisableProxyProtocol = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableProxyProtocol = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.EndpointSubsets.IsNull() || len(data.EndpointSubsets.Elements()) == 0) {
 		data.EndpointSubsets = types.ListNull(types.ObjectType{AttrTypes: ClusterEndpointSubsetsModelAttrTypes})
@@ -4387,32 +4511,32 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				}
 				if HeaderTransformationData, ok := blockData["header_transformation"].(map[string]interface{}); ok {
 					return &ClusterHttp1ConfigHeaderTransformationModel{
-						DefaultHeaderTransformation: func() *ClusterEmptyModel {
-							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+						DefaultHeaderTransformation: func() types.Object {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil && !data.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 								return data.Http1Config.HeaderTransformation.DefaultHeaderTransformation
 							}
 							if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-								return &ClusterEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						PreserveCaseHeaderTransformation: func() *ClusterEmptyModel {
-							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+						PreserveCaseHeaderTransformation: func() types.Object {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil && !data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 								return data.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
 							}
 							if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-								return &ClusterEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						ProperCaseHeaderTransformation: func() *ClusterEmptyModel {
-							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil {
+						ProperCaseHeaderTransformation: func() types.Object {
+							if !isImport && data.Http1Config != nil && data.Http1Config.HeaderTransformation != nil && !data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 								return data.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation
 							}
 							if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-								return &ClusterEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -4433,11 +4557,19 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["no_panic_threshold"].(map[string]interface{}); ok && isImport && data.NoPanicThreshold == nil {
-		data.NoPanicThreshold = &ClusterEmptyModel{}
+	if !isImport && !data.NoPanicThreshold.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_panic_threshold"].(map[string]interface{}); ok {
+		data.NoPanicThreshold = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoPanicThreshold = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok && isImport && data.NoRequestLimitPerConnection == nil {
-		data.NoRequestLimitPerConnection = &ClusterEmptyModel{}
+	if !isImport && !data.NoRequestLimitPerConnection.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok {
+		data.NoRequestLimitPerConnection = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoRequestLimitPerConnection = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["outlier_detection"].(map[string]interface{}); ok && (isImport || data.OutlierDetection != nil) {
 		data.OutlierDetection = &ClusterOutlierDetectionModel{
@@ -4488,11 +4620,19 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["proxy_protocol_v1"].(map[string]interface{}); ok && isImport && data.ProxyProtocolV1 == nil {
-		data.ProxyProtocolV1 = &ClusterEmptyModel{}
+	if !isImport && !data.ProxyProtocolV1.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["proxy_protocol_v1"].(map[string]interface{}); ok {
+		data.ProxyProtocolV1 = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ProxyProtocolV1 = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["proxy_protocol_v2"].(map[string]interface{}); ok && isImport && data.ProxyProtocolV2 == nil {
-		data.ProxyProtocolV2 = &ClusterEmptyModel{}
+	if !isImport && !data.ProxyProtocolV2.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["proxy_protocol_v2"].(map[string]interface{}); ok {
+		data.ProxyProtocolV2 = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ProxyProtocolV2 = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &ClusterTLSParametersModel{
@@ -4752,14 +4892,14 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *ClusterEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &ClusterEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -4818,14 +4958,14 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *ClusterEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &ClusterEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -4934,32 +5074,32 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				}
 				return nil
 			}(),
-			DefaultSessionKeyCaching: func() *ClusterEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			DefaultSessionKeyCaching: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.DefaultSessionKeyCaching.IsUnknown() {
 					return data.TLSParameters.DefaultSessionKeyCaching
 				}
 				if _, ok := blockData["default_session_key_caching"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSessionKeyCaching: func() *ClusterEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			DisableSessionKeyCaching: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.DisableSessionKeyCaching.IsUnknown() {
 					return data.TLSParameters.DisableSessionKeyCaching
 				}
 				if _, ok := blockData["disable_session_key_caching"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSni: func() *ClusterEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			DisableSni: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.DisableSni.IsUnknown() {
 					return data.TLSParameters.DisableSni
 				}
 				if _, ok := blockData["disable_sni"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			MaxSessionKeys: func() types.Int64 {
 				if !isImport && data.TLSParameters != nil && !data.TLSParameters.MaxSessionKeys.IsUnknown() {
@@ -4976,36 +5116,36 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 				}
 				return types.StringNull()
 			}(),
-			UseHostHeaderAsSni: func() *ClusterEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			UseHostHeaderAsSni: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.UseHostHeaderAsSni.IsUnknown() {
 					return data.TLSParameters.UseHostHeaderAsSni
 				}
 				if _, ok := blockData["use_host_header_as_sni"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && (isImport || data.UpstreamConnPoolReuseType != nil) {
 		data.UpstreamConnPoolReuseType = &ClusterUpstreamConnPoolReuseTypeModel{
-			DisableConnPoolReuse: func() *ClusterEmptyModel {
-				if !isImport && data.UpstreamConnPoolReuseType != nil {
+			DisableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsUnknown() {
 					return data.UpstreamConnPoolReuseType.DisableConnPoolReuse
 				}
 				if _, ok := blockData["disable_conn_pool_reuse"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableConnPoolReuse: func() *ClusterEmptyModel {
-				if !isImport && data.UpstreamConnPoolReuseType != nil {
+			EnableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsUnknown() {
 					return data.UpstreamConnPoolReuseType.EnableConnPoolReuse
 				}
 				if _, ok := blockData["enable_conn_pool_reuse"].(map[string]interface{}); ok {
-					return &ClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

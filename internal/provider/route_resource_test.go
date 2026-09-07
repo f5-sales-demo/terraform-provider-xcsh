@@ -74,7 +74,7 @@ resource "xcsh_route" "test" {
     }
 
     waf_type {
-      inherit_waf {}
+      inherit_waf = {}
     }
   }
 }

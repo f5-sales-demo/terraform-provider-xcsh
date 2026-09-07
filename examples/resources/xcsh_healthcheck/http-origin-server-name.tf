@@ -21,7 +21,7 @@ resource "xcsh_healthcheck" "test" {
   interval            = 5
 
   http_health_check {
-    path = "example-value"
-    use_origin_server_name {}
+    path                   = "example-value"
+    use_origin_server_name = {}
   }
 }

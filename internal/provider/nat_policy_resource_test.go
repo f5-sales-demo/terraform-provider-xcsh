@@ -84,7 +84,7 @@ resource "xcsh_nat_policy" "test" {
 
     criteria {
       source_cidr = ["10.0.0.0/8"]
-      any {}
+      any = {}
     }
 
     action {

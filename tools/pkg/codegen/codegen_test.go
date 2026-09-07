@@ -2523,3 +2523,31 @@ func TestRenderNestedConflictValidators(t *testing.T) {
 		})
 	}
 }
+
+func TestEmptyChoiceMarkerRendersNullableObjectAttribute(t *testing.T) {
+	marker := openapi.TerraformAttribute{
+		Name: "marker", GoName: "Marker", TfsdkTag: "marker", JsonName: "marker",
+		Type: "object", Optional: true, EmptyObjectMarker: true,
+	}
+	schemaText := RenderNestedAttributes([]openapi.TerraformAttribute{marker}, "")
+	if !strings.Contains(schemaText, `"marker": schema.ObjectAttribute{`) ||
+		!strings.Contains(schemaText, `AttributeTypes: map[string]attr.Type{}`) {
+		t.Fatalf("empty marker is not a nullable object attribute: %s", schemaText)
+	}
+	var marshal strings.Builder
+	if err := renderMarshalScalar(&marshal, marker, "item.Marker", "request", ""); err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(marshal.String(), `request["marker"] = map[string]interface{}{}`) ||
+		!strings.Contains(marshal.String(), `!item.Marker.IsUnknown()`) {
+		t.Fatalf("empty marker marshal lost null/unknown semantics: %s", marshal.String())
+	}
+	var unmarshal strings.Builder
+	if err := renderUnmarshalScalarChild(&unmarshal, "Test", marker, "response", "item", "true", "single", ""); err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(unmarshal.String(), `types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})`) ||
+		!strings.Contains(unmarshal.String(), `return item.Marker`) {
+		t.Fatalf("empty marker unmarshal lost presence semantics: %s", unmarshal.String())
+	}
+}

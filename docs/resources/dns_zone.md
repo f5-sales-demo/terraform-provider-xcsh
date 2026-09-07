@@ -39,7 +39,7 @@ resource "xcsh_dns_zone" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -81,7 +81,7 @@ A [`primary`](#primary) block supports the following:
 
 <a id="primary-default-rr-set-group"></a>&#x2022; [`default_rr_set_group`](#primary-default-rr-set-group) - Optional Block<br>Add and manage DNS resource record sets part of Default set group<br>See [Default Rr Set Group](#primary-default-rr-set-group) below.
 
-<a id="primary-default-soa-parameters"></a>&#x2022; [`default_soa_parameters`](#primary-default-soa-parameters) - Optional Block<br>Configuration parameter for default soa parameters
+<a id="primary-default-soa-parameters"></a>&#x2022; [`default_soa_parameters`](#primary-default-soa-parameters) - Optional Object<br>Configuration parameter for default soa parameters
 
 <a id="primary-dnssec-mode"></a>&#x2022; [`dnssec_mode`](#primary-dnssec-mode) - Optional Block<br>Disable<br>See [Dnssec Mode](#primary-dnssec-mode) below.
 
@@ -385,13 +385,25 @@ A [`txt_record`](#primary-default-rr-set-group-txt-record) block (within [`prima
 
 <a id="values-49770a"></a>&#x2022; [`values`](#values-49770a) - Optional List<br>Text. Configuration parameter for values
 
+#### Primary Default Soa Parameters
+
+A [`default_soa_parameters`](#primary-default-soa-parameters) block (within [`primary`](#primary)) supports the following:
+
 #### Primary Dnssec Mode
 
 A [`dnssec_mode`](#primary-dnssec-mode) block (within [`primary`](#primary)) supports the following:
 
-<a id="primary-dnssec-mode-disable-spec"></a>&#x2022; [`disable_spec`](#primary-dnssec-mode-disable-spec) - Optional Block<br>Enable this option
+<a id="primary-dnssec-mode-disable-spec"></a>&#x2022; [`disable_spec`](#primary-dnssec-mode-disable-spec) - Optional Object<br>Enable this option
 
-<a id="primary-dnssec-mode-enable"></a>&#x2022; [`enable`](#primary-dnssec-mode-enable) - Optional Block<br>Enable. DNSSEC enable
+<a id="primary-dnssec-mode-enable"></a>&#x2022; [`enable`](#primary-dnssec-mode-enable) - Optional Object<br>Enable. DNSSEC enable
+
+#### Primary Dnssec Mode Disable Spec
+
+A [`disable_spec`](#primary-dnssec-mode-disable-spec) block (within [`primary.dnssec_mode`](#primary-dnssec-mode)) supports the following:
+
+#### Primary Dnssec Mode Enable
+
+An [`enable`](#primary-dnssec-mode-enable) block (within [`primary.dnssec_mode`](#primary-dnssec-mode)) supports the following:
 
 #### Primary Rr Set Group
 

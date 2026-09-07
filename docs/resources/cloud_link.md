@@ -39,7 +39,7 @@ resource "xcsh_cloud_link" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -64,7 +64,7 @@ resource "xcsh_cloud_link" "example" {
 <br><br>&#x2022; <a id="gcp"></a>[`gcp`](#gcp) - Optional Block<br>Google Cloud Platform (GCP) CloudLink Provider. CloudLink for GCP Cloud Provider<br>See [GCP](#gcp) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="disabled"></a>[`disabled`](#disabled) - Optional Block<br>Enable this option
+&#x2022; <a id="disabled"></a>[`disabled`](#disabled) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="enabled"></a>[`enabled`](#enabled) - Optional Block<br>CloudLink ADN Network Config<br>See [Enabled](#enabled) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
@@ -121,7 +121,7 @@ during create<br>See [Metadata](#aws-byoc-connections-metadata) below.
 <a id="aws-byoc-connections-region"></a>&#x2022; [`region`](#aws-byoc-connections-region) - Optional String<br>Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `CA-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`,
 `me-south-1`, `us-west-1`, `ap-southeast-3`<br>[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|CA-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] Region. Region where the connection is setup
 
-<a id="name-ebc6a3"></a>&#x2022; [`system_generated_name`](#name-ebc6a3) - Optional Block<br>Enable this option
+<a id="name-ebc6a3"></a>&#x2022; [`system_generated_name`](#name-ebc6a3) - Optional Object<br>Enable this option
 
 <a id="aws-byoc-connections-tags"></a>&#x2022; [`tags`](#aws-byoc-connections-tags) - Optional Map<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console. Specified tags will be added to Virtual interface along with any F5XC specific tags
 
@@ -164,6 +164,10 @@ A [`metadata`](#aws-byoc-connections-metadata) block (within [`aws.byoc.connecti
 
 <a id="aws-byoc-connections-metadata-name"></a>&#x2022; [`name`](#aws-byoc-connections-metadata-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
 
+#### AWS Byoc Connections System Generated Name
+
+A [`system_generated_name`](#name-ebc6a3) block (within [`aws.byoc.connections`](#aws-byoc-connections)) supports the following:
+
 #### Enabled
 
 An [`enabled`](#enabled) block supports the following:
@@ -201,7 +205,7 @@ during create<br>See [Metadata](#gcp-byoc-connections-metadata) below.
 asia-east1|asia-east2|asia-northeast1|asia-northeast2|asia-northeast3|asia-southeast1|asia-southeast2|europe-central2|europe-north1|europe-west1|europe-west2|europe-west3|europe-west4|europe-west6|europe-west8|europe-west9|europe-west10|europe-west12|europe-southwest1|me-west1|me-central1|me-central2|northamerica-northeast1|northamerica-northeast2|us-central1|us-east1|us-east4|us-east5|us-south1|us-west1|us-west2|us-west3|us-west4|southamerica-east1|southamerica-west1|australia-southeast1|australia-southeast2|asia-south1|asia-south2]
 GCP Region in which the GCP Cloud Interconnect attachment is configured
 
-<a id="gcp-byoc-connections-same-as-credential"></a>&#x2022; [`same_as_credential`](#gcp-byoc-connections-same-as-credential) - Optional Block<br>Configuration parameter for same as credential
+<a id="gcp-byoc-connections-same-as-credential"></a>&#x2022; [`same_as_credential`](#gcp-byoc-connections-same-as-credential) - Optional Object<br>Configuration parameter for same as credential
 
 #### GCP Byoc Connections Metadata
 
@@ -210,6 +214,10 @@ A [`metadata`](#gcp-byoc-connections-metadata) block (within [`gcp.byoc.connecti
 <a id="spec-5e10f2"></a>&#x2022; [`description_spec`](#spec-5e10f2) - Optional String<br>Description. Human readable description
 
 <a id="gcp-byoc-connections-metadata-name"></a>&#x2022; [`name`](#gcp-byoc-connections-metadata-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### GCP Byoc Connections Same As Credential
+
+A [`same_as_credential`](#gcp-byoc-connections-same-as-credential) block (within [`gcp.byoc.connections`](#gcp-byoc-connections)) supports the following:
 
 #### GCP GCP Cred
 

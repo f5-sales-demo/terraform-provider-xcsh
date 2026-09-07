@@ -121,6 +121,19 @@ func TestGenerateResponseOperationGETDoesNotDeclareBody(t *testing.T) {
 	}
 }
 
+func TestResponseOperationEmptyChoiceMarkerUsesObjectAttribute(t *testing.T) {
+	marker := openapi.TerraformAttribute{
+		Name: "marker", GoName: "Marker", TfsdkTag: "marker", Type: "object",
+		Computed: true, EmptyObjectMarker: true,
+	}
+	got := renderResponseOperationSchemaMap([]openapi.TerraformAttribute{marker}, "", false)
+	for _, want := range []string{`"marker": schema.ObjectAttribute{`, `AttributeTypes: map[string]attr.Type{},`} {
+		if !strings.Contains(got, want) {
+			t.Fatalf("response-operation marker schema missing %q: %s", want, got)
+		}
+	}
+}
+
 func TestGenerateResponseOperationRejectsUnsupportedRoleAndHandwrittenTarget(t *testing.T) {
 	dir := t.TempDir()
 	template := responseOperationTemplate("unknown")

@@ -43,7 +43,7 @@ resource "xcsh_aws_vpc_site" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -74,7 +74,7 @@ resource "xcsh_aws_vpc_site" "example" {
 <a id="aws-region"></a>&#x2022; [`aws_region`](#aws-region) - Required String<br>AWS Region. Name for AWS Region
 
 -> **One of the following:**
-&#x2022; <a id="block-all-services"></a>[`block_all_services`](#block-all-services) - Optional Block<br>Enable this option
+&#x2022; <a id="block-all-services"></a>[`block_all_services`](#block-all-services) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="blocked-services"></a>[`blocked_services`](#blocked-services) - Optional Block<br>Disable node local services on this site<br>See [Blocked Services](#blocked-services) below for details.
 
 <a id="coordinates"></a>&#x2022; [`coordinates`](#coordinates) - Optional Block<br>Coordinates of the site which provides the site physical location<br>See [Coordinates](#coordinates) below for details.
@@ -83,36 +83,36 @@ resource "xcsh_aws_vpc_site" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="custom-security-group"></a>[`custom_security_group`](#custom-security-group) - Optional Block<br>Enter pre created security groups for slo(Site Local Outside) and SLI(Site Local Inside) interface. Supported only for sites deployed on existing VPC<br>See [Custom Security Group](#custom-security-group) below for details.
-<br><br>&#x2022; <a id="f5xc-security-group"></a>[`f5xc_security_group`](#f5xc-security-group) - Optional Block<br>Enable this option
+<br><br>&#x2022; <a id="f5xc-security-group"></a>[`f5xc_security_group`](#f5xc-security-group) - Optional Object<br>Enable this option
 
-<a id="default-blocked-services"></a>&#x2022; [`default_blocked_services`](#default-blocked-services) - Optional Block<br>Enable this option
+<a id="default-blocked-services"></a>&#x2022; [`default_blocked_services`](#default-blocked-services) - Optional Object<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="direct-connect-disabled"></a>[`direct_connect_disabled`](#direct-connect-disabled) - Optional Block<br>Enable this option
+&#x2022; <a id="direct-connect-disabled"></a>[`direct_connect_disabled`](#direct-connect-disabled) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="direct-connect-enabled"></a>[`direct_connect_enabled`](#direct-connect-enabled) - Optional Block<br>Direct Connect Configuration. Direct Connect Configuration<br>See [Direct Connect Enabled](#direct-connect-enabled) below for details.
 <br><br>&#x2022; <a id="private-connectivity"></a>[`private_connectivity`](#private-connectivity) - Optional Block<br>Configuration parameter for private connectivity
 
 -> **One of the following:**
-&#x2022; <a id="disable-encryption"></a>[`disable_encryption`](#disable-encryption) - Optional Block<br>Configuration parameter for disable encryption
+&#x2022; <a id="disable-encryption"></a>[`disable_encryption`](#disable-encryption) - Optional Object<br>Configuration parameter for disable encryption
 
 -> **One of the following:**
-&#x2022; <a id="disable-internet-vip"></a>[`disable_internet_vip`](#disable-internet-vip) - Optional Block<br>Enable this option
+&#x2022; <a id="disable-internet-vip"></a>[`disable_internet_vip`](#disable-internet-vip) - Optional Object<br>Enable this option
 
 <a id="disk-size"></a>&#x2022; [`disk_size`](#disk-size) - Optional Number<br>Disk size to be used for this instance in GiB. 80 is 80 GiB
 
 -> **One of the following:**
-&#x2022; <a id="egress-gateway-default"></a>[`egress_gateway_default`](#egress-gateway-default) - Optional Block<br>Configuration parameter for egress gateway default
+&#x2022; <a id="egress-gateway-default"></a>[`egress_gateway_default`](#egress-gateway-default) - Optional Object<br>Configuration parameter for egress gateway default
 <br><br>&#x2022; <a id="egress-nat-gw"></a>[`egress_nat_gw`](#egress-nat-gw) - Optional Block<br>With this option, egress site traffic will be routed through an Network Address Translation(NAT) Gateway<br>See [Egress NAT Gw](#egress-nat-gw) below for details.
 
 <a id="egress-virtual-private-gateway"></a>&#x2022; [`egress_virtual_private_gateway`](#egress-virtual-private-gateway) - Optional Block<br>With this option, egress site traffic will be routed through an Virtual Private Gateway<br>See [Egress Virtual Private Gateway](#egress-virtual-private-gateway) below for details.
 
 <a id="enable-encryption"></a>&#x2022; [`enable_encryption`](#enable-encryption) - Optional Block<br>Configuration parameter for enable encryption<br>See [Enable Encryption](#enable-encryption) below for details.
 
-<a id="enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#enable-internet-vip) - Optional Block<br>Enable this option
+<a id="enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#enable-internet-vip) - Optional Object<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="f5-orchestrated-routing"></a>[`f5_orchestrated_routing`](#f5-orchestrated-routing) - Optional Block<br>Enable this option
-<br><br>&#x2022; <a id="manual-routing"></a>[`manual_routing`](#manual-routing) - Optional Block<br>Enable this option
+&#x2022; <a id="f5-orchestrated-routing"></a>[`f5_orchestrated_routing`](#f5-orchestrated-routing) - Optional Object<br>Enable this option
+<br><br>&#x2022; <a id="manual-routing"></a>[`manual_routing`](#manual-routing) - Optional Object<br>Enable this option
 
 -> **One of the following:**
 &#x2022; <a id="ingress-egress-gw"></a>[`ingress_egress_gw`](#ingress-egress-gw) - Optional Block<br>Configuration parameter for ingress egress gw<br>See [Ingress Egress Gw](#ingress-egress-gw) below for details.
@@ -125,10 +125,10 @@ resource "xcsh_aws_vpc_site" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="log-receiver"></a>[`log_receiver`](#log-receiver) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
-<br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Block<br>Enable this option
+<br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Object<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="no-worker-nodes"></a>[`no_worker_nodes`](#no-worker-nodes) - Optional Block<br>Configuration parameter for no worker nodes
+&#x2022; <a id="no-worker-nodes"></a>[`no_worker_nodes`](#no-worker-nodes) - Optional Object<br>Configuration parameter for no worker nodes
 <br><br>&#x2022; <a id="nodes-per-az"></a>[`nodes_per_az`](#nodes-per-az) - Optional Number<br>Desired Worker Nodes Per AZ. Max limit is up to 21
 
 <a id="offline-survivability-mode"></a>&#x2022; [`offline_survivability_mode`](#offline-survivability-mode) - Optional Block<br>Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing
@@ -192,6 +192,10 @@ An [`aws_cred`](#aws-cred) block supports the following:
 
 <a id="aws-cred-tenant"></a>&#x2022; [`tenant`](#aws-cred-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Block All Services
+
+A [`block_all_services`](#block-all-services) block supports the following:
+
 #### Blocked Services
 
 A [`blocked_services`](#blocked-services) block supports the following:
@@ -202,16 +206,28 @@ A [`blocked_services`](#blocked-services) block supports the following:
 
 A [`blocked_service`](#blocked-services-blocked-service) block (within [`blocked_services`](#blocked-services)) supports the following:
 
-<a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Block<br>Enable this option
+<a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Object<br>Enable this option
 
 <a id="type-5b1d65"></a>&#x2022; [`network_type`](#type-5b1d65) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
-<a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Block<br>Enable this option
+<a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Object<br>Enable this option
 
-<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Block<br>Enable this option
+<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Object<br>Enable this option
+
+#### Blocked Services Blocked Service DNS
+
+A [`dns`](#blocked-services-blocked-service-dns) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
+
+#### Blocked Services Blocked Service SSH
+
+A [`ssh`](#blocked-services-blocked-service-ssh) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
+
+#### Blocked Services Blocked Service Web User Interface
+
+A [`web_user_interface`](#interface-1ff33c) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
 
 #### Coordinates
 
@@ -237,17 +253,29 @@ A [`custom_security_group`](#custom-security-group) block supports the following
 
 <a id="group-id-c3131b"></a>&#x2022; [`outside_security_group_id`](#group-id-c3131b) - Optional String<br>Security Group ID to be attached to SLO(Site Local Outside) Interface
 
+#### Default Blocked Services
+
+A [`default_blocked_services`](#default-blocked-services) block supports the following:
+
+#### Direct Connect Disabled
+
+A [`direct_connect_disabled`](#direct-connect-disabled) block supports the following:
+
 #### Direct Connect Enabled
 
 A [`direct_connect_enabled`](#direct-connect-enabled) block supports the following:
 
-<a id="direct-connect-enabled-auto-asn"></a>&#x2022; [`auto_asn`](#direct-connect-enabled-auto-asn) - Optional Block<br>Enable this option
+<a id="direct-connect-enabled-auto-asn"></a>&#x2022; [`auto_asn`](#direct-connect-enabled-auto-asn) - Optional Object<br>Enable this option
 
 <a id="direct-connect-enabled-custom-asn"></a>&#x2022; [`custom_asn`](#direct-connect-enabled-custom-asn) - Optional Number<br>Custom Autonomous System Number
 
 <a id="direct-connect-enabled-hosted-vifs"></a>&#x2022; [`hosted_vifs`](#direct-connect-enabled-hosted-vifs) - Optional Block<br>AWS Direct Connect Hosted VIF Configuration<br>See [Hosted Vifs](#direct-connect-enabled-hosted-vifs) below.
 
-<a id="direct-connect-enabled-standard-vifs"></a>&#x2022; [`standard_vifs`](#direct-connect-enabled-standard-vifs) - Optional Block<br>Configuration parameter for standard vifs
+<a id="direct-connect-enabled-standard-vifs"></a>&#x2022; [`standard_vifs`](#direct-connect-enabled-standard-vifs) - Optional Object<br>Configuration parameter for standard vifs
+
+#### Direct Connect Enabled Auto Asn
+
+An [`auto_asn`](#direct-connect-enabled-auto-asn) block (within [`direct_connect_enabled`](#direct-connect-enabled)) supports the following:
 
 #### Direct Connect Enabled Hosted Vifs
 
@@ -255,13 +283,17 @@ A [`hosted_vifs`](#direct-connect-enabled-hosted-vifs) block (within [`direct_co
 
 <a id="connect-b8275e"></a>&#x2022; [`site_registration_over_direct_connect`](#connect-b8275e) - Optional Block<br>CloudLink ADN Network Config<br>See [Site Registration Over Direct Connect](#connect-b8275e) below.
 
-<a id="internet-6028e0"></a>&#x2022; [`site_registration_over_internet`](#internet-6028e0) - Optional Block<br>Enable this option
+<a id="internet-6028e0"></a>&#x2022; [`site_registration_over_internet`](#internet-6028e0) - Optional Object<br>Enable this option
 
 <a id="list-d6c323"></a>&#x2022; [`vif_list`](#list-d6c323) - Optional Block<br>List of Hosted VIF Config. List of Hosted VIF Config<br>See [Vif List](#list-d6c323) below.
 
 #### Direct Connect Enabled Hosted Vifs Site Registration Over Direct Connect
 
 <a id="deep-3f196d"></a>Deeply nested **Connect** block collapsed for readability.
+
+#### Direct Connect Enabled Hosted Vifs Site Registration Over internet
+
+<a id="deep-41c016"></a>Deeply nested **internet** block collapsed for readability.
 
 #### Direct Connect Enabled Hosted Vifs Vif List
 
@@ -270,9 +302,29 @@ A [`vif_list`](#list-d6c323) block (within [`direct_connect_enabled.hosted_vifs`
 <a id="region-3f105f"></a>&#x2022; [`other_region`](#region-3f105f) - Optional String<br>Possible values are `af-south-1`, `ap-east-1`, `ap-northeast-1`, `ap-northeast-2`, `ap-south-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-southeast-3`, `CA-central-1`, `eu-central-1`, `eu-north-1`, `eu-south-1`, `eu-west-1`, `eu-west-2`, `eu-west-3`, `me-south-1`, `sa-east-1`, `us-east-1`, `us-east-2`,
 `us-west-1`, `us-west-2`<br>[Enum: af-south-1|ap-east-1|ap-northeast-1|ap-northeast-2|ap-south-1|ap-southeast-1|ap-southeast-2|ap-southeast-3|CA-central-1|eu-central-1|eu-north-1|eu-south-1|eu-west-1|eu-west-2|eu-west-3|me-south-1|sa-east-1|us-east-1|us-east-2|us-west-1|us-west-2] Other Region
 
-<a id="region-3435ff"></a>&#x2022; [`same_as_site_region`](#region-3435ff) - Optional Block<br>Enable this option
+<a id="region-3435ff"></a>&#x2022; [`same_as_site_region`](#region-3435ff) - Optional Object<br>Enable this option
 
 <a id="vif-id-4f330c"></a>&#x2022; [`vif_id`](#vif-id-4f330c) - Optional String<br>AWS Direct Connect VIF ID that needs to be connected to the site
+
+#### Direct Connect Enabled Hosted Vifs Vif List Same As Site Region
+
+<a id="deep-138913"></a>Deeply nested **Region** block collapsed for readability.
+
+#### Direct Connect Enabled Standard Vifs
+
+A [`standard_vifs`](#direct-connect-enabled-standard-vifs) block (within [`direct_connect_enabled`](#direct-connect-enabled)) supports the following:
+
+#### Disable Encryption
+
+A [`disable_encryption`](#disable-encryption) block supports the following:
+
+#### Disable internet VIP
+
+A [`disable_internet_vip`](#disable-internet-vip) block supports the following:
+
+#### Egress Gateway Default
+
+An [`egress_gateway_default`](#egress-gateway-default) block supports the following:
 
 #### Egress NAT Gw
 
@@ -291,6 +343,18 @@ An [`egress_virtual_private_gateway`](#egress-virtual-private-gateway) block sup
 An [`enable_encryption`](#enable-encryption) block supports the following:
 
 <a id="enable-encryption-kms-key-id"></a>&#x2022; [`kms_key_id`](#enable-encryption-kms-key-id) - Optional String<br>AWS KMS Key to be used to encrypt the disk attached to the VM
+
+#### Enable internet VIP
+
+An [`enable_internet_vip`](#enable-internet-vip) block supports the following:
+
+#### F5 Orchestrated Routing
+
+A [`f5_orchestrated_routing`](#f5-orchestrated-routing) block supports the following:
+
+#### F5xc Security Group
+
+A [`f5xc_security_group`](#f5xc-security-group) block supports the following:
 
 #### Ingress Egress Gw
 
@@ -315,31 +379,31 @@ SLI](#ingress-egress-gw-allowed-vip-port-sli) below.
 
 <a id="outside-vn-3594d6"></a>&#x2022; [`dc_cluster_group_outside_vn`](#outside-vn-3594d6) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group Outside Vn](#outside-vn-3594d6) below.
 
-<a id="all-8889af"></a>&#x2022; [`forward_proxy_allow_all`](#all-8889af) - Optional Block<br>Configuration parameter for forward proxy allow all
+<a id="all-8889af"></a>&#x2022; [`forward_proxy_allow_all`](#all-8889af) - Optional Object<br>Configuration parameter for forward proxy allow all
 
 <a id="ingress-egress-gw-global-network-list"></a>&#x2022; [`global_network_list`](#ingress-egress-gw-global-network-list) - Optional Block<br>Global Network Connection List. List of global network connections<br>See [Global Network List](#ingress-egress-gw-global-network-list) below.
 
 <a id="ingress-egress-gw-inside-static-routes"></a>&#x2022; [`inside_static_routes`](#ingress-egress-gw-inside-static-routes) - Optional Block<br>Configuration parameter for inside static routes<br>See [Inside Static Routes](#ingress-egress-gw-inside-static-routes) below.
 
-<a id="ingress-egress-gw-no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#ingress-egress-gw-no-dc-cluster-group) - Optional Block<br>Enable this option
+<a id="ingress-egress-gw-no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#ingress-egress-gw-no-dc-cluster-group) - Optional Object<br>Enable this option
 
-<a id="ingress-egress-gw-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#ingress-egress-gw-no-forward-proxy) - Optional Block<br>Configuration parameter for no forward proxy
+<a id="ingress-egress-gw-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#ingress-egress-gw-no-forward-proxy) - Optional Object<br>Configuration parameter for no forward proxy
 
-<a id="ingress-egress-gw-no-global-network"></a>&#x2022; [`no_global_network`](#ingress-egress-gw-no-global-network) - Optional Block<br>Configuration parameter for no global network
+<a id="ingress-egress-gw-no-global-network"></a>&#x2022; [`no_global_network`](#ingress-egress-gw-no-global-network) - Optional Object<br>Configuration parameter for no global network
 
-<a id="routes-b69a18"></a>&#x2022; [`no_inside_static_routes`](#routes-b69a18) - Optional Block<br>Configuration parameter for no inside static routes
+<a id="routes-b69a18"></a>&#x2022; [`no_inside_static_routes`](#routes-b69a18) - Optional Object<br>Configuration parameter for no inside static routes
 
-<a id="ingress-egress-gw-no-network-policy"></a>&#x2022; [`no_network_policy`](#ingress-egress-gw-no-network-policy) - Optional Block<br>Policy configuration for this feature
+<a id="ingress-egress-gw-no-network-policy"></a>&#x2022; [`no_network_policy`](#ingress-egress-gw-no-network-policy) - Optional Object<br>Policy configuration for this feature
 
-<a id="routes-630976"></a>&#x2022; [`no_outside_static_routes`](#routes-630976) - Optional Block<br>Configuration parameter for no outside static routes
+<a id="routes-630976"></a>&#x2022; [`no_outside_static_routes`](#routes-630976) - Optional Object<br>Configuration parameter for no outside static routes
 
 <a id="ingress-egress-gw-outside-static-routes"></a>&#x2022; [`outside_static_routes`](#ingress-egress-gw-outside-static-routes) - Optional Block<br>Configuration parameter for outside static routes<br>See [Outside Static Routes](#ingress-egress-gw-outside-static-routes) below.
 
 <a id="mode-4d23c2"></a>&#x2022; [`performance_enhancement_mode`](#mode-4d23c2) - Optional Block<br>Optimize the site for L3 or L7 traffic processing. L7 optimized is the default<br>See [Performance Enhancement Mode](#mode-4d23c2) below.
 
-<a id="public-ip-5f6604"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-5f6604) - Optional Block<br>Enable this option
+<a id="public-ip-5f6604"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-5f6604) - Optional Object<br>Enable this option
 
-<a id="ingress-egress-gw-sm-connection-pvt-ip"></a>&#x2022; [`sm_connection_pvt_ip`](#ingress-egress-gw-sm-connection-pvt-ip) - Optional Block<br>Enable this option
+<a id="ingress-egress-gw-sm-connection-pvt-ip"></a>&#x2022; [`sm_connection_pvt_ip`](#ingress-egress-gw-sm-connection-pvt-ip) - Optional Object<br>Enable this option
 
 #### Ingress Egress Gw Active Enhanced Firewall Policies
 
@@ -377,17 +441,33 @@ An [`allowed_vip_port`](#ingress-egress-gw-allowed-vip-port) block (within [`ing
 
 <a id="ports-1f6ac6"></a>&#x2022; [`custom_ports`](#ports-1f6ac6) - Optional Block<br>Custom Ports. List of Custom port<br>See [Custom Ports](#ports-1f6ac6) below.
 
-<a id="port-62fd1d"></a>&#x2022; [`disable_allowed_vip_port`](#port-62fd1d) - Optional Block<br>Enable this option
+<a id="port-62fd1d"></a>&#x2022; [`disable_allowed_vip_port`](#port-62fd1d) - Optional Object<br>Enable this option
 
-<a id="port-bab911"></a>&#x2022; [`use_http_https_port`](#port-bab911) - Optional Block<br>Enable this option
+<a id="port-bab911"></a>&#x2022; [`use_http_https_port`](#port-bab911) - Optional Object<br>Enable this option
 
-<a id="port-f10619"></a>&#x2022; [`use_http_port`](#port-f10619) - Optional Block<br>Enable this option
+<a id="port-f10619"></a>&#x2022; [`use_http_port`](#port-f10619) - Optional Object<br>Enable this option
 
-<a id="port-0cbb5d"></a>&#x2022; [`use_https_port`](#port-0cbb5d) - Optional Block<br>Enable this option
+<a id="port-0cbb5d"></a>&#x2022; [`use_https_port`](#port-0cbb5d) - Optional Object<br>Enable this option
 
 #### Ingress Egress Gw Allowed VIP Port Custom Ports
 
 <a id="deep-7a42bb"></a>Deeply nested **Ports** block collapsed for readability.
+
+#### Ingress Egress Gw Allowed VIP Port Disable Allowed VIP Port
+
+<a id="deep-fd956a"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Ingress Egress Gw Allowed VIP Port Use HTTP HTTPS Port
+
+<a id="deep-c82ef7"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Ingress Egress Gw Allowed VIP Port Use HTTP Port
+
+<a id="deep-9e6e4d"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Ingress Egress Gw Allowed VIP Port Use HTTPS Port
+
+<a id="deep-4e3495"></a>Deeply nested **Port** block collapsed for readability.
 
 #### Ingress Egress Gw Allowed VIP Port SLI
 
@@ -395,17 +475,33 @@ An [`allowed_vip_port_sli`](#ingress-egress-gw-allowed-vip-port-sli) block (with
 
 <a id="ports-93c5d6"></a>&#x2022; [`custom_ports`](#ports-93c5d6) - Optional Block<br>Custom Ports. List of Custom port<br>See [Custom Ports](#ports-93c5d6) below.
 
-<a id="port-084b63"></a>&#x2022; [`disable_allowed_vip_port`](#port-084b63) - Optional Block<br>Enable this option
+<a id="port-084b63"></a>&#x2022; [`disable_allowed_vip_port`](#port-084b63) - Optional Object<br>Enable this option
 
-<a id="port-f98848"></a>&#x2022; [`use_http_https_port`](#port-f98848) - Optional Block<br>Enable this option
+<a id="port-f98848"></a>&#x2022; [`use_http_https_port`](#port-f98848) - Optional Object<br>Enable this option
 
-<a id="port-f1e8a8"></a>&#x2022; [`use_http_port`](#port-f1e8a8) - Optional Block<br>Enable this option
+<a id="port-f1e8a8"></a>&#x2022; [`use_http_port`](#port-f1e8a8) - Optional Object<br>Enable this option
 
-<a id="port-39b9bd"></a>&#x2022; [`use_https_port`](#port-39b9bd) - Optional Block<br>Enable this option
+<a id="port-39b9bd"></a>&#x2022; [`use_https_port`](#port-39b9bd) - Optional Object<br>Enable this option
 
 #### Ingress Egress Gw Allowed VIP Port SLI Custom Ports
 
 <a id="deep-097e05"></a>Deeply nested **Ports** block collapsed for readability.
+
+#### Ingress Egress Gw Allowed VIP Port SLI Disable Allowed VIP Port
+
+<a id="deep-1cf742"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Ingress Egress Gw Allowed VIP Port SLI Use HTTP HTTPS Port
+
+<a id="deep-e98d78"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Ingress Egress Gw Allowed VIP Port SLI Use HTTP Port
+
+<a id="deep-659c98"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Ingress Egress Gw Allowed VIP Port SLI Use HTTPS Port
+
+<a id="deep-15d016"></a>Deeply nested **Port** block collapsed for readability.
 
 #### Ingress Egress Gw Az Nodes
 
@@ -417,7 +513,7 @@ An [`az_nodes`](#ingress-egress-gw-az-nodes) block (within [`ingress_egress_gw`]
 
 <a id="subnet-631d3b"></a>&#x2022; [`outside_subnet`](#subnet-631d3b) - Optional Block<br>Configuration parameter for outside subnet<br>See [Outside Subnet](#subnet-631d3b) below.
 
-<a id="subnet-679648"></a>&#x2022; [`reserved_inside_subnet`](#subnet-679648) - Optional Block<br>Configuration parameter for reserved inside subnet
+<a id="subnet-679648"></a>&#x2022; [`reserved_inside_subnet`](#subnet-679648) - Optional Object<br>Configuration parameter for reserved inside subnet
 
 <a id="subnet-333bb8"></a>&#x2022; [`workload_subnet`](#subnet-333bb8) - Optional Block<br>Configuration parameter for workload subnet<br>See [Workload Subnet](#subnet-333bb8) below.
 
@@ -445,6 +541,10 @@ An [`outside_subnet`](#subnet-631d3b) block (within [`ingress_egress_gw.az_nodes
 
 <a id="deep-4b83fd"></a>Deeply nested **Param** block collapsed for readability.
 
+#### Ingress Egress Gw Az Nodes Reserved Inside Subnet
+
+<a id="deep-ec7a8b"></a>Deeply nested **Subnet** block collapsed for readability.
+
 #### Ingress Egress Gw Az Nodes Workload Subnet
 
 A [`workload_subnet`](#subnet-333bb8) block (within [`ingress_egress_gw.az_nodes`](#ingress-egress-gw-az-nodes)) supports the following:
@@ -464,6 +564,10 @@ A [`workload_subnet`](#subnet-333bb8) block (within [`ingress_egress_gw.az_nodes
 #### Ingress Egress Gw Dc Cluster Group Outside Vn
 
 <a id="deep-53ac3b"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Ingress Egress Gw Forward Proxy Allow All
+
+A [`forward_proxy_allow_all`](#all-8889af) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
 
 #### Ingress Egress Gw Global Network List
 
@@ -537,6 +641,30 @@ An [`inside_static_routes`](#ingress-egress-gw-inside-static-routes) block (with
 
 <a id="deep-5dec85"></a>Deeply nested **IPv6** block collapsed for readability.
 
+#### Ingress Egress Gw No Dc Cluster Group
+
+A [`no_dc_cluster_group`](#ingress-egress-gw-no-dc-cluster-group) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Forward Proxy
+
+A [`no_forward_proxy`](#ingress-egress-gw-no-forward-proxy) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Global Network
+
+A [`no_global_network`](#ingress-egress-gw-no-global-network) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Inside Static Routes
+
+A [`no_inside_static_routes`](#routes-b69a18) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Network Policy
+
+A [`no_network_policy`](#ingress-egress-gw-no-network-policy) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Outside Static Routes
+
+A [`no_outside_static_routes`](#routes-630976) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
 #### Ingress Egress Gw Outside Static Routes
 
 An [`outside_static_routes`](#ingress-egress-gw-outside-static-routes) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
@@ -595,9 +723,33 @@ A [`performance_enhancement_mode`](#mode-4d23c2) block (within [`ingress_egress_
 
 <a id="deep-4a39a0"></a>Deeply nested **Enhanced** block collapsed for readability.
 
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L3 Enhanced Jumbo
+
+<a id="deep-e1a2d3"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L3 Enhanced No Jumbo
+
+<a id="deep-02c2ce"></a>Deeply nested **Jumbo** block collapsed for readability.
+
 #### Ingress Egress Gw Performance Enhancement Mode Perf Mode L7 Enhanced
 
 <a id="deep-b9cc72"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Disabled
+
+<a id="deep-b7e34e"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Enabled
+
+<a id="deep-a84ffd"></a>Deeply nested **Enabled** block collapsed for readability.
+
+#### Ingress Egress Gw Sm Connection Public IP
+
+A [`sm_connection_public_ip`](#public-ip-5f6604) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw Sm Connection Pvt IP
+
+A [`sm_connection_pvt_ip`](#ingress-egress-gw-sm-connection-pvt-ip) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
 
 #### Ingress Gw
 
@@ -617,19 +769,35 @@ An [`allowed_vip_port`](#ingress-gw-allowed-vip-port) block (within [`ingress_gw
 
 <a id="ports-644346"></a>&#x2022; [`custom_ports`](#ports-644346) - Optional Block<br>Custom Ports. List of Custom port<br>See [Custom Ports](#ports-644346) below.
 
-<a id="port-51dc9d"></a>&#x2022; [`disable_allowed_vip_port`](#port-51dc9d) - Optional Block<br>Enable this option
+<a id="port-51dc9d"></a>&#x2022; [`disable_allowed_vip_port`](#port-51dc9d) - Optional Object<br>Enable this option
 
-<a id="port-9427a8"></a>&#x2022; [`use_http_https_port`](#port-9427a8) - Optional Block<br>Enable this option
+<a id="port-9427a8"></a>&#x2022; [`use_http_https_port`](#port-9427a8) - Optional Object<br>Enable this option
 
-<a id="port-44bb52"></a>&#x2022; [`use_http_port`](#port-44bb52) - Optional Block<br>Enable this option
+<a id="port-44bb52"></a>&#x2022; [`use_http_port`](#port-44bb52) - Optional Object<br>Enable this option
 
-<a id="port-011ca8"></a>&#x2022; [`use_https_port`](#port-011ca8) - Optional Block<br>Enable this option
+<a id="port-011ca8"></a>&#x2022; [`use_https_port`](#port-011ca8) - Optional Object<br>Enable this option
 
 #### Ingress Gw Allowed VIP Port Custom Ports
 
 A [`custom_ports`](#ports-644346) block (within [`ingress_gw.allowed_vip_port`](#ingress-gw-allowed-vip-port)) supports the following:
 
 <a id="ranges-c15a5d"></a>&#x2022; [`port_ranges`](#ranges-c15a5d) - Optional String<br>Port Ranges. Port Ranges
+
+#### Ingress Gw Allowed VIP Port Disable Allowed VIP Port
+
+<a id="deep-9d7f96"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Ingress Gw Allowed VIP Port Use HTTP HTTPS Port
+
+<a id="deep-15b2b8"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Ingress Gw Allowed VIP Port Use HTTP Port
+
+<a id="deep-976892"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Ingress Gw Allowed VIP Port Use HTTPS Port
+
+<a id="deep-d449ab"></a>Deeply nested **Port** block collapsed for readability.
 
 #### Ingress Gw Az Nodes
 
@@ -663,29 +831,59 @@ A [`performance_enhancement_mode`](#ingress-gw-performance-enhancement-mode) blo
 
 <a id="deep-690f7e"></a>Deeply nested **Enhanced** block collapsed for readability.
 
+#### Ingress Gw Performance Enhancement Mode Perf Mode L3 Enhanced Jumbo
+
+<a id="deep-7b934c"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Gw Performance Enhancement Mode Perf Mode L3 Enhanced No Jumbo
+
+<a id="deep-79581d"></a>Deeply nested **Jumbo** block collapsed for readability.
+
 #### Ingress Gw Performance Enhancement Mode Perf Mode L7 Enhanced
 
 <a id="deep-4e15d8"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Gw Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Disabled
+
+<a id="deep-4e1f91"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Ingress Gw Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Enabled
+
+<a id="deep-244a42"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Kubernetes Upgrade Drain
 
 A [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain) block supports the following:
 
-<a id="drain-0d0936"></a>&#x2022; [`disable_upgrade_drain`](#drain-0d0936) - Optional Block<br>Configuration parameter for disable upgrade drain
+<a id="drain-0d0936"></a>&#x2022; [`disable_upgrade_drain`](#drain-0d0936) - Optional Object<br>Configuration parameter for disable upgrade drain
 
 <a id="drain-7e30d4"></a>&#x2022; [`enable_upgrade_drain`](#drain-7e30d4) - Optional Block<br>Specify batch upgrade settings for worker nodes within a site<br>See [Enable Upgrade Drain](#drain-7e30d4) below.
+
+#### Kubernetes Upgrade Drain Disable Upgrade Drain
+
+A [`disable_upgrade_drain`](#drain-0d0936) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
 
 #### Kubernetes Upgrade Drain Enable Upgrade Drain
 
 An [`enable_upgrade_drain`](#drain-7e30d4) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
 
-<a id="mode-668699"></a>&#x2022; [`disable_vega_upgrade_mode`](#mode-668699) - Optional Block<br>Configuration parameter for disable vega upgrade mode
+<a id="mode-668699"></a>&#x2022; [`disable_vega_upgrade_mode`](#mode-668699) - Optional Object<br>Configuration parameter for disable vega upgrade mode
 
 <a id="count-3aa796"></a>&#x2022; [`drain_max_unavailable_node_count`](#count-3aa796) - Optional Number<br>Node Batch Size Count
 
+<a id="percentage-7723a9"></a>&#x2022; [`drain_max_unavailable_node_percentage`](#percentage-7723a9) - Optional Number<br>Maximum percentage of nodes unavailable during upgrade draining
+
 <a id="timeout-ac4ee9"></a>&#x2022; [`drain_node_timeout`](#timeout-ac4ee9) - Optional Number<br>Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is
 
-<a id="mode-9c557b"></a>&#x2022; [`enable_vega_upgrade_mode`](#mode-9c557b) - Optional Block<br>Configuration parameter for enable vega upgrade mode
+<a id="mode-9c557b"></a>&#x2022; [`enable_vega_upgrade_mode`](#mode-9c557b) - Optional Object<br>Configuration parameter for enable vega upgrade mode
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Disable Vega Upgrade Mode
+
+<a id="deep-6040f2"></a>Deeply nested **Mode** block collapsed for readability.
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Enable Vega Upgrade Mode
+
+<a id="deep-ea033c"></a>Deeply nested **Mode** block collapsed for readability.
 
 #### Log Receiver
 
@@ -697,21 +895,45 @@ A [`log_receiver`](#log-receiver) block supports the following:
 
 <a id="log-receiver-tenant"></a>&#x2022; [`tenant`](#log-receiver-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Logs Streaming Disabled
+
+A [`logs_streaming_disabled`](#logs-streaming-disabled) block supports the following:
+
+#### Manual Routing
+
+A [`manual_routing`](#manual-routing) block supports the following:
+
+#### No Worker Nodes
+
+A [`no_worker_nodes`](#no-worker-nodes) block supports the following:
+
 #### Offline Survivability Mode
 
 An [`offline_survivability_mode`](#offline-survivability-mode) block supports the following:
 
-<a id="mode-565021"></a>&#x2022; [`enable_offline_survivability_mode`](#mode-565021) - Optional Block<br>Configuration parameter for enable offline survivability mode
+<a id="mode-565021"></a>&#x2022; [`enable_offline_survivability_mode`](#mode-565021) - Optional Object<br>Configuration parameter for enable offline survivability mode
 
-<a id="mode-02f0c8"></a>&#x2022; [`no_offline_survivability_mode`](#mode-02f0c8) - Optional Block<br>Configuration parameter for no offline survivability mode
+<a id="mode-02f0c8"></a>&#x2022; [`no_offline_survivability_mode`](#mode-02f0c8) - Optional Object<br>Configuration parameter for no offline survivability mode
+
+#### Offline Survivability Mode Enable Offline Survivability Mode
+
+An [`enable_offline_survivability_mode`](#mode-565021) block (within [`offline_survivability_mode`](#offline-survivability-mode)) supports the following:
+
+#### Offline Survivability Mode No Offline Survivability Mode
+
+A [`no_offline_survivability_mode`](#mode-02f0c8) block (within [`offline_survivability_mode`](#offline-survivability-mode)) supports the following:
 
 #### OS
 
 An [`os`](#os) block supports the following:
 
-<a id="os-default-os-version"></a>&#x2022; [`default_os_version`](#os-default-os-version) - Optional Block<br>Enable this option
+<a id="os-default-os-version"></a>&#x2022; [`default_os_version`](#os-default-os-version) - Optional Object<br>Enable this option
 
 <a id="os-operating-system-version"></a>&#x2022; [`operating_system_version`](#os-operating-system-version) - Optional String<br>Specify a OS version to be used e.g. 9.2024.6
+
+#### OS Default OS Version
+
+A [`default_os_version`](#os-default-os-version) block (within [`os`](#os)) supports the following:
 
 #### Private Connectivity
 
@@ -719,9 +941,9 @@ A [`private_connectivity`](#private-connectivity) block supports the following:
 
 <a id="private-connectivity-cloud-link"></a>&#x2022; [`cloud_link`](#private-connectivity-cloud-link) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Cloud Link](#private-connectivity-cloud-link) below.
 
-<a id="private-connectivity-inside"></a>&#x2022; [`inside`](#private-connectivity-inside) - Optional Block<br>Enable this option
+<a id="private-connectivity-inside"></a>&#x2022; [`inside`](#private-connectivity-inside) - Optional Object<br>Enable this option
 
-<a id="private-connectivity-outside"></a>&#x2022; [`outside`](#private-connectivity-outside) - Optional Block<br>Enable this option
+<a id="private-connectivity-outside"></a>&#x2022; [`outside`](#private-connectivity-outside) - Optional Object<br>Enable this option
 
 #### Private Connectivity Cloud Link
 
@@ -733,13 +955,25 @@ A [`cloud_link`](#private-connectivity-cloud-link) block (within [`private_conne
 
 <a id="private-connectivity-cloud-link-tenant"></a>&#x2022; [`tenant`](#private-connectivity-cloud-link-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Private Connectivity Inside
+
+An [`inside`](#private-connectivity-inside) block (within [`private_connectivity`](#private-connectivity)) supports the following:
+
+#### Private Connectivity Outside
+
+An [`outside`](#private-connectivity-outside) block (within [`private_connectivity`](#private-connectivity)) supports the following:
+
 #### Sw
 
 A [`sw`](#sw) block supports the following:
 
-<a id="sw-default-sw-version"></a>&#x2022; [`default_sw_version`](#sw-default-sw-version) - Optional Block<br>Enable this option
+<a id="sw-default-sw-version"></a>&#x2022; [`default_sw_version`](#sw-default-sw-version) - Optional Object<br>Enable this option
 
 <a id="sw-volterra-software-version"></a>&#x2022; [`volterra_software_version`](#sw-volterra-software-version) - Optional String<br>Specify a F5XC Software Version to be used e.g. Crt-20210329-1002
+
+#### Sw Default Sw Version
+
+A [`default_sw_version`](#sw-default-sw-version) block (within [`sw`](#sw)) supports the following:
 
 #### Timeouts
 
@@ -771,31 +1005,31 @@ A [`voltstack_cluster`](#voltstack-cluster) block supports the following:
 
 <a id="voltstack-cluster-dc-cluster-group"></a>&#x2022; [`dc_cluster_group`](#voltstack-cluster-dc-cluster-group) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group](#voltstack-cluster-dc-cluster-group) below.
 
-<a id="voltstack-cluster-default-storage"></a>&#x2022; [`default_storage`](#voltstack-cluster-default-storage) - Optional Block<br>Configuration parameter for default storage
+<a id="voltstack-cluster-default-storage"></a>&#x2022; [`default_storage`](#voltstack-cluster-default-storage) - Optional Object<br>Configuration parameter for default storage
 
-<a id="all-48d905"></a>&#x2022; [`forward_proxy_allow_all`](#all-48d905) - Optional Block<br>Configuration parameter for forward proxy allow all
+<a id="all-48d905"></a>&#x2022; [`forward_proxy_allow_all`](#all-48d905) - Optional Object<br>Configuration parameter for forward proxy allow all
 
 <a id="voltstack-cluster-global-network-list"></a>&#x2022; [`global_network_list`](#voltstack-cluster-global-network-list) - Optional Block<br>Global Network Connection List. List of global network connections<br>See [Global Network List](#voltstack-cluster-global-network-list) below.
 
 <a id="voltstack-cluster-k8s-cluster"></a>&#x2022; [`k8s_cluster`](#voltstack-cluster-k8s-cluster) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [K8S Cluster](#voltstack-cluster-k8s-cluster) below.
 
-<a id="voltstack-cluster-no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#voltstack-cluster-no-dc-cluster-group) - Optional Block<br>Enable this option
+<a id="voltstack-cluster-no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#voltstack-cluster-no-dc-cluster-group) - Optional Object<br>Enable this option
 
-<a id="voltstack-cluster-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#voltstack-cluster-no-forward-proxy) - Optional Block<br>Configuration parameter for no forward proxy
+<a id="voltstack-cluster-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#voltstack-cluster-no-forward-proxy) - Optional Object<br>Configuration parameter for no forward proxy
 
-<a id="voltstack-cluster-no-global-network"></a>&#x2022; [`no_global_network`](#voltstack-cluster-no-global-network) - Optional Block<br>Configuration parameter for no global network
+<a id="voltstack-cluster-no-global-network"></a>&#x2022; [`no_global_network`](#voltstack-cluster-no-global-network) - Optional Object<br>Configuration parameter for no global network
 
-<a id="voltstack-cluster-no-k8s-cluster"></a>&#x2022; [`no_k8s_cluster`](#voltstack-cluster-no-k8s-cluster) - Optional Block<br>Enable this option
+<a id="voltstack-cluster-no-k8s-cluster"></a>&#x2022; [`no_k8s_cluster`](#voltstack-cluster-no-k8s-cluster) - Optional Object<br>Enable this option
 
-<a id="voltstack-cluster-no-network-policy"></a>&#x2022; [`no_network_policy`](#voltstack-cluster-no-network-policy) - Optional Block<br>Policy configuration for this feature
+<a id="voltstack-cluster-no-network-policy"></a>&#x2022; [`no_network_policy`](#voltstack-cluster-no-network-policy) - Optional Object<br>Policy configuration for this feature
 
-<a id="routes-3cc7bc"></a>&#x2022; [`no_outside_static_routes`](#routes-3cc7bc) - Optional Block<br>Configuration parameter for no outside static routes
+<a id="routes-3cc7bc"></a>&#x2022; [`no_outside_static_routes`](#routes-3cc7bc) - Optional Object<br>Configuration parameter for no outside static routes
 
 <a id="voltstack-cluster-outside-static-routes"></a>&#x2022; [`outside_static_routes`](#voltstack-cluster-outside-static-routes) - Optional Block<br>Configuration parameter for outside static routes<br>See [Outside Static Routes](#voltstack-cluster-outside-static-routes) below.
 
-<a id="public-ip-8ed01a"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-8ed01a) - Optional Block<br>Enable this option
+<a id="public-ip-8ed01a"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-8ed01a) - Optional Object<br>Enable this option
 
-<a id="voltstack-cluster-sm-connection-pvt-ip"></a>&#x2022; [`sm_connection_pvt_ip`](#voltstack-cluster-sm-connection-pvt-ip) - Optional Block<br>Enable this option
+<a id="voltstack-cluster-sm-connection-pvt-ip"></a>&#x2022; [`sm_connection_pvt_ip`](#voltstack-cluster-sm-connection-pvt-ip) - Optional Object<br>Enable this option
 
 <a id="voltstack-cluster-storage-class-list"></a>&#x2022; [`storage_class_list`](#voltstack-cluster-storage-class-list) - Optional Block<br>Add additional custom storage classes in Kubernetes for this site<br>See [Storage Class List](#voltstack-cluster-storage-class-list) below.
 
@@ -841,19 +1075,35 @@ An [`allowed_vip_port`](#voltstack-cluster-allowed-vip-port) block (within [`vol
 
 <a id="ports-22d935"></a>&#x2022; [`custom_ports`](#ports-22d935) - Optional Block<br>Custom Ports. List of Custom port<br>See [Custom Ports](#ports-22d935) below.
 
-<a id="port-b20bcf"></a>&#x2022; [`disable_allowed_vip_port`](#port-b20bcf) - Optional Block<br>Enable this option
+<a id="port-b20bcf"></a>&#x2022; [`disable_allowed_vip_port`](#port-b20bcf) - Optional Object<br>Enable this option
 
-<a id="port-f73b33"></a>&#x2022; [`use_http_https_port`](#port-f73b33) - Optional Block<br>Enable this option
+<a id="port-f73b33"></a>&#x2022; [`use_http_https_port`](#port-f73b33) - Optional Object<br>Enable this option
 
-<a id="port-6ad494"></a>&#x2022; [`use_http_port`](#port-6ad494) - Optional Block<br>Enable this option
+<a id="port-6ad494"></a>&#x2022; [`use_http_port`](#port-6ad494) - Optional Object<br>Enable this option
 
-<a id="port-4002d5"></a>&#x2022; [`use_https_port`](#port-4002d5) - Optional Block<br>Enable this option
+<a id="port-4002d5"></a>&#x2022; [`use_https_port`](#port-4002d5) - Optional Object<br>Enable this option
 
 #### Voltstack Cluster Allowed VIP Port Custom Ports
 
 A [`custom_ports`](#ports-22d935) block (within [`voltstack_cluster.allowed_vip_port`](#voltstack-cluster-allowed-vip-port)) supports the following:
 
 <a id="ranges-16640f"></a>&#x2022; [`port_ranges`](#ranges-16640f) - Optional String<br>Port Ranges. Port Ranges
+
+#### Voltstack Cluster Allowed VIP Port Disable Allowed VIP Port
+
+<a id="deep-4b466a"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Voltstack Cluster Allowed VIP Port Use HTTP HTTPS Port
+
+<a id="deep-7a867c"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Voltstack Cluster Allowed VIP Port Use HTTP Port
+
+<a id="deep-4e5967"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Voltstack Cluster Allowed VIP Port Use HTTPS Port
+
+<a id="deep-95fa32"></a>Deeply nested **Port** block collapsed for readability.
 
 #### Voltstack Cluster Az Nodes
 
@@ -884,6 +1134,14 @@ A [`dc_cluster_group`](#voltstack-cluster-dc-cluster-group) block (within [`volt
 <a id="namespace-e43a60"></a>&#x2022; [`namespace`](#namespace-e43a60) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="tenant-597aab"></a>&#x2022; [`tenant`](#tenant-597aab) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Voltstack Cluster Default Storage
+
+A [`default_storage`](#voltstack-cluster-default-storage) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster Forward Proxy Allow All
+
+A [`forward_proxy_allow_all`](#all-48d905) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
 
 #### Voltstack Cluster Global Network List
 
@@ -920,6 +1178,30 @@ A [`k8s_cluster`](#voltstack-cluster-k8s-cluster) block (within [`voltstack_clus
 <a id="voltstack-cluster-k8s-cluster-namespace"></a>&#x2022; [`namespace`](#voltstack-cluster-k8s-cluster-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="voltstack-cluster-k8s-cluster-tenant"></a>&#x2022; [`tenant`](#voltstack-cluster-k8s-cluster-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Voltstack Cluster No Dc Cluster Group
+
+A [`no_dc_cluster_group`](#voltstack-cluster-no-dc-cluster-group) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No Forward Proxy
+
+A [`no_forward_proxy`](#voltstack-cluster-no-forward-proxy) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No Global Network
+
+A [`no_global_network`](#voltstack-cluster-no-global-network) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No K8S Cluster
+
+A [`no_k8s_cluster`](#voltstack-cluster-no-k8s-cluster) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No Network Policy
+
+A [`no_network_policy`](#voltstack-cluster-no-network-policy) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No Outside Static Routes
+
+A [`no_outside_static_routes`](#routes-3cc7bc) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
 
 #### Voltstack Cluster Outside Static Routes
 
@@ -967,6 +1249,14 @@ An [`outside_static_routes`](#voltstack-cluster-outside-static-routes) block (wi
 
 <a id="deep-85f420"></a>Deeply nested **IPv6** block collapsed for readability.
 
+#### Voltstack Cluster Sm Connection Public IP
+
+A [`sm_connection_public_ip`](#public-ip-8ed01a) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster Sm Connection Pvt IP
+
+A [`sm_connection_pvt_ip`](#voltstack-cluster-sm-connection-pvt-ip) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
 #### Voltstack Cluster Storage Class List
 
 A [`storage_class_list`](#voltstack-cluster-storage-class-list) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
@@ -993,11 +1283,15 @@ A [`vpc`](#vpc) block supports the following:
 
 A [`new_vpc`](#vpc-new-vpc) block (within [`vpc`](#vpc)) supports the following:
 
-<a id="vpc-new-vpc-autogenerate"></a>&#x2022; [`autogenerate`](#vpc-new-vpc-autogenerate) - Optional Block<br>Configuration parameter for autogenerate
+<a id="vpc-new-vpc-autogenerate"></a>&#x2022; [`autogenerate`](#vpc-new-vpc-autogenerate) - Optional Object<br>Configuration parameter for autogenerate
 
 <a id="vpc-new-vpc-name-tag"></a>&#x2022; [`name_tag`](#vpc-new-vpc-name-tag) - Optional String<br>Specify the VPC Name
 
 <a id="vpc-new-vpc-primary-ipv4"></a>&#x2022; [`primary_ipv4`](#vpc-new-vpc-primary-ipv4) - Optional String<br>IPv4 CIDR block for this VPC. It has to be private address space. The Primary IPv4 block cannot be modified. All subnets prefixes in this VPC must be part of this CIDR block
+
+#### VPC New VPC Autogenerate
+
+An [`autogenerate`](#vpc-new-vpc-autogenerate) block (within [`vpc.new_vpc`](#vpc-new-vpc)) supports the following:
 
 ---
 

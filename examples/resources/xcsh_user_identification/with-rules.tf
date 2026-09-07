@@ -17,6 +17,6 @@ resource "xcsh_user_identification" "test" {
   description = "User identification with identification rules"
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }

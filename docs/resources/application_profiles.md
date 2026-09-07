@@ -39,7 +39,7 @@ resource "xcsh_application_profiles" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -81,17 +81,33 @@ In addition to all arguments above, the following attributes are exported:
 
 An [`advanced_tcp_profile`](#advanced-tcp-profile) block supports the following:
 
-<a id="profile-9e56fd"></a>&#x2022; [`disable_tcp_advanced_profile`](#profile-9e56fd) - Optional Block<br>Configuration parameter for disable TCP advanced profile
+<a id="profile-9e56fd"></a>&#x2022; [`disable_tcp_advanced_profile`](#profile-9e56fd) - Optional Object<br>Configuration parameter for disable TCP advanced profile
 
-<a id="profile-a5f274"></a>&#x2022; [`enable_tcp_advanced_profile`](#profile-a5f274) - Optional Block<br>Configuration parameter for enable TCP advanced profile
+<a id="profile-a5f274"></a>&#x2022; [`enable_tcp_advanced_profile`](#profile-a5f274) - Optional Object<br>Configuration parameter for enable TCP advanced profile
+
+#### Advanced TCP Profile Disable TCP Advanced Profile
+
+A [`disable_tcp_advanced_profile`](#profile-9e56fd) block (within [`advanced_tcp_profile`](#advanced-tcp-profile)) supports the following:
+
+#### Advanced TCP Profile Enable TCP Advanced Profile
+
+An [`enable_tcp_advanced_profile`](#profile-a5f274) block (within [`advanced_tcp_profile`](#advanced-tcp-profile)) supports the following:
 
 #### DDOS Profile
 
 A [`ddos_profile`](#ddos-profile) block supports the following:
 
-<a id="ddos-profile-disable-ddos-mitigation"></a>&#x2022; [`disable_ddos_mitigation`](#ddos-profile-disable-ddos-mitigation) - Optional Block<br>Enable this option
+<a id="ddos-profile-disable-ddos-mitigation"></a>&#x2022; [`disable_ddos_mitigation`](#ddos-profile-disable-ddos-mitigation) - Optional Object<br>Enable this option
 
-<a id="ddos-profile-enable-ddos-mitigation"></a>&#x2022; [`enable_ddos_mitigation`](#ddos-profile-enable-ddos-mitigation) - Optional Block<br>Enable this option
+<a id="ddos-profile-enable-ddos-mitigation"></a>&#x2022; [`enable_ddos_mitigation`](#ddos-profile-enable-ddos-mitigation) - Optional Object<br>Enable this option
+
+#### DDOS Profile Disable DDOS Mitigation
+
+A [`disable_ddos_mitigation`](#ddos-profile-disable-ddos-mitigation) block (within [`ddos_profile`](#ddos-profile)) supports the following:
+
+#### DDOS Profile Enable DDOS Mitigation
+
+An [`enable_ddos_mitigation`](#ddos-profile-enable-ddos-mitigation) block (within [`ddos_profile`](#ddos-profile)) supports the following:
 
 #### Irules
 
@@ -184,19 +200,39 @@ server to load balance<br>See [Port Translation](#virtual-server-port-translatio
 
 An [`address_translation`](#virtual-server-address-translation) block (within [`virtual_server`](#virtual-server)) supports the following:
 
-<a id="disable-75c46f"></a>&#x2022; [`address_translation_disable`](#disable-75c46f) - Optional Block<br>Enable this option
+<a id="disable-75c46f"></a>&#x2022; [`address_translation_disable`](#disable-75c46f) - Optional Object<br>Enable this option
 
-<a id="enable-cd0cd4"></a>&#x2022; [`address_translation_enable`](#enable-cd0cd4) - Optional Block<br>Enable this option
+<a id="enable-cd0cd4"></a>&#x2022; [`address_translation_enable`](#enable-cd0cd4) - Optional Object<br>Enable this option
+
+#### Virtual Server Address Translation Address Translation Disable
+
+An [`address_translation_disable`](#disable-75c46f) block (within [`virtual_server.address_translation`](#virtual-server-address-translation)) supports the following:
+
+#### Virtual Server Address Translation Address Translation Enable
+
+An [`address_translation_enable`](#enable-cd0cd4) block (within [`virtual_server.address_translation`](#virtual-server-address-translation)) supports the following:
 
 #### Virtual Server Auto Last Hop
 
 An [`auto_last_hop`](#virtual-server-auto-last-hop) block (within [`virtual_server`](#virtual-server)) supports the following:
 
-<a id="default-7d2320"></a>&#x2022; [`auto_last_hop_default`](#default-7d2320) - Optional Block<br>Configuration parameter for auto last hop default
+<a id="default-7d2320"></a>&#x2022; [`auto_last_hop_default`](#default-7d2320) - Optional Object<br>Configuration parameter for auto last hop default
 
-<a id="disable-210821"></a>&#x2022; [`auto_last_hop_disable`](#disable-210821) - Optional Block<br>Configuration parameter for auto last hop disable
+<a id="disable-210821"></a>&#x2022; [`auto_last_hop_disable`](#disable-210821) - Optional Object<br>Configuration parameter for auto last hop disable
 
-<a id="enable-c5442e"></a>&#x2022; [`auto_last_hop_enable`](#enable-c5442e) - Optional Block<br>Configuration parameter for auto last hop enable
+<a id="enable-c5442e"></a>&#x2022; [`auto_last_hop_enable`](#enable-c5442e) - Optional Object<br>Configuration parameter for auto last hop enable
+
+#### Virtual Server Auto Last Hop Auto Last Hop Default
+
+<a id="deep-7d99e8"></a>Deeply nested **Default** block collapsed for readability.
+
+#### Virtual Server Auto Last Hop Auto Last Hop Disable
+
+<a id="deep-1feae2"></a>Deeply nested **Disable** block collapsed for readability.
+
+#### Virtual Server Auto Last Hop Auto Last Hop Enable
+
+<a id="deep-b07149"></a>Deeply nested **Enable** block collapsed for readability.
 
 #### Virtual Server Clone Pool Client
 
@@ -236,7 +272,7 @@ A [`connection_rate_limit_mode`](#mode-0b96e8) block (within [`virtual_server`](
 
 <a id="address-9a08c1"></a>&#x2022; [`per_source_destination_address`](#address-9a08c1) - Optional Block<br>Destination and Source Address Mask<br>See [Per Source Destination Address](#address-9a08c1) below.
 
-<a id="server-c1aa1d"></a>&#x2022; [`per_virtual_server`](#server-c1aa1d) - Optional Block<br>Configuration parameter for per virtual server
+<a id="server-c1aa1d"></a>&#x2022; [`per_virtual_server`](#server-c1aa1d) - Optional Object<br>Configuration parameter for per virtual server
 
 <a id="address-e10ba4"></a>&#x2022; [`per_virtual_server_destination_address`](#address-e10ba4) - Optional Block<br>Destination Address Mask<br>See [Per Virtual Server Destination Address](#address-e10ba4) below.
 
@@ -255,6 +291,10 @@ A [`connection_rate_limit_mode`](#mode-0b96e8) block (within [`virtual_server`](
 #### Virtual Server Connection Rate Limit Mode Per Source Destination Address
 
 <a id="deep-ac4282"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Virtual Server Connection Rate Limit Mode Per Virtual Server
+
+<a id="deep-82eea2"></a>Deeply nested **Server** block collapsed for readability.
 
 #### Virtual Server Connection Rate Limit Mode Per Virtual Server Destination Address
 
@@ -868,11 +908,23 @@ A [`websocket_server_profile`](#profile-44d87f) block (within [`virtual_server.h
 
 An [`immediate_action_on_service_down`](#down-c66a6b) block (within [`virtual_server`](#virtual-server)) supports the following:
 
-<a id="drop-e602d9"></a>&#x2022; [`immediate_action_on_service_down_drop`](#drop-e602d9) - Optional Block<br>Enable this option
+<a id="drop-e602d9"></a>&#x2022; [`immediate_action_on_service_down_drop`](#drop-e602d9) - Optional Object<br>Enable this option
 
-<a id="none-3c4962"></a>&#x2022; [`immediate_action_on_service_down_none`](#none-3c4962) - Optional Block<br>Enable this option
+<a id="none-3c4962"></a>&#x2022; [`immediate_action_on_service_down_none`](#none-3c4962) - Optional Object<br>Enable this option
 
-<a id="reset-bf0264"></a>&#x2022; [`immediate_action_on_service_down_reset`](#reset-bf0264) - Optional Block<br>Enable this option
+<a id="reset-bf0264"></a>&#x2022; [`immediate_action_on_service_down_reset`](#reset-bf0264) - Optional Object<br>Enable this option
+
+#### Virtual Server Immediate Action On Service Down Immediate Action On Service Down Drop
+
+<a id="deep-3bc7c1"></a>Deeply nested **Drop** block collapsed for readability.
+
+#### Virtual Server Immediate Action On Service Down Immediate Action On Service Down None
+
+<a id="deep-75b282"></a>Deeply nested **None** block collapsed for readability.
+
+#### Virtual Server Immediate Action On Service Down Immediate Action On Service Down Reset
+
+<a id="deep-cdc843"></a>Deeply nested **Reset** block collapsed for readability.
 
 #### Virtual Server Last Hop Pool
 
@@ -892,17 +944,33 @@ A [`last_hop_pool`](#virtual-server-last-hop-pool) block (within [`virtual_serve
 
 A [`nat64`](#virtual-server-nat64) block (within [`virtual_server`](#virtual-server)) supports the following:
 
-<a id="virtual-server-nat64-nat64-disable"></a>&#x2022; [`nat64_disable`](#virtual-server-nat64-nat64-disable) - Optional Block<br>Configuration parameter for nat64 disable
+<a id="virtual-server-nat64-nat64-disable"></a>&#x2022; [`nat64_disable`](#virtual-server-nat64-nat64-disable) - Optional Object<br>Configuration parameter for nat64 disable
 
-<a id="virtual-server-nat64-nat64-enable"></a>&#x2022; [`nat64_enable`](#virtual-server-nat64-nat64-enable) - Optional Block<br>Configuration parameter for nat64 enable
+<a id="virtual-server-nat64-nat64-enable"></a>&#x2022; [`nat64_enable`](#virtual-server-nat64-nat64-enable) - Optional Object<br>Configuration parameter for nat64 enable
+
+#### Virtual Server Nat64 Nat64 Disable
+
+A [`nat64_disable`](#virtual-server-nat64-nat64-disable) block (within [`virtual_server.nat64`](#virtual-server-nat64)) supports the following:
+
+#### Virtual Server Nat64 Nat64 Enable
+
+A [`nat64_enable`](#virtual-server-nat64-nat64-enable) block (within [`virtual_server.nat64`](#virtual-server-nat64)) supports the following:
 
 #### Virtual Server Port Translation
 
 A [`port_translation`](#virtual-server-port-translation) block (within [`virtual_server`](#virtual-server)) supports the following:
 
-<a id="disable-bf8123"></a>&#x2022; [`port_translation_disable`](#disable-bf8123) - Optional Block<br>Enable this option
+<a id="disable-bf8123"></a>&#x2022; [`port_translation_disable`](#disable-bf8123) - Optional Object<br>Enable this option
 
-<a id="enable-eb0b2e"></a>&#x2022; [`port_translation_enable`](#enable-eb0b2e) - Optional Block<br>Enable this option
+<a id="enable-eb0b2e"></a>&#x2022; [`port_translation_enable`](#enable-eb0b2e) - Optional Object<br>Enable this option
+
+#### Virtual Server Port Translation Port Translation Disable
+
+A [`port_translation_disable`](#disable-bf8123) block (within [`virtual_server.port_translation`](#virtual-server-port-translation)) supports the following:
+
+#### Virtual Server Port Translation Port Translation Enable
+
+A [`port_translation_enable`](#enable-eb0b2e) block (within [`virtual_server.port_translation`](#virtual-server-port-translation)) supports the following:
 
 #### Virtual Server Request Logging Profile
 
@@ -922,11 +990,23 @@ A [`request_logging_profile`](#virtual-server-request-logging-profile) block (wi
 
 A [`source_port`](#virtual-server-source-port) block (within [`virtual_server`](#virtual-server)) supports the following:
 
-<a id="change-dfaadc"></a>&#x2022; [`source_port_change`](#change-dfaadc) - Optional Block<br>Enable this option
+<a id="change-dfaadc"></a>&#x2022; [`source_port_change`](#change-dfaadc) - Optional Object<br>Enable this option
 
-<a id="preserve-47304b"></a>&#x2022; [`source_port_preserve`](#preserve-47304b) - Optional Block<br>Enable this option
+<a id="preserve-47304b"></a>&#x2022; [`source_port_preserve`](#preserve-47304b) - Optional Object<br>Enable this option
 
-<a id="strict-d3153c"></a>&#x2022; [`source_port_preserve_strict`](#strict-d3153c) - Optional Block<br>Enable this option
+<a id="strict-d3153c"></a>&#x2022; [`source_port_preserve_strict`](#strict-d3153c) - Optional Object<br>Enable this option
+
+#### Virtual Server Source Port Source Port Change
+
+A [`source_port_change`](#change-dfaadc) block (within [`virtual_server.source_port`](#virtual-server-source-port)) supports the following:
+
+#### Virtual Server Source Port Source Port Preserve
+
+A [`source_port_preserve`](#preserve-47304b) block (within [`virtual_server.source_port`](#virtual-server-source-port)) supports the following:
+
+#### Virtual Server Source Port Source Port Preserve Strict
+
+<a id="deep-75c320"></a>Deeply nested **Strict** block collapsed for readability.
 
 #### Virtual Server Statistics Profile
 
@@ -1098,9 +1178,17 @@ An [`udp_server_profile`](#virtual-server-udp-udp-server-profile) block (within 
 
 A [`virtual_server_state`](#virtual-server-virtual-server-state) block (within [`virtual_server`](#virtual-server)) supports the following:
 
-<a id="disabled-d29136"></a>&#x2022; [`state_disabled`](#disabled-d29136) - Optional Block<br>Enable this option
+<a id="disabled-d29136"></a>&#x2022; [`state_disabled`](#disabled-d29136) - Optional Object<br>Enable this option
 
-<a id="enabled-126575"></a>&#x2022; [`state_enabled`](#enabled-126575) - Optional Block<br>Enable this option
+<a id="enabled-126575"></a>&#x2022; [`state_enabled`](#enabled-126575) - Optional Object<br>Enable this option
+
+#### Virtual Server Virtual Server State State Disabled
+
+A [`state_disabled`](#disabled-d29136) block (within [`virtual_server.virtual_server_state`](#virtual-server-virtual-server-state)) supports the following:
+
+#### Virtual Server Virtual Server State State Enabled
+
+A [`state_enabled`](#enabled-126575) block (within [`virtual_server.virtual_server_state`](#virtual-server-virtual-server-state)) supports the following:
 
 ---
 

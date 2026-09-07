@@ -550,7 +550,7 @@ resource "xcsh_virtual_network" "test" {
     managed_by  = "terraform-acceptance-test"
   }
 
-  global_network {}
+  global_network = {}
 }
 `, name))
 }
@@ -574,7 +574,7 @@ resource "xcsh_virtual_network" "test" {
     owner   = "ci-cd"
   }
 
-  global_network {}
+  global_network = {}
 }
 `, name, description))
 }
@@ -592,7 +592,7 @@ resource "xcsh_virtual_network" "test" {
     managed_by  = %[3]q
   }
 
-  global_network {}
+  global_network = {}
 }
 `, name, environment, managedBy))
 }
@@ -611,7 +611,7 @@ resource "xcsh_virtual_network" "test" {
     managed_by  = "terraform-acceptance-test"
   }
 
-  global_network {}
+  global_network = {}
 }
 `, name, description))
 }
@@ -634,7 +634,7 @@ resource "xcsh_virtual_network" "test" {
     key2 = %[3]q
   }
 
-  global_network {}
+  global_network = {}
 }
 `, name, value1, value2))
 }

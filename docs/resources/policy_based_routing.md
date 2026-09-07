@@ -39,7 +39,7 @@ resource "xcsh_policy_based_routing" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -85,9 +85,9 @@ A [`forward_proxy_pbr`](#forward-proxy-pbr) block supports the following:
 
 A [`forward_proxy_pbr_rules`](#rules-67a5cc) block (within [`forward_proxy_pbr`](#forward-proxy-pbr)) supports the following:
 
-<a id="destinations-1e0cd9"></a>&#x2022; [`all_destinations`](#destinations-1e0cd9) - Optional Block<br>Configuration parameter for all destinations
+<a id="destinations-1e0cd9"></a>&#x2022; [`all_destinations`](#destinations-1e0cd9) - Optional Object<br>Configuration parameter for all destinations
 
-<a id="sources-4f8004"></a>&#x2022; [`all_sources`](#sources-4f8004) - Optional Block<br>Configuration parameter for all sources
+<a id="sources-4f8004"></a>&#x2022; [`all_sources`](#sources-4f8004) - Optional Object<br>Configuration parameter for all sources
 
 <a id="list-a3b35a"></a>&#x2022; [`forwarding_class_list`](#list-a3b35a) - Optional Block<br>Ordered list of forwarding Class to be used if no rule match<br>See [Forwarding Class List](#list-a3b35a) below.
 
@@ -105,6 +105,14 @@ Selector](#selector-c5a5b4) below.
 
 <a id="list-cd1082"></a>&#x2022; [`tls_list`](#list-cd1082) - Optional Block<br>DomainListType<br>See [TLS List](#list-cd1082) below.
 
+#### Forward Proxy Pbr Forward Proxy Pbr Rules All Destinations
+
+<a id="deep-6bb8d4"></a>Deeply nested **Destinations** block collapsed for readability.
+
+#### Forward Proxy Pbr Forward Proxy Pbr Rules All Sources
+
+<a id="deep-c262f6"></a>Deeply nested **Sources** block collapsed for readability.
+
 #### Forward Proxy Pbr Forward Proxy Pbr Rules Forwarding Class List
 
 <a id="deep-959403"></a>Deeply nested **List** block collapsed for readability.
@@ -116,6 +124,10 @@ Selector](#selector-c5a5b4) below.
 #### Forward Proxy Pbr Forward Proxy Pbr Rules HTTP List HTTP List
 
 <a id="deep-f6a812"></a>Deeply nested **List** block collapsed for readability.
+
+#### Forward Proxy Pbr Forward Proxy Pbr Rules HTTP List HTTP List Any Path
+
+<a id="deep-0ca023"></a>Deeply nested **Path** block collapsed for readability.
 
 #### Forward Proxy Pbr Forward Proxy Pbr Rules IP Prefix Set
 
@@ -155,7 +167,7 @@ A [`forwarding_class_list`](#forwarding-class-list) block supports the following
 
 A [`network_pbr`](#network-pbr) block supports the following:
 
-<a id="network-pbr-any"></a>&#x2022; [`any`](#network-pbr-any) - Optional Block<br>Enable this option
+<a id="network-pbr-any"></a>&#x2022; [`any`](#network-pbr-any) - Optional Object<br>Enable this option
 
 <a id="network-pbr-label-selector"></a>&#x2022; [`label_selector`](#network-pbr-label-selector) - Optional Block<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects<br>See [Label
 Selector](#network-pbr-label-selector) below.
@@ -163,6 +175,10 @@ Selector](#network-pbr-label-selector) below.
 <a id="network-pbr-network-pbr-rules"></a>&#x2022; [`network_pbr_rules`](#network-pbr-network-pbr-rules) - Optional Block<br>L3/L4 Destination Routing Rules. Network(L3/L4) routing policy rule<br>See [Network Pbr Rules](#network-pbr-network-pbr-rules) below.
 
 <a id="network-pbr-prefix-list"></a>&#x2022; [`prefix_list`](#network-pbr-prefix-list) - Optional Block<br>List of IPv4 prefixes that represent an endpoint<br>See [Prefix List](#network-pbr-prefix-list) below.
+
+#### Network Pbr Any
+
+An [`any`](#network-pbr-any) block (within [`network_pbr`](#network-pbr)) supports the following:
 
 #### Network Pbr Label Selector
 
@@ -174,13 +190,13 @@ A [`label_selector`](#network-pbr-label-selector) block (within [`network_pbr`](
 
 A [`network_pbr_rules`](#network-pbr-network-pbr-rules) block (within [`network_pbr`](#network-pbr)) supports the following:
 
-<a id="traffic-e56c3b"></a>&#x2022; [`all_tcp_traffic`](#traffic-e56c3b) - Optional Block<br>Configuration parameter for all TCP traffic
+<a id="traffic-e56c3b"></a>&#x2022; [`all_tcp_traffic`](#traffic-e56c3b) - Optional Object<br>Configuration parameter for all TCP traffic
 
-<a id="traffic-5b23a8"></a>&#x2022; [`all_traffic`](#traffic-5b23a8) - Optional Block<br>Configuration parameter for all traffic
+<a id="traffic-5b23a8"></a>&#x2022; [`all_traffic`](#traffic-5b23a8) - Optional Object<br>Configuration parameter for all traffic
 
-<a id="traffic-d923ff"></a>&#x2022; [`all_udp_traffic`](#traffic-d923ff) - Optional Block<br>Configuration parameter for all UDP traffic
+<a id="traffic-d923ff"></a>&#x2022; [`all_udp_traffic`](#traffic-d923ff) - Optional Object<br>Configuration parameter for all UDP traffic
 
-<a id="network-pbr-network-pbr-rules-any"></a>&#x2022; [`any`](#network-pbr-network-pbr-rules-any) - Optional Block<br>Enable this option
+<a id="network-pbr-network-pbr-rules-any"></a>&#x2022; [`any`](#network-pbr-network-pbr-rules-any) - Optional Object<br>Enable this option
 
 <a id="applications-913ddd"></a>&#x2022; [`applications`](#applications-913ddd) - Optional Block<br>Configuration parameter for applications<br>See [Applications](#applications-913ddd) below.
 
@@ -196,6 +212,22 @@ specified by user during create<br>See [Metadata](#network-pbr-network-pbr-rules
 <a id="list-1fa06a"></a>&#x2022; [`prefix_list`](#list-1fa06a) - Optional Block<br>List of IPv4 prefixes that represent an endpoint<br>See [Prefix List](#list-1fa06a) below.
 
 <a id="range-c03943"></a>&#x2022; [`protocol_port_range`](#range-c03943) - Optional Block<br>Protocol and Port. Protocol and Port ranges<br>See [Protocol Port Range](#range-c03943) below.
+
+#### Network Pbr Network Pbr Rules All TCP Traffic
+
+<a id="deep-9633a5"></a>Deeply nested **Traffic** block collapsed for readability.
+
+#### Network Pbr Network Pbr Rules All Traffic
+
+An [`all_traffic`](#traffic-5b23a8) block (within [`network_pbr.network_pbr_rules`](#network-pbr-network-pbr-rules)) supports the following:
+
+#### Network Pbr Network Pbr Rules All UDP Traffic
+
+<a id="deep-930666"></a>Deeply nested **Traffic** block collapsed for readability.
+
+#### Network Pbr Network Pbr Rules Any
+
+An [`any`](#network-pbr-network-pbr-rules-any) block (within [`network_pbr.network_pbr_rules`](#network-pbr-network-pbr-rules)) supports the following:
 
 #### Network Pbr Network Pbr Rules Applications
 

@@ -18,10 +18,10 @@ resource "xcsh_malicious_user_mitigation" "test" {
   mitigation_type {
     rules {
       threat_level {
-        medium {}
+        medium = {}
       }
       mitigation_action {
-        javascript_challenge {}
+        javascript_challenge = {}
       }
     }
   }

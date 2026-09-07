@@ -464,7 +464,7 @@ resource "xcsh_cloud_credentials" "test" {
     role_arn     = "arn:aws:iam::123456789012:role/TestRole"
     session_name = "terraform-test-session"
 
-    external_id_is_tenant_id {}
+    external_id_is_tenant_id = {}
   }
 }
 `, rName)

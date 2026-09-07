@@ -20,6 +20,6 @@ resource "xcsh_user_identification" "test" {
   }
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }

@@ -91,9 +91,9 @@ var UDPLoadBalancerAdvertiseCustomModelAttrTypes = map[string]attr.Type{
 type UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel struct {
 	Port               types.Int64                                                          `tfsdk:"port"`
 	PortRanges         types.String                                                         `tfsdk:"port_ranges"`
+	UseDefaultPort     types.Object                                                         `tfsdk:"use_default_port"`
 	AdvertiseOnPublic  *UDPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel  `tfsdk:"advertise_on_public"`
 	Site               *UDPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel               `tfsdk:"site"`
-	UseDefaultPort     *UDPLoadBalancerEmptyModel                                           `tfsdk:"use_default_port"`
 	VirtualNetwork     *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel     `tfsdk:"virtual_network"`
 	VirtualSite        *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel        `tfsdk:"virtual_site"`
 	VirtualSiteWithVIP *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel `tfsdk:"virtual_site_with_vip"`
@@ -104,9 +104,9 @@ type UDPLoadBalancerAdvertiseCustomAdvertiseWhereModel struct {
 var UDPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes = map[string]attr.Type{
 	"port":                  types.Int64Type,
 	"port_ranges":           types.StringType,
+	"use_default_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"advertise_on_public":   types.ObjectType{AttrTypes: UDPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModelAttrTypes},
 	"site":                  types.ObjectType{AttrTypes: UDPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModelAttrTypes},
-	"use_default_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"virtual_network":       types.ObjectType{AttrTypes: UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes},
 	"virtual_site":          types.ObjectType{AttrTypes: UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModelAttrTypes},
 	"virtual_site_with_vip": types.ObjectType{AttrTypes: UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModelAttrTypes},
@@ -167,19 +167,19 @@ var UDPLoadBalancerAdvertiseCustomAdvertiseWhereSiteSiteModelAttrTypes = map[str
 
 // UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel represents virtual_network block
 type UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel struct {
+	DefaultV6VIP   types.Object                                                                   `tfsdk:"default_v6_vip"`
+	DefaultVIP     types.Object                                                                   `tfsdk:"default_vip"`
 	SpecificV6VIP  types.String                                                                   `tfsdk:"specific_v6_vip"`
 	SpecificVIP    types.String                                                                   `tfsdk:"specific_vip"`
-	DefaultV6VIP   *UDPLoadBalancerEmptyModel                                                     `tfsdk:"default_v6_vip"`
-	DefaultVIP     *UDPLoadBalancerEmptyModel                                                     `tfsdk:"default_vip"`
 	VirtualNetwork *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel `tfsdk:"virtual_network"`
 }
 
 // UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes defines the attribute types for UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel
 var UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes = map[string]attr.Type{
-	"specific_v6_vip": types.StringType,
-	"specific_vip":    types.StringType,
 	"default_v6_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"default_vip":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"specific_v6_vip": types.StringType,
+	"specific_vip":    types.StringType,
 	"virtual_network": types.ObjectType{AttrTypes: UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModelAttrTypes},
 }
 
@@ -364,11 +364,18 @@ var UDPLoadBalancerOriginPoolsWeightsPoolModelAttrTypes = map[string]attr.Type{
 type UDPLoadBalancerResourceModel struct {
 	Name                               types.String                               `tfsdk:"name"`
 	Namespace                          types.String                               `tfsdk:"namespace"`
+	AdvertiseOnPublicDefaultVIP        types.Object                               `tfsdk:"advertise_on_public_default_vip"`
 	Annotations                        types.Map                                  `tfsdk:"annotations"`
 	Description                        types.String                               `tfsdk:"description"`
 	Disable                            types.Bool                                 `tfsdk:"disable"`
+	DoNotAdvertise                     types.Object                               `tfsdk:"do_not_advertise"`
 	Domains                            types.List                                 `tfsdk:"domains"`
+	HashPolicyChoiceRandom             types.Object                               `tfsdk:"hash_policy_choice_random"`
+	HashPolicyChoiceRoundRobin         types.Object                               `tfsdk:"hash_policy_choice_round_robin"`
+	HashPolicyChoiceSourceIPStickiness types.Object                               `tfsdk:"hash_policy_choice_source_ip_stickiness"`
 	Labels                             types.Map                                  `tfsdk:"labels"`
+	NoServicePolicies                  types.Object                               `tfsdk:"no_service_policies"`
+	ServicePoliciesFromNamespace       types.Object                               `tfsdk:"service_policies_from_namespace"`
 	ID                                 types.String                               `tfsdk:"id"`
 	DNSVolterraManaged                 types.Bool                                 `tfsdk:"dns_volterra_managed"`
 	IdleTimeout                        types.Int64                                `tfsdk:"idle_timeout"`
@@ -378,14 +385,7 @@ type UDPLoadBalancerResourceModel struct {
 	ActiveServicePolicies              *UDPLoadBalancerActiveServicePoliciesModel `tfsdk:"active_service_policies"`
 	AdvertiseCustom                    *UDPLoadBalancerAdvertiseCustomModel       `tfsdk:"advertise_custom"`
 	AdvertiseOnPublic                  *UDPLoadBalancerAdvertiseOnPublicModel     `tfsdk:"advertise_on_public"`
-	AdvertiseOnPublicDefaultVIP        *UDPLoadBalancerEmptyModel                 `tfsdk:"advertise_on_public_default_vip"`
-	DoNotAdvertise                     *UDPLoadBalancerEmptyModel                 `tfsdk:"do_not_advertise"`
-	HashPolicyChoiceRandom             *UDPLoadBalancerEmptyModel                 `tfsdk:"hash_policy_choice_random"`
-	HashPolicyChoiceRoundRobin         *UDPLoadBalancerEmptyModel                 `tfsdk:"hash_policy_choice_round_robin"`
-	HashPolicyChoiceSourceIPStickiness *UDPLoadBalancerEmptyModel                 `tfsdk:"hash_policy_choice_source_ip_stickiness"`
-	NoServicePolicies                  *UDPLoadBalancerEmptyModel                 `tfsdk:"no_service_policies"`
 	OriginPoolsWeights                 types.List                                 `tfsdk:"origin_pools_weights"`
-	ServicePoliciesFromNamespace       *UDPLoadBalancerEmptyModel                 `tfsdk:"service_policies_from_namespace"`
 	UDP                                *UDPLoadBalancerEmptyModel                 `tfsdk:"udp"`
 }
 
@@ -417,6 +417,11 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					validators.NamespaceValidator(),
 				},
 			},
+			"advertise_on_public_default_vip": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"annotations": schema.MapAttribute{
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
@@ -430,6 +435,11 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"do_not_advertise": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for do not advertise.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"domains": schema.ListAttribute{
 				MarkdownDescription: "List of domains (host/authority header) that will be matched to this load balancer.",
 				Optional:            true,
@@ -438,10 +448,35 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					listvalidator.SizeBetween(1, 32),
 				},
 			},
+			"hash_policy_choice_random": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: hash_policy_choice_random, hash_policy_choice_round_robin, hash_policy_choice_source_ip_stickiness] Configuration parameter for hash policy choice random.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"hash_policy_choice_round_robin": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for hash policy choice round robin.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"hash_policy_choice_source_ip_stickiness": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"no_service_policies": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for no service policies.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"service_policies_from_namespace": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -565,6 +600,11 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										stringvalidator.LengthBetween(1, 512),
 									},
 								},
+								"use_default_port": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 							},
 							Blocks: map[string]schema.Block{
 								"advertise_on_public": schema.SingleNestedBlock{
@@ -657,13 +697,20 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 									},
 								},
-								"use_default_port": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
 								"virtual_network": schema.SingleNestedBlock{
 									MarkdownDescription: "Parameters to advertise on a given virtual network.",
 									Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_v6_vip", "specific_v6_vip"), validators.ConflictingObjectAttributes("default_vip", "specific_vip")},
 									Attributes: map[string]schema.Attribute{
+										"default_v6_vip": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"default_vip": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"specific_v6_vip": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [default_v6_vip] Use given IPv6 address as VIP on virtual Network.",
 											Optional:            true,
@@ -682,12 +729,6 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 									},
 									Blocks: map[string]schema.Block{
-										"default_v6_vip": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
-										"default_vip": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 										"virtual_network": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -931,24 +972,6 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					},
 				},
 			},
-			"advertise_on_public_default_vip": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"do_not_advertise": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for do not advertise.",
-			},
-			"hash_policy_choice_random": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: hash_policy_choice_random, hash_policy_choice_round_robin, hash_policy_choice_source_ip_stickiness] Configuration parameter for hash policy choice random.",
-			},
-			"hash_policy_choice_round_robin": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for hash policy choice round robin.",
-			},
-			"hash_policy_choice_source_ip_stickiness": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"no_service_policies": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for no service policies.",
-			},
 			"origin_pools_weights": schema.ListNestedBlock{
 				MarkdownDescription: "Origin pools with weights and priorities used for this load balancer.",
 				Validators:          []validator.List{validators.ConflictingListObjectAttributes("cluster", "pool")},
@@ -1036,9 +1059,6 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					},
 				},
 			},
-			"service_policies_from_namespace": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
 			"udp": schema.SingleNestedBlock{
 				MarkdownDescription: "Enable this option",
 			},
@@ -1068,7 +1088,42 @@ func (r *UDPLoadBalancerResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.ListenPort.IsNull() && !data.PortRanges.IsNull() {
+	if !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_on_public_default_vip"),
+			"Conflicting Configuration",
+			"advertise_on_public_default_vip and do_not_advertise are mutually exclusive.",
+		)
+	}
+	if !data.HashPolicyChoiceRandom.IsNull() && !data.HashPolicyChoiceRandom.IsUnknown() && !data.HashPolicyChoiceRoundRobin.IsNull() && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_random"),
+			"Conflicting Configuration",
+			"hash_policy_choice_random and hash_policy_choice_round_robin are mutually exclusive.",
+		)
+	}
+	if !data.HashPolicyChoiceRandom.IsNull() && !data.HashPolicyChoiceRandom.IsUnknown() && !data.HashPolicyChoiceSourceIPStickiness.IsNull() && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_random"),
+			"Conflicting Configuration",
+			"hash_policy_choice_random and hash_policy_choice_source_ip_stickiness are mutually exclusive.",
+		)
+	}
+	if !data.HashPolicyChoiceRoundRobin.IsNull() && !data.HashPolicyChoiceRoundRobin.IsUnknown() && !data.HashPolicyChoiceSourceIPStickiness.IsNull() && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_round_robin"),
+			"Conflicting Configuration",
+			"hash_policy_choice_round_robin and hash_policy_choice_source_ip_stickiness are mutually exclusive.",
+		)
+	}
+	if !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() && !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_service_policies"),
+			"Conflicting Configuration",
+			"no_service_policies and service_policies_from_namespace are mutually exclusive.",
+		)
+	}
+	if !data.ListenPort.IsNull() && !data.ListenPort.IsUnknown() && !data.PortRanges.IsNull() && !data.PortRanges.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("listen_port"),
 			"Conflicting Configuration",
@@ -1249,15 +1304,15 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						AdvertiseWhereItemMap["site"] = AdvertiseCustomAdvertiseWhereSiteMap
 					}
-					if AdvertiseWhereItem.UseDefaultPort != nil {
+					if !AdvertiseWhereItem.UseDefaultPort.IsNull() && !AdvertiseWhereItem.UseDefaultPort.IsUnknown() {
 						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 					}
 					if AdvertiseWhereItem.VirtualNetwork != nil {
 						AdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
-						if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+						if !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsUnknown() {
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 						}
-						if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+						if !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsUnknown() {
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 						}
 						if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
@@ -1360,10 +1415,10 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		}
 		createReq.Spec["advertise_on_public"] = AdvertiseOnPublicMap
 	}
-	if data.AdvertiseOnPublicDefaultVIP != nil {
+	if !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 		createReq.Spec["advertise_on_public_default_vip"] = map[string]interface{}{}
 	}
-	if data.DoNotAdvertise != nil {
+	if !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
 		createReq.Spec["do_not_advertise"] = map[string]interface{}{}
 	}
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
@@ -1374,16 +1429,16 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			createReq.Spec["domains"] = DomainsItems
 		}
 	}
-	if data.HashPolicyChoiceRandom != nil {
+	if !data.HashPolicyChoiceRandom.IsNull() && !data.HashPolicyChoiceRandom.IsUnknown() {
 		createReq.Spec["hash_policy_choice_random"] = map[string]interface{}{}
 	}
-	if data.HashPolicyChoiceRoundRobin != nil {
+	if !data.HashPolicyChoiceRoundRobin.IsNull() && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
 		createReq.Spec["hash_policy_choice_round_robin"] = map[string]interface{}{}
 	}
-	if data.HashPolicyChoiceSourceIPStickiness != nil {
+	if !data.HashPolicyChoiceSourceIPStickiness.IsNull() && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
 		createReq.Spec["hash_policy_choice_source_ip_stickiness"] = map[string]interface{}{}
 	}
-	if data.NoServicePolicies != nil {
+	if !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() {
 		createReq.Spec["no_service_policies"] = map[string]interface{}{}
 	}
 	if !data.OriginPoolsWeights.IsNull() && !data.OriginPoolsWeights.IsUnknown() {
@@ -1428,7 +1483,7 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			createReq.Spec["origin_pools_weights"] = OriginPoolsWeightsList
 		}
 	}
-	if data.ServicePoliciesFromNamespace != nil {
+	if !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
 		createReq.Spec["service_policies_from_namespace"] = map[string]interface{}{}
 	}
 	if data.UDP != nil {
@@ -1633,35 +1688,35 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									}
 									return nil
 								}(),
-								UseDefaultPort: func() *UDPLoadBalancerEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+								UseDefaultPort: func() types.Object {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-										return &UDPLoadBalancerEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								VirtualNetwork: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
 									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
-											DefaultV6VIP: func() *UDPLoadBalancerEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+											DefaultV6VIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
 												}
 												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
-													return &UDPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											DefaultVIP: func() *UDPLoadBalancerEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+											DefaultVIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
 												}
 												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
-													return &UDPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SpecificV6VIP: func() types.String {
 												if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
@@ -1882,11 +1937,19 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok && isImport && data.AdvertiseOnPublicDefaultVIP == nil {
-		data.AdvertiseOnPublicDefaultVIP = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		data.DoNotAdvertise = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.DoNotAdvertise.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok {
+		data.DoNotAdvertise = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DoNotAdvertise = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
 		domainsList := make([]string, 0, len(v))
@@ -1903,17 +1966,33 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {
-		data.HashPolicyChoiceRandom = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceRandom.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceRandom = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRandom = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRoundRobin == nil {
-		data.HashPolicyChoiceRoundRobin = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceRoundRobin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRoundRobin = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceSourceIPStickiness == nil {
-		data.HashPolicyChoiceSourceIPStickiness = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok && isImport && data.NoServicePolicies == nil {
-		data.NoServicePolicies = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.NoServicePolicies.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok {
+		data.NoServicePolicies = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoServicePolicies = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.OriginPoolsWeights.IsNull() || len(data.OriginPoolsWeights.Elements()) == 0) {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerOriginPoolsWeightsModelAttrTypes})
@@ -2009,8 +2088,12 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	} else {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerOriginPoolsWeightsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok && isImport && data.ServicePoliciesFromNamespace == nil {
-		data.ServicePoliciesFromNamespace = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.ServicePoliciesFromNamespace.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok {
+		data.ServicePoliciesFromNamespace = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ServicePoliciesFromNamespace = types.ObjectNull(map[string]attr.Type{})
 	}
 	if _, ok := apiResource.Spec["udp"].(map[string]interface{}); ok && isImport && data.UDP == nil {
 		data.UDP = &UDPLoadBalancerEmptyModel{}
@@ -2319,35 +2402,35 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									}
 									return nil
 								}(),
-								UseDefaultPort: func() *UDPLoadBalancerEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+								UseDefaultPort: func() types.Object {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-										return &UDPLoadBalancerEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								VirtualNetwork: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
 									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
-											DefaultV6VIP: func() *UDPLoadBalancerEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+											DefaultV6VIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
 												}
 												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
-													return &UDPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											DefaultVIP: func() *UDPLoadBalancerEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+											DefaultVIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
 												}
 												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
-													return &UDPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SpecificV6VIP: func() types.String {
 												if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
@@ -2568,11 +2651,19 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok && isImport && data.AdvertiseOnPublicDefaultVIP == nil {
-		data.AdvertiseOnPublicDefaultVIP = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		data.DoNotAdvertise = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.DoNotAdvertise.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok {
+		data.DoNotAdvertise = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DoNotAdvertise = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
 		domainsList := make([]string, 0, len(v))
@@ -2589,17 +2680,33 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {
-		data.HashPolicyChoiceRandom = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceRandom.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceRandom = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRandom = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRoundRobin == nil {
-		data.HashPolicyChoiceRoundRobin = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceRoundRobin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRoundRobin = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceSourceIPStickiness == nil {
-		data.HashPolicyChoiceSourceIPStickiness = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok && isImport && data.NoServicePolicies == nil {
-		data.NoServicePolicies = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.NoServicePolicies.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok {
+		data.NoServicePolicies = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoServicePolicies = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.OriginPoolsWeights.IsNull() || len(data.OriginPoolsWeights.Elements()) == 0) {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerOriginPoolsWeightsModelAttrTypes})
@@ -2695,8 +2802,12 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	} else {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerOriginPoolsWeightsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok && isImport && data.ServicePoliciesFromNamespace == nil {
-		data.ServicePoliciesFromNamespace = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.ServicePoliciesFromNamespace.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok {
+		data.ServicePoliciesFromNamespace = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ServicePoliciesFromNamespace = types.ObjectNull(map[string]attr.Type{})
 	}
 	if _, ok := apiResource.Spec["udp"].(map[string]interface{}); ok && isImport && data.UDP == nil {
 		data.UDP = &UDPLoadBalancerEmptyModel{}
@@ -2893,15 +3004,15 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						AdvertiseWhereItemMap["site"] = AdvertiseCustomAdvertiseWhereSiteMap
 					}
-					if AdvertiseWhereItem.UseDefaultPort != nil {
+					if !AdvertiseWhereItem.UseDefaultPort.IsNull() && !AdvertiseWhereItem.UseDefaultPort.IsUnknown() {
 						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 					}
 					if AdvertiseWhereItem.VirtualNetwork != nil {
 						AdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
-						if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+						if !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsUnknown() {
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 						}
-						if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+						if !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsUnknown() {
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 						}
 						if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
@@ -3004,10 +3115,10 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		}
 		apiResource.Spec["advertise_on_public"] = AdvertiseOnPublicMap
 	}
-	if data.AdvertiseOnPublicDefaultVIP != nil {
+	if !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 		apiResource.Spec["advertise_on_public_default_vip"] = map[string]interface{}{}
 	}
-	if data.DoNotAdvertise != nil {
+	if !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
 		apiResource.Spec["do_not_advertise"] = map[string]interface{}{}
 	}
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
@@ -3018,16 +3129,16 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			apiResource.Spec["domains"] = DomainsItems
 		}
 	}
-	if data.HashPolicyChoiceRandom != nil {
+	if !data.HashPolicyChoiceRandom.IsNull() && !data.HashPolicyChoiceRandom.IsUnknown() {
 		apiResource.Spec["hash_policy_choice_random"] = map[string]interface{}{}
 	}
-	if data.HashPolicyChoiceRoundRobin != nil {
+	if !data.HashPolicyChoiceRoundRobin.IsNull() && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
 		apiResource.Spec["hash_policy_choice_round_robin"] = map[string]interface{}{}
 	}
-	if data.HashPolicyChoiceSourceIPStickiness != nil {
+	if !data.HashPolicyChoiceSourceIPStickiness.IsNull() && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
 		apiResource.Spec["hash_policy_choice_source_ip_stickiness"] = map[string]interface{}{}
 	}
-	if data.NoServicePolicies != nil {
+	if !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() {
 		apiResource.Spec["no_service_policies"] = map[string]interface{}{}
 	}
 	if !data.OriginPoolsWeights.IsNull() && !data.OriginPoolsWeights.IsUnknown() {
@@ -3072,7 +3183,7 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			apiResource.Spec["origin_pools_weights"] = OriginPoolsWeightsList
 		}
 	}
-	if data.ServicePoliciesFromNamespace != nil {
+	if !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
 		apiResource.Spec["service_policies_from_namespace"] = map[string]interface{}{}
 	}
 	if data.UDP != nil {
@@ -3325,35 +3436,35 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									}
 									return nil
 								}(),
-								UseDefaultPort: func() *UDPLoadBalancerEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+								UseDefaultPort: func() types.Object {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-										return &UDPLoadBalancerEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								VirtualNetwork: func() *UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
 									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &UDPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
-											DefaultV6VIP: func() *UDPLoadBalancerEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+											DefaultV6VIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
 												}
 												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
-													return &UDPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											DefaultVIP: func() *UDPLoadBalancerEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+											DefaultVIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
 												}
 												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
-													return &UDPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SpecificV6VIP: func() types.String {
 												if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
@@ -3574,11 +3685,19 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok && isImport && data.AdvertiseOnPublicDefaultVIP == nil {
-		data.AdvertiseOnPublicDefaultVIP = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		data.DoNotAdvertise = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.DoNotAdvertise.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok {
+		data.DoNotAdvertise = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DoNotAdvertise = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
 		domainsList := make([]string, 0, len(v))
@@ -3595,17 +3714,33 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {
-		data.HashPolicyChoiceRandom = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceRandom.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceRandom = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRandom = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRoundRobin == nil {
-		data.HashPolicyChoiceRoundRobin = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceRoundRobin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRoundRobin = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceSourceIPStickiness == nil {
-		data.HashPolicyChoiceSourceIPStickiness = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok && isImport && data.NoServicePolicies == nil {
-		data.NoServicePolicies = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.NoServicePolicies.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok {
+		data.NoServicePolicies = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoServicePolicies = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.OriginPoolsWeights.IsNull() || len(data.OriginPoolsWeights.Elements()) == 0) {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerOriginPoolsWeightsModelAttrTypes})
@@ -3701,8 +3836,12 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	} else {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: UDPLoadBalancerOriginPoolsWeightsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok && isImport && data.ServicePoliciesFromNamespace == nil {
-		data.ServicePoliciesFromNamespace = &UDPLoadBalancerEmptyModel{}
+	if !isImport && !data.ServicePoliciesFromNamespace.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok {
+		data.ServicePoliciesFromNamespace = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ServicePoliciesFromNamespace = types.ObjectNull(map[string]attr.Type{})
 	}
 	if _, ok := apiResource.Spec["udp"].(map[string]interface{}); ok && isImport && data.UDP == nil {
 		data.UDP = &UDPLoadBalancerEmptyModel{}

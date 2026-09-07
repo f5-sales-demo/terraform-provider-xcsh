@@ -53,32 +53,32 @@ type WAFExclusionPolicyEmptyModel struct {
 
 // WAFExclusionPolicyWAFExclusionRulesModel represents waf_exclusion_rules block
 type WAFExclusionPolicyWAFExclusionRulesModel struct {
+	AnyDomain                   types.Object                                                         `tfsdk:"any_domain"`
+	AnyPath                     types.Object                                                         `tfsdk:"any_path"`
 	ExactValue                  types.String                                                         `tfsdk:"exact_value"`
 	ExpirationTimestamp         types.String                                                         `tfsdk:"expiration_timestamp"`
 	Methods                     types.List                                                           `tfsdk:"methods"`
 	PathPrefix                  types.String                                                         `tfsdk:"path_prefix"`
 	PathRegex                   types.String                                                         `tfsdk:"path_regex"`
 	SuffixValue                 types.String                                                         `tfsdk:"suffix_value"`
-	AnyDomain                   *WAFExclusionPolicyEmptyModel                                        `tfsdk:"any_domain"`
-	AnyPath                     *WAFExclusionPolicyEmptyModel                                        `tfsdk:"any_path"`
+	WAFSkipProcessing           types.Object                                                         `tfsdk:"waf_skip_processing"`
 	AppFirewallDetectionControl *WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel `tfsdk:"app_firewall_detection_control"`
 	Metadata                    *WAFExclusionPolicyWAFExclusionRulesMetadataModel                    `tfsdk:"metadata"`
-	WAFSkipProcessing           *WAFExclusionPolicyEmptyModel                                        `tfsdk:"waf_skip_processing"`
 }
 
 // WAFExclusionPolicyWAFExclusionRulesModelAttrTypes defines the attribute types for WAFExclusionPolicyWAFExclusionRulesModel
 var WAFExclusionPolicyWAFExclusionRulesModelAttrTypes = map[string]attr.Type{
+	"any_domain":                     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"any_path":                       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"exact_value":                    types.StringType,
 	"expiration_timestamp":           types.StringType,
 	"methods":                        types.ListType{ElemType: types.StringType},
 	"path_prefix":                    types.StringType,
 	"path_regex":                     types.StringType,
 	"suffix_value":                   types.StringType,
-	"any_domain":                     types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"any_path":                       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"waf_skip_processing":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"app_firewall_detection_control": types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModelAttrTypes},
 	"metadata":                       types.ObjectType{AttrTypes: WAFExclusionPolicyWAFExclusionRulesMetadataModelAttrTypes},
-	"waf_skip_processing":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel represents app_firewall_detection_control block
@@ -240,6 +240,16 @@ func (r *WAFExclusionPolicyResource) Schema(ctx context.Context, req resource.Sc
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
+						"any_domain": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"any_path": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
 						"exact_value": schema.StringAttribute{
 							MarkdownDescription: "Exclusive with [any_domain suffix_value] Exact domain name.",
 							Optional:            true,
@@ -280,14 +290,13 @@ func (r *WAFExclusionPolicyResource) Schema(ctx context.Context, req resource.Sc
 								stringvalidator.LengthBetween(1, 256),
 							},
 						},
+						"waf_skip_processing": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
 					},
 					Blocks: map[string]schema.Block{
-						"any_domain": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
-						"any_path": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
 						"app_firewall_detection_control": schema.SingleNestedBlock{
 							MarkdownDescription: "Define the list of Signature IDs, Violations, Attack Types and Bot Names that should be excluded from triggering on the defined match criteria.",
 							Attributes:          map[string]schema.Attribute{},
@@ -410,9 +419,6 @@ func (r *WAFExclusionPolicyResource) Schema(ctx context.Context, req resource.Sc
 									},
 								},
 							},
-						},
-						"waf_skip_processing": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
 						},
 					},
 				},
@@ -551,10 +557,10 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 			var WAFExclusionRulesList []map[string]interface{}
 			for _, WAFExclusionRulesItem := range WAFExclusionRulesElems {
 				WAFExclusionRulesItemMap := make(map[string]interface{})
-				if WAFExclusionRulesItem.AnyDomain != nil {
+				if !WAFExclusionRulesItem.AnyDomain.IsNull() && !WAFExclusionRulesItem.AnyDomain.IsUnknown() {
 					WAFExclusionRulesItemMap["any_domain"] = map[string]interface{}{}
 				}
-				if WAFExclusionRulesItem.AnyPath != nil {
+				if !WAFExclusionRulesItem.AnyPath.IsNull() && !WAFExclusionRulesItem.AnyPath.IsUnknown() {
 					WAFExclusionRulesItemMap["any_path"] = map[string]interface{}{}
 				}
 				if WAFExclusionRulesItem.AppFirewallDetectionControl != nil {
@@ -676,7 +682,7 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 				if !WAFExclusionRulesItem.SuffixValue.IsNull() && !WAFExclusionRulesItem.SuffixValue.IsUnknown() {
 					WAFExclusionRulesItemMap["suffix_value"] = WAFExclusionRulesItem.SuffixValue.ValueString()
 				}
-				if WAFExclusionRulesItem.WAFSkipProcessing != nil {
+				if !WAFExclusionRulesItem.WAFSkipProcessing.IsNull() && !WAFExclusionRulesItem.WAFSkipProcessing.IsUnknown() {
 					WAFExclusionRulesItemMap["waf_skip_processing"] = map[string]interface{}{}
 				}
 				WAFExclusionRulesList = append(WAFExclusionRulesList, WAFExclusionRulesItemMap)
@@ -735,23 +741,23 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				WAFExclusionRulesList = append(WAFExclusionRulesList, WAFExclusionPolicyWAFExclusionRulesModel{
-					AnyDomain: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+					AnyDomain: func() types.Object {
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && !existingWAFExclusionRulesItems[listIdx].AnyDomain.IsUnknown() {
 							return existingWAFExclusionRulesItems[listIdx].AnyDomain
 						}
 						if _, ok := itemMap["any_domain"].(map[string]interface{}); ok {
-							return &WAFExclusionPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					AnyPath: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+					AnyPath: func() types.Object {
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && !existingWAFExclusionRulesItems[listIdx].AnyPath.IsUnknown() {
 							return existingWAFExclusionRulesItems[listIdx].AnyPath
 						}
 						if _, ok := itemMap["any_path"].(map[string]interface{}); ok {
-							return &WAFExclusionPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					AppFirewallDetectionControl: func() *WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel {
 						if AppFirewallDetectionControlData, ok := itemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
@@ -971,14 +977,14 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 						}
 						return types.StringNull()
 					}(),
-					WAFSkipProcessing: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+					WAFSkipProcessing: func() types.Object {
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && !existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing.IsUnknown() {
 							return existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing
 						}
 						if _, ok := itemMap["waf_skip_processing"].(map[string]interface{}); ok {
-							return &WAFExclusionPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 				})
 			}
@@ -1134,23 +1140,23 @@ func (r *WAFExclusionPolicyResource) Read(ctx context.Context, req resource.Read
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				WAFExclusionRulesList = append(WAFExclusionRulesList, WAFExclusionPolicyWAFExclusionRulesModel{
-					AnyDomain: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+					AnyDomain: func() types.Object {
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && !existingWAFExclusionRulesItems[listIdx].AnyDomain.IsUnknown() {
 							return existingWAFExclusionRulesItems[listIdx].AnyDomain
 						}
 						if _, ok := itemMap["any_domain"].(map[string]interface{}); ok {
-							return &WAFExclusionPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					AnyPath: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+					AnyPath: func() types.Object {
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && !existingWAFExclusionRulesItems[listIdx].AnyPath.IsUnknown() {
 							return existingWAFExclusionRulesItems[listIdx].AnyPath
 						}
 						if _, ok := itemMap["any_path"].(map[string]interface{}); ok {
-							return &WAFExclusionPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					AppFirewallDetectionControl: func() *WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel {
 						if AppFirewallDetectionControlData, ok := itemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
@@ -1370,14 +1376,14 @@ func (r *WAFExclusionPolicyResource) Read(ctx context.Context, req resource.Read
 						}
 						return types.StringNull()
 					}(),
-					WAFSkipProcessing: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+					WAFSkipProcessing: func() types.Object {
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && !existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing.IsUnknown() {
 							return existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing
 						}
 						if _, ok := itemMap["waf_skip_processing"].(map[string]interface{}); ok {
-							return &WAFExclusionPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 				})
 			}
@@ -1492,10 +1498,10 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 			var WAFExclusionRulesList []map[string]interface{}
 			for _, WAFExclusionRulesItem := range WAFExclusionRulesElems {
 				WAFExclusionRulesItemMap := make(map[string]interface{})
-				if WAFExclusionRulesItem.AnyDomain != nil {
+				if !WAFExclusionRulesItem.AnyDomain.IsNull() && !WAFExclusionRulesItem.AnyDomain.IsUnknown() {
 					WAFExclusionRulesItemMap["any_domain"] = map[string]interface{}{}
 				}
-				if WAFExclusionRulesItem.AnyPath != nil {
+				if !WAFExclusionRulesItem.AnyPath.IsNull() && !WAFExclusionRulesItem.AnyPath.IsUnknown() {
 					WAFExclusionRulesItemMap["any_path"] = map[string]interface{}{}
 				}
 				if WAFExclusionRulesItem.AppFirewallDetectionControl != nil {
@@ -1617,7 +1623,7 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 				if !WAFExclusionRulesItem.SuffixValue.IsNull() && !WAFExclusionRulesItem.SuffixValue.IsUnknown() {
 					WAFExclusionRulesItemMap["suffix_value"] = WAFExclusionRulesItem.SuffixValue.ValueString()
 				}
-				if WAFExclusionRulesItem.WAFSkipProcessing != nil {
+				if !WAFExclusionRulesItem.WAFSkipProcessing.IsNull() && !WAFExclusionRulesItem.WAFSkipProcessing.IsUnknown() {
 					WAFExclusionRulesItemMap["waf_skip_processing"] = map[string]interface{}{}
 				}
 				WAFExclusionRulesList = append(WAFExclusionRulesList, WAFExclusionRulesItemMap)
@@ -1696,23 +1702,23 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				WAFExclusionRulesList = append(WAFExclusionRulesList, WAFExclusionPolicyWAFExclusionRulesModel{
-					AnyDomain: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+					AnyDomain: func() types.Object {
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && !existingWAFExclusionRulesItems[listIdx].AnyDomain.IsUnknown() {
 							return existingWAFExclusionRulesItems[listIdx].AnyDomain
 						}
 						if _, ok := itemMap["any_domain"].(map[string]interface{}); ok {
-							return &WAFExclusionPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					AnyPath: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+					AnyPath: func() types.Object {
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && !existingWAFExclusionRulesItems[listIdx].AnyPath.IsUnknown() {
 							return existingWAFExclusionRulesItems[listIdx].AnyPath
 						}
 						if _, ok := itemMap["any_path"].(map[string]interface{}); ok {
-							return &WAFExclusionPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					AppFirewallDetectionControl: func() *WAFExclusionPolicyWAFExclusionRulesAppFirewallDetectionControlModel {
 						if AppFirewallDetectionControlData, ok := itemMap["app_firewall_detection_control"].(map[string]interface{}); ok {
@@ -1932,14 +1938,14 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 						}
 						return types.StringNull()
 					}(),
-					WAFSkipProcessing: func() *WAFExclusionPolicyEmptyModel {
-						if !isImport && len(existingWAFExclusionRulesItems) > listIdx {
+					WAFSkipProcessing: func() types.Object {
+						if !isImport && len(existingWAFExclusionRulesItems) > listIdx && !existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing.IsUnknown() {
 							return existingWAFExclusionRulesItems[listIdx].WAFSkipProcessing
 						}
 						if _, ok := itemMap["waf_skip_processing"].(map[string]interface{}); ok {
-							return &WAFExclusionPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 				})
 			}

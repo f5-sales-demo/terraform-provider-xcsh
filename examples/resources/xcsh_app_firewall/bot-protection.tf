@@ -15,11 +15,11 @@ resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes   = {}
+  blocking                   = {}
+  use_default_blocking_page  = {}
+  default_anonymization      = {}
 
   bot_protection_setting {
     good_bot_action       = "REPORT"

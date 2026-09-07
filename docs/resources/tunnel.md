@@ -39,7 +39,7 @@ resource "xcsh_tunnel" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -109,11 +109,15 @@ A [`local_intf`](#local-ip-intf-local-intf) block (within [`local_ip.intf`](#loc
 
 An [`ip_address`](#local-ip-ip-address) block (within [`local_ip`](#local-ip)) supports the following:
 
-<a id="local-ip-ip-address-auto"></a>&#x2022; [`auto`](#local-ip-ip-address-auto) - Optional Block<br>Enable this option
+<a id="local-ip-ip-address-auto"></a>&#x2022; [`auto`](#local-ip-ip-address-auto) - Optional Object<br>Enable this option
 
 <a id="local-ip-ip-address-ip-address"></a>&#x2022; [`ip_address`](#local-ip-ip-address-ip-address) - Optional Block<br>IP Address used to specify an IPv4 or IPv6 address<br>See [IP Address](#local-ip-ip-address-ip-address) below.
 
 <a id="type-516223"></a>&#x2022; [`virtual_network_type`](#type-516223) - Optional Block<br>Different types of virtual networks understood by the system<br>See [Virtual Network Type](#type-516223) below.
+
+#### Local IP IP Address Auto
+
+An [`auto`](#local-ip-ip-address-auto) block (within [`local_ip.ip_address`](#local-ip-ip-address)) supports the following:
 
 #### Local IP IP Address IP Address
 
@@ -139,11 +143,23 @@ An [`ipv6`](#local-ip-ip-address-ip-address-ipv6) block (within [`local_ip.ip_ad
 
 A [`virtual_network_type`](#type-516223) block (within [`local_ip.ip_address`](#local-ip-ip-address)) supports the following:
 
-<a id="public-cec97b"></a>&#x2022; [`public`](#public-cec97b) - Optional Block<br>Enable this option
+<a id="public-cec97b"></a>&#x2022; [`public`](#public-cec97b) - Optional Object<br>Enable this option
 
-<a id="local-32ab3a"></a>&#x2022; [`site_local`](#local-32ab3a) - Optional Block<br>Enable this option
+<a id="local-32ab3a"></a>&#x2022; [`site_local`](#local-32ab3a) - Optional Object<br>Enable this option
 
-<a id="inside-d8c41c"></a>&#x2022; [`site_local_inside`](#inside-d8c41c) - Optional Block<br>Enable this option
+<a id="inside-d8c41c"></a>&#x2022; [`site_local_inside`](#inside-d8c41c) - Optional Object<br>Enable this option
+
+#### Local IP IP Address Virtual Network Type Public
+
+<a id="deep-f73b96"></a>Deeply nested **Public** block collapsed for readability.
+
+#### Local IP IP Address Virtual Network Type Site Local
+
+<a id="deep-ad115d"></a>Deeply nested **Local** block collapsed for readability.
+
+#### Local IP IP Address Virtual Network Type Site Local Inside
+
+<a id="deep-88cbbb"></a>Deeply nested **Inside** block collapsed for readability.
 
 #### Params
 

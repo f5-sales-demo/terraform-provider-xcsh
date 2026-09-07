@@ -39,7 +39,7 @@ resource "xcsh_cloud_credentials" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -84,15 +84,23 @@ An [`aws_assume_role`](#aws-assume-role) block supports the following:
 
 <a id="aws-assume-role-duration-seconds"></a>&#x2022; [`duration_seconds`](#aws-assume-role-duration-seconds) - Optional Number<br>The duration, in seconds of the role session
 
-<a id="aws-assume-role-external-id-is-optional"></a>&#x2022; [`external_id_is_optional`](#aws-assume-role-external-id-is-optional) - Optional Block<br>Configuration parameter for external ID is optional
+<a id="aws-assume-role-external-id-is-optional"></a>&#x2022; [`external_id_is_optional`](#aws-assume-role-external-id-is-optional) - Optional Object<br>Configuration parameter for external ID is optional
 
-<a id="tenant-id-b8874c"></a>&#x2022; [`external_id_is_tenant_id`](#tenant-id-b8874c) - Optional Block<br>Enable this option
+<a id="tenant-id-b8874c"></a>&#x2022; [`external_id_is_tenant_id`](#tenant-id-b8874c) - Optional Object<br>Enable this option
 
 <a id="aws-assume-role-role-arn"></a>&#x2022; [`role_arn`](#aws-assume-role-role-arn) - Optional String<br>IAM Role ARN. IAM Role ARN to assume the role
 
 <a id="aws-assume-role-session-name"></a>&#x2022; [`session_name`](#aws-assume-role-session-name) - Optional String<br>Use the role session name to uniquely identify a session, which will be used for deploy, monitor from F5XC console
 
 <a id="aws-assume-role-session-tags"></a>&#x2022; [`session_tags`](#aws-assume-role-session-tags) - Optional Map<br>Session tags are key-value pair attributes that you pass when you assume an IAM role
+
+#### AWS Assume Role External ID Is Optional
+
+An [`external_id_is_optional`](#aws-assume-role-external-id-is-optional) block (within [`aws_assume_role`](#aws-assume-role)) supports the following:
+
+#### AWS Assume Role External ID Is Tenant ID
+
+<a id="deep-feeefc"></a>Deeply nested **ID** block collapsed for readability.
 
 #### AWS Secret Key
 

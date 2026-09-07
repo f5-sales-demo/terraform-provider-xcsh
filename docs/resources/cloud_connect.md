@@ -39,7 +39,7 @@ resource "xcsh_cloud_connect" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -133,6 +133,10 @@ A [`vpc_attachments`](#attachments-467d0a) block (within [`aws_provider.aws_tgw_
 
 <a id="deep-895e96"></a>Deeply nested **Route** block collapsed for readability.
 
+#### AWS Provider AWS TGW Site VPC Attachments VPC List Default Route All Route Tables
+
+<a id="deep-5d1f1e"></a>Deeply nested **Tables** block collapsed for readability.
+
 #### AWS Provider AWS TGW Site VPC Attachments VPC List Default Route Selective Route Tables
 
 <a id="deep-907164"></a>Deeply nested **Tables** block collapsed for readability.
@@ -171,7 +175,7 @@ A [`vnet_list`](#list-af915b) block (within [`azure_vnet_site.vnet_attachments`]
 
 <a id="labels-b9b212"></a>&#x2022; [`labels`](#labels-b9b212) - Optional Block<br>Add labels for the VNET attachments. These labels can then be used in policies such as enhanced firewall policies
 
-<a id="routing-207575"></a>&#x2022; [`manual_routing`](#routing-207575) - Optional Block<br>Enable this option
+<a id="routing-207575"></a>&#x2022; [`manual_routing`](#routing-207575) - Optional Object<br>Enable this option
 
 <a id="subscription-id-02e44a"></a>&#x2022; [`subscription_id`](#subscription-id-02e44a) - Optional String<br>Enter the Subscription ID of the VNET to be attached
 
@@ -188,6 +192,10 @@ A [`vnet_list`](#list-af915b) block (within [`azure_vnet_site.vnet_attachments`]
 #### Azure VNET Site VNET Attachments VNET List Default Route
 
 <a id="deep-7b34f4"></a>Deeply nested **Route** block collapsed for readability.
+
+#### Azure VNET Site VNET Attachments VNET List Default Route All Route Tables
+
+<a id="deep-e47654"></a>Deeply nested **Tables** block collapsed for readability.
 
 #### Azure VNET Site VNET Attachments VNET List Default Route Selective Route Tables
 

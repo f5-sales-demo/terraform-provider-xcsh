@@ -16,7 +16,7 @@ resource "xcsh_user_identification" "test" {
   namespace = "system"
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 
@@ -34,5 +34,5 @@ resource "xcsh_http_loadbalancer" "test" {
     namespace = "system"
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }

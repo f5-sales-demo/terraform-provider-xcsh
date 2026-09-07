@@ -99,13 +99,13 @@ var RateLimiterPolicyRulesMetadataModelAttrTypes = map[string]attr.Type{
 
 // RateLimiterPolicyRulesSpecModel represents spec block
 type RateLimiterPolicyRulesSpecModel struct {
-	AnyAsn            *RateLimiterPolicyEmptyModel                      `tfsdk:"any_asn"`
-	AnyCountry        *RateLimiterPolicyEmptyModel                      `tfsdk:"any_country"`
-	AnyIP             *RateLimiterPolicyEmptyModel                      `tfsdk:"any_ip"`
-	ApplyRateLimiter  *RateLimiterPolicyEmptyModel                      `tfsdk:"apply_rate_limiter"`
+	AnyAsn            types.Object                                      `tfsdk:"any_asn"`
+	AnyCountry        types.Object                                      `tfsdk:"any_country"`
+	AnyIP             types.Object                                      `tfsdk:"any_ip"`
+	ApplyRateLimiter  types.Object                                      `tfsdk:"apply_rate_limiter"`
+	BypassRateLimiter types.Object                                      `tfsdk:"bypass_rate_limiter"`
 	AsnList           *RateLimiterPolicyRulesSpecAsnListModel           `tfsdk:"asn_list"`
 	AsnMatcher        *RateLimiterPolicyRulesSpecAsnMatcherModel        `tfsdk:"asn_matcher"`
-	BypassRateLimiter *RateLimiterPolicyEmptyModel                      `tfsdk:"bypass_rate_limiter"`
 	CountryList       *RateLimiterPolicyRulesSpecCountryListModel       `tfsdk:"country_list"`
 	CustomRateLimiter *RateLimiterPolicyRulesSpecCustomRateLimiterModel `tfsdk:"custom_rate_limiter"`
 	DomainMatcher     *RateLimiterPolicyRulesSpecDomainMatcherModel     `tfsdk:"domain_matcher"`
@@ -123,9 +123,9 @@ var RateLimiterPolicyRulesSpecModelAttrTypes = map[string]attr.Type{
 	"any_country":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"any_ip":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"apply_rate_limiter":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"bypass_rate_limiter": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"asn_list":            types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecAsnListModelAttrTypes},
 	"asn_matcher":         types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecAsnMatcherModelAttrTypes},
-	"bypass_rate_limiter": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"country_list":        types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecCountryListModelAttrTypes},
 	"custom_rate_limiter": types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecCustomRateLimiterModelAttrTypes},
 	"domain_matcher":      types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecDomainMatcherModelAttrTypes},
@@ -215,19 +215,19 @@ var RateLimiterPolicyRulesSpecDomainMatcherModelAttrTypes = map[string]attr.Type
 
 // RateLimiterPolicyRulesSpecHeadersModel represents headers block
 type RateLimiterPolicyRulesSpecHeadersModel struct {
+	CheckNotPresent types.Object                                `tfsdk:"check_not_present"`
+	CheckPresent    types.Object                                `tfsdk:"check_present"`
 	InvertMatcher   types.Bool                                  `tfsdk:"invert_matcher"`
 	Name            types.String                                `tfsdk:"name"`
-	CheckNotPresent *RateLimiterPolicyEmptyModel                `tfsdk:"check_not_present"`
-	CheckPresent    *RateLimiterPolicyEmptyModel                `tfsdk:"check_present"`
 	Item            *RateLimiterPolicyRulesSpecHeadersItemModel `tfsdk:"item"`
 }
 
 // RateLimiterPolicyRulesSpecHeadersModelAttrTypes defines the attribute types for RateLimiterPolicyRulesSpecHeadersModel
 var RateLimiterPolicyRulesSpecHeadersModelAttrTypes = map[string]attr.Type{
-	"invert_matcher":    types.BoolType,
-	"name":              types.StringType,
 	"check_not_present": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"check_present":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"invert_matcher":    types.BoolType,
+	"name":              types.StringType,
 	"item":              types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecHeadersItemModelAttrTypes},
 }
 
@@ -323,19 +323,19 @@ var RateLimiterPolicyRulesSpecPathModelAttrTypes = map[string]attr.Type{
 
 // RateLimiterPolicyRulesSpecSegmentPolicyModel represents segment_policy block
 type RateLimiterPolicyRulesSpecSegmentPolicyModel struct {
-	DstAny       *RateLimiterPolicyEmptyModel                             `tfsdk:"dst_any"`
+	DstAny       types.Object                                             `tfsdk:"dst_any"`
+	IntraSegment types.Object                                             `tfsdk:"intra_segment"`
+	SrcAny       types.Object                                             `tfsdk:"src_any"`
 	DstSegments  *RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel `tfsdk:"dst_segments"`
-	IntraSegment *RateLimiterPolicyEmptyModel                             `tfsdk:"intra_segment"`
-	SrcAny       *RateLimiterPolicyEmptyModel                             `tfsdk:"src_any"`
 	SrcSegments  *RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel `tfsdk:"src_segments"`
 }
 
 // RateLimiterPolicyRulesSpecSegmentPolicyModelAttrTypes defines the attribute types for RateLimiterPolicyRulesSpecSegmentPolicyModel
 var RateLimiterPolicyRulesSpecSegmentPolicyModelAttrTypes = map[string]attr.Type{
 	"dst_any":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"dst_segments":  types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModelAttrTypes},
 	"intra_segment": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"src_any":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dst_segments":  types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModelAttrTypes},
 	"src_segments":  types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModelAttrTypes},
 }
 
@@ -391,13 +391,13 @@ type RateLimiterPolicyResourceModel struct {
 	Name              types.String                             `tfsdk:"name"`
 	Namespace         types.String                             `tfsdk:"namespace"`
 	Annotations       types.Map                                `tfsdk:"annotations"`
+	AnyServer         types.Object                             `tfsdk:"any_server"`
 	Description       types.String                             `tfsdk:"description"`
 	Disable           types.Bool                               `tfsdk:"disable"`
 	Labels            types.Map                                `tfsdk:"labels"`
 	ID                types.String                             `tfsdk:"id"`
 	ServerName        types.String                             `tfsdk:"server_name"`
 	Timeouts          timeouts.Value                           `tfsdk:"timeouts"`
-	AnyServer         *RateLimiterPolicyEmptyModel             `tfsdk:"any_server"`
 	ServerNameMatcher *RateLimiterPolicyServerNameMatcherModel `tfsdk:"server_name_matcher"`
 	ServerSelector    *RateLimiterPolicyServerSelectorModel    `tfsdk:"server_selector"`
 	Rules             types.List                               `tfsdk:"rules"`
@@ -435,6 +435,11 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"any_server": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: any_server, server_name, server_name_matcher, server_selector] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
@@ -475,9 +480,6 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 				Update: true,
 				Delete: true,
 			}),
-			"any_server": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: any_server, server_name, server_name_matcher, server_selector] Enable this option",
-			},
 			"server_name_matcher": schema.SingleNestedBlock{
 				MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
 
@@ -544,20 +546,34 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 						"spec": schema.SingleNestedBlock{
 							MarkdownDescription: "Rate Limiter Rule Specification. Shape of Rate Limiter Rule.",
 							Validators:          []validator.Object{validators.ConflictingObjectAttributes("any_asn", "asn_list"), validators.ConflictingObjectAttributes("any_asn", "asn_matcher"), validators.ConflictingObjectAttributes("any_country", "country_list"), validators.ConflictingObjectAttributes("any_ip", "ip_matcher"), validators.ConflictingObjectAttributes("any_ip", "ip_prefix_list"), validators.ConflictingObjectAttributes("apply_rate_limiter", "bypass_rate_limiter"), validators.ConflictingObjectAttributes("apply_rate_limiter", "custom_rate_limiter"), validators.ConflictingObjectAttributes("asn_list", "asn_matcher"), validators.ConflictingObjectAttributes("bypass_rate_limiter", "custom_rate_limiter"), validators.ConflictingObjectAttributes("ip_matcher", "ip_prefix_list")},
-							Attributes:          map[string]schema.Attribute{},
-							Blocks: map[string]schema.Block{
-								"any_asn": schema.SingleNestedBlock{
+							Attributes: map[string]schema.Attribute{
+								"any_asn": schema.ObjectAttribute{
 									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
-								"any_country": schema.SingleNestedBlock{
+								"any_country": schema.ObjectAttribute{
 									MarkdownDescription: "Configuration parameter for any country.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
-								"any_ip": schema.SingleNestedBlock{
+								"any_ip": schema.ObjectAttribute{
 									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
-								"apply_rate_limiter": schema.SingleNestedBlock{
+								"apply_rate_limiter": schema.ObjectAttribute{
 									MarkdownDescription: "Configuration parameter for apply rate limiter.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
+								"bypass_rate_limiter": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for bypass rate limiter.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+							},
+							Blocks: map[string]schema.Block{
 								"asn_list": schema.SingleNestedBlock{
 									MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
 									Validators:          []validator.Object{validators.RequiredObjectAttributes("as_numbers")},
@@ -613,9 +629,6 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 											},
 										},
 									},
-								},
-								"bypass_rate_limiter": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for bypass rate limiter.",
 								},
 								"country_list": schema.SingleNestedBlock{
 									MarkdownDescription: "Country Codes List. List of Country Codes to match against.",
@@ -692,6 +705,16 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 									Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
+											"check_not_present": schema.ObjectAttribute{
+												MarkdownDescription: "Configuration parameter for check not present.",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+											"check_present": schema.ObjectAttribute{
+												MarkdownDescription: "Configuration parameter for check present.",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
 											"invert_matcher": schema.BoolAttribute{
 												MarkdownDescription: "Invert Header Matcher. Invert the match result.",
 												Optional:            true,
@@ -705,12 +728,6 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 											},
 										},
 										Blocks: map[string]schema.Block{
-											"check_not_present": schema.SingleNestedBlock{
-												MarkdownDescription: "Configuration parameter for check not present.",
-											},
-											"check_present": schema.SingleNestedBlock{
-												MarkdownDescription: "Configuration parameter for check present.",
-											},
 											"item": schema.SingleNestedBlock{
 												MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
 												Attributes: map[string]schema.Attribute{
@@ -880,11 +897,24 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 								"segment_policy": schema.SingleNestedBlock{
 									MarkdownDescription: "Configure source and destination segment for policy.",
 									Validators:          []validator.Object{validators.ConflictingObjectAttributes("dst_any", "dst_segments"), validators.ConflictingObjectAttributes("dst_any", "intra_segment"), validators.ConflictingObjectAttributes("dst_segments", "intra_segment"), validators.ConflictingObjectAttributes("src_any", "src_segments")},
-									Attributes:          map[string]schema.Attribute{},
-									Blocks: map[string]schema.Block{
-										"dst_any": schema.SingleNestedBlock{
+									Attributes: map[string]schema.Attribute{
+										"dst_any": schema.ObjectAttribute{
 											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
+										"intra_segment": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for intra segment.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"src_any": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+									},
+									Blocks: map[string]schema.Block{
 										"dst_segments": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for dst segments.",
 											Validators:          []validator.Object{validators.RequiredObjectAttributes("segments")},
@@ -924,12 +954,6 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 													},
 												},
 											},
-										},
-										"intra_segment": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for intra segment.",
-										},
-										"src_any": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
 										},
 										"src_segments": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for src segments.",
@@ -1004,6 +1028,14 @@ func (r *RateLimiterPolicyResource) ValidateConfig(ctx context.Context, req reso
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_server"),
+			"Conflicting Configuration",
+			"any_server and server_name are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -1104,7 +1136,7 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.AnyServer != nil {
+	if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() {
 		createReq.Spec["any_server"] = map[string]interface{}{}
 	}
 	if data.ServerNameMatcher != nil {
@@ -1159,16 +1191,16 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 				}
 				if RulesItem.Spec != nil {
 					RulesSpecMap := make(map[string]interface{})
-					if RulesItem.Spec.AnyAsn != nil {
+					if !RulesItem.Spec.AnyAsn.IsNull() && !RulesItem.Spec.AnyAsn.IsUnknown() {
 						RulesSpecMap["any_asn"] = map[string]interface{}{}
 					}
-					if RulesItem.Spec.AnyCountry != nil {
+					if !RulesItem.Spec.AnyCountry.IsNull() && !RulesItem.Spec.AnyCountry.IsUnknown() {
 						RulesSpecMap["any_country"] = map[string]interface{}{}
 					}
-					if RulesItem.Spec.AnyIP != nil {
+					if !RulesItem.Spec.AnyIP.IsNull() && !RulesItem.Spec.AnyIP.IsUnknown() {
 						RulesSpecMap["any_ip"] = map[string]interface{}{}
 					}
-					if RulesItem.Spec.ApplyRateLimiter != nil {
+					if !RulesItem.Spec.ApplyRateLimiter.IsNull() && !RulesItem.Spec.ApplyRateLimiter.IsUnknown() {
 						RulesSpecMap["apply_rate_limiter"] = map[string]interface{}{}
 					}
 					if RulesItem.Spec.AsnList != nil {
@@ -1206,7 +1238,7 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 						}
 						RulesSpecMap["asn_matcher"] = RulesSpecAsnMatcherMap
 					}
-					if RulesItem.Spec.BypassRateLimiter != nil {
+					if !RulesItem.Spec.BypassRateLimiter.IsNull() && !RulesItem.Spec.BypassRateLimiter.IsUnknown() {
 						RulesSpecMap["bypass_rate_limiter"] = map[string]interface{}{}
 					}
 					if RulesItem.Spec.CountryList != nil {
@@ -1262,10 +1294,10 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 							var HeadersList []map[string]interface{}
 							for _, HeadersItem := range HeadersElems {
 								HeadersItemMap := make(map[string]interface{})
-								if HeadersItem.CheckNotPresent != nil {
+								if !HeadersItem.CheckNotPresent.IsNull() && !HeadersItem.CheckNotPresent.IsUnknown() {
 									HeadersItemMap["check_not_present"] = map[string]interface{}{}
 								}
-								if HeadersItem.CheckPresent != nil {
+								if !HeadersItem.CheckPresent.IsNull() && !HeadersItem.CheckPresent.IsUnknown() {
 									HeadersItemMap["check_present"] = map[string]interface{}{}
 								}
 								if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
@@ -1415,7 +1447,7 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 					}
 					if RulesItem.Spec.SegmentPolicy != nil {
 						RulesSpecSegmentPolicyMap := make(map[string]interface{})
-						if RulesItem.Spec.SegmentPolicy.DstAny != nil {
+						if !RulesItem.Spec.SegmentPolicy.DstAny.IsNull() && !RulesItem.Spec.SegmentPolicy.DstAny.IsUnknown() {
 							RulesSpecSegmentPolicyMap["dst_any"] = map[string]interface{}{}
 						}
 						if RulesItem.Spec.SegmentPolicy.DstSegments != nil {
@@ -1441,10 +1473,10 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 							}
 							RulesSpecSegmentPolicyMap["dst_segments"] = RulesSpecSegmentPolicyDstSegmentsMap
 						}
-						if RulesItem.Spec.SegmentPolicy.IntraSegment != nil {
+						if !RulesItem.Spec.SegmentPolicy.IntraSegment.IsNull() && !RulesItem.Spec.SegmentPolicy.IntraSegment.IsUnknown() {
 							RulesSpecSegmentPolicyMap["intra_segment"] = map[string]interface{}{}
 						}
-						if RulesItem.Spec.SegmentPolicy.SrcAny != nil {
+						if !RulesItem.Spec.SegmentPolicy.SrcAny.IsNull() && !RulesItem.Spec.SegmentPolicy.SrcAny.IsUnknown() {
 							RulesSpecSegmentPolicyMap["src_any"] = map[string]interface{}{}
 						}
 						if RulesItem.Spec.SegmentPolicy.SrcSegments != nil {
@@ -1521,8 +1553,12 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["any_server"].(map[string]interface{}); ok && isImport && data.AnyServer == nil {
-		data.AnyServer = &RateLimiterPolicyEmptyModel{}
+	if !isImport && !data.AnyServer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["any_server"].(map[string]interface{}); ok {
+		data.AnyServer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AnyServer = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["server_name_matcher"].(map[string]interface{}); ok && (isImport || data.ServerNameMatcher != nil) {
 		data.ServerNameMatcher = &RateLimiterPolicyServerNameMatcherModel{
@@ -1608,47 +1644,41 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 					Spec: func() *RateLimiterPolicyRulesSpecModel {
 						if SpecData, ok := itemMap["spec"].(map[string]interface{}); ok {
 							return &RateLimiterPolicyRulesSpecModel{
-								AnyAsn: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								AnyAsn: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.AnyAsn.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.AnyAsn
 									}
-									if !isImport {
-										if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
-											return &RateLimiterPolicyEmptyModel{}
-										}
+									if _, ok := SpecData["any_asn"].(map[string]interface{}); ok && !isImport {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AnyCountry: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								AnyCountry: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.AnyCountry.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.AnyCountry
 									}
-									if !isImport {
-										if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
-											return &RateLimiterPolicyEmptyModel{}
-										}
+									if _, ok := SpecData["any_country"].(map[string]interface{}); ok && !isImport {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AnyIP: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								AnyIP: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.AnyIP.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.AnyIP
 									}
-									if !isImport {
-										if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
-											return &RateLimiterPolicyEmptyModel{}
-										}
+									if _, ok := SpecData["any_ip"].(map[string]interface{}); ok && !isImport {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								ApplyRateLimiter: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								ApplyRateLimiter: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.ApplyRateLimiter.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.ApplyRateLimiter
 									}
 									if _, ok := SpecData["apply_rate_limiter"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								AsnList: func() *RateLimiterPolicyRulesSpecAsnListModel {
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AsnList != nil {
@@ -1733,14 +1763,14 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									}
 									return nil
 								}(),
-								BypassRateLimiter: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								BypassRateLimiter: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.BypassRateLimiter.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.BypassRateLimiter
 									}
 									if _, ok := SpecData["bypass_rate_limiter"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								CountryList: func() *RateLimiterPolicyRulesSpecCountryListModel {
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.CountryList != nil {
@@ -1852,23 +1882,23 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 											_ = HeadersIdx
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, RateLimiterPolicyRulesSpecHeadersModel{
-													CheckNotPresent: func() *RateLimiterPolicyEmptyModel {
-														if !isImport && len(HeadersExisting) > HeadersIdx {
+													CheckNotPresent: func() types.Object {
+														if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckNotPresent.IsUnknown() {
 															return HeadersExisting[HeadersIdx].CheckNotPresent
 														}
 														if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
-															return &RateLimiterPolicyEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
-													CheckPresent: func() *RateLimiterPolicyEmptyModel {
-														if !isImport && len(HeadersExisting) > HeadersIdx {
+													CheckPresent: func() types.Object {
+														if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckPresent.IsUnknown() {
 															return HeadersExisting[HeadersIdx].CheckPresent
 														}
 														if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
-															return &RateLimiterPolicyEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
 													InvertMatcher: func() types.Bool {
 														if v, ok := HeadersItemMap["invert_matcher"].(bool); ok {
@@ -2174,14 +2204,14 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 								SegmentPolicy: func() *RateLimiterPolicyRulesSpecSegmentPolicyModel {
 									if SegmentPolicyData, ok := SpecData["segment_policy"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecSegmentPolicyModel{
-											DstAny: func() *RateLimiterPolicyEmptyModel {
-												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+											DstAny: func() types.Object {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.DstAny.IsUnknown() {
 													return existingRulesItems[listIdx].Spec.SegmentPolicy.DstAny
 												}
 												if _, ok := SegmentPolicyData["dst_any"].(map[string]interface{}); ok {
-													return &RateLimiterPolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											DstSegments: func() *RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel {
 												if DstSegmentsData, ok := SegmentPolicyData["dst_segments"].(map[string]interface{}); ok {
@@ -2230,23 +2260,23 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 												}
 												return nil
 											}(),
-											IntraSegment: func() *RateLimiterPolicyEmptyModel {
-												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+											IntraSegment: func() types.Object {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.IntraSegment.IsUnknown() {
 													return existingRulesItems[listIdx].Spec.SegmentPolicy.IntraSegment
 												}
 												if _, ok := SegmentPolicyData["intra_segment"].(map[string]interface{}); ok {
-													return &RateLimiterPolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											SrcAny: func() *RateLimiterPolicyEmptyModel {
-												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+											SrcAny: func() types.Object {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.SrcAny.IsUnknown() {
 													return existingRulesItems[listIdx].Spec.SegmentPolicy.SrcAny
 												}
 												if _, ok := SegmentPolicyData["src_any"].(map[string]interface{}); ok {
-													return &RateLimiterPolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SrcSegments: func() *RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel {
 												if SrcSegmentsData, ok := SegmentPolicyData["src_segments"].(map[string]interface{}); ok {
@@ -2450,8 +2480,12 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["any_server"].(map[string]interface{}); ok && isImport && data.AnyServer == nil {
-		data.AnyServer = &RateLimiterPolicyEmptyModel{}
+	if !isImport && !data.AnyServer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["any_server"].(map[string]interface{}); ok {
+		data.AnyServer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AnyServer = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["server_name_matcher"].(map[string]interface{}); ok && (isImport || data.ServerNameMatcher != nil) {
 		data.ServerNameMatcher = &RateLimiterPolicyServerNameMatcherModel{
@@ -2537,47 +2571,41 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 					Spec: func() *RateLimiterPolicyRulesSpecModel {
 						if SpecData, ok := itemMap["spec"].(map[string]interface{}); ok {
 							return &RateLimiterPolicyRulesSpecModel{
-								AnyAsn: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								AnyAsn: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.AnyAsn.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.AnyAsn
 									}
-									if !isImport {
-										if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
-											return &RateLimiterPolicyEmptyModel{}
-										}
+									if _, ok := SpecData["any_asn"].(map[string]interface{}); ok && !isImport {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AnyCountry: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								AnyCountry: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.AnyCountry.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.AnyCountry
 									}
-									if !isImport {
-										if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
-											return &RateLimiterPolicyEmptyModel{}
-										}
+									if _, ok := SpecData["any_country"].(map[string]interface{}); ok && !isImport {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AnyIP: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								AnyIP: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.AnyIP.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.AnyIP
 									}
-									if !isImport {
-										if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
-											return &RateLimiterPolicyEmptyModel{}
-										}
+									if _, ok := SpecData["any_ip"].(map[string]interface{}); ok && !isImport {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								ApplyRateLimiter: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								ApplyRateLimiter: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.ApplyRateLimiter.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.ApplyRateLimiter
 									}
 									if _, ok := SpecData["apply_rate_limiter"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								AsnList: func() *RateLimiterPolicyRulesSpecAsnListModel {
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AsnList != nil {
@@ -2662,14 +2690,14 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									}
 									return nil
 								}(),
-								BypassRateLimiter: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								BypassRateLimiter: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.BypassRateLimiter.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.BypassRateLimiter
 									}
 									if _, ok := SpecData["bypass_rate_limiter"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								CountryList: func() *RateLimiterPolicyRulesSpecCountryListModel {
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.CountryList != nil {
@@ -2781,23 +2809,23 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 											_ = HeadersIdx
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, RateLimiterPolicyRulesSpecHeadersModel{
-													CheckNotPresent: func() *RateLimiterPolicyEmptyModel {
-														if !isImport && len(HeadersExisting) > HeadersIdx {
+													CheckNotPresent: func() types.Object {
+														if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckNotPresent.IsUnknown() {
 															return HeadersExisting[HeadersIdx].CheckNotPresent
 														}
 														if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
-															return &RateLimiterPolicyEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
-													CheckPresent: func() *RateLimiterPolicyEmptyModel {
-														if !isImport && len(HeadersExisting) > HeadersIdx {
+													CheckPresent: func() types.Object {
+														if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckPresent.IsUnknown() {
 															return HeadersExisting[HeadersIdx].CheckPresent
 														}
 														if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
-															return &RateLimiterPolicyEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
 													InvertMatcher: func() types.Bool {
 														if v, ok := HeadersItemMap["invert_matcher"].(bool); ok {
@@ -3103,14 +3131,14 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 								SegmentPolicy: func() *RateLimiterPolicyRulesSpecSegmentPolicyModel {
 									if SegmentPolicyData, ok := SpecData["segment_policy"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecSegmentPolicyModel{
-											DstAny: func() *RateLimiterPolicyEmptyModel {
-												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+											DstAny: func() types.Object {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.DstAny.IsUnknown() {
 													return existingRulesItems[listIdx].Spec.SegmentPolicy.DstAny
 												}
 												if _, ok := SegmentPolicyData["dst_any"].(map[string]interface{}); ok {
-													return &RateLimiterPolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											DstSegments: func() *RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel {
 												if DstSegmentsData, ok := SegmentPolicyData["dst_segments"].(map[string]interface{}); ok {
@@ -3159,23 +3187,23 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 												}
 												return nil
 											}(),
-											IntraSegment: func() *RateLimiterPolicyEmptyModel {
-												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+											IntraSegment: func() types.Object {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.IntraSegment.IsUnknown() {
 													return existingRulesItems[listIdx].Spec.SegmentPolicy.IntraSegment
 												}
 												if _, ok := SegmentPolicyData["intra_segment"].(map[string]interface{}); ok {
-													return &RateLimiterPolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											SrcAny: func() *RateLimiterPolicyEmptyModel {
-												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+											SrcAny: func() types.Object {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.SrcAny.IsUnknown() {
 													return existingRulesItems[listIdx].Spec.SegmentPolicy.SrcAny
 												}
 												if _, ok := SegmentPolicyData["src_any"].(map[string]interface{}); ok {
-													return &RateLimiterPolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SrcSegments: func() *RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel {
 												if SrcSegmentsData, ok := SegmentPolicyData["src_segments"].(map[string]interface{}); ok {
@@ -3342,7 +3370,7 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.AnyServer != nil {
+	if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() {
 		apiResource.Spec["any_server"] = map[string]interface{}{}
 	}
 	if data.ServerNameMatcher != nil {
@@ -3397,16 +3425,16 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 				}
 				if RulesItem.Spec != nil {
 					RulesSpecMap := make(map[string]interface{})
-					if RulesItem.Spec.AnyAsn != nil {
+					if !RulesItem.Spec.AnyAsn.IsNull() && !RulesItem.Spec.AnyAsn.IsUnknown() {
 						RulesSpecMap["any_asn"] = map[string]interface{}{}
 					}
-					if RulesItem.Spec.AnyCountry != nil {
+					if !RulesItem.Spec.AnyCountry.IsNull() && !RulesItem.Spec.AnyCountry.IsUnknown() {
 						RulesSpecMap["any_country"] = map[string]interface{}{}
 					}
-					if RulesItem.Spec.AnyIP != nil {
+					if !RulesItem.Spec.AnyIP.IsNull() && !RulesItem.Spec.AnyIP.IsUnknown() {
 						RulesSpecMap["any_ip"] = map[string]interface{}{}
 					}
-					if RulesItem.Spec.ApplyRateLimiter != nil {
+					if !RulesItem.Spec.ApplyRateLimiter.IsNull() && !RulesItem.Spec.ApplyRateLimiter.IsUnknown() {
 						RulesSpecMap["apply_rate_limiter"] = map[string]interface{}{}
 					}
 					if RulesItem.Spec.AsnList != nil {
@@ -3444,7 +3472,7 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 						}
 						RulesSpecMap["asn_matcher"] = RulesSpecAsnMatcherMap
 					}
-					if RulesItem.Spec.BypassRateLimiter != nil {
+					if !RulesItem.Spec.BypassRateLimiter.IsNull() && !RulesItem.Spec.BypassRateLimiter.IsUnknown() {
 						RulesSpecMap["bypass_rate_limiter"] = map[string]interface{}{}
 					}
 					if RulesItem.Spec.CountryList != nil {
@@ -3500,10 +3528,10 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 							var HeadersList []map[string]interface{}
 							for _, HeadersItem := range HeadersElems {
 								HeadersItemMap := make(map[string]interface{})
-								if HeadersItem.CheckNotPresent != nil {
+								if !HeadersItem.CheckNotPresent.IsNull() && !HeadersItem.CheckNotPresent.IsUnknown() {
 									HeadersItemMap["check_not_present"] = map[string]interface{}{}
 								}
-								if HeadersItem.CheckPresent != nil {
+								if !HeadersItem.CheckPresent.IsNull() && !HeadersItem.CheckPresent.IsUnknown() {
 									HeadersItemMap["check_present"] = map[string]interface{}{}
 								}
 								if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
@@ -3653,7 +3681,7 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 					}
 					if RulesItem.Spec.SegmentPolicy != nil {
 						RulesSpecSegmentPolicyMap := make(map[string]interface{})
-						if RulesItem.Spec.SegmentPolicy.DstAny != nil {
+						if !RulesItem.Spec.SegmentPolicy.DstAny.IsNull() && !RulesItem.Spec.SegmentPolicy.DstAny.IsUnknown() {
 							RulesSpecSegmentPolicyMap["dst_any"] = map[string]interface{}{}
 						}
 						if RulesItem.Spec.SegmentPolicy.DstSegments != nil {
@@ -3679,10 +3707,10 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 							}
 							RulesSpecSegmentPolicyMap["dst_segments"] = RulesSpecSegmentPolicyDstSegmentsMap
 						}
-						if RulesItem.Spec.SegmentPolicy.IntraSegment != nil {
+						if !RulesItem.Spec.SegmentPolicy.IntraSegment.IsNull() && !RulesItem.Spec.SegmentPolicy.IntraSegment.IsUnknown() {
 							RulesSpecSegmentPolicyMap["intra_segment"] = map[string]interface{}{}
 						}
-						if RulesItem.Spec.SegmentPolicy.SrcAny != nil {
+						if !RulesItem.Spec.SegmentPolicy.SrcAny.IsNull() && !RulesItem.Spec.SegmentPolicy.SrcAny.IsUnknown() {
 							RulesSpecSegmentPolicyMap["src_any"] = map[string]interface{}{}
 						}
 						if RulesItem.Spec.SegmentPolicy.SrcSegments != nil {
@@ -3786,8 +3814,12 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["any_server"].(map[string]interface{}); ok && isImport && data.AnyServer == nil {
-		data.AnyServer = &RateLimiterPolicyEmptyModel{}
+	if !isImport && !data.AnyServer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["any_server"].(map[string]interface{}); ok {
+		data.AnyServer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AnyServer = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["server_name_matcher"].(map[string]interface{}); ok && (isImport || data.ServerNameMatcher != nil) {
 		data.ServerNameMatcher = &RateLimiterPolicyServerNameMatcherModel{
@@ -3873,47 +3905,41 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 					Spec: func() *RateLimiterPolicyRulesSpecModel {
 						if SpecData, ok := itemMap["spec"].(map[string]interface{}); ok {
 							return &RateLimiterPolicyRulesSpecModel{
-								AnyAsn: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								AnyAsn: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.AnyAsn.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.AnyAsn
 									}
-									if !isImport {
-										if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
-											return &RateLimiterPolicyEmptyModel{}
-										}
+									if _, ok := SpecData["any_asn"].(map[string]interface{}); ok && !isImport {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AnyCountry: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								AnyCountry: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.AnyCountry.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.AnyCountry
 									}
-									if !isImport {
-										if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
-											return &RateLimiterPolicyEmptyModel{}
-										}
+									if _, ok := SpecData["any_country"].(map[string]interface{}); ok && !isImport {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AnyIP: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								AnyIP: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.AnyIP.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.AnyIP
 									}
-									if !isImport {
-										if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
-											return &RateLimiterPolicyEmptyModel{}
-										}
+									if _, ok := SpecData["any_ip"].(map[string]interface{}); ok && !isImport {
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								ApplyRateLimiter: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								ApplyRateLimiter: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.ApplyRateLimiter.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.ApplyRateLimiter
 									}
 									if _, ok := SpecData["apply_rate_limiter"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								AsnList: func() *RateLimiterPolicyRulesSpecAsnListModel {
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.AsnList != nil {
@@ -3998,14 +4024,14 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									}
 									return nil
 								}(),
-								BypassRateLimiter: func() *RateLimiterPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
+								BypassRateLimiter: func() types.Object {
+									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && !existingRulesItems[listIdx].Spec.BypassRateLimiter.IsUnknown() {
 										return existingRulesItems[listIdx].Spec.BypassRateLimiter
 									}
 									if _, ok := SpecData["bypass_rate_limiter"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								CountryList: func() *RateLimiterPolicyRulesSpecCountryListModel {
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.CountryList != nil {
@@ -4117,23 +4143,23 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 											_ = HeadersIdx
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, RateLimiterPolicyRulesSpecHeadersModel{
-													CheckNotPresent: func() *RateLimiterPolicyEmptyModel {
-														if !isImport && len(HeadersExisting) > HeadersIdx {
+													CheckNotPresent: func() types.Object {
+														if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckNotPresent.IsUnknown() {
 															return HeadersExisting[HeadersIdx].CheckNotPresent
 														}
 														if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
-															return &RateLimiterPolicyEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
-													CheckPresent: func() *RateLimiterPolicyEmptyModel {
-														if !isImport && len(HeadersExisting) > HeadersIdx {
+													CheckPresent: func() types.Object {
+														if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckPresent.IsUnknown() {
 															return HeadersExisting[HeadersIdx].CheckPresent
 														}
 														if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
-															return &RateLimiterPolicyEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
 													InvertMatcher: func() types.Bool {
 														if v, ok := HeadersItemMap["invert_matcher"].(bool); ok {
@@ -4439,14 +4465,14 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 								SegmentPolicy: func() *RateLimiterPolicyRulesSpecSegmentPolicyModel {
 									if SegmentPolicyData, ok := SpecData["segment_policy"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecSegmentPolicyModel{
-											DstAny: func() *RateLimiterPolicyEmptyModel {
-												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+											DstAny: func() types.Object {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.DstAny.IsUnknown() {
 													return existingRulesItems[listIdx].Spec.SegmentPolicy.DstAny
 												}
 												if _, ok := SegmentPolicyData["dst_any"].(map[string]interface{}); ok {
-													return &RateLimiterPolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											DstSegments: func() *RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel {
 												if DstSegmentsData, ok := SegmentPolicyData["dst_segments"].(map[string]interface{}); ok {
@@ -4495,23 +4521,23 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 												}
 												return nil
 											}(),
-											IntraSegment: func() *RateLimiterPolicyEmptyModel {
-												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+											IntraSegment: func() types.Object {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.IntraSegment.IsUnknown() {
 													return existingRulesItems[listIdx].Spec.SegmentPolicy.IntraSegment
 												}
 												if _, ok := SegmentPolicyData["intra_segment"].(map[string]interface{}); ok {
-													return &RateLimiterPolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											SrcAny: func() *RateLimiterPolicyEmptyModel {
-												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+											SrcAny: func() types.Object {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.SrcAny.IsUnknown() {
 													return existingRulesItems[listIdx].Spec.SegmentPolicy.SrcAny
 												}
 												if _, ok := SegmentPolicyData["src_any"].(map[string]interface{}); ok {
-													return &RateLimiterPolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SrcSegments: func() *RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel {
 												if SrcSegmentsData, ok := SegmentPolicyData["src_segments"].(map[string]interface{}); ok {

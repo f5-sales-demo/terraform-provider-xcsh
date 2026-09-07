@@ -39,7 +39,7 @@ resource "xcsh_fast_acl_rule" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -151,9 +151,9 @@ A [`ref`](#ip-prefix-set-ref) block (within [`ip_prefix_set`](#ip-prefix-set)) s
 
 A [`port`](#port) block supports the following:
 
-<a id="port-all"></a>&#x2022; [`all`](#port-all) - Optional Block<br>Enable this option
+<a id="port-all"></a>&#x2022; [`all`](#port-all) - Optional Object<br>Enable this option
 
-<a id="port-dns"></a>&#x2022; [`dns`](#port-dns) - Optional Block<br>Enable this option
+<a id="port-dns"></a>&#x2022; [`dns`](#port-dns) - Optional Object<br>Enable this option
 
 <a id="port-user-defined"></a>&#x2022; [`user_defined`](#port-user-defined) - Optional Number<br>Matches the user defined port
 

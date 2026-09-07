@@ -51,16 +51,16 @@ type CDNCacheRuleEmptyModel struct {
 
 // CDNCacheRuleCacheRulesModel represents cache_rules block
 type CDNCacheRuleCacheRulesModel struct {
+	CacheBypass        types.Object                                 `tfsdk:"cache_bypass"`
 	RuleName           types.String                                 `tfsdk:"rule_name"`
-	CacheBypass        *CDNCacheRuleEmptyModel                      `tfsdk:"cache_bypass"`
 	EligibleForCache   *CDNCacheRuleCacheRulesEligibleForCacheModel `tfsdk:"eligible_for_cache"`
 	RuleExpressionList types.List                                   `tfsdk:"rule_expression_list"`
 }
 
 // CDNCacheRuleCacheRulesModelAttrTypes defines the attribute types for CDNCacheRuleCacheRulesModel
 var CDNCacheRuleCacheRulesModelAttrTypes = map[string]attr.Type{
-	"rule_name":            types.StringType,
 	"cache_bypass":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"rule_name":            types.StringType,
 	"eligible_for_cache":   types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesEligibleForCacheModelAttrTypes},
 	"rule_expression_list": types.ListType{ElemType: types.ObjectType{AttrTypes: CDNCacheRuleCacheRulesRuleExpressionListModelAttrTypes}},
 }
@@ -361,6 +361,11 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("rule_expression_list", "rule_name"), validators.ConflictingObjectAttributes("cache_bypass", "eligible_for_cache")},
 
 				Attributes: map[string]schema.Attribute{
+					"cache_bypass": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for cache bypass.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"rule_name": schema.StringAttribute{
 						MarkdownDescription: "Rule Name. Name of the Cache Rule.",
 						Optional:            true,
@@ -370,9 +375,6 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 					},
 				},
 				Blocks: map[string]schema.Block{
-					"cache_bypass": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for cache bypass.",
-					},
 					"eligible_for_cache": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for eligible for cache.",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("scheme_proxy_host_request_uri", "scheme_proxy_host_uri")},
@@ -807,7 +809,7 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 	// Marshal spec fields from Terraform state to API struct
 	if data.CacheRules != nil {
 		CacheRulesMap := make(map[string]interface{})
-		if data.CacheRules.CacheBypass != nil {
+		if !data.CacheRules.CacheBypass.IsNull() && !data.CacheRules.CacheBypass.IsUnknown() {
 			CacheRulesMap["cache_bypass"] = map[string]interface{}{}
 		}
 		if data.CacheRules.EligibleForCache != nil {
@@ -1091,14 +1093,14 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["cache_rules"].(map[string]interface{}); ok && (isImport || data.CacheRules != nil) {
 		data.CacheRules = &CDNCacheRuleCacheRulesModel{
-			CacheBypass: func() *CDNCacheRuleEmptyModel {
-				if !isImport && data.CacheRules != nil {
+			CacheBypass: func() types.Object {
+				if !isImport && data.CacheRules != nil && !data.CacheRules.CacheBypass.IsUnknown() {
 					return data.CacheRules.CacheBypass
 				}
 				if _, ok := blockData["cache_bypass"].(map[string]interface{}); ok {
-					return &CDNCacheRuleEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EligibleForCache: func() *CDNCacheRuleCacheRulesEligibleForCacheModel {
 				if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil {
@@ -1707,14 +1709,14 @@ func (r *CDNCacheRuleResource) Read(ctx context.Context, req resource.ReadReques
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["cache_rules"].(map[string]interface{}); ok && (isImport || data.CacheRules != nil) {
 		data.CacheRules = &CDNCacheRuleCacheRulesModel{
-			CacheBypass: func() *CDNCacheRuleEmptyModel {
-				if !isImport && data.CacheRules != nil {
+			CacheBypass: func() types.Object {
+				if !isImport && data.CacheRules != nil && !data.CacheRules.CacheBypass.IsUnknown() {
 					return data.CacheRules.CacheBypass
 				}
 				if _, ok := blockData["cache_bypass"].(map[string]interface{}); ok {
-					return &CDNCacheRuleEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EligibleForCache: func() *CDNCacheRuleCacheRulesEligibleForCacheModel {
 				if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil {
@@ -2286,7 +2288,7 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 	// Marshal spec fields from Terraform state to API struct
 	if data.CacheRules != nil {
 		CacheRulesMap := make(map[string]interface{})
-		if data.CacheRules.CacheBypass != nil {
+		if !data.CacheRules.CacheBypass.IsNull() && !data.CacheRules.CacheBypass.IsUnknown() {
 			CacheRulesMap["cache_bypass"] = map[string]interface{}{}
 		}
 		if data.CacheRules.EligibleForCache != nil {
@@ -2590,14 +2592,14 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["cache_rules"].(map[string]interface{}); ok && (isImport || data.CacheRules != nil) {
 		data.CacheRules = &CDNCacheRuleCacheRulesModel{
-			CacheBypass: func() *CDNCacheRuleEmptyModel {
-				if !isImport && data.CacheRules != nil {
+			CacheBypass: func() types.Object {
+				if !isImport && data.CacheRules != nil && !data.CacheRules.CacheBypass.IsUnknown() {
 					return data.CacheRules.CacheBypass
 				}
 				if _, ok := blockData["cache_bypass"].(map[string]interface{}); ok {
-					return &CDNCacheRuleEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EligibleForCache: func() *CDNCacheRuleCacheRulesEligibleForCacheModel {
 				if !isImport && data.CacheRules != nil && data.CacheRules.EligibleForCache != nil {

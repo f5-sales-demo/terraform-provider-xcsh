@@ -39,7 +39,7 @@ resource "xcsh_nfv_service" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -60,10 +60,10 @@ resource "xcsh_nfv_service" "example" {
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="disable-https-management"></a>[`disable_https_management`](#disable-https-management) - Optional Block<br>Configuration parameter for disable HTTPS management
+&#x2022; <a id="disable-https-management"></a>[`disable_https_management`](#disable-https-management) - Optional Object<br>Configuration parameter for disable HTTPS management
 
 -> **One of the following:**
-&#x2022; <a id="disable-ssh-access"></a>[`disable_ssh_access`](#disable-ssh-access) - Optional Block<br>Configuration parameter for disable SSH access
+&#x2022; <a id="disable-ssh-access"></a>[`disable_ssh_access`](#disable-ssh-access) - Optional Object<br>Configuration parameter for disable SSH access
 
 <a id="enabled-ssh-access"></a>&#x2022; [`enabled_ssh_access`](#enabled-ssh-access) - Optional Block<br>Configuration parameter for enabled SSH access<br>See [Enabled SSH Access](#enabled-ssh-access) below for details.
 
@@ -87,15 +87,27 @@ In addition to all arguments above, the following attributes are exported:
 
 An [`enabled_ssh_access`](#enabled-ssh-access) block supports the following:
 
-<a id="enabled-ssh-access-advertise-on-sli"></a>&#x2022; [`advertise_on_sli`](#enabled-ssh-access-advertise-on-sli) - Optional Block<br>Configuration parameter for advertise on SLI
+<a id="enabled-ssh-access-advertise-on-sli"></a>&#x2022; [`advertise_on_sli`](#enabled-ssh-access-advertise-on-sli) - Optional Object<br>Configuration parameter for advertise on SLI
 
-<a id="enabled-ssh-access-advertise-on-slo"></a>&#x2022; [`advertise_on_slo`](#enabled-ssh-access-advertise-on-slo) - Optional Block<br>Configuration parameter for advertise on slo
+<a id="enabled-ssh-access-advertise-on-slo"></a>&#x2022; [`advertise_on_slo`](#enabled-ssh-access-advertise-on-slo) - Optional Object<br>Configuration parameter for advertise on slo
 
-<a id="enabled-ssh-access-advertise-on-slo-sli"></a>&#x2022; [`advertise_on_slo_sli`](#enabled-ssh-access-advertise-on-slo-sli) - Optional Block<br>Configuration parameter for advertise on slo SLI
+<a id="enabled-ssh-access-advertise-on-slo-sli"></a>&#x2022; [`advertise_on_slo_sli`](#enabled-ssh-access-advertise-on-slo-sli) - Optional Object<br>Configuration parameter for advertise on slo SLI
 
 <a id="enabled-ssh-access-domain-suffix"></a>&#x2022; [`domain_suffix`](#enabled-ssh-access-domain-suffix) - Optional String<br>Domain suffix will be used along with node name to form the hostname for SSH node management
 
 <a id="enabled-ssh-access-node-ssh-ports"></a>&#x2022; [`node_ssh_ports`](#enabled-ssh-access-node-ssh-ports) - Optional Block<br>Management Node SSH Port. Enter TCP port and node name per node<br>See [Node SSH Ports](#enabled-ssh-access-node-ssh-ports) below.
+
+#### Enabled SSH Access Advertise On SLI
+
+An [`advertise_on_sli`](#enabled-ssh-access-advertise-on-sli) block (within [`enabled_ssh_access`](#enabled-ssh-access)) supports the following:
+
+#### Enabled SSH Access Advertise On Slo
+
+An [`advertise_on_slo`](#enabled-ssh-access-advertise-on-slo) block (within [`enabled_ssh_access`](#enabled-ssh-access)) supports the following:
+
+#### Enabled SSH Access Advertise On Slo SLI
+
+An [`advertise_on_slo_sli`](#enabled-ssh-access-advertise-on-slo-sli) block (within [`enabled_ssh_access`](#enabled-ssh-access)) supports the following:
 
 #### Enabled SSH Access Node SSH Ports
 
@@ -153,11 +165,11 @@ An [`admin_password`](#f5-big-ip-aws-service-admin-password) block (within [`f5_
 
 An [`endpoint_service`](#f5-big-ip-aws-service-endpoint-service) block (within [`f5_big_ip_aws_service`](#f5-big-ip-aws-service)) supports the following:
 
-<a id="slo-ip-6fccc9"></a>&#x2022; [`advertise_on_slo_ip`](#slo-ip-6fccc9) - Optional Block<br>Enable this option
+<a id="slo-ip-6fccc9"></a>&#x2022; [`advertise_on_slo_ip`](#slo-ip-6fccc9) - Optional Object<br>Enable this option
 
-<a id="external-c6878c"></a>&#x2022; [`advertise_on_slo_ip_external`](#external-c6878c) - Optional Block<br>Enable this option
+<a id="external-c6878c"></a>&#x2022; [`advertise_on_slo_ip_external`](#external-c6878c) - Optional Object<br>Enable this option
 
-<a id="vip-bf0a34"></a>&#x2022; [`automatic_vip`](#vip-bf0a34) - Optional Block<br>Enable this option
+<a id="vip-bf0a34"></a>&#x2022; [`automatic_vip`](#vip-bf0a34) - Optional Object<br>Enable this option
 
 <a id="vip-39201b"></a>&#x2022; [`configured_vip`](#vip-39201b) - Optional String<br>Enter IP address for the default VIP
 
@@ -165,17 +177,29 @@ An [`endpoint_service`](#f5-big-ip-aws-service-endpoint-service) block (within [
 
 <a id="ports-775f61"></a>&#x2022; [`custom_udp_ports`](#ports-775f61) - Optional Block<br>Port Range List. List of port ranges<br>See [Custom UDP Ports](#ports-775f61) below.
 
-<a id="ports-4442b0"></a>&#x2022; [`default_tcp_ports`](#ports-4442b0) - Optional Block<br>Enable this option
+<a id="ports-4442b0"></a>&#x2022; [`default_tcp_ports`](#ports-4442b0) - Optional Object<br>Enable this option
 
-<a id="slo-ip-47bf10"></a>&#x2022; [`disable_advertise_on_slo_ip`](#slo-ip-47bf10) - Optional Block<br>Enable this option
+<a id="slo-ip-47bf10"></a>&#x2022; [`disable_advertise_on_slo_ip`](#slo-ip-47bf10) - Optional Object<br>Enable this option
 
-<a id="port-926fe7"></a>&#x2022; [`http_port`](#port-926fe7) - Optional Block<br>Enable this option
+<a id="port-926fe7"></a>&#x2022; [`http_port`](#port-926fe7) - Optional Object<br>Enable this option
 
-<a id="port-440dce"></a>&#x2022; [`https_port`](#port-440dce) - Optional Block<br>Enable this option
+<a id="port-440dce"></a>&#x2022; [`https_port`](#port-440dce) - Optional Object<br>Enable this option
 
-<a id="ports-4d510f"></a>&#x2022; [`no_tcp_ports`](#ports-4d510f) - Optional Block<br>Enable this option
+<a id="ports-4d510f"></a>&#x2022; [`no_tcp_ports`](#ports-4d510f) - Optional Object<br>Enable this option
 
-<a id="ports-abc1e4"></a>&#x2022; [`no_udp_ports`](#ports-abc1e4) - Optional Block<br>Enable this option
+<a id="ports-abc1e4"></a>&#x2022; [`no_udp_ports`](#ports-abc1e4) - Optional Object<br>Enable this option
+
+#### F5 Big IP AWS Service Endpoint Service Advertise On Slo IP
+
+<a id="deep-d6a423"></a>Deeply nested **IP** block collapsed for readability.
+
+#### F5 Big IP AWS Service Endpoint Service Advertise On Slo IP External
+
+<a id="deep-f056d2"></a>Deeply nested **External** block collapsed for readability.
+
+#### F5 Big IP AWS Service Endpoint Service Automatic VIP
+
+<a id="deep-e25a5f"></a>Deeply nested **VIP** block collapsed for readability.
 
 #### F5 Big IP AWS Service Endpoint Service Custom TCP Ports
 
@@ -185,15 +209,47 @@ An [`endpoint_service`](#f5-big-ip-aws-service-endpoint-service) block (within [
 
 <a id="deep-ba573c"></a>Deeply nested **Ports** block collapsed for readability.
 
+#### F5 Big IP AWS Service Endpoint Service Default TCP Ports
+
+<a id="deep-3028f2"></a>Deeply nested **Ports** block collapsed for readability.
+
+#### F5 Big IP AWS Service Endpoint Service Disable Advertise On Slo IP
+
+<a id="deep-c7bc72"></a>Deeply nested **IP** block collapsed for readability.
+
+#### F5 Big IP AWS Service Endpoint Service HTTP Port
+
+<a id="deep-6a5354"></a>Deeply nested **Port** block collapsed for readability.
+
+#### F5 Big IP AWS Service Endpoint Service HTTPS Port
+
+<a id="deep-20b3d7"></a>Deeply nested **Port** block collapsed for readability.
+
+#### F5 Big IP AWS Service Endpoint Service No TCP Ports
+
+<a id="deep-839386"></a>Deeply nested **Ports** block collapsed for readability.
+
+#### F5 Big IP AWS Service Endpoint Service No UDP Ports
+
+<a id="deep-4752bb"></a>Deeply nested **Ports** block collapsed for readability.
+
 #### F5 Big IP AWS Service Market Place Image
 
 <a id="deep-05bf5d"></a>Deeply nested **Image** block collapsed for readability.
+
+#### F5 Big IP AWS Service Market Place Image Awafpay G200 Mbps
+
+<a id="deep-57a774"></a>Deeply nested **Mbps** block collapsed for readability.
+
+#### F5 Big IP AWS Service Market Place Image Awafpay G3 Gbps
+
+<a id="deep-6abd30"></a>Deeply nested **Gbps** block collapsed for readability.
 
 #### F5 Big IP AWS Service Nodes
 
 A [`nodes`](#f5-big-ip-aws-service-nodes) block (within [`f5_big_ip_aws_service`](#f5-big-ip-aws-service)) supports the following:
 
-<a id="prefix-e8faa8"></a>&#x2022; [`automatic_prefix`](#prefix-e8faa8) - Optional Block<br>Configuration parameter for automatic prefix
+<a id="prefix-e8faa8"></a>&#x2022; [`automatic_prefix`](#prefix-e8faa8) - Optional Object<br>Configuration parameter for automatic prefix
 
 <a id="f5-big-ip-aws-service-nodes-aws-az-name"></a>&#x2022; [`aws_az_name`](#f5-big-ip-aws-service-nodes-aws-az-name) - Optional String<br>The AWS Availability Zone must be consistent with the AWS Region chosen. Please select an AZ in the same Region as your TGW Site
 
@@ -201,9 +257,13 @@ A [`nodes`](#f5-big-ip-aws-service-nodes) block (within [`f5_big_ip_aws_service`
 
 <a id="f5-big-ip-aws-service-nodes-node-name"></a>&#x2022; [`node_name`](#f5-big-ip-aws-service-nodes-node-name) - Optional String<br>Node Name will be used to assign as hostname to the service
 
-<a id="subnet-2782dc"></a>&#x2022; [`reserved_mgmt_subnet`](#subnet-2782dc) - Optional Block<br>Configuration parameter for reserved mgmt subnet
+<a id="subnet-2782dc"></a>&#x2022; [`reserved_mgmt_subnet`](#subnet-2782dc) - Optional Object<br>Configuration parameter for reserved mgmt subnet
 
 <a id="prefix-53b238"></a>&#x2022; [`tunnel_prefix`](#prefix-53b238) - Optional String<br>Enter IP prefix for the tunnel, it has to be /30
+
+#### F5 Big IP AWS Service Nodes Automatic Prefix
+
+<a id="deep-0edbcc"></a>Deeply nested **Prefix** block collapsed for readability.
 
 #### F5 Big IP AWS Service Nodes Mgmt Subnet
 
@@ -213,13 +273,17 @@ A [`nodes`](#f5-big-ip-aws-service-nodes) block (within [`f5_big_ip_aws_service`
 
 <a id="deep-b956ce"></a>Deeply nested **Param** block collapsed for readability.
 
+#### F5 Big IP AWS Service Nodes Reserved Mgmt Subnet
+
+<a id="deep-7249f9"></a>Deeply nested **Subnet** block collapsed for readability.
+
 #### HTTPS Management
 
 A [`https_management`](#https-management) block supports the following:
 
 <a id="https-management-advertise-on-internet"></a>&#x2022; [`advertise_on_internet`](#https-management-advertise-on-internet) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise On internet](#https-management-advertise-on-internet) below.
 
-<a id="vip-00de2c"></a>&#x2022; [`advertise_on_internet_default_vip`](#vip-00de2c) - Optional Block<br>Enable this option
+<a id="vip-00de2c"></a>&#x2022; [`advertise_on_internet_default_vip`](#vip-00de2c) - Optional Object<br>Enable this option
 
 <a id="https-management-advertise-on-sli-vip"></a>&#x2022; [`advertise_on_sli_vip`](#https-management-advertise-on-sli-vip) - Optional Block<br>Inline TLS Parameters. Inline TLS parameters<br>See [Advertise On SLI VIP](#https-management-advertise-on-sli-vip) below.
 
@@ -229,7 +293,7 @@ A [`https_management`](#https-management) block supports the following:
 
 <a id="https-management-advertise-on-slo-vip"></a>&#x2022; [`advertise_on_slo_vip`](#https-management-advertise-on-slo-vip) - Optional Block<br>Inline TLS Parameters. Inline TLS parameters<br>See [Advertise On Slo VIP](#https-management-advertise-on-slo-vip) below.
 
-<a id="https-management-default-https-port"></a>&#x2022; [`default_https_port`](#https-management-default-https-port) - Optional Block<br>Enable this option
+<a id="https-management-default-https-port"></a>&#x2022; [`default_https_port`](#https-management-default-https-port) - Optional Object<br>Enable this option
 
 <a id="https-management-domain-suffix"></a>&#x2022; [`domain_suffix`](#https-management-domain-suffix) - Optional String<br>Domain suffix will be used along with node name to form URL to access node management
 
@@ -251,17 +315,25 @@ A [`public_ip`](#public-ip-e501cc) block (within [`https_management.advertise_on
 
 <a id="tenant-5cb820"></a>&#x2022; [`tenant`](#tenant-5cb820) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### HTTPS Management Advertise On internet Default VIP
+
+An [`advertise_on_internet_default_vip`](#vip-00de2c) block (within [`https_management`](#https-management)) supports the following:
+
 #### HTTPS Management Advertise On SLI VIP
 
 An [`advertise_on_sli_vip`](#https-management-advertise-on-sli-vip) block (within [`https_management`](#https-management)) supports the following:
 
-<a id="mtls-1bd8e3"></a>&#x2022; [`no_mtls`](#mtls-1bd8e3) - Optional Block<br>Enable this option
+<a id="mtls-1bd8e3"></a>&#x2022; [`no_mtls`](#mtls-1bd8e3) - Optional Object<br>Enable this option
 
 <a id="certificates-5355d7"></a>&#x2022; [`tls_certificates`](#certificates-5355d7) - Optional Block<br>Users can add one or more certificates that share the same set of domains. For example, domain.com and \*.domain.com - but use different signature algorithms<br>See [TLS Certificates](#certificates-5355d7) below.
 
 <a id="config-9f094b"></a>&#x2022; [`tls_config`](#config-9f094b) - Optional Block<br>Defines various OPTIONS to configure TLS configuration parameters<br>See [TLS Config](#config-9f094b) below.
 
 <a id="mtls-c1dce4"></a>&#x2022; [`use_mtls`](#mtls-c1dce4) - Optional Block<br>Validation context for downstream client TLS connections<br>See [Use mTLS](#mtls-c1dce4) below.
+
+#### HTTPS Management Advertise On SLI VIP No mTLS
+
+<a id="deep-d8ddac"></a>Deeply nested **mTLS** block collapsed for readability.
 
 #### HTTPS Management Advertise On SLI VIP TLS Certificates
 
@@ -270,6 +342,10 @@ An [`advertise_on_sli_vip`](#https-management-advertise-on-sli-vip) block (withi
 #### HTTPS Management Advertise On SLI VIP TLS Certificates Custom Hash Algorithms
 
 <a id="deep-d5385c"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### HTTPS Management Advertise On SLI VIP TLS Certificates Disable OCSP Stapling
+
+<a id="deep-cea20e"></a>Deeply nested **Stapling** block collapsed for readability.
 
 #### HTTPS Management Advertise On SLI VIP TLS Certificates Private Key
 
@@ -283,6 +359,10 @@ An [`advertise_on_sli_vip`](#https-management-advertise-on-sli-vip) block (withi
 
 <a id="deep-688a17"></a>Deeply nested **Info** block collapsed for readability.
 
+#### HTTPS Management Advertise On SLI VIP TLS Certificates Use System Defaults
+
+<a id="deep-c49a54"></a>Deeply nested **Defaults** block collapsed for readability.
+
 #### HTTPS Management Advertise On SLI VIP TLS Config
 
 <a id="deep-e3f25e"></a>Deeply nested **Config** block collapsed for readability.
@@ -290,6 +370,18 @@ An [`advertise_on_sli_vip`](#https-management-advertise-on-sli-vip) block (withi
 #### HTTPS Management Advertise On SLI VIP TLS Config Custom Security
 
 <a id="deep-ff90f4"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS Management Advertise On SLI VIP TLS Config Default Security
+
+<a id="deep-592b57"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS Management Advertise On SLI VIP TLS Config Low Security
+
+<a id="deep-429776"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS Management Advertise On SLI VIP TLS Config Medium Security
+
+<a id="deep-6ab3ac"></a>Deeply nested **Security** block collapsed for readability.
 
 #### HTTPS Management Advertise On SLI VIP Use mTLS
 
@@ -299,9 +391,17 @@ An [`advertise_on_sli_vip`](#https-management-advertise-on-sli-vip) block (withi
 
 <a id="deep-22ca79"></a>Deeply nested **CRL** block collapsed for readability.
 
+#### HTTPS Management Advertise On SLI VIP Use mTLS No CRL
+
+<a id="deep-37da24"></a>Deeply nested **CRL** block collapsed for readability.
+
 #### HTTPS Management Advertise On SLI VIP Use mTLS Trusted CA
 
 <a id="deep-6b41d6"></a>Deeply nested **CA** block collapsed for readability.
+
+#### HTTPS Management Advertise On SLI VIP Use mTLS Xfcc Disabled
+
+<a id="deep-ebc2ce"></a>Deeply nested **Disabled** block collapsed for readability.
 
 #### HTTPS Management Advertise On SLI VIP Use mTLS Xfcc Options
 
@@ -311,13 +411,17 @@ An [`advertise_on_sli_vip`](#https-management-advertise-on-sli-vip) block (withi
 
 An [`advertise_on_slo_internet_vip`](#vip-6dd6e5) block (within [`https_management`](#https-management)) supports the following:
 
-<a id="mtls-65c4ed"></a>&#x2022; [`no_mtls`](#mtls-65c4ed) - Optional Block<br>Enable this option
+<a id="mtls-65c4ed"></a>&#x2022; [`no_mtls`](#mtls-65c4ed) - Optional Object<br>Enable this option
 
 <a id="certificates-748bff"></a>&#x2022; [`tls_certificates`](#certificates-748bff) - Optional Block<br>Users can add one or more certificates that share the same set of domains. For example, domain.com and \*.domain.com - but use different signature algorithms<br>See [TLS Certificates](#certificates-748bff) below.
 
 <a id="config-3dcb79"></a>&#x2022; [`tls_config`](#config-3dcb79) - Optional Block<br>Defines various OPTIONS to configure TLS configuration parameters<br>See [TLS Config](#config-3dcb79) below.
 
 <a id="mtls-2fcd89"></a>&#x2022; [`use_mtls`](#mtls-2fcd89) - Optional Block<br>Validation context for downstream client TLS connections<br>See [Use mTLS](#mtls-2fcd89) below.
+
+#### HTTPS Management Advertise On Slo internet VIP No mTLS
+
+<a id="deep-35bece"></a>Deeply nested **mTLS** block collapsed for readability.
 
 #### HTTPS Management Advertise On Slo internet VIP TLS Certificates
 
@@ -326,6 +430,10 @@ An [`advertise_on_slo_internet_vip`](#vip-6dd6e5) block (within [`https_manageme
 #### HTTPS Management Advertise On Slo internet VIP TLS Certificates Custom Hash Algorithms
 
 <a id="deep-e822a0"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo internet VIP TLS Certificates Disable OCSP Stapling
+
+<a id="deep-dad653"></a>Deeply nested **Stapling** block collapsed for readability.
 
 #### HTTPS Management Advertise On Slo internet VIP TLS Certificates Private Key
 
@@ -339,6 +447,10 @@ An [`advertise_on_slo_internet_vip`](#vip-6dd6e5) block (within [`https_manageme
 
 <a id="deep-13cd38"></a>Deeply nested **Info** block collapsed for readability.
 
+#### HTTPS Management Advertise On Slo internet VIP TLS Certificates Use System Defaults
+
+<a id="deep-45c611"></a>Deeply nested **Defaults** block collapsed for readability.
+
 #### HTTPS Management Advertise On Slo internet VIP TLS Config
 
 <a id="deep-f8ee7b"></a>Deeply nested **Config** block collapsed for readability.
@@ -346,6 +458,18 @@ An [`advertise_on_slo_internet_vip`](#vip-6dd6e5) block (within [`https_manageme
 #### HTTPS Management Advertise On Slo internet VIP TLS Config Custom Security
 
 <a id="deep-08fa55"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo internet VIP TLS Config Default Security
+
+<a id="deep-e1e906"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo internet VIP TLS Config Low Security
+
+<a id="deep-b01279"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo internet VIP TLS Config Medium Security
+
+<a id="deep-e576c2"></a>Deeply nested **Security** block collapsed for readability.
 
 #### HTTPS Management Advertise On Slo internet VIP Use mTLS
 
@@ -355,9 +479,17 @@ An [`advertise_on_slo_internet_vip`](#vip-6dd6e5) block (within [`https_manageme
 
 <a id="deep-82cdfb"></a>Deeply nested **CRL** block collapsed for readability.
 
+#### HTTPS Management Advertise On Slo internet VIP Use mTLS No CRL
+
+<a id="deep-b2f333"></a>Deeply nested **CRL** block collapsed for readability.
+
 #### HTTPS Management Advertise On Slo internet VIP Use mTLS Trusted CA
 
 <a id="deep-91643b"></a>Deeply nested **CA** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo internet VIP Use mTLS Xfcc Disabled
+
+<a id="deep-d587af"></a>Deeply nested **Disabled** block collapsed for readability.
 
 #### HTTPS Management Advertise On Slo internet VIP Use mTLS Xfcc Options
 
@@ -367,13 +499,17 @@ An [`advertise_on_slo_internet_vip`](#vip-6dd6e5) block (within [`https_manageme
 
 An [`advertise_on_slo_sli`](#https-management-advertise-on-slo-sli) block (within [`https_management`](#https-management)) supports the following:
 
-<a id="mtls-e2f684"></a>&#x2022; [`no_mtls`](#mtls-e2f684) - Optional Block<br>Enable this option
+<a id="mtls-e2f684"></a>&#x2022; [`no_mtls`](#mtls-e2f684) - Optional Object<br>Enable this option
 
 <a id="certificates-b923c1"></a>&#x2022; [`tls_certificates`](#certificates-b923c1) - Optional Block<br>Users can add one or more certificates that share the same set of domains. For example, domain.com and \*.domain.com - but use different signature algorithms<br>See [TLS Certificates](#certificates-b923c1) below.
 
 <a id="config-2cd93f"></a>&#x2022; [`tls_config`](#config-2cd93f) - Optional Block<br>Defines various OPTIONS to configure TLS configuration parameters<br>See [TLS Config](#config-2cd93f) below.
 
 <a id="mtls-b8036a"></a>&#x2022; [`use_mtls`](#mtls-b8036a) - Optional Block<br>Validation context for downstream client TLS connections<br>See [Use mTLS](#mtls-b8036a) below.
+
+#### HTTPS Management Advertise On Slo SLI No mTLS
+
+<a id="deep-4342c5"></a>Deeply nested **mTLS** block collapsed for readability.
 
 #### HTTPS Management Advertise On Slo SLI TLS Certificates
 
@@ -382,6 +518,10 @@ An [`advertise_on_slo_sli`](#https-management-advertise-on-slo-sli) block (withi
 #### HTTPS Management Advertise On Slo SLI TLS Certificates Custom Hash Algorithms
 
 <a id="deep-eef6f6"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo SLI TLS Certificates Disable OCSP Stapling
+
+<a id="deep-434c8a"></a>Deeply nested **Stapling** block collapsed for readability.
 
 #### HTTPS Management Advertise On Slo SLI TLS Certificates Private Key
 
@@ -395,6 +535,10 @@ An [`advertise_on_slo_sli`](#https-management-advertise-on-slo-sli) block (withi
 
 <a id="deep-19eb92"></a>Deeply nested **Info** block collapsed for readability.
 
+#### HTTPS Management Advertise On Slo SLI TLS Certificates Use System Defaults
+
+<a id="deep-e1e6d7"></a>Deeply nested **Defaults** block collapsed for readability.
+
 #### HTTPS Management Advertise On Slo SLI TLS Config
 
 <a id="deep-422f0d"></a>Deeply nested **Config** block collapsed for readability.
@@ -402,6 +546,18 @@ An [`advertise_on_slo_sli`](#https-management-advertise-on-slo-sli) block (withi
 #### HTTPS Management Advertise On Slo SLI TLS Config Custom Security
 
 <a id="deep-b31050"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo SLI TLS Config Default Security
+
+<a id="deep-c83d13"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo SLI TLS Config Low Security
+
+<a id="deep-2dc217"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo SLI TLS Config Medium Security
+
+<a id="deep-8d962b"></a>Deeply nested **Security** block collapsed for readability.
 
 #### HTTPS Management Advertise On Slo SLI Use mTLS
 
@@ -411,9 +567,17 @@ An [`advertise_on_slo_sli`](#https-management-advertise-on-slo-sli) block (withi
 
 <a id="deep-53cbcf"></a>Deeply nested **CRL** block collapsed for readability.
 
+#### HTTPS Management Advertise On Slo SLI Use mTLS No CRL
+
+<a id="deep-cb4805"></a>Deeply nested **CRL** block collapsed for readability.
+
 #### HTTPS Management Advertise On Slo SLI Use mTLS Trusted CA
 
 <a id="deep-3ed4b6"></a>Deeply nested **CA** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo SLI Use mTLS Xfcc Disabled
+
+<a id="deep-d82af3"></a>Deeply nested **Disabled** block collapsed for readability.
 
 #### HTTPS Management Advertise On Slo SLI Use mTLS Xfcc Options
 
@@ -423,13 +587,17 @@ An [`advertise_on_slo_sli`](#https-management-advertise-on-slo-sli) block (withi
 
 An [`advertise_on_slo_vip`](#https-management-advertise-on-slo-vip) block (within [`https_management`](#https-management)) supports the following:
 
-<a id="mtls-476751"></a>&#x2022; [`no_mtls`](#mtls-476751) - Optional Block<br>Enable this option
+<a id="mtls-476751"></a>&#x2022; [`no_mtls`](#mtls-476751) - Optional Object<br>Enable this option
 
 <a id="certificates-49cf23"></a>&#x2022; [`tls_certificates`](#certificates-49cf23) - Optional Block<br>Users can add one or more certificates that share the same set of domains. For example, domain.com and \*.domain.com - but use different signature algorithms<br>See [TLS Certificates](#certificates-49cf23) below.
 
 <a id="config-eb7c38"></a>&#x2022; [`tls_config`](#config-eb7c38) - Optional Block<br>Defines various OPTIONS to configure TLS configuration parameters<br>See [TLS Config](#config-eb7c38) below.
 
 <a id="mtls-85e7e5"></a>&#x2022; [`use_mtls`](#mtls-85e7e5) - Optional Block<br>Validation context for downstream client TLS connections<br>See [Use mTLS](#mtls-85e7e5) below.
+
+#### HTTPS Management Advertise On Slo VIP No mTLS
+
+<a id="deep-4a1f24"></a>Deeply nested **mTLS** block collapsed for readability.
 
 #### HTTPS Management Advertise On Slo VIP TLS Certificates
 
@@ -438,6 +606,10 @@ An [`advertise_on_slo_vip`](#https-management-advertise-on-slo-vip) block (withi
 #### HTTPS Management Advertise On Slo VIP TLS Certificates Custom Hash Algorithms
 
 <a id="deep-966ac1"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo VIP TLS Certificates Disable OCSP Stapling
+
+<a id="deep-81ff82"></a>Deeply nested **Stapling** block collapsed for readability.
 
 #### HTTPS Management Advertise On Slo VIP TLS Certificates Private Key
 
@@ -451,6 +623,10 @@ An [`advertise_on_slo_vip`](#https-management-advertise-on-slo-vip) block (withi
 
 <a id="deep-c37768"></a>Deeply nested **Info** block collapsed for readability.
 
+#### HTTPS Management Advertise On Slo VIP TLS Certificates Use System Defaults
+
+<a id="deep-f2c42b"></a>Deeply nested **Defaults** block collapsed for readability.
+
 #### HTTPS Management Advertise On Slo VIP TLS Config
 
 <a id="deep-9abb3e"></a>Deeply nested **Config** block collapsed for readability.
@@ -458,6 +634,18 @@ An [`advertise_on_slo_vip`](#https-management-advertise-on-slo-vip) block (withi
 #### HTTPS Management Advertise On Slo VIP TLS Config Custom Security
 
 <a id="deep-fd9c84"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo VIP TLS Config Default Security
+
+<a id="deep-a114d7"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo VIP TLS Config Low Security
+
+<a id="deep-07514f"></a>Deeply nested **Security** block collapsed for readability.
+
+#### HTTPS Management Advertise On Slo VIP TLS Config Medium Security
+
+<a id="deep-38a104"></a>Deeply nested **Security** block collapsed for readability.
 
 #### HTTPS Management Advertise On Slo VIP Use mTLS
 
@@ -467,13 +655,25 @@ An [`advertise_on_slo_vip`](#https-management-advertise-on-slo-vip) block (withi
 
 <a id="deep-16ae59"></a>Deeply nested **CRL** block collapsed for readability.
 
+#### HTTPS Management Advertise On Slo VIP Use mTLS No CRL
+
+<a id="deep-ed0a35"></a>Deeply nested **CRL** block collapsed for readability.
+
 #### HTTPS Management Advertise On Slo VIP Use mTLS Trusted CA
 
 <a id="deep-87bb14"></a>Deeply nested **CA** block collapsed for readability.
 
+#### HTTPS Management Advertise On Slo VIP Use mTLS Xfcc Disabled
+
+<a id="deep-9a6d4f"></a>Deeply nested **Disabled** block collapsed for readability.
+
 #### HTTPS Management Advertise On Slo VIP Use mTLS Xfcc Options
 
 <a id="deep-80967d"></a>Deeply nested **Options** block collapsed for readability.
+
+#### HTTPS Management Default HTTPS Port
+
+A [`default_https_port`](#https-management-default-https-port) block (within [`https_management`](#https-management)) supports the following:
 
 #### Palo Alto Fw Service
 
@@ -483,7 +683,7 @@ A [`palo_alto_fw_service`](#palo-alto-fw-service) block supports the following:
 
 <a id="palo-alto-fw-service-aws-tgw-site"></a>&#x2022; [`aws_tgw_site`](#palo-alto-fw-service-aws-tgw-site) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [AWS TGW Site](#palo-alto-fw-service-aws-tgw-site) below.
 
-<a id="palo-alto-fw-service-disable-panaroma"></a>&#x2022; [`disable_panaroma`](#palo-alto-fw-service-disable-panaroma) - Optional Block<br>Configuration parameter for disable panaroma
+<a id="palo-alto-fw-service-disable-panaroma"></a>&#x2022; [`disable_panaroma`](#palo-alto-fw-service-disable-panaroma) - Optional Object<br>Configuration parameter for disable panaroma
 
 <a id="palo-alto-fw-service-instance-type"></a>&#x2022; [`instance_type`](#palo-alto-fw-service-instance-type) - Optional String  Defaults to `PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_XLARGE`<br>Possible values are `PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_XLARGE`, `PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_2XLARGE`, `PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_4XLARGE`, `PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5_LARGE`,
 `PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5_XLARGE`, `PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5_2XLARGE`, `PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5_4XLARGE`, `PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5_12XLARGE`, `PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5N_LARGE`, `PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5N_XLARGE`, `PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5N_2XLARGE`, `PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5N_4XLARGE`,
@@ -494,9 +694,9 @@ PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_XLARGE|PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_2XLAR
 
 - PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_XLARGE: m4.xlarge - PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_2XLARGE: m4.2xlarge - PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_4XLARGE: m4.4xlarge - PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5_LARGE: m5.large - PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5_XLARGE: m5.xlarge
 
-<a id="palo-alto-fw-service-pan-ami-bundle1"></a>&#x2022; [`pan_ami_bundle1`](#palo-alto-fw-service-pan-ami-bundle1) - Optional Block<br>Configuration parameter for pan ami bundle1
+<a id="palo-alto-fw-service-pan-ami-bundle1"></a>&#x2022; [`pan_ami_bundle1`](#palo-alto-fw-service-pan-ami-bundle1) - Optional Object<br>Configuration parameter for pan ami bundle1
 
-<a id="palo-alto-fw-service-pan-ami-bundle2"></a>&#x2022; [`pan_ami_bundle2`](#palo-alto-fw-service-pan-ami-bundle2) - Optional Block<br>Configuration parameter for pan ami bundle2
+<a id="palo-alto-fw-service-pan-ami-bundle2"></a>&#x2022; [`pan_ami_bundle2`](#palo-alto-fw-service-pan-ami-bundle2) - Optional Object<br>Configuration parameter for pan ami bundle2
 
 <a id="palo-alto-fw-service-panorama-server"></a>&#x2022; [`panorama_server`](#palo-alto-fw-service-panorama-server) - Optional Block<br>Configuration parameter for panorama server<br>See [Panorama Server](#palo-alto-fw-service-panorama-server) below.
 
@@ -556,6 +756,18 @@ An [`aws_tgw_site`](#palo-alto-fw-service-aws-tgw-site) block (within [`palo_alt
 
 <a id="tenant-f4683d"></a>&#x2022; [`tenant`](#tenant-f4683d) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Palo Alto Fw Service Disable Panaroma
+
+A [`disable_panaroma`](#palo-alto-fw-service-disable-panaroma) block (within [`palo_alto_fw_service`](#palo-alto-fw-service)) supports the following:
+
+#### Palo Alto Fw Service Pan Ami Bundle1
+
+A [`pan_ami_bundle1`](#palo-alto-fw-service-pan-ami-bundle1) block (within [`palo_alto_fw_service`](#palo-alto-fw-service)) supports the following:
+
+#### Palo Alto Fw Service Pan Ami Bundle2
+
+A [`pan_ami_bundle2`](#palo-alto-fw-service-pan-ami-bundle2) block (within [`palo_alto_fw_service`](#palo-alto-fw-service)) supports the following:
+
 #### Palo Alto Fw Service Panorama Server
 
 A [`panorama_server`](#palo-alto-fw-service-panorama-server) block (within [`palo_alto_fw_service`](#palo-alto-fw-service)) supports the following:
@@ -596,7 +808,7 @@ A [`nodes`](#nodes-b8137e) block (within [`palo_alto_fw_service.service_nodes`](
 
 <a id="name-6e2eb6"></a>&#x2022; [`node_name`](#name-6e2eb6) - Optional String<br>Node Name will be used to assign as hostname to the service
 
-<a id="subnet-52b5ce"></a>&#x2022; [`reserved_mgmt_subnet`](#subnet-52b5ce) - Optional Block<br>Configuration parameter for reserved mgmt subnet
+<a id="subnet-52b5ce"></a>&#x2022; [`reserved_mgmt_subnet`](#subnet-52b5ce) - Optional Object<br>Configuration parameter for reserved mgmt subnet
 
 #### Palo Alto Fw Service Service Nodes Nodes Mgmt Subnet
 
@@ -605,6 +817,10 @@ A [`nodes`](#nodes-b8137e) block (within [`palo_alto_fw_service.service_nodes`](
 #### Palo Alto Fw Service Service Nodes Nodes Mgmt Subnet Subnet Param
 
 <a id="deep-819895"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Palo Alto Fw Service Service Nodes Nodes Reserved Mgmt Subnet
+
+<a id="deep-871c7f"></a>Deeply nested **Subnet** block collapsed for readability.
 
 #### Timeouts
 

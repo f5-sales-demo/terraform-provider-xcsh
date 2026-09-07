@@ -39,7 +39,7 @@ resource "xcsh_dc_cluster_group" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -87,9 +87,17 @@ A [`timeouts`](#timeouts) block supports the following:
 
 A [`type`](#type) block supports the following:
 
-<a id="type-control-and-data-plane-mesh"></a>&#x2022; [`control_and_data_plane_mesh`](#type-control-and-data-plane-mesh) - Optional Block<br>Enable this option
+<a id="type-control-and-data-plane-mesh"></a>&#x2022; [`control_and_data_plane_mesh`](#type-control-and-data-plane-mesh) - Optional Object<br>Enable this option
 
-<a id="type-data-plane-mesh"></a>&#x2022; [`data_plane_mesh`](#type-data-plane-mesh) - Optional Block<br>Enable this option
+<a id="type-data-plane-mesh"></a>&#x2022; [`data_plane_mesh`](#type-data-plane-mesh) - Optional Object<br>Enable this option
+
+#### Type Control And Data Plane Mesh
+
+A [`control_and_data_plane_mesh`](#type-control-and-data-plane-mesh) block (within [`type`](#type)) supports the following:
+
+#### Type Data Plane Mesh
+
+A [`data_plane_mesh`](#type-data-plane-mesh) block (within [`type`](#type)) supports the following:
 
 ---
 

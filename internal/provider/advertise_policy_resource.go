@@ -74,20 +74,20 @@ var AdvertisePolicyPublicIPModelAttrTypes = map[string]attr.Type{
 
 // AdvertisePolicyTLSParametersModel represents tls_parameters block
 type AdvertisePolicyTLSParametersModel struct {
+	ClientCertificateOptional types.Object                                   `tfsdk:"client_certificate_optional"`
+	ClientCertificateRequired types.Object                                   `tfsdk:"client_certificate_required"`
+	NoClientCertificate       types.Object                                   `tfsdk:"no_client_certificate"`
 	XfccHeaderElements        types.List                                     `tfsdk:"xfcc_header_elements"`
-	ClientCertificateOptional *AdvertisePolicyEmptyModel                     `tfsdk:"client_certificate_optional"`
-	ClientCertificateRequired *AdvertisePolicyEmptyModel                     `tfsdk:"client_certificate_required"`
 	CommonParams              *AdvertisePolicyTLSParametersCommonParamsModel `tfsdk:"common_params"`
-	NoClientCertificate       *AdvertisePolicyEmptyModel                     `tfsdk:"no_client_certificate"`
 }
 
 // AdvertisePolicyTLSParametersModelAttrTypes defines the attribute types for AdvertisePolicyTLSParametersModel
 var AdvertisePolicyTLSParametersModelAttrTypes = map[string]attr.Type{
-	"xfcc_header_elements":        types.ListType{ElemType: types.StringType},
 	"client_certificate_optional": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"client_certificate_required": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"common_params":               types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsModelAttrTypes},
 	"no_client_certificate":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"xfcc_header_elements":        types.ListType{ElemType: types.StringType},
+	"common_params":               types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsModelAttrTypes},
 }
 
 // AdvertisePolicyTLSParametersCommonParamsModel represents common_params block
@@ -112,20 +112,20 @@ var AdvertisePolicyTLSParametersCommonParamsModelAttrTypes = map[string]attr.Typ
 type AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel struct {
 	CertificateURL       types.String                                                                      `tfsdk:"certificate_url"`
 	DescriptionSpec      types.String                                                                      `tfsdk:"description_spec"`
+	DisableOCSPStapling  types.Object                                                                      `tfsdk:"disable_ocsp_stapling"`
+	UseSystemDefaults    types.Object                                                                      `tfsdk:"use_system_defaults"`
 	CustomHashAlgorithms *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel `tfsdk:"custom_hash_algorithms"`
-	DisableOCSPStapling  *AdvertisePolicyEmptyModel                                                        `tfsdk:"disable_ocsp_stapling"`
 	PrivateKey           *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel           `tfsdk:"private_key"`
-	UseSystemDefaults    *AdvertisePolicyEmptyModel                                                        `tfsdk:"use_system_defaults"`
 }
 
 // AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModelAttrTypes defines the attribute types for AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel
 var AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModelAttrTypes = map[string]attr.Type{
 	"certificate_url":        types.StringType,
 	"description_spec":       types.StringType,
-	"custom_hash_algorithms": types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
 	"disable_ocsp_stapling":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"private_key":            types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModelAttrTypes},
 	"use_system_defaults":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_hash_algorithms": types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
+	"private_key":            types.ObjectType{AttrTypes: AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModelAttrTypes},
 }
 
 // AdvertisePolicyTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel represents custom_hash_algorithms block
@@ -236,17 +236,17 @@ var AdvertisePolicyWhereModelAttrTypes = map[string]attr.Type{
 
 // AdvertisePolicyWhereSiteModel represents site block
 type AdvertisePolicyWhereSiteModel struct {
-	NetworkType        types.String               `tfsdk:"network_type"`
-	DisableInternetVIP *AdvertisePolicyEmptyModel `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *AdvertisePolicyEmptyModel `tfsdk:"enable_internet_vip"`
-	Ref                types.List                 `tfsdk:"ref"`
+	DisableInternetVIP types.Object `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  types.Object `tfsdk:"enable_internet_vip"`
+	NetworkType        types.String `tfsdk:"network_type"`
+	Ref                types.List   `tfsdk:"ref"`
 }
 
 // AdvertisePolicyWhereSiteModelAttrTypes defines the attribute types for AdvertisePolicyWhereSiteModel
 var AdvertisePolicyWhereSiteModelAttrTypes = map[string]attr.Type{
-	"network_type":         types.StringType,
 	"disable_internet_vip": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_internet_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"network_type":         types.StringType,
 	"ref":                  types.ListType{ElemType: types.ObjectType{AttrTypes: AdvertisePolicyWhereSiteRefModelAttrTypes}},
 }
 
@@ -298,17 +298,17 @@ var AdvertisePolicyWhereVirtualNetworkRefModelAttrTypes = map[string]attr.Type{
 
 // AdvertisePolicyWhereVirtualSiteModel represents virtual_site block
 type AdvertisePolicyWhereVirtualSiteModel struct {
-	NetworkType        types.String               `tfsdk:"network_type"`
-	DisableInternetVIP *AdvertisePolicyEmptyModel `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *AdvertisePolicyEmptyModel `tfsdk:"enable_internet_vip"`
-	Ref                types.List                 `tfsdk:"ref"`
+	DisableInternetVIP types.Object `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  types.Object `tfsdk:"enable_internet_vip"`
+	NetworkType        types.String `tfsdk:"network_type"`
+	Ref                types.List   `tfsdk:"ref"`
 }
 
 // AdvertisePolicyWhereVirtualSiteModelAttrTypes defines the attribute types for AdvertisePolicyWhereVirtualSiteModel
 var AdvertisePolicyWhereVirtualSiteModelAttrTypes = map[string]attr.Type{
-	"network_type":         types.StringType,
 	"disable_internet_vip": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_internet_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"network_type":         types.StringType,
 	"ref":                  types.ListType{ElemType: types.ObjectType{AttrTypes: AdvertisePolicyWhereVirtualSiteRefModelAttrTypes}},
 }
 
@@ -504,6 +504,21 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("client_certificate_optional", "client_certificate_required"), validators.ConflictingObjectAttributes("client_certificate_optional", "no_client_certificate"), validators.ConflictingObjectAttributes("client_certificate_required", "no_client_certificate")},
 
 				Attributes: map[string]schema.Attribute{
+					"client_certificate_optional": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"client_certificate_required": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_client_certificate": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"xfcc_header_elements": schema.ListAttribute{
 						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be set in an mTLS enabled connections. If none are defined, the header will not be added. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 						Optional:            true,
@@ -511,12 +526,6 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 					},
 				},
 				Blocks: map[string]schema.Block{
-					"client_certificate_optional": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"client_certificate_required": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"common_params": schema.SingleNestedBlock{
 						MarkdownDescription: "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
 						Attributes: map[string]schema.Attribute{
@@ -557,6 +566,16 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "Description. Description for the certificate.",
 											Optional:            true,
 										},
+										"disable_ocsp_stapling": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"use_system_defaults": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for use system defaults.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 									},
 									Blocks: map[string]schema.Block{
 										"custom_hash_algorithms": schema.SingleNestedBlock{
@@ -572,9 +591,6 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 													},
 												},
 											},
-										},
-										"disable_ocsp_stapling": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
 										},
 										"private_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
@@ -620,9 +636,6 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 													},
 												},
 											},
-										},
-										"use_system_defaults": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for use system defaults.",
 										},
 									},
 								},
@@ -694,9 +707,6 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 							},
 						},
 					},
-					"no_client_certificate": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 				},
 			},
 			"where": schema.SingleNestedBlock{
@@ -709,6 +719,16 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 						MarkdownDescription: "Specifies a direct reference to a site configuration object.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
+							"disable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
 								Optional:            true,
@@ -718,12 +738,6 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 							},
 						},
 						Blocks: map[string]schema.Block{
-							"disable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"enable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"ref": schema.ListNestedBlock{
 								MarkdownDescription: "Reference. A site direct reference.",
 								NestedObject: schema.NestedBlockObject{
@@ -807,6 +821,16 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 						MarkdownDescription: "Virtual Site. A reference to virtual_site object.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
+							"disable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
 								Optional:            true,
@@ -816,12 +840,6 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 							},
 						},
 						Blocks: map[string]schema.Block{
-							"disable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"enable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"ref": schema.ListNestedBlock{
 								MarkdownDescription: "Reference. A virtual_site direct reference.",
 								NestedObject: schema.NestedBlockObject{
@@ -887,7 +905,7 @@ func (r *AdvertisePolicyResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.Port.IsNull() && !data.PortRanges.IsNull() {
+	if !data.Port.IsNull() && !data.Port.IsUnknown() && !data.PortRanges.IsNull() && !data.PortRanges.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("port"),
 			"Conflicting Configuration",
@@ -1016,10 +1034,10 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 	}
 	if data.TLSParameters != nil {
 		TLSParametersMap := make(map[string]interface{})
-		if data.TLSParameters.ClientCertificateOptional != nil {
+		if !data.TLSParameters.ClientCertificateOptional.IsNull() && !data.TLSParameters.ClientCertificateOptional.IsUnknown() {
 			TLSParametersMap["client_certificate_optional"] = map[string]interface{}{}
 		}
-		if data.TLSParameters.ClientCertificateRequired != nil {
+		if !data.TLSParameters.ClientCertificateRequired.IsNull() && !data.TLSParameters.ClientCertificateRequired.IsUnknown() {
 			TLSParametersMap["client_certificate_required"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.CommonParams != nil {
@@ -1064,7 +1082,7 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
+						if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
@@ -1094,7 +1112,7 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 							}
 							TLSCertificatesItemMap["private_key"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyMap
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
+						if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -1145,7 +1163,7 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 			}
 			TLSParametersMap["common_params"] = TLSParametersCommonParamsMap
 		}
-		if data.TLSParameters.NoClientCertificate != nil {
+		if !data.TLSParameters.NoClientCertificate.IsNull() && !data.TLSParameters.NoClientCertificate.IsUnknown() {
 			TLSParametersMap["no_client_certificate"] = map[string]interface{}{}
 		}
 		if !data.TLSParameters.XfccHeaderElements.IsNull() && !data.TLSParameters.XfccHeaderElements.IsUnknown() {
@@ -1162,10 +1180,10 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
 			WhereSiteMap := make(map[string]interface{})
-			if data.Where.Site.DisableInternetVIP != nil {
+			if !data.Where.Site.DisableInternetVIP.IsNull() && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.Site.EnableInternetVIP != nil {
+			if !data.Where.Site.EnableInternetVIP.IsNull() && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
@@ -1217,10 +1235,10 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 		}
 		if data.Where.VirtualSite != nil {
 			WhereVirtualSiteMap := make(map[string]interface{})
-			if data.Where.VirtualSite.DisableInternetVIP != nil {
+			if !data.Where.VirtualSite.DisableInternetVIP.IsNull() && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.VirtualSite.EnableInternetVIP != nil {
+			if !data.Where.VirtualSite.EnableInternetVIP.IsNull() && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
@@ -1358,23 +1376,23 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &AdvertisePolicyTLSParametersModel{
-			ClientCertificateOptional: func() *AdvertisePolicyEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			ClientCertificateOptional: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateOptional.IsUnknown() {
 					return data.TLSParameters.ClientCertificateOptional
 				}
 				if _, ok := blockData["client_certificate_optional"].(map[string]interface{}); ok {
-					return &AdvertisePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ClientCertificateRequired: func() *AdvertisePolicyEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			ClientCertificateRequired: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateRequired.IsUnknown() {
 					return data.TLSParameters.ClientCertificateRequired
 				}
 				if _, ok := blockData["client_certificate_required"].(map[string]interface{}); ok {
-					return &AdvertisePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CommonParams: func() *AdvertisePolicyTLSParametersCommonParamsModel {
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
@@ -1452,14 +1470,14 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *AdvertisePolicyEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &AdvertisePolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -1518,14 +1536,14 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *AdvertisePolicyEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &AdvertisePolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -1634,14 +1652,14 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 				}
 				return nil
 			}(),
-			NoClientCertificate: func() *AdvertisePolicyEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			NoClientCertificate: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.NoClientCertificate.IsUnknown() {
 					return data.TLSParameters.NoClientCertificate
 				}
 				if _, ok := blockData["no_client_certificate"].(map[string]interface{}); ok {
-					return &AdvertisePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			XfccHeaderElements: func() types.List {
 				if v, ok := blockData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
@@ -1664,23 +1682,23 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 			Site: func() *AdvertisePolicyWhereSiteModel {
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereSiteModel{
-						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 								return data.Where.Site.DisableInternetVIP
 							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &AdvertisePolicyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *AdvertisePolicyEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 								return data.Where.Site.EnableInternetVIP
 							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &AdvertisePolicyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := SiteData["network_type"].(string); ok && v != "" {
@@ -1806,23 +1824,23 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 			VirtualSite: func() *AdvertisePolicyWhereVirtualSiteModel {
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereVirtualSiteModel{
-						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.DisableInternetVIP
 							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &AdvertisePolicyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *AdvertisePolicyEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.EnableInternetVIP
 							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &AdvertisePolicyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
@@ -2104,23 +2122,23 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &AdvertisePolicyTLSParametersModel{
-			ClientCertificateOptional: func() *AdvertisePolicyEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			ClientCertificateOptional: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateOptional.IsUnknown() {
 					return data.TLSParameters.ClientCertificateOptional
 				}
 				if _, ok := blockData["client_certificate_optional"].(map[string]interface{}); ok {
-					return &AdvertisePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ClientCertificateRequired: func() *AdvertisePolicyEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			ClientCertificateRequired: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateRequired.IsUnknown() {
 					return data.TLSParameters.ClientCertificateRequired
 				}
 				if _, ok := blockData["client_certificate_required"].(map[string]interface{}); ok {
-					return &AdvertisePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CommonParams: func() *AdvertisePolicyTLSParametersCommonParamsModel {
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
@@ -2198,14 +2216,14 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *AdvertisePolicyEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &AdvertisePolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -2264,14 +2282,14 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *AdvertisePolicyEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &AdvertisePolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -2380,14 +2398,14 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 				}
 				return nil
 			}(),
-			NoClientCertificate: func() *AdvertisePolicyEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			NoClientCertificate: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.NoClientCertificate.IsUnknown() {
 					return data.TLSParameters.NoClientCertificate
 				}
 				if _, ok := blockData["no_client_certificate"].(map[string]interface{}); ok {
-					return &AdvertisePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			XfccHeaderElements: func() types.List {
 				if v, ok := blockData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
@@ -2410,23 +2428,23 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 			Site: func() *AdvertisePolicyWhereSiteModel {
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereSiteModel{
-						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 								return data.Where.Site.DisableInternetVIP
 							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &AdvertisePolicyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *AdvertisePolicyEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 								return data.Where.Site.EnableInternetVIP
 							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &AdvertisePolicyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := SiteData["network_type"].(string); ok && v != "" {
@@ -2552,23 +2570,23 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 			VirtualSite: func() *AdvertisePolicyWhereVirtualSiteModel {
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereVirtualSiteModel{
-						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.DisableInternetVIP
 							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &AdvertisePolicyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *AdvertisePolicyEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.EnableInternetVIP
 							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &AdvertisePolicyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
@@ -2779,10 +2797,10 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 	}
 	if data.TLSParameters != nil {
 		TLSParametersMap := make(map[string]interface{})
-		if data.TLSParameters.ClientCertificateOptional != nil {
+		if !data.TLSParameters.ClientCertificateOptional.IsNull() && !data.TLSParameters.ClientCertificateOptional.IsUnknown() {
 			TLSParametersMap["client_certificate_optional"] = map[string]interface{}{}
 		}
-		if data.TLSParameters.ClientCertificateRequired != nil {
+		if !data.TLSParameters.ClientCertificateRequired.IsNull() && !data.TLSParameters.ClientCertificateRequired.IsUnknown() {
 			TLSParametersMap["client_certificate_required"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.CommonParams != nil {
@@ -2827,7 +2845,7 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
+						if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
@@ -2857,7 +2875,7 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 							}
 							TLSCertificatesItemMap["private_key"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyMap
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
+						if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -2908,7 +2926,7 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 			}
 			TLSParametersMap["common_params"] = TLSParametersCommonParamsMap
 		}
-		if data.TLSParameters.NoClientCertificate != nil {
+		if !data.TLSParameters.NoClientCertificate.IsNull() && !data.TLSParameters.NoClientCertificate.IsUnknown() {
 			TLSParametersMap["no_client_certificate"] = map[string]interface{}{}
 		}
 		if !data.TLSParameters.XfccHeaderElements.IsNull() && !data.TLSParameters.XfccHeaderElements.IsUnknown() {
@@ -2925,10 +2943,10 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
 			WhereSiteMap := make(map[string]interface{})
-			if data.Where.Site.DisableInternetVIP != nil {
+			if !data.Where.Site.DisableInternetVIP.IsNull() && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.Site.EnableInternetVIP != nil {
+			if !data.Where.Site.EnableInternetVIP.IsNull() && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
@@ -2980,10 +2998,10 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 		}
 		if data.Where.VirtualSite != nil {
 			WhereVirtualSiteMap := make(map[string]interface{})
-			if data.Where.VirtualSite.DisableInternetVIP != nil {
+			if !data.Where.VirtualSite.DisableInternetVIP.IsNull() && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.VirtualSite.EnableInternetVIP != nil {
+			if !data.Where.VirtualSite.EnableInternetVIP.IsNull() && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
@@ -3176,23 +3194,23 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &AdvertisePolicyTLSParametersModel{
-			ClientCertificateOptional: func() *AdvertisePolicyEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			ClientCertificateOptional: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateOptional.IsUnknown() {
 					return data.TLSParameters.ClientCertificateOptional
 				}
 				if _, ok := blockData["client_certificate_optional"].(map[string]interface{}); ok {
-					return &AdvertisePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ClientCertificateRequired: func() *AdvertisePolicyEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			ClientCertificateRequired: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateRequired.IsUnknown() {
 					return data.TLSParameters.ClientCertificateRequired
 				}
 				if _, ok := blockData["client_certificate_required"].(map[string]interface{}); ok {
-					return &AdvertisePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CommonParams: func() *AdvertisePolicyTLSParametersCommonParamsModel {
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
@@ -3270,14 +3288,14 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *AdvertisePolicyEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &AdvertisePolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -3336,14 +3354,14 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *AdvertisePolicyEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &AdvertisePolicyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -3452,14 +3470,14 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 				}
 				return nil
 			}(),
-			NoClientCertificate: func() *AdvertisePolicyEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			NoClientCertificate: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.NoClientCertificate.IsUnknown() {
 					return data.TLSParameters.NoClientCertificate
 				}
 				if _, ok := blockData["no_client_certificate"].(map[string]interface{}); ok {
-					return &AdvertisePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			XfccHeaderElements: func() types.List {
 				if v, ok := blockData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
@@ -3482,23 +3500,23 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 			Site: func() *AdvertisePolicyWhereSiteModel {
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereSiteModel{
-						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 								return data.Where.Site.DisableInternetVIP
 							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &AdvertisePolicyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *AdvertisePolicyEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 								return data.Where.Site.EnableInternetVIP
 							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &AdvertisePolicyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := SiteData["network_type"].(string); ok && v != "" {
@@ -3624,23 +3642,23 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 			VirtualSite: func() *AdvertisePolicyWhereVirtualSiteModel {
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &AdvertisePolicyWhereVirtualSiteModel{
-						DisableInternetVIP: func() *AdvertisePolicyEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.DisableInternetVIP
 							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &AdvertisePolicyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *AdvertisePolicyEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.EnableInternetVIP
 							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &AdvertisePolicyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {

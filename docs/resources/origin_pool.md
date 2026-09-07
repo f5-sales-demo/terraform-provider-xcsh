@@ -69,8 +69,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls                = {}
+  same_as_endpoint_port = {}
 }
 ```
 
@@ -104,8 +104,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls                = {}
+  same_as_endpoint_port = {}
 }
 ```
 
@@ -137,8 +137,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls                = {}
+  same_as_endpoint_port = {}
 }
 ```
 
@@ -166,8 +166,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls                = {}
+  same_as_endpoint_port = {}
 }
 ```
 
@@ -195,8 +195,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls                = {}
+  same_as_endpoint_port = {}
 }
 ```
 
@@ -241,8 +241,8 @@ resource "xcsh_origin_pool" "test" {
     namespace = xcsh_healthcheck.test.namespace
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls                = {}
+  same_as_endpoint_port = {}
 }
 ```
 
@@ -276,14 +276,14 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls                = {}
+  same_as_endpoint_port = {}
 }
 ```
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -333,8 +333,8 @@ spec:
 <a id="advanced-options"></a>&#x2022; [`advanced_options`](#advanced-options) - Optional Block  Defaults to `null`<br>Configure Advanced OPTIONS for origin pool<br>See [Advanced Options](#advanced-options) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="automatic-port"></a>[`automatic_port`](#automatic-port) - Optional Block<br>Enable this option
-<br><br>&#x2022; <a id="lb-port"></a>[`lb_port`](#lb-port) - Optional Block<br>Enable this option
+&#x2022; <a id="automatic-port"></a>[`automatic_port`](#automatic-port) - Optional Object<br>Enable this option
+<br><br>&#x2022; <a id="lb-port"></a>[`lb_port`](#lb-port) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="port"></a>[`port`](#port) - Optional Number<br>Endpoint service is available on this port. Recommended: `443`
 
 <a id="endpoint-selection"></a>&#x2022; [`endpoint_selection`](#endpoint-selection) - Optional String  Defaults to `DISTRIBUTED`<br>Possible values are `DISTRIBUTED`, `LOCAL_ONLY`, `LOCAL_PREFERRED`<br>[Enum: DISTRIBUTED|LOCAL_ONLY|LOCAL_PREFERRED] Policy for selection of endpoints from local site/remote site/both Consider both remote and local endpoints for load balancing LOCAL_ONLY: Consider
@@ -342,7 +342,7 @@ only local endpoints for load balancing Enable this policy to load balance ONLY 
 
 -> **One of the following:**
 &#x2022; <a id="health-check-port"></a>[`health_check_port`](#health-check-port) - Optional Number<br>Port used for performing health check
-<br><br>&#x2022; <a id="same-as-endpoint-port"></a>[`same_as_endpoint_port`](#same-as-endpoint-port) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<br><br>&#x2022; <a id="same-as-endpoint-port"></a>[`same_as_endpoint_port`](#same-as-endpoint-port) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="healthcheck"></a>&#x2022; [`healthcheck`](#healthcheck) - Optional Block  Defaults to `[]`<br>Reference to healthcheck configuration objects.  Server applies default when omitted<br>See [Healthcheck](#healthcheck) below for details.
 
@@ -350,7 +350,7 @@ only local endpoints for load balancing Enable this policy to load balance ONLY 
 is required, the load balancer uses loadbalancer_algorithm to determine which host is selected. - ROUND_ROBIN: ROUND_ROBIN Policy in which each healthy/available upstream endpoint is selected in..   Server applies default when omitted
 
 -> **One of the following:**
-&#x2022; <a id="no-tls"></a>[`no_tls`](#no-tls) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+&#x2022; <a id="no-tls"></a>[`no_tls`](#no-tls) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="origin-servers"></a>&#x2022; [`origin_servers`](#origin-servers) - Optional Block<br>Origin Servers. List of origin servers in this pool<br>See [Origin Servers](#origin-servers) below for details.
 
@@ -372,26 +372,26 @@ In addition to all arguments above, the following attributes are exported:
 
 An [`advanced_options`](#advanced-options) block supports the following:
 
-<a id="advanced-options-auto-http-config"></a>&#x2022; [`auto_http_config`](#advanced-options-auto-http-config) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<a id="advanced-options-auto-http-config"></a>&#x2022; [`auto_http_config`](#advanced-options-auto-http-config) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="advanced-options-circuit-breaker"></a>&#x2022; [`circuit_breaker`](#advanced-options-circuit-breaker) - Optional Block<br>CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly<br>See [Circuit
 Breaker](#advanced-options-circuit-breaker) below.
 
 <a id="advanced-options-connection-timeout"></a>&#x2022; [`connection_timeout`](#advanced-options-connection-timeout) - Optional Number  Specified in milliseconds<br>The timeout for new network connections to endpoints in the cluster.  The default value is 2 seconds.  Recommended: `2000` ⚙️ **Server Default**
 
-<a id="breaker-c470cf"></a>&#x2022; [`default_circuit_breaker`](#breaker-c470cf) - Optional Block  Defaults to `map[]`<br>Configuration parameter for default circuit breaker.  Server applies default when omitted
+<a id="breaker-c470cf"></a>&#x2022; [`default_circuit_breaker`](#breaker-c470cf) - Optional Object  Defaults to `map[]`<br>Configuration parameter for default circuit breaker.  Server applies default when omitted
 
-<a id="breaker-222fdc"></a>&#x2022; [`disable_circuit_breaker`](#breaker-222fdc) - Optional Block<br>Configuration parameter for disable circuit breaker
+<a id="breaker-222fdc"></a>&#x2022; [`disable_circuit_breaker`](#breaker-222fdc) - Optional Object<br>Configuration parameter for disable circuit breaker
 
-<a id="persistence-6480b1"></a>&#x2022; [`disable_lb_source_ip_persistence`](#persistence-6480b1) - Optional Block<br>Enable this option
+<a id="persistence-6480b1"></a>&#x2022; [`disable_lb_source_ip_persistence`](#persistence-6480b1) - Optional Object<br>Enable this option
 
-<a id="detection-c26369"></a>&#x2022; [`disable_outlier_detection`](#detection-c26369) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable outlier detection.  Server applies default when omitted
+<a id="detection-c26369"></a>&#x2022; [`disable_outlier_detection`](#detection-c26369) - Optional Object  Defaults to `map[]`<br>Configuration parameter for disable outlier detection.  Server applies default when omitted
 
-<a id="advanced-options-disable-proxy-protocol"></a>&#x2022; [`disable_proxy_protocol`](#advanced-options-disable-proxy-protocol) - Optional Block<br>Configuration parameter for disable proxy protocol
+<a id="advanced-options-disable-proxy-protocol"></a>&#x2022; [`disable_proxy_protocol`](#advanced-options-disable-proxy-protocol) - Optional Object<br>Configuration parameter for disable proxy protocol
 
-<a id="advanced-options-disable-subsets"></a>&#x2022; [`disable_subsets`](#advanced-options-disable-subsets) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable subsets.  Server applies default when omitted
+<a id="advanced-options-disable-subsets"></a>&#x2022; [`disable_subsets`](#advanced-options-disable-subsets) - Optional Object  Defaults to `map[]`<br>Configuration parameter for disable subsets.  Server applies default when omitted
 
-<a id="persistence-cbaef1"></a>&#x2022; [`enable_lb_source_ip_persistence`](#persistence-cbaef1) - Optional Block<br>Enable this option
+<a id="persistence-cbaef1"></a>&#x2022; [`enable_lb_source_ip_persistence`](#persistence-cbaef1) - Optional Object<br>Enable this option
 
 <a id="advanced-options-enable-subsets"></a>&#x2022; [`enable_subsets`](#advanced-options-enable-subsets) - Optional Block<br>Configure subset OPTIONS for origin pool<br>See [Enable Subsets](#advanced-options-enable-subsets) below.
 
@@ -403,18 +403,22 @@ Breaker](#advanced-options-circuit-breaker) below.
 
 <a id="connection-324422"></a>&#x2022; [`max_requests_per_connection`](#connection-324422) - Optional Number<br>Sets the maximum number of requests allowed per connection to the origin server. Enter a value >=1 to define the request limit per connection
 
-<a id="advanced-options-no-panic-threshold"></a>&#x2022; [`no_panic_threshold`](#advanced-options-no-panic-threshold) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no panic threshold.  Server applies default when omitted
+<a id="advanced-options-no-panic-threshold"></a>&#x2022; [`no_panic_threshold`](#advanced-options-no-panic-threshold) - Optional Object  Defaults to `map[]`<br>Configuration parameter for no panic threshold.  Server applies default when omitted
 
-<a id="connection-9ed841"></a>&#x2022; [`no_request_limit_per_connection`](#connection-9ed841) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no request limit per connection.  Server applies default when omitted
+<a id="connection-9ed841"></a>&#x2022; [`no_request_limit_per_connection`](#connection-9ed841) - Optional Object  Defaults to `map[]`<br>Configuration parameter for no request limit per connection.  Server applies default when omitted
 
 <a id="advanced-options-outlier-detection"></a>&#x2022; [`outlier_detection`](#advanced-options-outlier-detection) - Optional Block<br>Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health
 checking. Algorithm 1<br>See [Outlier Detection](#advanced-options-outlier-detection) below.
 
 <a id="advanced-options-panic-threshold"></a>&#x2022; [`panic_threshold`](#advanced-options-panic-threshold) - Optional Number<br>Configure a threshold (percentage of unhealthy endpoints) below which all endpoints will be considered for load balancing ignoring its health status
 
-<a id="advanced-options-proxy-protocol-v1"></a>&#x2022; [`proxy_protocol_v1`](#advanced-options-proxy-protocol-v1) - Optional Block<br>Configuration parameter for proxy protocol v1
+<a id="advanced-options-proxy-protocol-v1"></a>&#x2022; [`proxy_protocol_v1`](#advanced-options-proxy-protocol-v1) - Optional Object<br>Configuration parameter for proxy protocol v1
 
-<a id="advanced-options-proxy-protocol-v2"></a>&#x2022; [`proxy_protocol_v2`](#advanced-options-proxy-protocol-v2) - Optional Block<br>Configuration parameter for proxy protocol v2
+<a id="advanced-options-proxy-protocol-v2"></a>&#x2022; [`proxy_protocol_v2`](#advanced-options-proxy-protocol-v2) - Optional Object<br>Configuration parameter for proxy protocol v2
+
+#### Advanced Options Auto HTTP Config
+
+An [`auto_http_config`](#advanced-options-auto-http-config) block (within [`advanced_options`](#advanced-options)) supports the following:
 
 #### Advanced Options Circuit Breaker
 
@@ -430,17 +434,49 @@ A [`circuit_breaker`](#advanced-options-circuit-breaker) block (within [`advance
 
 <a id="retries-18e401"></a>&#x2022; [`retries`](#retries-18e401) - Optional Number<br>The maximum number of retries that can be outstanding to all hosts in a cluster at any given time. Remove endpoint out of load balancing decision, if retries for request exceed this count
 
+#### Advanced Options Default Circuit Breaker
+
+A [`default_circuit_breaker`](#breaker-c470cf) block (within [`advanced_options`](#advanced-options)) supports the following:
+
+#### Advanced Options Disable Circuit Breaker
+
+A [`disable_circuit_breaker`](#breaker-222fdc) block (within [`advanced_options`](#advanced-options)) supports the following:
+
+#### Advanced Options Disable LB Source IP Persistence
+
+A [`disable_lb_source_ip_persistence`](#persistence-6480b1) block (within [`advanced_options`](#advanced-options)) supports the following:
+
+#### Advanced Options Disable Outlier Detection
+
+A [`disable_outlier_detection`](#detection-c26369) block (within [`advanced_options`](#advanced-options)) supports the following:
+
+#### Advanced Options Disable Proxy Protocol
+
+A [`disable_proxy_protocol`](#advanced-options-disable-proxy-protocol) block (within [`advanced_options`](#advanced-options)) supports the following:
+
+#### Advanced Options Disable Subsets
+
+A [`disable_subsets`](#advanced-options-disable-subsets) block (within [`advanced_options`](#advanced-options)) supports the following:
+
+#### Advanced Options Enable LB Source IP Persistence
+
+An [`enable_lb_source_ip_persistence`](#persistence-cbaef1) block (within [`advanced_options`](#advanced-options)) supports the following:
+
 #### Advanced Options Enable Subsets
 
 An [`enable_subsets`](#advanced-options-enable-subsets) block (within [`advanced_options`](#advanced-options)) supports the following:
 
-<a id="endpoint-0fc3f9"></a>&#x2022; [`any_endpoint`](#endpoint-0fc3f9) - Optional Block<br>Enable this option
+<a id="endpoint-0fc3f9"></a>&#x2022; [`any_endpoint`](#endpoint-0fc3f9) - Optional Object<br>Enable this option
 
 <a id="subset-276c69"></a>&#x2022; [`default_subset`](#subset-276c69) - Optional Block<br>Configuration parameter for default subset<br>See [Default Subset](#subset-276c69) below.
 
 <a id="subsets-25c75e"></a>&#x2022; [`endpoint_subsets`](#subsets-25c75e) - Optional Block<br>List of subset class. Subsets class is defined using list of keys. Every unique combination of values of these keys form a subset within the class<br>See [Endpoint Subsets](#subsets-25c75e) below.
 
-<a id="request-49c0b8"></a>&#x2022; [`fail_request`](#request-49c0b8) - Optional Block<br>Configuration parameter for fail request
+<a id="request-49c0b8"></a>&#x2022; [`fail_request`](#request-49c0b8) - Optional Object<br>Configuration parameter for fail request
+
+#### Advanced Options Enable Subsets Any Endpoint
+
+An [`any_endpoint`](#endpoint-0fc3f9) block (within [`advanced_options.enable_subsets`](#advanced-options-enable-subsets)) supports the following:
 
 #### Advanced Options Enable Subsets Default Subset
 
@@ -454,6 +490,10 @@ An [`endpoint_subsets`](#subsets-25c75e) block (within [`advanced_options.enable
 
 <a id="keys-3828db"></a>&#x2022; [`keys`](#keys-3828db) - Optional List<br>List of keys that define a cluster subset class
 
+#### Advanced Options Enable Subsets Fail Request
+
+A [`fail_request`](#request-49c0b8) block (within [`advanced_options.enable_subsets`](#advanced-options-enable-subsets)) supports the following:
+
 #### Advanced Options Http1 Config
 
 A [`http1_config`](#advanced-options-http1-config) block (within [`advanced_options`](#advanced-options)) supports the following:
@@ -464,17 +504,37 @@ A [`http1_config`](#advanced-options-http1-config) block (within [`advanced_opti
 
 A [`header_transformation`](#transformation-1e4851) block (within [`advanced_options.http1_config`](#advanced-options-http1-config)) supports the following:
 
-<a id="transformation-6fa15c"></a>&#x2022; [`default_header_transformation`](#transformation-6fa15c) - Optional Block<br>Use the platform's current default HTTP header transformation behavior
+<a id="transformation-6fa15c"></a>&#x2022; [`default_header_transformation`](#transformation-6fa15c) - Optional Object<br>Use the platform's current default HTTP header transformation behavior
 
-<a id="transformation-923ab8"></a>&#x2022; [`preserve_case_header_transformation`](#transformation-923ab8) - Optional Block<br>Preserve HTTP header-name case when upstream case must remain unchanged
+<a id="transformation-923ab8"></a>&#x2022; [`preserve_case_header_transformation`](#transformation-923ab8) - Optional Object<br>Preserve HTTP header-name case when upstream case must remain unchanged
 
-<a id="transformation-1ce9d5"></a>&#x2022; [`proper_case_header_transformation`](#transformation-1ce9d5) - Optional Block<br>Transform HTTP header names to proper case when explicit transformation is required
+<a id="transformation-1ce9d5"></a>&#x2022; [`proper_case_header_transformation`](#transformation-1ce9d5) - Optional Object<br>Transform HTTP header names to proper case when explicit transformation is required
+
+#### Advanced Options Http1 Config Header Transformation Default Header Transformation
+
+<a id="deep-cbec37"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Advanced Options Http1 Config Header Transformation Preserve Case Header Transformation
+
+<a id="deep-cd4af3"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Advanced Options Http1 Config Header Transformation Proper Case Header Transformation
+
+<a id="deep-9e1a17"></a>Deeply nested **Transformation** block collapsed for readability.
 
 #### Advanced Options Http2 Options
 
 A [`http2_options`](#advanced-options-http2-options) block (within [`advanced_options`](#advanced-options)) supports the following:
 
 <a id="advanced-options-http2-options-enabled"></a>&#x2022; [`enabled`](#advanced-options-http2-options-enabled) - Optional Bool<br>Enable/disable HTTP2 Protocol for upstream connections
+
+#### Advanced Options No Panic Threshold
+
+A [`no_panic_threshold`](#advanced-options-no-panic-threshold) block (within [`advanced_options`](#advanced-options)) supports the following:
+
+#### Advanced Options No Request Limit Per Connection
+
+A [`no_request_limit_per_connection`](#connection-9ed841) block (within [`advanced_options`](#advanced-options)) supports the following:
 
 #### Advanced Options Outlier Detection
 
@@ -490,6 +550,18 @@ An [`outlier_detection`](#advanced-options-outlier-detection) block (within [`ad
 
 <a id="percent-6b6ee2"></a>&#x2022; [`max_ejection_percent`](#percent-6b6ee2) - Optional Number  Defaults to `10%`<br>The maximum % of an upstream cluster that can be ejected due to outlier detection. but will eject at least one host regardless of the value
 
+#### Advanced Options Proxy Protocol V1
+
+A [`proxy_protocol_v1`](#advanced-options-proxy-protocol-v1) block (within [`advanced_options`](#advanced-options)) supports the following:
+
+#### Advanced Options Proxy Protocol V2
+
+A [`proxy_protocol_v2`](#advanced-options-proxy-protocol-v2) block (within [`advanced_options`](#advanced-options)) supports the following:
+
+#### Automatic Port
+
+An [`automatic_port`](#automatic-port) block supports the following:
+
 #### Healthcheck
 
 A [`healthcheck`](#healthcheck) block supports the following:
@@ -499,6 +571,14 @@ A [`healthcheck`](#healthcheck) block supports the following:
 <a id="healthcheck-namespace"></a>&#x2022; [`namespace`](#healthcheck-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="healthcheck-tenant"></a>&#x2022; [`tenant`](#healthcheck-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### LB Port
+
+A [`lb_port`](#lb-port) block supports the following:
+
+#### No TLS
+
+A [`no_tls`](#no-tls) block supports the following:
 
 #### Origin Servers
 
@@ -536,15 +616,23 @@ A [`cbip_service`](#origin-servers-cbip-service) block (within [`origin_servers`
 
 A [`consul_service`](#origin-servers-consul-service) block (within [`origin_servers`](#origin-servers)) supports the following:
 
-<a id="network-5b2697"></a>&#x2022; [`inside_network`](#network-5b2697) - Optional Block<br>Configuration parameter for inside network
+<a id="network-5b2697"></a>&#x2022; [`inside_network`](#network-5b2697) - Optional Object<br>Configuration parameter for inside network
 
-<a id="network-844fc7"></a>&#x2022; [`outside_network`](#network-844fc7) - Optional Block<br>Configuration parameter for outside network
+<a id="network-844fc7"></a>&#x2022; [`outside_network`](#network-844fc7) - Optional Object<br>Configuration parameter for outside network
 
 <a id="name-e2ff9a"></a>&#x2022; [`service_name`](#name-e2ff9a) - Optional String<br>Consul service name of this origin server will be listed, including cluster-ID. The format is servicename:cluster-ID
 
 <a id="locator-0ecb39"></a>&#x2022; [`site_locator`](#locator-0ecb39) - Optional Block<br>Message defines a reference to a site or virtual site object<br>See [Site Locator](#locator-0ecb39) below.
 
 <a id="origin-servers-consul-service-snat-pool"></a>&#x2022; [`snat_pool`](#origin-servers-consul-service-snat-pool) - Optional Block<br>SNAT Pool. SNAT Pool configuration<br>See [Snat Pool](#origin-servers-consul-service-snat-pool) below.
+
+#### Origin Servers Consul Service Inside Network
+
+An [`inside_network`](#network-5b2697) block (within [`origin_servers.consul_service`](#origin-servers-consul-service)) supports the following:
+
+#### Origin Servers Consul Service Outside Network
+
+An [`outside_network`](#network-844fc7) block (within [`origin_servers.consul_service`](#origin-servers-consul-service)) supports the following:
 
 #### Origin Servers Consul Service Site Locator
 
@@ -572,9 +660,13 @@ A [`site`](#site-a096eb) block (within [`origin_servers.consul_service.site_loca
 
 A [`snat_pool`](#origin-servers-consul-service-snat-pool) block (within [`origin_servers.consul_service`](#origin-servers-consul-service)) supports the following:
 
-<a id="pool-8eb799"></a>&#x2022; [`no_snat_pool`](#pool-8eb799) - Optional Block<br>Configuration parameter for no snat pool
+<a id="pool-8eb799"></a>&#x2022; [`no_snat_pool`](#pool-8eb799) - Optional Object<br>Configuration parameter for no snat pool
 
 <a id="pool-fc27df"></a>&#x2022; [`snat_pool`](#pool-fc27df) - Optional Block<br>List of IPv4 prefixes that represent an endpoint<br>See [Snat Pool](#pool-fc27df) below.
+
+#### Origin Servers Consul Service Snat Pool No Snat Pool
+
+<a id="deep-75660d"></a>Deeply nested **Pool** block collapsed for readability.
 
 #### Origin Servers Consul Service Snat Pool Snat Pool
 
@@ -600,9 +692,9 @@ An [`endpoint`](#endpoint-6a2e33) block (within [`origin_servers.custom_endpoint
 
 A [`k8s_service`](#origin-servers-k8s-service) block (within [`origin_servers`](#origin-servers)) supports the following:
 
-<a id="network-698e40"></a>&#x2022; [`inside_network`](#network-698e40) - Optional Block<br>Configuration parameter for inside network
+<a id="network-698e40"></a>&#x2022; [`inside_network`](#network-698e40) - Optional Object<br>Configuration parameter for inside network
 
-<a id="network-4852ec"></a>&#x2022; [`outside_network`](#network-4852ec) - Optional Block<br>Configuration parameter for outside network
+<a id="network-4852ec"></a>&#x2022; [`outside_network`](#network-4852ec) - Optional Object<br>Configuration parameter for outside network
 
 <a id="origin-servers-k8s-service-protocol"></a>&#x2022; [`protocol`](#origin-servers-k8s-service-protocol) - Optional String  Defaults to `PROTOCOL_TCP`<br>Possible values are `PROTOCOL_TCP`, `PROTOCOL_UDP`<br>[Enum: PROTOCOL_TCP|PROTOCOL_UDP] Type of protocol - PROTOCOL_TCP: TCP - PROTOCOL_UDP: UDP
 
@@ -613,7 +705,15 @@ then you will enter
 
 <a id="origin-servers-k8s-service-snat-pool"></a>&#x2022; [`snat_pool`](#origin-servers-k8s-service-snat-pool) - Optional Block<br>SNAT Pool. SNAT Pool configuration<br>See [Snat Pool](#origin-servers-k8s-service-snat-pool) below.
 
-<a id="networks-d41308"></a>&#x2022; [`vk8s_networks`](#networks-d41308) - Optional Block<br>Configuration parameter for vk8s networks
+<a id="networks-d41308"></a>&#x2022; [`vk8s_networks`](#networks-d41308) - Optional Object<br>Configuration parameter for vk8s networks
+
+#### Origin Servers K8S Service Inside Network
+
+An [`inside_network`](#network-698e40) block (within [`origin_servers.k8s_service`](#origin-servers-k8s-service)) supports the following:
+
+#### Origin Servers K8S Service Outside Network
+
+An [`outside_network`](#network-4852ec) block (within [`origin_servers.k8s_service`](#origin-servers-k8s-service)) supports the following:
 
 #### Origin Servers K8S Service Site Locator
 
@@ -641,29 +741,45 @@ A [`site`](#site-e35217) block (within [`origin_servers.k8s_service.site_locator
 
 A [`snat_pool`](#origin-servers-k8s-service-snat-pool) block (within [`origin_servers.k8s_service`](#origin-servers-k8s-service)) supports the following:
 
-<a id="pool-57d5fe"></a>&#x2022; [`no_snat_pool`](#pool-57d5fe) - Optional Block<br>Configuration parameter for no snat pool
+<a id="pool-57d5fe"></a>&#x2022; [`no_snat_pool`](#pool-57d5fe) - Optional Object<br>Configuration parameter for no snat pool
 
 <a id="pool-8c0889"></a>&#x2022; [`snat_pool`](#pool-8c0889) - Optional Block<br>List of IPv4 prefixes that represent an endpoint<br>See [Snat Pool](#pool-8c0889) below.
+
+#### Origin Servers K8S Service Snat Pool No Snat Pool
+
+<a id="deep-ecc1dc"></a>Deeply nested **Pool** block collapsed for readability.
 
 #### Origin Servers K8S Service Snat Pool Snat Pool
 
 <a id="deep-2b6198"></a>Deeply nested **Pool** block collapsed for readability.
 
+#### Origin Servers K8S Service Vk8s Networks
+
+A [`vk8s_networks`](#networks-d41308) block (within [`origin_servers.k8s_service`](#origin-servers-k8s-service)) supports the following:
+
 #### Origin Servers Private IP
 
 A [`private_ip`](#origin-servers-private-ip) block (within [`origin_servers`](#origin-servers)) supports the following:
 
-<a id="network-340769"></a>&#x2022; [`inside_network`](#network-340769) - Optional Block<br>Configuration parameter for inside network
+<a id="network-340769"></a>&#x2022; [`inside_network`](#network-340769) - Optional Object<br>Configuration parameter for inside network
 
 <a id="origin-servers-private-ip-ip"></a>&#x2022; [`ip`](#origin-servers-private-ip-ip) - Optional String<br>IP. Private IPv4 address
 
-<a id="network-4b8cd1"></a>&#x2022; [`outside_network`](#network-4b8cd1) - Optional Block<br>Configuration parameter for outside network
+<a id="network-4b8cd1"></a>&#x2022; [`outside_network`](#network-4b8cd1) - Optional Object<br>Configuration parameter for outside network
 
 <a id="origin-servers-private-ip-segment"></a>&#x2022; [`segment`](#origin-servers-private-ip-segment) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Segment](#origin-servers-private-ip-segment) below.
 
 <a id="origin-servers-private-ip-site-locator"></a>&#x2022; [`site_locator`](#origin-servers-private-ip-site-locator) - Optional Block<br>Message defines a reference to a site or virtual site object<br>See [Site Locator](#origin-servers-private-ip-site-locator) below.
 
 <a id="origin-servers-private-ip-snat-pool"></a>&#x2022; [`snat_pool`](#origin-servers-private-ip-snat-pool) - Optional Block<br>SNAT Pool. SNAT Pool configuration<br>See [Snat Pool](#origin-servers-private-ip-snat-pool) below.
+
+#### Origin Servers Private IP Inside Network
+
+An [`inside_network`](#network-340769) block (within [`origin_servers.private_ip`](#origin-servers-private-ip)) supports the following:
+
+#### Origin Servers Private IP Outside Network
+
+An [`outside_network`](#network-4b8cd1) block (within [`origin_servers.private_ip`](#origin-servers-private-ip)) supports the following:
 
 #### Origin Servers Private IP Segment
 
@@ -701,9 +817,13 @@ A [`site`](#site-9000e8) block (within [`origin_servers.private_ip.site_locator`
 
 A [`snat_pool`](#origin-servers-private-ip-snat-pool) block (within [`origin_servers.private_ip`](#origin-servers-private-ip)) supports the following:
 
-<a id="pool-c826de"></a>&#x2022; [`no_snat_pool`](#pool-c826de) - Optional Block<br>Configuration parameter for no snat pool
+<a id="pool-c826de"></a>&#x2022; [`no_snat_pool`](#pool-c826de) - Optional Object<br>Configuration parameter for no snat pool
 
 <a id="pool-cc6a33"></a>&#x2022; [`snat_pool`](#pool-cc6a33) - Optional Block<br>List of IPv4 prefixes that represent an endpoint<br>See [Snat Pool](#pool-cc6a33) below.
+
+#### Origin Servers Private IP Snat Pool No Snat Pool
+
+<a id="deep-75f91d"></a>Deeply nested **Pool** block collapsed for readability.
 
 #### Origin Servers Private IP Snat Pool Snat Pool
 
@@ -715,9 +835,9 @@ A [`private_name`](#origin-servers-private-name) block (within [`origin_servers`
 
 <a id="origin-servers-private-name-dns-name"></a>&#x2022; [`dns_name`](#origin-servers-private-name-dns-name) - Optional String<br>DNS Name. DNS Name
 
-<a id="network-1921f3"></a>&#x2022; [`inside_network`](#network-1921f3) - Optional Block<br>Configuration parameter for inside network
+<a id="network-1921f3"></a>&#x2022; [`inside_network`](#network-1921f3) - Optional Object<br>Configuration parameter for inside network
 
-<a id="network-a1ed83"></a>&#x2022; [`outside_network`](#network-a1ed83) - Optional Block<br>Configuration parameter for outside network
+<a id="network-a1ed83"></a>&#x2022; [`outside_network`](#network-a1ed83) - Optional Object<br>Configuration parameter for outside network
 
 <a id="interval-4bd915"></a>&#x2022; [`refresh_interval`](#interval-4bd915) - Optional Number<br>Interval for DNS refresh in seconds. Max value is 7 days as per `HTTPS://datatracker.ietf.org/doc/HTML/rfc8767.`
 
@@ -726,6 +846,14 @@ A [`private_name`](#origin-servers-private-name) block (within [`origin_servers`
 <a id="locator-0c95f1"></a>&#x2022; [`site_locator`](#locator-0c95f1) - Optional Block<br>Message defines a reference to a site or virtual site object<br>See [Site Locator](#locator-0c95f1) below.
 
 <a id="origin-servers-private-name-snat-pool"></a>&#x2022; [`snat_pool`](#origin-servers-private-name-snat-pool) - Optional Block<br>SNAT Pool. SNAT Pool configuration<br>See [Snat Pool](#origin-servers-private-name-snat-pool) below.
+
+#### Origin Servers Private Name Inside Network
+
+An [`inside_network`](#network-1921f3) block (within [`origin_servers.private_name`](#origin-servers-private-name)) supports the following:
+
+#### Origin Servers Private Name Outside Network
+
+An [`outside_network`](#network-a1ed83) block (within [`origin_servers.private_name`](#origin-servers-private-name)) supports the following:
 
 #### Origin Servers Private Name Segment
 
@@ -763,9 +891,13 @@ A [`site`](#site-771c33) block (within [`origin_servers.private_name.site_locato
 
 A [`snat_pool`](#origin-servers-private-name-snat-pool) block (within [`origin_servers.private_name`](#origin-servers-private-name)) supports the following:
 
-<a id="pool-569cef"></a>&#x2022; [`no_snat_pool`](#pool-569cef) - Optional Block<br>Configuration parameter for no snat pool
+<a id="pool-569cef"></a>&#x2022; [`no_snat_pool`](#pool-569cef) - Optional Object<br>Configuration parameter for no snat pool
 
 <a id="pool-b6c3f7"></a>&#x2022; [`snat_pool`](#pool-b6c3f7) - Optional Block<br>List of IPv4 prefixes that represent an endpoint<br>See [Snat Pool](#pool-b6c3f7) below.
+
+#### Origin Servers Private Name Snat Pool No Snat Pool
+
+<a id="deep-d37849"></a>Deeply nested **Pool** block collapsed for readability.
 
 #### Origin Servers Private Name Snat Pool Snat Pool
 
@@ -821,6 +953,10 @@ A [`private_network`](#network-ff3b00) block (within [`origin_servers.vn_private
 
 <a id="tenant-e702ea"></a>&#x2022; [`tenant`](#tenant-e702ea) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Same As Endpoint Port
+
+A [`same_as_endpoint_port`](#same-as-endpoint-port) block supports the following:
+
 #### Timeouts
 
 A [`timeouts`](#timeouts) block supports the following:
@@ -837,31 +973,39 @@ A [`timeouts`](#timeouts) block supports the following:
 
 An [`upstream_conn_pool_reuse_type`](#upstream-conn-pool-reuse-type) block supports the following:
 
-<a id="reuse-008a14"></a>&#x2022; [`disable_conn_pool_reuse`](#reuse-008a14) - Optional Block<br>Configuration parameter for disable conn pool reuse
+<a id="reuse-008a14"></a>&#x2022; [`disable_conn_pool_reuse`](#reuse-008a14) - Optional Object<br>Configuration parameter for disable conn pool reuse
 
-<a id="reuse-ad4462"></a>&#x2022; [`enable_conn_pool_reuse`](#reuse-ad4462) - Optional Block<br>Configuration parameter for enable conn pool reuse
+<a id="reuse-ad4462"></a>&#x2022; [`enable_conn_pool_reuse`](#reuse-ad4462) - Optional Object<br>Configuration parameter for enable conn pool reuse
+
+#### Upstream Conn Pool Reuse Type Disable Conn Pool Reuse
+
+<a id="deep-8ac9f8"></a>Deeply nested **Reuse** block collapsed for readability.
+
+#### Upstream Conn Pool Reuse Type Enable Conn Pool Reuse
+
+<a id="deep-9e83b5"></a>Deeply nested **Reuse** block collapsed for readability.
 
 #### Use TLS
 
 An [`use_tls`](#use-tls) block supports the following:
 
-<a id="use-tls-default-session-key-caching"></a>&#x2022; [`default_session_key_caching`](#use-tls-default-session-key-caching) - Optional Block  Defaults to `map[]`<br>Configuration parameter for default session key caching.  Server applies default when omitted
+<a id="use-tls-default-session-key-caching"></a>&#x2022; [`default_session_key_caching`](#use-tls-default-session-key-caching) - Optional Object  Defaults to `map[]`<br>Configuration parameter for default session key caching.  Server applies default when omitted
 
-<a id="use-tls-disable-session-key-caching"></a>&#x2022; [`disable_session_key_caching`](#use-tls-disable-session-key-caching) - Optional Block<br>Configuration parameter for disable session key caching
+<a id="use-tls-disable-session-key-caching"></a>&#x2022; [`disable_session_key_caching`](#use-tls-disable-session-key-caching) - Optional Object<br>Configuration parameter for disable session key caching
 
-<a id="use-tls-disable-sni"></a>&#x2022; [`disable_sni`](#use-tls-disable-sni) - Optional Block<br>Configuration parameter for disable sni
+<a id="use-tls-disable-sni"></a>&#x2022; [`disable_sni`](#use-tls-disable-sni) - Optional Object<br>Configuration parameter for disable sni
 
 <a id="use-tls-max-session-keys"></a>&#x2022; [`max_session_keys`](#use-tls-max-session-keys) - Optional Number<br>Number of session keys that are cached
 
-<a id="use-tls-no-mtls"></a>&#x2022; [`no_mtls`](#use-tls-no-mtls) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<a id="use-tls-no-mtls"></a>&#x2022; [`no_mtls`](#use-tls-no-mtls) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
-<a id="use-tls-skip-server-verification"></a>&#x2022; [`skip_server_verification`](#use-tls-skip-server-verification) - Optional Block<br>Enable this option
+<a id="use-tls-skip-server-verification"></a>&#x2022; [`skip_server_verification`](#use-tls-skip-server-verification) - Optional Object<br>Enable this option
 
 <a id="use-tls-sni"></a>&#x2022; [`sni`](#use-tls-sni) - Optional String<br>SNI value to be used
 
 <a id="use-tls-tls-config"></a>&#x2022; [`tls_config`](#use-tls-tls-config) - Optional Block<br>Defines various OPTIONS to configure TLS configuration parameters<br>See [TLS Config](#use-tls-tls-config) below.
 
-<a id="use-tls-use-host-header-as-sni"></a>&#x2022; [`use_host_header_as_sni`](#use-tls-use-host-header-as-sni) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<a id="use-tls-use-host-header-as-sni"></a>&#x2022; [`use_host_header_as_sni`](#use-tls-use-host-header-as-sni) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="use-tls-use-mtls"></a>&#x2022; [`use_mtls`](#use-tls-use-mtls) - Optional Block<br>mTLS Certificate. mTLS Client Certificate<br>See [Use mTLS](#use-tls-use-mtls) below.
 
@@ -869,7 +1013,27 @@ An [`use_tls`](#use-tls) block supports the following:
 
 <a id="use-tls-use-server-verification"></a>&#x2022; [`use_server_verification`](#use-tls-use-server-verification) - Optional Block<br>Configuration parameter for use server verification<br>See [Use Server Verification](#use-tls-use-server-verification) below.
 
-<a id="use-tls-volterra-trusted-ca"></a>&#x2022; [`volterra_trusted_ca`](#use-tls-volterra-trusted-ca) - Optional Block  Defaults to `map[]`<br>Configuration parameter for volterra trusted CA.  Server applies default when omitted
+<a id="use-tls-volterra-trusted-ca"></a>&#x2022; [`volterra_trusted_ca`](#use-tls-volterra-trusted-ca) - Optional Object  Defaults to `map[]`<br>Configuration parameter for volterra trusted CA.  Server applies default when omitted
+
+#### Use TLS Default Session Key Caching
+
+A [`default_session_key_caching`](#use-tls-default-session-key-caching) block (within [`use_tls`](#use-tls)) supports the following:
+
+#### Use TLS Disable Session Key Caching
+
+A [`disable_session_key_caching`](#use-tls-disable-session-key-caching) block (within [`use_tls`](#use-tls)) supports the following:
+
+#### Use TLS Disable Sni
+
+A [`disable_sni`](#use-tls-disable-sni) block (within [`use_tls`](#use-tls)) supports the following:
+
+#### Use TLS No mTLS
+
+A [`no_mtls`](#use-tls-no-mtls) block (within [`use_tls`](#use-tls)) supports the following:
+
+#### Use TLS Skip Server Verification
+
+A [`skip_server_verification`](#use-tls-skip-server-verification) block (within [`use_tls`](#use-tls)) supports the following:
 
 #### Use TLS TLS Config
 
@@ -877,11 +1041,11 @@ A [`tls_config`](#use-tls-tls-config) block (within [`use_tls`](#use-tls)) suppo
 
 <a id="use-tls-tls-config-custom-security"></a>&#x2022; [`custom_security`](#use-tls-tls-config-custom-security) - Optional Block<br>Defines TLS protocol config including min/max versions and allowed ciphers<br>See [Custom Security](#use-tls-tls-config-custom-security) below.
 
-<a id="use-tls-tls-config-default-security"></a>&#x2022; [`default_security`](#use-tls-tls-config-default-security) - Optional Block<br>Enable this option
+<a id="use-tls-tls-config-default-security"></a>&#x2022; [`default_security`](#use-tls-tls-config-default-security) - Optional Object<br>Enable this option
 
-<a id="use-tls-tls-config-low-security"></a>&#x2022; [`low_security`](#use-tls-tls-config-low-security) - Optional Block<br>Enable this option
+<a id="use-tls-tls-config-low-security"></a>&#x2022; [`low_security`](#use-tls-tls-config-low-security) - Optional Object<br>Enable this option
 
-<a id="use-tls-tls-config-medium-security"></a>&#x2022; [`medium_security`](#use-tls-tls-config-medium-security) - Optional Block<br>Enable this option
+<a id="use-tls-tls-config-medium-security"></a>&#x2022; [`medium_security`](#use-tls-tls-config-medium-security) - Optional Object<br>Enable this option
 
 #### Use TLS TLS Config Custom Security
 
@@ -892,6 +1056,22 @@ A [`custom_security`](#use-tls-tls-config-custom-security) block (within [`use_t
 <a id="version-11230d"></a>&#x2022; [`max_version`](#version-11230d) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
 
 <a id="version-a76fa4"></a>&#x2022; [`min_version`](#version-a76fa4) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
+
+#### Use TLS TLS Config Default Security
+
+A [`default_security`](#use-tls-tls-config-default-security) block (within [`use_tls.tls_config`](#use-tls-tls-config)) supports the following:
+
+#### Use TLS TLS Config Low Security
+
+A [`low_security`](#use-tls-tls-config-low-security) block (within [`use_tls.tls_config`](#use-tls-tls-config)) supports the following:
+
+#### Use TLS TLS Config Medium Security
+
+A [`medium_security`](#use-tls-tls-config-medium-security) block (within [`use_tls.tls_config`](#use-tls-tls-config)) supports the following:
+
+#### Use TLS Use Host Header As Sni
+
+An [`use_host_header_as_sni`](#use-tls-use-host-header-as-sni) block (within [`use_tls`](#use-tls)) supports the following:
 
 #### Use TLS Use mTLS
 
@@ -909,15 +1089,19 @@ A [`tls_certificates`](#use-tls-use-mtls-tls-certificates) block (within [`use_t
 
 <a id="spec-ad9c6c"></a>&#x2022; [`description_spec`](#spec-ad9c6c) - Optional String<br>Description. Description for the certificate
 
-<a id="stapling-242d9f"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-242d9f) - Optional Block<br>Configuration parameter for disable OCSP stapling
+<a id="stapling-242d9f"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-242d9f) - Optional Object<br>Configuration parameter for disable OCSP stapling
 
 <a id="key-dc1b14"></a>&#x2022; [`private_key`](#key-dc1b14) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Private Key](#key-dc1b14) below.
 
-<a id="defaults-413d06"></a>&#x2022; [`use_system_defaults`](#defaults-413d06) - Optional Block<br>Configuration parameter for use system defaults
+<a id="defaults-413d06"></a>&#x2022; [`use_system_defaults`](#defaults-413d06) - Optional Object<br>Configuration parameter for use system defaults
 
 #### Use TLS Use mTLS TLS Certificates Custom Hash Algorithms
 
 <a id="deep-72a520"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### Use TLS Use mTLS TLS Certificates Disable OCSP Stapling
+
+<a id="deep-bdfa98"></a>Deeply nested **Stapling** block collapsed for readability.
 
 #### Use TLS Use mTLS TLS Certificates Private Key
 
@@ -930,6 +1114,10 @@ A [`tls_certificates`](#use-tls-use-mtls-tls-certificates) block (within [`use_t
 #### Use TLS Use mTLS TLS Certificates Private Key Clear Secret Info
 
 <a id="deep-88949c"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Use TLS Use mTLS TLS Certificates Use System Defaults
+
+<a id="deep-fdfb5a"></a>Deeply nested **Defaults** block collapsed for readability.
 
 #### Use TLS Use mTLS Obj
 
@@ -958,6 +1146,10 @@ A [`trusted_ca`](#trusted-ca-965dea) block (within [`use_tls.use_server_verifica
 <a id="namespace-ac41ae"></a>&#x2022; [`namespace`](#namespace-ac41ae) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="tenant-892ff9"></a>&#x2022; [`tenant`](#tenant-892ff9) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Use TLS Volterra Trusted CA
+
+A [`volterra_trusted_ca`](#use-tls-volterra-trusted-ca) block (within [`use_tls`](#use-tls)) supports the following:
 
 ---
 

@@ -495,8 +495,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_tcp_loadbalancer" "test" {
@@ -514,10 +514,10 @@ resource "xcsh_tcp_loadbalancer" "test" {
   listen_port = 443
 
   # Required: Specify protocol type (tcp, tls_tcp, or tls_tcp_auto_cert)
-  tcp {}
+  tcp = {}
 
   # Required: SNI for TCP on public shared VIP
-  sni {}
+  sni = {}
 
   # Required: TCP LB needs origin pools for routing
   origin_pools_weights {
@@ -529,7 +529,7 @@ resource "xcsh_tcp_loadbalancer" "test" {
   }
 
   # Required: Specify advertise configuration
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -547,8 +547,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_tcp_loadbalancer" "test" {
@@ -568,8 +568,8 @@ resource "xcsh_tcp_loadbalancer" "test" {
 
   domains = ["%[1]s.example.com"]
   listen_port = 443
-  tcp {}
-  sni {}
+  tcp = {}
+  sni = {}
 
   origin_pools_weights {
     pool {
@@ -579,7 +579,7 @@ resource "xcsh_tcp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -597,8 +597,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_tcp_loadbalancer" "test" {
@@ -612,8 +612,8 @@ resource "xcsh_tcp_loadbalancer" "test" {
 
   domains = ["%[1]s.example.com"]
   listen_port = 443
-  tcp {}
-  sni {}
+  tcp = {}
+  sni = {}
 
   origin_pools_weights {
     pool {
@@ -623,7 +623,7 @@ resource "xcsh_tcp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name, env, managedBy)
 }
@@ -641,8 +641,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_tcp_loadbalancer" "test" {
@@ -657,8 +657,8 @@ resource "xcsh_tcp_loadbalancer" "test" {
 
   domains = ["%[1]s.example.com"]
   listen_port = 443
-  tcp {}
-  sni {}
+  tcp = {}
+  sni = {}
 
   origin_pools_weights {
     pool {
@@ -668,7 +668,7 @@ resource "xcsh_tcp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name, description)
 }
@@ -686,8 +686,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_tcp_loadbalancer" "test" {
@@ -705,8 +705,8 @@ resource "xcsh_tcp_loadbalancer" "test" {
 
   domains = ["%[1]s.example.com"]
   listen_port = 443
-  tcp {}
-  sni {}
+  tcp = {}
+  sni = {}
 
   origin_pools_weights {
     pool {
@@ -716,7 +716,7 @@ resource "xcsh_tcp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name, value)
 }
@@ -845,8 +845,8 @@ resource "xcsh_origin_pool" "test" {
     namespace = "system"
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_tcp_loadbalancer" "test" {
@@ -855,8 +855,8 @@ resource "xcsh_tcp_loadbalancer" "test" {
 
   domains    = ["%[1]s.example.com"]
   listen_port = 443
-  tcp {}
-  sni {}
+  tcp = {}
+  sni = {}
 
   origin_pools_weights {
     pool {
@@ -866,7 +866,7 @@ resource "xcsh_tcp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name)
 }
@@ -884,8 +884,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_tcp_loadbalancer" "test" {
@@ -900,8 +900,8 @@ resource "xcsh_tcp_loadbalancer" "test" {
   domains = ["%[1]s.example.com"]
   listen_port = %[2]d
 
-  tcp {}
-  sni {}
+  tcp = {}
+  sni = {}
 
   origin_pools_weights {
     pool {
@@ -911,7 +911,7 @@ resource "xcsh_tcp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, name, port)
 }
@@ -942,8 +942,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_tcp_loadbalancer" "test" {
@@ -953,10 +953,10 @@ resource "xcsh_tcp_loadbalancer" "test" {
   domains     = ["%[1]s.example.com"]
   listen_port = 443
 
-  tcp {}
+  tcp = {}
   tls_tcp {}
 
-  sni {}
+  sni = {}
 
   origin_pools_weights {
     pool {
@@ -966,7 +966,7 @@ resource "xcsh_tcp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, rName),
 				ExpectError: regexp.MustCompile(`(?i)(conflict|mutually exclusive|only one|Invalid|these attributes cannot)`),
@@ -1001,8 +1001,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_tcp_loadbalancer" "test" {
@@ -1013,8 +1013,8 @@ resource "xcsh_tcp_loadbalancer" "test" {
   listen_port = 443
   port_ranges = "8080-8090"
 
-  tcp {}
-  sni {}
+  tcp = {}
+  sni = {}
 
   origin_pools_weights {
     pool {
@@ -1024,7 +1024,7 @@ resource "xcsh_tcp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 `, rName),
 				ExpectError: regexp.MustCompile(`(?i)(conflict|mutually exclusive|only one|Invalid|these attributes cannot)`),

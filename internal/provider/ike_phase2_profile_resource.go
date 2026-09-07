@@ -87,14 +87,14 @@ type IKEPhase2ProfileResourceModel struct {
 	Annotations           types.Map                                   `tfsdk:"annotations"`
 	Description           types.String                                `tfsdk:"description"`
 	Disable               types.Bool                                  `tfsdk:"disable"`
+	DisablePfs            types.Object                                `tfsdk:"disable_pfs"`
 	Labels                types.Map                                   `tfsdk:"labels"`
+	UseDefaultKeylifetime types.Object                                `tfsdk:"use_default_keylifetime"`
 	ID                    types.String                                `tfsdk:"id"`
 	Timeouts              timeouts.Value                              `tfsdk:"timeouts"`
 	DhGroupSet            *IKEPhase2ProfileDhGroupSetModel            `tfsdk:"dh_group_set"`
-	DisablePfs            *IKEPhase2ProfileEmptyModel                 `tfsdk:"disable_pfs"`
 	IKEKeylifetimeHours   *IKEPhase2ProfileIKEKeylifetimeHoursModel   `tfsdk:"ike_keylifetime_hours"`
 	IKEKeylifetimeMinutes *IKEPhase2ProfileIKEKeylifetimeMinutesModel `tfsdk:"ike_keylifetime_minutes"`
-	UseDefaultKeylifetime *IKEPhase2ProfileEmptyModel                 `tfsdk:"use_default_keylifetime"`
 }
 
 func (r *IKEPhase2ProfileResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -148,10 +148,20 @@ func (r *IKEPhase2ProfileResource) Schema(ctx context.Context, req resource.Sche
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"disable_pfs": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for disable pfs.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"use_default_keylifetime": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for use default keylifetime.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -180,9 +190,6 @@ func (r *IKEPhase2ProfileResource) Schema(ctx context.Context, req resource.Sche
 					},
 				},
 			},
-			"disable_pfs": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for disable pfs.",
-			},
 			"ike_keylifetime_hours": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: ike_keylifetime_hours, ike_keylifetime_minutes, use_default_keylifetime; Default: use_default_keylifetime] Configuration parameter for ike keylifetime hours.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("duration")},
@@ -210,9 +217,6 @@ func (r *IKEPhase2ProfileResource) Schema(ctx context.Context, req resource.Sche
 						},
 					},
 				},
-			},
-			"use_default_keylifetime": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for use default keylifetime.",
 			},
 		},
 	}
@@ -368,7 +372,7 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 		}
 		createReq.Spec["dh_group_set"] = DhGroupSetMap
 	}
-	if data.DisablePfs != nil {
+	if !data.DisablePfs.IsNull() && !data.DisablePfs.IsUnknown() {
 		createReq.Spec["disable_pfs"] = map[string]interface{}{}
 	}
 	if data.IKEKeylifetimeHours != nil {
@@ -385,7 +389,7 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 		}
 		createReq.Spec["ike_keylifetime_minutes"] = IKEKeylifetimeMinutesMap
 	}
-	if data.UseDefaultKeylifetime != nil {
+	if !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
 		createReq.Spec["use_default_keylifetime"] = map[string]interface{}{}
 	}
 
@@ -475,8 +479,12 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_pfs"].(map[string]interface{}); ok && isImport && data.DisablePfs == nil {
-		data.DisablePfs = &IKEPhase2ProfileEmptyModel{}
+	if !isImport && !data.DisablePfs.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_pfs"].(map[string]interface{}); ok {
+		data.DisablePfs = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisablePfs = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["ike_keylifetime_hours"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeHours != nil) {
 		data.IKEKeylifetimeHours = &IKEPhase2ProfileIKEKeylifetimeHoursModel{
@@ -504,8 +512,12 @@ func (r *IKEPhase2ProfileResource) Create(ctx context.Context, req resource.Crea
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok && isImport && data.UseDefaultKeylifetime == nil {
-		data.UseDefaultKeylifetime = &IKEPhase2ProfileEmptyModel{}
+	if !isImport && !data.UseDefaultKeylifetime.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok {
+		data.UseDefaultKeylifetime = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultKeylifetime = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	tflog.Trace(ctx, "created IKEPhase2Profile resource")
@@ -686,8 +698,12 @@ func (r *IKEPhase2ProfileResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_pfs"].(map[string]interface{}); ok && isImport && data.DisablePfs == nil {
-		data.DisablePfs = &IKEPhase2ProfileEmptyModel{}
+	if !isImport && !data.DisablePfs.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_pfs"].(map[string]interface{}); ok {
+		data.DisablePfs = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisablePfs = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["ike_keylifetime_hours"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeHours != nil) {
 		data.IKEKeylifetimeHours = &IKEPhase2ProfileIKEKeylifetimeHoursModel{
@@ -715,8 +731,12 @@ func (r *IKEPhase2ProfileResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok && isImport && data.UseDefaultKeylifetime == nil {
-		data.UseDefaultKeylifetime = &IKEPhase2ProfileEmptyModel{}
+	if !isImport && !data.UseDefaultKeylifetime.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok {
+		data.UseDefaultKeylifetime = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultKeylifetime = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -840,7 +860,7 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 		}
 		apiResource.Spec["dh_group_set"] = DhGroupSetMap
 	}
-	if data.DisablePfs != nil {
+	if !data.DisablePfs.IsNull() && !data.DisablePfs.IsUnknown() {
 		apiResource.Spec["disable_pfs"] = map[string]interface{}{}
 	}
 	if data.IKEKeylifetimeHours != nil {
@@ -857,7 +877,7 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 		}
 		apiResource.Spec["ike_keylifetime_minutes"] = IKEKeylifetimeMinutesMap
 	}
-	if data.UseDefaultKeylifetime != nil {
+	if !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
 		apiResource.Spec["use_default_keylifetime"] = map[string]interface{}{}
 	}
 
@@ -967,8 +987,12 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_pfs"].(map[string]interface{}); ok && isImport && data.DisablePfs == nil {
-		data.DisablePfs = &IKEPhase2ProfileEmptyModel{}
+	if !isImport && !data.DisablePfs.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_pfs"].(map[string]interface{}); ok {
+		data.DisablePfs = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisablePfs = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["ike_keylifetime_hours"].(map[string]interface{}); ok && (isImport || data.IKEKeylifetimeHours != nil) {
 		data.IKEKeylifetimeHours = &IKEPhase2ProfileIKEKeylifetimeHoursModel{
@@ -996,8 +1020,12 @@ func (r *IKEPhase2ProfileResource) Update(ctx context.Context, req resource.Upda
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok && isImport && data.UseDefaultKeylifetime == nil {
-		data.UseDefaultKeylifetime = &IKEPhase2ProfileEmptyModel{}
+	if !isImport && !data.UseDefaultKeylifetime.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok {
+		data.UseDefaultKeylifetime = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultKeylifetime = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

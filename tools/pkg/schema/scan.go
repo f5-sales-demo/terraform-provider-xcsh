@@ -12,6 +12,9 @@ import (
 // AttrTypes are generated for any nested model that has ANY nested attributes (block or non-block).
 func HasNestedModelsWithAttrTypes(attributes []openapi.TerraformAttribute) bool {
 	for _, attr := range attributes {
+		if attr.EmptyObjectMarker {
+			return true
+		}
 		if attr.IsBlock {
 			// If this block has ANY nested attributes, AttrTypes will be generated for it
 			if len(attr.NestedAttributes) > 0 {
@@ -19,6 +22,9 @@ func HasNestedModelsWithAttrTypes(attributes []openapi.TerraformAttribute) bool 
 			}
 			// Note: Even if NestedAttributes is empty, we don't need to recurse
 			// because empty blocks use EmptyModel which doesn't have AttrTypes
+		}
+		if HasNestedModelsWithAttrTypes(attr.NestedAttributes) {
+			return true
 		}
 	}
 	return false
@@ -176,10 +182,13 @@ func ScanPlanModifierUsage(attributes []openapi.TerraformAttribute) (usesBool, u
 	return
 }
 
-// HasImmutableObjectBlock reports whether any nested object requires replacement.
+// HasImmutableObjectBlock reports whether any object block or object attribute
+// uses an object plan modifier. The historical name is retained because object
+// blocks originally supported only RequiresReplace.
 func HasImmutableObjectBlock(attributes []openapi.TerraformAttribute) bool {
 	for _, attr := range attributes {
-		if attr.IsBlock && attr.NestedBlockType != "list" && attr.PlanModifier == "RequiresReplace" {
+		if (attr.IsBlock && attr.NestedBlockType != "list" && attr.PlanModifier == "RequiresReplace") ||
+			(!attr.IsBlock && attr.Type == "object" && attr.PlanModifier != "") {
 			return true
 		}
 		if HasImmutableObjectBlock(attr.NestedAttributes) {

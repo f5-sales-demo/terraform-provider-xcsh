@@ -52,8 +52,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_tcp_loadbalancer" "test" {
@@ -71,10 +71,10 @@ resource "xcsh_tcp_loadbalancer" "test" {
   listen_port = 443
 
   # Required: Specify protocol type (tcp, tls_tcp, or tls_tcp_auto_cert)
-  tcp {}
+  tcp = {}
 
   # Required: SNI for TCP on public shared VIP
-  sni {}
+  sni = {}
 
   # Required: TCP LB needs origin pools for routing
   origin_pools_weights {
@@ -86,7 +86,7 @@ resource "xcsh_tcp_loadbalancer" "test" {
   }
 
   # Required: Specify advertise configuration
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }
 
 data "xcsh_tcp_loadbalancer" "test" {

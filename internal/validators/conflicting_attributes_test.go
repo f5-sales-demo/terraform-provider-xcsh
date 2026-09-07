@@ -47,6 +47,28 @@ func TestConflictingObjectAttributes(t *testing.T) {
 	}
 }
 
+func TestConflictingObjectAttributesDefersUnresolvedDynamicBlocks(t *testing.T) {
+	childTypes := map[string]attr.Type{"choice": types.ObjectType{AttrTypes: map[string]attr.Type{}}}
+	blockType := types.ObjectType{AttrTypes: childTypes}
+	parentTypes := map[string]attr.Type{"left": blockType, "right": blockType}
+	unresolved := types.ObjectValueMust(childTypes, map[string]attr.Value{
+		"choice": types.ObjectUnknown(map[string]attr.Type{}),
+	})
+	parent := types.ObjectValueMust(parentTypes, map[string]attr.Value{
+		"left": unresolved, "right": unresolved,
+	})
+
+	var response validator.ObjectResponse
+	ConflictingObjectAttributes("left", "right").ValidateObject(
+		context.Background(),
+		validator.ObjectRequest{ConfigValue: parent, Path: path.Root("parent")},
+		&response,
+	)
+	if response.Diagnostics.HasError() {
+		t.Fatalf("unresolved dynamic branches must defer conflict validation: %v", response.Diagnostics)
+	}
+}
+
 func TestConflictingListObjectAttributes(t *testing.T) {
 	fields := map[string]attr.Type{"a": types.BoolType, "b": types.StringType}
 	elementType := types.ObjectType{AttrTypes: fields}

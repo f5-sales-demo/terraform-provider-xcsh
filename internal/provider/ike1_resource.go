@@ -96,14 +96,14 @@ type Ike1ResourceModel struct {
 	Description           types.String                    `tfsdk:"description"`
 	Disable               types.Bool                      `tfsdk:"disable"`
 	Labels                types.Map                       `tfsdk:"labels"`
+	ReauthDisabled        types.Object                    `tfsdk:"reauth_disabled"`
+	UseDefaultKeylifetime types.Object                    `tfsdk:"use_default_keylifetime"`
 	ID                    types.String                    `tfsdk:"id"`
 	Timeouts              timeouts.Value                  `tfsdk:"timeouts"`
 	IKEKeylifetimeHours   *Ike1IKEKeylifetimeHoursModel   `tfsdk:"ike_keylifetime_hours"`
 	IKEKeylifetimeMinutes *Ike1IKEKeylifetimeMinutesModel `tfsdk:"ike_keylifetime_minutes"`
-	ReauthDisabled        *Ike1EmptyModel                 `tfsdk:"reauth_disabled"`
 	ReauthTimeoutDays     *Ike1ReauthTimeoutDaysModel     `tfsdk:"reauth_timeout_days"`
 	ReauthTimeoutHours    *Ike1ReauthTimeoutHoursModel    `tfsdk:"reauth_timeout_hours"`
-	UseDefaultKeylifetime *Ike1EmptyModel                 `tfsdk:"use_default_keylifetime"`
 }
 
 func (r *Ike1Resource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -152,6 +152,16 @@ func (r *Ike1Resource) Schema(ctx context.Context, req resource.SchemaRequest, r
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"reauth_disabled": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: reauth_disabled, reauth_timeout_days, reauth_timeout_hours] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"use_default_keylifetime": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for use default keylifetime.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
 				Computed:            true,
@@ -195,9 +205,6 @@ func (r *Ike1Resource) Schema(ctx context.Context, req resource.SchemaRequest, r
 					},
 				},
 			},
-			"reauth_disabled": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: reauth_disabled, reauth_timeout_days, reauth_timeout_hours] Enable this option",
-			},
 			"reauth_timeout_days": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for reauth timeout days.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("duration")},
@@ -225,9 +232,6 @@ func (r *Ike1Resource) Schema(ctx context.Context, req resource.SchemaRequest, r
 						},
 					},
 				},
-			},
-			"use_default_keylifetime": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for use default keylifetime.",
 			},
 		},
 	}
@@ -369,7 +373,7 @@ func (r *Ike1Resource) Create(ctx context.Context, req resource.CreateRequest, r
 		}
 		createReq.Spec["ike_keylifetime_minutes"] = IKEKeylifetimeMinutesMap
 	}
-	if data.ReauthDisabled != nil {
+	if !data.ReauthDisabled.IsNull() && !data.ReauthDisabled.IsUnknown() {
 		createReq.Spec["reauth_disabled"] = map[string]interface{}{}
 	}
 	if data.ReauthTimeoutDays != nil {
@@ -386,7 +390,7 @@ func (r *Ike1Resource) Create(ctx context.Context, req resource.CreateRequest, r
 		}
 		createReq.Spec["reauth_timeout_hours"] = ReauthTimeoutHoursMap
 	}
-	if data.UseDefaultKeylifetime != nil {
+	if !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
 		createReq.Spec["use_default_keylifetime"] = map[string]interface{}{}
 	}
 
@@ -454,8 +458,12 @@ func (r *Ike1Resource) Create(ctx context.Context, req resource.CreateRequest, r
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["reauth_disabled"].(map[string]interface{}); ok && isImport && data.ReauthDisabled == nil {
-		data.ReauthDisabled = &Ike1EmptyModel{}
+	if !isImport && !data.ReauthDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["reauth_disabled"].(map[string]interface{}); ok {
+		data.ReauthDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ReauthDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["reauth_timeout_days"].(map[string]interface{}); ok && (isImport || data.ReauthTimeoutDays != nil) {
 		data.ReauthTimeoutDays = &Ike1ReauthTimeoutDaysModel{
@@ -483,8 +491,12 @@ func (r *Ike1Resource) Create(ctx context.Context, req resource.CreateRequest, r
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok && isImport && data.UseDefaultKeylifetime == nil {
-		data.UseDefaultKeylifetime = &Ike1EmptyModel{}
+	if !isImport && !data.UseDefaultKeylifetime.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok {
+		data.UseDefaultKeylifetime = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultKeylifetime = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	tflog.Trace(ctx, "created Ike1 resource")
@@ -643,8 +655,12 @@ func (r *Ike1Resource) Read(ctx context.Context, req resource.ReadRequest, resp 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["reauth_disabled"].(map[string]interface{}); ok && isImport && data.ReauthDisabled == nil {
-		data.ReauthDisabled = &Ike1EmptyModel{}
+	if !isImport && !data.ReauthDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["reauth_disabled"].(map[string]interface{}); ok {
+		data.ReauthDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ReauthDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["reauth_timeout_days"].(map[string]interface{}); ok && (isImport || data.ReauthTimeoutDays != nil) {
 		data.ReauthTimeoutDays = &Ike1ReauthTimeoutDaysModel{
@@ -672,8 +688,12 @@ func (r *Ike1Resource) Read(ctx context.Context, req resource.ReadRequest, resp 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok && isImport && data.UseDefaultKeylifetime == nil {
-		data.UseDefaultKeylifetime = &Ike1EmptyModel{}
+	if !isImport && !data.UseDefaultKeylifetime.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok {
+		data.UseDefaultKeylifetime = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultKeylifetime = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -783,7 +803,7 @@ func (r *Ike1Resource) Update(ctx context.Context, req resource.UpdateRequest, r
 		}
 		apiResource.Spec["ike_keylifetime_minutes"] = IKEKeylifetimeMinutesMap
 	}
-	if data.ReauthDisabled != nil {
+	if !data.ReauthDisabled.IsNull() && !data.ReauthDisabled.IsUnknown() {
 		apiResource.Spec["reauth_disabled"] = map[string]interface{}{}
 	}
 	if data.ReauthTimeoutDays != nil {
@@ -800,7 +820,7 @@ func (r *Ike1Resource) Update(ctx context.Context, req resource.UpdateRequest, r
 		}
 		apiResource.Spec["reauth_timeout_hours"] = ReauthTimeoutHoursMap
 	}
-	if data.UseDefaultKeylifetime != nil {
+	if !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
 		apiResource.Spec["use_default_keylifetime"] = map[string]interface{}{}
 	}
 
@@ -888,8 +908,12 @@ func (r *Ike1Resource) Update(ctx context.Context, req resource.UpdateRequest, r
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["reauth_disabled"].(map[string]interface{}); ok && isImport && data.ReauthDisabled == nil {
-		data.ReauthDisabled = &Ike1EmptyModel{}
+	if !isImport && !data.ReauthDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["reauth_disabled"].(map[string]interface{}); ok {
+		data.ReauthDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ReauthDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["reauth_timeout_days"].(map[string]interface{}); ok && (isImport || data.ReauthTimeoutDays != nil) {
 		data.ReauthTimeoutDays = &Ike1ReauthTimeoutDaysModel{
@@ -917,8 +941,12 @@ func (r *Ike1Resource) Update(ctx context.Context, req resource.UpdateRequest, r
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok && isImport && data.UseDefaultKeylifetime == nil {
-		data.UseDefaultKeylifetime = &Ike1EmptyModel{}
+	if !isImport && !data.UseDefaultKeylifetime.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_keylifetime"].(map[string]interface{}); ok {
+		data.UseDefaultKeylifetime = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultKeylifetime = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

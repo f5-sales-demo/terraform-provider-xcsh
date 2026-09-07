@@ -18,6 +18,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -55,13 +56,13 @@ type ServicePolicyEmptyModel struct {
 // ServicePolicyAllowListModel represents allow_list block
 type ServicePolicyAllowListModel struct {
 	CountryList             types.List                             `tfsdk:"country_list"`
+	DefaultActionAllow      types.Object                           `tfsdk:"default_action_allow"`
+	DefaultActionDeny       types.Object                           `tfsdk:"default_action_deny"`
+	DefaultActionNextPolicy types.Object                           `tfsdk:"default_action_next_policy"`
 	TLSFingerprintClasses   types.List                             `tfsdk:"tls_fingerprint_classes"`
 	TLSFingerprintValues    types.List                             `tfsdk:"tls_fingerprint_values"`
 	AsnList                 *ServicePolicyAllowListAsnListModel    `tfsdk:"asn_list"`
 	AsnSet                  types.List                             `tfsdk:"asn_set"`
-	DefaultActionAllow      *ServicePolicyEmptyModel               `tfsdk:"default_action_allow"`
-	DefaultActionDeny       *ServicePolicyEmptyModel               `tfsdk:"default_action_deny"`
-	DefaultActionNextPolicy *ServicePolicyEmptyModel               `tfsdk:"default_action_next_policy"`
 	IPPrefixSet             types.List                             `tfsdk:"ip_prefix_set"`
 	PrefixList              *ServicePolicyAllowListPrefixListModel `tfsdk:"prefix_list"`
 }
@@ -69,13 +70,13 @@ type ServicePolicyAllowListModel struct {
 // ServicePolicyAllowListModelAttrTypes defines the attribute types for ServicePolicyAllowListModel
 var ServicePolicyAllowListModelAttrTypes = map[string]attr.Type{
 	"country_list":               types.ListType{ElemType: types.StringType},
+	"default_action_allow":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"default_action_deny":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"default_action_next_policy": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"tls_fingerprint_classes":    types.ListType{ElemType: types.StringType},
 	"tls_fingerprint_values":     types.ListType{ElemType: types.StringType},
 	"asn_list":                   types.ObjectType{AttrTypes: ServicePolicyAllowListAsnListModelAttrTypes},
 	"asn_set":                    types.ListType{ElemType: types.ObjectType{AttrTypes: ServicePolicyAllowListAsnSetModelAttrTypes}},
-	"default_action_allow":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"default_action_deny":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"default_action_next_policy": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ip_prefix_set":              types.ListType{ElemType: types.ObjectType{AttrTypes: ServicePolicyAllowListIPPrefixSetModelAttrTypes}},
 	"prefix_list":                types.ObjectType{AttrTypes: ServicePolicyAllowListPrefixListModelAttrTypes},
 }
@@ -131,13 +132,13 @@ var ServicePolicyAllowListPrefixListModelAttrTypes = map[string]attr.Type{
 // ServicePolicyDenyListModel represents deny_list block
 type ServicePolicyDenyListModel struct {
 	CountryList             types.List                            `tfsdk:"country_list"`
+	DefaultActionAllow      types.Object                          `tfsdk:"default_action_allow"`
+	DefaultActionDeny       types.Object                          `tfsdk:"default_action_deny"`
+	DefaultActionNextPolicy types.Object                          `tfsdk:"default_action_next_policy"`
 	TLSFingerprintClasses   types.List                            `tfsdk:"tls_fingerprint_classes"`
 	TLSFingerprintValues    types.List                            `tfsdk:"tls_fingerprint_values"`
 	AsnList                 *ServicePolicyDenyListAsnListModel    `tfsdk:"asn_list"`
 	AsnSet                  types.List                            `tfsdk:"asn_set"`
-	DefaultActionAllow      *ServicePolicyEmptyModel              `tfsdk:"default_action_allow"`
-	DefaultActionDeny       *ServicePolicyEmptyModel              `tfsdk:"default_action_deny"`
-	DefaultActionNextPolicy *ServicePolicyEmptyModel              `tfsdk:"default_action_next_policy"`
 	IPPrefixSet             types.List                            `tfsdk:"ip_prefix_set"`
 	PrefixList              *ServicePolicyDenyListPrefixListModel `tfsdk:"prefix_list"`
 }
@@ -145,13 +146,13 @@ type ServicePolicyDenyListModel struct {
 // ServicePolicyDenyListModelAttrTypes defines the attribute types for ServicePolicyDenyListModel
 var ServicePolicyDenyListModelAttrTypes = map[string]attr.Type{
 	"country_list":               types.ListType{ElemType: types.StringType},
+	"default_action_allow":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"default_action_deny":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"default_action_next_policy": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"tls_fingerprint_classes":    types.ListType{ElemType: types.StringType},
 	"tls_fingerprint_values":     types.ListType{ElemType: types.StringType},
 	"asn_list":                   types.ObjectType{AttrTypes: ServicePolicyDenyListAsnListModelAttrTypes},
 	"asn_set":                    types.ListType{ElemType: types.ObjectType{AttrTypes: ServicePolicyDenyListAsnSetModelAttrTypes}},
-	"default_action_allow":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"default_action_deny":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"default_action_next_policy": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ip_prefix_set":              types.ListType{ElemType: types.ObjectType{AttrTypes: ServicePolicyDenyListIPPrefixSetModelAttrTypes}},
 	"prefix_list":                types.ObjectType{AttrTypes: ServicePolicyDenyListPrefixListModelAttrTypes},
 }
@@ -241,12 +242,12 @@ var ServicePolicyRuleListRulesMetadataModelAttrTypes = map[string]attr.Type{
 // ServicePolicyRuleListRulesSpecModel represents spec block
 type ServicePolicyRuleListRulesSpecModel struct {
 	Action                types.String                                              `tfsdk:"action"`
+	AnyAsn                types.Object                                              `tfsdk:"any_asn"`
+	AnyClient             types.Object                                              `tfsdk:"any_client"`
+	AnyIP                 types.Object                                              `tfsdk:"any_ip"`
 	ClientName            types.String                                              `tfsdk:"client_name"`
 	ExpirationTimestamp   types.String                                              `tfsdk:"expiration_timestamp"`
 	LogRuleEvaluation     types.Bool                                                `tfsdk:"log_rule_evaluation"`
-	AnyAsn                *ServicePolicyEmptyModel                                  `tfsdk:"any_asn"`
-	AnyClient             *ServicePolicyEmptyModel                                  `tfsdk:"any_client"`
-	AnyIP                 *ServicePolicyEmptyModel                                  `tfsdk:"any_ip"`
 	APIGroupMatcher       *ServicePolicyRuleListRulesSpecAPIGroupMatcherModel       `tfsdk:"api_group_matcher"`
 	ArgMatchers           types.List                                                `tfsdk:"arg_matchers"`
 	AsnList               *ServicePolicyRuleListRulesSpecAsnListModel               `tfsdk:"asn_list"`
@@ -279,12 +280,12 @@ type ServicePolicyRuleListRulesSpecModel struct {
 // ServicePolicyRuleListRulesSpecModelAttrTypes defines the attribute types for ServicePolicyRuleListRulesSpecModel
 var ServicePolicyRuleListRulesSpecModelAttrTypes = map[string]attr.Type{
 	"action":                  types.StringType,
-	"client_name":             types.StringType,
-	"expiration_timestamp":    types.StringType,
-	"log_rule_evaluation":     types.BoolType,
 	"any_asn":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"any_client":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"any_ip":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"client_name":             types.StringType,
+	"expiration_timestamp":    types.StringType,
+	"log_rule_evaluation":     types.BoolType,
 	"api_group_matcher":       types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecAPIGroupMatcherModelAttrTypes},
 	"arg_matchers":            types.ListType{ElemType: types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes}},
 	"asn_list":                types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecAsnListModelAttrTypes},
@@ -328,19 +329,19 @@ var ServicePolicyRuleListRulesSpecAPIGroupMatcherModelAttrTypes = map[string]att
 
 // ServicePolicyRuleListRulesSpecArgMatchersModel represents arg_matchers block
 type ServicePolicyRuleListRulesSpecArgMatchersModel struct {
+	CheckNotPresent types.Object                                        `tfsdk:"check_not_present"`
+	CheckPresent    types.Object                                        `tfsdk:"check_present"`
 	InvertMatcher   types.Bool                                          `tfsdk:"invert_matcher"`
 	Name            types.String                                        `tfsdk:"name"`
-	CheckNotPresent *ServicePolicyEmptyModel                            `tfsdk:"check_not_present"`
-	CheckPresent    *ServicePolicyEmptyModel                            `tfsdk:"check_present"`
 	Item            *ServicePolicyRuleListRulesSpecArgMatchersItemModel `tfsdk:"item"`
 }
 
 // ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes defines the attribute types for ServicePolicyRuleListRulesSpecArgMatchersModel
 var ServicePolicyRuleListRulesSpecArgMatchersModelAttrTypes = map[string]attr.Type{
-	"invert_matcher":    types.BoolType,
-	"name":              types.StringType,
 	"check_not_present": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"check_present":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"invert_matcher":    types.BoolType,
+	"name":              types.StringType,
 	"item":              types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecArgMatchersItemModelAttrTypes},
 }
 
@@ -412,8 +413,8 @@ var ServicePolicyRuleListRulesSpecBodyMatcherModelAttrTypes = map[string]attr.Ty
 
 // ServicePolicyRuleListRulesSpecBotActionModel represents bot_action block
 type ServicePolicyRuleListRulesSpecBotActionModel struct {
-	BotSkipProcessing *ServicePolicyEmptyModel `tfsdk:"bot_skip_processing"`
-	None              *ServicePolicyEmptyModel `tfsdk:"none"`
+	BotSkipProcessing types.Object `tfsdk:"bot_skip_processing"`
+	None              types.Object `tfsdk:"none"`
 }
 
 // ServicePolicyRuleListRulesSpecBotActionModelAttrTypes defines the attribute types for ServicePolicyRuleListRulesSpecBotActionModel
@@ -448,19 +449,19 @@ var ServicePolicyRuleListRulesSpecClientSelectorModelAttrTypes = map[string]attr
 
 // ServicePolicyRuleListRulesSpecCookieMatchersModel represents cookie_matchers block
 type ServicePolicyRuleListRulesSpecCookieMatchersModel struct {
+	CheckNotPresent types.Object                                           `tfsdk:"check_not_present"`
+	CheckPresent    types.Object                                           `tfsdk:"check_present"`
 	InvertMatcher   types.Bool                                             `tfsdk:"invert_matcher"`
 	Name            types.String                                           `tfsdk:"name"`
-	CheckNotPresent *ServicePolicyEmptyModel                               `tfsdk:"check_not_present"`
-	CheckPresent    *ServicePolicyEmptyModel                               `tfsdk:"check_present"`
 	Item            *ServicePolicyRuleListRulesSpecCookieMatchersItemModel `tfsdk:"item"`
 }
 
 // ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes defines the attribute types for ServicePolicyRuleListRulesSpecCookieMatchersModel
 var ServicePolicyRuleListRulesSpecCookieMatchersModelAttrTypes = map[string]attr.Type{
-	"invert_matcher":    types.BoolType,
-	"name":              types.StringType,
 	"check_not_present": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"check_present":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"invert_matcher":    types.BoolType,
+	"name":              types.StringType,
 	"item":              types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecCookieMatchersItemModelAttrTypes},
 }
 
@@ -494,19 +495,19 @@ var ServicePolicyRuleListRulesSpecDomainMatcherModelAttrTypes = map[string]attr.
 
 // ServicePolicyRuleListRulesSpecHeadersModel represents headers block
 type ServicePolicyRuleListRulesSpecHeadersModel struct {
+	CheckNotPresent types.Object                                    `tfsdk:"check_not_present"`
+	CheckPresent    types.Object                                    `tfsdk:"check_present"`
 	InvertMatcher   types.Bool                                      `tfsdk:"invert_matcher"`
 	Name            types.String                                    `tfsdk:"name"`
-	CheckNotPresent *ServicePolicyEmptyModel                        `tfsdk:"check_not_present"`
-	CheckPresent    *ServicePolicyEmptyModel                        `tfsdk:"check_present"`
 	Item            *ServicePolicyRuleListRulesSpecHeadersItemModel `tfsdk:"item"`
 }
 
 // ServicePolicyRuleListRulesSpecHeadersModelAttrTypes defines the attribute types for ServicePolicyRuleListRulesSpecHeadersModel
 var ServicePolicyRuleListRulesSpecHeadersModelAttrTypes = map[string]attr.Type{
-	"invert_matcher":    types.BoolType,
-	"name":              types.StringType,
 	"check_not_present": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"check_present":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"invert_matcher":    types.BoolType,
+	"name":              types.StringType,
 	"item":              types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecHeadersItemModelAttrTypes},
 }
 
@@ -600,19 +601,19 @@ var ServicePolicyRuleListRulesSpecJa4TLSFingerprintModelAttrTypes = map[string]a
 
 // ServicePolicyRuleListRulesSpecJWTClaimsModel represents jwt_claims block
 type ServicePolicyRuleListRulesSpecJWTClaimsModel struct {
+	CheckNotPresent types.Object                                      `tfsdk:"check_not_present"`
+	CheckPresent    types.Object                                      `tfsdk:"check_present"`
 	InvertMatcher   types.Bool                                        `tfsdk:"invert_matcher"`
 	Name            types.String                                      `tfsdk:"name"`
-	CheckNotPresent *ServicePolicyEmptyModel                          `tfsdk:"check_not_present"`
-	CheckPresent    *ServicePolicyEmptyModel                          `tfsdk:"check_present"`
 	Item            *ServicePolicyRuleListRulesSpecJWTClaimsItemModel `tfsdk:"item"`
 }
 
 // ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes defines the attribute types for ServicePolicyRuleListRulesSpecJWTClaimsModel
 var ServicePolicyRuleListRulesSpecJWTClaimsModelAttrTypes = map[string]attr.Type{
-	"invert_matcher":    types.BoolType,
-	"name":              types.StringType,
 	"check_not_present": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"check_present":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"invert_matcher":    types.BoolType,
+	"name":              types.StringType,
 	"item":              types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecJWTClaimsItemModelAttrTypes},
 }
 
@@ -642,8 +643,8 @@ var ServicePolicyRuleListRulesSpecLabelMatcherModelAttrTypes = map[string]attr.T
 
 // ServicePolicyRuleListRulesSpecMumActionModel represents mum_action block
 type ServicePolicyRuleListRulesSpecMumActionModel struct {
-	Default        *ServicePolicyEmptyModel `tfsdk:"default"`
-	SkipProcessing *ServicePolicyEmptyModel `tfsdk:"skip_processing"`
+	Default        types.Object `tfsdk:"default"`
+	SkipProcessing types.Object `tfsdk:"skip_processing"`
 }
 
 // ServicePolicyRuleListRulesSpecMumActionModelAttrTypes defines the attribute types for ServicePolicyRuleListRulesSpecMumActionModel
@@ -688,19 +689,19 @@ var ServicePolicyRuleListRulesSpecPortMatcherModelAttrTypes = map[string]attr.Ty
 
 // ServicePolicyRuleListRulesSpecQueryParamsModel represents query_params block
 type ServicePolicyRuleListRulesSpecQueryParamsModel struct {
+	CheckNotPresent types.Object                                        `tfsdk:"check_not_present"`
+	CheckPresent    types.Object                                        `tfsdk:"check_present"`
 	InvertMatcher   types.Bool                                          `tfsdk:"invert_matcher"`
 	Key             types.String                                        `tfsdk:"key"`
-	CheckNotPresent *ServicePolicyEmptyModel                            `tfsdk:"check_not_present"`
-	CheckPresent    *ServicePolicyEmptyModel                            `tfsdk:"check_present"`
 	Item            *ServicePolicyRuleListRulesSpecQueryParamsItemModel `tfsdk:"item"`
 }
 
 // ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes defines the attribute types for ServicePolicyRuleListRulesSpecQueryParamsModel
 var ServicePolicyRuleListRulesSpecQueryParamsModelAttrTypes = map[string]attr.Type{
-	"invert_matcher":    types.BoolType,
-	"key":               types.StringType,
 	"check_not_present": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"check_present":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"invert_matcher":    types.BoolType,
+	"key":               types.StringType,
 	"item":              types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecQueryParamsItemModelAttrTypes},
 }
 
@@ -720,79 +721,79 @@ var ServicePolicyRuleListRulesSpecQueryParamsItemModelAttrTypes = map[string]att
 
 // ServicePolicyRuleListRulesSpecRequestConstraintsModel represents request_constraints block
 type ServicePolicyRuleListRulesSpecRequestConstraintsModel struct {
-	MaxCookieCountExceeds        types.Int64              `tfsdk:"max_cookie_count_exceeds"`
-	MaxCookieKeySizeExceeds      types.Int64              `tfsdk:"max_cookie_key_size_exceeds"`
-	MaxCookieValueSizeExceeds    types.Int64              `tfsdk:"max_cookie_value_size_exceeds"`
-	MaxHeaderCountExceeds        types.Int64              `tfsdk:"max_header_count_exceeds"`
-	MaxHeaderKeySizeExceeds      types.Int64              `tfsdk:"max_header_key_size_exceeds"`
-	MaxHeaderValueSizeExceeds    types.Int64              `tfsdk:"max_header_value_size_exceeds"`
-	MaxParameterCountExceeds     types.Int64              `tfsdk:"max_parameter_count_exceeds"`
-	MaxParameterNameSizeExceeds  types.Int64              `tfsdk:"max_parameter_name_size_exceeds"`
-	MaxParameterValueSizeExceeds types.Int64              `tfsdk:"max_parameter_value_size_exceeds"`
-	MaxQuerySizeExceeds          types.Int64              `tfsdk:"max_query_size_exceeds"`
-	MaxRequestLineSizeExceeds    types.Int64              `tfsdk:"max_request_line_size_exceeds"`
-	MaxRequestSizeExceeds        types.Int64              `tfsdk:"max_request_size_exceeds"`
-	MaxURLSizeExceeds            types.Int64              `tfsdk:"max_url_size_exceeds"`
-	MaxCookieCountNone           *ServicePolicyEmptyModel `tfsdk:"max_cookie_count_none"`
-	MaxCookieKeySizeNone         *ServicePolicyEmptyModel `tfsdk:"max_cookie_key_size_none"`
-	MaxCookieValueSizeNone       *ServicePolicyEmptyModel `tfsdk:"max_cookie_value_size_none"`
-	MaxHeaderCountNone           *ServicePolicyEmptyModel `tfsdk:"max_header_count_none"`
-	MaxHeaderKeySizeNone         *ServicePolicyEmptyModel `tfsdk:"max_header_key_size_none"`
-	MaxHeaderValueSizeNone       *ServicePolicyEmptyModel `tfsdk:"max_header_value_size_none"`
-	MaxParameterCountNone        *ServicePolicyEmptyModel `tfsdk:"max_parameter_count_none"`
-	MaxParameterNameSizeNone     *ServicePolicyEmptyModel `tfsdk:"max_parameter_name_size_none"`
-	MaxParameterValueSizeNone    *ServicePolicyEmptyModel `tfsdk:"max_parameter_value_size_none"`
-	MaxQuerySizeNone             *ServicePolicyEmptyModel `tfsdk:"max_query_size_none"`
-	MaxRequestLineSizeNone       *ServicePolicyEmptyModel `tfsdk:"max_request_line_size_none"`
-	MaxRequestSizeNone           *ServicePolicyEmptyModel `tfsdk:"max_request_size_none"`
-	MaxURLSizeNone               *ServicePolicyEmptyModel `tfsdk:"max_url_size_none"`
+	MaxCookieCountExceeds        types.Int64  `tfsdk:"max_cookie_count_exceeds"`
+	MaxCookieCountNone           types.Object `tfsdk:"max_cookie_count_none"`
+	MaxCookieKeySizeExceeds      types.Int64  `tfsdk:"max_cookie_key_size_exceeds"`
+	MaxCookieKeySizeNone         types.Object `tfsdk:"max_cookie_key_size_none"`
+	MaxCookieValueSizeExceeds    types.Int64  `tfsdk:"max_cookie_value_size_exceeds"`
+	MaxCookieValueSizeNone       types.Object `tfsdk:"max_cookie_value_size_none"`
+	MaxHeaderCountExceeds        types.Int64  `tfsdk:"max_header_count_exceeds"`
+	MaxHeaderCountNone           types.Object `tfsdk:"max_header_count_none"`
+	MaxHeaderKeySizeExceeds      types.Int64  `tfsdk:"max_header_key_size_exceeds"`
+	MaxHeaderKeySizeNone         types.Object `tfsdk:"max_header_key_size_none"`
+	MaxHeaderValueSizeExceeds    types.Int64  `tfsdk:"max_header_value_size_exceeds"`
+	MaxHeaderValueSizeNone       types.Object `tfsdk:"max_header_value_size_none"`
+	MaxParameterCountExceeds     types.Int64  `tfsdk:"max_parameter_count_exceeds"`
+	MaxParameterCountNone        types.Object `tfsdk:"max_parameter_count_none"`
+	MaxParameterNameSizeExceeds  types.Int64  `tfsdk:"max_parameter_name_size_exceeds"`
+	MaxParameterNameSizeNone     types.Object `tfsdk:"max_parameter_name_size_none"`
+	MaxParameterValueSizeExceeds types.Int64  `tfsdk:"max_parameter_value_size_exceeds"`
+	MaxParameterValueSizeNone    types.Object `tfsdk:"max_parameter_value_size_none"`
+	MaxQuerySizeExceeds          types.Int64  `tfsdk:"max_query_size_exceeds"`
+	MaxQuerySizeNone             types.Object `tfsdk:"max_query_size_none"`
+	MaxRequestLineSizeExceeds    types.Int64  `tfsdk:"max_request_line_size_exceeds"`
+	MaxRequestLineSizeNone       types.Object `tfsdk:"max_request_line_size_none"`
+	MaxRequestSizeExceeds        types.Int64  `tfsdk:"max_request_size_exceeds"`
+	MaxRequestSizeNone           types.Object `tfsdk:"max_request_size_none"`
+	MaxURLSizeExceeds            types.Int64  `tfsdk:"max_url_size_exceeds"`
+	MaxURLSizeNone               types.Object `tfsdk:"max_url_size_none"`
 }
 
 // ServicePolicyRuleListRulesSpecRequestConstraintsModelAttrTypes defines the attribute types for ServicePolicyRuleListRulesSpecRequestConstraintsModel
 var ServicePolicyRuleListRulesSpecRequestConstraintsModelAttrTypes = map[string]attr.Type{
 	"max_cookie_count_exceeds":         types.Int64Type,
-	"max_cookie_key_size_exceeds":      types.Int64Type,
-	"max_cookie_value_size_exceeds":    types.Int64Type,
-	"max_header_count_exceeds":         types.Int64Type,
-	"max_header_key_size_exceeds":      types.Int64Type,
-	"max_header_value_size_exceeds":    types.Int64Type,
-	"max_parameter_count_exceeds":      types.Int64Type,
-	"max_parameter_name_size_exceeds":  types.Int64Type,
-	"max_parameter_value_size_exceeds": types.Int64Type,
-	"max_query_size_exceeds":           types.Int64Type,
-	"max_request_line_size_exceeds":    types.Int64Type,
-	"max_request_size_exceeds":         types.Int64Type,
-	"max_url_size_exceeds":             types.Int64Type,
 	"max_cookie_count_none":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_cookie_key_size_exceeds":      types.Int64Type,
 	"max_cookie_key_size_none":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_cookie_value_size_exceeds":    types.Int64Type,
 	"max_cookie_value_size_none":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_header_count_exceeds":         types.Int64Type,
 	"max_header_count_none":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_header_key_size_exceeds":      types.Int64Type,
 	"max_header_key_size_none":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_header_value_size_exceeds":    types.Int64Type,
 	"max_header_value_size_none":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_parameter_count_exceeds":      types.Int64Type,
 	"max_parameter_count_none":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_parameter_name_size_exceeds":  types.Int64Type,
 	"max_parameter_name_size_none":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_parameter_value_size_exceeds": types.Int64Type,
 	"max_parameter_value_size_none":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_query_size_exceeds":           types.Int64Type,
 	"max_query_size_none":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_request_line_size_exceeds":    types.Int64Type,
 	"max_request_line_size_none":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_request_size_exceeds":         types.Int64Type,
 	"max_request_size_none":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_url_size_exceeds":             types.Int64Type,
 	"max_url_size_none":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // ServicePolicyRuleListRulesSpecSegmentPolicyModel represents segment_policy block
 type ServicePolicyRuleListRulesSpecSegmentPolicyModel struct {
-	DstAny       *ServicePolicyEmptyModel                                     `tfsdk:"dst_any"`
+	DstAny       types.Object                                                 `tfsdk:"dst_any"`
+	IntraSegment types.Object                                                 `tfsdk:"intra_segment"`
+	SrcAny       types.Object                                                 `tfsdk:"src_any"`
 	DstSegments  *ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsModel `tfsdk:"dst_segments"`
-	IntraSegment *ServicePolicyEmptyModel                                     `tfsdk:"intra_segment"`
-	SrcAny       *ServicePolicyEmptyModel                                     `tfsdk:"src_any"`
 	SrcSegments  *ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsModel `tfsdk:"src_segments"`
 }
 
 // ServicePolicyRuleListRulesSpecSegmentPolicyModelAttrTypes defines the attribute types for ServicePolicyRuleListRulesSpecSegmentPolicyModel
 var ServicePolicyRuleListRulesSpecSegmentPolicyModelAttrTypes = map[string]attr.Type{
 	"dst_any":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"dst_segments":  types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsModelAttrTypes},
 	"intra_segment": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"src_any":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dst_segments":  types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsModelAttrTypes},
 	"src_segments":  types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsModelAttrTypes},
 }
 
@@ -872,16 +873,16 @@ var ServicePolicyRuleListRulesSpecUserIdentityMatcherModelAttrTypes = map[string
 
 // ServicePolicyRuleListRulesSpecWAFActionModel represents waf_action block
 type ServicePolicyRuleListRulesSpecWAFActionModel struct {
+	None                        types.Object                                                             `tfsdk:"none"`
+	WAFSkipProcessing           types.Object                                                             `tfsdk:"waf_skip_processing"`
 	AppFirewallDetectionControl *ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel `tfsdk:"app_firewall_detection_control"`
-	None                        *ServicePolicyEmptyModel                                                 `tfsdk:"none"`
-	WAFSkipProcessing           *ServicePolicyEmptyModel                                                 `tfsdk:"waf_skip_processing"`
 }
 
 // ServicePolicyRuleListRulesSpecWAFActionModelAttrTypes defines the attribute types for ServicePolicyRuleListRulesSpecWAFActionModel
 var ServicePolicyRuleListRulesSpecWAFActionModelAttrTypes = map[string]attr.Type{
-	"app_firewall_detection_control": types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModelAttrTypes},
 	"none":                           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"waf_skip_processing":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"app_firewall_detection_control": types.ObjectType{AttrTypes: ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModelAttrTypes},
 }
 
 // ServicePolicyRuleListRulesSpecWAFActionAppFirewallDetectionControlModel represents app_firewall_detection_control block
@@ -977,21 +978,21 @@ var ServicePolicyServerSelectorModelAttrTypes = map[string]attr.Type{
 type ServicePolicyResourceModel struct {
 	Name              types.String                         `tfsdk:"name"`
 	Namespace         types.String                         `tfsdk:"namespace"`
+	AllowAllRequests  types.Object                         `tfsdk:"allow_all_requests"`
 	Annotations       types.Map                            `tfsdk:"annotations"`
+	DenyAllRequests   types.Object                         `tfsdk:"deny_all_requests"`
 	Description       types.String                         `tfsdk:"description"`
 	Disable           types.Bool                           `tfsdk:"disable"`
 	Labels            types.Map                            `tfsdk:"labels"`
 	ID                types.String                         `tfsdk:"id"`
+	AnyServer         types.Object                         `tfsdk:"any_server"`
 	ServerName        types.String                         `tfsdk:"server_name"`
 	Timeouts          timeouts.Value                       `tfsdk:"timeouts"`
-	AllowAllRequests  *ServicePolicyEmptyModel             `tfsdk:"allow_all_requests"`
 	AllowList         *ServicePolicyAllowListModel         `tfsdk:"allow_list"`
-	DenyAllRequests   *ServicePolicyEmptyModel             `tfsdk:"deny_all_requests"`
 	DenyList          *ServicePolicyDenyListModel          `tfsdk:"deny_list"`
 	RuleList          *ServicePolicyRuleListModel          `tfsdk:"rule_list"`
 	ServerNameMatcher *ServicePolicyServerNameMatcherModel `tfsdk:"server_name_matcher"`
 	ServerSelector    *ServicePolicyServerSelectorModel    `tfsdk:"server_selector"`
-	AnyServer         *ServicePolicyEmptyModel             `tfsdk:"any_server"`
 }
 
 func (r *ServicePolicyResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -1022,10 +1023,20 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 					validators.NamespaceValidator(),
 				},
 			},
+			"allow_all_requests": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: allow_all_requests, allow_list, deny_all_requests, deny_list, rule_list] Configuration parameter for allow all requests.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"annotations": schema.MapAttribute{
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"deny_all_requests": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for deny all requests.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
@@ -1047,6 +1058,15 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
+			"any_server": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: any_server, server_name, server_name_matcher, server_selector] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
 			"server_name": schema.StringAttribute{
 				MarkdownDescription: "Exclusive with [any_server server_name_matcher server_selector] The expected name of the server to which the request API is directed. The actual names for the server are extracted from the HTTP Host header and the name of the virtual_host to which the request is directed. If the request is..",
 				Optional:            true,
@@ -1066,9 +1086,6 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 				Update: true,
 				Delete: true,
 			}),
-			"allow_all_requests": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: allow_all_requests, allow_list, deny_all_requests, deny_list, rule_list] Configuration parameter for allow all requests.",
-			},
 			"allow_list": schema.SingleNestedBlock{
 				MarkdownDescription: "List of sources. A request belongs to this list if it satisfies any of the match criteria.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_action_allow", "default_action_deny"), validators.ConflictingObjectAttributes("default_action_allow", "default_action_next_policy"), validators.ConflictingObjectAttributes("default_action_deny", "default_action_next_policy")},
@@ -1081,6 +1098,21 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 						Validators: []validator.List{
 							listvalidator.SizeAtMost(64),
 						},
+					},
+					"default_action_allow": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"default_action_deny": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"default_action_next_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 					"tls_fingerprint_classes": schema.ListAttribute{
 						MarkdownDescription: "[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against. Possible values are `TLS_FINGERPRINT_NONE`, `ANY_MALICIOUS_FINGERPRINT`, `ADWARE`, `ADWIND`, `DRIDEX`, `GOOTKIT`, `GOZI`, `JBIFROST`, `QUAKBOT`, `RANSOMWARE`, `TROLDESH`, `TOFSEE`, `TORRENTLOCKER`, `TRICKBOT`. Defaults to `TLS_FINGERPRINT_NONE`.",
@@ -1146,15 +1178,6 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 							},
 						},
-					},
-					"default_action_allow": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"default_action_deny": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"default_action_next_policy": schema.SingleNestedBlock{
-						MarkdownDescription: "Policy configuration for this feature.",
 					},
 					"ip_prefix_set": schema.ListNestedBlock{
 						MarkdownDescription: "Addresses that are covered by the prefixes in the given ip_prefix_set.",
@@ -1204,9 +1227,6 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 				},
 			},
-			"deny_all_requests": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for deny all requests.",
-			},
 			"deny_list": schema.SingleNestedBlock{
 				MarkdownDescription: "List of sources. A request belongs to this list if it satisfies any of the match criteria.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_action_allow", "default_action_deny"), validators.ConflictingObjectAttributes("default_action_allow", "default_action_next_policy"), validators.ConflictingObjectAttributes("default_action_deny", "default_action_next_policy")},
@@ -1219,6 +1239,21 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 						Validators: []validator.List{
 							listvalidator.SizeAtMost(64),
 						},
+					},
+					"default_action_allow": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"default_action_deny": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"default_action_next_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 					"tls_fingerprint_classes": schema.ListAttribute{
 						MarkdownDescription: "[Enum: TLS_FINGERPRINT_NONE|ANY_MALICIOUS_FINGERPRINT|ADWARE|ADWIND|DRIDEX|GOOTKIT|GOZI|JBIFROST|QUAKBOT|RANSOMWARE|TROLDESH|TOFSEE|TORRENTLOCKER|TRICKBOT] List of known classes of TLS fingerprints to match the input TLS JA3 fingerprint against. Possible values are `TLS_FINGERPRINT_NONE`, `ANY_MALICIOUS_FINGERPRINT`, `ADWARE`, `ADWIND`, `DRIDEX`, `GOOTKIT`, `GOZI`, `JBIFROST`, `QUAKBOT`, `RANSOMWARE`, `TROLDESH`, `TOFSEE`, `TORRENTLOCKER`, `TRICKBOT`. Defaults to `TLS_FINGERPRINT_NONE`.",
@@ -1284,15 +1319,6 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 							},
 						},
-					},
-					"default_action_allow": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"default_action_deny": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"default_action_next_policy": schema.SingleNestedBlock{
-						MarkdownDescription: "Policy configuration for this feature.",
 					},
 					"ip_prefix_set": schema.ListNestedBlock{
 						MarkdownDescription: "Addresses that are covered by the prefixes in the given ip_prefix_set.",
@@ -1383,6 +1409,21 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 												stringvalidator.OneOf("DENY", "ALLOW", "NEXT_POLICY"),
 											},
 										},
+										"any_asn": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"any_client": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"any_ip": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"client_name": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [any_client client_name_matcher client_selector ip_threat_category_list] The expected name of the client invoking the request API. The predicate evaluates to true if any of the actual names is the same as the expected client name.",
 											Optional:            true,
@@ -1400,15 +1441,6 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 									},
 									Blocks: map[string]schema.Block{
-										"any_asn": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
-										"any_client": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
-										"any_ip": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 										"api_group_matcher": schema.SingleNestedBlock{
 											MarkdownDescription: "Matcher specifies a list of values for matching an input string. The match is considered successful if the input value is present in the list. The result of the match is inverted if invert_matcher is true.",
 											Validators:          []validator.Object{validators.RequiredObjectAttributes("match")},
@@ -1432,6 +1464,16 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 											Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
+													"check_not_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check not present.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"check_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check present.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
 													"invert_matcher": schema.BoolAttribute{
 														MarkdownDescription: "Invert Matcher. Invert Match of the expression defined.",
 														Optional:            true,
@@ -1445,12 +1487,6 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												Blocks: map[string]schema.Block{
-													"check_not_present": schema.SingleNestedBlock{
-														MarkdownDescription: "Configuration parameter for check not present.",
-													},
-													"check_present": schema.SingleNestedBlock{
-														MarkdownDescription: "Configuration parameter for check present.",
-													},
 													"item": schema.SingleNestedBlock{
 														MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
 														Attributes: map[string]schema.Attribute{
@@ -1571,13 +1607,16 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										"bot_action": schema.SingleNestedBlock{
 											MarkdownDescription: "Modify Bot protection behavior for a matching request. The modification could be to entirely skip Bot processing.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("bot_skip_processing", "none")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"bot_skip_processing": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"bot_skip_processing": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"none": schema.SingleNestedBlock{
+												"none": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -1629,6 +1668,16 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 											Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
+													"check_not_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check not present.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"check_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check present.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
 													"invert_matcher": schema.BoolAttribute{
 														MarkdownDescription: "Invert Matcher. Invert Match of the expression defined.",
 														Optional:            true,
@@ -1642,12 +1691,6 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												Blocks: map[string]schema.Block{
-													"check_not_present": schema.SingleNestedBlock{
-														MarkdownDescription: "Configuration parameter for check not present.",
-													},
-													"check_present": schema.SingleNestedBlock{
-														MarkdownDescription: "Configuration parameter for check present.",
-													},
 													"item": schema.SingleNestedBlock{
 														MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
 														Attributes: map[string]schema.Attribute{
@@ -1714,6 +1757,16 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 											Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
+													"check_not_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check not present.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"check_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check present.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
 													"invert_matcher": schema.BoolAttribute{
 														MarkdownDescription: "Invert Header Matcher. Invert the match result.",
 														Optional:            true,
@@ -1727,12 +1780,6 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												Blocks: map[string]schema.Block{
-													"check_not_present": schema.SingleNestedBlock{
-														MarkdownDescription: "Configuration parameter for check not present.",
-													},
-													"check_present": schema.SingleNestedBlock{
-														MarkdownDescription: "Configuration parameter for check present.",
-													},
 													"item": schema.SingleNestedBlock{
 														MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
 														Attributes: map[string]schema.Attribute{
@@ -1878,6 +1925,16 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 											Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
+													"check_not_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check not present.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"check_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check present.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
 													"invert_matcher": schema.BoolAttribute{
 														MarkdownDescription: "Invert Matcher. Invert the match result.",
 														Optional:            true,
@@ -1891,12 +1948,6 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												Blocks: map[string]schema.Block{
-													"check_not_present": schema.SingleNestedBlock{
-														MarkdownDescription: "Configuration parameter for check not present.",
-													},
-													"check_present": schema.SingleNestedBlock{
-														MarkdownDescription: "Configuration parameter for check present.",
-													},
 													"item": schema.SingleNestedBlock{
 														MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
 														Attributes: map[string]schema.Attribute{
@@ -1945,13 +1996,16 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										"mum_action": schema.SingleNestedBlock{
 											MarkdownDescription: "Modify behavior for a matching request. The modification could be to entirely skip processing.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("default", "skip_processing")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"default": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"default": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"skip_processing": schema.SingleNestedBlock{
+												"skip_processing": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -2031,6 +2085,16 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 											Validators:          []validator.List{validators.RequiredListObjectAttributes("key"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
+													"check_not_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check not present.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"check_present": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for check present.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
 													"invert_matcher": schema.BoolAttribute{
 														MarkdownDescription: "Invert Query Parameter Matcher. Invert the match result.",
 														Optional:            true,
@@ -2044,12 +2108,6 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												Blocks: map[string]schema.Block{
-													"check_not_present": schema.SingleNestedBlock{
-														MarkdownDescription: "Configuration parameter for check not present.",
-													},
-													"check_present": schema.SingleNestedBlock{
-														MarkdownDescription: "Configuration parameter for check present.",
-													},
 													"item": schema.SingleNestedBlock{
 														MarkdownDescription: "Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
 														Attributes: map[string]schema.Attribute{
@@ -2093,12 +2151,22 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 														int64validator.Between(1, 1024),
 													},
 												},
+												"max_cookie_count_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max cookie count none.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"max_cookie_key_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_cookie_key_size_none].",
 													Optional:            true,
 													Validators: []validator.Int64{
 														int64validator.Between(1, 1024),
 													},
+												},
+												"max_cookie_key_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max cookie key size none.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 												"max_cookie_value_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_cookie_value_size_none].",
@@ -2107,12 +2175,22 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 														int64validator.Between(1, 32768),
 													},
 												},
+												"max_cookie_value_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max cookie value size none.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"max_header_count_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Match on the Count for all Headers that exceed this value. Exclusive with [max_header_count_none]",
 													Optional:            true,
 													Validators: []validator.Int64{
 														int64validator.Between(1, 40),
 													},
+												},
+												"max_header_count_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max header count none.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 												"max_header_key_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_header_key_size_none].",
@@ -2121,12 +2199,22 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 														int64validator.Between(1, 1024),
 													},
 												},
+												"max_header_key_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max header key size none.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"max_header_value_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_header_value_size_none].",
 													Optional:            true,
 													Validators: []validator.Int64{
 														int64validator.Between(1, 64000),
 													},
+												},
+												"max_header_value_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max header value size none.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 												"max_parameter_count_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_parameter_count_none].",
@@ -2135,12 +2223,22 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 														int64validator.Between(1, 1024),
 													},
 												},
+												"max_parameter_count_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max parameter count none.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"max_parameter_name_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_parameter_name_size_none].",
 													Optional:            true,
 													Validators: []validator.Int64{
 														int64validator.Between(1, 1024),
 													},
+												},
+												"max_parameter_name_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 												"max_parameter_value_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_parameter_value_size_none].",
@@ -2149,12 +2247,22 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 														int64validator.Between(1, 1073741824),
 													},
 												},
+												"max_parameter_value_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max parameter value size none.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"max_query_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Match on the URL Query Size that exceed this value. Exclusive with [max_query_size_none]",
 													Optional:            true,
 													Validators: []validator.Int64{
 														int64validator.Between(1, 60000),
 													},
+												},
+												"max_query_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max query size none.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 												"max_request_line_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_request_line_size_none].",
@@ -2163,12 +2271,22 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 														int64validator.Between(1, 65536),
 													},
 												},
+												"max_request_line_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max request line size none.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"max_request_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Match on the Request Size that exceed this value. Exclusive with [max_request_size_none]",
 													Optional:            true,
 													Validators: []validator.Int64{
 														int64validator.Between(1, 65536),
 													},
+												},
+												"max_request_size_none": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for max request size none.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 												"max_url_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Match on the URL Size that exceed this value. Exclusive with [max_url_size_none]",
@@ -2177,57 +2295,34 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 														int64validator.Between(1, 128000),
 													},
 												},
-											},
-											Blocks: map[string]schema.Block{
-												"max_cookie_count_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for max cookie count none.",
-												},
-												"max_cookie_key_size_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for max cookie key size none.",
-												},
-												"max_cookie_value_size_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for max cookie value size none.",
-												},
-												"max_header_count_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for max header count none.",
-												},
-												"max_header_key_size_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for max header key size none.",
-												},
-												"max_header_value_size_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for max header value size none.",
-												},
-												"max_parameter_count_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for max parameter count none.",
-												},
-												"max_parameter_name_size_none": schema.SingleNestedBlock{
+												"max_url_size_none": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
-												},
-												"max_parameter_value_size_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for max parameter value size none.",
-												},
-												"max_query_size_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for max query size none.",
-												},
-												"max_request_line_size_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for max request line size none.",
-												},
-												"max_request_size_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for max request size none.",
-												},
-												"max_url_size_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
 										"segment_policy": schema.SingleNestedBlock{
 											MarkdownDescription: "Configure source and destination segment for policy.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("dst_any", "dst_segments"), validators.ConflictingObjectAttributes("dst_any", "intra_segment"), validators.ConflictingObjectAttributes("dst_segments", "intra_segment"), validators.ConflictingObjectAttributes("src_any", "src_segments")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"dst_any": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"dst_any": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
+												"intra_segment": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for intra segment.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"src_any": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+											},
+											Blocks: map[string]schema.Block{
 												"dst_segments": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for dst segments.",
 													Validators:          []validator.Object{validators.RequiredObjectAttributes("segments")},
@@ -2267,12 +2362,6 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 															},
 														},
 													},
-												},
-												"intra_segment": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for intra segment.",
-												},
-												"src_any": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
 												},
 												"src_segments": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for src segments.",
@@ -2369,7 +2458,18 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										"waf_action": schema.SingleNestedBlock{
 											MarkdownDescription: "Modify App Firewall behavior for a matching request. The modification could either be to entirely skip firewall processing or to customize the firewall rules to be applied as defined by App Firewall Rule Control settings.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("app_firewall_detection_control", "none"), validators.ConflictingObjectAttributes("app_firewall_detection_control", "waf_skip_processing"), validators.ConflictingObjectAttributes("none", "waf_skip_processing")},
-											Attributes:          map[string]schema.Attribute{},
+											Attributes: map[string]schema.Attribute{
+												"none": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"waf_skip_processing": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+											},
 											Blocks: map[string]schema.Block{
 												"app_firewall_detection_control": schema.SingleNestedBlock{
 													MarkdownDescription: "Define the list of Signature IDs, Violations, Attack Types and Bot Names that should be excluded from triggering on the defined match criteria.",
@@ -2474,12 +2574,6 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 													},
 												},
-												"none": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"waf_skip_processing": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
 											},
 										},
 									},
@@ -2526,9 +2620,6 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 				},
 			},
-			"any_server": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: any_server, server_name, server_name_matcher, server_selector] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
 		},
 	}
 }
@@ -2555,6 +2646,21 @@ func (r *ServicePolicyResource) ValidateConfig(ctx context.Context, req resource
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.AllowAllRequests.IsNull() && !data.AllowAllRequests.IsUnknown() && !data.DenyAllRequests.IsNull() && !data.DenyAllRequests.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_all_requests"),
+			"Conflicting Configuration",
+			"allow_all_requests and deny_all_requests are mutually exclusive.",
+		)
+	}
+	if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_server"),
+			"Conflicting Configuration",
+			"any_server and server_name are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -2655,7 +2761,7 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.AllowAllRequests != nil {
+	if !data.AllowAllRequests.IsNull() && !data.AllowAllRequests.IsUnknown() {
 		createReq.Spec["allow_all_requests"] = map[string]interface{}{}
 	}
 	if data.AllowList != nil {
@@ -2699,13 +2805,13 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 				AllowListMap["country_list"] = CountryListItems
 			}
 		}
-		if data.AllowList.DefaultActionAllow != nil {
+		if !data.AllowList.DefaultActionAllow.IsNull() && !data.AllowList.DefaultActionAllow.IsUnknown() {
 			AllowListMap["default_action_allow"] = map[string]interface{}{}
 		}
-		if data.AllowList.DefaultActionDeny != nil {
+		if !data.AllowList.DefaultActionDeny.IsNull() && !data.AllowList.DefaultActionDeny.IsUnknown() {
 			AllowListMap["default_action_deny"] = map[string]interface{}{}
 		}
-		if data.AllowList.DefaultActionNextPolicy != nil {
+		if !data.AllowList.DefaultActionNextPolicy.IsNull() && !data.AllowList.DefaultActionNextPolicy.IsUnknown() {
 			AllowListMap["default_action_next_policy"] = map[string]interface{}{}
 		}
 		if !data.AllowList.IPPrefixSet.IsNull() && !data.AllowList.IPPrefixSet.IsUnknown() {
@@ -2757,7 +2863,7 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 		}
 		createReq.Spec["allow_list"] = AllowListMap
 	}
-	if data.DenyAllRequests != nil {
+	if !data.DenyAllRequests.IsNull() && !data.DenyAllRequests.IsUnknown() {
 		createReq.Spec["deny_all_requests"] = map[string]interface{}{}
 	}
 	if data.DenyList != nil {
@@ -2801,13 +2907,13 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 				DenyListMap["country_list"] = CountryListItems
 			}
 		}
-		if data.DenyList.DefaultActionAllow != nil {
+		if !data.DenyList.DefaultActionAllow.IsNull() && !data.DenyList.DefaultActionAllow.IsUnknown() {
 			DenyListMap["default_action_allow"] = map[string]interface{}{}
 		}
-		if data.DenyList.DefaultActionDeny != nil {
+		if !data.DenyList.DefaultActionDeny.IsNull() && !data.DenyList.DefaultActionDeny.IsUnknown() {
 			DenyListMap["default_action_deny"] = map[string]interface{}{}
 		}
-		if data.DenyList.DefaultActionNextPolicy != nil {
+		if !data.DenyList.DefaultActionNextPolicy.IsNull() && !data.DenyList.DefaultActionNextPolicy.IsUnknown() {
 			DenyListMap["default_action_next_policy"] = map[string]interface{}{}
 		}
 		if !data.DenyList.IPPrefixSet.IsNull() && !data.DenyList.IPPrefixSet.IsUnknown() {
@@ -2884,13 +2990,13 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 						if !RulesItem.Spec.Action.IsNull() && !RulesItem.Spec.Action.IsUnknown() {
 							RuleListRulesSpecMap["action"] = RulesItem.Spec.Action.ValueString()
 						}
-						if RulesItem.Spec.AnyAsn != nil {
+						if !RulesItem.Spec.AnyAsn.IsNull() && !RulesItem.Spec.AnyAsn.IsUnknown() {
 							RuleListRulesSpecMap["any_asn"] = map[string]interface{}{}
 						}
-						if RulesItem.Spec.AnyClient != nil {
+						if !RulesItem.Spec.AnyClient.IsNull() && !RulesItem.Spec.AnyClient.IsUnknown() {
 							RuleListRulesSpecMap["any_client"] = map[string]interface{}{}
 						}
-						if RulesItem.Spec.AnyIP != nil {
+						if !RulesItem.Spec.AnyIP.IsNull() && !RulesItem.Spec.AnyIP.IsUnknown() {
 							RuleListRulesSpecMap["any_ip"] = map[string]interface{}{}
 						}
 						if RulesItem.Spec.APIGroupMatcher != nil {
@@ -2916,10 +3022,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 								var ArgMatchersList []map[string]interface{}
 								for _, ArgMatchersItem := range ArgMatchersElems {
 									ArgMatchersItemMap := make(map[string]interface{})
-									if ArgMatchersItem.CheckNotPresent != nil {
+									if !ArgMatchersItem.CheckNotPresent.IsNull() && !ArgMatchersItem.CheckNotPresent.IsUnknown() {
 										ArgMatchersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if ArgMatchersItem.CheckPresent != nil {
+									if !ArgMatchersItem.CheckPresent.IsNull() && !ArgMatchersItem.CheckPresent.IsUnknown() {
 										ArgMatchersItemMap["check_present"] = map[string]interface{}{}
 									}
 									if !ArgMatchersItem.InvertMatcher.IsNull() && !ArgMatchersItem.InvertMatcher.IsUnknown() {
@@ -3026,10 +3132,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 						}
 						if RulesItem.Spec.BotAction != nil {
 							RuleListRulesSpecBotActionMap := make(map[string]interface{})
-							if RulesItem.Spec.BotAction.BotSkipProcessing != nil {
+							if !RulesItem.Spec.BotAction.BotSkipProcessing.IsNull() && !RulesItem.Spec.BotAction.BotSkipProcessing.IsUnknown() {
 								RuleListRulesSpecBotActionMap["bot_skip_processing"] = map[string]interface{}{}
 							}
-							if RulesItem.Spec.BotAction.None != nil {
+							if !RulesItem.Spec.BotAction.None.IsNull() && !RulesItem.Spec.BotAction.None.IsUnknown() {
 								RuleListRulesSpecBotActionMap["none"] = map[string]interface{}{}
 							}
 							RuleListRulesSpecMap["bot_action"] = RuleListRulesSpecBotActionMap
@@ -3085,10 +3191,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 								var CookieMatchersList []map[string]interface{}
 								for _, CookieMatchersItem := range CookieMatchersElems {
 									CookieMatchersItemMap := make(map[string]interface{})
-									if CookieMatchersItem.CheckNotPresent != nil {
+									if !CookieMatchersItem.CheckNotPresent.IsNull() && !CookieMatchersItem.CheckNotPresent.IsUnknown() {
 										CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if CookieMatchersItem.CheckPresent != nil {
+									if !CookieMatchersItem.CheckPresent.IsNull() && !CookieMatchersItem.CheckPresent.IsUnknown() {
 										CookieMatchersItemMap["check_present"] = map[string]interface{}{}
 									}
 									if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
@@ -3169,10 +3275,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 								var HeadersList []map[string]interface{}
 								for _, HeadersItem := range HeadersElems {
 									HeadersItemMap := make(map[string]interface{})
-									if HeadersItem.CheckNotPresent != nil {
+									if !HeadersItem.CheckNotPresent.IsNull() && !HeadersItem.CheckNotPresent.IsUnknown() {
 										HeadersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if HeadersItem.CheckPresent != nil {
+									if !HeadersItem.CheckPresent.IsNull() && !HeadersItem.CheckPresent.IsUnknown() {
 										HeadersItemMap["check_present"] = map[string]interface{}{}
 									}
 									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
@@ -3302,10 +3408,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 								var JWTClaimsList []map[string]interface{}
 								for _, JWTClaimsItem := range JWTClaimsElems {
 									JWTClaimsItemMap := make(map[string]interface{})
-									if JWTClaimsItem.CheckNotPresent != nil {
+									if !JWTClaimsItem.CheckNotPresent.IsNull() && !JWTClaimsItem.CheckNotPresent.IsUnknown() {
 										JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if JWTClaimsItem.CheckPresent != nil {
+									if !JWTClaimsItem.CheckPresent.IsNull() && !JWTClaimsItem.CheckPresent.IsUnknown() {
 										JWTClaimsItemMap["check_present"] = map[string]interface{}{}
 									}
 									if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
@@ -3364,10 +3470,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 						}
 						if RulesItem.Spec.MumAction != nil {
 							RuleListRulesSpecMumActionMap := make(map[string]interface{})
-							if RulesItem.Spec.MumAction.Default != nil {
+							if !RulesItem.Spec.MumAction.Default.IsNull() && !RulesItem.Spec.MumAction.Default.IsUnknown() {
 								RuleListRulesSpecMumActionMap["default"] = map[string]interface{}{}
 							}
-							if RulesItem.Spec.MumAction.SkipProcessing != nil {
+							if !RulesItem.Spec.MumAction.SkipProcessing.IsNull() && !RulesItem.Spec.MumAction.SkipProcessing.IsUnknown() {
 								RuleListRulesSpecMumActionMap["skip_processing"] = map[string]interface{}{}
 							}
 							RuleListRulesSpecMap["mum_action"] = RuleListRulesSpecMumActionMap
@@ -3445,10 +3551,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 								var QueryParamsList []map[string]interface{}
 								for _, QueryParamsItem := range QueryParamsElems {
 									QueryParamsItemMap := make(map[string]interface{})
-									if QueryParamsItem.CheckNotPresent != nil {
+									if !QueryParamsItem.CheckNotPresent.IsNull() && !QueryParamsItem.CheckNotPresent.IsUnknown() {
 										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if QueryParamsItem.CheckPresent != nil {
+									if !QueryParamsItem.CheckPresent.IsNull() && !QueryParamsItem.CheckPresent.IsUnknown() {
 										QueryParamsItemMap["check_present"] = map[string]interface{}{}
 									}
 									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
@@ -3495,86 +3601,86 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 							if !RulesItem.Spec.RequestConstraints.MaxCookieCountExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxCookieCountExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_cookie_count_exceeds"] = RulesItem.Spec.RequestConstraints.MaxCookieCountExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxCookieCountNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxCookieCountNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxCookieCountNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_cookie_count_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxCookieKeySizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxCookieKeySizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_cookie_key_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxCookieKeySizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxCookieKeySizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxCookieKeySizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxCookieKeySizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_cookie_key_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxCookieValueSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxCookieValueSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_cookie_value_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxCookieValueSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxCookieValueSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxCookieValueSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxCookieValueSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_cookie_value_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxHeaderCountExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxHeaderCountExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_header_count_exceeds"] = RulesItem.Spec.RequestConstraints.MaxHeaderCountExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxHeaderCountNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxHeaderCountNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxHeaderCountNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_header_count_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxHeaderKeySizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxHeaderKeySizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_header_key_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxHeaderKeySizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxHeaderKeySizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxHeaderKeySizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxHeaderKeySizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_header_key_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxHeaderValueSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxHeaderValueSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_header_value_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxHeaderValueSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxHeaderValueSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxHeaderValueSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxHeaderValueSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_header_value_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxParameterCountExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxParameterCountExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_parameter_count_exceeds"] = RulesItem.Spec.RequestConstraints.MaxParameterCountExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxParameterCountNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxParameterCountNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxParameterCountNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_parameter_count_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxParameterNameSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxParameterNameSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_parameter_name_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxParameterNameSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxParameterNameSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxParameterNameSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxParameterNameSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_parameter_name_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxParameterValueSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxParameterValueSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_parameter_value_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxParameterValueSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxParameterValueSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxParameterValueSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxParameterValueSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_parameter_value_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxQuerySizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxQuerySizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_query_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxQuerySizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxQuerySizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxQuerySizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxQuerySizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_query_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxRequestLineSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxRequestLineSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_request_line_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxRequestLineSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxRequestLineSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxRequestLineSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxRequestLineSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_request_line_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxRequestSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxRequestSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_request_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxRequestSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxRequestSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxRequestSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxRequestSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_request_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxURLSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxURLSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_url_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxURLSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxURLSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxURLSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxURLSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_url_size_none"] = map[string]interface{}{}
 							}
 							RuleListRulesSpecMap["request_constraints"] = RuleListRulesSpecRequestConstraintsMap
 						}
 						if RulesItem.Spec.SegmentPolicy != nil {
 							RuleListRulesSpecSegmentPolicyMap := make(map[string]interface{})
-							if RulesItem.Spec.SegmentPolicy.DstAny != nil {
+							if !RulesItem.Spec.SegmentPolicy.DstAny.IsNull() && !RulesItem.Spec.SegmentPolicy.DstAny.IsUnknown() {
 								RuleListRulesSpecSegmentPolicyMap["dst_any"] = map[string]interface{}{}
 							}
 							if RulesItem.Spec.SegmentPolicy.DstSegments != nil {
@@ -3600,10 +3706,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 								}
 								RuleListRulesSpecSegmentPolicyMap["dst_segments"] = RuleListRulesSpecSegmentPolicyDstSegmentsMap
 							}
-							if RulesItem.Spec.SegmentPolicy.IntraSegment != nil {
+							if !RulesItem.Spec.SegmentPolicy.IntraSegment.IsNull() && !RulesItem.Spec.SegmentPolicy.IntraSegment.IsUnknown() {
 								RuleListRulesSpecSegmentPolicyMap["intra_segment"] = map[string]interface{}{}
 							}
-							if RulesItem.Spec.SegmentPolicy.SrcAny != nil {
+							if !RulesItem.Spec.SegmentPolicy.SrcAny.IsNull() && !RulesItem.Spec.SegmentPolicy.SrcAny.IsUnknown() {
 								RuleListRulesSpecSegmentPolicyMap["src_any"] = map[string]interface{}{}
 							}
 							if RulesItem.Spec.SegmentPolicy.SrcSegments != nil {
@@ -3767,10 +3873,10 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 								}
 								RuleListRulesSpecWAFActionMap["app_firewall_detection_control"] = RuleListRulesSpecWAFActionAppFirewallDetectionControlMap
 							}
-							if RulesItem.Spec.WAFAction.None != nil {
+							if !RulesItem.Spec.WAFAction.None.IsNull() && !RulesItem.Spec.WAFAction.None.IsUnknown() {
 								RuleListRulesSpecWAFActionMap["none"] = map[string]interface{}{}
 							}
-							if RulesItem.Spec.WAFAction.WAFSkipProcessing != nil {
+							if !RulesItem.Spec.WAFAction.WAFSkipProcessing.IsNull() && !RulesItem.Spec.WAFAction.WAFSkipProcessing.IsUnknown() {
 								RuleListRulesSpecWAFActionMap["waf_skip_processing"] = map[string]interface{}{}
 							}
 							RuleListRulesSpecMap["waf_action"] = RuleListRulesSpecWAFActionMap
@@ -3816,7 +3922,7 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 		}
 		createReq.Spec["server_selector"] = ServerSelectorMap
 	}
-	if data.AnyServer != nil {
+	if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() {
 		createReq.Spec["any_server"] = map[string]interface{}{}
 	}
 	if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
@@ -3861,8 +3967,12 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["allow_all_requests"].(map[string]interface{}); ok && isImport && data.AllowAllRequests == nil {
-		data.AllowAllRequests = &ServicePolicyEmptyModel{}
+	if !isImport && !data.AllowAllRequests.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all_requests"].(map[string]interface{}); ok {
+		data.AllowAllRequests = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAllRequests = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["allow_list"].(map[string]interface{}); ok && (isImport || data.AllowList != nil) {
 		data.AllowList = &ServicePolicyAllowListModel{
@@ -3944,32 +4054,32 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			DefaultActionAllow: func() *ServicePolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionAllow.IsUnknown() {
 					return data.AllowList.DefaultActionAllow
 				}
 				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionDeny: func() *ServicePolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionDeny.IsUnknown() {
 					return data.AllowList.DefaultActionDeny
 				}
 				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionNextPolicy: func() *ServicePolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionNextPolicy.IsUnknown() {
 					return data.AllowList.DefaultActionNextPolicy
 				}
 				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			IPPrefixSet: func() types.List {
 				if !isImport && data.AllowList != nil && (data.AllowList.IPPrefixSet.IsNull() || len(data.AllowList.IPPrefixSet.Elements()) == 0) {
@@ -4065,8 +4175,12 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["deny_all_requests"].(map[string]interface{}); ok && isImport && data.DenyAllRequests == nil {
-		data.DenyAllRequests = &ServicePolicyEmptyModel{}
+	if !isImport && !data.DenyAllRequests.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["deny_all_requests"].(map[string]interface{}); ok {
+		data.DenyAllRequests = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DenyAllRequests = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["deny_list"].(map[string]interface{}); ok && (isImport || data.DenyList != nil) {
 		data.DenyList = &ServicePolicyDenyListModel{
@@ -4148,32 +4262,32 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			DefaultActionAllow: func() *ServicePolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionAllow.IsUnknown() {
 					return data.DenyList.DefaultActionAllow
 				}
 				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionDeny: func() *ServicePolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionDeny.IsUnknown() {
 					return data.DenyList.DefaultActionDeny
 				}
 				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionNextPolicy: func() *ServicePolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionNextPolicy.IsUnknown() {
 					return data.DenyList.DefaultActionNextPolicy
 				}
 				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			IPPrefixSet: func() types.List {
 				if !isImport && data.DenyList != nil && (data.DenyList.IPPrefixSet.IsNull() || len(data.DenyList.IPPrefixSet.Elements()) == 0) {
@@ -4313,38 +4427,32 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return types.StringNull()
 											}(),
-											AnyAsn: func() *ServicePolicyEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+											AnyAsn: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.AnyAsn.IsUnknown() {
 													return RulesExisting[RulesIdx].Spec.AnyAsn
 												}
-												if !isImport {
-													if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
-														return &ServicePolicyEmptyModel{}
-													}
+												if _, ok := SpecData["any_asn"].(map[string]interface{}); ok && !isImport {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											AnyClient: func() *ServicePolicyEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+											AnyClient: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.AnyClient.IsUnknown() {
 													return RulesExisting[RulesIdx].Spec.AnyClient
 												}
-												if !isImport {
-													if _, ok := SpecData["any_client"].(map[string]interface{}); ok {
-														return &ServicePolicyEmptyModel{}
-													}
+												if _, ok := SpecData["any_client"].(map[string]interface{}); ok && !isImport {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											AnyIP: func() *ServicePolicyEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+											AnyIP: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.AnyIP.IsUnknown() {
 													return RulesExisting[RulesIdx].Spec.AnyIP
 												}
-												if !isImport {
-													if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
-														return &ServicePolicyEmptyModel{}
-													}
+												if _, ok := SpecData["any_ip"].(map[string]interface{}); ok && !isImport {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											APIGroupMatcher: func() *ServicePolicyRuleListRulesSpecAPIGroupMatcherModel {
 												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.APIGroupMatcher != nil {
@@ -4393,23 +4501,23 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 														_ = ArgMatchersIdx
 														if ArgMatchersItemMap, ok := ArgMatchersItem.(map[string]interface{}); ok {
 															ArgMatchersResult = append(ArgMatchersResult, ServicePolicyRuleListRulesSpecArgMatchersModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && !ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent.IsUnknown() {
 																		return ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent
 																	}
 																	if _, ok := ArgMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && !ArgMatchersExisting[ArgMatchersIdx].CheckPresent.IsUnknown() {
 																		return ArgMatchersExisting[ArgMatchersIdx].CheckPresent
 																	}
 																	if _, ok := ArgMatchersItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := ArgMatchersItemMap["invert_matcher"].(bool); ok {
@@ -4621,23 +4729,23 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												}
 												if BotActionData, ok := SpecData["bot_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecBotActionModel{
-														BotSkipProcessing: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+														BotSkipProcessing: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil && !RulesExisting[RulesIdx].Spec.BotAction.BotSkipProcessing.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.BotAction.BotSkipProcessing
 															}
 															if _, ok := BotActionData["bot_skip_processing"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														None: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+														None: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil && !RulesExisting[RulesIdx].Spec.BotAction.None.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.BotAction.None
 															}
 															if _, ok := BotActionData["none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -4739,23 +4847,23 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 														_ = CookieMatchersIdx
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, ServicePolicyRuleListRulesSpecCookieMatchersModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && !CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent.IsUnknown() {
 																		return CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent
 																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && !CookieMatchersExisting[CookieMatchersIdx].CheckPresent.IsUnknown() {
 																		return CookieMatchersExisting[CookieMatchersIdx].CheckPresent
 																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := CookieMatchersItemMap["invert_matcher"].(bool); ok {
@@ -4898,23 +5006,23 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ServicePolicyRuleListRulesSpecHeadersModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(HeadersExisting) > HeadersIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckNotPresent.IsUnknown() {
 																		return HeadersExisting[HeadersIdx].CheckNotPresent
 																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(HeadersExisting) > HeadersIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckPresent.IsUnknown() {
 																		return HeadersExisting[HeadersIdx].CheckPresent
 																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := HeadersItemMap["invert_matcher"].(bool); ok {
@@ -5181,23 +5289,23 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 														_ = JWTClaimsIdx
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, ServicePolicyRuleListRulesSpecJWTClaimsModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && !JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent.IsUnknown() {
 																		return JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent
 																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && !JWTClaimsExisting[JWTClaimsIdx].CheckPresent.IsUnknown() {
 																		return JWTClaimsExisting[JWTClaimsIdx].CheckPresent
 																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := JWTClaimsItemMap["invert_matcher"].(bool); ok {
@@ -5307,23 +5415,23 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												}
 												if MumActionData, ok := SpecData["mum_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecMumActionModel{
-														Default: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+														Default: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil && !RulesExisting[RulesIdx].Spec.MumAction.Default.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.MumAction.Default
 															}
 															if _, ok := MumActionData["default"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SkipProcessing: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+														SkipProcessing: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil && !RulesExisting[RulesIdx].Spec.MumAction.SkipProcessing.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.MumAction.SkipProcessing
 															}
 															if _, ok := MumActionData["skip_processing"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -5474,23 +5582,23 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 														_ = QueryParamsIdx
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, ServicePolicyRuleListRulesSpecQueryParamsModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && !QueryParamsExisting[QueryParamsIdx].CheckNotPresent.IsUnknown() {
 																		return QueryParamsExisting[QueryParamsIdx].CheckNotPresent
 																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && !QueryParamsExisting[QueryParamsIdx].CheckPresent.IsUnknown() {
 																		return QueryParamsExisting[QueryParamsIdx].CheckPresent
 																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := QueryParamsItemMap["invert_matcher"].(bool); ok {
@@ -5576,14 +5684,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxCookieCountNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxCookieCountNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountNone
 															}
 															if _, ok := RequestConstraintsData["max_cookie_count_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxCookieKeySizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeExceeds.IsUnknown() {
@@ -5594,14 +5702,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxCookieKeySizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxCookieKeySizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeNone
 															}
 															if _, ok := RequestConstraintsData["max_cookie_key_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxCookieValueSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeExceeds.IsUnknown() {
@@ -5612,14 +5720,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxCookieValueSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxCookieValueSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_cookie_value_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxHeaderCountExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountExceeds.IsUnknown() {
@@ -5630,14 +5738,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxHeaderCountNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxHeaderCountNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountNone
 															}
 															if _, ok := RequestConstraintsData["max_header_count_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxHeaderKeySizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeExceeds.IsUnknown() {
@@ -5648,14 +5756,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxHeaderKeySizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxHeaderKeySizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeNone
 															}
 															if _, ok := RequestConstraintsData["max_header_key_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxHeaderValueSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeExceeds.IsUnknown() {
@@ -5666,14 +5774,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxHeaderValueSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxHeaderValueSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_header_value_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxParameterCountExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountExceeds.IsUnknown() {
@@ -5684,14 +5792,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxParameterCountNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxParameterCountNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountNone
 															}
 															if _, ok := RequestConstraintsData["max_parameter_count_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxParameterNameSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeExceeds.IsUnknown() {
@@ -5702,14 +5810,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxParameterNameSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxParameterNameSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_parameter_name_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxParameterValueSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeExceeds.IsUnknown() {
@@ -5720,14 +5828,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxParameterValueSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxParameterValueSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_parameter_value_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxQuerySizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeExceeds.IsUnknown() {
@@ -5738,14 +5846,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxQuerySizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxQuerySizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeNone
 															}
 															if _, ok := RequestConstraintsData["max_query_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxRequestLineSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeExceeds.IsUnknown() {
@@ -5756,14 +5864,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxRequestLineSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxRequestLineSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_request_line_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxRequestSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeExceeds.IsUnknown() {
@@ -5774,14 +5882,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxRequestSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxRequestSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_request_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxURLSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeExceeds.IsUnknown() {
@@ -5792,14 +5900,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxURLSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxURLSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_url_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -5808,14 +5916,14 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 											SegmentPolicy: func() *ServicePolicyRuleListRulesSpecSegmentPolicyModel {
 												if SegmentPolicyData, ok := SpecData["segment_policy"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecSegmentPolicyModel{
-														DstAny: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+														DstAny: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.DstAny.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.SegmentPolicy.DstAny
 															}
 															if _, ok := SegmentPolicyData["dst_any"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														DstSegments: func() *ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsModel {
 															if DstSegmentsData, ok := SegmentPolicyData["dst_segments"].(map[string]interface{}); ok {
@@ -5864,23 +5972,23 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return nil
 														}(),
-														IntraSegment: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+														IntraSegment: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.IntraSegment.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.SegmentPolicy.IntraSegment
 															}
 															if _, ok := SegmentPolicyData["intra_segment"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SrcAny: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+														SrcAny: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcAny.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcAny
 															}
 															if _, ok := SegmentPolicyData["src_any"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SrcSegments: func() *ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsModel {
 															if SrcSegmentsData, ok := SegmentPolicyData["src_segments"].(map[string]interface{}); ok {
@@ -6187,23 +6295,23 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return nil
 														}(),
-														None: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+														None: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && !RulesExisting[RulesIdx].Spec.WAFAction.None.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.WAFAction.None
 															}
 															if _, ok := WAFActionData["none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														WAFSkipProcessing: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+														WAFSkipProcessing: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && !RulesExisting[RulesIdx].Spec.WAFAction.WAFSkipProcessing.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.WAFAction.WAFSkipProcessing
 															}
 															if _, ok := WAFActionData["waf_skip_processing"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -6272,6 +6380,13 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 				return types.ListNull(types.StringType)
 			}(),
 		}
+	}
+	if !isImport && !data.AnyServer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["any_server"].(map[string]interface{}); ok && !isImport {
+		data.AnyServer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AnyServer = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["server_name"].(string); ok && v != "" {
 		data.ServerName = types.StringValue(v)
@@ -6409,8 +6524,12 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["allow_all_requests"].(map[string]interface{}); ok && isImport && data.AllowAllRequests == nil {
-		data.AllowAllRequests = &ServicePolicyEmptyModel{}
+	if !isImport && !data.AllowAllRequests.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all_requests"].(map[string]interface{}); ok {
+		data.AllowAllRequests = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAllRequests = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["allow_list"].(map[string]interface{}); ok && (isImport || data.AllowList != nil) {
 		data.AllowList = &ServicePolicyAllowListModel{
@@ -6492,32 +6611,32 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			DefaultActionAllow: func() *ServicePolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionAllow.IsUnknown() {
 					return data.AllowList.DefaultActionAllow
 				}
 				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionDeny: func() *ServicePolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionDeny.IsUnknown() {
 					return data.AllowList.DefaultActionDeny
 				}
 				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionNextPolicy: func() *ServicePolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionNextPolicy.IsUnknown() {
 					return data.AllowList.DefaultActionNextPolicy
 				}
 				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			IPPrefixSet: func() types.List {
 				if !isImport && data.AllowList != nil && (data.AllowList.IPPrefixSet.IsNull() || len(data.AllowList.IPPrefixSet.Elements()) == 0) {
@@ -6613,8 +6732,12 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["deny_all_requests"].(map[string]interface{}); ok && isImport && data.DenyAllRequests == nil {
-		data.DenyAllRequests = &ServicePolicyEmptyModel{}
+	if !isImport && !data.DenyAllRequests.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["deny_all_requests"].(map[string]interface{}); ok {
+		data.DenyAllRequests = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DenyAllRequests = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["deny_list"].(map[string]interface{}); ok && (isImport || data.DenyList != nil) {
 		data.DenyList = &ServicePolicyDenyListModel{
@@ -6696,32 +6819,32 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			DefaultActionAllow: func() *ServicePolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionAllow.IsUnknown() {
 					return data.DenyList.DefaultActionAllow
 				}
 				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionDeny: func() *ServicePolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionDeny.IsUnknown() {
 					return data.DenyList.DefaultActionDeny
 				}
 				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionNextPolicy: func() *ServicePolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionNextPolicy.IsUnknown() {
 					return data.DenyList.DefaultActionNextPolicy
 				}
 				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			IPPrefixSet: func() types.List {
 				if !isImport && data.DenyList != nil && (data.DenyList.IPPrefixSet.IsNull() || len(data.DenyList.IPPrefixSet.Elements()) == 0) {
@@ -6861,38 +6984,32 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return types.StringNull()
 											}(),
-											AnyAsn: func() *ServicePolicyEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+											AnyAsn: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.AnyAsn.IsUnknown() {
 													return RulesExisting[RulesIdx].Spec.AnyAsn
 												}
-												if !isImport {
-													if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
-														return &ServicePolicyEmptyModel{}
-													}
+												if _, ok := SpecData["any_asn"].(map[string]interface{}); ok && !isImport {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											AnyClient: func() *ServicePolicyEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+											AnyClient: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.AnyClient.IsUnknown() {
 													return RulesExisting[RulesIdx].Spec.AnyClient
 												}
-												if !isImport {
-													if _, ok := SpecData["any_client"].(map[string]interface{}); ok {
-														return &ServicePolicyEmptyModel{}
-													}
+												if _, ok := SpecData["any_client"].(map[string]interface{}); ok && !isImport {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											AnyIP: func() *ServicePolicyEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+											AnyIP: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.AnyIP.IsUnknown() {
 													return RulesExisting[RulesIdx].Spec.AnyIP
 												}
-												if !isImport {
-													if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
-														return &ServicePolicyEmptyModel{}
-													}
+												if _, ok := SpecData["any_ip"].(map[string]interface{}); ok && !isImport {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											APIGroupMatcher: func() *ServicePolicyRuleListRulesSpecAPIGroupMatcherModel {
 												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.APIGroupMatcher != nil {
@@ -6941,23 +7058,23 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 														_ = ArgMatchersIdx
 														if ArgMatchersItemMap, ok := ArgMatchersItem.(map[string]interface{}); ok {
 															ArgMatchersResult = append(ArgMatchersResult, ServicePolicyRuleListRulesSpecArgMatchersModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && !ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent.IsUnknown() {
 																		return ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent
 																	}
 																	if _, ok := ArgMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && !ArgMatchersExisting[ArgMatchersIdx].CheckPresent.IsUnknown() {
 																		return ArgMatchersExisting[ArgMatchersIdx].CheckPresent
 																	}
 																	if _, ok := ArgMatchersItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := ArgMatchersItemMap["invert_matcher"].(bool); ok {
@@ -7169,23 +7286,23 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												if BotActionData, ok := SpecData["bot_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecBotActionModel{
-														BotSkipProcessing: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+														BotSkipProcessing: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil && !RulesExisting[RulesIdx].Spec.BotAction.BotSkipProcessing.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.BotAction.BotSkipProcessing
 															}
 															if _, ok := BotActionData["bot_skip_processing"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														None: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+														None: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil && !RulesExisting[RulesIdx].Spec.BotAction.None.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.BotAction.None
 															}
 															if _, ok := BotActionData["none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -7287,23 +7404,23 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 														_ = CookieMatchersIdx
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, ServicePolicyRuleListRulesSpecCookieMatchersModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && !CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent.IsUnknown() {
 																		return CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent
 																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && !CookieMatchersExisting[CookieMatchersIdx].CheckPresent.IsUnknown() {
 																		return CookieMatchersExisting[CookieMatchersIdx].CheckPresent
 																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := CookieMatchersItemMap["invert_matcher"].(bool); ok {
@@ -7446,23 +7563,23 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ServicePolicyRuleListRulesSpecHeadersModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(HeadersExisting) > HeadersIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckNotPresent.IsUnknown() {
 																		return HeadersExisting[HeadersIdx].CheckNotPresent
 																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(HeadersExisting) > HeadersIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckPresent.IsUnknown() {
 																		return HeadersExisting[HeadersIdx].CheckPresent
 																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := HeadersItemMap["invert_matcher"].(bool); ok {
@@ -7729,23 +7846,23 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 														_ = JWTClaimsIdx
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, ServicePolicyRuleListRulesSpecJWTClaimsModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && !JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent.IsUnknown() {
 																		return JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent
 																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && !JWTClaimsExisting[JWTClaimsIdx].CheckPresent.IsUnknown() {
 																		return JWTClaimsExisting[JWTClaimsIdx].CheckPresent
 																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := JWTClaimsItemMap["invert_matcher"].(bool); ok {
@@ -7855,23 +7972,23 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												if MumActionData, ok := SpecData["mum_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecMumActionModel{
-														Default: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+														Default: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil && !RulesExisting[RulesIdx].Spec.MumAction.Default.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.MumAction.Default
 															}
 															if _, ok := MumActionData["default"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SkipProcessing: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+														SkipProcessing: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil && !RulesExisting[RulesIdx].Spec.MumAction.SkipProcessing.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.MumAction.SkipProcessing
 															}
 															if _, ok := MumActionData["skip_processing"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -8022,23 +8139,23 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 														_ = QueryParamsIdx
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, ServicePolicyRuleListRulesSpecQueryParamsModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && !QueryParamsExisting[QueryParamsIdx].CheckNotPresent.IsUnknown() {
 																		return QueryParamsExisting[QueryParamsIdx].CheckNotPresent
 																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && !QueryParamsExisting[QueryParamsIdx].CheckPresent.IsUnknown() {
 																		return QueryParamsExisting[QueryParamsIdx].CheckPresent
 																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := QueryParamsItemMap["invert_matcher"].(bool); ok {
@@ -8124,14 +8241,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.Int64Null()
 														}(),
-														MaxCookieCountNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxCookieCountNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountNone
 															}
 															if _, ok := RequestConstraintsData["max_cookie_count_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxCookieKeySizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeExceeds.IsUnknown() {
@@ -8142,14 +8259,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.Int64Null()
 														}(),
-														MaxCookieKeySizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxCookieKeySizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeNone
 															}
 															if _, ok := RequestConstraintsData["max_cookie_key_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxCookieValueSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeExceeds.IsUnknown() {
@@ -8160,14 +8277,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.Int64Null()
 														}(),
-														MaxCookieValueSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxCookieValueSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_cookie_value_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxHeaderCountExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountExceeds.IsUnknown() {
@@ -8178,14 +8295,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.Int64Null()
 														}(),
-														MaxHeaderCountNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxHeaderCountNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountNone
 															}
 															if _, ok := RequestConstraintsData["max_header_count_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxHeaderKeySizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeExceeds.IsUnknown() {
@@ -8196,14 +8313,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.Int64Null()
 														}(),
-														MaxHeaderKeySizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxHeaderKeySizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeNone
 															}
 															if _, ok := RequestConstraintsData["max_header_key_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxHeaderValueSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeExceeds.IsUnknown() {
@@ -8214,14 +8331,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.Int64Null()
 														}(),
-														MaxHeaderValueSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxHeaderValueSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_header_value_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxParameterCountExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountExceeds.IsUnknown() {
@@ -8232,14 +8349,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.Int64Null()
 														}(),
-														MaxParameterCountNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxParameterCountNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountNone
 															}
 															if _, ok := RequestConstraintsData["max_parameter_count_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxParameterNameSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeExceeds.IsUnknown() {
@@ -8250,14 +8367,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.Int64Null()
 														}(),
-														MaxParameterNameSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxParameterNameSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_parameter_name_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxParameterValueSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeExceeds.IsUnknown() {
@@ -8268,14 +8385,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.Int64Null()
 														}(),
-														MaxParameterValueSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxParameterValueSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_parameter_value_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxQuerySizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeExceeds.IsUnknown() {
@@ -8286,14 +8403,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.Int64Null()
 														}(),
-														MaxQuerySizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxQuerySizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeNone
 															}
 															if _, ok := RequestConstraintsData["max_query_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxRequestLineSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeExceeds.IsUnknown() {
@@ -8304,14 +8421,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.Int64Null()
 														}(),
-														MaxRequestLineSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxRequestLineSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_request_line_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxRequestSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeExceeds.IsUnknown() {
@@ -8322,14 +8439,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.Int64Null()
 														}(),
-														MaxRequestSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxRequestSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_request_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxURLSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeExceeds.IsUnknown() {
@@ -8340,14 +8457,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.Int64Null()
 														}(),
-														MaxURLSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxURLSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_url_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -8356,14 +8473,14 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 											SegmentPolicy: func() *ServicePolicyRuleListRulesSpecSegmentPolicyModel {
 												if SegmentPolicyData, ok := SpecData["segment_policy"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecSegmentPolicyModel{
-														DstAny: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+														DstAny: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.DstAny.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.SegmentPolicy.DstAny
 															}
 															if _, ok := SegmentPolicyData["dst_any"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														DstSegments: func() *ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsModel {
 															if DstSegmentsData, ok := SegmentPolicyData["dst_segments"].(map[string]interface{}); ok {
@@ -8412,23 +8529,23 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return nil
 														}(),
-														IntraSegment: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+														IntraSegment: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.IntraSegment.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.SegmentPolicy.IntraSegment
 															}
 															if _, ok := SegmentPolicyData["intra_segment"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SrcAny: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+														SrcAny: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcAny.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcAny
 															}
 															if _, ok := SegmentPolicyData["src_any"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SrcSegments: func() *ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsModel {
 															if SrcSegmentsData, ok := SegmentPolicyData["src_segments"].(map[string]interface{}); ok {
@@ -8735,23 +8852,23 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return nil
 														}(),
-														None: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+														None: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && !RulesExisting[RulesIdx].Spec.WAFAction.None.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.WAFAction.None
 															}
 															if _, ok := WAFActionData["none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														WAFSkipProcessing: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+														WAFSkipProcessing: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && !RulesExisting[RulesIdx].Spec.WAFAction.WAFSkipProcessing.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.WAFAction.WAFSkipProcessing
 															}
 															if _, ok := WAFActionData["waf_skip_processing"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -8820,6 +8937,13 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 				return types.ListNull(types.StringType)
 			}(),
 		}
+	}
+	if !isImport && !data.AnyServer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["any_server"].(map[string]interface{}); ok && !isImport {
+		data.AnyServer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AnyServer = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["server_name"].(string); ok && v != "" {
 		data.ServerName = types.StringValue(v)
@@ -8920,7 +9044,7 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.AllowAllRequests != nil {
+	if !data.AllowAllRequests.IsNull() && !data.AllowAllRequests.IsUnknown() {
 		apiResource.Spec["allow_all_requests"] = map[string]interface{}{}
 	}
 	if data.AllowList != nil {
@@ -8964,13 +9088,13 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 				AllowListMap["country_list"] = CountryListItems
 			}
 		}
-		if data.AllowList.DefaultActionAllow != nil {
+		if !data.AllowList.DefaultActionAllow.IsNull() && !data.AllowList.DefaultActionAllow.IsUnknown() {
 			AllowListMap["default_action_allow"] = map[string]interface{}{}
 		}
-		if data.AllowList.DefaultActionDeny != nil {
+		if !data.AllowList.DefaultActionDeny.IsNull() && !data.AllowList.DefaultActionDeny.IsUnknown() {
 			AllowListMap["default_action_deny"] = map[string]interface{}{}
 		}
-		if data.AllowList.DefaultActionNextPolicy != nil {
+		if !data.AllowList.DefaultActionNextPolicy.IsNull() && !data.AllowList.DefaultActionNextPolicy.IsUnknown() {
 			AllowListMap["default_action_next_policy"] = map[string]interface{}{}
 		}
 		if !data.AllowList.IPPrefixSet.IsNull() && !data.AllowList.IPPrefixSet.IsUnknown() {
@@ -9022,7 +9146,7 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 		}
 		apiResource.Spec["allow_list"] = AllowListMap
 	}
-	if data.DenyAllRequests != nil {
+	if !data.DenyAllRequests.IsNull() && !data.DenyAllRequests.IsUnknown() {
 		apiResource.Spec["deny_all_requests"] = map[string]interface{}{}
 	}
 	if data.DenyList != nil {
@@ -9066,13 +9190,13 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 				DenyListMap["country_list"] = CountryListItems
 			}
 		}
-		if data.DenyList.DefaultActionAllow != nil {
+		if !data.DenyList.DefaultActionAllow.IsNull() && !data.DenyList.DefaultActionAllow.IsUnknown() {
 			DenyListMap["default_action_allow"] = map[string]interface{}{}
 		}
-		if data.DenyList.DefaultActionDeny != nil {
+		if !data.DenyList.DefaultActionDeny.IsNull() && !data.DenyList.DefaultActionDeny.IsUnknown() {
 			DenyListMap["default_action_deny"] = map[string]interface{}{}
 		}
-		if data.DenyList.DefaultActionNextPolicy != nil {
+		if !data.DenyList.DefaultActionNextPolicy.IsNull() && !data.DenyList.DefaultActionNextPolicy.IsUnknown() {
 			DenyListMap["default_action_next_policy"] = map[string]interface{}{}
 		}
 		if !data.DenyList.IPPrefixSet.IsNull() && !data.DenyList.IPPrefixSet.IsUnknown() {
@@ -9149,13 +9273,13 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 						if !RulesItem.Spec.Action.IsNull() && !RulesItem.Spec.Action.IsUnknown() {
 							RuleListRulesSpecMap["action"] = RulesItem.Spec.Action.ValueString()
 						}
-						if RulesItem.Spec.AnyAsn != nil {
+						if !RulesItem.Spec.AnyAsn.IsNull() && !RulesItem.Spec.AnyAsn.IsUnknown() {
 							RuleListRulesSpecMap["any_asn"] = map[string]interface{}{}
 						}
-						if RulesItem.Spec.AnyClient != nil {
+						if !RulesItem.Spec.AnyClient.IsNull() && !RulesItem.Spec.AnyClient.IsUnknown() {
 							RuleListRulesSpecMap["any_client"] = map[string]interface{}{}
 						}
-						if RulesItem.Spec.AnyIP != nil {
+						if !RulesItem.Spec.AnyIP.IsNull() && !RulesItem.Spec.AnyIP.IsUnknown() {
 							RuleListRulesSpecMap["any_ip"] = map[string]interface{}{}
 						}
 						if RulesItem.Spec.APIGroupMatcher != nil {
@@ -9181,10 +9305,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 								var ArgMatchersList []map[string]interface{}
 								for _, ArgMatchersItem := range ArgMatchersElems {
 									ArgMatchersItemMap := make(map[string]interface{})
-									if ArgMatchersItem.CheckNotPresent != nil {
+									if !ArgMatchersItem.CheckNotPresent.IsNull() && !ArgMatchersItem.CheckNotPresent.IsUnknown() {
 										ArgMatchersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if ArgMatchersItem.CheckPresent != nil {
+									if !ArgMatchersItem.CheckPresent.IsNull() && !ArgMatchersItem.CheckPresent.IsUnknown() {
 										ArgMatchersItemMap["check_present"] = map[string]interface{}{}
 									}
 									if !ArgMatchersItem.InvertMatcher.IsNull() && !ArgMatchersItem.InvertMatcher.IsUnknown() {
@@ -9291,10 +9415,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						if RulesItem.Spec.BotAction != nil {
 							RuleListRulesSpecBotActionMap := make(map[string]interface{})
-							if RulesItem.Spec.BotAction.BotSkipProcessing != nil {
+							if !RulesItem.Spec.BotAction.BotSkipProcessing.IsNull() && !RulesItem.Spec.BotAction.BotSkipProcessing.IsUnknown() {
 								RuleListRulesSpecBotActionMap["bot_skip_processing"] = map[string]interface{}{}
 							}
-							if RulesItem.Spec.BotAction.None != nil {
+							if !RulesItem.Spec.BotAction.None.IsNull() && !RulesItem.Spec.BotAction.None.IsUnknown() {
 								RuleListRulesSpecBotActionMap["none"] = map[string]interface{}{}
 							}
 							RuleListRulesSpecMap["bot_action"] = RuleListRulesSpecBotActionMap
@@ -9350,10 +9474,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 								var CookieMatchersList []map[string]interface{}
 								for _, CookieMatchersItem := range CookieMatchersElems {
 									CookieMatchersItemMap := make(map[string]interface{})
-									if CookieMatchersItem.CheckNotPresent != nil {
+									if !CookieMatchersItem.CheckNotPresent.IsNull() && !CookieMatchersItem.CheckNotPresent.IsUnknown() {
 										CookieMatchersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if CookieMatchersItem.CheckPresent != nil {
+									if !CookieMatchersItem.CheckPresent.IsNull() && !CookieMatchersItem.CheckPresent.IsUnknown() {
 										CookieMatchersItemMap["check_present"] = map[string]interface{}{}
 									}
 									if !CookieMatchersItem.InvertMatcher.IsNull() && !CookieMatchersItem.InvertMatcher.IsUnknown() {
@@ -9434,10 +9558,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 								var HeadersList []map[string]interface{}
 								for _, HeadersItem := range HeadersElems {
 									HeadersItemMap := make(map[string]interface{})
-									if HeadersItem.CheckNotPresent != nil {
+									if !HeadersItem.CheckNotPresent.IsNull() && !HeadersItem.CheckNotPresent.IsUnknown() {
 										HeadersItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if HeadersItem.CheckPresent != nil {
+									if !HeadersItem.CheckPresent.IsNull() && !HeadersItem.CheckPresent.IsUnknown() {
 										HeadersItemMap["check_present"] = map[string]interface{}{}
 									}
 									if !HeadersItem.InvertMatcher.IsNull() && !HeadersItem.InvertMatcher.IsUnknown() {
@@ -9567,10 +9691,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 								var JWTClaimsList []map[string]interface{}
 								for _, JWTClaimsItem := range JWTClaimsElems {
 									JWTClaimsItemMap := make(map[string]interface{})
-									if JWTClaimsItem.CheckNotPresent != nil {
+									if !JWTClaimsItem.CheckNotPresent.IsNull() && !JWTClaimsItem.CheckNotPresent.IsUnknown() {
 										JWTClaimsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if JWTClaimsItem.CheckPresent != nil {
+									if !JWTClaimsItem.CheckPresent.IsNull() && !JWTClaimsItem.CheckPresent.IsUnknown() {
 										JWTClaimsItemMap["check_present"] = map[string]interface{}{}
 									}
 									if !JWTClaimsItem.InvertMatcher.IsNull() && !JWTClaimsItem.InvertMatcher.IsUnknown() {
@@ -9629,10 +9753,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						if RulesItem.Spec.MumAction != nil {
 							RuleListRulesSpecMumActionMap := make(map[string]interface{})
-							if RulesItem.Spec.MumAction.Default != nil {
+							if !RulesItem.Spec.MumAction.Default.IsNull() && !RulesItem.Spec.MumAction.Default.IsUnknown() {
 								RuleListRulesSpecMumActionMap["default"] = map[string]interface{}{}
 							}
-							if RulesItem.Spec.MumAction.SkipProcessing != nil {
+							if !RulesItem.Spec.MumAction.SkipProcessing.IsNull() && !RulesItem.Spec.MumAction.SkipProcessing.IsUnknown() {
 								RuleListRulesSpecMumActionMap["skip_processing"] = map[string]interface{}{}
 							}
 							RuleListRulesSpecMap["mum_action"] = RuleListRulesSpecMumActionMap
@@ -9710,10 +9834,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 								var QueryParamsList []map[string]interface{}
 								for _, QueryParamsItem := range QueryParamsElems {
 									QueryParamsItemMap := make(map[string]interface{})
-									if QueryParamsItem.CheckNotPresent != nil {
+									if !QueryParamsItem.CheckNotPresent.IsNull() && !QueryParamsItem.CheckNotPresent.IsUnknown() {
 										QueryParamsItemMap["check_not_present"] = map[string]interface{}{}
 									}
-									if QueryParamsItem.CheckPresent != nil {
+									if !QueryParamsItem.CheckPresent.IsNull() && !QueryParamsItem.CheckPresent.IsUnknown() {
 										QueryParamsItemMap["check_present"] = map[string]interface{}{}
 									}
 									if !QueryParamsItem.InvertMatcher.IsNull() && !QueryParamsItem.InvertMatcher.IsUnknown() {
@@ -9760,86 +9884,86 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 							if !RulesItem.Spec.RequestConstraints.MaxCookieCountExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxCookieCountExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_cookie_count_exceeds"] = RulesItem.Spec.RequestConstraints.MaxCookieCountExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxCookieCountNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxCookieCountNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxCookieCountNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_cookie_count_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxCookieKeySizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxCookieKeySizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_cookie_key_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxCookieKeySizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxCookieKeySizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxCookieKeySizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxCookieKeySizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_cookie_key_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxCookieValueSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxCookieValueSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_cookie_value_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxCookieValueSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxCookieValueSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxCookieValueSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxCookieValueSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_cookie_value_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxHeaderCountExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxHeaderCountExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_header_count_exceeds"] = RulesItem.Spec.RequestConstraints.MaxHeaderCountExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxHeaderCountNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxHeaderCountNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxHeaderCountNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_header_count_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxHeaderKeySizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxHeaderKeySizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_header_key_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxHeaderKeySizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxHeaderKeySizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxHeaderKeySizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxHeaderKeySizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_header_key_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxHeaderValueSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxHeaderValueSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_header_value_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxHeaderValueSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxHeaderValueSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxHeaderValueSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxHeaderValueSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_header_value_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxParameterCountExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxParameterCountExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_parameter_count_exceeds"] = RulesItem.Spec.RequestConstraints.MaxParameterCountExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxParameterCountNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxParameterCountNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxParameterCountNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_parameter_count_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxParameterNameSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxParameterNameSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_parameter_name_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxParameterNameSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxParameterNameSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxParameterNameSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxParameterNameSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_parameter_name_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxParameterValueSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxParameterValueSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_parameter_value_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxParameterValueSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxParameterValueSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxParameterValueSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxParameterValueSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_parameter_value_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxQuerySizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxQuerySizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_query_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxQuerySizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxQuerySizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxQuerySizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxQuerySizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_query_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxRequestLineSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxRequestLineSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_request_line_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxRequestLineSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxRequestLineSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxRequestLineSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxRequestLineSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_request_line_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxRequestSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxRequestSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_request_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxRequestSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxRequestSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxRequestSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxRequestSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_request_size_none"] = map[string]interface{}{}
 							}
 							if !RulesItem.Spec.RequestConstraints.MaxURLSizeExceeds.IsNull() && !RulesItem.Spec.RequestConstraints.MaxURLSizeExceeds.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_url_size_exceeds"] = RulesItem.Spec.RequestConstraints.MaxURLSizeExceeds.ValueInt64()
 							}
-							if RulesItem.Spec.RequestConstraints.MaxURLSizeNone != nil {
+							if !RulesItem.Spec.RequestConstraints.MaxURLSizeNone.IsNull() && !RulesItem.Spec.RequestConstraints.MaxURLSizeNone.IsUnknown() {
 								RuleListRulesSpecRequestConstraintsMap["max_url_size_none"] = map[string]interface{}{}
 							}
 							RuleListRulesSpecMap["request_constraints"] = RuleListRulesSpecRequestConstraintsMap
 						}
 						if RulesItem.Spec.SegmentPolicy != nil {
 							RuleListRulesSpecSegmentPolicyMap := make(map[string]interface{})
-							if RulesItem.Spec.SegmentPolicy.DstAny != nil {
+							if !RulesItem.Spec.SegmentPolicy.DstAny.IsNull() && !RulesItem.Spec.SegmentPolicy.DstAny.IsUnknown() {
 								RuleListRulesSpecSegmentPolicyMap["dst_any"] = map[string]interface{}{}
 							}
 							if RulesItem.Spec.SegmentPolicy.DstSegments != nil {
@@ -9865,10 +9989,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 								}
 								RuleListRulesSpecSegmentPolicyMap["dst_segments"] = RuleListRulesSpecSegmentPolicyDstSegmentsMap
 							}
-							if RulesItem.Spec.SegmentPolicy.IntraSegment != nil {
+							if !RulesItem.Spec.SegmentPolicy.IntraSegment.IsNull() && !RulesItem.Spec.SegmentPolicy.IntraSegment.IsUnknown() {
 								RuleListRulesSpecSegmentPolicyMap["intra_segment"] = map[string]interface{}{}
 							}
-							if RulesItem.Spec.SegmentPolicy.SrcAny != nil {
+							if !RulesItem.Spec.SegmentPolicy.SrcAny.IsNull() && !RulesItem.Spec.SegmentPolicy.SrcAny.IsUnknown() {
 								RuleListRulesSpecSegmentPolicyMap["src_any"] = map[string]interface{}{}
 							}
 							if RulesItem.Spec.SegmentPolicy.SrcSegments != nil {
@@ -10032,10 +10156,10 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 								}
 								RuleListRulesSpecWAFActionMap["app_firewall_detection_control"] = RuleListRulesSpecWAFActionAppFirewallDetectionControlMap
 							}
-							if RulesItem.Spec.WAFAction.None != nil {
+							if !RulesItem.Spec.WAFAction.None.IsNull() && !RulesItem.Spec.WAFAction.None.IsUnknown() {
 								RuleListRulesSpecWAFActionMap["none"] = map[string]interface{}{}
 							}
-							if RulesItem.Spec.WAFAction.WAFSkipProcessing != nil {
+							if !RulesItem.Spec.WAFAction.WAFSkipProcessing.IsNull() && !RulesItem.Spec.WAFAction.WAFSkipProcessing.IsUnknown() {
 								RuleListRulesSpecWAFActionMap["waf_skip_processing"] = map[string]interface{}{}
 							}
 							RuleListRulesSpecMap["waf_action"] = RuleListRulesSpecWAFActionMap
@@ -10081,7 +10205,7 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 		}
 		apiResource.Spec["server_selector"] = ServerSelectorMap
 	}
-	if data.AnyServer != nil {
+	if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() {
 		apiResource.Spec["any_server"] = map[string]interface{}{}
 	}
 	if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
@@ -10153,8 +10277,12 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["allow_all_requests"].(map[string]interface{}); ok && isImport && data.AllowAllRequests == nil {
-		data.AllowAllRequests = &ServicePolicyEmptyModel{}
+	if !isImport && !data.AllowAllRequests.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all_requests"].(map[string]interface{}); ok {
+		data.AllowAllRequests = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAllRequests = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["allow_list"].(map[string]interface{}); ok && (isImport || data.AllowList != nil) {
 		data.AllowList = &ServicePolicyAllowListModel{
@@ -10236,32 +10364,32 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			DefaultActionAllow: func() *ServicePolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionAllow.IsUnknown() {
 					return data.AllowList.DefaultActionAllow
 				}
 				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionDeny: func() *ServicePolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionDeny.IsUnknown() {
 					return data.AllowList.DefaultActionDeny
 				}
 				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionNextPolicy: func() *ServicePolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionNextPolicy.IsUnknown() {
 					return data.AllowList.DefaultActionNextPolicy
 				}
 				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			IPPrefixSet: func() types.List {
 				if !isImport && data.AllowList != nil && (data.AllowList.IPPrefixSet.IsNull() || len(data.AllowList.IPPrefixSet.Elements()) == 0) {
@@ -10357,8 +10485,12 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["deny_all_requests"].(map[string]interface{}); ok && isImport && data.DenyAllRequests == nil {
-		data.DenyAllRequests = &ServicePolicyEmptyModel{}
+	if !isImport && !data.DenyAllRequests.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["deny_all_requests"].(map[string]interface{}); ok {
+		data.DenyAllRequests = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DenyAllRequests = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["deny_list"].(map[string]interface{}); ok && (isImport || data.DenyList != nil) {
 		data.DenyList = &ServicePolicyDenyListModel{
@@ -10440,32 +10572,32 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			DefaultActionAllow: func() *ServicePolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionAllow.IsUnknown() {
 					return data.DenyList.DefaultActionAllow
 				}
 				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionDeny: func() *ServicePolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionDeny.IsUnknown() {
 					return data.DenyList.DefaultActionDeny
 				}
 				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionNextPolicy: func() *ServicePolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionNextPolicy.IsUnknown() {
 					return data.DenyList.DefaultActionNextPolicy
 				}
 				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
-					return &ServicePolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			IPPrefixSet: func() types.List {
 				if !isImport && data.DenyList != nil && (data.DenyList.IPPrefixSet.IsNull() || len(data.DenyList.IPPrefixSet.Elements()) == 0) {
@@ -10605,38 +10737,32 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return types.StringNull()
 											}(),
-											AnyAsn: func() *ServicePolicyEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+											AnyAsn: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.AnyAsn.IsUnknown() {
 													return RulesExisting[RulesIdx].Spec.AnyAsn
 												}
-												if !isImport {
-													if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
-														return &ServicePolicyEmptyModel{}
-													}
+												if _, ok := SpecData["any_asn"].(map[string]interface{}); ok && !isImport {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											AnyClient: func() *ServicePolicyEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+											AnyClient: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.AnyClient.IsUnknown() {
 													return RulesExisting[RulesIdx].Spec.AnyClient
 												}
-												if !isImport {
-													if _, ok := SpecData["any_client"].(map[string]interface{}); ok {
-														return &ServicePolicyEmptyModel{}
-													}
+												if _, ok := SpecData["any_client"].(map[string]interface{}); ok && !isImport {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											AnyIP: func() *ServicePolicyEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil {
+											AnyIP: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.AnyIP.IsUnknown() {
 													return RulesExisting[RulesIdx].Spec.AnyIP
 												}
-												if !isImport {
-													if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
-														return &ServicePolicyEmptyModel{}
-													}
+												if _, ok := SpecData["any_ip"].(map[string]interface{}); ok && !isImport {
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											APIGroupMatcher: func() *ServicePolicyRuleListRulesSpecAPIGroupMatcherModel {
 												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.APIGroupMatcher != nil {
@@ -10685,23 +10811,23 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 														_ = ArgMatchersIdx
 														if ArgMatchersItemMap, ok := ArgMatchersItem.(map[string]interface{}); ok {
 															ArgMatchersResult = append(ArgMatchersResult, ServicePolicyRuleListRulesSpecArgMatchersModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && !ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent.IsUnknown() {
 																		return ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent
 																	}
 																	if _, ok := ArgMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && !ArgMatchersExisting[ArgMatchersIdx].CheckPresent.IsUnknown() {
 																		return ArgMatchersExisting[ArgMatchersIdx].CheckPresent
 																	}
 																	if _, ok := ArgMatchersItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := ArgMatchersItemMap["invert_matcher"].(bool); ok {
@@ -10913,23 +11039,23 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												if BotActionData, ok := SpecData["bot_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecBotActionModel{
-														BotSkipProcessing: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+														BotSkipProcessing: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil && !RulesExisting[RulesIdx].Spec.BotAction.BotSkipProcessing.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.BotAction.BotSkipProcessing
 															}
 															if _, ok := BotActionData["bot_skip_processing"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														None: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil {
+														None: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.BotAction != nil && !RulesExisting[RulesIdx].Spec.BotAction.None.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.BotAction.None
 															}
 															if _, ok := BotActionData["none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -11031,23 +11157,23 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 														_ = CookieMatchersIdx
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, ServicePolicyRuleListRulesSpecCookieMatchersModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && !CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent.IsUnknown() {
 																		return CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent
 																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && !CookieMatchersExisting[CookieMatchersIdx].CheckPresent.IsUnknown() {
 																		return CookieMatchersExisting[CookieMatchersIdx].CheckPresent
 																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := CookieMatchersItemMap["invert_matcher"].(bool); ok {
@@ -11190,23 +11316,23 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 														_ = HeadersIdx
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ServicePolicyRuleListRulesSpecHeadersModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(HeadersExisting) > HeadersIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckNotPresent.IsUnknown() {
 																		return HeadersExisting[HeadersIdx].CheckNotPresent
 																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(HeadersExisting) > HeadersIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(HeadersExisting) > HeadersIdx && !HeadersExisting[HeadersIdx].CheckPresent.IsUnknown() {
 																		return HeadersExisting[HeadersIdx].CheckPresent
 																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := HeadersItemMap["invert_matcher"].(bool); ok {
@@ -11473,23 +11599,23 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 														_ = JWTClaimsIdx
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, ServicePolicyRuleListRulesSpecJWTClaimsModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && !JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent.IsUnknown() {
 																		return JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent
 																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && !JWTClaimsExisting[JWTClaimsIdx].CheckPresent.IsUnknown() {
 																		return JWTClaimsExisting[JWTClaimsIdx].CheckPresent
 																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := JWTClaimsItemMap["invert_matcher"].(bool); ok {
@@ -11599,23 +11725,23 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												if MumActionData, ok := SpecData["mum_action"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecMumActionModel{
-														Default: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+														Default: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil && !RulesExisting[RulesIdx].Spec.MumAction.Default.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.MumAction.Default
 															}
 															if _, ok := MumActionData["default"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SkipProcessing: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
+														SkipProcessing: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil && !RulesExisting[RulesIdx].Spec.MumAction.SkipProcessing.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.MumAction.SkipProcessing
 															}
 															if _, ok := MumActionData["skip_processing"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -11766,23 +11892,23 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 														_ = QueryParamsIdx
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, ServicePolicyRuleListRulesSpecQueryParamsModel{
-																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx {
+																CheckNotPresent: func() types.Object {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && !QueryParamsExisting[QueryParamsIdx].CheckNotPresent.IsUnknown() {
 																		return QueryParamsExisting[QueryParamsIdx].CheckNotPresent
 																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx {
+																CheckPresent: func() types.Object {
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && !QueryParamsExisting[QueryParamsIdx].CheckPresent.IsUnknown() {
 																		return QueryParamsExisting[QueryParamsIdx].CheckPresent
 																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
-																		return &ServicePolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																InvertMatcher: func() types.Bool {
 																	if v, ok := QueryParamsItemMap["invert_matcher"].(bool); ok {
@@ -11868,14 +11994,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxCookieCountNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxCookieCountNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieCountNone
 															}
 															if _, ok := RequestConstraintsData["max_cookie_count_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxCookieKeySizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeExceeds.IsUnknown() {
@@ -11886,14 +12012,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxCookieKeySizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxCookieKeySizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieKeySizeNone
 															}
 															if _, ok := RequestConstraintsData["max_cookie_key_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxCookieValueSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeExceeds.IsUnknown() {
@@ -11904,14 +12030,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxCookieValueSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxCookieValueSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxCookieValueSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_cookie_value_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxHeaderCountExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountExceeds.IsUnknown() {
@@ -11922,14 +12048,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxHeaderCountNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxHeaderCountNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderCountNone
 															}
 															if _, ok := RequestConstraintsData["max_header_count_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxHeaderKeySizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeExceeds.IsUnknown() {
@@ -11940,14 +12066,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxHeaderKeySizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxHeaderKeySizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderKeySizeNone
 															}
 															if _, ok := RequestConstraintsData["max_header_key_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxHeaderValueSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeExceeds.IsUnknown() {
@@ -11958,14 +12084,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxHeaderValueSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxHeaderValueSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxHeaderValueSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_header_value_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxParameterCountExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountExceeds.IsUnknown() {
@@ -11976,14 +12102,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxParameterCountNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxParameterCountNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterCountNone
 															}
 															if _, ok := RequestConstraintsData["max_parameter_count_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxParameterNameSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeExceeds.IsUnknown() {
@@ -11994,14 +12120,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxParameterNameSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxParameterNameSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterNameSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_parameter_name_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxParameterValueSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeExceeds.IsUnknown() {
@@ -12012,14 +12138,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxParameterValueSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxParameterValueSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxParameterValueSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_parameter_value_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxQuerySizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeExceeds.IsUnknown() {
@@ -12030,14 +12156,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxQuerySizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxQuerySizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxQuerySizeNone
 															}
 															if _, ok := RequestConstraintsData["max_query_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxRequestLineSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeExceeds.IsUnknown() {
@@ -12048,14 +12174,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxRequestLineSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxRequestLineSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestLineSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_request_line_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxRequestSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeExceeds.IsUnknown() {
@@ -12066,14 +12192,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxRequestSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxRequestSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxRequestSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_request_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxURLSizeExceeds: func() types.Int64 {
 															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeExceeds.IsUnknown() {
@@ -12084,14 +12210,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.Int64Null()
 														}(),
-														MaxURLSizeNone: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil {
+														MaxURLSizeNone: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.RequestConstraints != nil && !RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeNone.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.RequestConstraints.MaxURLSizeNone
 															}
 															if _, ok := RequestConstraintsData["max_url_size_none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -12100,14 +12226,14 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 											SegmentPolicy: func() *ServicePolicyRuleListRulesSpecSegmentPolicyModel {
 												if SegmentPolicyData, ok := SpecData["segment_policy"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecSegmentPolicyModel{
-														DstAny: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+														DstAny: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.DstAny.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.SegmentPolicy.DstAny
 															}
 															if _, ok := SegmentPolicyData["dst_any"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														DstSegments: func() *ServicePolicyRuleListRulesSpecSegmentPolicyDstSegmentsModel {
 															if DstSegmentsData, ok := SegmentPolicyData["dst_segments"].(map[string]interface{}); ok {
@@ -12156,23 +12282,23 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return nil
 														}(),
-														IntraSegment: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+														IntraSegment: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.IntraSegment.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.SegmentPolicy.IntraSegment
 															}
 															if _, ok := SegmentPolicyData["intra_segment"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SrcAny: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil {
+														SrcAny: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.SegmentPolicy != nil && !RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcAny.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.SegmentPolicy.SrcAny
 															}
 															if _, ok := SegmentPolicyData["src_any"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SrcSegments: func() *ServicePolicyRuleListRulesSpecSegmentPolicySrcSegmentsModel {
 															if SrcSegmentsData, ok := SegmentPolicyData["src_segments"].(map[string]interface{}); ok {
@@ -12479,23 +12605,23 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return nil
 														}(),
-														None: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+														None: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && !RulesExisting[RulesIdx].Spec.WAFAction.None.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.WAFAction.None
 															}
 															if _, ok := WAFActionData["none"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														WAFSkipProcessing: func() *ServicePolicyEmptyModel {
-															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil {
+														WAFSkipProcessing: func() types.Object {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.WAFAction != nil && !RulesExisting[RulesIdx].Spec.WAFAction.WAFSkipProcessing.IsUnknown() {
 																return RulesExisting[RulesIdx].Spec.WAFAction.WAFSkipProcessing
 															}
 															if _, ok := WAFActionData["waf_skip_processing"].(map[string]interface{}); ok {
-																return &ServicePolicyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -12564,6 +12690,13 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 				return types.ListNull(types.StringType)
 			}(),
 		}
+	}
+	if !isImport && !data.AnyServer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["any_server"].(map[string]interface{}); ok && !isImport {
+		data.AnyServer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AnyServer = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["server_name"].(string); ok && v != "" {
 		data.ServerName = types.StringValue(v)

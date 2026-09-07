@@ -127,7 +127,7 @@ resource "xcsh_certificate" "test" {
     }
   }
 
-  disable_ocsp_stapling {}
+  disable_ocsp_stapling = {}
 }
 `, nsName, name, certs.ServerCertBase64, certs.ServerKeyBase64))
 }
@@ -170,7 +170,7 @@ resource "xcsh_certificate" "test" {
     }
   }
 
-  disable_ocsp_stapling {}
+  disable_ocsp_stapling = {}
 }
 `, nsName, name, certs.ServerCertBase64, certs.ServerKeyBase64))
 }

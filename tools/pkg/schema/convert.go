@@ -584,6 +584,17 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 		}
 	}
 
+	// HCL cannot represent an unknown single empty block: an unknown dynamic
+	// block is decoded as a known empty object. That makes two mutually exclusive
+	// dynamic markers appear simultaneously configured during validation. Expose
+	// empty oneof markers as nullable object attributes so Terraform preserves
+	// known, null, and unknown presence distinctly.
+	if attr.IsBlock && attr.NestedBlockType == "single" && len(attr.NestedAttributes) == 0 &&
+		(len(attr.ConflictsWith) > 0 || attr.OneOfGroup != "") {
+		attr.IsBlock = false
+		attr.EmptyObjectMarker = true
+	}
+
 	if attr.Type == "int64" {
 		spans, err := constraints.ParseInt64RangeSpans(attr.ValidationRules)
 		if err != nil {

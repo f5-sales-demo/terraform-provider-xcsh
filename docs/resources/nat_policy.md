@@ -39,7 +39,7 @@ resource "xcsh_nat_policy" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -83,9 +83,9 @@ A [`rules`](#rules) block supports the following:
 
 <a id="rules-criteria"></a>&#x2022; [`criteria`](#rules-criteria) - Optional Block<br>Match criteria of the packet to apply the NAT Rule<br>See [Criteria](#rules-criteria) below.
 
-<a id="rules-disable-spec"></a>&#x2022; [`disable_spec`](#rules-disable-spec) - Optional Block<br>Enable this option
+<a id="rules-disable-spec"></a>&#x2022; [`disable_spec`](#rules-disable-spec) - Optional Object<br>Enable this option
 
-<a id="rules-enable"></a>&#x2022; [`enable`](#rules-enable) - Optional Block<br>Enable this option
+<a id="rules-enable"></a>&#x2022; [`enable`](#rules-enable) - Optional Object<br>Enable this option
 
 <a id="rules-name"></a>&#x2022; [`name`](#rules-name) - Optional String<br>Name. Name of the Rule
 
@@ -161,15 +161,15 @@ A [`refs`](#rules-cloud-connect-refs) block (within [`rules.cloud_connect`](#rul
 
 A [`criteria`](#rules-criteria) block (within [`rules`](#rules)) supports the following:
 
-<a id="rules-criteria-any"></a>&#x2022; [`any`](#rules-criteria-any) - Optional Block<br>Enable this option
+<a id="rules-criteria-any"></a>&#x2022; [`any`](#rules-criteria-any) - Optional Object<br>Enable this option
 
 <a id="rules-criteria-destination-cidr"></a>&#x2022; [`destination_cidr`](#rules-criteria-destination-cidr) - Optional List<br>Destination IP. Destination IP of the packet to match
 
-<a id="rules-criteria-icmp"></a>&#x2022; [`icmp`](#rules-criteria-icmp) - Optional Block<br>Enable this option
+<a id="rules-criteria-icmp"></a>&#x2022; [`icmp`](#rules-criteria-icmp) - Optional Object<br>Enable this option
 
-<a id="network-72821d"></a>&#x2022; [`site_local_inside_network`](#network-72821d) - Optional Block<br>Enable this option
+<a id="network-72821d"></a>&#x2022; [`site_local_inside_network`](#network-72821d) - Optional Object<br>Enable this option
 
-<a id="rules-criteria-site-local-network"></a>&#x2022; [`site_local_network`](#rules-criteria-site-local-network) - Optional Block<br>Enable this option
+<a id="rules-criteria-site-local-network"></a>&#x2022; [`site_local_network`](#rules-criteria-site-local-network) - Optional Object<br>Enable this option
 
 <a id="rules-criteria-source-cidr"></a>&#x2022; [`source_cidr`](#rules-criteria-source-cidr) - Optional List<br>Source IP. Source IP of the packet to match
 
@@ -189,21 +189,29 @@ A [`tcp`](#rules-criteria-tcp) block (within [`rules.criteria`](#rules-criteria)
 
 A [`destination_port`](#rules-criteria-tcp-destination-port) block (within [`rules.criteria.tcp`](#rules-criteria-tcp)) supports the following:
 
-<a id="match-d7a933"></a>&#x2022; [`no_port_match`](#match-d7a933) - Optional Block<br>Enable this option
+<a id="match-d7a933"></a>&#x2022; [`no_port_match`](#match-d7a933) - Optional Object<br>Enable this option
 
 <a id="port-8bd6fd"></a>&#x2022; [`port`](#port-8bd6fd) - Optional Number<br>Exact Port to match
 
 <a id="ranges-d800d8"></a>&#x2022; [`port_ranges`](#ranges-d800d8) - Optional String<br>Port range to match
 
+#### Rules Criteria TCP Destination Port No Port Match
+
+<a id="deep-1b693f"></a>Deeply nested **Match** block collapsed for readability.
+
 #### Rules Criteria TCP Source Port
 
 A [`source_port`](#rules-criteria-tcp-source-port) block (within [`rules.criteria.tcp`](#rules-criteria-tcp)) supports the following:
 
-<a id="match-dbf0f6"></a>&#x2022; [`no_port_match`](#match-dbf0f6) - Optional Block<br>Enable this option
+<a id="match-dbf0f6"></a>&#x2022; [`no_port_match`](#match-dbf0f6) - Optional Object<br>Enable this option
 
 <a id="rules-criteria-tcp-source-port-port"></a>&#x2022; [`port`](#rules-criteria-tcp-source-port-port) - Optional Number<br>Exact Port to match
 
 <a id="ranges-8fd5fe"></a>&#x2022; [`port_ranges`](#ranges-8fd5fe) - Optional String<br>Port range to match
+
+#### Rules Criteria TCP Source Port No Port Match
+
+<a id="deep-2d207b"></a>Deeply nested **Match** block collapsed for readability.
 
 #### Rules Criteria UDP
 
@@ -217,21 +225,33 @@ An [`udp`](#rules-criteria-udp) block (within [`rules.criteria`](#rules-criteria
 
 A [`destination_port`](#rules-criteria-udp-destination-port) block (within [`rules.criteria.udp`](#rules-criteria-udp)) supports the following:
 
-<a id="match-214578"></a>&#x2022; [`no_port_match`](#match-214578) - Optional Block<br>Enable this option
+<a id="match-214578"></a>&#x2022; [`no_port_match`](#match-214578) - Optional Object<br>Enable this option
 
 <a id="port-955148"></a>&#x2022; [`port`](#port-955148) - Optional Number<br>Exact Port to match
 
 <a id="ranges-6407dd"></a>&#x2022; [`port_ranges`](#ranges-6407dd) - Optional String<br>Port range to match
 
+#### Rules Criteria UDP Destination Port No Port Match
+
+<a id="deep-cdd98f"></a>Deeply nested **Match** block collapsed for readability.
+
 #### Rules Criteria UDP Source Port
 
 A [`source_port`](#rules-criteria-udp-source-port) block (within [`rules.criteria.udp`](#rules-criteria-udp)) supports the following:
 
-<a id="match-2dbf46"></a>&#x2022; [`no_port_match`](#match-2dbf46) - Optional Block<br>Enable this option
+<a id="match-2dbf46"></a>&#x2022; [`no_port_match`](#match-2dbf46) - Optional Object<br>Enable this option
 
 <a id="rules-criteria-udp-source-port-port"></a>&#x2022; [`port`](#rules-criteria-udp-source-port-port) - Optional Number<br>Exact Port to match
 
 <a id="ranges-a44153"></a>&#x2022; [`port_ranges`](#ranges-a44153) - Optional String<br>Port range to match
+
+#### Rules Criteria UDP Source Port No Port Match
+
+<a id="deep-672f26"></a>Deeply nested **Match** block collapsed for readability.
+
+#### Rules Disable Spec
+
+A [`disable_spec`](#rules-disable-spec) block (within [`rules`](#rules)) supports the following:
 
 #### Rules Node Interface
 

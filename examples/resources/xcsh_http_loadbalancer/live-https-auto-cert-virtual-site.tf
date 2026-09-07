@@ -52,7 +52,7 @@ resource "xcsh_http_loadbalancer" "test" {
           namespace = xcsh_namespace.test.name
         }
       }
-      use_default_port {}
+      use_default_port = {}
     }
   }
 }

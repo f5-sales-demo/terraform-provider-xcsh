@@ -25,10 +25,10 @@ resource "xcsh_app_firewall" "test" {
     purpose = "acceptance-testing"
   }
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes   = {}
+  blocking                   = {}
+  use_default_blocking_page  = {}
+  default_bot_setting        = {}
+  default_anonymization      = {}
 }

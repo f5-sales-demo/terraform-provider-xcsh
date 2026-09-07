@@ -4,6 +4,7 @@ package parity
 
 import (
 	"encoding/json"
+	"slices"
 	"strings"
 	"testing"
 
@@ -85,6 +86,19 @@ func TestBuildSMSv2MatrixClassifiesSupportedCases(t *testing.T) {
 		if matrix.Classification[classification] != 1 {
 			t.Fatalf("classification %s count=%d", classification, matrix.Classification[classification])
 		}
+	}
+}
+
+func TestModernizedSemanticsRetainOwnerAndRequiredTests(t *testing.T) {
+	legacy := &LegacyManifest{Paths: []LegacyField{{Path: "field", Type: "string", Optional: true}}}
+	current := &CurrentManifest{Paths: []CurrentField{{Path: "spec.field", Type: "string", Cardinality: "single", CreateRequired: true}}}
+	matrix, err := BuildSMSv2Matrix(legacy, current)
+	if err != nil {
+		t.Fatal(err)
+	}
+	entry := matrix.Entries[0]
+	if entry.Classification != "modernized_semantics" || entry.OwningRepository == "" || len(entry.RequiredTests) == 0 {
+		t.Fatalf("modernized entry lacks accountable provenance: %+v", entry)
 	}
 }
 
@@ -190,5 +204,70 @@ func TestPlatformRemovalRejectsUnrelatedAPIRejections(t *testing.T) {
 				t.Fatalf("unrelated rejection incorrectly waived parity: %+v err=%v", matrix, err)
 			}
 		})
+	}
+}
+
+func TestMappedCurrentPathCoversIntentionalSMSv2Redesigns(t *testing.T) {
+	t.Parallel()
+	tests := map[string]string{
+		"admin_user_credentials.admin_password.blindfold_secret_info_internal.location":                                  "spec.admin_user_credentials.admin_password.blindfold_secret_info.location",
+		"custom_proxy.password.vault_secret_info.provider":                                                               "spec.custom_proxy.password.blindfold_secret_info",
+		"aws.not_managed.node_list[].interface_list[].dhcp_server.dhcp_networks[].network_prefix_allocator.name":         "spec.aws.not_managed.node_list[].interface_list[].dhcp_server.dhcp_networks[].network_prefix",
+		"aws.not_managed.node_list[].interface_list[].ipv6_auto_config.router.stateful.dhcp_networks[].pools[].exclude":  "spec.aws.not_managed.node_list[].interface_list[].ipv6_auto_config.router.stateful.dhcp_networks[].pool_settings",
+		"aws.not_managed.node_list[].interface_list[].static_ipv6_address.fleet_static_ip.default_gw":                    "spec.aws.not_managed.node_list[].interface_list[].static_ipv6_address.node_static_ip.default_gw",
+		"aws.not_managed.node_list[].interface_list[].static_ipv6_address.fleet_static_ip.network_prefix_allocator.name": "spec.aws.not_managed.node_list[].interface_list[].static_ipv6_address.cluster_static_ip.interface_ip_map",
+		"local_vrf.sli_config.static_routes.static_routes[].interface.name":                                              "spec.local_vrf.sli_config.static_routes.static_routes[].node_interface.list[].interface[].name",
+		"local_vrf.sli_config.static_v6_routes.static_routes[].interface.name":                                           "spec.local_vrf.sli_config.static_v6_routes.static_routes[].node_interface.list[].interface[].name",
+		"segment_vrf[].segment_config.nameserver_v6":                                                                     "spec.segment_vrf[].segment_config.nameserver",
+		"log_receiver.namespace": "spec.log_receiver_with_net.log_receiver.namespace",
+	}
+	for legacy, want := range tests {
+		legacy, want := legacy, want
+		t.Run(legacy, func(t *testing.T) {
+			t.Parallel()
+			got, reason, classification := mappedCurrentPath(legacy)
+			if got != want || reason == "" || classification != "modernized_semantics" {
+				t.Fatalf("mappedCurrentPath(%q) = (%q, %q, %q), want target %q with documented modernization", legacy, got, reason, classification, want)
+			}
+		})
+	}
+}
+
+func TestMappedCurrentPathDoesNotRewriteCurrentLoggingContract(t *testing.T) {
+	for _, path := range []string{"log_receiver_with_net", "log_receiver_with_net.log_receiver.name"} {
+		if target, _, _ := mappedCurrentPath(path); target != "" {
+			t.Fatalf("mappedCurrentPath(%q) unexpectedly rewrote current contract to %q", path, target)
+		}
+	}
+}
+
+func TestVerifiedNormalizedRemovalRequiresLiveRoundTripEvidence(t *testing.T) {
+	proof := RemovalEvidence{
+		ProofKind: "create_read_normalization", CreateStatus: 200, GetStatus: 200,
+		ServerBehavior: "silently_removed", ObservedDate: "2026-09-06",
+		LegacyFixtureSHA256: "sha256:" + strings.Repeat("a", 64), ProbeReceiptSHA256: "sha256:" + strings.Repeat("b", 64),
+	}
+	current := &CurrentManifest{
+		VerifiedRemovals:        []string{"spec.private_adn"},
+		VerifiedRemovalEvidence: map[string]RemovalEvidence{"spec.private_adn": proof},
+	}
+	legacy := &LegacyManifest{Paths: []LegacyField{{Path: "private_adn"}, {Path: "private_adn.private_adn"}, {Path: "unrelated"}}}
+	matrix, err := BuildSMSv2Matrix(legacy, current)
+	if err == nil || len(matrix.Unclassified) != 1 || matrix.Unclassified[0] != "unrelated" || matrix.Classification["current_feature_removal"] != 2 {
+		t.Fatalf("normalized removal scope incorrect: %+v err=%v", matrix, err)
+	}
+	for _, entry := range matrix.Entries {
+		if strings.HasPrefix(entry.LegacyPath, "private_adn") &&
+			(entry.OwningRepository != "f5-sales-demo/api-specs-enriched" ||
+				!slices.Contains(entry.RequiredTests, "create/read normalization and cleanup")) {
+			t.Fatalf("normalized feature removal lacks its required evidence contract: %+v", entry)
+		}
+	}
+	proof.ServerBehavior = "silently_removed"
+	proof.ProbeReceiptSHA256 = ""
+	current.VerifiedRemovalEvidence["spec.private_adn"] = proof
+	matrix, _ = BuildSMSv2Matrix(legacy, current)
+	if len(matrix.Unclassified) != 3 {
+		t.Fatalf("incomplete live evidence waived removal: %+v", matrix)
 	}
 }

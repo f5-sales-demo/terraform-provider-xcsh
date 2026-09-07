@@ -53,42 +53,42 @@ type DNSLBHealthCheckEmptyModel struct {
 
 // DNSLBHealthCheckHTTPHealthCheckModel represents http_health_check block
 type DNSLBHealthCheckHTTPHealthCheckModel struct {
-	HealthCheckPort          types.Int64                 `tfsdk:"health_check_port"`
-	HealthCheckSecondaryPort types.Int64                 `tfsdk:"health_check_secondary_port"`
-	Receive                  types.String                `tfsdk:"receive"`
-	Send                     types.String                `tfsdk:"send"`
-	VirtualHost              types.String                `tfsdk:"virtual_host"`
-	DisableVirtualHost       *DNSLBHealthCheckEmptyModel `tfsdk:"disable_virtual_host"`
+	DisableVirtualHost       types.Object `tfsdk:"disable_virtual_host"`
+	HealthCheckPort          types.Int64  `tfsdk:"health_check_port"`
+	HealthCheckSecondaryPort types.Int64  `tfsdk:"health_check_secondary_port"`
+	Receive                  types.String `tfsdk:"receive"`
+	Send                     types.String `tfsdk:"send"`
+	VirtualHost              types.String `tfsdk:"virtual_host"`
 }
 
 // DNSLBHealthCheckHTTPHealthCheckModelAttrTypes defines the attribute types for DNSLBHealthCheckHTTPHealthCheckModel
 var DNSLBHealthCheckHTTPHealthCheckModelAttrTypes = map[string]attr.Type{
+	"disable_virtual_host":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"health_check_port":           types.Int64Type,
 	"health_check_secondary_port": types.Int64Type,
 	"receive":                     types.StringType,
 	"send":                        types.StringType,
 	"virtual_host":                types.StringType,
-	"disable_virtual_host":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // DNSLBHealthCheckHTTPSHealthCheckModel represents https_health_check block
 type DNSLBHealthCheckHTTPSHealthCheckModel struct {
-	HealthCheckPort          types.Int64                 `tfsdk:"health_check_port"`
-	HealthCheckSecondaryPort types.Int64                 `tfsdk:"health_check_secondary_port"`
-	Receive                  types.String                `tfsdk:"receive"`
-	Send                     types.String                `tfsdk:"send"`
-	VirtualHost              types.String                `tfsdk:"virtual_host"`
-	DisableVirtualHost       *DNSLBHealthCheckEmptyModel `tfsdk:"disable_virtual_host"`
+	DisableVirtualHost       types.Object `tfsdk:"disable_virtual_host"`
+	HealthCheckPort          types.Int64  `tfsdk:"health_check_port"`
+	HealthCheckSecondaryPort types.Int64  `tfsdk:"health_check_secondary_port"`
+	Receive                  types.String `tfsdk:"receive"`
+	Send                     types.String `tfsdk:"send"`
+	VirtualHost              types.String `tfsdk:"virtual_host"`
 }
 
 // DNSLBHealthCheckHTTPSHealthCheckModelAttrTypes defines the attribute types for DNSLBHealthCheckHTTPSHealthCheckModel
 var DNSLBHealthCheckHTTPSHealthCheckModelAttrTypes = map[string]attr.Type{
+	"disable_virtual_host":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"health_check_port":           types.Int64Type,
 	"health_check_secondary_port": types.Int64Type,
 	"receive":                     types.StringType,
 	"send":                        types.StringType,
 	"virtual_host":                types.StringType,
-	"disable_virtual_host":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // DNSLBHealthCheckTCPHealthCheckModel represents tcp_health_check block
@@ -145,12 +145,12 @@ type DNSLBHealthCheckResourceModel struct {
 	Annotations       types.Map                               `tfsdk:"annotations"`
 	Description       types.String                            `tfsdk:"description"`
 	Disable           types.Bool                              `tfsdk:"disable"`
+	ICMPHealthCheck   types.Object                            `tfsdk:"icmp_health_check"`
 	Labels            types.Map                               `tfsdk:"labels"`
 	ID                types.String                            `tfsdk:"id"`
 	Timeouts          timeouts.Value                          `tfsdk:"timeouts"`
 	HTTPHealthCheck   *DNSLBHealthCheckHTTPHealthCheckModel   `tfsdk:"http_health_check"`
 	HTTPSHealthCheck  *DNSLBHealthCheckHTTPSHealthCheckModel  `tfsdk:"https_health_check"`
-	ICMPHealthCheck   *DNSLBHealthCheckEmptyModel             `tfsdk:"icmp_health_check"`
 	TCPHealthCheck    *DNSLBHealthCheckTCPHealthCheckModel    `tfsdk:"tcp_health_check"`
 	TCPHexHealthCheck *DNSLBHealthCheckTCPHexHealthCheckModel `tfsdk:"tcp_hex_health_check"`
 	UDPHealthCheck    *DNSLBHealthCheckUDPHealthCheckModel    `tfsdk:"udp_health_check"`
@@ -200,6 +200,11 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"icmp_health_check": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for icmp health check.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
@@ -225,6 +230,11 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("health_check_port"), validators.ConflictingObjectAttributes("disable_virtual_host", "virtual_host")},
 
 				Attributes: map[string]schema.Attribute{
+					"disable_virtual_host": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"health_check_port": schema.Int64Attribute{
 						MarkdownDescription: "Health Check Port. Port used for performing health check.",
 						Optional:            true,
@@ -259,11 +269,6 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(2048),
 						},
-					},
-				},
-				Blocks: map[string]schema.Block{
-					"disable_virtual_host": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 				},
 			},
@@ -272,6 +277,11 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("health_check_port"), validators.ConflictingObjectAttributes("disable_virtual_host", "virtual_host")},
 
 				Attributes: map[string]schema.Attribute{
+					"disable_virtual_host": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"health_check_port": schema.Int64Attribute{
 						MarkdownDescription: "Health Check Port. Port used for performing health check.",
 						Optional:            true,
@@ -308,14 +318,6 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 						},
 					},
 				},
-				Blocks: map[string]schema.Block{
-					"disable_virtual_host": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-				},
-			},
-			"icmp_health_check": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for icmp health check.",
 			},
 			"tcp_health_check": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for tcp health check.",
@@ -550,7 +552,7 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 	// Marshal spec fields from Terraform state to API struct
 	if data.HTTPHealthCheck != nil {
 		HTTPHealthCheckMap := make(map[string]interface{})
-		if data.HTTPHealthCheck.DisableVirtualHost != nil {
+		if !data.HTTPHealthCheck.DisableVirtualHost.IsNull() && !data.HTTPHealthCheck.DisableVirtualHost.IsUnknown() {
 			HTTPHealthCheckMap["disable_virtual_host"] = map[string]interface{}{}
 		}
 		if !data.HTTPHealthCheck.HealthCheckPort.IsNull() && !data.HTTPHealthCheck.HealthCheckPort.IsUnknown() {
@@ -572,7 +574,7 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 	}
 	if data.HTTPSHealthCheck != nil {
 		HTTPSHealthCheckMap := make(map[string]interface{})
-		if data.HTTPSHealthCheck.DisableVirtualHost != nil {
+		if !data.HTTPSHealthCheck.DisableVirtualHost.IsNull() && !data.HTTPSHealthCheck.DisableVirtualHost.IsUnknown() {
 			HTTPSHealthCheckMap["disable_virtual_host"] = map[string]interface{}{}
 		}
 		if !data.HTTPSHealthCheck.HealthCheckPort.IsNull() && !data.HTTPSHealthCheck.HealthCheckPort.IsUnknown() {
@@ -592,7 +594,7 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 		}
 		createReq.Spec["https_health_check"] = HTTPSHealthCheckMap
 	}
-	if data.ICMPHealthCheck != nil {
+	if !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() {
 		createReq.Spec["icmp_health_check"] = map[string]interface{}{}
 	}
 	if data.TCPHealthCheck != nil {
@@ -684,14 +686,14 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["http_health_check"].(map[string]interface{}); ok && (isImport || data.HTTPHealthCheck != nil) {
 		data.HTTPHealthCheck = &DNSLBHealthCheckHTTPHealthCheckModel{
-			DisableVirtualHost: func() *DNSLBHealthCheckEmptyModel {
-				if !isImport && data.HTTPHealthCheck != nil {
+			DisableVirtualHost: func() types.Object {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.DisableVirtualHost.IsUnknown() {
 					return data.HTTPHealthCheck.DisableVirtualHost
 				}
 				if _, ok := blockData["disable_virtual_host"].(map[string]interface{}); ok {
-					return &DNSLBHealthCheckEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HealthCheckPort: func() types.Int64 {
 				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.HealthCheckPort.IsUnknown() {
@@ -733,14 +735,14 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 	}
 	if blockData, ok := apiResource.Spec["https_health_check"].(map[string]interface{}); ok && (isImport || data.HTTPSHealthCheck != nil) {
 		data.HTTPSHealthCheck = &DNSLBHealthCheckHTTPSHealthCheckModel{
-			DisableVirtualHost: func() *DNSLBHealthCheckEmptyModel {
-				if !isImport && data.HTTPSHealthCheck != nil {
+			DisableVirtualHost: func() types.Object {
+				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.DisableVirtualHost.IsUnknown() {
 					return data.HTTPSHealthCheck.DisableVirtualHost
 				}
 				if _, ok := blockData["disable_virtual_host"].(map[string]interface{}); ok {
-					return &DNSLBHealthCheckEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HealthCheckPort: func() types.Int64 {
 				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.HealthCheckPort.IsUnknown() {
@@ -780,8 +782,12 @@ func (r *DNSLBHealthCheckResource) Create(ctx context.Context, req resource.Crea
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["icmp_health_check"].(map[string]interface{}); ok && isImport && data.ICMPHealthCheck == nil {
-		data.ICMPHealthCheck = &DNSLBHealthCheckEmptyModel{}
+	if !isImport && !data.ICMPHealthCheck.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["icmp_health_check"].(map[string]interface{}); ok {
+		data.ICMPHealthCheck = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ICMPHealthCheck = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["tcp_health_check"].(map[string]interface{}); ok && (isImport || data.TCPHealthCheck != nil) {
 		data.TCPHealthCheck = &DNSLBHealthCheckTCPHealthCheckModel{
@@ -1018,14 +1024,14 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["http_health_check"].(map[string]interface{}); ok && (isImport || data.HTTPHealthCheck != nil) {
 		data.HTTPHealthCheck = &DNSLBHealthCheckHTTPHealthCheckModel{
-			DisableVirtualHost: func() *DNSLBHealthCheckEmptyModel {
-				if !isImport && data.HTTPHealthCheck != nil {
+			DisableVirtualHost: func() types.Object {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.DisableVirtualHost.IsUnknown() {
 					return data.HTTPHealthCheck.DisableVirtualHost
 				}
 				if _, ok := blockData["disable_virtual_host"].(map[string]interface{}); ok {
-					return &DNSLBHealthCheckEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HealthCheckPort: func() types.Int64 {
 				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.HealthCheckPort.IsUnknown() {
@@ -1067,14 +1073,14 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 	}
 	if blockData, ok := apiResource.Spec["https_health_check"].(map[string]interface{}); ok && (isImport || data.HTTPSHealthCheck != nil) {
 		data.HTTPSHealthCheck = &DNSLBHealthCheckHTTPSHealthCheckModel{
-			DisableVirtualHost: func() *DNSLBHealthCheckEmptyModel {
-				if !isImport && data.HTTPSHealthCheck != nil {
+			DisableVirtualHost: func() types.Object {
+				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.DisableVirtualHost.IsUnknown() {
 					return data.HTTPSHealthCheck.DisableVirtualHost
 				}
 				if _, ok := blockData["disable_virtual_host"].(map[string]interface{}); ok {
-					return &DNSLBHealthCheckEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HealthCheckPort: func() types.Int64 {
 				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.HealthCheckPort.IsUnknown() {
@@ -1114,8 +1120,12 @@ func (r *DNSLBHealthCheckResource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["icmp_health_check"].(map[string]interface{}); ok && isImport && data.ICMPHealthCheck == nil {
-		data.ICMPHealthCheck = &DNSLBHealthCheckEmptyModel{}
+	if !isImport && !data.ICMPHealthCheck.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["icmp_health_check"].(map[string]interface{}); ok {
+		data.ICMPHealthCheck = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ICMPHealthCheck = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["tcp_health_check"].(map[string]interface{}); ok && (isImport || data.TCPHealthCheck != nil) {
 		data.TCPHealthCheck = &DNSLBHealthCheckTCPHealthCheckModel{
@@ -1315,7 +1325,7 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 	// Marshal spec fields from Terraform state to API struct
 	if data.HTTPHealthCheck != nil {
 		HTTPHealthCheckMap := make(map[string]interface{})
-		if data.HTTPHealthCheck.DisableVirtualHost != nil {
+		if !data.HTTPHealthCheck.DisableVirtualHost.IsNull() && !data.HTTPHealthCheck.DisableVirtualHost.IsUnknown() {
 			HTTPHealthCheckMap["disable_virtual_host"] = map[string]interface{}{}
 		}
 		if !data.HTTPHealthCheck.HealthCheckPort.IsNull() && !data.HTTPHealthCheck.HealthCheckPort.IsUnknown() {
@@ -1337,7 +1347,7 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 	}
 	if data.HTTPSHealthCheck != nil {
 		HTTPSHealthCheckMap := make(map[string]interface{})
-		if data.HTTPSHealthCheck.DisableVirtualHost != nil {
+		if !data.HTTPSHealthCheck.DisableVirtualHost.IsNull() && !data.HTTPSHealthCheck.DisableVirtualHost.IsUnknown() {
 			HTTPSHealthCheckMap["disable_virtual_host"] = map[string]interface{}{}
 		}
 		if !data.HTTPSHealthCheck.HealthCheckPort.IsNull() && !data.HTTPSHealthCheck.HealthCheckPort.IsUnknown() {
@@ -1357,7 +1367,7 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 		}
 		apiResource.Spec["https_health_check"] = HTTPSHealthCheckMap
 	}
-	if data.ICMPHealthCheck != nil {
+	if !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() {
 		apiResource.Spec["icmp_health_check"] = map[string]interface{}{}
 	}
 	if data.TCPHealthCheck != nil {
@@ -1469,14 +1479,14 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["http_health_check"].(map[string]interface{}); ok && (isImport || data.HTTPHealthCheck != nil) {
 		data.HTTPHealthCheck = &DNSLBHealthCheckHTTPHealthCheckModel{
-			DisableVirtualHost: func() *DNSLBHealthCheckEmptyModel {
-				if !isImport && data.HTTPHealthCheck != nil {
+			DisableVirtualHost: func() types.Object {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.DisableVirtualHost.IsUnknown() {
 					return data.HTTPHealthCheck.DisableVirtualHost
 				}
 				if _, ok := blockData["disable_virtual_host"].(map[string]interface{}); ok {
-					return &DNSLBHealthCheckEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HealthCheckPort: func() types.Int64 {
 				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.HealthCheckPort.IsUnknown() {
@@ -1518,14 +1528,14 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 	}
 	if blockData, ok := apiResource.Spec["https_health_check"].(map[string]interface{}); ok && (isImport || data.HTTPSHealthCheck != nil) {
 		data.HTTPSHealthCheck = &DNSLBHealthCheckHTTPSHealthCheckModel{
-			DisableVirtualHost: func() *DNSLBHealthCheckEmptyModel {
-				if !isImport && data.HTTPSHealthCheck != nil {
+			DisableVirtualHost: func() types.Object {
+				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.DisableVirtualHost.IsUnknown() {
 					return data.HTTPSHealthCheck.DisableVirtualHost
 				}
 				if _, ok := blockData["disable_virtual_host"].(map[string]interface{}); ok {
-					return &DNSLBHealthCheckEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HealthCheckPort: func() types.Int64 {
 				if !isImport && data.HTTPSHealthCheck != nil && !data.HTTPSHealthCheck.HealthCheckPort.IsUnknown() {
@@ -1565,8 +1575,12 @@ func (r *DNSLBHealthCheckResource) Update(ctx context.Context, req resource.Upda
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["icmp_health_check"].(map[string]interface{}); ok && isImport && data.ICMPHealthCheck == nil {
-		data.ICMPHealthCheck = &DNSLBHealthCheckEmptyModel{}
+	if !isImport && !data.ICMPHealthCheck.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["icmp_health_check"].(map[string]interface{}); ok {
+		data.ICMPHealthCheck = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ICMPHealthCheck = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["tcp_health_check"].(map[string]interface{}); ok && (isImport || data.TCPHealthCheck != nil) {
 		data.TCPHealthCheck = &DNSLBHealthCheckTCPHealthCheckModel{

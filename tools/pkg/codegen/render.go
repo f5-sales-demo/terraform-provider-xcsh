@@ -122,6 +122,8 @@ func GetGoClientType(attr openapi.TerraformAttribute) string {
 		return "[]interface{}"
 	case "map":
 		return "map[string]string"
+	case "object":
+		return "map[string]interface{}"
 	default:
 		return "interface{}"
 	}
@@ -143,7 +145,7 @@ func RenderSpecStructFields(attrs []openapi.TerraformAttribute, indent string) s
 		}
 		// For nested blocks, don't use omitempty - the API needs empty objects to be sent
 		// For primitive fields, use omitempty to avoid sending zero values
-		if attr.IsBlock {
+		if attr.IsBlock || attr.EmptyObjectMarker {
 			sb.WriteString(fmt.Sprintf("%s%s %s `json:\"%s\"`\n", indent, attr.GoName, goType, jsonTag))
 		} else {
 			sb.WriteString(fmt.Sprintf("%s%s %s `json:\"%s,omitempty\"`\n", indent, attr.GoName, goType, jsonTag))
@@ -213,6 +215,13 @@ func renderMarshalScalar(sb *strings.Builder, attr openapi.TerraformAttribute, s
 	case "bool":
 		sb.WriteString(fmt.Sprintf("%sif !%s.IsNull() && !%s.IsUnknown() {\n", indent, src, src))
 		sb.WriteString(fmt.Sprintf("%s\t%s[\"%s\"] = %s.ValueBool()\n", indent, dstMap, jsonName, src))
+		sb.WriteString(fmt.Sprintf("%s}\n", indent))
+	case "object":
+		if !attr.EmptyObjectMarker {
+			return fmt.Errorf("unsupported object attribute at field %s", attr.Name)
+		}
+		sb.WriteString(fmt.Sprintf("%sif !%s.IsNull() && !%s.IsUnknown() {\n", indent, src, src))
+		sb.WriteString(fmt.Sprintf("%s\t%s[\"%s\"] = map[string]interface{}{}\n", indent, dstMap, jsonName))
 		sb.WriteString(fmt.Sprintf("%s}\n", indent))
 	case "list":
 		elemGo := ""
@@ -464,7 +473,7 @@ func RenderSpecUnmarshalCode(attrs []openapi.TerraformAttribute, indent string, 
 			}
 			continue
 		}
-		if err := renderUnmarshalTopLevelScalar(&sb, attr, indent); err != nil {
+		if err := renderUnmarshalTopLevelScalar(&sb, resourceTitleCase, attr, indent); err != nil {
 			return "", fmt.Errorf("unmarshaling %s: field %q: %w", resourceTitleCase, attr.Name, err)
 		}
 	}
@@ -489,7 +498,7 @@ func nestedObjectTypeExpr(resourceTitleCase, childPath string, attr openapi.Terr
 }
 
 // renderUnmarshalTopLevelScalar assigns a primitive/list spec field directly to data.<Field>.
-func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAttribute, indent string) error {
+func renderUnmarshalTopLevelScalar(sb *strings.Builder, resourceTitleCase string, attr openapi.TerraformAttribute, indent string) error {
 	if attr.ConversionError != "" {
 		return fmt.Errorf("%s", attr.ConversionError)
 	}
@@ -530,6 +539,21 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 			sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.BoolNull()\n", indent, fieldName))
 			sb.WriteString(fmt.Sprintf("%s}\n", indent))
 		}
+	case "object":
+		if !attr.EmptyObjectMarker {
+			return fmt.Errorf("unsupported object attribute at field %s", attr.Name)
+		}
+		sb.WriteString(fmt.Sprintf("%sif !isImport && !data.%s.IsUnknown() {\n", indent, fieldName))
+		sb.WriteString(fmt.Sprintf("%s\t// Normal Read: preserve the configured marker presence.\n", indent))
+		sb.WriteString(fmt.Sprintf("%s} else if _, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok", indent, jsonName))
+		if isImportDefaultSuppressed(resourceTitleCase, jsonName) {
+			sb.WriteString(" && !isImport")
+		}
+		sb.WriteString(" {\n")
+		sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})\n", indent, fieldName))
+		sb.WriteString(fmt.Sprintf("%s} else {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ObjectNull(map[string]attr.Type{})\n", indent, fieldName))
+		sb.WriteString(fmt.Sprintf("%s}\n", indent))
 	case "list":
 		var elemType, goElem, cast, conv string
 		switch attr.ElementType {
@@ -778,6 +802,25 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 		sb.WriteString(fmt.Sprintf("%s\t\treturn types.BoolValue(v)\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\treturn types.BoolNull()\n", indent))
+		sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
+	case "object":
+		if !attr.EmptyObjectMarker {
+			return fmt.Errorf("unsupported object attribute at field %s", attr.Name)
+		}
+		sb.WriteString(fmt.Sprintf("%s%s: func() types.Object {\n", indent, fieldName))
+		if stateBase != "" {
+			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		}
+		sb.WriteString(fmt.Sprintf("%s\tif _, ok := %s[\"%s\"].(map[string]interface{}); ok", indent, srcMap, jsonName))
+		if isImportDefaultSuppressed(rc, jsonName) {
+			sb.WriteString(" && !isImport")
+		}
+		sb.WriteString(" {\n")
+		sb.WriteString(fmt.Sprintf("%s\t\treturn types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\treturn types.ObjectNull(map[string]attr.Type{})\n", indent))
 		sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
 	case "list":
 		var elemType, goElem, cast, conv string
@@ -1104,6 +1147,8 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 			attrType = "Map"
 		case "list":
 			attrType = "List"
+		case "object":
+			attrType = "Object"
 		}
 
 		// Escape backslashes and quotes in descriptions for Go string literals
@@ -1144,6 +1189,9 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 			case "map":
 				typeName = "Map"
 				pkgName = "mapplanmodifier"
+			case "object":
+				typeName = "Object"
+				pkgName = "objectplanmodifier"
 			}
 			sb.WriteString(fmt.Sprintf("%s\t\tPlanModifiers: []planmodifier.%s{\n", indent, typeName))
 			switch attr.PlanModifier {
@@ -1165,6 +1213,9 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 				elementTfType = "types.BoolType"
 			}
 			sb.WriteString(fmt.Sprintf("%s\t\tElementType: %s,\n", indent, elementTfType))
+		}
+		if attr.EmptyObjectMarker {
+			sb.WriteString(fmt.Sprintf("%s\t\tAttributeTypes: map[string]attr.Type{},\n", indent))
 		}
 
 		// Add string validators (LengthBetween/LengthAtMost/LengthAtLeast, RegexMatches, OneOf)
@@ -1348,6 +1399,8 @@ func RenderNestedModelTypes(resourceTitleCase string, attrs []openapi.TerraformA
 				goType = "Map"
 			case "list":
 				goType = "List"
+			case "object":
+				goType = "Object"
 			}
 			sb.WriteString(fmt.Sprintf("\t%s types.%s `tfsdk:\"%s\"`\n", attr.GoName, goType, attr.TfsdkTag))
 		}
@@ -1418,6 +1471,8 @@ func RenderNestedModelTypes(resourceTitleCase string, attrs []openapi.TerraformA
 					elemType = "types.BoolType"
 				}
 				attrType = fmt.Sprintf("types.ListType{ElemType: %s}", elemType)
+			case "object":
+				attrType = "types.ObjectType{AttrTypes: map[string]attr.Type{}}"
 			default:
 				attrType = "types.StringType"
 			}

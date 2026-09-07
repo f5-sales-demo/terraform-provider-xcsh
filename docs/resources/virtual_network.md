@@ -39,7 +39,7 @@ resource "xcsh_virtual_network" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -60,9 +60,9 @@ resource "xcsh_virtual_network" "example" {
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="global-network"></a>[`global_network`](#global-network) - Optional Block<br>Select the global virtual-network scope for connectivity across participating sites
-<br><br>&#x2022; <a id="site-local-inside-network"></a>[`site_local_inside_network`](#site-local-inside-network) - Optional Block<br>Select the site-local inside network for site-internal connectivity
-<br><br>&#x2022; <a id="site-local-network"></a>[`site_local_network`](#site-local-network) - Optional Block<br>Select a site-local virtual network when connectivity must remain within one site
+&#x2022; <a id="global-network"></a>[`global_network`](#global-network) - Optional Object<br>Select the global virtual-network scope for connectivity across participating sites
+<br><br>&#x2022; <a id="site-local-inside-network"></a>[`site_local_inside_network`](#site-local-inside-network) - Optional Object<br>Select the site-local inside network for site-internal connectivity
+<br><br>&#x2022; <a id="site-local-network"></a>[`site_local_network`](#site-local-network) - Optional Object<br>Select a site-local virtual network when connectivity must remain within one site
 
 <a id="static-routes"></a>&#x2022; [`static_routes`](#static-routes) - Optional Block<br>List of static routes on the virtual network<br>See [Static Routes](#static-routes) below for details.
 
@@ -83,13 +83,17 @@ A [`static_routes`](#static-routes) block supports the following:
 <a id="static-routes-attrs"></a>&#x2022; [`attrs`](#static-routes-attrs) - Optional List  Defaults to `ROUTE_ATTR_NO_OP`<br>Possible values are `ROUTE_ATTR_NO_OP`, `ROUTE_ATTR_ADVERTISE`, `ROUTE_ATTR_INSTALL_HOST`, `ROUTE_ATTR_INSTALL_FORWARDING`, `ROUTE_ATTR_MERGE_ONLY`<br>[Enum: ROUTE_ATTR_NO_OP|ROUTE_ATTR_ADVERTISE|ROUTE_ATTR_INSTALL_HOST|ROUTE_ATTR_INSTALL_FORWARDING|ROUTE_ATTR_MERGE_ONLY]
 List of attributes that control forwarding, dynamic routing and control plane (host) reachability
 
-<a id="static-routes-default-gateway"></a>&#x2022; [`default_gateway`](#static-routes-default-gateway) - Optional Block<br>Configuration parameter for default gateway
+<a id="static-routes-default-gateway"></a>&#x2022; [`default_gateway`](#static-routes-default-gateway) - Optional Object<br>Configuration parameter for default gateway
 
 <a id="static-routes-ip-address"></a>&#x2022; [`ip_address`](#static-routes-ip-address) - Optional String<br>Traffic matching the IP prefixes is sent to this IP Address
 
 <a id="static-routes-ip-prefixes"></a>&#x2022; [`ip_prefixes`](#static-routes-ip-prefixes) - Optional List<br>List of route prefixes that have common next hop and attributes
 
 <a id="static-routes-node-interface"></a>&#x2022; [`node_interface`](#static-routes-node-interface) - Optional Block<br>On multinode site, this type holds the information about per node interfaces<br>See [Node Interface](#static-routes-node-interface) below.
+
+#### Static Routes Default Gateway
+
+A [`default_gateway`](#static-routes-default-gateway) block (within [`static_routes`](#static-routes)) supports the following:
 
 #### Static Routes Node Interface
 

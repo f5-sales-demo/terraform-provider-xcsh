@@ -394,7 +394,7 @@ resource "xcsh_network_connector" "test" {
   name      = %[1]q
   namespace = "system"
 
-  disable_forward_proxy {}
+  disable_forward_proxy = {}
 
   sli_to_slo_snat {
     default_gw_snat {}
@@ -420,7 +420,7 @@ resource "xcsh_network_connector" "test" {
     purpose = "acceptance-testing"
   }
 
-  disable_forward_proxy {}
+  disable_forward_proxy = {}
 
   sli_to_slo_snat {
     default_gw_snat {}
@@ -439,7 +439,7 @@ resource "xcsh_network_connector" "test" {
     env = %[2]q
   }
 
-  disable_forward_proxy {}
+  disable_forward_proxy = {}
 
   sli_to_slo_snat {
     default_gw_snat {}
@@ -458,7 +458,7 @@ resource "xcsh_network_connector" "test" {
     purpose = %[2]q
   }
 
-  disable_forward_proxy {}
+  disable_forward_proxy = {}
 
   sli_to_slo_snat {
     default_gw_snat {}
@@ -474,7 +474,7 @@ resource "xcsh_network_connector" "test" {
   namespace   = "system"
   description = %[2]q
 
-  disable_forward_proxy {}
+  disable_forward_proxy = {}
 
   sli_to_slo_snat {
     default_gw_snat {}

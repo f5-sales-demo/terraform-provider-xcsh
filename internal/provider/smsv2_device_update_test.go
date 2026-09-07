@@ -24,13 +24,13 @@ func TestSMSv2DeviceUpdateRetainsTopologyReplacementGuards(t *testing.T) {
 				fixtures[1].device = "unknown"
 			}
 			after := awsSMSv2ContractFixture(t, fixtures)
-			before.DisableHA = &SecuremeshSiteV2EmptyModel{}
-			after.DisableHA = &SecuremeshSiteV2EmptyModel{}
+			before.DisableHA = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+			after.DisableHA = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 			switch scenario {
 			case "HA unspecified":
-				after.DisableHA = nil
+				after.DisableHA = types.ObjectNull(map[string]attr.Type{})
 			case "HA enabled":
-				after.EnableHA = &SecuremeshSiteV2EmptyModel{}
+				after.EnableHA = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 			case "empty node list":
 				after.AWS.NotManaged.NodeList = types.ListValueMust(after.AWS.NotManaged.NodeList.ElementType(context.Background()), []attr.Value{})
 			case "two nodes":

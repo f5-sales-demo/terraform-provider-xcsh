@@ -69,7 +69,7 @@ resource "xcsh_user_identification" "test" {
   }
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 ```
@@ -135,7 +135,7 @@ resource "xcsh_user_identification" "test" {
   namespace = "system"
 
   rules {
-    tls_fingerprint {}
+    tls_fingerprint = {}
   }
 }
 ```
@@ -161,7 +161,7 @@ resource "xcsh_user_identification" "test" {
   }
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 ```
@@ -184,7 +184,7 @@ resource "xcsh_user_identification" "test" {
   description = "example-value"
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 ```
@@ -210,7 +210,7 @@ resource "xcsh_user_identification" "test" {
   }
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 ```
@@ -233,14 +233,14 @@ resource "xcsh_user_identification" "test" {
   description = "User identification with identification rules"
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 ```
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -298,15 +298,15 @@ In addition to all arguments above, the following attributes are exported:
 
 A [`rules`](#rules) block supports the following:
 
-<a id="rules-client-asn"></a>&#x2022; [`client_asn`](#rules-client-asn) - Optional Block<br>Enable this option
+<a id="rules-client-asn"></a>&#x2022; [`client_asn`](#rules-client-asn) - Optional Object<br>Enable this option
 
-<a id="rules-client-city"></a>&#x2022; [`client_city`](#rules-client-city) - Optional Block<br>Enable this option
+<a id="rules-client-city"></a>&#x2022; [`client_city`](#rules-client-city) - Optional Object<br>Enable this option
 
-<a id="rules-client-country"></a>&#x2022; [`client_country`](#rules-client-country) - Optional Block<br>Enable this option
+<a id="rules-client-country"></a>&#x2022; [`client_country`](#rules-client-country) - Optional Object<br>Enable this option
 
-<a id="rules-client-ip"></a>&#x2022; [`client_ip`](#rules-client-ip) - Optional Block<br>Enable this option
+<a id="rules-client-ip"></a>&#x2022; [`client_ip`](#rules-client-ip) - Optional Object<br>Enable this option
 
-<a id="rules-client-region"></a>&#x2022; [`client_region`](#rules-client-region) - Optional Block<br>Enable this option
+<a id="rules-client-region"></a>&#x2022; [`client_region`](#rules-client-region) - Optional Object<br>Enable this option
 
 <a id="rules-cookie-name"></a>&#x2022; [`cookie_name`](#rules-cookie-name) - Optional String<br>Use the HTTP cookie value for the given name as user
 
@@ -314,19 +314,51 @@ A [`rules`](#rules) block supports the following:
 
 <a id="rules-ip-and-http-header-name"></a>&#x2022; [`ip_and_http_header_name`](#rules-ip-and-http-header-name) - Optional String<br>Name of HTTP header from which the value should be extracted
 
-<a id="rules-ip-and-ja4-tls-fingerprint"></a>&#x2022; [`ip_and_ja4_tls_fingerprint`](#rules-ip-and-ja4-tls-fingerprint) - Optional Block<br>Enable this option
+<a id="rules-ip-and-ja4-tls-fingerprint"></a>&#x2022; [`ip_and_ja4_tls_fingerprint`](#rules-ip-and-ja4-tls-fingerprint) - Optional Object<br>Enable this option
 
-<a id="rules-ip-and-tls-fingerprint"></a>&#x2022; [`ip_and_tls_fingerprint`](#rules-ip-and-tls-fingerprint) - Optional Block<br>Enable this option
+<a id="rules-ip-and-tls-fingerprint"></a>&#x2022; [`ip_and_tls_fingerprint`](#rules-ip-and-tls-fingerprint) - Optional Object<br>Enable this option
 
-<a id="rules-ja4-tls-fingerprint"></a>&#x2022; [`ja4_tls_fingerprint`](#rules-ja4-tls-fingerprint) - Optional Block<br>Configuration parameter for ja4 TLS fingerprint
+<a id="rules-ja4-tls-fingerprint"></a>&#x2022; [`ja4_tls_fingerprint`](#rules-ja4-tls-fingerprint) - Optional Object<br>Configuration parameter for ja4 TLS fingerprint
 
 <a id="rules-jwt-claim-name"></a>&#x2022; [`jwt_claim_name`](#rules-jwt-claim-name) - Optional String<br>Use the JWT claim value as user identifier
 
-<a id="rules-none"></a>&#x2022; [`none`](#rules-none) - Optional Block<br>Enable this option
+<a id="rules-none"></a>&#x2022; [`none`](#rules-none) - Optional Object<br>Enable this option
 
 <a id="rules-query-param-key"></a>&#x2022; [`query_param_key`](#rules-query-param-key) - Optional String<br>Use the query parameter value for the given key as user
 
-<a id="rules-tls-fingerprint"></a>&#x2022; [`tls_fingerprint`](#rules-tls-fingerprint) - Optional Block<br>Configuration parameter for TLS fingerprint
+<a id="rules-tls-fingerprint"></a>&#x2022; [`tls_fingerprint`](#rules-tls-fingerprint) - Optional Object<br>Configuration parameter for TLS fingerprint
+
+#### Rules Client Asn
+
+A [`client_asn`](#rules-client-asn) block (within [`rules`](#rules)) supports the following:
+
+#### Rules Client City
+
+A [`client_city`](#rules-client-city) block (within [`rules`](#rules)) supports the following:
+
+#### Rules Client Country
+
+A [`client_country`](#rules-client-country) block (within [`rules`](#rules)) supports the following:
+
+#### Rules Client IP
+
+A [`client_ip`](#rules-client-ip) block (within [`rules`](#rules)) supports the following:
+
+#### Rules Client Region
+
+A [`client_region`](#rules-client-region) block (within [`rules`](#rules)) supports the following:
+
+#### Rules IP And Ja4 TLS Fingerprint
+
+An [`ip_and_ja4_tls_fingerprint`](#rules-ip-and-ja4-tls-fingerprint) block (within [`rules`](#rules)) supports the following:
+
+#### Rules IP And TLS Fingerprint
+
+An [`ip_and_tls_fingerprint`](#rules-ip-and-tls-fingerprint) block (within [`rules`](#rules)) supports the following:
+
+#### Rules Ja4 TLS Fingerprint
+
+A [`ja4_tls_fingerprint`](#rules-ja4-tls-fingerprint) block (within [`rules`](#rules)) supports the following:
 
 #### Timeouts
 

@@ -91,7 +91,7 @@ var EndpointServiceInfoServiceSelectorModelAttrTypes = map[string]attr.Type{
 
 // EndpointSnatPoolModel represents snat_pool block
 type EndpointSnatPoolModel struct {
-	NoSnatPool *EndpointEmptyModel            `tfsdk:"no_snat_pool"`
+	NoSnatPool types.Object                   `tfsdk:"no_snat_pool"`
 	SnatPool   *EndpointSnatPoolSnatPoolModel `tfsdk:"snat_pool"`
 }
 
@@ -127,17 +127,17 @@ var EndpointWhereModelAttrTypes = map[string]attr.Type{
 
 // EndpointWhereSiteModel represents site block
 type EndpointWhereSiteModel struct {
-	NetworkType        types.String        `tfsdk:"network_type"`
-	DisableInternetVIP *EndpointEmptyModel `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *EndpointEmptyModel `tfsdk:"enable_internet_vip"`
-	Ref                types.List          `tfsdk:"ref"`
+	DisableInternetVIP types.Object `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  types.Object `tfsdk:"enable_internet_vip"`
+	NetworkType        types.String `tfsdk:"network_type"`
+	Ref                types.List   `tfsdk:"ref"`
 }
 
 // EndpointWhereSiteModelAttrTypes defines the attribute types for EndpointWhereSiteModel
 var EndpointWhereSiteModelAttrTypes = map[string]attr.Type{
-	"network_type":         types.StringType,
 	"disable_internet_vip": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_internet_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"network_type":         types.StringType,
 	"ref":                  types.ListType{ElemType: types.ObjectType{AttrTypes: EndpointWhereSiteRefModelAttrTypes}},
 }
 
@@ -189,17 +189,17 @@ var EndpointWhereVirtualNetworkRefModelAttrTypes = map[string]attr.Type{
 
 // EndpointWhereVirtualSiteModel represents virtual_site block
 type EndpointWhereVirtualSiteModel struct {
-	NetworkType        types.String        `tfsdk:"network_type"`
-	DisableInternetVIP *EndpointEmptyModel `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *EndpointEmptyModel `tfsdk:"enable_internet_vip"`
-	Ref                types.List          `tfsdk:"ref"`
+	DisableInternetVIP types.Object `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  types.Object `tfsdk:"enable_internet_vip"`
+	NetworkType        types.String `tfsdk:"network_type"`
+	Ref                types.List   `tfsdk:"ref"`
 }
 
 // EndpointWhereVirtualSiteModelAttrTypes defines the attribute types for EndpointWhereVirtualSiteModel
 var EndpointWhereVirtualSiteModelAttrTypes = map[string]attr.Type{
-	"network_type":         types.StringType,
 	"disable_internet_vip": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_internet_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"network_type":         types.StringType,
 	"ref":                  types.ListType{ElemType: types.ObjectType{AttrTypes: EndpointWhereVirtualSiteRefModelAttrTypes}},
 }
 
@@ -419,11 +419,14 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 				MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"no_snat_pool": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"no_snat_pool": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for no snat pool.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+				},
+				Blocks: map[string]schema.Block{
 					"snat_pool": schema.SingleNestedBlock{
 						MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
 						Attributes: map[string]schema.Attribute{
@@ -449,6 +452,16 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 						MarkdownDescription: "Specifies a direct reference to a site configuration object.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
+							"disable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
 								Optional:            true,
@@ -458,12 +471,6 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 						},
 						Blocks: map[string]schema.Block{
-							"disable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"enable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"ref": schema.ListNestedBlock{
 								MarkdownDescription: "Reference. A site direct reference.",
 								NestedObject: schema.NestedBlockObject{
@@ -547,6 +554,16 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 						MarkdownDescription: "Virtual Site. A reference to virtual_site object.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
+							"disable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
 								Optional:            true,
@@ -556,12 +573,6 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 							},
 						},
 						Blocks: map[string]schema.Block{
-							"disable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"enable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"ref": schema.ListNestedBlock{
 								MarkdownDescription: "Reference. A virtual_site direct reference.",
 								NestedObject: schema.NestedBlockObject{
@@ -627,7 +638,7 @@ func (r *EndpointResource) ValidateConfig(ctx context.Context, req resource.Vali
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.DNSName.IsNull() && !data.IP.IsNull() {
+	if !data.DNSName.IsNull() && !data.DNSName.IsUnknown() && !data.IP.IsNull() && !data.IP.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("dns_name"),
 			"Conflicting Configuration",
@@ -769,7 +780,7 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 	}
 	if data.SnatPool != nil {
 		SnatPoolMap := make(map[string]interface{})
-		if data.SnatPool.NoSnatPool != nil {
+		if !data.SnatPool.NoSnatPool.IsNull() && !data.SnatPool.NoSnatPool.IsUnknown() {
 			SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 		}
 		if data.SnatPool.SnatPool != nil {
@@ -790,10 +801,10 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
 			WhereSiteMap := make(map[string]interface{})
-			if data.Where.Site.DisableInternetVIP != nil {
+			if !data.Where.Site.DisableInternetVIP.IsNull() && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.Site.EnableInternetVIP != nil {
+			if !data.Where.Site.EnableInternetVIP.IsNull() && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
@@ -845,10 +856,10 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 		}
 		if data.Where.VirtualSite != nil {
 			WhereVirtualSiteMap := make(map[string]interface{})
-			if data.Where.VirtualSite.DisableInternetVIP != nil {
+			if !data.Where.VirtualSite.DisableInternetVIP.IsNull() && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.VirtualSite.EnableInternetVIP != nil {
+			if !data.Where.VirtualSite.EnableInternetVIP.IsNull() && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
@@ -992,14 +1003,14 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 	}
 	if blockData, ok := apiResource.Spec["snat_pool"].(map[string]interface{}); ok && (isImport || data.SnatPool != nil) {
 		data.SnatPool = &EndpointSnatPoolModel{
-			NoSnatPool: func() *EndpointEmptyModel {
-				if !isImport && data.SnatPool != nil {
+			NoSnatPool: func() types.Object {
+				if !isImport && data.SnatPool != nil && !data.SnatPool.NoSnatPool.IsUnknown() {
 					return data.SnatPool.NoSnatPool
 				}
 				if _, ok := blockData["no_snat_pool"].(map[string]interface{}); ok {
-					return &EndpointEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SnatPool: func() *EndpointSnatPoolSnatPoolModel {
 				if !isImport && data.SnatPool != nil && data.SnatPool.SnatPool != nil {
@@ -1032,23 +1043,23 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 			Site: func() *EndpointWhereSiteModel {
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &EndpointWhereSiteModel{
-						DisableInternetVIP: func() *EndpointEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 								return data.Where.Site.DisableInternetVIP
 							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &EndpointEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *EndpointEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 								return data.Where.Site.EnableInternetVIP
 							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &EndpointEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := SiteData["network_type"].(string); ok && v != "" {
@@ -1174,23 +1185,23 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 			VirtualSite: func() *EndpointWhereVirtualSiteModel {
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualSiteModel{
-						DisableInternetVIP: func() *EndpointEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.DisableInternetVIP
 							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &EndpointEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *EndpointEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.EnableInternetVIP
 							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &EndpointEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
@@ -1473,14 +1484,14 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 	}
 	if blockData, ok := apiResource.Spec["snat_pool"].(map[string]interface{}); ok && (isImport || data.SnatPool != nil) {
 		data.SnatPool = &EndpointSnatPoolModel{
-			NoSnatPool: func() *EndpointEmptyModel {
-				if !isImport && data.SnatPool != nil {
+			NoSnatPool: func() types.Object {
+				if !isImport && data.SnatPool != nil && !data.SnatPool.NoSnatPool.IsUnknown() {
 					return data.SnatPool.NoSnatPool
 				}
 				if _, ok := blockData["no_snat_pool"].(map[string]interface{}); ok {
-					return &EndpointEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SnatPool: func() *EndpointSnatPoolSnatPoolModel {
 				if !isImport && data.SnatPool != nil && data.SnatPool.SnatPool != nil {
@@ -1513,23 +1524,23 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 			Site: func() *EndpointWhereSiteModel {
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &EndpointWhereSiteModel{
-						DisableInternetVIP: func() *EndpointEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 								return data.Where.Site.DisableInternetVIP
 							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &EndpointEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *EndpointEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 								return data.Where.Site.EnableInternetVIP
 							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &EndpointEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := SiteData["network_type"].(string); ok && v != "" {
@@ -1655,23 +1666,23 @@ func (r *EndpointResource) Read(ctx context.Context, req resource.ReadRequest, r
 			VirtualSite: func() *EndpointWhereVirtualSiteModel {
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualSiteModel{
-						DisableInternetVIP: func() *EndpointEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.DisableInternetVIP
 							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &EndpointEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *EndpointEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.EnableInternetVIP
 							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &EndpointEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
@@ -1890,7 +1901,7 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 	}
 	if data.SnatPool != nil {
 		SnatPoolMap := make(map[string]interface{})
-		if data.SnatPool.NoSnatPool != nil {
+		if !data.SnatPool.NoSnatPool.IsNull() && !data.SnatPool.NoSnatPool.IsUnknown() {
 			SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 		}
 		if data.SnatPool.SnatPool != nil {
@@ -1911,10 +1922,10 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
 			WhereSiteMap := make(map[string]interface{})
-			if data.Where.Site.DisableInternetVIP != nil {
+			if !data.Where.Site.DisableInternetVIP.IsNull() && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.Site.EnableInternetVIP != nil {
+			if !data.Where.Site.EnableInternetVIP.IsNull() && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
@@ -1966,10 +1977,10 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 		}
 		if data.Where.VirtualSite != nil {
 			WhereVirtualSiteMap := make(map[string]interface{})
-			if data.Where.VirtualSite.DisableInternetVIP != nil {
+			if !data.Where.VirtualSite.DisableInternetVIP.IsNull() && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.VirtualSite.EnableInternetVIP != nil {
+			if !data.Where.VirtualSite.EnableInternetVIP.IsNull() && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
@@ -2168,14 +2179,14 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 	}
 	if blockData, ok := apiResource.Spec["snat_pool"].(map[string]interface{}); ok && (isImport || data.SnatPool != nil) {
 		data.SnatPool = &EndpointSnatPoolModel{
-			NoSnatPool: func() *EndpointEmptyModel {
-				if !isImport && data.SnatPool != nil {
+			NoSnatPool: func() types.Object {
+				if !isImport && data.SnatPool != nil && !data.SnatPool.NoSnatPool.IsUnknown() {
 					return data.SnatPool.NoSnatPool
 				}
 				if _, ok := blockData["no_snat_pool"].(map[string]interface{}); ok {
-					return &EndpointEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SnatPool: func() *EndpointSnatPoolSnatPoolModel {
 				if !isImport && data.SnatPool != nil && data.SnatPool.SnatPool != nil {
@@ -2208,23 +2219,23 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 			Site: func() *EndpointWhereSiteModel {
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &EndpointWhereSiteModel{
-						DisableInternetVIP: func() *EndpointEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 								return data.Where.Site.DisableInternetVIP
 							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &EndpointEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *EndpointEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 								return data.Where.Site.EnableInternetVIP
 							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &EndpointEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := SiteData["network_type"].(string); ok && v != "" {
@@ -2350,23 +2361,23 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 			VirtualSite: func() *EndpointWhereVirtualSiteModel {
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &EndpointWhereVirtualSiteModel{
-						DisableInternetVIP: func() *EndpointEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.DisableInternetVIP
 							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &EndpointEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *EndpointEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.EnableInternetVIP
 							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &EndpointEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {

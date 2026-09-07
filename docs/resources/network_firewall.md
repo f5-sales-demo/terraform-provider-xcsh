@@ -39,7 +39,7 @@ resource "xcsh_network_firewall" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -87,11 +87,11 @@ Policies](#active-enhanced-firewall-policies) below for details.
 -> **One of the following:**
 &#x2022; <a id="active-forward-proxy-policies"></a>[`active_forward_proxy_policies`](#active-forward-proxy-policies) - Optional Block<br>Ordered List of Forward Proxy Policies active<br>See [Active Forward Proxy Policies](#active-forward-proxy-policies) below for details.
 
-<a id="disable-fast-acl"></a>&#x2022; [`disable_fast_acl`](#disable-fast-acl) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable fast ACL.  Server applies default when omitted
+<a id="disable-fast-acl"></a>&#x2022; [`disable_fast_acl`](#disable-fast-acl) - Optional Object  Defaults to `map[]`<br>Configuration parameter for disable fast ACL.  Server applies default when omitted
 
-<a id="disable-forward-proxy-policy"></a>&#x2022; [`disable_forward_proxy_policy`](#disable-forward-proxy-policy) - Optional Block  Defaults to `map[]`<br>Policy configuration for this feature.  Server applies default when omitted
+<a id="disable-forward-proxy-policy"></a>&#x2022; [`disable_forward_proxy_policy`](#disable-forward-proxy-policy) - Optional Object  Defaults to `map[]`<br>Policy configuration for this feature.  Server applies default when omitted
 
-<a id="disable-network-policy"></a>&#x2022; [`disable_network_policy`](#disable-network-policy) - Optional Block  Defaults to `map[]`<br>Policy configuration for this feature.  Server applies default when omitted
+<a id="disable-network-policy"></a>&#x2022; [`disable_network_policy`](#disable-network-policy) - Optional Object  Defaults to `map[]`<br>Policy configuration for this feature.  Server applies default when omitted
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
@@ -166,6 +166,18 @@ A [`network_policies`](#policies-502cd4) block (within [`active_network_policies
 <a id="namespace-3f338a"></a>&#x2022; [`namespace`](#namespace-3f338a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="tenant-6ccfde"></a>&#x2022; [`tenant`](#tenant-6ccfde) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Disable Fast ACL
+
+A [`disable_fast_acl`](#disable-fast-acl) block supports the following:
+
+#### Disable Forward Proxy Policy
+
+A [`disable_forward_proxy_policy`](#disable-forward-proxy-policy) block supports the following:
+
+#### Disable Network Policy
+
+A [`disable_network_policy`](#disable-network-policy) block supports the following:
 
 #### Timeouts
 

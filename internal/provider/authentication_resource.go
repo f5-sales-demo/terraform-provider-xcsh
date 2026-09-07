@@ -54,18 +54,18 @@ type AuthenticationEmptyModel struct {
 type AuthenticationCookieParamsModel struct {
 	CookieExpiry          types.Int64                              `tfsdk:"cookie_expiry"`
 	CookieRefreshInterval types.Int64                              `tfsdk:"cookie_refresh_interval"`
+	KmsKeyHMAC            types.Object                             `tfsdk:"kms_key_hmac"`
 	SessionExpiry         types.Int64                              `tfsdk:"session_expiry"`
 	AuthHMAC              *AuthenticationCookieParamsAuthHMACModel `tfsdk:"auth_hmac"`
-	KmsKeyHMAC            *AuthenticationEmptyModel                `tfsdk:"kms_key_hmac"`
 }
 
 // AuthenticationCookieParamsModelAttrTypes defines the attribute types for AuthenticationCookieParamsModel
 var AuthenticationCookieParamsModelAttrTypes = map[string]attr.Type{
 	"cookie_expiry":           types.Int64Type,
 	"cookie_refresh_interval": types.Int64Type,
+	"kms_key_hmac":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"session_expiry":          types.Int64Type,
 	"auth_hmac":               types.ObjectType{AttrTypes: AuthenticationCookieParamsAuthHMACModelAttrTypes},
-	"kms_key_hmac":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AuthenticationCookieParamsAuthHMACModel represents auth_hmac block
@@ -321,6 +321,11 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 							int64validator.AtMost(86400),
 						},
 					},
+					"kms_key_hmac": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for kms key hmac.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"session_expiry": schema.Int64Attribute{
 						MarkdownDescription: "Specifies in seconds max lifetime of an authenticated session after which the user will be forced to login again. Default session expiry is 86400 seconds(24 hours).",
 						Optional:            true,
@@ -435,9 +440,6 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 								},
 							},
 						},
-					},
-					"kms_key_hmac": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for kms key hmac.",
 					},
 				},
 			},
@@ -734,7 +736,7 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 		if !data.CookieParams.CookieRefreshInterval.IsNull() && !data.CookieParams.CookieRefreshInterval.IsUnknown() {
 			CookieParamsMap["cookie_refresh_interval"] = data.CookieParams.CookieRefreshInterval.ValueInt64()
 		}
-		if data.CookieParams.KmsKeyHMAC != nil {
+		if !data.CookieParams.KmsKeyHMAC.IsNull() && !data.CookieParams.KmsKeyHMAC.IsUnknown() {
 			CookieParamsMap["kms_key_hmac"] = map[string]interface{}{}
 		}
 		if !data.CookieParams.SessionExpiry.IsNull() && !data.CookieParams.SessionExpiry.IsUnknown() {
@@ -993,14 +995,14 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 				}
 				return types.Int64Null()
 			}(),
-			KmsKeyHMAC: func() *AuthenticationEmptyModel {
-				if !isImport && data.CookieParams != nil {
+			KmsKeyHMAC: func() types.Object {
+				if !isImport && data.CookieParams != nil && !data.CookieParams.KmsKeyHMAC.IsUnknown() {
 					return data.CookieParams.KmsKeyHMAC
 				}
 				if _, ok := blockData["kms_key_hmac"].(map[string]interface{}); ok {
-					return &AuthenticationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SessionExpiry: func() types.Int64 {
 				if !isImport && data.CookieParams != nil && !data.CookieParams.SessionExpiry.IsUnknown() {
@@ -1410,14 +1412,14 @@ func (r *AuthenticationResource) Read(ctx context.Context, req resource.ReadRequ
 				}
 				return types.Int64Null()
 			}(),
-			KmsKeyHMAC: func() *AuthenticationEmptyModel {
-				if !isImport && data.CookieParams != nil {
+			KmsKeyHMAC: func() types.Object {
+				if !isImport && data.CookieParams != nil && !data.CookieParams.KmsKeyHMAC.IsUnknown() {
 					return data.CookieParams.KmsKeyHMAC
 				}
 				if _, ok := blockData["kms_key_hmac"].(map[string]interface{}); ok {
-					return &AuthenticationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SessionExpiry: func() types.Int64 {
 				if !isImport && data.CookieParams != nil && !data.CookieParams.SessionExpiry.IsUnknown() {
@@ -1700,7 +1702,7 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 		if !data.CookieParams.CookieRefreshInterval.IsNull() && !data.CookieParams.CookieRefreshInterval.IsUnknown() {
 			CookieParamsMap["cookie_refresh_interval"] = data.CookieParams.CookieRefreshInterval.ValueInt64()
 		}
-		if data.CookieParams.KmsKeyHMAC != nil {
+		if !data.CookieParams.KmsKeyHMAC.IsNull() && !data.CookieParams.KmsKeyHMAC.IsUnknown() {
 			CookieParamsMap["kms_key_hmac"] = map[string]interface{}{}
 		}
 		if !data.CookieParams.SessionExpiry.IsNull() && !data.CookieParams.SessionExpiry.IsUnknown() {
@@ -1979,14 +1981,14 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 				}
 				return types.Int64Null()
 			}(),
-			KmsKeyHMAC: func() *AuthenticationEmptyModel {
-				if !isImport && data.CookieParams != nil {
+			KmsKeyHMAC: func() types.Object {
+				if !isImport && data.CookieParams != nil && !data.CookieParams.KmsKeyHMAC.IsUnknown() {
 					return data.CookieParams.KmsKeyHMAC
 				}
 				if _, ok := blockData["kms_key_hmac"].(map[string]interface{}); ok {
-					return &AuthenticationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SessionExpiry: func() types.Int64 {
 				if !isImport && data.CookieParams != nil && !data.CookieParams.SessionExpiry.IsUnknown() {

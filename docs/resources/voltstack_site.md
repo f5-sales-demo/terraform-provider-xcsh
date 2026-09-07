@@ -41,7 +41,7 @@ resource "xcsh_voltstack_site" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -64,8 +64,8 @@ resource "xcsh_voltstack_site" "example" {
 <a id="address"></a>&#x2022; [`address`](#address) - Optional String<br>Site's geographical address that can be used to determine its latitude and longitude
 
 -> **One of the following:**
-&#x2022; <a id="allow-all-usb"></a>[`allow_all_usb`](#allow-all-usb) - Optional Block<br>Configuration parameter for allow all usb
-<br><br>&#x2022; <a id="deny-all-usb"></a>[`deny_all_usb`](#deny-all-usb) - Optional Block<br>Configuration parameter for deny all usb
+&#x2022; <a id="allow-all-usb"></a>[`allow_all_usb`](#allow-all-usb) - Optional Object<br>Configuration parameter for allow all usb
+<br><br>&#x2022; <a id="deny-all-usb"></a>[`deny_all_usb`](#deny-all-usb) - Optional Object<br>Configuration parameter for deny all usb
 <br><br>&#x2022; <a id="usb-policy"></a>[`usb_policy`](#usb-policy) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
 
 -> **One of the following:**
@@ -84,25 +84,25 @@ resource "xcsh_voltstack_site" "example" {
 -> **One of the following:**
 &#x2022; <a id="custom-storage-config"></a>[`custom_storage_config`](#custom-storage-config) - Optional Block<br>VssStorageConfiguration
 
-<a id="default-blocked-services"></a>&#x2022; [`default_blocked_services`](#default-blocked-services) - Optional Block<br>Enable this option
+<a id="default-blocked-services"></a>&#x2022; [`default_blocked_services`](#default-blocked-services) - Optional Object<br>Enable this option
 
-<a id="default-network-config"></a>&#x2022; [`default_network_config`](#default-network-config) - Optional Block<br>Enable this option
-
--> **One of the following:**
-&#x2022; <a id="default-sriov-interface"></a>[`default_sriov_interface`](#default-sriov-interface) - Optional Block<br>Configuration parameter for default sriov interface
-
-<a id="default-storage-config"></a>&#x2022; [`default_storage_config`](#default-storage-config) - Optional Block<br>Enable this option
+<a id="default-network-config"></a>&#x2022; [`default_network_config`](#default-network-config) - Optional Object<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="disable-gpu"></a>[`disable_gpu`](#disable-gpu) - Optional Block<br>Configuration parameter for disable GPU
-<br><br>&#x2022; <a id="enable-gpu"></a>[`enable_gpu`](#enable-gpu) - Optional Block<br>Enable this option
+&#x2022; <a id="default-sriov-interface"></a>[`default_sriov_interface`](#default-sriov-interface) - Optional Object<br>Configuration parameter for default sriov interface
+
+<a id="default-storage-config"></a>&#x2022; [`default_storage_config`](#default-storage-config) - Optional Object<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="disable-vm"></a>[`disable_vm`](#disable-vm) - Optional Block<br>Enable this option
+&#x2022; <a id="disable-gpu"></a>[`disable_gpu`](#disable-gpu) - Optional Object<br>Configuration parameter for disable GPU
+<br><br>&#x2022; <a id="enable-gpu"></a>[`enable_gpu`](#enable-gpu) - Optional Object<br>Enable this option
+
+-> **One of the following:**
+&#x2022; <a id="disable-vm"></a>[`disable_vm`](#disable-vm) - Optional Object<br>Enable this option
 
 <a id="enable-vgpu"></a>&#x2022; [`enable_vgpu`](#enable-vgpu) - Optional Block<br>Licensing configuration for NVIDIA vGPU
 
-<a id="enable-vm"></a>&#x2022; [`enable_vm`](#enable-vm) - Optional Block<br>VM Configuration. VMs support configuration
+<a id="enable-vm"></a>&#x2022; [`enable_vm`](#enable-vm) - Optional Object<br>VM Configuration. VMs support configuration
 
 -> **One of the following:**
 &#x2022; <a id="k8s-cluster"></a>[`k8s_cluster`](#k8s-cluster) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
@@ -114,15 +114,15 @@ resource "xcsh_voltstack_site" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="log-receiver"></a>[`log_receiver`](#log-receiver) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
-<br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Block<br>Enable this option
+<br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Object<br>Enable this option
 
 <a id="master-node-configuration"></a>&#x2022; [`master_node_configuration`](#master-node-configuration) - Optional Block<br>Master Nodes. Configuration of master nodes
 
-<a id="no-bond-devices"></a>&#x2022; [`no_bond_devices`](#no-bond-devices) - Optional Block<br>Configuration parameter for no bond devices
+<a id="no-bond-devices"></a>&#x2022; [`no_bond_devices`](#no-bond-devices) - Optional Object<br>Configuration parameter for no bond devices
 
-<a id="no-k8s-cluster"></a>&#x2022; [`no_k8s_cluster`](#no-k8s-cluster) - Optional Block<br>Enable this option
+<a id="no-k8s-cluster"></a>&#x2022; [`no_k8s_cluster`](#no-k8s-cluster) - Optional Object<br>Enable this option
 
-<a id="no-local-control-plane"></a>&#x2022; [`no_local_control_plane`](#no-local-control-plane) - Optional Block<br>Configuration parameter for no local control plane
+<a id="no-local-control-plane"></a>&#x2022; [`no_local_control_plane`](#no-local-control-plane) - Optional Object<br>Configuration parameter for no local control plane
 
 <a id="offline-survivability-mode"></a>&#x2022; [`offline_survivability_mode`](#offline-survivability-mode) - Optional Block<br>Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing
 configuration for upto 7
@@ -157,16 +157,28 @@ A [`blocked_services`](#blocked-services) block supports the following:
 
 A [`blocked_service`](#blocked-services-blocked-service) block (within [`blocked_services`](#blocked-services)) supports the following:
 
-<a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Block<br>Enable this option
+<a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Object<br>Enable this option
 
 <a id="type-5b1d65"></a>&#x2022; [`network_type`](#type-5b1d65) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
-<a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Block<br>Enable this option
+<a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Object<br>Enable this option
 
-<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Block<br>Enable this option
+<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Object<br>Enable this option
+
+#### Blocked Services Blocked Service DNS
+
+A [`dns`](#blocked-services-blocked-service-dns) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
+
+#### Blocked Services Blocked Service SSH
+
+A [`ssh`](#blocked-services-blocked-service-ssh) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
+
+#### Blocked Services Blocked Service Web User Interface
+
+A [`web_user_interface`](#interface-1ff33c) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
 
 #### Bond Device List
 
@@ -178,7 +190,7 @@ A [`bond_device_list`](#bond-device-list) block supports the following:
 
 A [`bond_devices`](#bond-device-list-bond-devices) block (within [`bond_device_list`](#bond-device-list)) supports the following:
 
-<a id="backup-c22794"></a>&#x2022; [`active_backup`](#backup-c22794) - Optional Block<br>Configuration parameter for active backup
+<a id="backup-c22794"></a>&#x2022; [`active_backup`](#backup-c22794) - Optional Object<br>Configuration parameter for active backup
 
 <a id="bond-device-list-bond-devices-devices"></a>&#x2022; [`devices`](#bond-device-list-bond-devices-devices) - Optional List<br>Ethernet devices that will make up this bond
 
@@ -189,6 +201,10 @@ A [`bond_devices`](#bond-device-list-bond-devices) block (within [`bond_device_l
 <a id="delay-b1200b"></a>&#x2022; [`link_up_delay`](#delay-b1200b) - Optional Number<br>Milliseconds wait before link is declared up
 
 <a id="bond-device-list-bond-devices-name"></a>&#x2022; [`name`](#bond-device-list-bond-devices-name) - Optional String<br>Bond Device Name. Name for the Bond. Ex 'bond0'
+
+#### Bond Device List Bond Devices Active Backup
+
+An [`active_backup`](#backup-c22794) block (within [`bond_device_list.bond_devices`](#bond-device-list-bond-devices)) supports the following:
 
 #### Bond Device List Bond Devices Lacp
 
@@ -226,23 +242,23 @@ A [`custom_network_config`](#custom-network-config) block supports the following
 
 <a id="custom-network-config-bgp-router-id"></a>&#x2022; [`bgp_router_id`](#custom-network-config-bgp-router-id) - Optional String<br>Optional BGP router ID that can be used as parameter for BGP configuration when BGP is configured to fetch BGP router ID from site object
 
-<a id="custom-network-config-default-config"></a>&#x2022; [`default_config`](#custom-network-config-default-config) - Optional Block<br>Enable this option
+<a id="custom-network-config-default-config"></a>&#x2022; [`default_config`](#custom-network-config-default-config) - Optional Object<br>Enable this option
 
-<a id="config-226341"></a>&#x2022; [`default_interface_config`](#config-226341) - Optional Block<br>Enable this option
+<a id="config-226341"></a>&#x2022; [`default_interface_config`](#config-226341) - Optional Object<br>Enable this option
 
-<a id="config-ac20e7"></a>&#x2022; [`default_sli_config`](#config-ac20e7) - Optional Block<br>Enable this option
+<a id="config-ac20e7"></a>&#x2022; [`default_sli_config`](#config-ac20e7) - Optional Object<br>Enable this option
 
-<a id="all-1d28e8"></a>&#x2022; [`forward_proxy_allow_all`](#all-1d28e8) - Optional Block<br>Configuration parameter for forward proxy allow all
+<a id="all-1d28e8"></a>&#x2022; [`forward_proxy_allow_all`](#all-1d28e8) - Optional Object<br>Configuration parameter for forward proxy allow all
 
 <a id="list-452116"></a>&#x2022; [`global_network_list`](#list-452116) - Optional Block<br>Global Network Connection List. List of global network connections<br>See [Global Network List](#list-452116) below.
 
 <a id="custom-network-config-interface-list"></a>&#x2022; [`interface_list`](#custom-network-config-interface-list) - Optional Block<br>Configure network interfaces for this App Stack site<br>See [Interface List](#custom-network-config-interface-list) below.
 
-<a id="custom-network-config-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#custom-network-config-no-forward-proxy) - Optional Block<br>Configuration parameter for no forward proxy
+<a id="custom-network-config-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#custom-network-config-no-forward-proxy) - Optional Object<br>Configuration parameter for no forward proxy
 
-<a id="custom-network-config-no-global-network"></a>&#x2022; [`no_global_network`](#custom-network-config-no-global-network) - Optional Block<br>Configuration parameter for no global network
+<a id="custom-network-config-no-global-network"></a>&#x2022; [`no_global_network`](#custom-network-config-no-global-network) - Optional Object<br>Configuration parameter for no global network
 
-<a id="custom-network-config-no-network-policy"></a>&#x2022; [`no_network_policy`](#custom-network-config-no-network-policy) - Optional Block<br>Policy configuration for this feature
+<a id="custom-network-config-no-network-policy"></a>&#x2022; [`no_network_policy`](#custom-network-config-no-network-policy) - Optional Object<br>Policy configuration for this feature
 
 <a id="nameserver-8c35de"></a>&#x2022; [`outside_nameserver`](#nameserver-8c35de) - Optional String<br>Optional DNS server V4 IP to be used for name resolution in local network
 
@@ -254,9 +270,9 @@ A [`custom_network_config`](#custom-network-config) block supports the following
 
 <a id="custom-network-config-slo-config"></a>&#x2022; [`slo_config`](#custom-network-config-slo-config) - Optional Block<br>Site Local Network Configuration. Site local network configuration<br>See [Slo Config](#custom-network-config-slo-config) below.
 
-<a id="public-ip-5fd49f"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-5fd49f) - Optional Block<br>Enable this option
+<a id="public-ip-5fd49f"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-5fd49f) - Optional Object<br>Enable this option
 
-<a id="pvt-ip-892ce0"></a>&#x2022; [`sm_connection_pvt_ip`](#pvt-ip-892ce0) - Optional Block<br>Enable this option
+<a id="pvt-ip-892ce0"></a>&#x2022; [`sm_connection_pvt_ip`](#pvt-ip-892ce0) - Optional Object<br>Enable this option
 
 <a id="timeout-1607a1"></a>&#x2022; [`tunnel_dead_timeout`](#timeout-1607a1) - Optional Number<br>Time interval, in millisec, within which any IPsec / SSL connection from the site going down is detected. When not set (== 0), a default value of 10000 msec will be used
 
@@ -291,6 +307,22 @@ An [`active_network_policies`](#policies-e8cb6b) block (within [`custom_network_
 #### Custom Network Config Active Network Policies Network Policies
 
 <a id="deep-6de48c"></a>Deeply nested **Policies** block collapsed for readability.
+
+#### Custom Network Config Default Config
+
+A [`default_config`](#custom-network-config-default-config) block (within [`custom_network_config`](#custom-network-config)) supports the following:
+
+#### Custom Network Config Default Interface Config
+
+A [`default_interface_config`](#config-226341) block (within [`custom_network_config`](#custom-network-config)) supports the following:
+
+#### Custom Network Config Default SLI Config
+
+A [`default_sli_config`](#config-ac20e7) block (within [`custom_network_config`](#custom-network-config)) supports the following:
+
+#### Custom Network Config Forward Proxy Allow All
+
+A [`forward_proxy_allow_all`](#all-1d28e8) block (within [`custom_network_config`](#custom-network-config)) supports the following:
 
 #### Custom Network Config Global Network List
 
@@ -328,9 +360,9 @@ An [`interface_list`](#custom-network-config-interface-list) block (within [`cus
 
 An [`interfaces`](#interfaces-e1b75d) block (within [`custom_network_config.interface_list`](#custom-network-config-interface-list)) supports the following:
 
-<a id="disabled-8e6c58"></a>&#x2022; [`dc_cluster_group_connectivity_interface_disabled`](#disabled-8e6c58) - Optional Block<br>Enable this option
+<a id="disabled-8e6c58"></a>&#x2022; [`dc_cluster_group_connectivity_interface_disabled`](#disabled-8e6c58) - Optional Object<br>Enable this option
 
-<a id="enabled-976919"></a>&#x2022; [`dc_cluster_group_connectivity_interface_enabled`](#enabled-976919) - Optional Block<br>Enable this option
+<a id="enabled-976919"></a>&#x2022; [`dc_cluster_group_connectivity_interface_enabled`](#enabled-976919) - Optional Object<br>Enable this option
 
 <a id="interface-5e9f68"></a>&#x2022; [`dedicated_interface`](#interface-5e9f68) - Optional Block<br>Configuration parameter for dedicated interface<br>See [Dedicated Interface](#interface-5e9f68) below.
 
@@ -344,29 +376,89 @@ An [`interfaces`](#interfaces-e1b75d) block (within [`custom_network_config.inte
 
 <a id="interface-b0b4f4"></a>&#x2022; [`tunnel_interface`](#interface-b0b4f4) - Optional Block<br>Configuration parameter for tunnel interface<br>See [Tunnel Interface](#interface-b0b4f4) below.
 
+#### Custom Network Config Interface List Interfaces Dc Cluster Group Connectivity Interface Disabled
+
+<a id="deep-98746e"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Dc Cluster Group Connectivity Interface Enabled
+
+<a id="deep-335c07"></a>Deeply nested **Enabled** block collapsed for readability.
+
 #### Custom Network Config Interface List Interfaces Dedicated Interface
 
 <a id="deep-e9e120"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Dedicated Interface Cluster
+
+<a id="deep-98f438"></a>Deeply nested **Cluster** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Dedicated Interface Is Primary
+
+<a id="deep-ac47fd"></a>Deeply nested **Primary** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Dedicated Interface Monitor
+
+<a id="deep-6f702c"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Dedicated Interface Monitor Disabled
+
+<a id="deep-49c2a8"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Dedicated Interface Not Primary
+
+<a id="deep-22396f"></a>Deeply nested **Primary** block collapsed for readability.
 
 #### Custom Network Config Interface List Interfaces Dedicated Management Interface
 
 <a id="deep-fe54f2"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### Custom Network Config Interface List Interfaces Dedicated Management Interface Cluster
+
+<a id="deep-57c841"></a>Deeply nested **Cluster** block collapsed for readability.
+
 #### Custom Network Config Interface List Interfaces Ethernet Interface
 
 <a id="deep-155d07"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface Cluster
+
+<a id="deep-fd749f"></a>Deeply nested **Cluster** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Client
+
+<a id="deep-eda6e0"></a>Deeply nested **Client** block collapsed for readability.
 
 #### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server
 
 <a id="deep-c00b69"></a>Deeply nested **Server** block collapsed for readability.
 
+#### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server Automatic From End
+
+<a id="deep-4af740"></a>Deeply nested **End** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server Automatic From Start
+
+<a id="deep-2454fb"></a>Deeply nested **Start** block collapsed for readability.
+
 #### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server DHCP Networks
 
 <a id="deep-bf31a8"></a>Deeply nested **Networks** block collapsed for readability.
 
+#### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server DHCP Networks First Address
+
+<a id="deep-c875c5"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server DHCP Networks Last Address
+
+<a id="deep-66ec13"></a>Deeply nested **Address** block collapsed for readability.
+
 #### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server DHCP Networks Pools
 
 <a id="deep-904e69"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-c094de"></a>Deeply nested **Dgw** block collapsed for readability.
 
 #### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server Interface IP Map
 
@@ -375,6 +467,10 @@ An [`interfaces`](#interfaces-e1b75d) block (within [`custom_network_config.inte
 #### Custom Network Config Interface List Interfaces Ethernet Interface IPv6 Auto Config
 
 <a id="deep-606ad3"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface IPv6 Auto Config Host
+
+<a id="deep-d333f1"></a>Deeply nested **Host** block collapsed for readability.
 
 #### Custom Network Config Interface List Interfaces Ethernet Interface IPv6 Auto Config Router
 
@@ -392,9 +488,25 @@ An [`interfaces`](#interfaces-e1b75d) block (within [`custom_network_config.inte
 
 <a id="deep-33d01b"></a>Deeply nested **DNS** block collapsed for readability.
 
+#### Custom Network Config Interface List Interfaces Ethernet Interface IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-8f3988"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-e0e95f"></a>Deeply nested **Address** block collapsed for readability.
+
 #### Custom Network Config Interface List Interfaces Ethernet Interface IPv6 Auto Config Router Stateful
 
 <a id="deep-52248e"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-ac89da"></a>Deeply nested **End** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-6cf091"></a>Deeply nested **Start** block collapsed for readability.
 
 #### Custom Network Config Interface List Interfaces Ethernet Interface IPv6 Auto Config Router Stateful DHCP Networks
 
@@ -407,6 +519,34 @@ An [`interfaces`](#interfaces-e1b75d) block (within [`custom_network_config.inte
 #### Custom Network Config Interface List Interfaces Ethernet Interface IPv6 Auto Config Router Stateful Interface IP Map
 
 <a id="deep-15168d"></a>Deeply nested **Map** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface Is Primary
+
+<a id="deep-15279b"></a>Deeply nested **Primary** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface Monitor
+
+<a id="deep-27fcba"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface Monitor Disabled
+
+<a id="deep-fc92a3"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface No IPv6 Address
+
+<a id="deep-9f6440"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface Not Primary
+
+<a id="deep-13bfef"></a>Deeply nested **Primary** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface Site Local Inside Network
+
+<a id="deep-3365a8"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface Site Local Network
+
+<a id="deep-9dce1b"></a>Deeply nested **Network** block collapsed for readability.
 
 #### Custom Network Config Interface List Interfaces Ethernet Interface Static IP
 
@@ -432,9 +572,25 @@ An [`interfaces`](#interfaces-e1b75d) block (within [`custom_network_config.inte
 
 <a id="deep-be6bf5"></a>Deeply nested **IP** block collapsed for readability.
 
+#### Custom Network Config Interface List Interfaces Ethernet Interface Storage Network
+
+<a id="deep-32f981"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Ethernet Interface Untagged
+
+<a id="deep-26939c"></a>Deeply nested **Untagged** block collapsed for readability.
+
 #### Custom Network Config Interface List Interfaces Tunnel Interface
 
 <a id="deep-d573aa"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Tunnel Interface Site Local Inside Network
+
+<a id="deep-484f01"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Custom Network Config Interface List Interfaces Tunnel Interface Site Local Network
+
+<a id="deep-ff7d3e"></a>Deeply nested **Network** block collapsed for readability.
 
 #### Custom Network Config Interface List Interfaces Tunnel Interface Static IP
 
@@ -452,17 +608,37 @@ An [`interfaces`](#interfaces-e1b75d) block (within [`custom_network_config.inte
 
 <a id="deep-b0269a"></a>Deeply nested **Tunnel** block collapsed for readability.
 
+#### Custom Network Config No Forward Proxy
+
+A [`no_forward_proxy`](#custom-network-config-no-forward-proxy) block (within [`custom_network_config`](#custom-network-config)) supports the following:
+
+#### Custom Network Config No Global Network
+
+A [`no_global_network`](#custom-network-config-no-global-network) block (within [`custom_network_config`](#custom-network-config)) supports the following:
+
+#### Custom Network Config No Network Policy
+
+A [`no_network_policy`](#custom-network-config-no-network-policy) block (within [`custom_network_config`](#custom-network-config)) supports the following:
+
 #### Custom Network Config SLI Config
 
 A [`sli_config`](#custom-network-config-sli-config) block (within [`custom_network_config`](#custom-network-config)) supports the following:
 
-<a id="routes-ece448"></a>&#x2022; [`no_static_routes`](#routes-ece448) - Optional Block<br>Configuration parameter for no static routes
+<a id="routes-ece448"></a>&#x2022; [`no_static_routes`](#routes-ece448) - Optional Object<br>Configuration parameter for no static routes
 
-<a id="routes-ef5627"></a>&#x2022; [`no_v6_static_routes`](#routes-ef5627) - Optional Block<br>Configuration parameter for no v6 static routes
+<a id="routes-ef5627"></a>&#x2022; [`no_v6_static_routes`](#routes-ef5627) - Optional Object<br>Configuration parameter for no v6 static routes
 
 <a id="routes-766a73"></a>&#x2022; [`static_routes`](#routes-766a73) - Optional Block<br>Configuration parameter for static routes<br>See [Static Routes](#routes-766a73) below.
 
 <a id="routes-3c3781"></a>&#x2022; [`static_v6_routes`](#routes-3c3781) - Optional Block<br>Configuration parameter for static v6 routes<br>See [Static V6 Routes](#routes-3c3781) below.
+
+#### Custom Network Config SLI Config No Static Routes
+
+<a id="deep-02f9fb"></a>Deeply nested **Routes** block collapsed for readability.
+
+#### Custom Network Config SLI Config No V6 Static Routes
+
+<a id="deep-2b995d"></a>Deeply nested **Routes** block collapsed for readability.
 
 #### Custom Network Config SLI Config Static Routes
 
@@ -473,6 +649,10 @@ A [`static_routes`](#routes-766a73) block (within [`custom_network_config.sli_co
 #### Custom Network Config SLI Config Static Routes Static Routes
 
 <a id="deep-418fe7"></a>Deeply nested **Routes** block collapsed for readability.
+
+#### Custom Network Config SLI Config Static Routes Static Routes Default Gateway
+
+<a id="deep-3b8e6e"></a>Deeply nested **Gateway** block collapsed for readability.
 
 #### Custom Network Config SLI Config Static Routes Static Routes Node Interface
 
@@ -494,6 +674,10 @@ A [`static_routes`](#routes-766a73) block (within [`custom_network_config.sli_co
 
 <a id="deep-b94fe3"></a>Deeply nested **Routes** block collapsed for readability.
 
+#### Custom Network Config SLI Config Static V6 Routes Static Routes Default Gateway
+
+<a id="deep-6f79f6"></a>Deeply nested **Gateway** block collapsed for readability.
+
 #### Custom Network Config SLI Config Static V6 Routes Static Routes Node Interface
 
 <a id="deep-85506f"></a>Deeply nested **Interface** block collapsed for readability.
@@ -514,11 +698,11 @@ A [`slo_config`](#custom-network-config-slo-config) block (within [`custom_netwo
 
 <a id="custom-network-config-slo-config-labels"></a>&#x2022; [`labels`](#custom-network-config-slo-config-labels) - Optional Block<br>Add Labels for this network, these labels can be used in firewall policy
 
-<a id="group-babd4e"></a>&#x2022; [`no_dc_cluster_group`](#group-babd4e) - Optional Block<br>Enable this option
+<a id="group-babd4e"></a>&#x2022; [`no_dc_cluster_group`](#group-babd4e) - Optional Object<br>Enable this option
 
-<a id="routes-9a2e74"></a>&#x2022; [`no_static_routes`](#routes-9a2e74) - Optional Block<br>Configuration parameter for no static routes
+<a id="routes-9a2e74"></a>&#x2022; [`no_static_routes`](#routes-9a2e74) - Optional Object<br>Configuration parameter for no static routes
 
-<a id="routes-d536d3"></a>&#x2022; [`no_static_v6_routes`](#routes-d536d3) - Optional Block<br>Configuration parameter for no static v6 routes
+<a id="routes-d536d3"></a>&#x2022; [`no_static_v6_routes`](#routes-d536d3) - Optional Object<br>Configuration parameter for no static v6 routes
 
 <a id="routes-f61105"></a>&#x2022; [`static_routes`](#routes-f61105) - Optional Block<br>Configuration parameter for static routes<br>See [Static Routes](#routes-f61105) below.
 
@@ -537,6 +721,10 @@ A [`static_routes`](#routes-f61105) block (within [`custom_network_config.slo_co
 #### Custom Network Config Slo Config Static Routes Static Routes
 
 <a id="deep-f8a4c7"></a>Deeply nested **Routes** block collapsed for readability.
+
+#### Custom Network Config Slo Config Static Routes Static Routes Default Gateway
+
+<a id="deep-40bf81"></a>Deeply nested **Gateway** block collapsed for readability.
 
 #### Custom Network Config Slo Config Static Routes Static Routes Node Interface
 
@@ -558,6 +746,10 @@ A [`static_routes`](#routes-f61105) block (within [`custom_network_config.slo_co
 
 <a id="deep-0e185b"></a>Deeply nested **Routes** block collapsed for readability.
 
+#### Custom Network Config Slo Config Static V6 Routes Static Routes Default Gateway
+
+<a id="deep-a3ef9b"></a>Deeply nested **Gateway** block collapsed for readability.
+
 #### Custom Network Config Slo Config Static V6 Routes Static Routes Node Interface
 
 <a id="deep-e2b2f3"></a>Deeply nested **Interface** block collapsed for readability.
@@ -570,17 +762,25 @@ A [`static_routes`](#routes-f61105) block (within [`custom_network_config.slo_co
 
 <a id="deep-5ea460"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### Custom Network Config Sm Connection Public IP
+
+A [`sm_connection_public_ip`](#public-ip-5fd49f) block (within [`custom_network_config`](#custom-network-config)) supports the following:
+
+#### Custom Network Config Sm Connection Pvt IP
+
+A [`sm_connection_pvt_ip`](#pvt-ip-892ce0) block (within [`custom_network_config`](#custom-network-config)) supports the following:
+
 #### Custom Storage Config
 
 A [`custom_storage_config`](#custom-storage-config) block supports the following:
 
-<a id="class-8a4650"></a>&#x2022; [`default_storage_class`](#class-8a4650) - Optional Block<br>Configuration parameter for default storage class
+<a id="class-8a4650"></a>&#x2022; [`default_storage_class`](#class-8a4650) - Optional Object<br>Configuration parameter for default storage class
 
-<a id="custom-storage-config-no-static-routes"></a>&#x2022; [`no_static_routes`](#custom-storage-config-no-static-routes) - Optional Block<br>Configuration parameter for no static routes
+<a id="custom-storage-config-no-static-routes"></a>&#x2022; [`no_static_routes`](#custom-storage-config-no-static-routes) - Optional Object<br>Configuration parameter for no static routes
 
-<a id="custom-storage-config-no-storage-device"></a>&#x2022; [`no_storage_device`](#custom-storage-config-no-storage-device) - Optional Block<br>Configuration parameter for no storage device
+<a id="custom-storage-config-no-storage-device"></a>&#x2022; [`no_storage_device`](#custom-storage-config-no-storage-device) - Optional Object<br>Configuration parameter for no storage device
 
-<a id="interfaces-a4a448"></a>&#x2022; [`no_storage_interfaces`](#interfaces-a4a448) - Optional Block<br>Configuration parameter for no storage interfaces
+<a id="interfaces-a4a448"></a>&#x2022; [`no_storage_interfaces`](#interfaces-a4a448) - Optional Object<br>Configuration parameter for no storage interfaces
 
 <a id="custom-storage-config-static-routes"></a>&#x2022; [`static_routes`](#custom-storage-config-static-routes) - Optional Block<br>Configuration parameter for static routes<br>See [Static Routes](#custom-storage-config-static-routes) below.
 
@@ -589,6 +789,22 @@ A [`custom_storage_config`](#custom-storage-config) block supports the following
 <a id="list-650498"></a>&#x2022; [`storage_device_list`](#list-650498) - Optional Block<br>Add additional custom storage classes in Kubernetes for this fleet<br>See [Storage Device List](#list-650498) below.
 
 <a id="list-c6bbef"></a>&#x2022; [`storage_interface_list`](#list-c6bbef) - Optional Block<br>Configure storage interfaces for this App Stack site<br>See [Storage Interface List](#list-c6bbef) below.
+
+#### Custom Storage Config Default Storage Class
+
+A [`default_storage_class`](#class-8a4650) block (within [`custom_storage_config`](#custom-storage-config)) supports the following:
+
+#### Custom Storage Config No Static Routes
+
+A [`no_static_routes`](#custom-storage-config-no-static-routes) block (within [`custom_storage_config`](#custom-storage-config)) supports the following:
+
+#### Custom Storage Config No Storage Device
+
+A [`no_storage_device`](#custom-storage-config-no-storage-device) block (within [`custom_storage_config`](#custom-storage-config)) supports the following:
+
+#### Custom Storage Config No Storage Interfaces
+
+A [`no_storage_interfaces`](#interfaces-a4a448) block (within [`custom_storage_config`](#custom-storage-config)) supports the following:
 
 #### Custom Storage Config Static Routes
 
@@ -603,13 +819,17 @@ A [`static_routes`](#routes-38e4c5) block (within [`custom_storage_config.static
 <a id="attrs-017f7f"></a>&#x2022; [`attrs`](#attrs-017f7f) - Optional List  Defaults to `ROUTE_ATTR_NO_OP`<br>Possible values are `ROUTE_ATTR_NO_OP`, `ROUTE_ATTR_ADVERTISE`, `ROUTE_ATTR_INSTALL_HOST`, `ROUTE_ATTR_INSTALL_FORWARDING`, `ROUTE_ATTR_MERGE_ONLY`<br>[Enum: ROUTE_ATTR_NO_OP|ROUTE_ATTR_ADVERTISE|ROUTE_ATTR_INSTALL_HOST|ROUTE_ATTR_INSTALL_FORWARDING|ROUTE_ATTR_MERGE_ONLY] List of
 attributes that control forwarding, dynamic routing and control plane (host) reachability
 
-<a id="gateway-64b546"></a>&#x2022; [`default_gateway`](#gateway-64b546) - Optional Block<br>Configuration parameter for default gateway
+<a id="gateway-64b546"></a>&#x2022; [`default_gateway`](#gateway-64b546) - Optional Object<br>Configuration parameter for default gateway
 
 <a id="address-3bde3d"></a>&#x2022; [`ip_address`](#address-3bde3d) - Optional String<br>Traffic matching the IP prefixes is sent to this IP Address
 
 <a id="prefixes-277476"></a>&#x2022; [`ip_prefixes`](#prefixes-277476) - Optional List<br>List of route prefixes that have common next hop and attributes
 
 <a id="interface-9c7667"></a>&#x2022; [`node_interface`](#interface-9c7667) - Optional Block<br>On multinode site, this type holds the information about per node interfaces<br>See [Node Interface](#interface-9c7667) below.
+
+#### Custom Storage Config Static Routes Static Routes Default Gateway
+
+<a id="deep-29ef9e"></a>Deeply nested **Gateway** block collapsed for readability.
 
 #### Custom Storage Config Static Routes Static Routes Node Interface
 
@@ -658,6 +878,10 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 #### Custom Storage Config Storage Device List Storage Devices
 
 <a id="deep-6bca13"></a>Deeply nested **Devices** block collapsed for readability.
+
+#### Custom Storage Config Storage Device List Storage Devices Custom Storage
+
+<a id="deep-da8a0f"></a>Deeply nested **Storage** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Hpe Storage
 
@@ -731,9 +955,17 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 
 <a id="deep-4bded4"></a>Deeply nested **Defaults** block collapsed for readability.
 
+#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Storage Volume Defaults No QOS
+
+<a id="deep-49d8bf"></a>Deeply nested **QOS** block collapsed for readability.
+
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Volume Defaults
 
 <a id="deep-13fa20"></a>Deeply nested **Defaults** block collapsed for readability.
+
+#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Volume Defaults No QOS
+
+<a id="deep-5038aa"></a>Deeply nested **QOS** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San
 
@@ -750,6 +982,10 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Client Private Key Clear Secret Info
 
 <a id="deep-d4b4e5"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San No Chap
+
+<a id="deep-0efcf0"></a>Deeply nested **Chap** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Password
 
@@ -770,6 +1006,10 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Storage Volume Defaults
 
 <a id="deep-bf3c29"></a>Deeply nested **Defaults** block collapsed for readability.
+
+#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Storage Volume Defaults No QOS
+
+<a id="deep-332668"></a>Deeply nested **QOS** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Use Chap
 
@@ -802,6 +1042,10 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Volume Defaults
 
 <a id="deep-c97e4f"></a>Deeply nested **Defaults** block collapsed for readability.
+
+#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Volume Defaults No QOS
+
+<a id="deep-39dca9"></a>Deeply nested **QOS** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Pure Service Orchestrator
 
@@ -865,17 +1109,45 @@ A [`storage_interface_list`](#list-c6bbef) block (within [`custom_storage_config
 
 <a id="deep-83c56f"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface Cluster
+
+<a id="deep-60c267"></a>Deeply nested **Cluster** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface DHCP Client
+
+<a id="deep-74dad0"></a>Deeply nested **Client** block collapsed for readability.
+
 #### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface DHCP Server
 
 <a id="deep-bab049"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface DHCP Server Automatic From End
+
+<a id="deep-d0d612"></a>Deeply nested **End** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface DHCP Server Automatic From Start
+
+<a id="deep-d58943"></a>Deeply nested **Start** block collapsed for readability.
 
 #### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface DHCP Server DHCP Networks
 
 <a id="deep-7d9c8d"></a>Deeply nested **Networks** block collapsed for readability.
 
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface DHCP Server DHCP Networks First Address
+
+<a id="deep-6382ef"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface DHCP Server DHCP Networks Last Address
+
+<a id="deep-4a599d"></a>Deeply nested **Address** block collapsed for readability.
+
 #### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface DHCP Server DHCP Networks Pools
 
 <a id="deep-edd3e1"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-6a8e2b"></a>Deeply nested **Dgw** block collapsed for readability.
 
 #### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface DHCP Server Interface IP Map
 
@@ -884,6 +1156,10 @@ A [`storage_interface_list`](#list-c6bbef) block (within [`custom_storage_config
 #### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface IPv6 Auto Config
 
 <a id="deep-43a989"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface IPv6 Auto Config Host
+
+<a id="deep-b2d974"></a>Deeply nested **Host** block collapsed for readability.
 
 #### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface IPv6 Auto Config Router
 
@@ -901,9 +1177,25 @@ A [`storage_interface_list`](#list-c6bbef) block (within [`custom_storage_config
 
 <a id="deep-3ff88d"></a>Deeply nested **DNS** block collapsed for readability.
 
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-ee97b2"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-eae770"></a>Deeply nested **Address** block collapsed for readability.
+
 #### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface IPv6 Auto Config Router Stateful
 
 <a id="deep-e193c4"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-1a5363"></a>Deeply nested **End** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-a33bc0"></a>Deeply nested **Start** block collapsed for readability.
 
 #### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface IPv6 Auto Config Router Stateful DHCP Networks
 
@@ -916,6 +1208,34 @@ A [`storage_interface_list`](#list-c6bbef) block (within [`custom_storage_config
 #### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface IPv6 Auto Config Router Stateful Interface IP Map
 
 <a id="deep-f00699"></a>Deeply nested **Map** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface Is Primary
+
+<a id="deep-175a95"></a>Deeply nested **Primary** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface Monitor
+
+<a id="deep-28d20c"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface Monitor Disabled
+
+<a id="deep-16f0d0"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface No IPv6 Address
+
+<a id="deep-10d38a"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface Not Primary
+
+<a id="deep-a27750"></a>Deeply nested **Primary** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface Site Local Inside Network
+
+<a id="deep-397295"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface Site Local Network
+
+<a id="deep-26fe5e"></a>Deeply nested **Network** block collapsed for readability.
 
 #### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface Static IP
 
@@ -941,6 +1261,46 @@ A [`storage_interface_list`](#list-c6bbef) block (within [`custom_storage_config
 
 <a id="deep-d9ee79"></a>Deeply nested **IP** block collapsed for readability.
 
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface Storage Network
+
+<a id="deep-e03687"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface Untagged
+
+<a id="deep-91ae20"></a>Deeply nested **Untagged** block collapsed for readability.
+
+#### Default Blocked Services
+
+A [`default_blocked_services`](#default-blocked-services) block supports the following:
+
+#### Default Network Config
+
+A [`default_network_config`](#default-network-config) block supports the following:
+
+#### Default Sriov Interface
+
+A [`default_sriov_interface`](#default-sriov-interface) block supports the following:
+
+#### Default Storage Config
+
+A [`default_storage_config`](#default-storage-config) block supports the following:
+
+#### Deny All Usb
+
+A [`deny_all_usb`](#deny-all-usb) block supports the following:
+
+#### Disable GPU
+
+A [`disable_gpu`](#disable-gpu) block supports the following:
+
+#### Disable VM
+
+A [`disable_vm`](#disable-vm) block supports the following:
+
+#### Enable GPU
+
+An [`enable_gpu`](#enable-gpu) block supports the following:
+
 #### Enable Vgpu
 
 An [`enable_vgpu`](#enable-vgpu) block supports the following:
@@ -950,6 +1310,10 @@ An [`enable_vgpu`](#enable-vgpu) block supports the following:
 <a id="enable-vgpu-server-address"></a>&#x2022; [`server_address`](#enable-vgpu-server-address) - Optional String<br>License Server Address. Set License Server Address
 
 <a id="enable-vgpu-server-port"></a>&#x2022; [`server_port`](#enable-vgpu-server-port) - Optional Number<br>License Server Port Number. Set License Server port number
+
+#### Enable VM
+
+An [`enable_vm`](#enable-vm) block supports the following:
 
 #### K8S Cluster
 
@@ -965,21 +1329,35 @@ A [`k8s_cluster`](#k8s-cluster) block supports the following:
 
 A [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain) block supports the following:
 
-<a id="drain-0d0936"></a>&#x2022; [`disable_upgrade_drain`](#drain-0d0936) - Optional Block<br>Configuration parameter for disable upgrade drain
+<a id="drain-0d0936"></a>&#x2022; [`disable_upgrade_drain`](#drain-0d0936) - Optional Object<br>Configuration parameter for disable upgrade drain
 
 <a id="drain-7e30d4"></a>&#x2022; [`enable_upgrade_drain`](#drain-7e30d4) - Optional Block<br>Specify batch upgrade settings for worker nodes within a site<br>See [Enable Upgrade Drain](#drain-7e30d4) below.
+
+#### Kubernetes Upgrade Drain Disable Upgrade Drain
+
+A [`disable_upgrade_drain`](#drain-0d0936) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
 
 #### Kubernetes Upgrade Drain Enable Upgrade Drain
 
 An [`enable_upgrade_drain`](#drain-7e30d4) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
 
-<a id="mode-668699"></a>&#x2022; [`disable_vega_upgrade_mode`](#mode-668699) - Optional Block<br>Configuration parameter for disable vega upgrade mode
+<a id="mode-668699"></a>&#x2022; [`disable_vega_upgrade_mode`](#mode-668699) - Optional Object<br>Configuration parameter for disable vega upgrade mode
 
 <a id="count-3aa796"></a>&#x2022; [`drain_max_unavailable_node_count`](#count-3aa796) - Optional Number<br>Node Batch Size Count
 
+<a id="percentage-7723a9"></a>&#x2022; [`drain_max_unavailable_node_percentage`](#percentage-7723a9) - Optional Number<br>Maximum percentage of nodes unavailable during upgrade draining
+
 <a id="timeout-ac4ee9"></a>&#x2022; [`drain_node_timeout`](#timeout-ac4ee9) - Optional Number<br>Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is
 
-<a id="mode-9c557b"></a>&#x2022; [`enable_vega_upgrade_mode`](#mode-9c557b) - Optional Block<br>Configuration parameter for enable vega upgrade mode
+<a id="mode-9c557b"></a>&#x2022; [`enable_vega_upgrade_mode`](#mode-9c557b) - Optional Object<br>Configuration parameter for enable vega upgrade mode
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Disable Vega Upgrade Mode
+
+<a id="deep-6040f2"></a>Deeply nested **Mode** block collapsed for readability.
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Enable Vega Upgrade Mode
+
+<a id="deep-ea033c"></a>Deeply nested **Mode** block collapsed for readability.
 
 #### Local Control Plane
 
@@ -987,9 +1365,9 @@ A [`local_control_plane`](#local-control-plane) block supports the following:
 
 <a id="local-control-plane-bgp-config"></a>&#x2022; [`bgp_config`](#local-control-plane-bgp-config) - Optional Block<br>BGP Configuration. BGP configuration parameters<br>See [BGP Config](#local-control-plane-bgp-config) below.
 
-<a id="local-control-plane-inside-vn"></a>&#x2022; [`inside_vn`](#local-control-plane-inside-vn) - Optional Block<br>Enable this option
+<a id="local-control-plane-inside-vn"></a>&#x2022; [`inside_vn`](#local-control-plane-inside-vn) - Optional Object<br>Enable this option
 
-<a id="local-control-plane-outside-vn"></a>&#x2022; [`outside_vn`](#local-control-plane-outside-vn) - Optional Block<br>Enable this option
+<a id="local-control-plane-outside-vn"></a>&#x2022; [`outside_vn`](#local-control-plane-outside-vn) - Optional Object<br>Enable this option
 
 #### Local Control Plane BGP Config
 
@@ -1003,11 +1381,11 @@ A [`bgp_config`](#local-control-plane-bgp-config) block (within [`local_control_
 
 A [`peers`](#local-control-plane-bgp-config-peers) block (within [`local_control_plane.bgp_config`](#local-control-plane-bgp-config)) supports the following:
 
-<a id="disabled-1a15e3"></a>&#x2022; [`bfd_disabled`](#disabled-1a15e3) - Optional Block<br>Enable this option
+<a id="disabled-1a15e3"></a>&#x2022; [`bfd_disabled`](#disabled-1a15e3) - Optional Object<br>Enable this option
 
 <a id="enabled-26ad69"></a>&#x2022; [`bfd_enabled`](#enabled-26ad69) - Optional Block<br>BFD. BFD parameters<br>See [Bfd Enabled](#enabled-26ad69) below.
 
-<a id="spec-0b89f5"></a>&#x2022; [`disable_spec`](#spec-0b89f5) - Optional Block<br>Enable this option
+<a id="spec-0b89f5"></a>&#x2022; [`disable_spec`](#spec-0b89f5) - Optional Object<br>Enable this option
 
 <a id="external-a31b05"></a>&#x2022; [`external`](#external-a31b05) - Optional Block<br>External BGP Peer. External BGP Peer parameters<br>See [External](#external-a31b05) below.
 
@@ -1016,15 +1394,23 @@ A [`peers`](#local-control-plane-bgp-config-peers) block (within [`local_control
 <a id="metadata-fc2912"></a>&#x2022; [`metadata`](#metadata-fc2912) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
 [Metadata](#metadata-fc2912) below.
 
-<a id="disabled-002c76"></a>&#x2022; [`passive_mode_disabled`](#disabled-002c76) - Optional Block<br>Enable this option
+<a id="disabled-002c76"></a>&#x2022; [`passive_mode_disabled`](#disabled-002c76) - Optional Object<br>Enable this option
 
-<a id="enabled-9a2bed"></a>&#x2022; [`passive_mode_enabled`](#enabled-9a2bed) - Optional Block<br>Enable this option
+<a id="enabled-9a2bed"></a>&#x2022; [`passive_mode_enabled`](#enabled-9a2bed) - Optional Object<br>Enable this option
 
 <a id="policies-2724a9"></a>&#x2022; [`routing_policies`](#policies-2724a9) - Optional Block<br>List of rules which can be applied on all or particular nodes<br>See [Routing Policies](#policies-2724a9) below.
+
+#### Local Control Plane BGP Config Peers Bfd Disabled
+
+<a id="deep-2c5d45"></a>Deeply nested **Disabled** block collapsed for readability.
 
 #### Local Control Plane BGP Config Peers Bfd Enabled
 
 <a id="deep-6cf71c"></a>Deeply nested **Enabled** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers Disable Spec
+
+<a id="deep-7b8d42"></a>Deeply nested **Spec** block collapsed for readability.
 
 #### Local Control Plane BGP Config Peers External
 
@@ -1036,21 +1422,21 @@ An [`external`](#external-a31b05) block (within [`local_control_plane.bgp_config
 
 <a id="asn-85f2ad"></a>&#x2022; [`asn`](#asn-85f2ad) - Optional Number<br>ASN. Autonomous System Number for BGP peer
 
-<a id="gateway-546434"></a>&#x2022; [`default_gateway`](#gateway-546434) - Optional Block<br>Configuration parameter for default gateway
+<a id="gateway-546434"></a>&#x2022; [`default_gateway`](#gateway-546434) - Optional Object<br>Configuration parameter for default gateway
 
-<a id="gateway-v6-475482"></a>&#x2022; [`default_gateway_v6`](#gateway-v6-475482) - Optional Block<br>Configuration parameter for default gateway v6
+<a id="gateway-v6-475482"></a>&#x2022; [`default_gateway_v6`](#gateway-v6-475482) - Optional Object<br>Configuration parameter for default gateway v6
 
-<a id="spec-f0d89c"></a>&#x2022; [`disable_spec`](#spec-f0d89c) - Optional Block<br>Enable this option
+<a id="spec-f0d89c"></a>&#x2022; [`disable_spec`](#spec-f0d89c) - Optional Object<br>Enable this option
 
-<a id="disable-v6-d0e9ac"></a>&#x2022; [`disable_v6`](#disable-v6-d0e9ac) - Optional Block<br>Enable this option
+<a id="disable-v6-d0e9ac"></a>&#x2022; [`disable_v6`](#disable-v6-d0e9ac) - Optional Object<br>Enable this option
 
-<a id="connector-4797fa"></a>&#x2022; [`external_connector`](#connector-4797fa) - Optional Block<br>Configuration parameter for external connector
+<a id="connector-4797fa"></a>&#x2022; [`external_connector`](#connector-4797fa) - Optional Object<br>Configuration parameter for external connector
 
 <a id="inet-10a45f"></a>&#x2022; [`family_inet`](#inet-10a45f) - Optional Block<br>Configuration parameter for family inet<br>See [Family Inet](#inet-10a45f) below.
 
-<a id="site-47677d"></a>&#x2022; [`from_site`](#site-47677d) - Optional Block<br>Enable this option
+<a id="site-47677d"></a>&#x2022; [`from_site`](#site-47677d) - Optional Object<br>Enable this option
 
-<a id="site-v6-f9f6c0"></a>&#x2022; [`from_site_v6`](#site-v6-f9f6c0) - Optional Block<br>Enable this option
+<a id="site-v6-f9f6c0"></a>&#x2022; [`from_site_v6`](#site-v6-f9f6c0) - Optional Object<br>Enable this option
 
 <a id="interface-5533f3"></a>&#x2022; [`interface`](#interface-5533f3) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Interface](#interface-5533f3) below.
 
@@ -1058,7 +1444,7 @@ An [`external`](#external-a31b05) block (within [`local_control_plane.bgp_config
 
 <a id="key-766f91"></a>&#x2022; [`md5_auth_key`](#key-766f91) - Optional String<br>MD5 key for protecting BGP Sessions (RFC 2385)
 
-<a id="authentication-089c59"></a>&#x2022; [`no_authentication`](#authentication-089c59) - Optional Block<br>Configuration parameter for no authentication
+<a id="authentication-089c59"></a>&#x2022; [`no_authentication`](#authentication-089c59) - Optional Object<br>Configuration parameter for no authentication
 
 <a id="port-3f6206"></a>&#x2022; [`port`](#port-3f6206) - Optional Number<br>Peer Port. Peer TCP port number
 
@@ -1070,9 +1456,33 @@ An [`external`](#external-a31b05) block (within [`local_control_plane.bgp_config
 
 <a id="offset-v6-1ec41a"></a>&#x2022; [`subnet_end_offset_v6`](#offset-v6-1ec41a) - Optional Number<br>Calculate peer address using offset from the end of the subnet
 
+#### Local Control Plane BGP Config Peers External Default Gateway
+
+<a id="deep-826e98"></a>Deeply nested **Gateway** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers External Default Gateway V6
+
+<a id="deep-7a32ac"></a>Deeply nested **V6** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers External Disable Spec
+
+<a id="deep-a94208"></a>Deeply nested **Spec** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers External Disable V6
+
+<a id="deep-7d79f7"></a>Deeply nested **V6** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers External External Connector
+
+<a id="deep-368c06"></a>Deeply nested **Connector** block collapsed for readability.
+
 #### Local Control Plane BGP Config Peers External Family Inet
 
 <a id="deep-473e79"></a>Deeply nested **Inet** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers External Family Inet Disable Spec
+
+<a id="deep-7dcbfa"></a>Deeply nested **Spec** block collapsed for readability.
 
 #### Local Control Plane BGP Config Peers External Family Inet Enable
 
@@ -1098,6 +1508,10 @@ An [`external`](#external-a31b05) block (within [`local_control_plane.bgp_config
 
 <a id="deep-911b92"></a>Deeply nested **Interfaces** block collapsed for readability.
 
+#### Local Control Plane BGP Config Peers External No Authentication
+
+<a id="deep-17fb8e"></a>Deeply nested **Authentication** block collapsed for readability.
+
 #### Local Control Plane BGP Config Peers Metadata
 
 A [`metadata`](#metadata-fc2912) block (within [`local_control_plane.bgp_config.peers`](#local-control-plane-bgp-config-peers)) supports the following:
@@ -1105,6 +1519,14 @@ A [`metadata`](#metadata-fc2912) block (within [`local_control_plane.bgp_config.
 <a id="spec-61f831"></a>&#x2022; [`description_spec`](#spec-61f831) - Optional String<br>Description. Human readable description
 
 <a id="name-858922"></a>&#x2022; [`name`](#name-858922) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Local Control Plane BGP Config Peers Passive Mode Disabled
+
+<a id="deep-8f6e40"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers Passive Mode Enabled
+
+<a id="deep-644eae"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Local Control Plane BGP Config Peers Routing Policies
 
@@ -1114,6 +1536,14 @@ A [`metadata`](#metadata-fc2912) block (within [`local_control_plane.bgp_config.
 
 <a id="deep-9ca661"></a>Deeply nested **Policy** block collapsed for readability.
 
+#### Local Control Plane BGP Config Peers Routing Policies Route Policy All Nodes
+
+<a id="deep-7a4cdb"></a>Deeply nested **Nodes** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers Routing Policies Route Policy Inbound
+
+<a id="deep-96f742"></a>Deeply nested **Inbound** block collapsed for readability.
+
 #### Local Control Plane BGP Config Peers Routing Policies Route Policy Node Name
 
 <a id="deep-0b0d3c"></a>Deeply nested **Name** block collapsed for readability.
@@ -1121,6 +1551,18 @@ A [`metadata`](#metadata-fc2912) block (within [`local_control_plane.bgp_config.
 #### Local Control Plane BGP Config Peers Routing Policies Route Policy Object Refs
 
 <a id="deep-7aba18"></a>Deeply nested **Refs** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers Routing Policies Route Policy Outbound
+
+<a id="deep-2d28aa"></a>Deeply nested **Outbound** block collapsed for readability.
+
+#### Local Control Plane Inside Vn
+
+An [`inside_vn`](#local-control-plane-inside-vn) block (within [`local_control_plane`](#local-control-plane)) supports the following:
+
+#### Local Control Plane Outside Vn
+
+An [`outside_vn`](#local-control-plane-outside-vn) block (within [`local_control_plane`](#local-control-plane)) supports the following:
 
 #### Log Receiver
 
@@ -1132,6 +1574,10 @@ A [`log_receiver`](#log-receiver) block supports the following:
 
 <a id="log-receiver-tenant"></a>&#x2022; [`tenant`](#log-receiver-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Logs Streaming Disabled
+
+A [`logs_streaming_disabled`](#logs-streaming-disabled) block supports the following:
+
 #### Master Node Configuration
 
 A [`master_node_configuration`](#master-node-configuration) block supports the following:
@@ -1140,21 +1586,45 @@ A [`master_node_configuration`](#master-node-configuration) block supports the f
 
 <a id="master-node-configuration-public-ip"></a>&#x2022; [`public_ip`](#master-node-configuration-public-ip) - Optional String<br>IP Address of the master node. This IP will be used when other sites connect via Site Mesh Group
 
+#### No Bond Devices
+
+A [`no_bond_devices`](#no-bond-devices) block supports the following:
+
+#### No K8S Cluster
+
+A [`no_k8s_cluster`](#no-k8s-cluster) block supports the following:
+
+#### No Local Control Plane
+
+A [`no_local_control_plane`](#no-local-control-plane) block supports the following:
+
 #### Offline Survivability Mode
 
 An [`offline_survivability_mode`](#offline-survivability-mode) block supports the following:
 
-<a id="mode-565021"></a>&#x2022; [`enable_offline_survivability_mode`](#mode-565021) - Optional Block<br>Configuration parameter for enable offline survivability mode
+<a id="mode-565021"></a>&#x2022; [`enable_offline_survivability_mode`](#mode-565021) - Optional Object<br>Configuration parameter for enable offline survivability mode
 
-<a id="mode-02f0c8"></a>&#x2022; [`no_offline_survivability_mode`](#mode-02f0c8) - Optional Block<br>Configuration parameter for no offline survivability mode
+<a id="mode-02f0c8"></a>&#x2022; [`no_offline_survivability_mode`](#mode-02f0c8) - Optional Object<br>Configuration parameter for no offline survivability mode
+
+#### Offline Survivability Mode Enable Offline Survivability Mode
+
+An [`enable_offline_survivability_mode`](#mode-565021) block (within [`offline_survivability_mode`](#offline-survivability-mode)) supports the following:
+
+#### Offline Survivability Mode No Offline Survivability Mode
+
+A [`no_offline_survivability_mode`](#mode-02f0c8) block (within [`offline_survivability_mode`](#offline-survivability-mode)) supports the following:
 
 #### OS
 
 An [`os`](#os) block supports the following:
 
-<a id="os-default-os-version"></a>&#x2022; [`default_os_version`](#os-default-os-version) - Optional Block<br>Enable this option
+<a id="os-default-os-version"></a>&#x2022; [`default_os_version`](#os-default-os-version) - Optional Object<br>Enable this option
 
 <a id="os-operating-system-version"></a>&#x2022; [`operating_system_version`](#os-operating-system-version) - Optional String<br>Specify a OS version to be used e.g. 9.2024.6
+
+#### OS Default OS Version
+
+A [`default_os_version`](#os-default-os-version) block (within [`os`](#os)) supports the following:
 
 #### Sriov Interfaces
 
@@ -1176,9 +1646,13 @@ A [`sriov_interface`](#sriov-interfaces-sriov-interface) block (within [`sriov_i
 
 A [`sw`](#sw) block supports the following:
 
-<a id="sw-default-sw-version"></a>&#x2022; [`default_sw_version`](#sw-default-sw-version) - Optional Block<br>Enable this option
+<a id="sw-default-sw-version"></a>&#x2022; [`default_sw_version`](#sw-default-sw-version) - Optional Object<br>Enable this option
 
 <a id="sw-volterra-software-version"></a>&#x2022; [`volterra_software_version`](#sw-volterra-software-version) - Optional String<br>Specify a F5XC Software Version to be used e.g. Crt-20210329-1002
+
+#### Sw Default Sw Version
+
+A [`default_sw_version`](#sw-default-sw-version) block (within [`sw`](#sw)) supports the following:
 
 #### Timeouts
 

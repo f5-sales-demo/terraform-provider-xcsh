@@ -2,12 +2,12 @@
 page_title: "xcsh_smsv2_aws_runtime Data Source - xcsh"
 subcategory: "Uncategorized"
 description: |-
-  Correlates AWS ENI MAC identities with authoritative SMSv2 configuration and node health.
+  Correlates AWS ENI identities with SMSv2 configuration, site provisioning and published physical-link status.
 ---
 
 # xcsh_smsv2_aws_runtime (Data Source)
 
-Correlates AWS ENI MAC identities with authoritative SMSv2 configuration and node health. This is a read-only data source.
+Correlates AWS ENI identities with SMSv2 configuration, site provisioning and published physical-link status. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
@@ -59,7 +59,7 @@ output "smsv2_healthy" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 ### Metadata Argument Reference
 

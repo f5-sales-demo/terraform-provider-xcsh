@@ -7,6 +7,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -170,11 +171,12 @@ func awsSMSv2ContractFixture(t *testing.T, fixtures []contractInterface) Securem
 		role := &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListNetworkOptionModel{}
 		switch fixture.role {
 		case "slo":
-			role.SiteLocalNetwork = &SecuremeshSiteV2EmptyModel{}
+			role.SiteLocalNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 		case "sli":
-			role.SiteLocalInsideNetwork = &SecuremeshSiteV2EmptyModel{}
+			role.SiteLocalInsideNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 		case "ambiguous":
-			role.SiteLocalNetwork, role.SiteLocalInsideNetwork = &SecuremeshSiteV2EmptyModel{}, &SecuremeshSiteV2EmptyModel{}
+			marker := types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+			role.SiteLocalNetwork, role.SiteLocalInsideNetwork = marker, marker
 		}
 		interfaces = append(interfaces, SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel{
 			Labels:            types.MapNull(types.StringType),

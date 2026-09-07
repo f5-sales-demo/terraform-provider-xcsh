@@ -274,7 +274,7 @@ resource "xcsh_api_definition" "test" {
   name      = %[1]q
   namespace = "shared"
 
-  strict_schema_origin {}
+  strict_schema_origin = {}
 }
 `, name)
 }

@@ -103,10 +103,10 @@ resource "xcsh_malicious_user_mitigation" "test" {
   mitigation_type {
     rules {
       threat_level {
-        high {}
+        high = {}
       }
       mitigation_action {
-        block_temporarily {}
+        block_temporarily = {}
       }
     }
   }
@@ -132,10 +132,10 @@ resource "xcsh_malicious_user_mitigation" "test" {
   mitigation_type {
     rules {
       threat_level {
-        high {}
+        high = {}
       }
       mitigation_action {
-        captcha_challenge {}
+        captcha_challenge = {}
       }
     }
   }
@@ -161,10 +161,10 @@ resource "xcsh_malicious_user_mitigation" "test" {
   mitigation_type {
     rules {
       threat_level {
-        medium {}
+        medium = {}
       }
       mitigation_action {
-        javascript_challenge {}
+        javascript_challenge = {}
       }
     }
   }
@@ -310,10 +310,10 @@ resource "xcsh_malicious_user_mitigation" "test" {
   mitigation_type {
     rules {
       threat_level {
-        high {}
+        high = {}
       }
       mitigation_action {
-        block_temporarily {}
+        block_temporarily = {}
       }
     }
   }
@@ -322,7 +322,7 @@ resource "xcsh_malicious_user_mitigation" "test" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -392,21 +392,45 @@ A [`rules`](#mitigation-type-rules) block (within [`mitigation_type`](#mitigatio
 
 A [`mitigation_action`](#mitigation-type-rules-mitigation-action) block (within [`mitigation_type.rules`](#mitigation-type-rules)) supports the following:
 
-<a id="temporarily-ae6df1"></a>&#x2022; [`block_temporarily`](#temporarily-ae6df1) - Optional Block<br>Enable this option
+<a id="temporarily-ae6df1"></a>&#x2022; [`block_temporarily`](#temporarily-ae6df1) - Optional Object<br>Enable this option
 
-<a id="challenge-783e81"></a>&#x2022; [`captcha_challenge`](#challenge-783e81) - Optional Block<br>Configuration parameter for captcha challenge
+<a id="challenge-783e81"></a>&#x2022; [`captcha_challenge`](#challenge-783e81) - Optional Object<br>Configuration parameter for captcha challenge
 
-<a id="challenge-26999c"></a>&#x2022; [`javascript_challenge`](#challenge-26999c) - Optional Block<br>Enable this option
+<a id="challenge-26999c"></a>&#x2022; [`javascript_challenge`](#challenge-26999c) - Optional Object<br>Enable this option
+
+#### Mitigation Type Rules Mitigation Action Block Temporarily
+
+A [`block_temporarily`](#temporarily-ae6df1) block (within [`mitigation_type.rules.mitigation_action`](#mitigation-type-rules-mitigation-action)) supports the following:
+
+#### Mitigation Type Rules Mitigation Action Captcha Challenge
+
+A [`captcha_challenge`](#challenge-783e81) block (within [`mitigation_type.rules.mitigation_action`](#mitigation-type-rules-mitigation-action)) supports the following:
+
+#### Mitigation Type Rules Mitigation Action JavaScript Challenge
+
+A [`javascript_challenge`](#challenge-26999c) block (within [`mitigation_type.rules.mitigation_action`](#mitigation-type-rules-mitigation-action)) supports the following:
 
 #### Mitigation Type Rules Threat Level
 
 A [`threat_level`](#mitigation-type-rules-threat-level) block (within [`mitigation_type.rules`](#mitigation-type-rules)) supports the following:
 
-<a id="mitigation-type-rules-threat-level-high"></a>&#x2022; [`high`](#mitigation-type-rules-threat-level-high) - Optional Block<br>Enable this option
+<a id="mitigation-type-rules-threat-level-high"></a>&#x2022; [`high`](#mitigation-type-rules-threat-level-high) - Optional Object<br>Enable this option
 
-<a id="mitigation-type-rules-threat-level-low"></a>&#x2022; [`low`](#mitigation-type-rules-threat-level-low) - Optional Block<br>Enable this option
+<a id="mitigation-type-rules-threat-level-low"></a>&#x2022; [`low`](#mitigation-type-rules-threat-level-low) - Optional Object<br>Enable this option
 
-<a id="medium-bfd9e9"></a>&#x2022; [`medium`](#medium-bfd9e9) - Optional Block<br>Enable this option
+<a id="medium-bfd9e9"></a>&#x2022; [`medium`](#medium-bfd9e9) - Optional Object<br>Enable this option
+
+#### Mitigation Type Rules Threat Level High
+
+A [`high`](#mitigation-type-rules-threat-level-high) block (within [`mitigation_type.rules.threat_level`](#mitigation-type-rules-threat-level)) supports the following:
+
+#### Mitigation Type Rules Threat Level Low
+
+A [`low`](#mitigation-type-rules-threat-level-low) block (within [`mitigation_type.rules.threat_level`](#mitigation-type-rules-threat-level)) supports the following:
+
+#### Mitigation Type Rules Threat Level Medium
+
+A [`medium`](#medium-bfd9e9) block (within [`mitigation_type.rules.threat_level`](#mitigation-type-rules-threat-level)) supports the following:
 
 #### Timeouts
 

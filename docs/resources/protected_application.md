@@ -39,7 +39,7 @@ resource "xcsh_protected_application" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -60,13 +60,13 @@ resource "xcsh_protected_application" "example" {
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="adobe-commerce-connector"></a>[`adobe_commerce_connector`](#adobe-commerce-connector) - Optional Block<br>Configuration parameter for adobe commerce connector
-<br><br>&#x2022; <a id="big-ip-iapp"></a>[`big_ip_iapp`](#big-ip-iapp) - Optional Block<br>Enable this option
+&#x2022; <a id="adobe-commerce-connector"></a>[`adobe_commerce_connector`](#adobe-commerce-connector) - Optional Object<br>Configuration parameter for adobe commerce connector
+<br><br>&#x2022; <a id="big-ip-iapp"></a>[`big_ip_iapp`](#big-ip-iapp) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="cloudflare"></a>[`cloudflare`](#cloudflare) - Optional Block<br>Bot Defense policy configuration for Cloudflare<br>See [Cloudflare](#cloudflare) below for details.
 <br><br>&#x2022; <a id="cloudfront"></a>[`cloudfront`](#cloudfront) - Optional Block<br>Bot Defense policy configuration for AWS Cloudfront<br>See [Cloudfront](#cloudfront) below for details.
-<br><br>&#x2022; <a id="custom-connector"></a>[`custom_connector`](#custom-connector) - Optional Block<br>Configuration parameter for custom connector
-<br><br>&#x2022; <a id="f5-big-ip"></a>[`f5_big_ip`](#f5-big-ip) - Optional Block<br>Enable this option
-<br><br>&#x2022; <a id="salesforce-commerce-connector"></a>[`salesforce_commerce_connector`](#salesforce-commerce-connector) - Optional Block<br>Configuration parameter for salesforce commerce connector
+<br><br>&#x2022; <a id="custom-connector"></a>[`custom_connector`](#custom-connector) - Optional Object<br>Configuration parameter for custom connector
+<br><br>&#x2022; <a id="f5-big-ip"></a>[`f5_big_ip`](#f5-big-ip) - Optional Object<br>Enable this option
+<br><br>&#x2022; <a id="salesforce-commerce-connector"></a>[`salesforce_commerce_connector`](#salesforce-commerce-connector) - Optional Object<br>Configuration parameter for salesforce commerce connector
 
 <a id="region"></a>&#x2022; [`region`](#region) - Optional String  Defaults to `US`<br>Possible values are `US`, `EU`, `ASIA`, `CA`<br>[Enum: US|EU|ASIA|CA] Defines a selection for Bot Defense region - US: US United States of America - EU: EU European Union - ASIA: ASIA Asia - CA: CA Canada
 
@@ -86,9 +86,9 @@ A [`cloudflare`](#cloudflare) block supports the following:
 
 <a id="hdr-901306"></a>&#x2022; [`continue_mitigation_action_hdr`](#hdr-901306) - Optional String<br>Case-insensitive HTTP header name for Continue Mitigation Action when add header selected
 
-<a id="cloudflare-disable-js-insert"></a>&#x2022; [`disable_js_insert`](#cloudflare-disable-js-insert) - Optional Block<br>Configuration parameter for disable js insert
+<a id="cloudflare-disable-js-insert"></a>&#x2022; [`disable_js_insert`](#cloudflare-disable-js-insert) - Optional Object<br>Configuration parameter for disable js insert
 
-<a id="cloudflare-disable-mobile-sdk"></a>&#x2022; [`disable_mobile_sdk`](#cloudflare-disable-mobile-sdk) - Optional Block<br>Enable this option
+<a id="cloudflare-disable-mobile-sdk"></a>&#x2022; [`disable_mobile_sdk`](#cloudflare-disable-mobile-sdk) - Optional Object<br>Enable this option
 
 <a id="cloudflare-js-insertion-rules"></a>&#x2022; [`js_insertion_rules`](#cloudflare-js-insertion-rules) - Optional Block<br>Defines custom JavaScript insertion rules for Bot Defense Policy<br>See [Js Insertion Rules](#cloudflare-js-insertion-rules) below.
 
@@ -104,6 +104,14 @@ LOG_UNDEFINED: Undefined - LOG_ERROR: Error Log only errors - LOG_WARNING: Warni
 <a id="cloudflare-timeout"></a>&#x2022; [`timeout`](#cloudflare-timeout) - Optional Number<br>The timeout for the inference check, in milliseconds
 
 <a id="cloudflare-trusted-clients"></a>&#x2022; [`trusted_clients`](#cloudflare-trusted-clients) - Optional Block<br>Define your allowlists to skip Bot Defense inference processing<br>See [Trusted Clients](#cloudflare-trusted-clients) below.
+
+#### Cloudflare Disable Js Insert
+
+A [`disable_js_insert`](#cloudflare-disable-js-insert) block (within [`cloudflare`](#cloudflare)) supports the following:
+
+#### Cloudflare Disable Mobile SDK
+
+A [`disable_mobile_sdk`](#cloudflare-disable-mobile-sdk) block (within [`cloudflare`](#cloudflare)) supports the following:
 
 #### Cloudflare Js Insertion Rules
 
@@ -122,7 +130,7 @@ JAVA_SCRIPT_LOCATION_UNDEFINED Undefined Insert JavaScript after `<HEAD>` tag In
 
 An [`exclude_list`](#list-8efdb9) block (within [`cloudflare.js_insertion_rules`](#cloudflare-js-insertion-rules)) supports the following:
 
-<a id="domain-652b56"></a>&#x2022; [`any_domain`](#domain-652b56) - Optional Block<br>Enable this option
+<a id="domain-652b56"></a>&#x2022; [`any_domain`](#domain-652b56) - Optional Object<br>Enable this option
 
 <a id="domain-6e04ce"></a>&#x2022; [`domain`](#domain-6e04ce) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-6e04ce) below.
 
@@ -130,6 +138,10 @@ An [`exclude_list`](#list-8efdb9) block (within [`cloudflare.js_insertion_rules`
 [Metadata](#metadata-4aacab) below.
 
 <a id="path-6ca236"></a>&#x2022; [`path`](#path-6ca236) - Optional Block<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match<br>See [Path](#path-6ca236) below.
+
+#### Cloudflare Js Insertion Rules Exclude List Any Domain
+
+<a id="deep-598086"></a>Deeply nested **Domain** block collapsed for readability.
 
 #### Cloudflare Js Insertion Rules Exclude List Domain
 
@@ -163,7 +175,7 @@ A [`path`](#path-6ca236) block (within [`cloudflare.js_insertion_rules.exclude_l
 
 A [`rules`](#cloudflare-js-insertion-rules-rules) block (within [`cloudflare.js_insertion_rules`](#cloudflare-js-insertion-rules)) supports the following:
 
-<a id="domain-ff5660"></a>&#x2022; [`any_domain`](#domain-ff5660) - Optional Block<br>Enable this option
+<a id="domain-ff5660"></a>&#x2022; [`any_domain`](#domain-ff5660) - Optional Object<br>Enable this option
 
 <a id="domain-4e91a3"></a>&#x2022; [`domain`](#domain-4e91a3) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-4e91a3) below.
 
@@ -175,6 +187,10 @@ A [`rules`](#cloudflare-js-insertion-rules-rules) block (within [`cloudflare.js_
 [Metadata](#metadata-90ddc7) below.
 
 <a id="prefix-f7eef8"></a>&#x2022; [`prefix`](#prefix-f7eef8) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+#### Cloudflare Js Insertion Rules Rules Any Domain
+
+An [`any_domain`](#domain-ff5660) block (within [`cloudflare.js_insertion_rules.rules`](#cloudflare-js-insertion-rules-rules)) supports the following:
 
 #### Cloudflare Js Insertion Rules Rules Domain
 
@@ -226,7 +242,7 @@ A [`headers`](#headers-1abbfc) block (within [`cloudflare.mobile_sdk_config.mobi
 
 A [`protected_endpoints`](#cloudflare-protected-endpoints) block (within [`cloudflare`](#cloudflare)) supports the following:
 
-<a id="domain-964eb2"></a>&#x2022; [`any_domain`](#domain-964eb2) - Optional Block<br>Enable this option
+<a id="domain-964eb2"></a>&#x2022; [`any_domain`](#domain-964eb2) - Optional Object<br>Enable this option
 
 <a id="cloudflare-protected-endpoints-domain"></a>&#x2022; [`domain`](#cloudflare-protected-endpoints-domain) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#cloudflare-protected-endpoints-domain) below.
 
@@ -244,6 +260,10 @@ specified by user during create<br>See [Metadata](#cloudflare-protected-endpoint
 <a id="client-56c7ff"></a>&#x2022; [`web_client`](#client-56c7ff) - Optional Block<br>Web Client. Web client configuration OPTIONS<br>See [Web Client](#client-56c7ff) below.
 
 <a id="client-32991b"></a>&#x2022; [`web_mobile_client`](#client-32991b) - Optional Block<br>Web and Mobile client configuration OPTIONS<br>See [Web Mobile Client](#client-32991b) below.
+
+#### Cloudflare Protected Endpoints Any Domain
+
+An [`any_domain`](#domain-964eb2) block (within [`cloudflare.protected_endpoints`](#cloudflare-protected-endpoints)) supports the following:
 
 #### Cloudflare Protected Endpoints Domain
 
@@ -289,9 +309,17 @@ HTTP response status codes EmptyStatusCode response codes means it is not specif
 
 A [`continue`](#continue-50a442) block (within [`cloudflare.protected_endpoints.mobile_client`](#client-68acec)) supports the following:
 
-<a id="header-4265f8"></a>&#x2022; [`add_header`](#header-4265f8) - Optional Block<br>Enable this option
+<a id="header-4265f8"></a>&#x2022; [`add_header`](#header-4265f8) - Optional Object<br>Enable this option
 
-<a id="header-e92ad3"></a>&#x2022; [`no_header`](#header-e92ad3) - Optional Block<br>Enable this option
+<a id="header-e92ad3"></a>&#x2022; [`no_header`](#header-e92ad3) - Optional Object<br>Enable this option
+
+#### Cloudflare Protected Endpoints Mobile Client Continue Add Header
+
+<a id="deep-824092"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Mobile Client Continue No Header
+
+<a id="deep-571799"></a>Deeply nested **Header** block collapsed for readability.
 
 #### Cloudflare Protected Endpoints Path
 
@@ -329,9 +357,17 @@ HTTP response status codes EmptyStatusCode response codes means it is not specif
 
 A [`continue`](#continue-2ef7b8) block (within [`cloudflare.protected_endpoints.web_client`](#client-56c7ff)) supports the following:
 
-<a id="header-4f2ae4"></a>&#x2022; [`add_header`](#header-4f2ae4) - Optional Block<br>Enable this option
+<a id="header-4f2ae4"></a>&#x2022; [`add_header`](#header-4f2ae4) - Optional Object<br>Enable this option
 
-<a id="header-d0c101"></a>&#x2022; [`no_header`](#header-d0c101) - Optional Block<br>Enable this option
+<a id="header-d0c101"></a>&#x2022; [`no_header`](#header-d0c101) - Optional Object<br>Enable this option
+
+#### Cloudflare Protected Endpoints Web Client Continue Add Header
+
+<a id="deep-a8c957"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Client Continue No Header
+
+<a id="deep-6b570c"></a>Deeply nested **Header** block collapsed for readability.
 
 #### Cloudflare Protected Endpoints Web Client Redirect
 
@@ -371,9 +407,25 @@ A [`web_mobile_client`](#client-32991b) block (within [`cloudflare.protected_end
 
 <a id="deep-bef9cf"></a>Deeply nested **Mobile** block collapsed for readability.
 
+#### Cloudflare Protected Endpoints Web Mobile Client Continue Mobile Add Header
+
+<a id="deep-b0b1d5"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Mobile Client Continue Mobile No Header
+
+<a id="deep-966648"></a>Deeply nested **Header** block collapsed for readability.
+
 #### Cloudflare Protected Endpoints Web Mobile Client Continue Web
 
 <a id="deep-dca160"></a>Deeply nested **Web** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Mobile Client Continue Web Add Header
+
+<a id="deep-5b5656"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudflare Protected Endpoints Web Mobile Client Continue Web No Header
+
+<a id="deep-a1744e"></a>Deeply nested **Header** block collapsed for readability.
 
 #### Cloudflare Protected Endpoints Web Mobile Client Redirect Web
 
@@ -426,11 +478,11 @@ A [`cloudfront`](#cloudfront) block supports the following:
 
 <a id="cloudfront-data-sample"></a>&#x2022; [`data_sample`](#cloudfront-data-sample) - Optional Number<br>Limit on amount of request-body data (other than F5 telemetry) to send for analysis (limit 1,048,576 == 1 MiByte)
 
-<a id="cloudfront-disable-aws-configuration"></a>&#x2022; [`disable_aws_configuration`](#cloudfront-disable-aws-configuration) - Optional Block<br>Configuration parameter for disable AWS configuration
+<a id="cloudfront-disable-aws-configuration"></a>&#x2022; [`disable_aws_configuration`](#cloudfront-disable-aws-configuration) - Optional Object<br>Configuration parameter for disable AWS configuration
 
-<a id="cloudfront-disable-js-insert"></a>&#x2022; [`disable_js_insert`](#cloudfront-disable-js-insert) - Optional Block<br>Configuration parameter for disable js insert
+<a id="cloudfront-disable-js-insert"></a>&#x2022; [`disable_js_insert`](#cloudfront-disable-js-insert) - Optional Object<br>Configuration parameter for disable js insert
 
-<a id="cloudfront-disable-mobile-sdk"></a>&#x2022; [`disable_mobile_sdk`](#cloudfront-disable-mobile-sdk) - Optional Block<br>Enable this option
+<a id="cloudfront-disable-mobile-sdk"></a>&#x2022; [`disable_mobile_sdk`](#cloudfront-disable-mobile-sdk) - Optional Object<br>Enable this option
 
 <a id="cloudfront-js-insertion-rules"></a>&#x2022; [`js_insertion_rules`](#cloudfront-js-insertion-rules) - Optional Block<br>Defines custom JavaScript insertion rules for Bot Defense Policy<br>See [Js Insertion Rules](#cloudfront-js-insertion-rules) below.
 
@@ -459,6 +511,18 @@ An [`aws_configuration_tag_selector`](#selector-4a72d4) block (within [`cloudfro
 
 <a id="tags-841fd9"></a>&#x2022; [`tags`](#tags-841fd9) - Optional Map<br>List contains the Cloudfront distribution selection by tags key is a AWS tag name, and the value is regular expression to match
 
+#### Cloudfront Disable AWS Configuration
+
+A [`disable_aws_configuration`](#cloudfront-disable-aws-configuration) block (within [`cloudfront`](#cloudfront)) supports the following:
+
+#### Cloudfront Disable Js Insert
+
+A [`disable_js_insert`](#cloudfront-disable-js-insert) block (within [`cloudfront`](#cloudfront)) supports the following:
+
+#### Cloudfront Disable Mobile SDK
+
+A [`disable_mobile_sdk`](#cloudfront-disable-mobile-sdk) block (within [`cloudfront`](#cloudfront)) supports the following:
+
 #### Cloudfront Js Insertion Rules
 
 A [`js_insertion_rules`](#cloudfront-js-insertion-rules) block (within [`cloudfront`](#cloudfront)) supports the following:
@@ -479,7 +543,7 @@ asynchronously, and it is non-cacheable Bot Defense JavaScript for telemetry col
 
 An [`exclude_list`](#list-72c274) block (within [`cloudfront.js_insertion_rules`](#cloudfront-js-insertion-rules)) supports the following:
 
-<a id="domain-971e60"></a>&#x2022; [`any_domain`](#domain-971e60) - Optional Block<br>Enable this option
+<a id="domain-971e60"></a>&#x2022; [`any_domain`](#domain-971e60) - Optional Object<br>Enable this option
 
 <a id="domain-5ed59b"></a>&#x2022; [`domain`](#domain-5ed59b) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-5ed59b) below.
 
@@ -487,6 +551,10 @@ An [`exclude_list`](#list-72c274) block (within [`cloudfront.js_insertion_rules`
 [Metadata](#metadata-a37d23) below.
 
 <a id="path-8488ee"></a>&#x2022; [`path`](#path-8488ee) - Optional Block<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match<br>See [Path](#path-8488ee) below.
+
+#### Cloudfront Js Insertion Rules Exclude List Any Domain
+
+<a id="deep-f3960e"></a>Deeply nested **Domain** block collapsed for readability.
 
 #### Cloudfront Js Insertion Rules Exclude List Domain
 
@@ -520,7 +588,7 @@ A [`path`](#path-8488ee) block (within [`cloudfront.js_insertion_rules.exclude_l
 
 A [`rules`](#cloudfront-js-insertion-rules-rules) block (within [`cloudfront.js_insertion_rules`](#cloudfront-js-insertion-rules)) supports the following:
 
-<a id="domain-623962"></a>&#x2022; [`any_domain`](#domain-623962) - Optional Block<br>Enable this option
+<a id="domain-623962"></a>&#x2022; [`any_domain`](#domain-623962) - Optional Object<br>Enable this option
 
 <a id="domain-6afb0b"></a>&#x2022; [`domain`](#domain-6afb0b) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-6afb0b) below.
 
@@ -532,6 +600,10 @@ A [`rules`](#cloudfront-js-insertion-rules-rules) block (within [`cloudfront.js_
 [Metadata](#metadata-4b30aa) below.
 
 <a id="prefix-d54b0a"></a>&#x2022; [`prefix`](#prefix-d54b0a) - Optional String<br>Path prefix to match (e.g. The value / will match on all paths)
+
+#### Cloudfront Js Insertion Rules Rules Any Domain
+
+An [`any_domain`](#domain-623962) block (within [`cloudfront.js_insertion_rules.rules`](#cloudfront-js-insertion-rules-rules)) supports the following:
 
 #### Cloudfront Js Insertion Rules Rules Domain
 
@@ -586,7 +658,7 @@ A [`headers`](#headers-47213c) block (within [`cloudfront.mobile_sdk_config.mobi
 
 A [`protected_endpoints`](#cloudfront-protected-endpoints) block (within [`cloudfront`](#cloudfront)) supports the following:
 
-<a id="domain-b9988a"></a>&#x2022; [`any_domain`](#domain-b9988a) - Optional Block<br>Enable this option
+<a id="domain-b9988a"></a>&#x2022; [`any_domain`](#domain-b9988a) - Optional Object<br>Enable this option
 
 <a id="cloudfront-protected-endpoints-domain"></a>&#x2022; [`domain`](#cloudfront-protected-endpoints-domain) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#cloudfront-protected-endpoints-domain) below.
 
@@ -603,11 +675,15 @@ specified by user during create<br>See [Metadata](#cloudfront-protected-endpoint
 
 <a id="cloudfront-protected-endpoints-query"></a>&#x2022; [`query`](#cloudfront-protected-endpoints-query) - Optional String<br>Enter a regular expression to match your query parameters of interest
 
-<a id="label-d4631a"></a>&#x2022; [`undefined_flow_label`](#label-d4631a) - Optional Block<br>Enable this option
+<a id="label-d4631a"></a>&#x2022; [`undefined_flow_label`](#label-d4631a) - Optional Object<br>Enable this option
 
 <a id="client-12f7d2"></a>&#x2022; [`web_client`](#client-12f7d2) - Optional Block<br>Web Client. Web client configuration OPTIONS<br>See [Web Client](#client-12f7d2) below.
 
 <a id="client-c9351a"></a>&#x2022; [`web_mobile_client`](#client-c9351a) - Optional Block<br>Web and Mobile client configuration OPTIONS<br>See [Web Mobile Client](#client-c9351a) below.
+
+#### Cloudfront Protected Endpoints Any Domain
+
+An [`any_domain`](#domain-b9988a) block (within [`cloudfront.protected_endpoints`](#cloudfront-protected-endpoints)) supports the following:
 
 #### Cloudfront Protected Endpoints Domain
 
@@ -641,9 +717,17 @@ A [`flow_label`](#label-36deaa) block (within [`cloudfront.protected_endpoints`]
 
 An [`account_management`](#management-7c69aa) block (within [`cloudfront.protected_endpoints.flow_label`](#label-36deaa)) supports the following:
 
-<a id="create-24f6e5"></a>&#x2022; [`create`](#create-24f6e5) - Optional Block<br>Enable this option
+<a id="create-24f6e5"></a>&#x2022; [`create`](#create-24f6e5) - Optional Object<br>Enable this option
 
-<a id="reset-a6c2a9"></a>&#x2022; [`password_reset`](#reset-a6c2a9) - Optional Block<br>Configuration parameter for password reset
+<a id="reset-a6c2a9"></a>&#x2022; [`password_reset`](#reset-a6c2a9) - Optional Object<br>Configuration parameter for password reset
+
+#### Cloudfront Protected Endpoints Flow Label Account Management Create
+
+<a id="deep-ad17fd"></a>Deeply nested **Create** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Account Management Password Reset
+
+<a id="deep-799fa5"></a>Deeply nested **Reset** block collapsed for readability.
 
 #### Cloudfront Protected Endpoints Flow Label Authentication
 
@@ -651,21 +735,25 @@ An [`authentication`](#authentication-d87879) block (within [`cloudfront.protect
 
 <a id="login-d6dd3d"></a>&#x2022; [`login`](#login-d6dd3d) - Optional Block<br>Bot Defense Transaction Result. Bot Defense Transaction Result<br>See [Login](#login-d6dd3d) below.
 
-<a id="mfa-a777a3"></a>&#x2022; [`login_mfa`](#mfa-a777a3) - Optional Block<br>Enable this option
+<a id="mfa-a777a3"></a>&#x2022; [`login_mfa`](#mfa-a777a3) - Optional Object<br>Enable this option
 
-<a id="partner-62b5ba"></a>&#x2022; [`login_partner`](#partner-62b5ba) - Optional Block<br>Configuration parameter for login partner
+<a id="partner-62b5ba"></a>&#x2022; [`login_partner`](#partner-62b5ba) - Optional Object<br>Configuration parameter for login partner
 
-<a id="logout-c50dfc"></a>&#x2022; [`logout`](#logout-c50dfc) - Optional Block<br>Enable this option
+<a id="logout-c50dfc"></a>&#x2022; [`logout`](#logout-c50dfc) - Optional Object<br>Enable this option
 
-<a id="refresh-395848"></a>&#x2022; [`token_refresh`](#refresh-395848) - Optional Block<br>Configuration parameter for token refresh
+<a id="refresh-395848"></a>&#x2022; [`token_refresh`](#refresh-395848) - Optional Object<br>Configuration parameter for token refresh
 
 #### Cloudfront Protected Endpoints Flow Label Authentication Login
 
 A [`login`](#login-d6dd3d) block (within [`cloudfront.protected_endpoints.flow_label.authentication`](#authentication-d87879)) supports the following:
 
-<a id="result-f22923"></a>&#x2022; [`disable_transaction_result`](#result-f22923) - Optional Block<br>Enable this option
+<a id="result-f22923"></a>&#x2022; [`disable_transaction_result`](#result-f22923) - Optional Object<br>Enable this option
 
 <a id="result-48b01f"></a>&#x2022; [`transaction_result`](#result-48b01f) - Optional Block<br>Bot Defense Transaction Result Type. Bot Defense Transaction ResultType<br>See [Transaction Result](#result-48b01f) below.
+
+#### Cloudfront Protected Endpoints Flow Label Authentication Login Disable Transaction Result
+
+<a id="deep-316854"></a>Deeply nested **Result** block collapsed for readability.
 
 #### Cloudfront Protected Endpoints Flow Label Authentication Login Transaction Result
 
@@ -679,13 +767,37 @@ A [`login`](#login-d6dd3d) block (within [`cloudfront.protected_endpoints.flow_l
 
 <a id="deep-88dfed"></a>Deeply nested **Conditions** block collapsed for readability.
 
+#### Cloudfront Protected Endpoints Flow Label Authentication Login MFA
+
+<a id="deep-0d114c"></a>Deeply nested **MFA** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Authentication Login Partner
+
+<a id="deep-dba9c0"></a>Deeply nested **Partner** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Authentication Logout
+
+A [`logout`](#logout-c50dfc) block (within [`cloudfront.protected_endpoints.flow_label.authentication`](#authentication-d87879)) supports the following:
+
+#### Cloudfront Protected Endpoints Flow Label Authentication Token Refresh
+
+<a id="deep-ea9b6b"></a>Deeply nested **Refresh** block collapsed for readability.
+
 #### Cloudfront Protected Endpoints Flow Label Financial Services
 
 A [`financial_services`](#services-6b999f) block (within [`cloudfront.protected_endpoints.flow_label`](#label-36deaa)) supports the following:
 
-<a id="apply-51fdb2"></a>&#x2022; [`apply`](#apply-51fdb2) - Optional Block<br>Enable this option
+<a id="apply-51fdb2"></a>&#x2022; [`apply`](#apply-51fdb2) - Optional Object<br>Enable this option
 
-<a id="transfer-49563c"></a>&#x2022; [`money_transfer`](#transfer-49563c) - Optional Block<br>Configuration parameter for money transfer
+<a id="transfer-49563c"></a>&#x2022; [`money_transfer`](#transfer-49563c) - Optional Object<br>Configuration parameter for money transfer
+
+#### Cloudfront Protected Endpoints Flow Label Financial Services Apply
+
+<a id="deep-179a4a"></a>Deeply nested **Apply** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Financial Services Money Transfer
+
+<a id="deep-e5bd0b"></a>Deeply nested **Transfer** block collapsed for readability.
 
 #### Cloudfront Protected Endpoints Flow Label Flight
 
@@ -697,27 +809,103 @@ A [`flight`](#flight-3e8b83) block (within [`cloudfront.protected_endpoints.flow
 
 A [`profile_management`](#management-81d774) block (within [`cloudfront.protected_endpoints.flow_label`](#label-36deaa)) supports the following:
 
-<a id="create-e79ddd"></a>&#x2022; [`create`](#create-e79ddd) - Optional Block<br>Enable this option
+<a id="create-e79ddd"></a>&#x2022; [`create`](#create-e79ddd) - Optional Object<br>Enable this option
 
-<a id="update-7ce411"></a>&#x2022; [`update`](#update-7ce411) - Optional Block<br>Enable this option
+<a id="update-7ce411"></a>&#x2022; [`update`](#update-7ce411) - Optional Object<br>Enable this option
 
-<a id="view-c8947f"></a>&#x2022; [`view`](#view-c8947f) - Optional Block<br>Enable this option
+<a id="view-c8947f"></a>&#x2022; [`view`](#view-c8947f) - Optional Object<br>Enable this option
+
+#### Cloudfront Protected Endpoints Flow Label Profile Management Create
+
+<a id="deep-4f9489"></a>Deeply nested **Create** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Profile Management Update
+
+<a id="deep-0640f5"></a>Deeply nested **Update** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Profile Management View
+
+<a id="deep-7886a1"></a>Deeply nested **View** block collapsed for readability.
 
 #### Cloudfront Protected Endpoints Flow Label Search
 
 A [`search`](#search-9671d4) block (within [`cloudfront.protected_endpoints.flow_label`](#label-36deaa)) supports the following:
 
-<a id="search-845454"></a>&#x2022; [`flight_search`](#search-845454) - Optional Block<br>Configuration parameter for flight search
+<a id="search-845454"></a>&#x2022; [`flight_search`](#search-845454) - Optional Object<br>Configuration parameter for flight search
 
-<a id="search-dc6e0d"></a>&#x2022; [`product_search`](#search-dc6e0d) - Optional Block<br>Configuration parameter for product search
+<a id="search-dc6e0d"></a>&#x2022; [`product_search`](#search-dc6e0d) - Optional Object<br>Configuration parameter for product search
 
-<a id="search-16aa64"></a>&#x2022; [`reservation_search`](#search-16aa64) - Optional Block<br>Configuration parameter for reservation search
+<a id="search-16aa64"></a>&#x2022; [`reservation_search`](#search-16aa64) - Optional Object<br>Configuration parameter for reservation search
 
-<a id="search-85dcc5"></a>&#x2022; [`room_search`](#search-85dcc5) - Optional Block<br>Configuration parameter for room search
+<a id="search-85dcc5"></a>&#x2022; [`room_search`](#search-85dcc5) - Optional Object<br>Configuration parameter for room search
+
+#### Cloudfront Protected Endpoints Flow Label Search Flight Search
+
+<a id="deep-bebc06"></a>Deeply nested **Search** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Search Product Search
+
+<a id="deep-ca8dae"></a>Deeply nested **Search** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Search Reservation Search
+
+<a id="deep-0c0242"></a>Deeply nested **Search** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Search Room Search
+
+<a id="deep-cfdb8b"></a>Deeply nested **Search** block collapsed for readability.
 
 #### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards
 
 <a id="deep-4781fa"></a>Deeply nested **Cards** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Gift Card Make Purchase With Gift Card
+
+<a id="deep-202637"></a>Deeply nested **Card** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Gift Card Validation
+
+<a id="deep-e25ad4"></a>Deeply nested **Validation** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Add To Cart
+
+<a id="deep-f9d4f6"></a>Deeply nested **Cart** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Checkout
+
+<a id="deep-89be07"></a>Deeply nested **Checkout** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Choose Seat
+
+<a id="deep-fbe792"></a>Deeply nested **Seat** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Enter Drawing Submission
+
+<a id="deep-a02963"></a>Deeply nested **Submission** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Make Payment
+
+<a id="deep-1ad291"></a>Deeply nested **Payment** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Order
+
+<a id="deep-d4cf59"></a>Deeply nested **Order** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Price Inquiry
+
+<a id="deep-f9bf34"></a>Deeply nested **Inquiry** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Promo Code Validation
+
+<a id="deep-09e28f"></a>Deeply nested **Validation** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Purchase Gift Card
+
+<a id="deep-56deea"></a>Deeply nested **Card** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Flow Label Shopping Gift Cards Shop Update Quantity
+
+<a id="deep-cf8c12"></a>Deeply nested **Quantity** block collapsed for readability.
 
 #### Cloudfront Protected Endpoints Metadata
 
@@ -753,9 +941,21 @@ HTTP response status codes EmptyStatusCode response codes means it is not specif
 
 A [`continue`](#continue-26f3e4) block (within [`cloudfront.protected_endpoints.mobile_client`](#client-9a40e5)) supports the following:
 
-<a id="header-401e08"></a>&#x2022; [`add_header`](#header-401e08) - Optional Block<br>Enable this option
+<a id="header-401e08"></a>&#x2022; [`add_header`](#header-401e08) - Optional Object<br>Enable this option
 
-<a id="header-ae307c"></a>&#x2022; [`no_header`](#header-ae307c) - Optional Block<br>Enable this option
+<a id="header-ae307c"></a>&#x2022; [`no_header`](#header-ae307c) - Optional Object<br>Enable this option
+
+#### Cloudfront Protected Endpoints Mobile Client Continue Add Header
+
+<a id="deep-c8aba8"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Mobile Client Continue No Header
+
+<a id="deep-455e09"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Undefined Flow Label
+
+An [`undefined_flow_label`](#label-d4631a) block (within [`cloudfront.protected_endpoints`](#cloudfront-protected-endpoints)) supports the following:
 
 #### Cloudfront Protected Endpoints Web Client
 
@@ -785,9 +985,17 @@ HTTP response status codes EmptyStatusCode response codes means it is not specif
 
 A [`continue`](#continue-323756) block (within [`cloudfront.protected_endpoints.web_client`](#client-12f7d2)) supports the following:
 
-<a id="header-56c3de"></a>&#x2022; [`add_header`](#header-56c3de) - Optional Block<br>Enable this option
+<a id="header-56c3de"></a>&#x2022; [`add_header`](#header-56c3de) - Optional Object<br>Enable this option
 
-<a id="header-813f53"></a>&#x2022; [`no_header`](#header-813f53) - Optional Block<br>Enable this option
+<a id="header-813f53"></a>&#x2022; [`no_header`](#header-813f53) - Optional Object<br>Enable this option
+
+#### Cloudfront Protected Endpoints Web Client Continue Add Header
+
+<a id="deep-5324c3"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Client Continue No Header
+
+<a id="deep-23ac5f"></a>Deeply nested **Header** block collapsed for readability.
 
 #### Cloudfront Protected Endpoints Web Client Redirect
 
@@ -827,9 +1035,25 @@ A [`web_mobile_client`](#client-c9351a) block (within [`cloudfront.protected_end
 
 <a id="deep-d90b56"></a>Deeply nested **Mobile** block collapsed for readability.
 
+#### Cloudfront Protected Endpoints Web Mobile Client Continue Mobile Add Header
+
+<a id="deep-824eb3"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Mobile Client Continue Mobile No Header
+
+<a id="deep-34b5ec"></a>Deeply nested **Header** block collapsed for readability.
+
 #### Cloudfront Protected Endpoints Web Mobile Client Continue Web
 
 <a id="deep-38a8e8"></a>Deeply nested **Web** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Mobile Client Continue Web Add Header
+
+<a id="deep-e7d474"></a>Deeply nested **Header** block collapsed for readability.
+
+#### Cloudfront Protected Endpoints Web Mobile Client Continue Web No Header
+
+<a id="deep-724462"></a>Deeply nested **Header** block collapsed for readability.
 
 #### Cloudfront Protected Endpoints Web Mobile Client Redirect Web
 
@@ -869,6 +1093,18 @@ A [`metadata`](#cloudfront-trusted-clients-metadata) block (within [`cloudfront.
 <a id="spec-0fb050"></a>&#x2022; [`description_spec`](#spec-0fb050) - Optional String<br>Description. Human readable description
 
 <a id="name-55fc81"></a>&#x2022; [`name`](#name-55fc81) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Custom Connector
+
+A [`custom_connector`](#custom-connector) block supports the following:
+
+#### F5 Big IP
+
+A [`f5_big_ip`](#f5-big-ip) block supports the following:
+
+#### Salesforce Commerce Connector
+
+A [`salesforce_commerce_connector`](#salesforce-commerce-connector) block supports the following:
 
 #### Timeouts
 

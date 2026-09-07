@@ -117,16 +117,16 @@ var AWSVPCSiteBlockedServicesModelAttrTypes = map[string]attr.Type{
 
 // AWSVPCSiteBlockedServicesBlockedServiceModel represents blocked_service block
 type AWSVPCSiteBlockedServicesBlockedServiceModel struct {
-	NetworkType      types.String          `tfsdk:"network_type"`
-	DNS              *AWSVPCSiteEmptyModel `tfsdk:"dns"`
-	SSH              *AWSVPCSiteEmptyModel `tfsdk:"ssh"`
-	WebUserInterface *AWSVPCSiteEmptyModel `tfsdk:"web_user_interface"`
+	DNS              types.Object `tfsdk:"dns"`
+	NetworkType      types.String `tfsdk:"network_type"`
+	SSH              types.Object `tfsdk:"ssh"`
+	WebUserInterface types.Object `tfsdk:"web_user_interface"`
 }
 
 // AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes defines the attribute types for AWSVPCSiteBlockedServicesBlockedServiceModel
 var AWSVPCSiteBlockedServicesBlockedServiceModelAttrTypes = map[string]attr.Type{
-	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"network_type":       types.StringType,
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"web_user_interface": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -169,31 +169,31 @@ var AWSVPCSiteCustomSecurityGroupModelAttrTypes = map[string]attr.Type{
 
 // AWSVPCSiteDirectConnectEnabledModel represents direct_connect_enabled block
 type AWSVPCSiteDirectConnectEnabledModel struct {
+	AutoAsn      types.Object                                   `tfsdk:"auto_asn"`
 	CustomAsn    types.Int64                                    `tfsdk:"custom_asn"`
-	AutoAsn      *AWSVPCSiteEmptyModel                          `tfsdk:"auto_asn"`
+	StandardVifs types.Object                                   `tfsdk:"standard_vifs"`
 	HostedVifs   *AWSVPCSiteDirectConnectEnabledHostedVifsModel `tfsdk:"hosted_vifs"`
-	StandardVifs *AWSVPCSiteEmptyModel                          `tfsdk:"standard_vifs"`
 }
 
 // AWSVPCSiteDirectConnectEnabledModelAttrTypes defines the attribute types for AWSVPCSiteDirectConnectEnabledModel
 var AWSVPCSiteDirectConnectEnabledModelAttrTypes = map[string]attr.Type{
-	"custom_asn":    types.Int64Type,
 	"auto_asn":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"hosted_vifs":   types.ObjectType{AttrTypes: AWSVPCSiteDirectConnectEnabledHostedVifsModelAttrTypes},
+	"custom_asn":    types.Int64Type,
 	"standard_vifs": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"hosted_vifs":   types.ObjectType{AttrTypes: AWSVPCSiteDirectConnectEnabledHostedVifsModelAttrTypes},
 }
 
 // AWSVPCSiteDirectConnectEnabledHostedVifsModel represents hosted_vifs block
 type AWSVPCSiteDirectConnectEnabledHostedVifsModel struct {
+	SiteRegistrationOverInternet      types.Object                                                                    `tfsdk:"site_registration_over_internet"`
 	SiteRegistrationOverDirectConnect *AWSVPCSiteDirectConnectEnabledHostedVifsSiteRegistrationOverDirectConnectModel `tfsdk:"site_registration_over_direct_connect"`
-	SiteRegistrationOverInternet      *AWSVPCSiteEmptyModel                                                           `tfsdk:"site_registration_over_internet"`
 	VifList                           types.List                                                                      `tfsdk:"vif_list"`
 }
 
 // AWSVPCSiteDirectConnectEnabledHostedVifsModelAttrTypes defines the attribute types for AWSVPCSiteDirectConnectEnabledHostedVifsModel
 var AWSVPCSiteDirectConnectEnabledHostedVifsModelAttrTypes = map[string]attr.Type{
-	"site_registration_over_direct_connect": types.ObjectType{AttrTypes: AWSVPCSiteDirectConnectEnabledHostedVifsSiteRegistrationOverDirectConnectModelAttrTypes},
 	"site_registration_over_internet":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"site_registration_over_direct_connect": types.ObjectType{AttrTypes: AWSVPCSiteDirectConnectEnabledHostedVifsSiteRegistrationOverDirectConnectModelAttrTypes},
 	"vif_list":                              types.ListType{ElemType: types.ObjectType{AttrTypes: AWSVPCSiteDirectConnectEnabledHostedVifsVifListModelAttrTypes}},
 }
 
@@ -209,16 +209,16 @@ var AWSVPCSiteDirectConnectEnabledHostedVifsSiteRegistrationOverDirectConnectMod
 
 // AWSVPCSiteDirectConnectEnabledHostedVifsVifListModel represents vif_list block
 type AWSVPCSiteDirectConnectEnabledHostedVifsVifListModel struct {
-	OtherRegion      types.String          `tfsdk:"other_region"`
-	VifID            types.String          `tfsdk:"vif_id"`
-	SameAsSiteRegion *AWSVPCSiteEmptyModel `tfsdk:"same_as_site_region"`
+	OtherRegion      types.String `tfsdk:"other_region"`
+	SameAsSiteRegion types.Object `tfsdk:"same_as_site_region"`
+	VifID            types.String `tfsdk:"vif_id"`
 }
 
 // AWSVPCSiteDirectConnectEnabledHostedVifsVifListModelAttrTypes defines the attribute types for AWSVPCSiteDirectConnectEnabledHostedVifsVifListModel
 var AWSVPCSiteDirectConnectEnabledHostedVifsVifListModelAttrTypes = map[string]attr.Type{
 	"other_region":        types.StringType,
-	"vif_id":              types.StringType,
 	"same_as_site_region": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"vif_id":              types.StringType,
 }
 
 // AWSVPCSiteEgressNATGwModel represents egress_nat_gw block
@@ -254,6 +254,15 @@ var AWSVPCSiteEnableEncryptionModelAttrTypes = map[string]attr.Type{
 // AWSVPCSiteIngressEgressGwModel represents ingress_egress_gw block
 type AWSVPCSiteIngressEgressGwModel struct {
 	AWSCertifiedHw                 types.String                                                  `tfsdk:"aws_certified_hw"`
+	ForwardProxyAllowAll           types.Object                                                  `tfsdk:"forward_proxy_allow_all"`
+	NoDcClusterGroup               types.Object                                                  `tfsdk:"no_dc_cluster_group"`
+	NoForwardProxy                 types.Object                                                  `tfsdk:"no_forward_proxy"`
+	NoGlobalNetwork                types.Object                                                  `tfsdk:"no_global_network"`
+	NoInsideStaticRoutes           types.Object                                                  `tfsdk:"no_inside_static_routes"`
+	NoNetworkPolicy                types.Object                                                  `tfsdk:"no_network_policy"`
+	NoOutsideStaticRoutes          types.Object                                                  `tfsdk:"no_outside_static_routes"`
+	SmConnectionPublicIP           types.Object                                                  `tfsdk:"sm_connection_public_ip"`
+	SmConnectionPvtIP              types.Object                                                  `tfsdk:"sm_connection_pvt_ip"`
 	ActiveEnhancedFirewallPolicies *AWSVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel `tfsdk:"active_enhanced_firewall_policies"`
 	ActiveForwardProxyPolicies     *AWSVPCSiteIngressEgressGwActiveForwardProxyPoliciesModel     `tfsdk:"active_forward_proxy_policies"`
 	ActiveNetworkPolicies          *AWSVPCSiteIngressEgressGwActiveNetworkPoliciesModel          `tfsdk:"active_network_policies"`
@@ -262,24 +271,24 @@ type AWSVPCSiteIngressEgressGwModel struct {
 	AzNodes                        types.List                                                    `tfsdk:"az_nodes"`
 	DcClusterGroupInsideVn         *AWSVPCSiteIngressEgressGwDcClusterGroupInsideVnModel         `tfsdk:"dc_cluster_group_inside_vn"`
 	DcClusterGroupOutsideVn        *AWSVPCSiteIngressEgressGwDcClusterGroupOutsideVnModel        `tfsdk:"dc_cluster_group_outside_vn"`
-	ForwardProxyAllowAll           *AWSVPCSiteEmptyModel                                         `tfsdk:"forward_proxy_allow_all"`
 	GlobalNetworkList              *AWSVPCSiteIngressEgressGwGlobalNetworkListModel              `tfsdk:"global_network_list"`
 	InsideStaticRoutes             *AWSVPCSiteIngressEgressGwInsideStaticRoutesModel             `tfsdk:"inside_static_routes"`
-	NoDcClusterGroup               *AWSVPCSiteEmptyModel                                         `tfsdk:"no_dc_cluster_group"`
-	NoForwardProxy                 *AWSVPCSiteEmptyModel                                         `tfsdk:"no_forward_proxy"`
-	NoGlobalNetwork                *AWSVPCSiteEmptyModel                                         `tfsdk:"no_global_network"`
-	NoInsideStaticRoutes           *AWSVPCSiteEmptyModel                                         `tfsdk:"no_inside_static_routes"`
-	NoNetworkPolicy                *AWSVPCSiteEmptyModel                                         `tfsdk:"no_network_policy"`
-	NoOutsideStaticRoutes          *AWSVPCSiteEmptyModel                                         `tfsdk:"no_outside_static_routes"`
 	OutsideStaticRoutes            *AWSVPCSiteIngressEgressGwOutsideStaticRoutesModel            `tfsdk:"outside_static_routes"`
 	PerformanceEnhancementMode     *AWSVPCSiteIngressEgressGwPerformanceEnhancementModeModel     `tfsdk:"performance_enhancement_mode"`
-	SmConnectionPublicIP           *AWSVPCSiteEmptyModel                                         `tfsdk:"sm_connection_public_ip"`
-	SmConnectionPvtIP              *AWSVPCSiteEmptyModel                                         `tfsdk:"sm_connection_pvt_ip"`
 }
 
 // AWSVPCSiteIngressEgressGwModelAttrTypes defines the attribute types for AWSVPCSiteIngressEgressGwModel
 var AWSVPCSiteIngressEgressGwModelAttrTypes = map[string]attr.Type{
 	"aws_certified_hw":                  types.StringType,
+	"forward_proxy_allow_all":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_dc_cluster_group":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_forward_proxy":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_global_network":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_inside_static_routes":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_network_policy":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_outside_static_routes":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"sm_connection_public_ip":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"sm_connection_pvt_ip":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModelAttrTypes},
 	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwActiveForwardProxyPoliciesModelAttrTypes},
 	"active_network_policies":           types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwActiveNetworkPoliciesModelAttrTypes},
@@ -288,19 +297,10 @@ var AWSVPCSiteIngressEgressGwModelAttrTypes = map[string]attr.Type{
 	"az_nodes":                          types.ListType{ElemType: types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAzNodesModelAttrTypes}},
 	"dc_cluster_group_inside_vn":        types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwDcClusterGroupInsideVnModelAttrTypes},
 	"dc_cluster_group_outside_vn":       types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwDcClusterGroupOutsideVnModelAttrTypes},
-	"forward_proxy_allow_all":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"global_network_list":               types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwGlobalNetworkListModelAttrTypes},
 	"inside_static_routes":              types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwInsideStaticRoutesModelAttrTypes},
-	"no_dc_cluster_group":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_forward_proxy":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_global_network":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_inside_static_routes":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_network_policy":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_outside_static_routes":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"outside_static_routes":             types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwOutsideStaticRoutesModelAttrTypes},
 	"performance_enhancement_mode":      types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwPerformanceEnhancementModeModelAttrTypes},
-	"sm_connection_public_ip":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"sm_connection_pvt_ip":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AWSVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel represents active_enhanced_firewall_policies block
@@ -377,20 +377,20 @@ var AWSVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModelAttrTypes 
 
 // AWSVPCSiteIngressEgressGwAllowedVIPPortModel represents allowed_vip_port block
 type AWSVPCSiteIngressEgressGwAllowedVIPPortModel struct {
+	DisableAllowedVIPPort types.Object                                             `tfsdk:"disable_allowed_vip_port"`
+	UseHTTPHTTPSPort      types.Object                                             `tfsdk:"use_http_https_port"`
+	UseHTTPPort           types.Object                                             `tfsdk:"use_http_port"`
+	UseHTTPSPort          types.Object                                             `tfsdk:"use_https_port"`
 	CustomPorts           *AWSVPCSiteIngressEgressGwAllowedVIPPortCustomPortsModel `tfsdk:"custom_ports"`
-	DisableAllowedVIPPort *AWSVPCSiteEmptyModel                                    `tfsdk:"disable_allowed_vip_port"`
-	UseHTTPHTTPSPort      *AWSVPCSiteEmptyModel                                    `tfsdk:"use_http_https_port"`
-	UseHTTPPort           *AWSVPCSiteEmptyModel                                    `tfsdk:"use_http_port"`
-	UseHTTPSPort          *AWSVPCSiteEmptyModel                                    `tfsdk:"use_https_port"`
 }
 
 // AWSVPCSiteIngressEgressGwAllowedVIPPortModelAttrTypes defines the attribute types for AWSVPCSiteIngressEgressGwAllowedVIPPortModel
 var AWSVPCSiteIngressEgressGwAllowedVIPPortModelAttrTypes = map[string]attr.Type{
-	"custom_ports":             types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAllowedVIPPortCustomPortsModelAttrTypes},
 	"disable_allowed_vip_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_http_https_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_http_port":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_https_port":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_ports":             types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAllowedVIPPortCustomPortsModelAttrTypes},
 }
 
 // AWSVPCSiteIngressEgressGwAllowedVIPPortCustomPortsModel represents custom_ports block
@@ -405,20 +405,20 @@ var AWSVPCSiteIngressEgressGwAllowedVIPPortCustomPortsModelAttrTypes = map[strin
 
 // AWSVPCSiteIngressEgressGwAllowedVIPPortSLIModel represents allowed_vip_port_sli block
 type AWSVPCSiteIngressEgressGwAllowedVIPPortSLIModel struct {
+	DisableAllowedVIPPort types.Object                                                `tfsdk:"disable_allowed_vip_port"`
+	UseHTTPHTTPSPort      types.Object                                                `tfsdk:"use_http_https_port"`
+	UseHTTPPort           types.Object                                                `tfsdk:"use_http_port"`
+	UseHTTPSPort          types.Object                                                `tfsdk:"use_https_port"`
 	CustomPorts           *AWSVPCSiteIngressEgressGwAllowedVIPPortSLICustomPortsModel `tfsdk:"custom_ports"`
-	DisableAllowedVIPPort *AWSVPCSiteEmptyModel                                       `tfsdk:"disable_allowed_vip_port"`
-	UseHTTPHTTPSPort      *AWSVPCSiteEmptyModel                                       `tfsdk:"use_http_https_port"`
-	UseHTTPPort           *AWSVPCSiteEmptyModel                                       `tfsdk:"use_http_port"`
-	UseHTTPSPort          *AWSVPCSiteEmptyModel                                       `tfsdk:"use_https_port"`
 }
 
 // AWSVPCSiteIngressEgressGwAllowedVIPPortSLIModelAttrTypes defines the attribute types for AWSVPCSiteIngressEgressGwAllowedVIPPortSLIModel
 var AWSVPCSiteIngressEgressGwAllowedVIPPortSLIModelAttrTypes = map[string]attr.Type{
-	"custom_ports":             types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAllowedVIPPortSLICustomPortsModelAttrTypes},
 	"disable_allowed_vip_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_http_https_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_http_port":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_https_port":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_ports":             types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAllowedVIPPortSLICustomPortsModelAttrTypes},
 }
 
 // AWSVPCSiteIngressEgressGwAllowedVIPPortSLICustomPortsModel represents custom_ports block
@@ -434,18 +434,18 @@ var AWSVPCSiteIngressEgressGwAllowedVIPPortSLICustomPortsModelAttrTypes = map[st
 // AWSVPCSiteIngressEgressGwAzNodesModel represents az_nodes block
 type AWSVPCSiteIngressEgressGwAzNodesModel struct {
 	AWSAzName            types.String                                         `tfsdk:"aws_az_name"`
+	ReservedInsideSubnet types.Object                                         `tfsdk:"reserved_inside_subnet"`
 	InsideSubnet         *AWSVPCSiteIngressEgressGwAzNodesInsideSubnetModel   `tfsdk:"inside_subnet"`
 	OutsideSubnet        *AWSVPCSiteIngressEgressGwAzNodesOutsideSubnetModel  `tfsdk:"outside_subnet"`
-	ReservedInsideSubnet *AWSVPCSiteEmptyModel                                `tfsdk:"reserved_inside_subnet"`
 	WorkloadSubnet       *AWSVPCSiteIngressEgressGwAzNodesWorkloadSubnetModel `tfsdk:"workload_subnet"`
 }
 
 // AWSVPCSiteIngressEgressGwAzNodesModelAttrTypes defines the attribute types for AWSVPCSiteIngressEgressGwAzNodesModel
 var AWSVPCSiteIngressEgressGwAzNodesModelAttrTypes = map[string]attr.Type{
 	"aws_az_name":            types.StringType,
+	"reserved_inside_subnet": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"inside_subnet":          types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAzNodesInsideSubnetModelAttrTypes},
 	"outside_subnet":         types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAzNodesOutsideSubnetModelAttrTypes},
-	"reserved_inside_subnet": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"workload_subnet":        types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwAzNodesWorkloadSubnetModelAttrTypes},
 }
 
@@ -903,8 +903,8 @@ var AWSVPCSiteIngressEgressGwPerformanceEnhancementModeModelAttrTypes = map[stri
 
 // AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
 type AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *AWSVPCSiteEmptyModel `tfsdk:"jumbo"`
-	NoJumbo *AWSVPCSiteEmptyModel `tfsdk:"no_jumbo"`
+	Jumbo   types.Object `tfsdk:"jumbo"`
+	NoJumbo types.Object `tfsdk:"no_jumbo"`
 }
 
 // AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel
@@ -915,8 +915,8 @@ var AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModelAt
 
 // AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
 type AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *AWSVPCSiteEmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *AWSVPCSiteEmptyModel `tfsdk:"jumbo_enabled"`
+	JumboDisabled types.Object `tfsdk:"jumbo_disabled"`
+	JumboEnabled  types.Object `tfsdk:"jumbo_enabled"`
 }
 
 // AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel
@@ -943,20 +943,20 @@ var AWSVPCSiteIngressGwModelAttrTypes = map[string]attr.Type{
 
 // AWSVPCSiteIngressGwAllowedVIPPortModel represents allowed_vip_port block
 type AWSVPCSiteIngressGwAllowedVIPPortModel struct {
+	DisableAllowedVIPPort types.Object                                       `tfsdk:"disable_allowed_vip_port"`
+	UseHTTPHTTPSPort      types.Object                                       `tfsdk:"use_http_https_port"`
+	UseHTTPPort           types.Object                                       `tfsdk:"use_http_port"`
+	UseHTTPSPort          types.Object                                       `tfsdk:"use_https_port"`
 	CustomPorts           *AWSVPCSiteIngressGwAllowedVIPPortCustomPortsModel `tfsdk:"custom_ports"`
-	DisableAllowedVIPPort *AWSVPCSiteEmptyModel                              `tfsdk:"disable_allowed_vip_port"`
-	UseHTTPHTTPSPort      *AWSVPCSiteEmptyModel                              `tfsdk:"use_http_https_port"`
-	UseHTTPPort           *AWSVPCSiteEmptyModel                              `tfsdk:"use_http_port"`
-	UseHTTPSPort          *AWSVPCSiteEmptyModel                              `tfsdk:"use_https_port"`
 }
 
 // AWSVPCSiteIngressGwAllowedVIPPortModelAttrTypes defines the attribute types for AWSVPCSiteIngressGwAllowedVIPPortModel
 var AWSVPCSiteIngressGwAllowedVIPPortModelAttrTypes = map[string]attr.Type{
-	"custom_ports":             types.ObjectType{AttrTypes: AWSVPCSiteIngressGwAllowedVIPPortCustomPortsModelAttrTypes},
 	"disable_allowed_vip_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_http_https_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_http_port":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_https_port":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_ports":             types.ObjectType{AttrTypes: AWSVPCSiteIngressGwAllowedVIPPortCustomPortsModelAttrTypes},
 }
 
 // AWSVPCSiteIngressGwAllowedVIPPortCustomPortsModel represents custom_ports block
@@ -1017,8 +1017,8 @@ var AWSVPCSiteIngressGwPerformanceEnhancementModeModelAttrTypes = map[string]att
 
 // AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
 type AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *AWSVPCSiteEmptyModel `tfsdk:"jumbo"`
-	NoJumbo *AWSVPCSiteEmptyModel `tfsdk:"no_jumbo"`
+	Jumbo   types.Object `tfsdk:"jumbo"`
+	NoJumbo types.Object `tfsdk:"no_jumbo"`
 }
 
 // AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel
@@ -1029,8 +1029,8 @@ var AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrType
 
 // AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
 type AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *AWSVPCSiteEmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *AWSVPCSiteEmptyModel `tfsdk:"jumbo_enabled"`
+	JumboDisabled types.Object `tfsdk:"jumbo_disabled"`
+	JumboEnabled  types.Object `tfsdk:"jumbo_enabled"`
 }
 
 // AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel
@@ -1041,7 +1041,7 @@ var AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrType
 
 // AWSVPCSiteKubernetesUpgradeDrainModel represents kubernetes_upgrade_drain block
 type AWSVPCSiteKubernetesUpgradeDrainModel struct {
-	DisableUpgradeDrain *AWSVPCSiteEmptyModel                                    `tfsdk:"disable_upgrade_drain"`
+	DisableUpgradeDrain types.Object                                             `tfsdk:"disable_upgrade_drain"`
 	EnableUpgradeDrain  *AWSVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel `tfsdk:"enable_upgrade_drain"`
 }
 
@@ -1053,19 +1053,19 @@ var AWSVPCSiteKubernetesUpgradeDrainModelAttrTypes = map[string]attr.Type{
 
 // AWSVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel represents enable_upgrade_drain block
 type AWSVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel struct {
-	DrainMaxUnavailableNodeCount      types.Int64           `tfsdk:"drain_max_unavailable_node_count"`
-	DrainMaxUnavailableNodePercentage types.Int64           `tfsdk:"drain_max_unavailable_node_percentage"`
-	DrainNodeTimeout                  types.Int64           `tfsdk:"drain_node_timeout"`
-	DisableVegaUpgradeMode            *AWSVPCSiteEmptyModel `tfsdk:"disable_vega_upgrade_mode"`
-	EnableVegaUpgradeMode             *AWSVPCSiteEmptyModel `tfsdk:"enable_vega_upgrade_mode"`
+	DisableVegaUpgradeMode            types.Object `tfsdk:"disable_vega_upgrade_mode"`
+	DrainMaxUnavailableNodeCount      types.Int64  `tfsdk:"drain_max_unavailable_node_count"`
+	DrainMaxUnavailableNodePercentage types.Int64  `tfsdk:"drain_max_unavailable_node_percentage"`
+	DrainNodeTimeout                  types.Int64  `tfsdk:"drain_node_timeout"`
+	EnableVegaUpgradeMode             types.Object `tfsdk:"enable_vega_upgrade_mode"`
 }
 
 // AWSVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes defines the attribute types for AWSVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel
 var AWSVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes = map[string]attr.Type{
+	"disable_vega_upgrade_mode":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"drain_max_unavailable_node_count":      types.Int64Type,
 	"drain_max_unavailable_node_percentage": types.Int64Type,
 	"drain_node_timeout":                    types.Int64Type,
-	"disable_vega_upgrade_mode":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_vega_upgrade_mode":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
@@ -1085,8 +1085,8 @@ var AWSVPCSiteLogReceiverModelAttrTypes = map[string]attr.Type{
 
 // AWSVPCSiteOfflineSurvivabilityModeModel represents offline_survivability_mode block
 type AWSVPCSiteOfflineSurvivabilityModeModel struct {
-	EnableOfflineSurvivabilityMode *AWSVPCSiteEmptyModel `tfsdk:"enable_offline_survivability_mode"`
-	NoOfflineSurvivabilityMode     *AWSVPCSiteEmptyModel `tfsdk:"no_offline_survivability_mode"`
+	EnableOfflineSurvivabilityMode types.Object `tfsdk:"enable_offline_survivability_mode"`
+	NoOfflineSurvivabilityMode     types.Object `tfsdk:"no_offline_survivability_mode"`
 }
 
 // AWSVPCSiteOfflineSurvivabilityModeModelAttrTypes defines the attribute types for AWSVPCSiteOfflineSurvivabilityModeModel
@@ -1097,28 +1097,28 @@ var AWSVPCSiteOfflineSurvivabilityModeModelAttrTypes = map[string]attr.Type{
 
 // AWSVPCSiteOSModel represents os block
 type AWSVPCSiteOSModel struct {
-	OperatingSystemVersion types.String          `tfsdk:"operating_system_version"`
-	DefaultOSVersion       *AWSVPCSiteEmptyModel `tfsdk:"default_os_version"`
+	DefaultOSVersion       types.Object `tfsdk:"default_os_version"`
+	OperatingSystemVersion types.String `tfsdk:"operating_system_version"`
 }
 
 // AWSVPCSiteOSModelAttrTypes defines the attribute types for AWSVPCSiteOSModel
 var AWSVPCSiteOSModelAttrTypes = map[string]attr.Type{
-	"operating_system_version": types.StringType,
 	"default_os_version":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"operating_system_version": types.StringType,
 }
 
 // AWSVPCSitePrivateConnectivityModel represents private_connectivity block
 type AWSVPCSitePrivateConnectivityModel struct {
+	Inside    types.Object                                 `tfsdk:"inside"`
+	Outside   types.Object                                 `tfsdk:"outside"`
 	CloudLink *AWSVPCSitePrivateConnectivityCloudLinkModel `tfsdk:"cloud_link"`
-	Inside    *AWSVPCSiteEmptyModel                        `tfsdk:"inside"`
-	Outside   *AWSVPCSiteEmptyModel                        `tfsdk:"outside"`
 }
 
 // AWSVPCSitePrivateConnectivityModelAttrTypes defines the attribute types for AWSVPCSitePrivateConnectivityModel
 var AWSVPCSitePrivateConnectivityModelAttrTypes = map[string]attr.Type{
-	"cloud_link": types.ObjectType{AttrTypes: AWSVPCSitePrivateConnectivityCloudLinkModelAttrTypes},
 	"inside":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"outside":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"cloud_link": types.ObjectType{AttrTypes: AWSVPCSitePrivateConnectivityCloudLinkModelAttrTypes},
 }
 
 // AWSVPCSitePrivateConnectivityCloudLinkModel represents cloud_link block
@@ -1137,63 +1137,63 @@ var AWSVPCSitePrivateConnectivityCloudLinkModelAttrTypes = map[string]attr.Type{
 
 // AWSVPCSiteSwModel represents sw block
 type AWSVPCSiteSwModel struct {
-	VolterraSoftwareVersion types.String          `tfsdk:"volterra_software_version"`
-	DefaultSwVersion        *AWSVPCSiteEmptyModel `tfsdk:"default_sw_version"`
+	DefaultSwVersion        types.Object `tfsdk:"default_sw_version"`
+	VolterraSoftwareVersion types.String `tfsdk:"volterra_software_version"`
 }
 
 // AWSVPCSiteSwModelAttrTypes defines the attribute types for AWSVPCSiteSwModel
 var AWSVPCSiteSwModelAttrTypes = map[string]attr.Type{
-	"volterra_software_version": types.StringType,
 	"default_sw_version":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"volterra_software_version": types.StringType,
 }
 
 // AWSVPCSiteVoltstackClusterModel represents voltstack_cluster block
 type AWSVPCSiteVoltstackClusterModel struct {
 	AWSCertifiedHw                 types.String                                                   `tfsdk:"aws_certified_hw"`
+	DefaultStorage                 types.Object                                                   `tfsdk:"default_storage"`
+	ForwardProxyAllowAll           types.Object                                                   `tfsdk:"forward_proxy_allow_all"`
+	NoDcClusterGroup               types.Object                                                   `tfsdk:"no_dc_cluster_group"`
+	NoForwardProxy                 types.Object                                                   `tfsdk:"no_forward_proxy"`
+	NoGlobalNetwork                types.Object                                                   `tfsdk:"no_global_network"`
+	NoK8SCluster                   types.Object                                                   `tfsdk:"no_k8s_cluster"`
+	NoNetworkPolicy                types.Object                                                   `tfsdk:"no_network_policy"`
+	NoOutsideStaticRoutes          types.Object                                                   `tfsdk:"no_outside_static_routes"`
+	SmConnectionPublicIP           types.Object                                                   `tfsdk:"sm_connection_public_ip"`
+	SmConnectionPvtIP              types.Object                                                   `tfsdk:"sm_connection_pvt_ip"`
 	ActiveEnhancedFirewallPolicies *AWSVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel `tfsdk:"active_enhanced_firewall_policies"`
 	ActiveForwardProxyPolicies     *AWSVPCSiteVoltstackClusterActiveForwardProxyPoliciesModel     `tfsdk:"active_forward_proxy_policies"`
 	ActiveNetworkPolicies          *AWSVPCSiteVoltstackClusterActiveNetworkPoliciesModel          `tfsdk:"active_network_policies"`
 	AllowedVIPPort                 *AWSVPCSiteVoltstackClusterAllowedVIPPortModel                 `tfsdk:"allowed_vip_port"`
 	AzNodes                        types.List                                                     `tfsdk:"az_nodes"`
 	DcClusterGroup                 *AWSVPCSiteVoltstackClusterDcClusterGroupModel                 `tfsdk:"dc_cluster_group"`
-	DefaultStorage                 *AWSVPCSiteEmptyModel                                          `tfsdk:"default_storage"`
-	ForwardProxyAllowAll           *AWSVPCSiteEmptyModel                                          `tfsdk:"forward_proxy_allow_all"`
 	GlobalNetworkList              *AWSVPCSiteVoltstackClusterGlobalNetworkListModel              `tfsdk:"global_network_list"`
 	K8SCluster                     *AWSVPCSiteVoltstackClusterK8SClusterModel                     `tfsdk:"k8s_cluster"`
-	NoDcClusterGroup               *AWSVPCSiteEmptyModel                                          `tfsdk:"no_dc_cluster_group"`
-	NoForwardProxy                 *AWSVPCSiteEmptyModel                                          `tfsdk:"no_forward_proxy"`
-	NoGlobalNetwork                *AWSVPCSiteEmptyModel                                          `tfsdk:"no_global_network"`
-	NoK8SCluster                   *AWSVPCSiteEmptyModel                                          `tfsdk:"no_k8s_cluster"`
-	NoNetworkPolicy                *AWSVPCSiteEmptyModel                                          `tfsdk:"no_network_policy"`
-	NoOutsideStaticRoutes          *AWSVPCSiteEmptyModel                                          `tfsdk:"no_outside_static_routes"`
 	OutsideStaticRoutes            *AWSVPCSiteVoltstackClusterOutsideStaticRoutesModel            `tfsdk:"outside_static_routes"`
-	SmConnectionPublicIP           *AWSVPCSiteEmptyModel                                          `tfsdk:"sm_connection_public_ip"`
-	SmConnectionPvtIP              *AWSVPCSiteEmptyModel                                          `tfsdk:"sm_connection_pvt_ip"`
 	StorageClassList               *AWSVPCSiteVoltstackClusterStorageClassListModel               `tfsdk:"storage_class_list"`
 }
 
 // AWSVPCSiteVoltstackClusterModelAttrTypes defines the attribute types for AWSVPCSiteVoltstackClusterModel
 var AWSVPCSiteVoltstackClusterModelAttrTypes = map[string]attr.Type{
 	"aws_certified_hw":                  types.StringType,
-	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModelAttrTypes},
-	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterActiveForwardProxyPoliciesModelAttrTypes},
-	"active_network_policies":           types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterActiveNetworkPoliciesModelAttrTypes},
-	"allowed_vip_port":                  types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAllowedVIPPortModelAttrTypes},
-	"az_nodes":                          types.ListType{ElemType: types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAzNodesModelAttrTypes}},
-	"dc_cluster_group":                  types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterDcClusterGroupModelAttrTypes},
 	"default_storage":                   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"forward_proxy_allow_all":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"global_network_list":               types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterGlobalNetworkListModelAttrTypes},
-	"k8s_cluster":                       types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterK8SClusterModelAttrTypes},
 	"no_dc_cluster_group":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_forward_proxy":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_global_network":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_k8s_cluster":                    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_network_policy":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_outside_static_routes":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"outside_static_routes":             types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterOutsideStaticRoutesModelAttrTypes},
 	"sm_connection_public_ip":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"sm_connection_pvt_ip":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModelAttrTypes},
+	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterActiveForwardProxyPoliciesModelAttrTypes},
+	"active_network_policies":           types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterActiveNetworkPoliciesModelAttrTypes},
+	"allowed_vip_port":                  types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAllowedVIPPortModelAttrTypes},
+	"az_nodes":                          types.ListType{ElemType: types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAzNodesModelAttrTypes}},
+	"dc_cluster_group":                  types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterDcClusterGroupModelAttrTypes},
+	"global_network_list":               types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterGlobalNetworkListModelAttrTypes},
+	"k8s_cluster":                       types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterK8SClusterModelAttrTypes},
+	"outside_static_routes":             types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterOutsideStaticRoutesModelAttrTypes},
 	"storage_class_list":                types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterStorageClassListModelAttrTypes},
 }
 
@@ -1271,20 +1271,20 @@ var AWSVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModelAttrTypes
 
 // AWSVPCSiteVoltstackClusterAllowedVIPPortModel represents allowed_vip_port block
 type AWSVPCSiteVoltstackClusterAllowedVIPPortModel struct {
+	DisableAllowedVIPPort types.Object                                              `tfsdk:"disable_allowed_vip_port"`
+	UseHTTPHTTPSPort      types.Object                                              `tfsdk:"use_http_https_port"`
+	UseHTTPPort           types.Object                                              `tfsdk:"use_http_port"`
+	UseHTTPSPort          types.Object                                              `tfsdk:"use_https_port"`
 	CustomPorts           *AWSVPCSiteVoltstackClusterAllowedVIPPortCustomPortsModel `tfsdk:"custom_ports"`
-	DisableAllowedVIPPort *AWSVPCSiteEmptyModel                                     `tfsdk:"disable_allowed_vip_port"`
-	UseHTTPHTTPSPort      *AWSVPCSiteEmptyModel                                     `tfsdk:"use_http_https_port"`
-	UseHTTPPort           *AWSVPCSiteEmptyModel                                     `tfsdk:"use_http_port"`
-	UseHTTPSPort          *AWSVPCSiteEmptyModel                                     `tfsdk:"use_https_port"`
 }
 
 // AWSVPCSiteVoltstackClusterAllowedVIPPortModelAttrTypes defines the attribute types for AWSVPCSiteVoltstackClusterAllowedVIPPortModel
 var AWSVPCSiteVoltstackClusterAllowedVIPPortModelAttrTypes = map[string]attr.Type{
-	"custom_ports":             types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAllowedVIPPortCustomPortsModelAttrTypes},
 	"disable_allowed_vip_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_http_https_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_http_port":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_https_port":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_ports":             types.ObjectType{AttrTypes: AWSVPCSiteVoltstackClusterAllowedVIPPortCustomPortsModelAttrTypes},
 }
 
 // AWSVPCSiteVoltstackClusterAllowedVIPPortCustomPortsModel represents custom_ports block
@@ -1603,16 +1603,16 @@ var AWSVPCSiteVPCModelAttrTypes = map[string]attr.Type{
 
 // AWSVPCSiteVPCNewVPCModel represents new_vpc block
 type AWSVPCSiteVPCNewVPCModel struct {
-	NameTag      types.String          `tfsdk:"name_tag"`
-	PrimaryIpv4  types.String          `tfsdk:"primary_ipv4"`
-	Autogenerate *AWSVPCSiteEmptyModel `tfsdk:"autogenerate"`
+	Autogenerate types.Object `tfsdk:"autogenerate"`
+	NameTag      types.String `tfsdk:"name_tag"`
+	PrimaryIpv4  types.String `tfsdk:"primary_ipv4"`
 }
 
 // AWSVPCSiteVPCNewVPCModelAttrTypes defines the attribute types for AWSVPCSiteVPCNewVPCModel
 var AWSVPCSiteVPCNewVPCModelAttrTypes = map[string]attr.Type{
+	"autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"name_tag":     types.StringType,
 	"primary_ipv4": types.StringType,
-	"autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 type AWSVPCSiteResourceModel struct {
@@ -1622,9 +1622,21 @@ type AWSVPCSiteResourceModel struct {
 	InstanceType                types.String                                `tfsdk:"instance_type"`
 	SSHKey                      types.String                                `tfsdk:"ssh_key"`
 	Annotations                 types.Map                                   `tfsdk:"annotations"`
+	BlockAllServices            types.Object                                `tfsdk:"block_all_services"`
+	DefaultBlockedServices      types.Object                                `tfsdk:"default_blocked_services"`
 	Description                 types.String                                `tfsdk:"description"`
+	DirectConnectDisabled       types.Object                                `tfsdk:"direct_connect_disabled"`
 	Disable                     types.Bool                                  `tfsdk:"disable"`
+	DisableEncryption           types.Object                                `tfsdk:"disable_encryption"`
+	DisableInternetVIP          types.Object                                `tfsdk:"disable_internet_vip"`
+	EgressGatewayDefault        types.Object                                `tfsdk:"egress_gateway_default"`
+	EnableInternetVIP           types.Object                                `tfsdk:"enable_internet_vip"`
+	F5OrchestratedRouting       types.Object                                `tfsdk:"f5_orchestrated_routing"`
+	F5xcSecurityGroup           types.Object                                `tfsdk:"f5xc_security_group"`
 	Labels                      types.Map                                   `tfsdk:"labels"`
+	LogsStreamingDisabled       types.Object                                `tfsdk:"logs_streaming_disabled"`
+	ManualRouting               types.Object                                `tfsdk:"manual_routing"`
+	NoWorkerNodes               types.Object                                `tfsdk:"no_worker_nodes"`
 	Tags                        types.Map                                   `tfsdk:"tags"`
 	ID                          types.String                                `tfsdk:"id"`
 	Address                     types.String                                `tfsdk:"address"`
@@ -1634,30 +1646,18 @@ type AWSVPCSiteResourceModel struct {
 	Timeouts                    timeouts.Value                              `tfsdk:"timeouts"`
 	AdminPassword               *AWSVPCSiteAdminPasswordModel               `tfsdk:"admin_password"`
 	AWSCred                     *AWSVPCSiteAWSCredModel                     `tfsdk:"aws_cred"`
-	BlockAllServices            *AWSVPCSiteEmptyModel                       `tfsdk:"block_all_services"`
 	BlockedServices             *AWSVPCSiteBlockedServicesModel             `tfsdk:"blocked_services"`
 	Coordinates                 *AWSVPCSiteCoordinatesModel                 `tfsdk:"coordinates"`
 	CustomDNS                   *AWSVPCSiteCustomDNSModel                   `tfsdk:"custom_dns"`
 	CustomSecurityGroup         *AWSVPCSiteCustomSecurityGroupModel         `tfsdk:"custom_security_group"`
-	DefaultBlockedServices      *AWSVPCSiteEmptyModel                       `tfsdk:"default_blocked_services"`
-	DirectConnectDisabled       *AWSVPCSiteEmptyModel                       `tfsdk:"direct_connect_disabled"`
 	DirectConnectEnabled        *AWSVPCSiteDirectConnectEnabledModel        `tfsdk:"direct_connect_enabled"`
-	DisableEncryption           *AWSVPCSiteEmptyModel                       `tfsdk:"disable_encryption"`
-	DisableInternetVIP          *AWSVPCSiteEmptyModel                       `tfsdk:"disable_internet_vip"`
-	EgressGatewayDefault        *AWSVPCSiteEmptyModel                       `tfsdk:"egress_gateway_default"`
 	EgressNATGw                 *AWSVPCSiteEgressNATGwModel                 `tfsdk:"egress_nat_gw"`
 	EgressVirtualPrivateGateway *AWSVPCSiteEgressVirtualPrivateGatewayModel `tfsdk:"egress_virtual_private_gateway"`
 	EnableEncryption            *AWSVPCSiteEnableEncryptionModel            `tfsdk:"enable_encryption"`
-	EnableInternetVIP           *AWSVPCSiteEmptyModel                       `tfsdk:"enable_internet_vip"`
-	F5OrchestratedRouting       *AWSVPCSiteEmptyModel                       `tfsdk:"f5_orchestrated_routing"`
-	F5xcSecurityGroup           *AWSVPCSiteEmptyModel                       `tfsdk:"f5xc_security_group"`
 	IngressEgressGw             *AWSVPCSiteIngressEgressGwModel             `tfsdk:"ingress_egress_gw"`
 	IngressGw                   *AWSVPCSiteIngressGwModel                   `tfsdk:"ingress_gw"`
 	KubernetesUpgradeDrain      *AWSVPCSiteKubernetesUpgradeDrainModel      `tfsdk:"kubernetes_upgrade_drain"`
 	LogReceiver                 *AWSVPCSiteLogReceiverModel                 `tfsdk:"log_receiver"`
-	LogsStreamingDisabled       *AWSVPCSiteEmptyModel                       `tfsdk:"logs_streaming_disabled"`
-	ManualRouting               *AWSVPCSiteEmptyModel                       `tfsdk:"manual_routing"`
-	NoWorkerNodes               *AWSVPCSiteEmptyModel                       `tfsdk:"no_worker_nodes"`
 	OfflineSurvivabilityMode    *AWSVPCSiteOfflineSurvivabilityModeModel    `tfsdk:"offline_survivability_mode"`
 	OS                          *AWSVPCSiteOSModel                          `tfsdk:"os"`
 	PrivateConnectivity         *AWSVPCSitePrivateConnectivityModel         `tfsdk:"private_connectivity"`
@@ -1717,18 +1717,78 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"block_all_services": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: block_all_services, blocked_services, default_blocked_services; Default: default_blocked_services] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"default_blocked_services": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
+			},
+			"direct_connect_disabled": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: direct_connect_disabled, direct_connect_enabled, private_connectivity] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"disable_encryption": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable_encryption, enable_encryption; Default: disable_encryption] Configuration parameter for disable encryption.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"disable_internet_vip": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable_internet_vip, enable_internet_vip; Default: disable_internet_vip] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"egress_gateway_default": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: egress_gateway_default, egress_nat_gw, egress_virtual_private_gateway; Default: egress_gateway_default] Configuration parameter for egress gateway default.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"enable_internet_vip": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"f5_orchestrated_routing": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: f5_orchestrated_routing, manual_routing] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"f5xc_security_group": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"logs_streaming_disabled": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"manual_routing": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_worker_nodes": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: no_worker_nodes, nodes_per_az, total_nodes; Default: no_worker_nodes] Configuration parameter for no worker nodes.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"tags": schema.MapAttribute{
 				MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console.",
@@ -1872,9 +1932,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
-			"block_all_services": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: block_all_services, blocked_services, default_blocked_services; Default: default_blocked_services] Enable this option",
-			},
 			"blocked_services": schema.SingleNestedBlock{
 				MarkdownDescription: "Disable node local services on this site.",
 
@@ -1885,6 +1942,11 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Validators:          []validator.List{validators.ConflictingListObjectAttributes("dns", "ssh"), validators.ConflictingListObjectAttributes("dns", "web_user_interface"), validators.ConflictingListObjectAttributes("ssh", "web_user_interface")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
+								"dns": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"network_type": schema.StringAttribute{
 									MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
 									Optional:            true,
@@ -1892,16 +1954,15 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										stringvalidator.OneOf("VIRTUAL_NETWORK_SITE_LOCAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE", "VIRTUAL_NETWORK_PER_SITE", "VIRTUAL_NETWORK_PUBLIC", "VIRTUAL_NETWORK_GLOBAL", "VIRTUAL_NETWORK_SITE_SERVICE", "VIRTUAL_NETWORK_VER_INTERNAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE", "VIRTUAL_NETWORK_IP_AUTO", "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK", "VIRTUAL_NETWORK_SRV6_NETWORK", "VIRTUAL_NETWORK_IP_FABRIC", "VIRTUAL_NETWORK_SEGMENT", "VIRTUAL_NETWORK_MANAGEMENT"),
 									},
 								},
-							},
-							Blocks: map[string]schema.Block{
-								"dns": schema.SingleNestedBlock{
+								"ssh": schema.ObjectAttribute{
 									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
-								"ssh": schema.SingleNestedBlock{
+								"web_user_interface": schema.ObjectAttribute{
 									MarkdownDescription: "Enable this option",
-								},
-								"web_user_interface": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
 							},
 						},
@@ -1964,17 +2025,16 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
-			"default_blocked_services": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"direct_connect_disabled": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: direct_connect_disabled, direct_connect_enabled, private_connectivity] Enable this option",
-			},
 			"direct_connect_enabled": schema.SingleNestedBlock{
 				MarkdownDescription: "Direct Connect Configuration. Direct Connect Configuration.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_asn", "custom_asn"), validators.ConflictingObjectAttributes("hosted_vifs", "standard_vifs")},
 
 				Attributes: map[string]schema.Attribute{
+					"auto_asn": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"custom_asn": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [auto_asn] Custom Autonomous System Number.",
 						Optional:            true,
@@ -1982,15 +2042,23 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							int64validator.AtLeast(1),
 						},
 					},
+					"standard_vifs": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for standard vifs.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 				},
 				Blocks: map[string]schema.Block{
-					"auto_asn": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"hosted_vifs": schema.SingleNestedBlock{
 						MarkdownDescription: "AWS Direct Connect Hosted VIF Configuration.",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_registration_over_direct_connect", "site_registration_over_internet")},
-						Attributes:          map[string]schema.Attribute{},
+						Attributes: map[string]schema.Attribute{
+							"site_registration_over_internet": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"site_registration_over_direct_connect": schema.SingleNestedBlock{
 								MarkdownDescription: "CloudLink ADN Network Config.",
@@ -2005,9 +2073,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									},
 								},
 							},
-							"site_registration_over_internet": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"vif_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Hosted VIF Config. List of Hosted VIF Config.",
 								Validators:          []validator.List{validators.RequiredListObjectAttributes("vif_id"), validators.ConflictingListObjectAttributes("other_region", "same_as_site_region")},
@@ -2020,6 +2085,11 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 												stringvalidator.OneOf("af-south-1", "ap-east-1", "ap-northeast-1", "ap-northeast-2", "ap-south-1", "ap-southeast-1", "ap-southeast-2", "ap-southeast-3", "ca-central-1", "eu-central-1", "eu-north-1", "eu-south-1", "eu-west-1", "eu-west-2", "eu-west-3", "me-south-1", "sa-east-1", "us-east-1", "us-east-2", "us-west-1", "us-west-2"),
 											},
 										},
+										"same_as_site_region": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"vif_id": schema.StringAttribute{
 											MarkdownDescription: "AWS Direct Connect VIF ID that needs to be connected to the site.",
 											Optional:            true,
@@ -2028,28 +2098,11 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 											},
 										},
 									},
-									Blocks: map[string]schema.Block{
-										"same_as_site_region": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
-									},
 								},
 							},
 						},
 					},
-					"standard_vifs": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for standard vifs.",
-					},
 				},
-			},
-			"disable_encryption": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disable_encryption, enable_encryption; Default: disable_encryption] Configuration parameter for disable encryption.",
-			},
-			"disable_internet_vip": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disable_internet_vip, enable_internet_vip; Default: disable_internet_vip] Enable this option",
-			},
-			"egress_gateway_default": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: egress_gateway_default, egress_nat_gw, egress_virtual_private_gateway; Default: egress_gateway_default] Configuration parameter for egress gateway default.",
 			},
 			"egress_nat_gw": schema.SingleNestedBlock{
 				MarkdownDescription: "With this option, egress site traffic will be routed through an Network Address Translation(NAT) Gateway.",
@@ -2088,15 +2141,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
-			"enable_internet_vip": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"f5_orchestrated_routing": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: f5_orchestrated_routing, manual_routing] Enable this option",
-			},
-			"f5xc_security_group": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
 			"ingress_egress_gw": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: ingress_egress_gw, ingress_gw, voltstack_cluster] Configuration parameter for ingress egress gw.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("aws_certified_hw", "az_nodes"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "dc_cluster_group_outside_vn"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("dc_cluster_group_outside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("inside_static_routes", "no_inside_static_routes"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
@@ -2109,6 +2153,51 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							stringvalidator.LengthAtMost(64),
 							stringvalidator.OneOf("aws-byol-multi-nic-voltmesh"),
 						},
+					},
+					"forward_proxy_allow_all": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_dc_cluster_group": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_forward_proxy": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no forward proxy.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_global_network": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no global network.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_inside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no inside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_network_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_outside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no outside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_public_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_pvt_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -2235,7 +2324,28 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					"allowed_vip_port": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_ports", "disable_allowed_vip_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_https_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_port"), validators.ConflictingObjectAttributes("custom_ports", "use_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_http_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_port", "use_https_port")},
-						Attributes:          map[string]schema.Attribute{},
+						Attributes: map[string]schema.Attribute{
+							"disable_allowed_vip_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_http_https_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_http_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_https_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"custom_ports": schema.SingleNestedBlock{
 								MarkdownDescription: "Custom Ports. List of Custom port.",
@@ -2249,25 +2359,34 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 									},
 								},
-							},
-							"disable_allowed_vip_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_http_https_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_http_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_https_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
 							},
 						},
 					},
 					"allowed_vip_port_sli": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_ports", "disable_allowed_vip_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_https_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_port"), validators.ConflictingObjectAttributes("custom_ports", "use_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_http_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_port", "use_https_port")},
-						Attributes:          map[string]schema.Attribute{},
+						Attributes: map[string]schema.Attribute{
+							"disable_allowed_vip_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_http_https_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_http_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_https_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"custom_ports": schema.SingleNestedBlock{
 								MarkdownDescription: "Custom Ports. List of Custom port.",
@@ -2281,18 +2400,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 									},
 								},
-							},
-							"disable_allowed_vip_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_http_https_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_http_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_https_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
 							},
 						},
 					},
@@ -2304,6 +2411,11 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								"aws_az_name": schema.StringAttribute{
 									MarkdownDescription: "AWS availability zone, must be consistent with the selected AWS region.",
 									Optional:            true,
+								},
+								"reserved_inside_subnet": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for reserved inside subnet.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
 							},
 							Blocks: map[string]schema.Block{
@@ -2356,9 +2468,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 											},
 										},
 									},
-								},
-								"reserved_inside_subnet": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for reserved inside subnet.",
 								},
 								"workload_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for workload subnet.",
@@ -2449,9 +2558,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 							},
 						},
-					},
-					"forward_proxy_allow_all": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
 					},
 					"global_network_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Global Network Connection List. List of global network connections.",
@@ -2714,24 +2820,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"no_dc_cluster_group": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_forward_proxy": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no forward proxy.",
-					},
-					"no_global_network": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no global network.",
-					},
-					"no_inside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no inside static routes.",
-					},
-					"no_network_policy": schema.SingleNestedBlock{
-						MarkdownDescription: "Policy configuration for this feature.",
-					},
-					"no_outside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no outside static routes.",
-					},
 					"outside_static_routes": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for outside static routes.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("static_route_list")},
@@ -2911,36 +2999,36 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
 								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo": schema.SingleNestedBlock{
+								Attributes: map[string]schema.Attribute{
+									"jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"no_jumbo": schema.SingleNestedBlock{
+									"no_jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
 								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo_disabled": schema.SingleNestedBlock{
+								Attributes: map[string]schema.Attribute{
+									"jumbo_disabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"jumbo_enabled": schema.SingleNestedBlock{
+									"jumbo_enabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
 						},
-					},
-					"sm_connection_public_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"sm_connection_pvt_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 				},
 			},
@@ -2962,7 +3050,28 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					"allowed_vip_port": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_ports", "disable_allowed_vip_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_https_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_port"), validators.ConflictingObjectAttributes("custom_ports", "use_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_http_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_port", "use_https_port")},
-						Attributes:          map[string]schema.Attribute{},
+						Attributes: map[string]schema.Attribute{
+							"disable_allowed_vip_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_http_https_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_http_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_https_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"custom_ports": schema.SingleNestedBlock{
 								MarkdownDescription: "Custom Ports. List of Custom port.",
@@ -2976,18 +3085,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 									},
 								},
-							},
-							"disable_allowed_vip_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_http_https_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_http_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_https_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
 							},
 						},
 					},
@@ -3038,26 +3135,32 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
 								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo": schema.SingleNestedBlock{
+								Attributes: map[string]schema.Attribute{
+									"jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"no_jumbo": schema.SingleNestedBlock{
+									"no_jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
 								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo_disabled": schema.SingleNestedBlock{
+								Attributes: map[string]schema.Attribute{
+									"jumbo_disabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"jumbo_enabled": schema.SingleNestedBlock{
+									"jumbo_enabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
@@ -3069,15 +3172,23 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_upgrade_drain", "enable_upgrade_drain")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_upgrade_drain": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_upgrade_drain": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for disable upgrade drain.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+				},
+				Blocks: map[string]schema.Block{
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout"), validators.ConflictingObjectAttributes("disable_vega_upgrade_mode", "enable_vega_upgrade_mode"), validators.ConflictingObjectAttributes("drain_max_unavailable_node_count", "drain_max_unavailable_node_percentage")},
 						Attributes: map[string]schema.Attribute{
+							"disable_vega_upgrade_mode": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable vega upgrade mode.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
 								Optional:            true,
@@ -3096,13 +3207,10 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									int64validator.Between(0, 900),
 								},
 							},
-						},
-						Blocks: map[string]schema.Block{
-							"disable_vega_upgrade_mode": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for disable vega upgrade mode.",
-							},
-							"enable_vega_upgrade_mode": schema.SingleNestedBlock{
+							"enable_vega_upgrade_mode": schema.ObjectAttribute{
 								MarkdownDescription: "Configuration parameter for enable vega upgrade mode.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -3140,26 +3248,20 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
-			"logs_streaming_disabled": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"manual_routing": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"no_worker_nodes": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: no_worker_nodes, nodes_per_az, total_nodes; Default: no_worker_nodes] Configuration parameter for no worker nodes.",
-			},
 			"offline_survivability_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing configuration for upto 7..",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("enable_offline_survivability_mode", "no_offline_survivability_mode")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"enable_offline_survivability_mode": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"enable_offline_survivability_mode": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for enable offline survivability mode.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"no_offline_survivability_mode": schema.SingleNestedBlock{
+					"no_offline_survivability_mode": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for no offline survivability mode.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
@@ -3168,6 +3270,11 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_os_version", "operating_system_version")},
 
 				Attributes: map[string]schema.Attribute{
+					"default_os_version": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"operating_system_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_os_version] Specify a OS version to be used e.g. 9.2024.6.",
 						Optional:            true,
@@ -3176,17 +3283,23 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 					},
 				},
-				Blocks: map[string]schema.Block{
-					"default_os_version": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-				},
 			},
 			"private_connectivity": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for private connectivity.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside", "outside")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"inside": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"outside": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
 					"cloud_link": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
@@ -3219,12 +3332,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"inside": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"outside": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 				},
 			},
 			"sw": schema.SingleNestedBlock{
@@ -3232,17 +3339,17 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_sw_version", "volterra_software_version")},
 
 				Attributes: map[string]schema.Attribute{
+					"default_sw_version": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"volterra_software_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_sw_version] Specify a F5XC Software Version to be used e.g. Crt-20210329-1002.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(20),
 						},
-					},
-				},
-				Blocks: map[string]schema.Block{
-					"default_sw_version": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 				},
 			},
@@ -3258,6 +3365,56 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							stringvalidator.LengthAtMost(64),
 							stringvalidator.OneOf("aws-byol-voltstack-combo"),
 						},
+					},
+					"default_storage": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default storage.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"forward_proxy_allow_all": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_dc_cluster_group": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_forward_proxy": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no forward proxy.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_global_network": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no global network.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_k8s_cluster": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_network_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_outside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no outside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_public_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_pvt_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -3384,7 +3541,28 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					"allowed_vip_port": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_ports", "disable_allowed_vip_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_https_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_port"), validators.ConflictingObjectAttributes("custom_ports", "use_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_http_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_port", "use_https_port")},
-						Attributes:          map[string]schema.Attribute{},
+						Attributes: map[string]schema.Attribute{
+							"disable_allowed_vip_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_http_https_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_http_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_https_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"custom_ports": schema.SingleNestedBlock{
 								MarkdownDescription: "Custom Ports. List of Custom port.",
@@ -3398,18 +3576,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 									},
 								},
-							},
-							"disable_allowed_vip_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_http_https_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_http_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_https_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
 							},
 						},
 					},
@@ -3482,12 +3648,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 							},
 						},
-					},
-					"default_storage": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for default storage.",
-					},
-					"forward_proxy_allow_all": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
 					},
 					"global_network_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Global Network Connection List. List of global network connections.",
@@ -3609,24 +3769,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 							},
 						},
-					},
-					"no_dc_cluster_group": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_forward_proxy": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no forward proxy.",
-					},
-					"no_global_network": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no global network.",
-					},
-					"no_k8s_cluster": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_network_policy": schema.SingleNestedBlock{
-						MarkdownDescription: "Policy configuration for this feature.",
-					},
-					"no_outside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no outside static routes.",
 					},
 					"outside_static_routes": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for outside static routes.",
@@ -3799,12 +3941,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"sm_connection_public_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"sm_connection_pvt_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"storage_class_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Add additional custom storage classes in Kubernetes for this site.",
 						Attributes:          map[string]schema.Attribute{},
@@ -3850,6 +3986,11 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						MarkdownDescription: "AWS VPC Parameters. Parameters to create new AWS VPC.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("primary_ipv4"), validators.ConflictingObjectAttributes("autogenerate", "name_tag")},
 						Attributes: map[string]schema.Attribute{
+							"autogenerate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for autogenerate.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"name_tag": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [autogenerate] Specify the VPC Name.",
 								Optional:            true,
@@ -3860,11 +4001,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							"primary_ipv4": schema.StringAttribute{
 								MarkdownDescription: "IPv4 CIDR block for this VPC. It has to be private address space. The Primary IPv4 block cannot be modified. All subnets prefixes in this VPC must be part of this CIDR block.",
 								Optional:            true,
-							},
-						},
-						Blocks: map[string]schema.Block{
-							"autogenerate": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for autogenerate.",
 							},
 						},
 					},
@@ -3896,7 +4032,42 @@ func (r *AWSVPCSiteResource) ValidateConfig(ctx context.Context, req resource.Va
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.NodesPerAz.IsNull() && !data.TotalNodes.IsNull() {
+	if !data.BlockAllServices.IsNull() && !data.BlockAllServices.IsUnknown() && !data.DefaultBlockedServices.IsNull() && !data.DefaultBlockedServices.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("block_all_services"),
+			"Conflicting Configuration",
+			"block_all_services and default_blocked_services are mutually exclusive.",
+		)
+	}
+	if !data.DisableInternetVIP.IsNull() && !data.DisableInternetVIP.IsUnknown() && !data.EnableInternetVIP.IsNull() && !data.EnableInternetVIP.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_internet_vip"),
+			"Conflicting Configuration",
+			"disable_internet_vip and enable_internet_vip are mutually exclusive.",
+		)
+	}
+	if !data.F5OrchestratedRouting.IsNull() && !data.F5OrchestratedRouting.IsUnknown() && !data.ManualRouting.IsNull() && !data.ManualRouting.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("f5_orchestrated_routing"),
+			"Conflicting Configuration",
+			"f5_orchestrated_routing and manual_routing are mutually exclusive.",
+		)
+	}
+	if !data.NoWorkerNodes.IsNull() && !data.NoWorkerNodes.IsUnknown() && !data.NodesPerAz.IsNull() && !data.NodesPerAz.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_worker_nodes"),
+			"Conflicting Configuration",
+			"no_worker_nodes and nodes_per_az are mutually exclusive.",
+		)
+	}
+	if !data.NoWorkerNodes.IsNull() && !data.NoWorkerNodes.IsUnknown() && !data.TotalNodes.IsNull() && !data.TotalNodes.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_worker_nodes"),
+			"Conflicting Configuration",
+			"no_worker_nodes and total_nodes are mutually exclusive.",
+		)
+	}
+	if !data.NodesPerAz.IsNull() && !data.NodesPerAz.IsUnknown() && !data.TotalNodes.IsNull() && !data.TotalNodes.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("nodes_per_az"),
 			"Conflicting Configuration",
@@ -4086,7 +4257,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["aws_cred"] = AWSCredMap
 	}
-	if data.BlockAllServices != nil {
+	if !data.BlockAllServices.IsNull() && !data.BlockAllServices.IsUnknown() {
 		createReq.Spec["block_all_services"] = map[string]interface{}{}
 	}
 	if data.BlockedServices != nil {
@@ -4099,16 +4270,16 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				var BlockedServiceList []map[string]interface{}
 				for _, BlockedServiceItem := range BlockedServiceElems {
 					BlockedServiceItemMap := make(map[string]interface{})
-					if BlockedServiceItem.DNS != nil {
+					if !BlockedServiceItem.DNS.IsNull() && !BlockedServiceItem.DNS.IsUnknown() {
 						BlockedServiceItemMap["dns"] = map[string]interface{}{}
 					}
 					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
 						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
 					}
-					if BlockedServiceItem.SSH != nil {
+					if !BlockedServiceItem.SSH.IsNull() && !BlockedServiceItem.SSH.IsUnknown() {
 						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
 					}
-					if BlockedServiceItem.WebUserInterface != nil {
+					if !BlockedServiceItem.WebUserInterface.IsNull() && !BlockedServiceItem.WebUserInterface.IsUnknown() {
 						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
@@ -4148,15 +4319,15 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["custom_security_group"] = CustomSecurityGroupMap
 	}
-	if data.DefaultBlockedServices != nil {
+	if !data.DefaultBlockedServices.IsNull() && !data.DefaultBlockedServices.IsUnknown() {
 		createReq.Spec["default_blocked_services"] = map[string]interface{}{}
 	}
-	if data.DirectConnectDisabled != nil {
+	if !data.DirectConnectDisabled.IsNull() && !data.DirectConnectDisabled.IsUnknown() {
 		createReq.Spec["direct_connect_disabled"] = map[string]interface{}{}
 	}
 	if data.DirectConnectEnabled != nil {
 		DirectConnectEnabledMap := make(map[string]interface{})
-		if data.DirectConnectEnabled.AutoAsn != nil {
+		if !data.DirectConnectEnabled.AutoAsn.IsNull() && !data.DirectConnectEnabled.AutoAsn.IsUnknown() {
 			DirectConnectEnabledMap["auto_asn"] = map[string]interface{}{}
 		}
 		if !data.DirectConnectEnabled.CustomAsn.IsNull() && !data.DirectConnectEnabled.CustomAsn.IsUnknown() {
@@ -4171,7 +4342,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				DirectConnectEnabledHostedVifsMap["site_registration_over_direct_connect"] = DirectConnectEnabledHostedVifsSiteRegistrationOverDirectConnectMap
 			}
-			if data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet != nil {
+			if !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsNull() && !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsUnknown() {
 				DirectConnectEnabledHostedVifsMap["site_registration_over_internet"] = map[string]interface{}{}
 			}
 			if !data.DirectConnectEnabled.HostedVifs.VifList.IsNull() && !data.DirectConnectEnabled.HostedVifs.VifList.IsUnknown() {
@@ -4185,7 +4356,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						if !VifListItem.OtherRegion.IsNull() && !VifListItem.OtherRegion.IsUnknown() {
 							VifListItemMap["other_region"] = VifListItem.OtherRegion.ValueString()
 						}
-						if VifListItem.SameAsSiteRegion != nil {
+						if !VifListItem.SameAsSiteRegion.IsNull() && !VifListItem.SameAsSiteRegion.IsUnknown() {
 							VifListItemMap["same_as_site_region"] = map[string]interface{}{}
 						}
 						if !VifListItem.VifID.IsNull() && !VifListItem.VifID.IsUnknown() {
@@ -4198,18 +4369,18 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			DirectConnectEnabledMap["hosted_vifs"] = DirectConnectEnabledHostedVifsMap
 		}
-		if data.DirectConnectEnabled.StandardVifs != nil {
+		if !data.DirectConnectEnabled.StandardVifs.IsNull() && !data.DirectConnectEnabled.StandardVifs.IsUnknown() {
 			DirectConnectEnabledMap["standard_vifs"] = map[string]interface{}{}
 		}
 		createReq.Spec["direct_connect_enabled"] = DirectConnectEnabledMap
 	}
-	if data.DisableEncryption != nil {
+	if !data.DisableEncryption.IsNull() && !data.DisableEncryption.IsUnknown() {
 		createReq.Spec["disable_encryption"] = map[string]interface{}{}
 	}
-	if data.DisableInternetVIP != nil {
+	if !data.DisableInternetVIP.IsNull() && !data.DisableInternetVIP.IsUnknown() {
 		createReq.Spec["disable_internet_vip"] = map[string]interface{}{}
 	}
-	if data.EgressGatewayDefault != nil {
+	if !data.EgressGatewayDefault.IsNull() && !data.EgressGatewayDefault.IsUnknown() {
 		createReq.Spec["egress_gateway_default"] = map[string]interface{}{}
 	}
 	if data.EgressNATGw != nil {
@@ -4233,13 +4404,13 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["enable_encryption"] = EnableEncryptionMap
 	}
-	if data.EnableInternetVIP != nil {
+	if !data.EnableInternetVIP.IsNull() && !data.EnableInternetVIP.IsUnknown() {
 		createReq.Spec["enable_internet_vip"] = map[string]interface{}{}
 	}
-	if data.F5OrchestratedRouting != nil {
+	if !data.F5OrchestratedRouting.IsNull() && !data.F5OrchestratedRouting.IsUnknown() {
 		createReq.Spec["f5_orchestrated_routing"] = map[string]interface{}{}
 	}
-	if data.F5xcSecurityGroup != nil {
+	if !data.F5xcSecurityGroup.IsNull() && !data.F5xcSecurityGroup.IsUnknown() {
 		createReq.Spec["f5xc_security_group"] = map[string]interface{}{}
 	}
 	if data.IngressEgressGw != nil {
@@ -4322,16 +4493,16 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				IngressEgressGwAllowedVIPPortMap["custom_ports"] = IngressEgressGwAllowedVIPPortCustomPortsMap
 			}
-			if data.IngressEgressGw.AllowedVIPPort.DisableAllowedVIPPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPort.DisableAllowedVIPPort.IsNull() && !data.IngressEgressGw.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortMap["disable_allowed_vip_port"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AllowedVIPPort.UseHTTPHTTPSPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsNull() && !data.IngressEgressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortMap["use_http_https_port"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AllowedVIPPort.UseHTTPPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPort.UseHTTPPort.IsNull() && !data.IngressEgressGw.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortMap["use_http_port"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AllowedVIPPort.UseHTTPSPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPort.UseHTTPSPort.IsNull() && !data.IngressEgressGw.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortMap["use_https_port"] = map[string]interface{}{}
 			}
 			IngressEgressGwMap["allowed_vip_port"] = IngressEgressGwAllowedVIPPortMap
@@ -4345,16 +4516,16 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				IngressEgressGwAllowedVIPPortSLIMap["custom_ports"] = IngressEgressGwAllowedVIPPortSLICustomPortsMap
 			}
-			if data.IngressEgressGw.AllowedVIPPortSLI.DisableAllowedVIPPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPortSLI.DisableAllowedVIPPort.IsNull() && !data.IngressEgressGw.AllowedVIPPortSLI.DisableAllowedVIPPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortSLIMap["disable_allowed_vip_port"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPHTTPSPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsNull() && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortSLIMap["use_http_https_port"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPPort.IsNull() && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortSLIMap["use_http_port"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPSPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPSPort.IsNull() && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPSPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortSLIMap["use_https_port"] = map[string]interface{}{}
 			}
 			IngressEgressGwMap["allowed_vip_port_sli"] = IngressEgressGwAllowedVIPPortSLIMap
@@ -4401,7 +4572,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						AzNodesItemMap["outside_subnet"] = IngressEgressGwAzNodesOutsideSubnetMap
 					}
-					if AzNodesItem.ReservedInsideSubnet != nil {
+					if !AzNodesItem.ReservedInsideSubnet.IsNull() && !AzNodesItem.ReservedInsideSubnet.IsUnknown() {
 						AzNodesItemMap["reserved_inside_subnet"] = map[string]interface{}{}
 					}
 					if AzNodesItem.WorkloadSubnet != nil {
@@ -4443,7 +4614,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
-		if data.IngressEgressGw.ForwardProxyAllowAll != nil {
+		if !data.IngressEgressGw.ForwardProxyAllowAll.IsNull() && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 			IngressEgressGwMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGw.GlobalNetworkList != nil {
@@ -4603,22 +4774,22 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			IngressEgressGwMap["inside_static_routes"] = IngressEgressGwInsideStaticRoutesMap
 		}
-		if data.IngressEgressGw.NoDcClusterGroup != nil {
+		if !data.IngressEgressGw.NoDcClusterGroup.IsNull() && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 			IngressEgressGwMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoForwardProxy != nil {
+		if !data.IngressEgressGw.NoForwardProxy.IsNull() && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 			IngressEgressGwMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoGlobalNetwork != nil {
+		if !data.IngressEgressGw.NoGlobalNetwork.IsNull() && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 			IngressEgressGwMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoInsideStaticRoutes != nil {
+		if !data.IngressEgressGw.NoInsideStaticRoutes.IsNull() && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 			IngressEgressGwMap["no_inside_static_routes"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoNetworkPolicy != nil {
+		if !data.IngressEgressGw.NoNetworkPolicy.IsNull() && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 			IngressEgressGwMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoOutsideStaticRoutes != nil {
+		if !data.IngressEgressGw.NoOutsideStaticRoutes.IsNull() && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 			IngressEgressGwMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGw.OutsideStaticRoutes != nil {
@@ -4737,30 +4908,30 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			IngressEgressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
-		if data.IngressEgressGw.SmConnectionPublicIP != nil {
+		if !data.IngressEgressGw.SmConnectionPublicIP.IsNull() && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 			IngressEgressGwMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.SmConnectionPvtIP != nil {
+		if !data.IngressEgressGw.SmConnectionPvtIP.IsNull() && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 			IngressEgressGwMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		createReq.Spec["ingress_egress_gw"] = IngressEgressGwMap
@@ -4776,16 +4947,16 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				IngressGwAllowedVIPPortMap["custom_ports"] = IngressGwAllowedVIPPortCustomPortsMap
 			}
-			if data.IngressGw.AllowedVIPPort.DisableAllowedVIPPort != nil {
+			if !data.IngressGw.AllowedVIPPort.DisableAllowedVIPPort.IsNull() && !data.IngressGw.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 				IngressGwAllowedVIPPortMap["disable_allowed_vip_port"] = map[string]interface{}{}
 			}
-			if data.IngressGw.AllowedVIPPort.UseHTTPHTTPSPort != nil {
+			if !data.IngressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsNull() && !data.IngressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 				IngressGwAllowedVIPPortMap["use_http_https_port"] = map[string]interface{}{}
 			}
-			if data.IngressGw.AllowedVIPPort.UseHTTPPort != nil {
+			if !data.IngressGw.AllowedVIPPort.UseHTTPPort.IsNull() && !data.IngressGw.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 				IngressGwAllowedVIPPortMap["use_http_port"] = map[string]interface{}{}
 			}
-			if data.IngressGw.AllowedVIPPort.UseHTTPSPort != nil {
+			if !data.IngressGw.AllowedVIPPort.UseHTTPSPort.IsNull() && !data.IngressGw.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 				IngressGwAllowedVIPPortMap["use_https_port"] = map[string]interface{}{}
 			}
 			IngressGwMap["allowed_vip_port"] = IngressGwAllowedVIPPortMap
@@ -4827,20 +4998,20 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			IngressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap
@@ -4851,12 +5022,12 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if data.KubernetesUpgradeDrain != nil {
 		KubernetesUpgradeDrainMap := make(map[string]interface{})
-		if data.KubernetesUpgradeDrain.DisableUpgradeDrain != nil {
+		if !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsNull() && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
 			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
@@ -4868,7 +5039,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
@@ -4885,28 +5056,28 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["log_receiver"] = LogReceiverMap
 	}
-	if data.LogsStreamingDisabled != nil {
+	if !data.LogsStreamingDisabled.IsNull() && !data.LogsStreamingDisabled.IsUnknown() {
 		createReq.Spec["logs_streaming_disabled"] = map[string]interface{}{}
 	}
-	if data.ManualRouting != nil {
+	if !data.ManualRouting.IsNull() && !data.ManualRouting.IsUnknown() {
 		createReq.Spec["manual_routing"] = map[string]interface{}{}
 	}
-	if data.NoWorkerNodes != nil {
+	if !data.NoWorkerNodes.IsNull() && !data.NoWorkerNodes.IsUnknown() {
 		createReq.Spec["no_worker_nodes"] = map[string]interface{}{}
 	}
 	if data.OfflineSurvivabilityMode != nil {
 		OfflineSurvivabilityModeMap := make(map[string]interface{})
-		if data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["enable_offline_survivability_mode"] = map[string]interface{}{}
 		}
-		if data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["no_offline_survivability_mode"] = map[string]interface{}{}
 		}
 		createReq.Spec["offline_survivability_mode"] = OfflineSurvivabilityModeMap
 	}
 	if data.OS != nil {
 		OSMap := make(map[string]interface{})
-		if data.OS.DefaultOSVersion != nil {
+		if !data.OS.DefaultOSVersion.IsNull() && !data.OS.DefaultOSVersion.IsUnknown() {
 			OSMap["default_os_version"] = map[string]interface{}{}
 		}
 		if !data.OS.OperatingSystemVersion.IsNull() && !data.OS.OperatingSystemVersion.IsUnknown() {
@@ -4926,17 +5097,17 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			PrivateConnectivityMap["cloud_link"] = PrivateConnectivityCloudLinkMap
 		}
-		if data.PrivateConnectivity.Inside != nil {
+		if !data.PrivateConnectivity.Inside.IsNull() && !data.PrivateConnectivity.Inside.IsUnknown() {
 			PrivateConnectivityMap["inside"] = map[string]interface{}{}
 		}
-		if data.PrivateConnectivity.Outside != nil {
+		if !data.PrivateConnectivity.Outside.IsNull() && !data.PrivateConnectivity.Outside.IsUnknown() {
 			PrivateConnectivityMap["outside"] = map[string]interface{}{}
 		}
 		createReq.Spec["private_connectivity"] = PrivateConnectivityMap
 	}
 	if data.Sw != nil {
 		SwMap := make(map[string]interface{})
-		if data.Sw.DefaultSwVersion != nil {
+		if !data.Sw.DefaultSwVersion.IsNull() && !data.Sw.DefaultSwVersion.IsUnknown() {
 			SwMap["default_sw_version"] = map[string]interface{}{}
 		}
 		if !data.Sw.VolterraSoftwareVersion.IsNull() && !data.Sw.VolterraSoftwareVersion.IsUnknown() {
@@ -5032,16 +5203,16 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				VoltstackClusterAllowedVIPPortMap["custom_ports"] = VoltstackClusterAllowedVIPPortCustomPortsMap
 			}
-			if data.VoltstackCluster.AllowedVIPPort.DisableAllowedVIPPort != nil {
+			if !data.VoltstackCluster.AllowedVIPPort.DisableAllowedVIPPort.IsNull() && !data.VoltstackCluster.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 				VoltstackClusterAllowedVIPPortMap["disable_allowed_vip_port"] = map[string]interface{}{}
 			}
-			if data.VoltstackCluster.AllowedVIPPort.UseHTTPHTTPSPort != nil {
+			if !data.VoltstackCluster.AllowedVIPPort.UseHTTPHTTPSPort.IsNull() && !data.VoltstackCluster.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 				VoltstackClusterAllowedVIPPortMap["use_http_https_port"] = map[string]interface{}{}
 			}
-			if data.VoltstackCluster.AllowedVIPPort.UseHTTPPort != nil {
+			if !data.VoltstackCluster.AllowedVIPPort.UseHTTPPort.IsNull() && !data.VoltstackCluster.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 				VoltstackClusterAllowedVIPPortMap["use_http_port"] = map[string]interface{}{}
 			}
-			if data.VoltstackCluster.AllowedVIPPort.UseHTTPSPort != nil {
+			if !data.VoltstackCluster.AllowedVIPPort.UseHTTPSPort.IsNull() && !data.VoltstackCluster.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 				VoltstackClusterAllowedVIPPortMap["use_https_port"] = map[string]interface{}{}
 			}
 			VoltstackClusterMap["allowed_vip_port"] = VoltstackClusterAllowedVIPPortMap
@@ -5089,10 +5260,10 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
-		if data.VoltstackCluster.DefaultStorage != nil {
+		if !data.VoltstackCluster.DefaultStorage.IsNull() && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 			VoltstackClusterMap["default_storage"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.ForwardProxyAllowAll != nil {
+		if !data.VoltstackCluster.ForwardProxyAllowAll.IsNull() && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 			VoltstackClusterMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.GlobalNetworkList != nil {
@@ -5150,22 +5321,22 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
-		if data.VoltstackCluster.NoDcClusterGroup != nil {
+		if !data.VoltstackCluster.NoDcClusterGroup.IsNull() && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 			VoltstackClusterMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoForwardProxy != nil {
+		if !data.VoltstackCluster.NoForwardProxy.IsNull() && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 			VoltstackClusterMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoGlobalNetwork != nil {
+		if !data.VoltstackCluster.NoGlobalNetwork.IsNull() && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 			VoltstackClusterMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoK8SCluster != nil {
+		if !data.VoltstackCluster.NoK8SCluster.IsNull() && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 			VoltstackClusterMap["no_k8s_cluster"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoNetworkPolicy != nil {
+		if !data.VoltstackCluster.NoNetworkPolicy.IsNull() && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 			VoltstackClusterMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoOutsideStaticRoutes != nil {
+		if !data.VoltstackCluster.NoOutsideStaticRoutes.IsNull() && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 			VoltstackClusterMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.OutsideStaticRoutes != nil {
@@ -5280,10 +5451,10 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			VoltstackClusterMap["outside_static_routes"] = VoltstackClusterOutsideStaticRoutesMap
 		}
-		if data.VoltstackCluster.SmConnectionPublicIP != nil {
+		if !data.VoltstackCluster.SmConnectionPublicIP.IsNull() && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 			VoltstackClusterMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.SmConnectionPvtIP != nil {
+		if !data.VoltstackCluster.SmConnectionPvtIP.IsNull() && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 			VoltstackClusterMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
@@ -5315,7 +5486,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		VPCMap := make(map[string]interface{})
 		if data.VPC.NewVPC != nil {
 			VPCNewVPCMap := make(map[string]interface{})
-			if data.VPC.NewVPC.Autogenerate != nil {
+			if !data.VPC.NewVPC.Autogenerate.IsNull() && !data.VPC.NewVPC.Autogenerate.IsUnknown() {
 				VPCNewVPCMap["autogenerate"] = map[string]interface{}{}
 			}
 			if !data.VPC.NewVPC.NameTag.IsNull() && !data.VPC.NewVPC.NameTag.IsUnknown() {
@@ -5473,8 +5644,12 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok && isImport && data.BlockAllServices == nil {
-		data.BlockAllServices = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.BlockAllServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok {
+		data.BlockAllServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BlockAllServices = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSVPCSiteBlockedServicesModel{
@@ -5492,14 +5667,14 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AWSVPCSiteBlockedServicesBlockedServiceModel{
-								DNS: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								DNS: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].DNS.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
-										return &AWSVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								NetworkType: func() types.String {
 									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
@@ -5507,23 +5682,23 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									return types.StringNull()
 								}(),
-								SSH: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								SSH: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].SSH.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
-										return &AWSVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								WebUserInterface: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								WebUserInterface: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].WebUserInterface.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
-										return &AWSVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -5589,22 +5764,30 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok && isImport && data.DefaultBlockedServices == nil {
-		data.DefaultBlockedServices = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.DefaultBlockedServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok {
+		data.DefaultBlockedServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBlockedServices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["direct_connect_disabled"].(map[string]interface{}); ok && isImport && data.DirectConnectDisabled == nil {
-		data.DirectConnectDisabled = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.DirectConnectDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["direct_connect_disabled"].(map[string]interface{}); ok {
+		data.DirectConnectDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DirectConnectDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["direct_connect_enabled"].(map[string]interface{}); ok && (isImport || data.DirectConnectEnabled != nil) {
 		data.DirectConnectEnabled = &AWSVPCSiteDirectConnectEnabledModel{
-			AutoAsn: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.DirectConnectEnabled != nil {
+			AutoAsn: func() types.Object {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.AutoAsn.IsUnknown() {
 					return data.DirectConnectEnabled.AutoAsn
 				}
 				if _, ok := blockData["auto_asn"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CustomAsn: func() types.Int64 {
 				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.CustomAsn.IsUnknown() {
@@ -5637,14 +5820,14 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						SiteRegistrationOverInternet: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil {
+						SiteRegistrationOverInternet: func() types.Object {
+							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil && !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsUnknown() {
 								return data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet
 							}
 							if _, ok := HostedVifsData["site_registration_over_internet"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						VifList: func() types.List {
 							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil && (data.DirectConnectEnabled.HostedVifs.VifList.IsNull() || len(data.DirectConnectEnabled.HostedVifs.VifList.Elements()) == 0) {
@@ -5666,14 +5849,14 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 												}
 												return types.StringNull()
 											}(),
-											SameAsSiteRegion: func() *AWSVPCSiteEmptyModel {
-												if !isImport && len(VifListExisting) > VifListIdx {
+											SameAsSiteRegion: func() types.Object {
+												if !isImport && len(VifListExisting) > VifListIdx && !VifListExisting[VifListIdx].SameAsSiteRegion.IsUnknown() {
 													return VifListExisting[VifListIdx].SameAsSiteRegion
 												}
 												if _, ok := VifListItemMap["same_as_site_region"].(map[string]interface{}); ok {
-													return &AWSVPCSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VifID: func() types.String {
 												if v, ok := VifListItemMap["vif_id"].(string); ok && v != "" {
@@ -5693,25 +5876,37 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			StandardVifs: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.DirectConnectEnabled != nil {
+			StandardVifs: func() types.Object {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.StandardVifs.IsUnknown() {
 					return data.DirectConnectEnabled.StandardVifs
 				}
 				if _, ok := blockData["standard_vifs"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok && isImport && data.DisableEncryption == nil {
-		data.DisableEncryption = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.DisableEncryption.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok {
+		data.DisableEncryption = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableEncryption = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_internet_vip"].(map[string]interface{}); ok && isImport && data.DisableInternetVIP == nil {
-		data.DisableInternetVIP = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.DisableInternetVIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_internet_vip"].(map[string]interface{}); ok {
+		data.DisableInternetVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableInternetVIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["egress_gateway_default"].(map[string]interface{}); ok && isImport && data.EgressGatewayDefault == nil {
-		data.EgressGatewayDefault = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.EgressGatewayDefault.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["egress_gateway_default"].(map[string]interface{}); ok {
+		data.EgressGatewayDefault = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EgressGatewayDefault = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["egress_nat_gw"].(map[string]interface{}); ok && (isImport || data.EgressNATGw != nil) {
 		data.EgressNATGw = &AWSVPCSiteEgressNATGwModel{
@@ -5743,14 +5938,26 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["enable_internet_vip"].(map[string]interface{}); ok && isImport && data.EnableInternetVIP == nil {
-		data.EnableInternetVIP = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.EnableInternetVIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_internet_vip"].(map[string]interface{}); ok {
+		data.EnableInternetVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableInternetVIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["f5_orchestrated_routing"].(map[string]interface{}); ok && isImport && data.F5OrchestratedRouting == nil {
-		data.F5OrchestratedRouting = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.F5OrchestratedRouting.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["f5_orchestrated_routing"].(map[string]interface{}); ok {
+		data.F5OrchestratedRouting = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.F5OrchestratedRouting = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["f5xc_security_group"].(map[string]interface{}); ok && isImport && data.F5xcSecurityGroup == nil {
-		data.F5xcSecurityGroup = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.F5xcSecurityGroup.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["f5xc_security_group"].(map[string]interface{}); ok {
+		data.F5xcSecurityGroup = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.F5xcSecurityGroup = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["ingress_egress_gw"].(map[string]interface{}); ok && (isImport || data.IngressEgressGw != nil) {
 		data.IngressEgressGw = &AWSVPCSiteIngressEgressGwModel{
@@ -5917,41 +6124,41 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil && !data.IngressEgressGw.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPort.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil && !data.IngressEgressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPort.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil && !data.IngressEgressGw.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPort.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil && !data.IngressEgressGw.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPort.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -5979,41 +6186,41 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil && !data.IngressEgressGw.AllowedVIPPortSLI.DisableAllowedVIPPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPortSLI.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortSLIData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPSPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -6103,14 +6310,14 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									return nil
 								}(),
-								ReservedInsideSubnet: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(AzNodesExisting) > AzNodesIdx {
+								ReservedInsideSubnet: func() types.Object {
+									if !isImport && len(AzNodesExisting) > AzNodesIdx && !AzNodesExisting[AzNodesIdx].ReservedInsideSubnet.IsUnknown() {
 										return AzNodesExisting[AzNodesIdx].ReservedInsideSubnet
 									}
 									if _, ok := AzNodesItemMap["reserved_inside_subnet"].(map[string]interface{}); ok {
-										return &AWSVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								WorkloadSubnet: func() *AWSVPCSiteIngressEgressGwAzNodesWorkloadSubnetModel {
 									if WorkloadSubnetData, ok := AzNodesItemMap["workload_subnet"].(map[string]interface{}); ok {
@@ -6199,14 +6406,14 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			ForwardProxyAllowAll: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 					return data.IngressEgressGw.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AWSVPCSiteIngressEgressGwGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -6539,59 +6746,59 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 					return data.IngressEgressGw.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 					return data.IngressEgressGw.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 					return data.IngressEgressGw.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 					return data.IngressEgressGw.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AWSVPCSiteIngressEgressGwOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -6843,23 +7050,23 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -6871,23 +7078,23 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -6897,23 +7104,23 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -6941,41 +7148,41 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil && !data.IngressGw.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 								return data.IngressGw.AllowedVIPPort.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil && !data.IngressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 								return data.IngressGw.AllowedVIPPort.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil && !data.IngressGw.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 								return data.IngressGw.AllowedVIPPort.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil && !data.IngressGw.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 								return data.IngressGw.AllowedVIPPort.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -7056,23 +7263,23 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -7084,23 +7291,23 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -7114,14 +7321,14 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &AWSVPCSiteKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *AWSVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -7129,14 +7336,14 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &AWSVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
@@ -7165,14 +7372,14 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -7202,47 +7409,59 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["manual_routing"].(map[string]interface{}); ok && isImport && data.ManualRouting == nil {
-		data.ManualRouting = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.ManualRouting.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["manual_routing"].(map[string]interface{}); ok {
+		data.ManualRouting = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ManualRouting = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_worker_nodes"].(map[string]interface{}); ok && isImport && data.NoWorkerNodes == nil {
-		data.NoWorkerNodes = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.NoWorkerNodes.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_worker_nodes"].(map[string]interface{}); ok {
+		data.NoWorkerNodes = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoWorkerNodes = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["offline_survivability_mode"].(map[string]interface{}); ok && (isImport || data.OfflineSurvivabilityMode != nil) {
 		data.OfflineSurvivabilityMode = &AWSVPCSiteOfflineSurvivabilityModeModel{
-			EnableOfflineSurvivabilityMode: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			EnableOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["enable_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOfflineSurvivabilityMode: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			NoOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["no_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["os"].(map[string]interface{}); ok && (isImport || data.OS != nil) {
 		data.OS = &AWSVPCSiteOSModel{
-			DefaultOSVersion: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.OS != nil {
+			DefaultOSVersion: func() types.Object {
+				if !isImport && data.OS != nil && !data.OS.DefaultOSVersion.IsUnknown() {
 					return data.OS.DefaultOSVersion
 				}
 				if _, ok := blockData["default_os_version"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OperatingSystemVersion: func() types.String {
 				if v, ok := blockData["operating_system_version"].(string); ok && v != "" {
@@ -7279,36 +7498,36 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			Inside: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Inside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Inside.IsUnknown() {
 					return data.PrivateConnectivity.Inside
 				}
 				if _, ok := blockData["inside"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			Outside: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Outside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Outside.IsUnknown() {
 					return data.PrivateConnectivity.Outside
 				}
 				if _, ok := blockData["outside"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &AWSVPCSiteSwModel{
-			DefaultSwVersion: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.Sw != nil {
+			DefaultSwVersion: func() types.Object {
+				if !isImport && data.Sw != nil && !data.Sw.DefaultSwVersion.IsUnknown() {
 					return data.Sw.DefaultSwVersion
 				}
 				if _, ok := blockData["default_sw_version"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			VolterraSoftwareVersion: func() types.String {
 				if v, ok := blockData["volterra_software_version"].(string); ok && v != "" {
@@ -7484,41 +7703,41 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil && !data.VoltstackCluster.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 								return data.VoltstackCluster.AllowedVIPPort.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil && !data.VoltstackCluster.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 								return data.VoltstackCluster.AllowedVIPPort.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil && !data.VoltstackCluster.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 								return data.VoltstackCluster.AllowedVIPPort.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil && !data.VoltstackCluster.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 								return data.VoltstackCluster.AllowedVIPPort.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -7612,23 +7831,23 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			DefaultStorage: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			DefaultStorage: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 					return data.VoltstackCluster.DefaultStorage
 				}
 				if _, ok := blockData["default_storage"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 					return data.VoltstackCluster.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AWSVPCSiteVoltstackClusterGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -7748,59 +7967,59 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 					return data.VoltstackCluster.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 					return data.VoltstackCluster.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 					return data.VoltstackCluster.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoK8SCluster: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoK8SCluster: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 					return data.VoltstackCluster.NoK8SCluster
 				}
 				if _, ok := blockData["no_k8s_cluster"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 					return data.VoltstackCluster.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VoltstackCluster.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AWSVPCSiteVoltstackClusterOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -8040,23 +8259,23 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			StorageClassList: func() *AWSVPCSiteVoltstackClusterStorageClassListModel {
 				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil {
@@ -8112,14 +8331,14 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if NewVPCData, ok := blockData["new_vpc"].(map[string]interface{}); ok {
 					return &AWSVPCSiteVPCNewVPCModel{
-						Autogenerate: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VPC != nil && data.VPC.NewVPC != nil {
+						Autogenerate: func() types.Object {
+							if !isImport && data.VPC != nil && data.VPC.NewVPC != nil && !data.VPC.NewVPC.Autogenerate.IsUnknown() {
 								return data.VPC.NewVPC.Autogenerate
 							}
 							if _, ok := NewVPCData["autogenerate"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NameTag: func() types.String {
 							if v, ok := NewVPCData["name_tag"].(string); ok && v != "" {
@@ -8387,8 +8606,12 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok && isImport && data.BlockAllServices == nil {
-		data.BlockAllServices = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.BlockAllServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok {
+		data.BlockAllServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BlockAllServices = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSVPCSiteBlockedServicesModel{
@@ -8406,14 +8629,14 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AWSVPCSiteBlockedServicesBlockedServiceModel{
-								DNS: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								DNS: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].DNS.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
-										return &AWSVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								NetworkType: func() types.String {
 									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
@@ -8421,23 +8644,23 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									}
 									return types.StringNull()
 								}(),
-								SSH: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								SSH: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].SSH.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
-										return &AWSVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								WebUserInterface: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								WebUserInterface: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].WebUserInterface.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
-										return &AWSVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -8503,22 +8726,30 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok && isImport && data.DefaultBlockedServices == nil {
-		data.DefaultBlockedServices = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.DefaultBlockedServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok {
+		data.DefaultBlockedServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBlockedServices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["direct_connect_disabled"].(map[string]interface{}); ok && isImport && data.DirectConnectDisabled == nil {
-		data.DirectConnectDisabled = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.DirectConnectDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["direct_connect_disabled"].(map[string]interface{}); ok {
+		data.DirectConnectDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DirectConnectDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["direct_connect_enabled"].(map[string]interface{}); ok && (isImport || data.DirectConnectEnabled != nil) {
 		data.DirectConnectEnabled = &AWSVPCSiteDirectConnectEnabledModel{
-			AutoAsn: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.DirectConnectEnabled != nil {
+			AutoAsn: func() types.Object {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.AutoAsn.IsUnknown() {
 					return data.DirectConnectEnabled.AutoAsn
 				}
 				if _, ok := blockData["auto_asn"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CustomAsn: func() types.Int64 {
 				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.CustomAsn.IsUnknown() {
@@ -8551,14 +8782,14 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						SiteRegistrationOverInternet: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil {
+						SiteRegistrationOverInternet: func() types.Object {
+							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil && !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsUnknown() {
 								return data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet
 							}
 							if _, ok := HostedVifsData["site_registration_over_internet"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						VifList: func() types.List {
 							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil && (data.DirectConnectEnabled.HostedVifs.VifList.IsNull() || len(data.DirectConnectEnabled.HostedVifs.VifList.Elements()) == 0) {
@@ -8580,14 +8811,14 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 												}
 												return types.StringNull()
 											}(),
-											SameAsSiteRegion: func() *AWSVPCSiteEmptyModel {
-												if !isImport && len(VifListExisting) > VifListIdx {
+											SameAsSiteRegion: func() types.Object {
+												if !isImport && len(VifListExisting) > VifListIdx && !VifListExisting[VifListIdx].SameAsSiteRegion.IsUnknown() {
 													return VifListExisting[VifListIdx].SameAsSiteRegion
 												}
 												if _, ok := VifListItemMap["same_as_site_region"].(map[string]interface{}); ok {
-													return &AWSVPCSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VifID: func() types.String {
 												if v, ok := VifListItemMap["vif_id"].(string); ok && v != "" {
@@ -8607,25 +8838,37 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			StandardVifs: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.DirectConnectEnabled != nil {
+			StandardVifs: func() types.Object {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.StandardVifs.IsUnknown() {
 					return data.DirectConnectEnabled.StandardVifs
 				}
 				if _, ok := blockData["standard_vifs"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok && isImport && data.DisableEncryption == nil {
-		data.DisableEncryption = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.DisableEncryption.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok {
+		data.DisableEncryption = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableEncryption = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_internet_vip"].(map[string]interface{}); ok && isImport && data.DisableInternetVIP == nil {
-		data.DisableInternetVIP = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.DisableInternetVIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_internet_vip"].(map[string]interface{}); ok {
+		data.DisableInternetVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableInternetVIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["egress_gateway_default"].(map[string]interface{}); ok && isImport && data.EgressGatewayDefault == nil {
-		data.EgressGatewayDefault = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.EgressGatewayDefault.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["egress_gateway_default"].(map[string]interface{}); ok {
+		data.EgressGatewayDefault = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EgressGatewayDefault = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["egress_nat_gw"].(map[string]interface{}); ok && (isImport || data.EgressNATGw != nil) {
 		data.EgressNATGw = &AWSVPCSiteEgressNATGwModel{
@@ -8657,14 +8900,26 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["enable_internet_vip"].(map[string]interface{}); ok && isImport && data.EnableInternetVIP == nil {
-		data.EnableInternetVIP = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.EnableInternetVIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_internet_vip"].(map[string]interface{}); ok {
+		data.EnableInternetVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableInternetVIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["f5_orchestrated_routing"].(map[string]interface{}); ok && isImport && data.F5OrchestratedRouting == nil {
-		data.F5OrchestratedRouting = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.F5OrchestratedRouting.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["f5_orchestrated_routing"].(map[string]interface{}); ok {
+		data.F5OrchestratedRouting = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.F5OrchestratedRouting = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["f5xc_security_group"].(map[string]interface{}); ok && isImport && data.F5xcSecurityGroup == nil {
-		data.F5xcSecurityGroup = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.F5xcSecurityGroup.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["f5xc_security_group"].(map[string]interface{}); ok {
+		data.F5xcSecurityGroup = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.F5xcSecurityGroup = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["ingress_egress_gw"].(map[string]interface{}); ok && (isImport || data.IngressEgressGw != nil) {
 		data.IngressEgressGw = &AWSVPCSiteIngressEgressGwModel{
@@ -8831,41 +9086,41 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil && !data.IngressEgressGw.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPort.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil && !data.IngressEgressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPort.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil && !data.IngressEgressGw.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPort.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil && !data.IngressEgressGw.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPort.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -8893,41 +9148,41 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil && !data.IngressEgressGw.AllowedVIPPortSLI.DisableAllowedVIPPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPortSLI.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortSLIData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPSPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -9017,14 +9272,14 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									}
 									return nil
 								}(),
-								ReservedInsideSubnet: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(AzNodesExisting) > AzNodesIdx {
+								ReservedInsideSubnet: func() types.Object {
+									if !isImport && len(AzNodesExisting) > AzNodesIdx && !AzNodesExisting[AzNodesIdx].ReservedInsideSubnet.IsUnknown() {
 										return AzNodesExisting[AzNodesIdx].ReservedInsideSubnet
 									}
 									if _, ok := AzNodesItemMap["reserved_inside_subnet"].(map[string]interface{}); ok {
-										return &AWSVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								WorkloadSubnet: func() *AWSVPCSiteIngressEgressGwAzNodesWorkloadSubnetModel {
 									if WorkloadSubnetData, ok := AzNodesItemMap["workload_subnet"].(map[string]interface{}); ok {
@@ -9113,14 +9368,14 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			ForwardProxyAllowAll: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 					return data.IngressEgressGw.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AWSVPCSiteIngressEgressGwGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -9453,59 +9708,59 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 					return data.IngressEgressGw.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 					return data.IngressEgressGw.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 					return data.IngressEgressGw.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 					return data.IngressEgressGw.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AWSVPCSiteIngressEgressGwOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -9757,23 +10012,23 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -9785,23 +10040,23 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -9811,23 +10066,23 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -9855,41 +10110,41 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil && !data.IngressGw.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 								return data.IngressGw.AllowedVIPPort.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil && !data.IngressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 								return data.IngressGw.AllowedVIPPort.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil && !data.IngressGw.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 								return data.IngressGw.AllowedVIPPort.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil && !data.IngressGw.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 								return data.IngressGw.AllowedVIPPort.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -9970,23 +10225,23 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -9998,23 +10253,23 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -10028,14 +10283,14 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &AWSVPCSiteKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *AWSVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -10043,14 +10298,14 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &AWSVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
@@ -10079,14 +10334,14 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -10116,47 +10371,59 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["manual_routing"].(map[string]interface{}); ok && isImport && data.ManualRouting == nil {
-		data.ManualRouting = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.ManualRouting.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["manual_routing"].(map[string]interface{}); ok {
+		data.ManualRouting = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ManualRouting = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_worker_nodes"].(map[string]interface{}); ok && isImport && data.NoWorkerNodes == nil {
-		data.NoWorkerNodes = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.NoWorkerNodes.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_worker_nodes"].(map[string]interface{}); ok {
+		data.NoWorkerNodes = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoWorkerNodes = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["offline_survivability_mode"].(map[string]interface{}); ok && (isImport || data.OfflineSurvivabilityMode != nil) {
 		data.OfflineSurvivabilityMode = &AWSVPCSiteOfflineSurvivabilityModeModel{
-			EnableOfflineSurvivabilityMode: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			EnableOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["enable_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOfflineSurvivabilityMode: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			NoOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["no_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["os"].(map[string]interface{}); ok && (isImport || data.OS != nil) {
 		data.OS = &AWSVPCSiteOSModel{
-			DefaultOSVersion: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.OS != nil {
+			DefaultOSVersion: func() types.Object {
+				if !isImport && data.OS != nil && !data.OS.DefaultOSVersion.IsUnknown() {
 					return data.OS.DefaultOSVersion
 				}
 				if _, ok := blockData["default_os_version"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OperatingSystemVersion: func() types.String {
 				if v, ok := blockData["operating_system_version"].(string); ok && v != "" {
@@ -10193,36 +10460,36 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			Inside: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Inside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Inside.IsUnknown() {
 					return data.PrivateConnectivity.Inside
 				}
 				if _, ok := blockData["inside"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			Outside: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Outside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Outside.IsUnknown() {
 					return data.PrivateConnectivity.Outside
 				}
 				if _, ok := blockData["outside"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &AWSVPCSiteSwModel{
-			DefaultSwVersion: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.Sw != nil {
+			DefaultSwVersion: func() types.Object {
+				if !isImport && data.Sw != nil && !data.Sw.DefaultSwVersion.IsUnknown() {
 					return data.Sw.DefaultSwVersion
 				}
 				if _, ok := blockData["default_sw_version"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			VolterraSoftwareVersion: func() types.String {
 				if v, ok := blockData["volterra_software_version"].(string); ok && v != "" {
@@ -10398,41 +10665,41 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil && !data.VoltstackCluster.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 								return data.VoltstackCluster.AllowedVIPPort.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil && !data.VoltstackCluster.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 								return data.VoltstackCluster.AllowedVIPPort.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil && !data.VoltstackCluster.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 								return data.VoltstackCluster.AllowedVIPPort.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil && !data.VoltstackCluster.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 								return data.VoltstackCluster.AllowedVIPPort.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -10526,23 +10793,23 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			DefaultStorage: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			DefaultStorage: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 					return data.VoltstackCluster.DefaultStorage
 				}
 				if _, ok := blockData["default_storage"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 					return data.VoltstackCluster.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AWSVPCSiteVoltstackClusterGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -10662,59 +10929,59 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 					return data.VoltstackCluster.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 					return data.VoltstackCluster.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 					return data.VoltstackCluster.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoK8SCluster: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoK8SCluster: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 					return data.VoltstackCluster.NoK8SCluster
 				}
 				if _, ok := blockData["no_k8s_cluster"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 					return data.VoltstackCluster.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VoltstackCluster.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AWSVPCSiteVoltstackClusterOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -10954,23 +11221,23 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			StorageClassList: func() *AWSVPCSiteVoltstackClusterStorageClassListModel {
 				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil {
@@ -11026,14 +11293,14 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if NewVPCData, ok := blockData["new_vpc"].(map[string]interface{}); ok {
 					return &AWSVPCSiteVPCNewVPCModel{
-						Autogenerate: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VPC != nil && data.VPC.NewVPC != nil {
+						Autogenerate: func() types.Object {
+							if !isImport && data.VPC != nil && data.VPC.NewVPC != nil && !data.VPC.NewVPC.Autogenerate.IsUnknown() {
 								return data.VPC.NewVPC.Autogenerate
 							}
 							if _, ok := NewVPCData["autogenerate"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NameTag: func() types.String {
 							if v, ok := NewVPCData["name_tag"].(string); ok && v != "" {
@@ -11256,7 +11523,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["aws_cred"] = AWSCredMap
 	}
-	if data.BlockAllServices != nil {
+	if !data.BlockAllServices.IsNull() && !data.BlockAllServices.IsUnknown() {
 		apiResource.Spec["block_all_services"] = map[string]interface{}{}
 	}
 	if data.BlockedServices != nil {
@@ -11269,16 +11536,16 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				var BlockedServiceList []map[string]interface{}
 				for _, BlockedServiceItem := range BlockedServiceElems {
 					BlockedServiceItemMap := make(map[string]interface{})
-					if BlockedServiceItem.DNS != nil {
+					if !BlockedServiceItem.DNS.IsNull() && !BlockedServiceItem.DNS.IsUnknown() {
 						BlockedServiceItemMap["dns"] = map[string]interface{}{}
 					}
 					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
 						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
 					}
-					if BlockedServiceItem.SSH != nil {
+					if !BlockedServiceItem.SSH.IsNull() && !BlockedServiceItem.SSH.IsUnknown() {
 						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
 					}
-					if BlockedServiceItem.WebUserInterface != nil {
+					if !BlockedServiceItem.WebUserInterface.IsNull() && !BlockedServiceItem.WebUserInterface.IsUnknown() {
 						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
@@ -11318,15 +11585,15 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["custom_security_group"] = CustomSecurityGroupMap
 	}
-	if data.DefaultBlockedServices != nil {
+	if !data.DefaultBlockedServices.IsNull() && !data.DefaultBlockedServices.IsUnknown() {
 		apiResource.Spec["default_blocked_services"] = map[string]interface{}{}
 	}
-	if data.DirectConnectDisabled != nil {
+	if !data.DirectConnectDisabled.IsNull() && !data.DirectConnectDisabled.IsUnknown() {
 		apiResource.Spec["direct_connect_disabled"] = map[string]interface{}{}
 	}
 	if data.DirectConnectEnabled != nil {
 		DirectConnectEnabledMap := make(map[string]interface{})
-		if data.DirectConnectEnabled.AutoAsn != nil {
+		if !data.DirectConnectEnabled.AutoAsn.IsNull() && !data.DirectConnectEnabled.AutoAsn.IsUnknown() {
 			DirectConnectEnabledMap["auto_asn"] = map[string]interface{}{}
 		}
 		if !data.DirectConnectEnabled.CustomAsn.IsNull() && !data.DirectConnectEnabled.CustomAsn.IsUnknown() {
@@ -11341,7 +11608,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				DirectConnectEnabledHostedVifsMap["site_registration_over_direct_connect"] = DirectConnectEnabledHostedVifsSiteRegistrationOverDirectConnectMap
 			}
-			if data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet != nil {
+			if !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsNull() && !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsUnknown() {
 				DirectConnectEnabledHostedVifsMap["site_registration_over_internet"] = map[string]interface{}{}
 			}
 			if !data.DirectConnectEnabled.HostedVifs.VifList.IsNull() && !data.DirectConnectEnabled.HostedVifs.VifList.IsUnknown() {
@@ -11355,7 +11622,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !VifListItem.OtherRegion.IsNull() && !VifListItem.OtherRegion.IsUnknown() {
 							VifListItemMap["other_region"] = VifListItem.OtherRegion.ValueString()
 						}
-						if VifListItem.SameAsSiteRegion != nil {
+						if !VifListItem.SameAsSiteRegion.IsNull() && !VifListItem.SameAsSiteRegion.IsUnknown() {
 							VifListItemMap["same_as_site_region"] = map[string]interface{}{}
 						}
 						if !VifListItem.VifID.IsNull() && !VifListItem.VifID.IsUnknown() {
@@ -11368,18 +11635,18 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			DirectConnectEnabledMap["hosted_vifs"] = DirectConnectEnabledHostedVifsMap
 		}
-		if data.DirectConnectEnabled.StandardVifs != nil {
+		if !data.DirectConnectEnabled.StandardVifs.IsNull() && !data.DirectConnectEnabled.StandardVifs.IsUnknown() {
 			DirectConnectEnabledMap["standard_vifs"] = map[string]interface{}{}
 		}
 		apiResource.Spec["direct_connect_enabled"] = DirectConnectEnabledMap
 	}
-	if data.DisableEncryption != nil {
+	if !data.DisableEncryption.IsNull() && !data.DisableEncryption.IsUnknown() {
 		apiResource.Spec["disable_encryption"] = map[string]interface{}{}
 	}
-	if data.DisableInternetVIP != nil {
+	if !data.DisableInternetVIP.IsNull() && !data.DisableInternetVIP.IsUnknown() {
 		apiResource.Spec["disable_internet_vip"] = map[string]interface{}{}
 	}
-	if data.EgressGatewayDefault != nil {
+	if !data.EgressGatewayDefault.IsNull() && !data.EgressGatewayDefault.IsUnknown() {
 		apiResource.Spec["egress_gateway_default"] = map[string]interface{}{}
 	}
 	if data.EgressNATGw != nil {
@@ -11403,13 +11670,13 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["enable_encryption"] = EnableEncryptionMap
 	}
-	if data.EnableInternetVIP != nil {
+	if !data.EnableInternetVIP.IsNull() && !data.EnableInternetVIP.IsUnknown() {
 		apiResource.Spec["enable_internet_vip"] = map[string]interface{}{}
 	}
-	if data.F5OrchestratedRouting != nil {
+	if !data.F5OrchestratedRouting.IsNull() && !data.F5OrchestratedRouting.IsUnknown() {
 		apiResource.Spec["f5_orchestrated_routing"] = map[string]interface{}{}
 	}
-	if data.F5xcSecurityGroup != nil {
+	if !data.F5xcSecurityGroup.IsNull() && !data.F5xcSecurityGroup.IsUnknown() {
 		apiResource.Spec["f5xc_security_group"] = map[string]interface{}{}
 	}
 	if data.IngressEgressGw != nil {
@@ -11492,16 +11759,16 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				IngressEgressGwAllowedVIPPortMap["custom_ports"] = IngressEgressGwAllowedVIPPortCustomPortsMap
 			}
-			if data.IngressEgressGw.AllowedVIPPort.DisableAllowedVIPPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPort.DisableAllowedVIPPort.IsNull() && !data.IngressEgressGw.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortMap["disable_allowed_vip_port"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AllowedVIPPort.UseHTTPHTTPSPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsNull() && !data.IngressEgressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortMap["use_http_https_port"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AllowedVIPPort.UseHTTPPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPort.UseHTTPPort.IsNull() && !data.IngressEgressGw.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortMap["use_http_port"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AllowedVIPPort.UseHTTPSPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPort.UseHTTPSPort.IsNull() && !data.IngressEgressGw.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortMap["use_https_port"] = map[string]interface{}{}
 			}
 			IngressEgressGwMap["allowed_vip_port"] = IngressEgressGwAllowedVIPPortMap
@@ -11515,16 +11782,16 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				IngressEgressGwAllowedVIPPortSLIMap["custom_ports"] = IngressEgressGwAllowedVIPPortSLICustomPortsMap
 			}
-			if data.IngressEgressGw.AllowedVIPPortSLI.DisableAllowedVIPPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPortSLI.DisableAllowedVIPPort.IsNull() && !data.IngressEgressGw.AllowedVIPPortSLI.DisableAllowedVIPPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortSLIMap["disable_allowed_vip_port"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPHTTPSPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsNull() && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortSLIMap["use_http_https_port"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPPort.IsNull() && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortSLIMap["use_http_port"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPSPort != nil {
+			if !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPSPort.IsNull() && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPSPort.IsUnknown() {
 				IngressEgressGwAllowedVIPPortSLIMap["use_https_port"] = map[string]interface{}{}
 			}
 			IngressEgressGwMap["allowed_vip_port_sli"] = IngressEgressGwAllowedVIPPortSLIMap
@@ -11571,7 +11838,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						AzNodesItemMap["outside_subnet"] = IngressEgressGwAzNodesOutsideSubnetMap
 					}
-					if AzNodesItem.ReservedInsideSubnet != nil {
+					if !AzNodesItem.ReservedInsideSubnet.IsNull() && !AzNodesItem.ReservedInsideSubnet.IsUnknown() {
 						AzNodesItemMap["reserved_inside_subnet"] = map[string]interface{}{}
 					}
 					if AzNodesItem.WorkloadSubnet != nil {
@@ -11613,7 +11880,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
-		if data.IngressEgressGw.ForwardProxyAllowAll != nil {
+		if !data.IngressEgressGw.ForwardProxyAllowAll.IsNull() && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 			IngressEgressGwMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGw.GlobalNetworkList != nil {
@@ -11773,22 +12040,22 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			IngressEgressGwMap["inside_static_routes"] = IngressEgressGwInsideStaticRoutesMap
 		}
-		if data.IngressEgressGw.NoDcClusterGroup != nil {
+		if !data.IngressEgressGw.NoDcClusterGroup.IsNull() && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 			IngressEgressGwMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoForwardProxy != nil {
+		if !data.IngressEgressGw.NoForwardProxy.IsNull() && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 			IngressEgressGwMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoGlobalNetwork != nil {
+		if !data.IngressEgressGw.NoGlobalNetwork.IsNull() && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 			IngressEgressGwMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoInsideStaticRoutes != nil {
+		if !data.IngressEgressGw.NoInsideStaticRoutes.IsNull() && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 			IngressEgressGwMap["no_inside_static_routes"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoNetworkPolicy != nil {
+		if !data.IngressEgressGw.NoNetworkPolicy.IsNull() && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 			IngressEgressGwMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoOutsideStaticRoutes != nil {
+		if !data.IngressEgressGw.NoOutsideStaticRoutes.IsNull() && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 			IngressEgressGwMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGw.OutsideStaticRoutes != nil {
@@ -11907,30 +12174,30 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			IngressEgressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
-		if data.IngressEgressGw.SmConnectionPublicIP != nil {
+		if !data.IngressEgressGw.SmConnectionPublicIP.IsNull() && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 			IngressEgressGwMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.SmConnectionPvtIP != nil {
+		if !data.IngressEgressGw.SmConnectionPvtIP.IsNull() && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 			IngressEgressGwMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		apiResource.Spec["ingress_egress_gw"] = IngressEgressGwMap
@@ -11946,16 +12213,16 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				IngressGwAllowedVIPPortMap["custom_ports"] = IngressGwAllowedVIPPortCustomPortsMap
 			}
-			if data.IngressGw.AllowedVIPPort.DisableAllowedVIPPort != nil {
+			if !data.IngressGw.AllowedVIPPort.DisableAllowedVIPPort.IsNull() && !data.IngressGw.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 				IngressGwAllowedVIPPortMap["disable_allowed_vip_port"] = map[string]interface{}{}
 			}
-			if data.IngressGw.AllowedVIPPort.UseHTTPHTTPSPort != nil {
+			if !data.IngressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsNull() && !data.IngressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 				IngressGwAllowedVIPPortMap["use_http_https_port"] = map[string]interface{}{}
 			}
-			if data.IngressGw.AllowedVIPPort.UseHTTPPort != nil {
+			if !data.IngressGw.AllowedVIPPort.UseHTTPPort.IsNull() && !data.IngressGw.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 				IngressGwAllowedVIPPortMap["use_http_port"] = map[string]interface{}{}
 			}
-			if data.IngressGw.AllowedVIPPort.UseHTTPSPort != nil {
+			if !data.IngressGw.AllowedVIPPort.UseHTTPSPort.IsNull() && !data.IngressGw.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 				IngressGwAllowedVIPPortMap["use_https_port"] = map[string]interface{}{}
 			}
 			IngressGwMap["allowed_vip_port"] = IngressGwAllowedVIPPortMap
@@ -11997,20 +12264,20 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			IngressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap
@@ -12021,12 +12288,12 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if data.KubernetesUpgradeDrain != nil {
 		KubernetesUpgradeDrainMap := make(map[string]interface{})
-		if data.KubernetesUpgradeDrain.DisableUpgradeDrain != nil {
+		if !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsNull() && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
 			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
@@ -12038,7 +12305,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
@@ -12055,28 +12322,28 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["log_receiver"] = LogReceiverMap
 	}
-	if data.LogsStreamingDisabled != nil {
+	if !data.LogsStreamingDisabled.IsNull() && !data.LogsStreamingDisabled.IsUnknown() {
 		apiResource.Spec["logs_streaming_disabled"] = map[string]interface{}{}
 	}
-	if data.ManualRouting != nil {
+	if !data.ManualRouting.IsNull() && !data.ManualRouting.IsUnknown() {
 		apiResource.Spec["manual_routing"] = map[string]interface{}{}
 	}
-	if data.NoWorkerNodes != nil {
+	if !data.NoWorkerNodes.IsNull() && !data.NoWorkerNodes.IsUnknown() {
 		apiResource.Spec["no_worker_nodes"] = map[string]interface{}{}
 	}
 	if data.OfflineSurvivabilityMode != nil {
 		OfflineSurvivabilityModeMap := make(map[string]interface{})
-		if data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["enable_offline_survivability_mode"] = map[string]interface{}{}
 		}
-		if data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["no_offline_survivability_mode"] = map[string]interface{}{}
 		}
 		apiResource.Spec["offline_survivability_mode"] = OfflineSurvivabilityModeMap
 	}
 	if data.OS != nil {
 		OSMap := make(map[string]interface{})
-		if data.OS.DefaultOSVersion != nil {
+		if !data.OS.DefaultOSVersion.IsNull() && !data.OS.DefaultOSVersion.IsUnknown() {
 			OSMap["default_os_version"] = map[string]interface{}{}
 		}
 		if !data.OS.OperatingSystemVersion.IsNull() && !data.OS.OperatingSystemVersion.IsUnknown() {
@@ -12096,17 +12363,17 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			PrivateConnectivityMap["cloud_link"] = PrivateConnectivityCloudLinkMap
 		}
-		if data.PrivateConnectivity.Inside != nil {
+		if !data.PrivateConnectivity.Inside.IsNull() && !data.PrivateConnectivity.Inside.IsUnknown() {
 			PrivateConnectivityMap["inside"] = map[string]interface{}{}
 		}
-		if data.PrivateConnectivity.Outside != nil {
+		if !data.PrivateConnectivity.Outside.IsNull() && !data.PrivateConnectivity.Outside.IsUnknown() {
 			PrivateConnectivityMap["outside"] = map[string]interface{}{}
 		}
 		apiResource.Spec["private_connectivity"] = PrivateConnectivityMap
 	}
 	if data.Sw != nil {
 		SwMap := make(map[string]interface{})
-		if data.Sw.DefaultSwVersion != nil {
+		if !data.Sw.DefaultSwVersion.IsNull() && !data.Sw.DefaultSwVersion.IsUnknown() {
 			SwMap["default_sw_version"] = map[string]interface{}{}
 		}
 		if !data.Sw.VolterraSoftwareVersion.IsNull() && !data.Sw.VolterraSoftwareVersion.IsUnknown() {
@@ -12202,16 +12469,16 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				VoltstackClusterAllowedVIPPortMap["custom_ports"] = VoltstackClusterAllowedVIPPortCustomPortsMap
 			}
-			if data.VoltstackCluster.AllowedVIPPort.DisableAllowedVIPPort != nil {
+			if !data.VoltstackCluster.AllowedVIPPort.DisableAllowedVIPPort.IsNull() && !data.VoltstackCluster.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 				VoltstackClusterAllowedVIPPortMap["disable_allowed_vip_port"] = map[string]interface{}{}
 			}
-			if data.VoltstackCluster.AllowedVIPPort.UseHTTPHTTPSPort != nil {
+			if !data.VoltstackCluster.AllowedVIPPort.UseHTTPHTTPSPort.IsNull() && !data.VoltstackCluster.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 				VoltstackClusterAllowedVIPPortMap["use_http_https_port"] = map[string]interface{}{}
 			}
-			if data.VoltstackCluster.AllowedVIPPort.UseHTTPPort != nil {
+			if !data.VoltstackCluster.AllowedVIPPort.UseHTTPPort.IsNull() && !data.VoltstackCluster.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 				VoltstackClusterAllowedVIPPortMap["use_http_port"] = map[string]interface{}{}
 			}
-			if data.VoltstackCluster.AllowedVIPPort.UseHTTPSPort != nil {
+			if !data.VoltstackCluster.AllowedVIPPort.UseHTTPSPort.IsNull() && !data.VoltstackCluster.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 				VoltstackClusterAllowedVIPPortMap["use_https_port"] = map[string]interface{}{}
 			}
 			VoltstackClusterMap["allowed_vip_port"] = VoltstackClusterAllowedVIPPortMap
@@ -12259,10 +12526,10 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
-		if data.VoltstackCluster.DefaultStorage != nil {
+		if !data.VoltstackCluster.DefaultStorage.IsNull() && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 			VoltstackClusterMap["default_storage"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.ForwardProxyAllowAll != nil {
+		if !data.VoltstackCluster.ForwardProxyAllowAll.IsNull() && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 			VoltstackClusterMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.GlobalNetworkList != nil {
@@ -12320,22 +12587,22 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
-		if data.VoltstackCluster.NoDcClusterGroup != nil {
+		if !data.VoltstackCluster.NoDcClusterGroup.IsNull() && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 			VoltstackClusterMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoForwardProxy != nil {
+		if !data.VoltstackCluster.NoForwardProxy.IsNull() && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 			VoltstackClusterMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoGlobalNetwork != nil {
+		if !data.VoltstackCluster.NoGlobalNetwork.IsNull() && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 			VoltstackClusterMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoK8SCluster != nil {
+		if !data.VoltstackCluster.NoK8SCluster.IsNull() && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 			VoltstackClusterMap["no_k8s_cluster"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoNetworkPolicy != nil {
+		if !data.VoltstackCluster.NoNetworkPolicy.IsNull() && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 			VoltstackClusterMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoOutsideStaticRoutes != nil {
+		if !data.VoltstackCluster.NoOutsideStaticRoutes.IsNull() && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 			VoltstackClusterMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.OutsideStaticRoutes != nil {
@@ -12450,10 +12717,10 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			VoltstackClusterMap["outside_static_routes"] = VoltstackClusterOutsideStaticRoutesMap
 		}
-		if data.VoltstackCluster.SmConnectionPublicIP != nil {
+		if !data.VoltstackCluster.SmConnectionPublicIP.IsNull() && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 			VoltstackClusterMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.SmConnectionPvtIP != nil {
+		if !data.VoltstackCluster.SmConnectionPvtIP.IsNull() && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 			VoltstackClusterMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
@@ -12485,7 +12752,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		VPCMap := make(map[string]interface{})
 		if data.VPC.NewVPC != nil {
 			VPCNewVPCMap := make(map[string]interface{})
-			if data.VPC.NewVPC.Autogenerate != nil {
+			if !data.VPC.NewVPC.Autogenerate.IsNull() && !data.VPC.NewVPC.Autogenerate.IsUnknown() {
 				VPCNewVPCMap["autogenerate"] = map[string]interface{}{}
 			}
 			if !data.VPC.NewVPC.NameTag.IsNull() && !data.VPC.NewVPC.NameTag.IsUnknown() {
@@ -12691,8 +12958,12 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok && isImport && data.BlockAllServices == nil {
-		data.BlockAllServices = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.BlockAllServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok {
+		data.BlockAllServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BlockAllServices = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSVPCSiteBlockedServicesModel{
@@ -12710,14 +12981,14 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AWSVPCSiteBlockedServicesBlockedServiceModel{
-								DNS: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								DNS: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].DNS.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
-										return &AWSVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								NetworkType: func() types.String {
 									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
@@ -12725,23 +12996,23 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									return types.StringNull()
 								}(),
-								SSH: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								SSH: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].SSH.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
-										return &AWSVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								WebUserInterface: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								WebUserInterface: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].WebUserInterface.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
-										return &AWSVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -12807,22 +13078,30 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok && isImport && data.DefaultBlockedServices == nil {
-		data.DefaultBlockedServices = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.DefaultBlockedServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok {
+		data.DefaultBlockedServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBlockedServices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["direct_connect_disabled"].(map[string]interface{}); ok && isImport && data.DirectConnectDisabled == nil {
-		data.DirectConnectDisabled = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.DirectConnectDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["direct_connect_disabled"].(map[string]interface{}); ok {
+		data.DirectConnectDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DirectConnectDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["direct_connect_enabled"].(map[string]interface{}); ok && (isImport || data.DirectConnectEnabled != nil) {
 		data.DirectConnectEnabled = &AWSVPCSiteDirectConnectEnabledModel{
-			AutoAsn: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.DirectConnectEnabled != nil {
+			AutoAsn: func() types.Object {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.AutoAsn.IsUnknown() {
 					return data.DirectConnectEnabled.AutoAsn
 				}
 				if _, ok := blockData["auto_asn"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CustomAsn: func() types.Int64 {
 				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.CustomAsn.IsUnknown() {
@@ -12855,14 +13134,14 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						SiteRegistrationOverInternet: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil {
+						SiteRegistrationOverInternet: func() types.Object {
+							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil && !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsUnknown() {
 								return data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet
 							}
 							if _, ok := HostedVifsData["site_registration_over_internet"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						VifList: func() types.List {
 							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil && (data.DirectConnectEnabled.HostedVifs.VifList.IsNull() || len(data.DirectConnectEnabled.HostedVifs.VifList.Elements()) == 0) {
@@ -12884,14 +13163,14 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 												}
 												return types.StringNull()
 											}(),
-											SameAsSiteRegion: func() *AWSVPCSiteEmptyModel {
-												if !isImport && len(VifListExisting) > VifListIdx {
+											SameAsSiteRegion: func() types.Object {
+												if !isImport && len(VifListExisting) > VifListIdx && !VifListExisting[VifListIdx].SameAsSiteRegion.IsUnknown() {
 													return VifListExisting[VifListIdx].SameAsSiteRegion
 												}
 												if _, ok := VifListItemMap["same_as_site_region"].(map[string]interface{}); ok {
-													return &AWSVPCSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VifID: func() types.String {
 												if v, ok := VifListItemMap["vif_id"].(string); ok && v != "" {
@@ -12911,25 +13190,37 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			StandardVifs: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.DirectConnectEnabled != nil {
+			StandardVifs: func() types.Object {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.StandardVifs.IsUnknown() {
 					return data.DirectConnectEnabled.StandardVifs
 				}
 				if _, ok := blockData["standard_vifs"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok && isImport && data.DisableEncryption == nil {
-		data.DisableEncryption = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.DisableEncryption.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok {
+		data.DisableEncryption = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableEncryption = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_internet_vip"].(map[string]interface{}); ok && isImport && data.DisableInternetVIP == nil {
-		data.DisableInternetVIP = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.DisableInternetVIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_internet_vip"].(map[string]interface{}); ok {
+		data.DisableInternetVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableInternetVIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["egress_gateway_default"].(map[string]interface{}); ok && isImport && data.EgressGatewayDefault == nil {
-		data.EgressGatewayDefault = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.EgressGatewayDefault.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["egress_gateway_default"].(map[string]interface{}); ok {
+		data.EgressGatewayDefault = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EgressGatewayDefault = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["egress_nat_gw"].(map[string]interface{}); ok && (isImport || data.EgressNATGw != nil) {
 		data.EgressNATGw = &AWSVPCSiteEgressNATGwModel{
@@ -12961,14 +13252,26 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["enable_internet_vip"].(map[string]interface{}); ok && isImport && data.EnableInternetVIP == nil {
-		data.EnableInternetVIP = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.EnableInternetVIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_internet_vip"].(map[string]interface{}); ok {
+		data.EnableInternetVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableInternetVIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["f5_orchestrated_routing"].(map[string]interface{}); ok && isImport && data.F5OrchestratedRouting == nil {
-		data.F5OrchestratedRouting = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.F5OrchestratedRouting.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["f5_orchestrated_routing"].(map[string]interface{}); ok {
+		data.F5OrchestratedRouting = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.F5OrchestratedRouting = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["f5xc_security_group"].(map[string]interface{}); ok && isImport && data.F5xcSecurityGroup == nil {
-		data.F5xcSecurityGroup = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.F5xcSecurityGroup.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["f5xc_security_group"].(map[string]interface{}); ok {
+		data.F5xcSecurityGroup = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.F5xcSecurityGroup = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["ingress_egress_gw"].(map[string]interface{}); ok && (isImport || data.IngressEgressGw != nil) {
 		data.IngressEgressGw = &AWSVPCSiteIngressEgressGwModel{
@@ -13135,41 +13438,41 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil && !data.IngressEgressGw.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPort.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil && !data.IngressEgressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPort.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil && !data.IngressEgressGw.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPort.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPort != nil && !data.IngressEgressGw.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPort.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -13197,41 +13500,41 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil && !data.IngressEgressGw.AllowedVIPPortSLI.DisableAllowedVIPPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPortSLI.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortSLIData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AllowedVIPPortSLI != nil && !data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPSPort.IsUnknown() {
 								return data.IngressEgressGw.AllowedVIPPortSLI.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -13321,14 +13624,14 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									return nil
 								}(),
-								ReservedInsideSubnet: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(AzNodesExisting) > AzNodesIdx {
+								ReservedInsideSubnet: func() types.Object {
+									if !isImport && len(AzNodesExisting) > AzNodesIdx && !AzNodesExisting[AzNodesIdx].ReservedInsideSubnet.IsUnknown() {
 										return AzNodesExisting[AzNodesIdx].ReservedInsideSubnet
 									}
 									if _, ok := AzNodesItemMap["reserved_inside_subnet"].(map[string]interface{}); ok {
-										return &AWSVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								WorkloadSubnet: func() *AWSVPCSiteIngressEgressGwAzNodesWorkloadSubnetModel {
 									if WorkloadSubnetData, ok := AzNodesItemMap["workload_subnet"].(map[string]interface{}); ok {
@@ -13417,14 +13720,14 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			ForwardProxyAllowAll: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 					return data.IngressEgressGw.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AWSVPCSiteIngressEgressGwGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -13757,59 +14060,59 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 					return data.IngressEgressGw.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 					return data.IngressEgressGw.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 					return data.IngressEgressGw.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 					return data.IngressEgressGw.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AWSVPCSiteIngressEgressGwOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -14061,23 +14364,23 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -14089,23 +14392,23 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -14115,23 +14418,23 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -14159,41 +14462,41 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil && !data.IngressGw.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 								return data.IngressGw.AllowedVIPPort.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil && !data.IngressGw.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 								return data.IngressGw.AllowedVIPPort.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil && !data.IngressGw.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 								return data.IngressGw.AllowedVIPPort.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AllowedVIPPort != nil && !data.IngressGw.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 								return data.IngressGw.AllowedVIPPort.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -14274,23 +14577,23 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -14302,23 +14605,23 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AWSVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AWSVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -14332,14 +14635,14 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &AWSVPCSiteKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *AWSVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -14347,14 +14650,14 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &AWSVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
@@ -14383,14 +14686,14 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -14420,47 +14723,59 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["manual_routing"].(map[string]interface{}); ok && isImport && data.ManualRouting == nil {
-		data.ManualRouting = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.ManualRouting.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["manual_routing"].(map[string]interface{}); ok {
+		data.ManualRouting = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ManualRouting = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_worker_nodes"].(map[string]interface{}); ok && isImport && data.NoWorkerNodes == nil {
-		data.NoWorkerNodes = &AWSVPCSiteEmptyModel{}
+	if !isImport && !data.NoWorkerNodes.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_worker_nodes"].(map[string]interface{}); ok {
+		data.NoWorkerNodes = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoWorkerNodes = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["offline_survivability_mode"].(map[string]interface{}); ok && (isImport || data.OfflineSurvivabilityMode != nil) {
 		data.OfflineSurvivabilityMode = &AWSVPCSiteOfflineSurvivabilityModeModel{
-			EnableOfflineSurvivabilityMode: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			EnableOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["enable_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOfflineSurvivabilityMode: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			NoOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["no_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["os"].(map[string]interface{}); ok && (isImport || data.OS != nil) {
 		data.OS = &AWSVPCSiteOSModel{
-			DefaultOSVersion: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.OS != nil {
+			DefaultOSVersion: func() types.Object {
+				if !isImport && data.OS != nil && !data.OS.DefaultOSVersion.IsUnknown() {
 					return data.OS.DefaultOSVersion
 				}
 				if _, ok := blockData["default_os_version"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OperatingSystemVersion: func() types.String {
 				if v, ok := blockData["operating_system_version"].(string); ok && v != "" {
@@ -14497,36 +14812,36 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			Inside: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Inside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Inside.IsUnknown() {
 					return data.PrivateConnectivity.Inside
 				}
 				if _, ok := blockData["inside"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			Outside: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Outside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Outside.IsUnknown() {
 					return data.PrivateConnectivity.Outside
 				}
 				if _, ok := blockData["outside"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &AWSVPCSiteSwModel{
-			DefaultSwVersion: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.Sw != nil {
+			DefaultSwVersion: func() types.Object {
+				if !isImport && data.Sw != nil && !data.Sw.DefaultSwVersion.IsUnknown() {
 					return data.Sw.DefaultSwVersion
 				}
 				if _, ok := blockData["default_sw_version"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			VolterraSoftwareVersion: func() types.String {
 				if v, ok := blockData["volterra_software_version"].(string); ok && v != "" {
@@ -14702,41 +15017,41 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil && !data.VoltstackCluster.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 								return data.VoltstackCluster.AllowedVIPPort.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil && !data.VoltstackCluster.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 								return data.VoltstackCluster.AllowedVIPPort.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil && !data.VoltstackCluster.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 								return data.VoltstackCluster.AllowedVIPPort.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AllowedVIPPort != nil && !data.VoltstackCluster.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 								return data.VoltstackCluster.AllowedVIPPort.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -14830,23 +15145,23 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			DefaultStorage: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			DefaultStorage: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 					return data.VoltstackCluster.DefaultStorage
 				}
 				if _, ok := blockData["default_storage"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 					return data.VoltstackCluster.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AWSVPCSiteVoltstackClusterGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -14966,59 +15281,59 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 					return data.VoltstackCluster.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 					return data.VoltstackCluster.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 					return data.VoltstackCluster.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoK8SCluster: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoK8SCluster: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 					return data.VoltstackCluster.NoK8SCluster
 				}
 				if _, ok := blockData["no_k8s_cluster"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 					return data.VoltstackCluster.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VoltstackCluster.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AWSVPCSiteVoltstackClusterOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -15258,23 +15573,23 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AWSVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AWSVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			StorageClassList: func() *AWSVPCSiteVoltstackClusterStorageClassListModel {
 				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil {
@@ -15330,14 +15645,14 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if NewVPCData, ok := blockData["new_vpc"].(map[string]interface{}); ok {
 					return &AWSVPCSiteVPCNewVPCModel{
-						Autogenerate: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.VPC != nil && data.VPC.NewVPC != nil {
+						Autogenerate: func() types.Object {
+							if !isImport && data.VPC != nil && data.VPC.NewVPC != nil && !data.VPC.NewVPC.Autogenerate.IsUnknown() {
 								return data.VPC.NewVPC.Autogenerate
 							}
 							if _, ok := NewVPCData["autogenerate"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NameTag: func() types.String {
 							if v, ok := NewVPCData["name_tag"].(string); ok && v != "" {

@@ -39,7 +39,7 @@ resource "xcsh_discovery" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -66,7 +66,7 @@ resource "xcsh_discovery" "example" {
 &#x2022; <a id="discovery-consul"></a>[`discovery_consul`](#discovery-consul) - Optional Block<br>Discovery configuration for Hashicorp Consul<br>See [Discovery Consul](#discovery-consul) below for details.
 <br><br>&#x2022; <a id="discovery-k8s"></a>[`discovery_k8s`](#discovery-k8s) - Optional Block<br>Configuration parameter for discovery K8S<br>See [Discovery K8S](#discovery-k8s) below for details.
 
-<a id="no-cluster-id"></a>&#x2022; [`no_cluster_id`](#no-cluster-id) - Optional Block<br>Enable this option
+<a id="no-cluster-id"></a>&#x2022; [`no_cluster_id`](#no-cluster-id) - Optional Object<br>Enable this option
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
@@ -141,9 +141,17 @@ A [`connection_info`](#info-c7c3de) block (within [`discovery_consul.access_info
 
 A [`publish_info`](#discovery-consul-publish-info) block (within [`discovery_consul`](#discovery-consul)) supports the following:
 
-<a id="spec-130959"></a>&#x2022; [`disable_spec`](#spec-130959) - Optional Block<br>Enable this option
+<a id="spec-130959"></a>&#x2022; [`disable_spec`](#spec-130959) - Optional Object<br>Enable this option
 
-<a id="discovery-consul-publish-info-publish"></a>&#x2022; [`publish`](#discovery-consul-publish-info-publish) - Optional Block<br>Enable this option
+<a id="discovery-consul-publish-info-publish"></a>&#x2022; [`publish`](#discovery-consul-publish-info-publish) - Optional Object<br>Enable this option
+
+#### Discovery Consul Publish Info Disable Spec
+
+A [`disable_spec`](#spec-130959) block (within [`discovery_consul.publish_info`](#discovery-consul-publish-info)) supports the following:
+
+#### Discovery Consul Publish Info Publish
+
+A [`publish`](#discovery-consul-publish-info-publish) block (within [`discovery_consul.publish_info`](#discovery-consul-publish-info)) supports the following:
 
 #### Discovery K8S
 
@@ -151,7 +159,7 @@ A [`discovery_k8s`](#discovery-k8s) block supports the following:
 
 <a id="discovery-k8s-access-info"></a>&#x2022; [`access_info`](#discovery-k8s-access-info) - Optional Block<br>Configuration parameter for access info<br>See [Access Info](#discovery-k8s-access-info) below.
 
-<a id="discovery-k8s-default-all"></a>&#x2022; [`default_all`](#discovery-k8s-default-all) - Optional Block<br>Configuration parameter for default all
+<a id="discovery-k8s-default-all"></a>&#x2022; [`default_all`](#discovery-k8s-default-all) - Optional Object<br>Configuration parameter for default all
 
 <a id="discovery-k8s-namespace-mapping"></a>&#x2022; [`namespace_mapping`](#discovery-k8s-namespace-mapping) - Optional Block<br>Select the mapping between K8S namespaces from which services will be discovered and App Namespace to which the discovered services will be shared<br>See [Namespace Mapping](#discovery-k8s-namespace-mapping) below.
 
@@ -163,11 +171,11 @@ An [`access_info`](#discovery-k8s-access-info) block (within [`discovery_k8s`](#
 
 <a id="info-731c25"></a>&#x2022; [`connection_info`](#info-731c25) - Optional Block<br>Configuration details to access discovery service REST API<br>See [Connection Info](#info-731c25) below.
 
-<a id="discovery-k8s-access-info-isolated"></a>&#x2022; [`isolated`](#discovery-k8s-access-info-isolated) - Optional Block<br>Enable this option
+<a id="discovery-k8s-access-info-isolated"></a>&#x2022; [`isolated`](#discovery-k8s-access-info-isolated) - Optional Object<br>Enable this option
 
 <a id="url-d50898"></a>&#x2022; [`kubeconfig_url`](#url-d50898) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Kubeconfig URL](#url-d50898) below.
 
-<a id="discovery-k8s-access-info-reachable"></a>&#x2022; [`reachable`](#discovery-k8s-access-info-reachable) - Optional Block<br>Enable this option
+<a id="discovery-k8s-access-info-reachable"></a>&#x2022; [`reachable`](#discovery-k8s-access-info-reachable) - Optional Object<br>Enable this option
 
 #### Discovery K8S Access Info Connection Info
 
@@ -193,6 +201,10 @@ A [`connection_info`](#info-731c25) block (within [`discovery_k8s.access_info`](
 
 <a id="deep-b39c26"></a>Deeply nested **Info** block collapsed for readability.
 
+#### Discovery K8S Access Info Isolated
+
+An [`isolated`](#discovery-k8s-access-info-isolated) block (within [`discovery_k8s.access_info`](#discovery-k8s-access-info)) supports the following:
+
 #### Discovery K8S Access Info Kubeconfig URL
 
 A [`kubeconfig_url`](#url-d50898) block (within [`discovery_k8s.access_info`](#discovery-k8s-access-info)) supports the following:
@@ -208,6 +220,14 @@ A [`kubeconfig_url`](#url-d50898) block (within [`discovery_k8s.access_info`](#d
 #### Discovery K8S Access Info Kubeconfig URL Clear Secret Info
 
 <a id="deep-4a4f8b"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Discovery K8S Access Info Reachable
+
+A [`reachable`](#discovery-k8s-access-info-reachable) block (within [`discovery_k8s.access_info`](#discovery-k8s-access-info)) supports the following:
+
+#### Discovery K8S Default All
+
+A [`default_all`](#discovery-k8s-default-all) block (within [`discovery_k8s`](#discovery-k8s)) supports the following:
 
 #### Discovery K8S Namespace Mapping
 
@@ -227,13 +247,17 @@ An [`items`](#discovery-k8s-namespace-mapping-items) block (within [`discovery_k
 
 A [`publish_info`](#discovery-k8s-publish-info) block (within [`discovery_k8s`](#discovery-k8s)) supports the following:
 
-<a id="discovery-k8s-publish-info-disable-spec"></a>&#x2022; [`disable_spec`](#discovery-k8s-publish-info-disable-spec) - Optional Block<br>Enable this option
+<a id="discovery-k8s-publish-info-disable-spec"></a>&#x2022; [`disable_spec`](#discovery-k8s-publish-info-disable-spec) - Optional Object<br>Enable this option
 
 <a id="delegation-53a235"></a>&#x2022; [`dns_delegation`](#delegation-53a235) - Optional Block<br>Configuration parameter for DNS delegation<br>See [DNS Delegation](#delegation-53a235) below.
 
 <a id="discovery-k8s-publish-info-publish"></a>&#x2022; [`publish`](#discovery-k8s-publish-info-publish) - Optional Block<br>K8SPublishType<br>See [Publish](#discovery-k8s-publish-info-publish) below.
 
-<a id="fqdns-f85bbe"></a>&#x2022; [`publish_fqdns`](#fqdns-f85bbe) - Optional Block<br>Configuration parameter for publish fqdns
+<a id="fqdns-f85bbe"></a>&#x2022; [`publish_fqdns`](#fqdns-f85bbe) - Optional Object<br>Configuration parameter for publish fqdns
+
+#### Discovery K8S Publish Info Disable Spec
+
+A [`disable_spec`](#discovery-k8s-publish-info-disable-spec) block (within [`discovery_k8s.publish_info`](#discovery-k8s-publish-info)) supports the following:
 
 #### Discovery K8S Publish Info DNS Delegation
 
@@ -248,6 +272,14 @@ A [`dns_delegation`](#delegation-53a235) block (within [`discovery_k8s.publish_i
 A [`publish`](#discovery-k8s-publish-info-publish) block (within [`discovery_k8s.publish_info`](#discovery-k8s-publish-info)) supports the following:
 
 <a id="namespace-a13be9"></a>&#x2022; [`namespace`](#namespace-a13be9) - Optional String<br>The namespace where the service/endpoints need to be created if it's not included in the domain. The external K8S administrator needs to ensure that the namespace exists
+
+#### Discovery K8S Publish Info Publish Fqdns
+
+A [`publish_fqdns`](#fqdns-f85bbe) block (within [`discovery_k8s.publish_info`](#discovery-k8s-publish-info)) supports the following:
+
+#### No Cluster ID
+
+A [`no_cluster_id`](#no-cluster-id) block supports the following:
 
 #### Timeouts
 
@@ -275,9 +307,9 @@ A [`where`](#where) block supports the following:
 
 A [`site`](#where-site) block (within [`where`](#where)) supports the following:
 
-<a id="where-site-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#where-site-disable-internet-vip) - Optional Block<br>Enable this option
+<a id="where-site-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#where-site-disable-internet-vip) - Optional Object<br>Enable this option
 
-<a id="where-site-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#where-site-enable-internet-vip) - Optional Block<br>Enable this option
+<a id="where-site-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#where-site-enable-internet-vip) - Optional Object<br>Enable this option
 
 <a id="where-site-network-type"></a>&#x2022; [`network_type`](#where-site-network-type) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
@@ -285,6 +317,14 @@ VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
 <a id="where-site-ref"></a>&#x2022; [`ref`](#where-site-ref) - Optional Block<br>Reference. A site direct reference<br>See [Ref](#where-site-ref) below.
+
+#### Where Site Disable internet VIP
+
+A [`disable_internet_vip`](#where-site-disable-internet-vip) block (within [`where.site`](#where-site)) supports the following:
+
+#### Where Site Enable internet VIP
+
+An [`enable_internet_vip`](#where-site-enable-internet-vip) block (within [`where.site`](#where-site)) supports the following:
 
 #### Where Site Ref
 
@@ -324,9 +364,9 @@ A [`ref`](#where-virtual-network-ref) block (within [`where.virtual_network`](#w
 
 A [`virtual_site`](#where-virtual-site) block (within [`where`](#where)) supports the following:
 
-<a id="where-virtual-site-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#where-virtual-site-disable-internet-vip) - Optional Block<br>Enable this option
+<a id="where-virtual-site-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#where-virtual-site-disable-internet-vip) - Optional Object<br>Enable this option
 
-<a id="where-virtual-site-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#where-virtual-site-enable-internet-vip) - Optional Block<br>Enable this option
+<a id="where-virtual-site-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#where-virtual-site-enable-internet-vip) - Optional Object<br>Enable this option
 
 <a id="where-virtual-site-network-type"></a>&#x2022; [`network_type`](#where-virtual-site-network-type) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
@@ -334,6 +374,14 @@ VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
 <a id="where-virtual-site-ref"></a>&#x2022; [`ref`](#where-virtual-site-ref) - Optional Block<br>Reference. A virtual_site direct reference<br>See [Ref](#where-virtual-site-ref) below.
+
+#### Where Virtual Site Disable internet VIP
+
+A [`disable_internet_vip`](#where-virtual-site-disable-internet-vip) block (within [`where.virtual_site`](#where-virtual-site)) supports the following:
+
+#### Where Virtual Site Enable internet VIP
+
+An [`enable_internet_vip`](#where-virtual-site-enable-internet-vip) block (within [`where.virtual_site`](#where-virtual-site)) supports the following:
 
 #### Where Virtual Site Ref
 

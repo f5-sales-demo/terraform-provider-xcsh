@@ -454,7 +454,7 @@ resource "xcsh_user_identification" "test" {
   namespace  = "system"
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 `, uiName)
@@ -478,7 +478,7 @@ resource "xcsh_user_identification" "test" {
   }
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 `, uiName)
@@ -499,7 +499,7 @@ resource "xcsh_user_identification" "test" {
 %[2]s  }
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 `, uiName, labelsStr)
@@ -513,7 +513,7 @@ resource "xcsh_user_identification" "test" {
   description = %[2]q
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 `, uiName, description)
@@ -534,7 +534,7 @@ resource "xcsh_user_identification" "test" {
 %[2]s  }
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 `, uiName, annotationsStr)
@@ -738,7 +738,7 @@ resource "xcsh_user_identification" "test" {
   namespace = "system"
 
   rules {
-    tls_fingerprint {}
+    tls_fingerprint = {}
   }
 }
 `, uiName)
@@ -752,7 +752,7 @@ resource "xcsh_user_identification" "test" {
   description = "User identification with identification rules"
 
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 `, uiName)

@@ -39,7 +39,7 @@ resource "xcsh_alert_receiver" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -245,9 +245,9 @@ A [`http_config`](#webhook-http-config) block (within [`webhook`](#webhook)) sup
 
 <a id="webhook-http-config-follow-redirects"></a>&#x2022; [`follow_redirects`](#webhook-http-config-follow-redirects) - Optional Bool<br>Configure whether HTTP requests follow HTTP 3xx redirects
 
-<a id="webhook-http-config-no-authorization"></a>&#x2022; [`no_authorization`](#webhook-http-config-no-authorization) - Optional Block<br>Configuration parameter for no authorization
+<a id="webhook-http-config-no-authorization"></a>&#x2022; [`no_authorization`](#webhook-http-config-no-authorization) - Optional Object<br>Configuration parameter for no authorization
 
-<a id="webhook-http-config-no-tls"></a>&#x2022; [`no_tls`](#webhook-http-config-no-tls) - Optional Block<br>Enable this option
+<a id="webhook-http-config-no-tls"></a>&#x2022; [`no_tls`](#webhook-http-config-no-tls) - Optional Object<br>Enable this option
 
 <a id="webhook-http-config-use-tls"></a>&#x2022; [`use_tls`](#webhook-http-config-use-tls) - Optional Block<br>Configures the token request's TLS settings<br>See [Use TLS](#webhook-http-config-use-tls) below.
 
@@ -307,11 +307,19 @@ A [`client_cert_obj`](#webhook-http-config-client-cert-obj) block (within [`webh
 
 <a id="deep-798f27"></a>Deeply nested **Obj** block collapsed for readability.
 
+#### Webhook HTTP Config No Authorization
+
+A [`no_authorization`](#webhook-http-config-no-authorization) block (within [`webhook.http_config`](#webhook-http-config)) supports the following:
+
+#### Webhook HTTP Config No TLS
+
+A [`no_tls`](#webhook-http-config-no-tls) block (within [`webhook.http_config`](#webhook-http-config)) supports the following:
+
 #### Webhook HTTP Config Use TLS
 
 An [`use_tls`](#webhook-http-config-use-tls) block (within [`webhook.http_config`](#webhook-http-config)) supports the following:
 
-<a id="webhook-http-config-use-tls-disable-sni"></a>&#x2022; [`disable_sni`](#webhook-http-config-use-tls-disable-sni) - Optional Block<br>Configuration parameter for disable sni
+<a id="webhook-http-config-use-tls-disable-sni"></a>&#x2022; [`disable_sni`](#webhook-http-config-use-tls-disable-sni) - Optional Object<br>Configuration parameter for disable sni
 
 <a id="webhook-http-config-use-tls-max-version"></a>&#x2022; [`max_version`](#webhook-http-config-use-tls-max-version) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
 
@@ -321,7 +329,11 @@ An [`use_tls`](#webhook-http-config-use-tls) block (within [`webhook.http_config
 
 <a id="verification-b3e5f0"></a>&#x2022; [`use_server_verification`](#verification-b3e5f0) - Optional Block<br>Configuration parameter for use server verification<br>See [Use Server Verification](#verification-b3e5f0) below.
 
-<a id="trusted-ca-138b8e"></a>&#x2022; [`volterra_trusted_ca`](#trusted-ca-138b8e) - Optional Block<br>Configuration parameter for volterra trusted CA
+<a id="trusted-ca-138b8e"></a>&#x2022; [`volterra_trusted_ca`](#trusted-ca-138b8e) - Optional Object<br>Configuration parameter for volterra trusted CA
+
+#### Webhook HTTP Config Use TLS Disable Sni
+
+A [`disable_sni`](#webhook-http-config-use-tls-disable-sni) block (within [`webhook.http_config.use_tls`](#webhook-http-config-use-tls)) supports the following:
 
 #### Webhook HTTP Config Use TLS Use Server Verification
 
@@ -334,6 +346,10 @@ An [`use_tls`](#webhook-http-config-use-tls) block (within [`webhook.http_config
 #### Webhook HTTP Config Use TLS Use Server Verification CA Cert Obj Trusted CA
 
 <a id="deep-6b4c01"></a>Deeply nested **CA** block collapsed for readability.
+
+#### Webhook HTTP Config Use TLS Volterra Trusted CA
+
+<a id="deep-66e440"></a>Deeply nested **CA** block collapsed for readability.
 
 #### Webhook URL
 

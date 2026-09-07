@@ -39,7 +39,7 @@ resource "xcsh_segment" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -58,8 +58,8 @@ resource "xcsh_segment" "example" {
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="enable"></a>[`enable`](#enable) - Optional Block<br>Enable this option
-<br><br>&#x2022; <a id="disable-spec"></a>[`disable_spec`](#disable-spec) - Optional Block<br>Enable this option
+&#x2022; <a id="enable"></a>[`enable`](#enable) - Optional Object<br>Enable this option
+<br><br>&#x2022; <a id="disable-spec"></a>[`disable_spec`](#disable-spec) - Optional Object<br>Enable this option
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 

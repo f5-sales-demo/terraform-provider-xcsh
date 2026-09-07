@@ -77,21 +77,21 @@ var ExternalConnectorGreModelAttrTypes = map[string]attr.Type{
 
 // ExternalConnectorGreGreParametersModel represents gre_parameters block
 type ExternalConnectorGreGreParametersModel struct {
+	SiteLocalInsideNetwork types.Object                                         `tfsdk:"site_local_inside_network"`
+	SiteLocalNetwork       types.Object                                         `tfsdk:"site_local_network"`
 	TunnelMTU              types.Int64                                          `tfsdk:"tunnel_mtu"`
 	PeerIPAddress          *ExternalConnectorGreGreParametersPeerIPAddressModel `tfsdk:"peer_ip_address"`
 	Segment                *ExternalConnectorGreGreParametersSegmentModel       `tfsdk:"segment"`
-	SiteLocalInsideNetwork *ExternalConnectorEmptyModel                         `tfsdk:"site_local_inside_network"`
-	SiteLocalNetwork       *ExternalConnectorEmptyModel                         `tfsdk:"site_local_network"`
 	TunnelEps              types.List                                           `tfsdk:"tunnel_eps"`
 }
 
 // ExternalConnectorGreGreParametersModelAttrTypes defines the attribute types for ExternalConnectorGreGreParametersModel
 var ExternalConnectorGreGreParametersModelAttrTypes = map[string]attr.Type{
+	"site_local_inside_network": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"site_local_network":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"tunnel_mtu":                types.Int64Type,
 	"peer_ip_address":           types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersPeerIPAddressModelAttrTypes},
 	"segment":                   types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersSegmentModelAttrTypes},
-	"site_local_inside_network": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"site_local_network":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"tunnel_eps":                types.ListType{ElemType: types.ObjectType{AttrTypes: ExternalConnectorGreGreParametersTunnelEpsModelAttrTypes}},
 }
 
@@ -163,30 +163,30 @@ var ExternalConnectorIpsecModelAttrTypes = map[string]attr.Type{
 
 // ExternalConnectorIpsecIKEParametersModel represents ike_parameters block
 type ExternalConnectorIpsecIKEParametersModel struct {
+	DpdDisabled           types.Object                                               `tfsdk:"dpd_disabled"`
+	Initiator             types.Object                                               `tfsdk:"initiator"`
+	Responder             types.Object                                               `tfsdk:"responder"`
 	RmHostname            types.String                                               `tfsdk:"rm_hostname"`
-	DpdDisabled           *ExternalConnectorEmptyModel                               `tfsdk:"dpd_disabled"`
+	UseDefaultRemoteIKEID types.Object                                               `tfsdk:"use_default_remote_ike_id"`
 	DpdKeepAliveTimer     *ExternalConnectorIpsecIKEParametersDpdKeepAliveTimerModel `tfsdk:"dpd_keep_alive_timer"`
 	IKEPhase1Profile      *ExternalConnectorIpsecIKEParametersIKEPhase1ProfileModel  `tfsdk:"ike_phase1_profile"`
 	IKEPhase2Profile      *ExternalConnectorIpsecIKEParametersIKEPhase2ProfileModel  `tfsdk:"ike_phase2_profile"`
-	Initiator             *ExternalConnectorEmptyModel                               `tfsdk:"initiator"`
-	Responder             *ExternalConnectorEmptyModel                               `tfsdk:"responder"`
 	RmIPAddress           *ExternalConnectorIpsecIKEParametersRmIPAddressModel       `tfsdk:"rm_ip_address"`
 	UseDefaultLocalIKEID  *ExternalConnectorEmptyModel                               `tfsdk:"use_default_local_ike_id"`
-	UseDefaultRemoteIKEID *ExternalConnectorEmptyModel                               `tfsdk:"use_default_remote_ike_id"`
 }
 
 // ExternalConnectorIpsecIKEParametersModelAttrTypes defines the attribute types for ExternalConnectorIpsecIKEParametersModel
 var ExternalConnectorIpsecIKEParametersModelAttrTypes = map[string]attr.Type{
-	"rm_hostname":               types.StringType,
 	"dpd_disabled":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"initiator":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"responder":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"rm_hostname":               types.StringType,
+	"use_default_remote_ike_id": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"dpd_keep_alive_timer":      types.ObjectType{AttrTypes: ExternalConnectorIpsecIKEParametersDpdKeepAliveTimerModelAttrTypes},
 	"ike_phase1_profile":        types.ObjectType{AttrTypes: ExternalConnectorIpsecIKEParametersIKEPhase1ProfileModelAttrTypes},
 	"ike_phase2_profile":        types.ObjectType{AttrTypes: ExternalConnectorIpsecIKEParametersIKEPhase2ProfileModelAttrTypes},
-	"initiator":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"responder":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"rm_ip_address":             types.ObjectType{AttrTypes: ExternalConnectorIpsecIKEParametersRmIPAddressModelAttrTypes},
 	"use_default_local_ike_id":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"use_default_remote_ike_id": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // ExternalConnectorIpsecIKEParametersDpdKeepAliveTimerModel represents dpd_keep_alive_timer block
@@ -262,22 +262,22 @@ var ExternalConnectorIpsecIKEParametersRmIPAddressIpv6ModelAttrTypes = map[strin
 // ExternalConnectorIpsecIpsecTunnelParametersModel represents ipsec_tunnel_parameters block
 type ExternalConnectorIpsecIpsecTunnelParametersModel struct {
 	Psk                    types.String                                                   `tfsdk:"psk"`
+	SiteLocalInsideNetwork types.Object                                                   `tfsdk:"site_local_inside_network"`
+	SiteLocalNetwork       types.Object                                                   `tfsdk:"site_local_network"`
 	TunnelMTU              types.Int64                                                    `tfsdk:"tunnel_mtu"`
 	PeerIPAddress          *ExternalConnectorIpsecIpsecTunnelParametersPeerIPAddressModel `tfsdk:"peer_ip_address"`
 	Segment                *ExternalConnectorIpsecIpsecTunnelParametersSegmentModel       `tfsdk:"segment"`
-	SiteLocalInsideNetwork *ExternalConnectorEmptyModel                                   `tfsdk:"site_local_inside_network"`
-	SiteLocalNetwork       *ExternalConnectorEmptyModel                                   `tfsdk:"site_local_network"`
 	TunnelEps              types.List                                                     `tfsdk:"tunnel_eps"`
 }
 
 // ExternalConnectorIpsecIpsecTunnelParametersModelAttrTypes defines the attribute types for ExternalConnectorIpsecIpsecTunnelParametersModel
 var ExternalConnectorIpsecIpsecTunnelParametersModelAttrTypes = map[string]attr.Type{
 	"psk":                       types.StringType,
+	"site_local_inside_network": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"site_local_network":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"tunnel_mtu":                types.Int64Type,
 	"peer_ip_address":           types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersPeerIPAddressModelAttrTypes},
 	"segment":                   types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersSegmentModelAttrTypes},
-	"site_local_inside_network": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"site_local_network":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"tunnel_eps":                types.ListType{ElemType: types.ObjectType{AttrTypes: ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModelAttrTypes}},
 }
 
@@ -451,6 +451,16 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 						MarkdownDescription: "GRE configuration parameters required for GRE Connection type.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("tunnel_eps", "tunnel_mtu"), validators.ConflictingObjectAttributes("segment", "site_local_inside_network"), validators.ConflictingObjectAttributes("segment", "site_local_network"), validators.ConflictingObjectAttributes("site_local_inside_network", "site_local_network")},
 						Attributes: map[string]schema.Attribute{
+							"site_local_inside_network": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"site_local_network": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"tunnel_mtu": schema.Int64Attribute{
 								MarkdownDescription: "Configure MTU for the GRE tunnel interface.",
 								Optional:            true,
@@ -515,12 +525,6 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 									},
 								},
 							},
-							"site_local_inside_network": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"site_local_network": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"tunnel_eps": schema.ListNestedBlock{
 								MarkdownDescription: "Configure tunnel parameters, source, destination, IP addresses.",
 								Validators:          []validator.List{validators.RequiredListObjectAttributes("interface", "local_tunnel_ip", "node", "remote_tunnel_ip")},
@@ -558,15 +562,32 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 						MarkdownDescription: "IKE configuration parameters required for IPsec Connection type.",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("dpd_disabled", "dpd_keep_alive_timer"), validators.ConflictingObjectAttributes("initiator", "responder"), validators.ConflictingObjectAttributes("rm_hostname", "rm_ip_address"), validators.ConflictingObjectAttributes("rm_hostname", "use_default_remote_ike_id"), validators.ConflictingObjectAttributes("rm_ip_address", "use_default_remote_ike_id")},
 						Attributes: map[string]schema.Attribute{
+							"dpd_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"initiator": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"responder": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"rm_hostname": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [rm_ip_address use_default_remote_ike_id] Configure an hostname Remote IKE ID.",
 								Optional:            true,
 							},
+							"use_default_remote_ike_id": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 						},
 						Blocks: map[string]schema.Block{
-							"dpd_disabled": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"dpd_keep_alive_timer": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for dpd keep alive timer.",
 								Validators:          []validator.Object{validators.RequiredObjectAttributes("timeout")},
@@ -642,12 +663,6 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 									},
 								},
 							},
-							"initiator": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"responder": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"rm_ip_address": schema.SingleNestedBlock{
 								MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
 								Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
@@ -684,9 +699,6 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 							"use_default_local_ike_id": schema.SingleNestedBlock{
 								MarkdownDescription: "Enable this option",
 							},
-							"use_default_remote_ike_id": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 						},
 					},
 					"ipsec_tunnel_parameters": schema.SingleNestedBlock{
@@ -696,6 +708,16 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 							"psk": schema.StringAttribute{
 								MarkdownDescription: "The IKE pre-shared key (PSK) is required to ensure the IKE peers can authenticate one another within IKE phase 1 negotiation.",
 								Optional:            true,
+							},
+							"site_local_inside_network": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"site_local_network": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 							"tunnel_mtu": schema.Int64Attribute{
 								MarkdownDescription: "The tunnel MTU defines the maximum size of the packet that can be sent through the tunnel without needing to be fragmented.",
@@ -760,12 +782,6 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 										},
 									},
 								},
-							},
-							"site_local_inside_network": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"site_local_network": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
 							},
 							"tunnel_eps": schema.ListNestedBlock{
 								MarkdownDescription: "Configure tunnel parameters, local and remote IP addresses.",
@@ -965,10 +981,10 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 				}
 				GreGreParametersMap["segment"] = GreGreParametersSegmentMap
 			}
-			if data.Gre.GreParameters.SiteLocalInsideNetwork != nil {
+			if !data.Gre.GreParameters.SiteLocalInsideNetwork.IsNull() && !data.Gre.GreParameters.SiteLocalInsideNetwork.IsUnknown() {
 				GreGreParametersMap["site_local_inside_network"] = map[string]interface{}{}
 			}
-			if data.Gre.GreParameters.SiteLocalNetwork != nil {
+			if !data.Gre.GreParameters.SiteLocalNetwork.IsNull() && !data.Gre.GreParameters.SiteLocalNetwork.IsUnknown() {
 				GreGreParametersMap["site_local_network"] = map[string]interface{}{}
 			}
 			if !data.Gre.GreParameters.TunnelEps.IsNull() && !data.Gre.GreParameters.TunnelEps.IsUnknown() {
@@ -1007,7 +1023,7 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 		IpsecMap := make(map[string]interface{})
 		if data.Ipsec.IKEParameters != nil {
 			IpsecIKEParametersMap := make(map[string]interface{})
-			if data.Ipsec.IKEParameters.DpdDisabled != nil {
+			if !data.Ipsec.IKEParameters.DpdDisabled.IsNull() && !data.Ipsec.IKEParameters.DpdDisabled.IsUnknown() {
 				IpsecIKEParametersMap["dpd_disabled"] = map[string]interface{}{}
 			}
 			if data.Ipsec.IKEParameters.DpdKeepAliveTimer != nil {
@@ -1037,10 +1053,10 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 				}
 				IpsecIKEParametersMap["ike_phase2_profile"] = IpsecIKEParametersIKEPhase2ProfileMap
 			}
-			if data.Ipsec.IKEParameters.Initiator != nil {
+			if !data.Ipsec.IKEParameters.Initiator.IsNull() && !data.Ipsec.IKEParameters.Initiator.IsUnknown() {
 				IpsecIKEParametersMap["initiator"] = map[string]interface{}{}
 			}
-			if data.Ipsec.IKEParameters.Responder != nil {
+			if !data.Ipsec.IKEParameters.Responder.IsNull() && !data.Ipsec.IKEParameters.Responder.IsUnknown() {
 				IpsecIKEParametersMap["responder"] = map[string]interface{}{}
 			}
 			if !data.Ipsec.IKEParameters.RmHostname.IsNull() && !data.Ipsec.IKEParameters.RmHostname.IsUnknown() {
@@ -1067,7 +1083,7 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 			if data.Ipsec.IKEParameters.UseDefaultLocalIKEID != nil {
 				IpsecIKEParametersMap["use_default_local_ike_id"] = map[string]interface{}{}
 			}
-			if data.Ipsec.IKEParameters.UseDefaultRemoteIKEID != nil {
+			if !data.Ipsec.IKEParameters.UseDefaultRemoteIKEID.IsNull() && !data.Ipsec.IKEParameters.UseDefaultRemoteIKEID.IsUnknown() {
 				IpsecIKEParametersMap["use_default_remote_ike_id"] = map[string]interface{}{}
 			}
 			IpsecMap["ike_parameters"] = IpsecIKEParametersMap
@@ -1107,10 +1123,10 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 				}
 				IpsecIpsecTunnelParametersMap["segment"] = IpsecIpsecTunnelParametersSegmentMap
 			}
-			if data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork != nil {
+			if !data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork.IsNull() && !data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork.IsUnknown() {
 				IpsecIpsecTunnelParametersMap["site_local_inside_network"] = map[string]interface{}{}
 			}
-			if data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork != nil {
+			if !data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork.IsNull() && !data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork.IsUnknown() {
 				IpsecIpsecTunnelParametersMap["site_local_network"] = map[string]interface{}{}
 			}
 			if !data.Ipsec.IpsecTunnelParameters.TunnelEps.IsNull() && !data.Ipsec.IpsecTunnelParameters.TunnelEps.IsUnknown() {
@@ -1286,23 +1302,23 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 							}
 							return nil
 						}(),
-						SiteLocalInsideNetwork: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil {
+						SiteLocalInsideNetwork: func() types.Object {
+							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil && !data.Gre.GreParameters.SiteLocalInsideNetwork.IsUnknown() {
 								return data.Gre.GreParameters.SiteLocalInsideNetwork
 							}
 							if _, ok := GreParametersData["site_local_inside_network"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						SiteLocalNetwork: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil {
+						SiteLocalNetwork: func() types.Object {
+							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil && !data.Gre.GreParameters.SiteLocalNetwork.IsUnknown() {
 								return data.Gre.GreParameters.SiteLocalNetwork
 							}
 							if _, ok := GreParametersData["site_local_network"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TunnelEps: func() types.List {
 							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil && (data.Gre.GreParameters.TunnelEps.IsNull() || len(data.Gre.GreParameters.TunnelEps.Elements()) == 0) {
@@ -1370,14 +1386,14 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 			IKEParameters: func() *ExternalConnectorIpsecIKEParametersModel {
 				if IKEParametersData, ok := blockData["ike_parameters"].(map[string]interface{}); ok {
 					return &ExternalConnectorIpsecIKEParametersModel{
-						DpdDisabled: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+						DpdDisabled: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && !data.Ipsec.IKEParameters.DpdDisabled.IsUnknown() {
 								return data.Ipsec.IKEParameters.DpdDisabled
 							}
 							if _, ok := IKEParametersData["dpd_disabled"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DpdKeepAliveTimer: func() *ExternalConnectorIpsecIKEParametersDpdKeepAliveTimerModel {
 							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.DpdKeepAliveTimer != nil {
@@ -1448,23 +1464,23 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 							}
 							return nil
 						}(),
-						Initiator: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+						Initiator: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && !data.Ipsec.IKEParameters.Initiator.IsUnknown() {
 								return data.Ipsec.IKEParameters.Initiator
 							}
 							if _, ok := IKEParametersData["initiator"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Responder: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+						Responder: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && !data.Ipsec.IKEParameters.Responder.IsUnknown() {
 								return data.Ipsec.IKEParameters.Responder
 							}
 							if _, ok := IKEParametersData["responder"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						RmHostname: func() types.String {
 							if v, ok := IKEParametersData["rm_hostname"].(string); ok && v != "" {
@@ -1523,14 +1539,14 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 							}
 							return nil
 						}(),
-						UseDefaultRemoteIKEID: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+						UseDefaultRemoteIKEID: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && !data.Ipsec.IKEParameters.UseDefaultRemoteIKEID.IsUnknown() {
 								return data.Ipsec.IKEParameters.UseDefaultRemoteIKEID
 							}
 							if _, ok := IKEParametersData["use_default_remote_ike_id"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -1620,23 +1636,23 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 							}
 							return nil
 						}(),
-						SiteLocalInsideNetwork: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil {
+						SiteLocalInsideNetwork: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil && !data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork.IsUnknown() {
 								return data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork
 							}
 							if _, ok := IpsecTunnelParametersData["site_local_inside_network"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						SiteLocalNetwork: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil {
+						SiteLocalNetwork: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil && !data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork.IsUnknown() {
 								return data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork
 							}
 							if _, ok := IpsecTunnelParametersData["site_local_network"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TunnelEps: func() types.List {
 							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil && (data.Ipsec.IpsecTunnelParameters.TunnelEps.IsNull() || len(data.Ipsec.IpsecTunnelParameters.TunnelEps.Elements()) == 0) {
@@ -1932,23 +1948,23 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 							}
 							return nil
 						}(),
-						SiteLocalInsideNetwork: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil {
+						SiteLocalInsideNetwork: func() types.Object {
+							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil && !data.Gre.GreParameters.SiteLocalInsideNetwork.IsUnknown() {
 								return data.Gre.GreParameters.SiteLocalInsideNetwork
 							}
 							if _, ok := GreParametersData["site_local_inside_network"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						SiteLocalNetwork: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil {
+						SiteLocalNetwork: func() types.Object {
+							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil && !data.Gre.GreParameters.SiteLocalNetwork.IsUnknown() {
 								return data.Gre.GreParameters.SiteLocalNetwork
 							}
 							if _, ok := GreParametersData["site_local_network"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TunnelEps: func() types.List {
 							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil && (data.Gre.GreParameters.TunnelEps.IsNull() || len(data.Gre.GreParameters.TunnelEps.Elements()) == 0) {
@@ -2016,14 +2032,14 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 			IKEParameters: func() *ExternalConnectorIpsecIKEParametersModel {
 				if IKEParametersData, ok := blockData["ike_parameters"].(map[string]interface{}); ok {
 					return &ExternalConnectorIpsecIKEParametersModel{
-						DpdDisabled: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+						DpdDisabled: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && !data.Ipsec.IKEParameters.DpdDisabled.IsUnknown() {
 								return data.Ipsec.IKEParameters.DpdDisabled
 							}
 							if _, ok := IKEParametersData["dpd_disabled"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DpdKeepAliveTimer: func() *ExternalConnectorIpsecIKEParametersDpdKeepAliveTimerModel {
 							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.DpdKeepAliveTimer != nil {
@@ -2094,23 +2110,23 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 							}
 							return nil
 						}(),
-						Initiator: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+						Initiator: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && !data.Ipsec.IKEParameters.Initiator.IsUnknown() {
 								return data.Ipsec.IKEParameters.Initiator
 							}
 							if _, ok := IKEParametersData["initiator"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Responder: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+						Responder: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && !data.Ipsec.IKEParameters.Responder.IsUnknown() {
 								return data.Ipsec.IKEParameters.Responder
 							}
 							if _, ok := IKEParametersData["responder"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						RmHostname: func() types.String {
 							if v, ok := IKEParametersData["rm_hostname"].(string); ok && v != "" {
@@ -2169,14 +2185,14 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 							}
 							return nil
 						}(),
-						UseDefaultRemoteIKEID: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+						UseDefaultRemoteIKEID: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && !data.Ipsec.IKEParameters.UseDefaultRemoteIKEID.IsUnknown() {
 								return data.Ipsec.IKEParameters.UseDefaultRemoteIKEID
 							}
 							if _, ok := IKEParametersData["use_default_remote_ike_id"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -2266,23 +2282,23 @@ func (r *ExternalConnectorResource) Read(ctx context.Context, req resource.ReadR
 							}
 							return nil
 						}(),
-						SiteLocalInsideNetwork: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil {
+						SiteLocalInsideNetwork: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil && !data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork.IsUnknown() {
 								return data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork
 							}
 							if _, ok := IpsecTunnelParametersData["site_local_inside_network"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						SiteLocalNetwork: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil {
+						SiteLocalNetwork: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil && !data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork.IsUnknown() {
 								return data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork
 							}
 							if _, ok := IpsecTunnelParametersData["site_local_network"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TunnelEps: func() types.List {
 							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil && (data.Ipsec.IpsecTunnelParameters.TunnelEps.IsNull() || len(data.Ipsec.IpsecTunnelParameters.TunnelEps.Elements()) == 0) {
@@ -2483,10 +2499,10 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 				}
 				GreGreParametersMap["segment"] = GreGreParametersSegmentMap
 			}
-			if data.Gre.GreParameters.SiteLocalInsideNetwork != nil {
+			if !data.Gre.GreParameters.SiteLocalInsideNetwork.IsNull() && !data.Gre.GreParameters.SiteLocalInsideNetwork.IsUnknown() {
 				GreGreParametersMap["site_local_inside_network"] = map[string]interface{}{}
 			}
-			if data.Gre.GreParameters.SiteLocalNetwork != nil {
+			if !data.Gre.GreParameters.SiteLocalNetwork.IsNull() && !data.Gre.GreParameters.SiteLocalNetwork.IsUnknown() {
 				GreGreParametersMap["site_local_network"] = map[string]interface{}{}
 			}
 			if !data.Gre.GreParameters.TunnelEps.IsNull() && !data.Gre.GreParameters.TunnelEps.IsUnknown() {
@@ -2525,7 +2541,7 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 		IpsecMap := make(map[string]interface{})
 		if data.Ipsec.IKEParameters != nil {
 			IpsecIKEParametersMap := make(map[string]interface{})
-			if data.Ipsec.IKEParameters.DpdDisabled != nil {
+			if !data.Ipsec.IKEParameters.DpdDisabled.IsNull() && !data.Ipsec.IKEParameters.DpdDisabled.IsUnknown() {
 				IpsecIKEParametersMap["dpd_disabled"] = map[string]interface{}{}
 			}
 			if data.Ipsec.IKEParameters.DpdKeepAliveTimer != nil {
@@ -2555,10 +2571,10 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 				}
 				IpsecIKEParametersMap["ike_phase2_profile"] = IpsecIKEParametersIKEPhase2ProfileMap
 			}
-			if data.Ipsec.IKEParameters.Initiator != nil {
+			if !data.Ipsec.IKEParameters.Initiator.IsNull() && !data.Ipsec.IKEParameters.Initiator.IsUnknown() {
 				IpsecIKEParametersMap["initiator"] = map[string]interface{}{}
 			}
-			if data.Ipsec.IKEParameters.Responder != nil {
+			if !data.Ipsec.IKEParameters.Responder.IsNull() && !data.Ipsec.IKEParameters.Responder.IsUnknown() {
 				IpsecIKEParametersMap["responder"] = map[string]interface{}{}
 			}
 			if !data.Ipsec.IKEParameters.RmHostname.IsNull() && !data.Ipsec.IKEParameters.RmHostname.IsUnknown() {
@@ -2585,7 +2601,7 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 			if data.Ipsec.IKEParameters.UseDefaultLocalIKEID != nil {
 				IpsecIKEParametersMap["use_default_local_ike_id"] = map[string]interface{}{}
 			}
-			if data.Ipsec.IKEParameters.UseDefaultRemoteIKEID != nil {
+			if !data.Ipsec.IKEParameters.UseDefaultRemoteIKEID.IsNull() && !data.Ipsec.IKEParameters.UseDefaultRemoteIKEID.IsUnknown() {
 				IpsecIKEParametersMap["use_default_remote_ike_id"] = map[string]interface{}{}
 			}
 			IpsecMap["ike_parameters"] = IpsecIKEParametersMap
@@ -2625,10 +2641,10 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 				}
 				IpsecIpsecTunnelParametersMap["segment"] = IpsecIpsecTunnelParametersSegmentMap
 			}
-			if data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork != nil {
+			if !data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork.IsNull() && !data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork.IsUnknown() {
 				IpsecIpsecTunnelParametersMap["site_local_inside_network"] = map[string]interface{}{}
 			}
-			if data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork != nil {
+			if !data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork.IsNull() && !data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork.IsUnknown() {
 				IpsecIpsecTunnelParametersMap["site_local_network"] = map[string]interface{}{}
 			}
 			if !data.Ipsec.IpsecTunnelParameters.TunnelEps.IsNull() && !data.Ipsec.IpsecTunnelParameters.TunnelEps.IsUnknown() {
@@ -2824,23 +2840,23 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 							}
 							return nil
 						}(),
-						SiteLocalInsideNetwork: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil {
+						SiteLocalInsideNetwork: func() types.Object {
+							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil && !data.Gre.GreParameters.SiteLocalInsideNetwork.IsUnknown() {
 								return data.Gre.GreParameters.SiteLocalInsideNetwork
 							}
 							if _, ok := GreParametersData["site_local_inside_network"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						SiteLocalNetwork: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil {
+						SiteLocalNetwork: func() types.Object {
+							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil && !data.Gre.GreParameters.SiteLocalNetwork.IsUnknown() {
 								return data.Gre.GreParameters.SiteLocalNetwork
 							}
 							if _, ok := GreParametersData["site_local_network"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TunnelEps: func() types.List {
 							if !isImport && data.Gre != nil && data.Gre.GreParameters != nil && (data.Gre.GreParameters.TunnelEps.IsNull() || len(data.Gre.GreParameters.TunnelEps.Elements()) == 0) {
@@ -2908,14 +2924,14 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 			IKEParameters: func() *ExternalConnectorIpsecIKEParametersModel {
 				if IKEParametersData, ok := blockData["ike_parameters"].(map[string]interface{}); ok {
 					return &ExternalConnectorIpsecIKEParametersModel{
-						DpdDisabled: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+						DpdDisabled: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && !data.Ipsec.IKEParameters.DpdDisabled.IsUnknown() {
 								return data.Ipsec.IKEParameters.DpdDisabled
 							}
 							if _, ok := IKEParametersData["dpd_disabled"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DpdKeepAliveTimer: func() *ExternalConnectorIpsecIKEParametersDpdKeepAliveTimerModel {
 							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && data.Ipsec.IKEParameters.DpdKeepAliveTimer != nil {
@@ -2986,23 +3002,23 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 							}
 							return nil
 						}(),
-						Initiator: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+						Initiator: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && !data.Ipsec.IKEParameters.Initiator.IsUnknown() {
 								return data.Ipsec.IKEParameters.Initiator
 							}
 							if _, ok := IKEParametersData["initiator"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Responder: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+						Responder: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && !data.Ipsec.IKEParameters.Responder.IsUnknown() {
 								return data.Ipsec.IKEParameters.Responder
 							}
 							if _, ok := IKEParametersData["responder"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						RmHostname: func() types.String {
 							if v, ok := IKEParametersData["rm_hostname"].(string); ok && v != "" {
@@ -3061,14 +3077,14 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 							}
 							return nil
 						}(),
-						UseDefaultRemoteIKEID: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil {
+						UseDefaultRemoteIKEID: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IKEParameters != nil && !data.Ipsec.IKEParameters.UseDefaultRemoteIKEID.IsUnknown() {
 								return data.Ipsec.IKEParameters.UseDefaultRemoteIKEID
 							}
 							if _, ok := IKEParametersData["use_default_remote_ike_id"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -3158,23 +3174,23 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 							}
 							return nil
 						}(),
-						SiteLocalInsideNetwork: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil {
+						SiteLocalInsideNetwork: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil && !data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork.IsUnknown() {
 								return data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork
 							}
 							if _, ok := IpsecTunnelParametersData["site_local_inside_network"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						SiteLocalNetwork: func() *ExternalConnectorEmptyModel {
-							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil {
+						SiteLocalNetwork: func() types.Object {
+							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil && !data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork.IsUnknown() {
 								return data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork
 							}
 							if _, ok := IpsecTunnelParametersData["site_local_network"].(map[string]interface{}); ok {
-								return &ExternalConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TunnelEps: func() types.List {
 							if !isImport && data.Ipsec != nil && data.Ipsec.IpsecTunnelParameters != nil && (data.Ipsec.IpsecTunnelParameters.TunnelEps.IsNull() || len(data.Ipsec.IpsecTunnelParameters.TunnelEps.Elements()) == 0) {

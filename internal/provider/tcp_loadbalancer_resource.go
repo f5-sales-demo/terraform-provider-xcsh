@@ -20,6 +20,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -91,9 +92,9 @@ var TCPLoadBalancerAdvertiseCustomModelAttrTypes = map[string]attr.Type{
 type TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel struct {
 	Port               types.Int64                                                          `tfsdk:"port"`
 	PortRanges         types.String                                                         `tfsdk:"port_ranges"`
+	UseDefaultPort     types.Object                                                         `tfsdk:"use_default_port"`
 	AdvertiseOnPublic  *TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel  `tfsdk:"advertise_on_public"`
 	Site               *TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModel               `tfsdk:"site"`
-	UseDefaultPort     *TCPLoadBalancerEmptyModel                                           `tfsdk:"use_default_port"`
 	VirtualNetwork     *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel     `tfsdk:"virtual_network"`
 	VirtualSite        *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModel        `tfsdk:"virtual_site"`
 	VirtualSiteWithVIP *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel `tfsdk:"virtual_site_with_vip"`
@@ -104,9 +105,9 @@ type TCPLoadBalancerAdvertiseCustomAdvertiseWhereModel struct {
 var TCPLoadBalancerAdvertiseCustomAdvertiseWhereModelAttrTypes = map[string]attr.Type{
 	"port":                  types.Int64Type,
 	"port_ranges":           types.StringType,
+	"use_default_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"advertise_on_public":   types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModelAttrTypes},
 	"site":                  types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteModelAttrTypes},
-	"use_default_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"virtual_network":       types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes},
 	"virtual_site":          types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteModelAttrTypes},
 	"virtual_site_with_vip": types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModelAttrTypes},
@@ -167,19 +168,19 @@ var TCPLoadBalancerAdvertiseCustomAdvertiseWhereSiteSiteModelAttrTypes = map[str
 
 // TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel represents virtual_network block
 type TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel struct {
+	DefaultV6VIP   types.Object                                                                   `tfsdk:"default_v6_vip"`
+	DefaultVIP     types.Object                                                                   `tfsdk:"default_vip"`
 	SpecificV6VIP  types.String                                                                   `tfsdk:"specific_v6_vip"`
 	SpecificVIP    types.String                                                                   `tfsdk:"specific_vip"`
-	DefaultV6VIP   *TCPLoadBalancerEmptyModel                                                     `tfsdk:"default_v6_vip"`
-	DefaultVIP     *TCPLoadBalancerEmptyModel                                                     `tfsdk:"default_vip"`
 	VirtualNetwork *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel `tfsdk:"virtual_network"`
 }
 
 // TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes defines the attribute types for TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel
 var TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes = map[string]attr.Type{
-	"specific_v6_vip": types.StringType,
-	"specific_vip":    types.StringType,
 	"default_v6_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"default_vip":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"specific_v6_vip": types.StringType,
+	"specific_vip":    types.StringType,
 	"virtual_network": types.ObjectType{AttrTypes: TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModelAttrTypes},
 }
 
@@ -375,16 +376,16 @@ var TCPLoadBalancerTLSTCPModelAttrTypes = map[string]attr.Type{
 
 // TCPLoadBalancerTLSTCPTLSCertParamsModel represents tls_cert_params block
 type TCPLoadBalancerTLSTCPTLSCertParamsModel struct {
+	NoMtls       types.Object                                      `tfsdk:"no_mtls"`
 	Certificates types.List                                        `tfsdk:"certificates"`
-	NoMtls       *TCPLoadBalancerEmptyModel                        `tfsdk:"no_mtls"`
 	TLSConfig    *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel `tfsdk:"tls_config"`
 	UseMtls      *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel   `tfsdk:"use_mtls"`
 }
 
 // TCPLoadBalancerTLSTCPTLSCertParamsModelAttrTypes defines the attribute types for TCPLoadBalancerTLSTCPTLSCertParamsModel
 var TCPLoadBalancerTLSTCPTLSCertParamsModelAttrTypes = map[string]attr.Type{
-	"certificates": types.ListType{ElemType: types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes}},
 	"no_mtls":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"certificates": types.ListType{ElemType: types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes}},
 	"tls_config":   types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModelAttrTypes},
 	"use_mtls":     types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModelAttrTypes},
 }
@@ -405,18 +406,18 @@ var TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes = map[string]at
 
 // TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel represents tls_config block
 type TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel struct {
+	DefaultSecurity types.Object                                                    `tfsdk:"default_security"`
+	LowSecurity     types.Object                                                    `tfsdk:"low_security"`
+	MediumSecurity  types.Object                                                    `tfsdk:"medium_security"`
 	CustomSecurity  *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel `tfsdk:"custom_security"`
-	DefaultSecurity *TCPLoadBalancerEmptyModel                                      `tfsdk:"default_security"`
-	LowSecurity     *TCPLoadBalancerEmptyModel                                      `tfsdk:"low_security"`
-	MediumSecurity  *TCPLoadBalancerEmptyModel                                      `tfsdk:"medium_security"`
 }
 
 // TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModelAttrTypes defines the attribute types for TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel
 var TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModelAttrTypes = map[string]attr.Type{
-	"custom_security":  types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModelAttrTypes},
 	"default_security": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"low_security":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"medium_security":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_security":  types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModelAttrTypes},
 }
 
 // TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModel represents custom_security block
@@ -436,22 +437,22 @@ var TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigCustomSecurityModelAttrTypes = ma
 // TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel represents use_mtls block
 type TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel struct {
 	ClientCertificateOptional types.Bool                                                 `tfsdk:"client_certificate_optional"`
+	NoCRL                     types.Object                                               `tfsdk:"no_crl"`
 	TrustedCAURL              types.String                                               `tfsdk:"trusted_ca_url"`
+	XfccDisabled              types.Object                                               `tfsdk:"xfcc_disabled"`
 	CRL                       *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsCRLModel         `tfsdk:"crl"`
-	NoCRL                     *TCPLoadBalancerEmptyModel                                 `tfsdk:"no_crl"`
 	TrustedCA                 *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsTrustedCAModel   `tfsdk:"trusted_ca"`
-	XfccDisabled              *TCPLoadBalancerEmptyModel                                 `tfsdk:"xfcc_disabled"`
 	XfccOptions               *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel `tfsdk:"xfcc_options"`
 }
 
 // TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModelAttrTypes defines the attribute types for TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModel
 var TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsModelAttrTypes = map[string]attr.Type{
 	"client_certificate_optional": types.BoolType,
-	"trusted_ca_url":              types.StringType,
-	"crl":                         types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsCRLModelAttrTypes},
 	"no_crl":                      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"trusted_ca":                  types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsTrustedCAModelAttrTypes},
+	"trusted_ca_url":              types.StringType,
 	"xfcc_disabled":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"crl":                         types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsCRLModelAttrTypes},
+	"trusted_ca":                  types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsTrustedCAModelAttrTypes},
 	"xfcc_options":                types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModelAttrTypes},
 }
 
@@ -495,7 +496,7 @@ var TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModelAttrTypes = map[str
 
 // TCPLoadBalancerTLSTCPTLSParametersModel represents tls_parameters block
 type TCPLoadBalancerTLSTCPTLSParametersModel struct {
-	NoMtls          *TCPLoadBalancerEmptyModel                        `tfsdk:"no_mtls"`
+	NoMtls          types.Object                                      `tfsdk:"no_mtls"`
 	TLSCertificates types.List                                        `tfsdk:"tls_certificates"`
 	TLSConfig       *TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel `tfsdk:"tls_config"`
 	UseMtls         *TCPLoadBalancerTLSTCPTLSParametersUseMtlsModel   `tfsdk:"use_mtls"`
@@ -513,20 +514,20 @@ var TCPLoadBalancerTLSTCPTLSParametersModelAttrTypes = map[string]attr.Type{
 type TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel struct {
 	CertificateURL       types.String                                                                `tfsdk:"certificate_url"`
 	DescriptionSpec      types.String                                                                `tfsdk:"description_spec"`
+	DisableOCSPStapling  types.Object                                                                `tfsdk:"disable_ocsp_stapling"`
+	UseSystemDefaults    types.Object                                                                `tfsdk:"use_system_defaults"`
 	CustomHashAlgorithms *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsModel `tfsdk:"custom_hash_algorithms"`
-	DisableOCSPStapling  *TCPLoadBalancerEmptyModel                                                  `tfsdk:"disable_ocsp_stapling"`
 	PrivateKey           *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModel           `tfsdk:"private_key"`
-	UseSystemDefaults    *TCPLoadBalancerEmptyModel                                                  `tfsdk:"use_system_defaults"`
 }
 
 // TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModelAttrTypes defines the attribute types for TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel
 var TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModelAttrTypes = map[string]attr.Type{
 	"certificate_url":        types.StringType,
 	"description_spec":       types.StringType,
-	"custom_hash_algorithms": types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
 	"disable_ocsp_stapling":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"private_key":            types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModelAttrTypes},
 	"use_system_defaults":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_hash_algorithms": types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
+	"private_key":            types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModelAttrTypes},
 }
 
 // TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsModel represents custom_hash_algorithms block
@@ -579,18 +580,18 @@ var TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMo
 
 // TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel represents tls_config block
 type TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel struct {
+	DefaultSecurity types.Object                                                    `tfsdk:"default_security"`
+	LowSecurity     types.Object                                                    `tfsdk:"low_security"`
+	MediumSecurity  types.Object                                                    `tfsdk:"medium_security"`
 	CustomSecurity  *TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel `tfsdk:"custom_security"`
-	DefaultSecurity *TCPLoadBalancerEmptyModel                                      `tfsdk:"default_security"`
-	LowSecurity     *TCPLoadBalancerEmptyModel                                      `tfsdk:"low_security"`
-	MediumSecurity  *TCPLoadBalancerEmptyModel                                      `tfsdk:"medium_security"`
 }
 
 // TCPLoadBalancerTLSTCPTLSParametersTLSConfigModelAttrTypes defines the attribute types for TCPLoadBalancerTLSTCPTLSParametersTLSConfigModel
 var TCPLoadBalancerTLSTCPTLSParametersTLSConfigModelAttrTypes = map[string]attr.Type{
-	"custom_security":  types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModelAttrTypes},
 	"default_security": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"low_security":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"medium_security":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_security":  types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModelAttrTypes},
 }
 
 // TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModel represents custom_security block
@@ -610,22 +611,22 @@ var TCPLoadBalancerTLSTCPTLSParametersTLSConfigCustomSecurityModelAttrTypes = ma
 // TCPLoadBalancerTLSTCPTLSParametersUseMtlsModel represents use_mtls block
 type TCPLoadBalancerTLSTCPTLSParametersUseMtlsModel struct {
 	ClientCertificateOptional types.Bool                                                 `tfsdk:"client_certificate_optional"`
+	NoCRL                     types.Object                                               `tfsdk:"no_crl"`
 	TrustedCAURL              types.String                                               `tfsdk:"trusted_ca_url"`
+	XfccDisabled              types.Object                                               `tfsdk:"xfcc_disabled"`
 	CRL                       *TCPLoadBalancerTLSTCPTLSParametersUseMtlsCRLModel         `tfsdk:"crl"`
-	NoCRL                     *TCPLoadBalancerEmptyModel                                 `tfsdk:"no_crl"`
 	TrustedCA                 *TCPLoadBalancerTLSTCPTLSParametersUseMtlsTrustedCAModel   `tfsdk:"trusted_ca"`
-	XfccDisabled              *TCPLoadBalancerEmptyModel                                 `tfsdk:"xfcc_disabled"`
 	XfccOptions               *TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel `tfsdk:"xfcc_options"`
 }
 
 // TCPLoadBalancerTLSTCPTLSParametersUseMtlsModelAttrTypes defines the attribute types for TCPLoadBalancerTLSTCPTLSParametersUseMtlsModel
 var TCPLoadBalancerTLSTCPTLSParametersUseMtlsModelAttrTypes = map[string]attr.Type{
 	"client_certificate_optional": types.BoolType,
-	"trusted_ca_url":              types.StringType,
-	"crl":                         types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersUseMtlsCRLModelAttrTypes},
 	"no_crl":                      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"trusted_ca":                  types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersUseMtlsTrustedCAModelAttrTypes},
+	"trusted_ca_url":              types.StringType,
 	"xfcc_disabled":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"crl":                         types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersUseMtlsCRLModelAttrTypes},
+	"trusted_ca":                  types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersUseMtlsTrustedCAModelAttrTypes},
 	"xfcc_options":                types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModelAttrTypes},
 }
 
@@ -669,7 +670,7 @@ var TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModelAttrTypes = map[str
 
 // TCPLoadBalancerTLSTCPAutoCertModel represents tls_tcp_auto_cert block
 type TCPLoadBalancerTLSTCPAutoCertModel struct {
-	NoMtls    *TCPLoadBalancerEmptyModel                   `tfsdk:"no_mtls"`
+	NoMtls    types.Object                                 `tfsdk:"no_mtls"`
 	TLSConfig *TCPLoadBalancerTLSTCPAutoCertTLSConfigModel `tfsdk:"tls_config"`
 	UseMtls   *TCPLoadBalancerTLSTCPAutoCertUseMtlsModel   `tfsdk:"use_mtls"`
 }
@@ -683,18 +684,18 @@ var TCPLoadBalancerTLSTCPAutoCertModelAttrTypes = map[string]attr.Type{
 
 // TCPLoadBalancerTLSTCPAutoCertTLSConfigModel represents tls_config block
 type TCPLoadBalancerTLSTCPAutoCertTLSConfigModel struct {
+	DefaultSecurity types.Object                                               `tfsdk:"default_security"`
+	LowSecurity     types.Object                                               `tfsdk:"low_security"`
+	MediumSecurity  types.Object                                               `tfsdk:"medium_security"`
 	CustomSecurity  *TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel `tfsdk:"custom_security"`
-	DefaultSecurity *TCPLoadBalancerEmptyModel                                 `tfsdk:"default_security"`
-	LowSecurity     *TCPLoadBalancerEmptyModel                                 `tfsdk:"low_security"`
-	MediumSecurity  *TCPLoadBalancerEmptyModel                                 `tfsdk:"medium_security"`
 }
 
 // TCPLoadBalancerTLSTCPAutoCertTLSConfigModelAttrTypes defines the attribute types for TCPLoadBalancerTLSTCPAutoCertTLSConfigModel
 var TCPLoadBalancerTLSTCPAutoCertTLSConfigModelAttrTypes = map[string]attr.Type{
-	"custom_security":  types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModelAttrTypes},
 	"default_security": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"low_security":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"medium_security":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_security":  types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModelAttrTypes},
 }
 
 // TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModel represents custom_security block
@@ -714,22 +715,22 @@ var TCPLoadBalancerTLSTCPAutoCertTLSConfigCustomSecurityModelAttrTypes = map[str
 // TCPLoadBalancerTLSTCPAutoCertUseMtlsModel represents use_mtls block
 type TCPLoadBalancerTLSTCPAutoCertUseMtlsModel struct {
 	ClientCertificateOptional types.Bool                                            `tfsdk:"client_certificate_optional"`
+	NoCRL                     types.Object                                          `tfsdk:"no_crl"`
 	TrustedCAURL              types.String                                          `tfsdk:"trusted_ca_url"`
+	XfccDisabled              types.Object                                          `tfsdk:"xfcc_disabled"`
 	CRL                       *TCPLoadBalancerTLSTCPAutoCertUseMtlsCRLModel         `tfsdk:"crl"`
-	NoCRL                     *TCPLoadBalancerEmptyModel                            `tfsdk:"no_crl"`
 	TrustedCA                 *TCPLoadBalancerTLSTCPAutoCertUseMtlsTrustedCAModel   `tfsdk:"trusted_ca"`
-	XfccDisabled              *TCPLoadBalancerEmptyModel                            `tfsdk:"xfcc_disabled"`
 	XfccOptions               *TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel `tfsdk:"xfcc_options"`
 }
 
 // TCPLoadBalancerTLSTCPAutoCertUseMtlsModelAttrTypes defines the attribute types for TCPLoadBalancerTLSTCPAutoCertUseMtlsModel
 var TCPLoadBalancerTLSTCPAutoCertUseMtlsModelAttrTypes = map[string]attr.Type{
 	"client_certificate_optional": types.BoolType,
-	"trusted_ca_url":              types.StringType,
-	"crl":                         types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPAutoCertUseMtlsCRLModelAttrTypes},
 	"no_crl":                      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"trusted_ca":                  types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPAutoCertUseMtlsTrustedCAModelAttrTypes},
+	"trusted_ca_url":              types.StringType,
 	"xfcc_disabled":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"crl":                         types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPAutoCertUseMtlsCRLModelAttrTypes},
+	"trusted_ca":                  types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPAutoCertUseMtlsTrustedCAModelAttrTypes},
 	"xfcc_options":                types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModelAttrTypes},
 }
 
@@ -774,37 +775,37 @@ var TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModelAttrTypes = map[string]a
 type TCPLoadBalancerResourceModel struct {
 	Name                               types.String                               `tfsdk:"name"`
 	Namespace                          types.String                               `tfsdk:"namespace"`
+	AdvertiseOnPublicDefaultVIP        types.Object                               `tfsdk:"advertise_on_public_default_vip"`
 	Annotations                        types.Map                                  `tfsdk:"annotations"`
+	DefaultLBWithSni                   types.Object                               `tfsdk:"default_lb_with_sni"`
 	Description                        types.String                               `tfsdk:"description"`
 	Disable                            types.Bool                                 `tfsdk:"disable"`
+	DoNotAdvertise                     types.Object                               `tfsdk:"do_not_advertise"`
+	DoNotRetractCluster                types.Object                               `tfsdk:"do_not_retract_cluster"`
 	Domains                            types.List                                 `tfsdk:"domains"`
+	HashPolicyChoiceLeastActive        types.Object                               `tfsdk:"hash_policy_choice_least_active"`
+	HashPolicyChoiceRandom             types.Object                               `tfsdk:"hash_policy_choice_random"`
+	HashPolicyChoiceSourceIPStickiness types.Object                               `tfsdk:"hash_policy_choice_source_ip_stickiness"`
 	Labels                             types.Map                                  `tfsdk:"labels"`
+	NoServicePolicies                  types.Object                               `tfsdk:"no_service_policies"`
+	Sni                                types.Object                               `tfsdk:"sni"`
 	ID                                 types.String                               `tfsdk:"id"`
 	DNSVolterraManaged                 types.Bool                                 `tfsdk:"dns_volterra_managed"`
+	HashPolicyChoiceRoundRobin         types.Object                               `tfsdk:"hash_policy_choice_round_robin"`
 	IdleTimeout                        types.Int64                                `tfsdk:"idle_timeout"`
 	ListenPort                         types.Int64                                `tfsdk:"listen_port"`
+	NoSni                              types.Object                               `tfsdk:"no_sni"`
 	PortRanges                         types.String                               `tfsdk:"port_ranges"`
+	RetractCluster                     types.Object                               `tfsdk:"retract_cluster"`
+	ServicePoliciesFromNamespace       types.Object                               `tfsdk:"service_policies_from_namespace"`
+	TCP                                types.Object                               `tfsdk:"tcp"`
 	Timeouts                           timeouts.Value                             `tfsdk:"timeouts"`
 	ActiveServicePolicies              *TCPLoadBalancerActiveServicePoliciesModel `tfsdk:"active_service_policies"`
 	AdvertiseCustom                    *TCPLoadBalancerAdvertiseCustomModel       `tfsdk:"advertise_custom"`
 	AdvertiseOnPublic                  *TCPLoadBalancerAdvertiseOnPublicModel     `tfsdk:"advertise_on_public"`
-	AdvertiseOnPublicDefaultVIP        *TCPLoadBalancerEmptyModel                 `tfsdk:"advertise_on_public_default_vip"`
-	DefaultLBWithSni                   *TCPLoadBalancerEmptyModel                 `tfsdk:"default_lb_with_sni"`
-	DoNotAdvertise                     *TCPLoadBalancerEmptyModel                 `tfsdk:"do_not_advertise"`
-	DoNotRetractCluster                *TCPLoadBalancerEmptyModel                 `tfsdk:"do_not_retract_cluster"`
-	HashPolicyChoiceLeastActive        *TCPLoadBalancerEmptyModel                 `tfsdk:"hash_policy_choice_least_active"`
-	HashPolicyChoiceRandom             *TCPLoadBalancerEmptyModel                 `tfsdk:"hash_policy_choice_random"`
-	HashPolicyChoiceSourceIPStickiness *TCPLoadBalancerEmptyModel                 `tfsdk:"hash_policy_choice_source_ip_stickiness"`
-	NoServicePolicies                  *TCPLoadBalancerEmptyModel                 `tfsdk:"no_service_policies"`
 	OriginPoolsWeights                 types.List                                 `tfsdk:"origin_pools_weights"`
-	Sni                                *TCPLoadBalancerEmptyModel                 `tfsdk:"sni"`
 	TLSTCP                             *TCPLoadBalancerTLSTCPModel                `tfsdk:"tls_tcp"`
 	TLSTCPAutoCert                     *TCPLoadBalancerTLSTCPAutoCertModel        `tfsdk:"tls_tcp_auto_cert"`
-	HashPolicyChoiceRoundRobin         *TCPLoadBalancerEmptyModel                 `tfsdk:"hash_policy_choice_round_robin"`
-	NoSni                              *TCPLoadBalancerEmptyModel                 `tfsdk:"no_sni"`
-	RetractCluster                     *TCPLoadBalancerEmptyModel                 `tfsdk:"retract_cluster"`
-	ServicePoliciesFromNamespace       *TCPLoadBalancerEmptyModel                 `tfsdk:"service_policies_from_namespace"`
-	TCP                                *TCPLoadBalancerEmptyModel                 `tfsdk:"tcp"`
 }
 
 func (r *TCPLoadBalancerResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -835,10 +836,20 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					validators.NamespaceValidator(),
 				},
 			},
+			"advertise_on_public_default_vip": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"annotations": schema.MapAttribute{
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"default_lb_with_sni": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: default_lb_with_sni, no_sni, sni; Default: default_lb_with_sni] Configuration parameter for default lb with sni.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
@@ -848,6 +859,16 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"do_not_advertise": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for do not advertise.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"do_not_retract_cluster": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: do_not_retract_cluster, retract_cluster] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"domains": schema.ListAttribute{
 				MarkdownDescription: "List of Domains (host/authority header) that will be matched to this Load Balancer. Supported Domains and search order: 1. Exact Domain names: www.example.com. 2.",
 				Optional:            true,
@@ -856,10 +877,35 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					listvalidator.SizeBetween(1, 32),
 				},
 			},
+			"hash_policy_choice_least_active": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: hash_policy_choice_least_active, hash_policy_choice_random, hash_policy_choice_round_robin, hash_policy_choice_source_ip_stickiness] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"hash_policy_choice_random": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for hash policy choice random.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"hash_policy_choice_source_ip_stickiness": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"no_service_policies": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for no service policies.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"sni": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -874,6 +920,15 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Computed:            true,
 				PlanModifiers: []planmodifier.Bool{
 					boolplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"hash_policy_choice_round_robin": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for hash policy choice round robin. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"idle_timeout": schema.Int64Attribute{
@@ -898,6 +953,15 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					int64validator.AtMost(65535),
 				},
 			},
+			"no_sni": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
 			"port_ranges": schema.StringAttribute{
 				MarkdownDescription: "Exclusive with [listen_port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",
 				Optional:            true,
@@ -907,6 +971,33 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				},
 				Validators: []validator.String{
 					stringvalidator.LengthBetween(1, 512),
+				},
+			},
+			"retract_cluster": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"service_policies_from_namespace": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"tcp": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: tcp, tls_tcp, tls_tcp_auto_cert] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
 		},
@@ -982,6 +1073,11 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(1, 512),
 									},
+								},
+								"use_default_port": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
 							},
 							Blocks: map[string]schema.Block{
@@ -1075,13 +1171,20 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 									},
 								},
-								"use_default_port": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
 								"virtual_network": schema.SingleNestedBlock{
 									MarkdownDescription: "Parameters to advertise on a given virtual network.",
 									Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_v6_vip", "specific_v6_vip"), validators.ConflictingObjectAttributes("default_vip", "specific_vip")},
 									Attributes: map[string]schema.Attribute{
+										"default_v6_vip": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"default_vip": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"specific_v6_vip": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [default_v6_vip] Use given IPv6 address as VIP on virtual Network.",
 											Optional:            true,
@@ -1100,12 +1203,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										},
 									},
 									Blocks: map[string]schema.Block{
-										"default_v6_vip": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
-										"default_vip": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 										"virtual_network": schema.SingleNestedBlock{
 											MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 											Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -1349,30 +1446,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					},
 				},
 			},
-			"advertise_on_public_default_vip": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"default_lb_with_sni": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: default_lb_with_sni, no_sni, sni; Default: default_lb_with_sni] Configuration parameter for default lb with sni.",
-			},
-			"do_not_advertise": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for do not advertise.",
-			},
-			"do_not_retract_cluster": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: do_not_retract_cluster, retract_cluster] Enable this option",
-			},
-			"hash_policy_choice_least_active": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: hash_policy_choice_least_active, hash_policy_choice_random, hash_policy_choice_round_robin, hash_policy_choice_source_ip_stickiness] Enable this option",
-			},
-			"hash_policy_choice_random": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for hash policy choice random.",
-			},
-			"hash_policy_choice_source_ip_stickiness": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"no_service_policies": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for no service policies.",
-			},
 			"origin_pools_weights": schema.ListNestedBlock{
 				MarkdownDescription: "Origin pools and weights used for this load balancer.",
 				Validators:          []validator.List{validators.ConflictingListObjectAttributes("cluster", "pool")},
@@ -1460,9 +1533,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					},
 				},
 			},
-			"sni": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
 			"tls_tcp": schema.SingleNestedBlock{
 				MarkdownDescription: "Choice for selecting TLS over TCP proxy with bring your own certificates.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("tls_cert_params", "tls_parameters")},
@@ -1472,7 +1542,13 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					"tls_cert_params": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for tls cert params.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
-						Attributes:          map[string]schema.Attribute{},
+						Attributes: map[string]schema.Attribute{
+							"no_mtls": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"certificates": schema.ListNestedBlock{
 								MarkdownDescription: "Select one or more certificates with any domain names.",
@@ -1507,13 +1583,26 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									},
 								},
 							},
-							"no_mtls": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"tls_config": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
 								Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
-								Attributes:          map[string]schema.Attribute{},
+								Attributes: map[string]schema.Attribute{
+									"default_security": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"low_security": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"medium_security": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+								},
 								Blocks: map[string]schema.Block{
 									"custom_security": schema.SingleNestedBlock{
 										MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
@@ -1540,15 +1629,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											},
 										},
 									},
-									"default_security": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"low_security": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"medium_security": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 								},
 							},
 							"use_mtls": schema.SingleNestedBlock{
@@ -1559,12 +1639,22 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
 										Optional:            true,
 									},
+									"no_crl": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
 									"trusted_ca_url": schema.StringAttribute{
 										MarkdownDescription: "Exclusive with [trusted_ca] Upload a Root CA Certificate specifically for this Load Balancer.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 131072),
 										},
+									},
+									"xfcc_disabled": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 								Blocks: map[string]schema.Block{
@@ -1599,9 +1689,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											},
 										},
 									},
-									"no_crl": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 									"trusted_ca": schema.SingleNestedBlock{
 										MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 										Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -1633,9 +1720,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											},
 										},
 									},
-									"xfcc_disabled": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 									"xfcc_options": schema.SingleNestedBlock{
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 										Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
@@ -1654,11 +1738,14 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					"tls_parameters": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for tls parameters.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"no_mtls": schema.SingleNestedBlock{
+						Attributes: map[string]schema.Attribute{
+							"no_mtls": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
+						},
+						Blocks: map[string]schema.Block{
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
@@ -1675,6 +1762,16 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "Description. Description for the certificate.",
 											Optional:            true,
 										},
+										"disable_ocsp_stapling": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"use_system_defaults": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for use system defaults.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 									},
 									Blocks: map[string]schema.Block{
 										"custom_hash_algorithms": schema.SingleNestedBlock{
@@ -1690,9 +1787,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													},
 												},
 											},
-										},
-										"disable_ocsp_stapling": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
 										},
 										"private_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
@@ -1739,16 +1833,29 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												},
 											},
 										},
-										"use_system_defaults": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for use system defaults.",
-										},
 									},
 								},
 							},
 							"tls_config": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
 								Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
-								Attributes:          map[string]schema.Attribute{},
+								Attributes: map[string]schema.Attribute{
+									"default_security": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"low_security": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"medium_security": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+								},
 								Blocks: map[string]schema.Block{
 									"custom_security": schema.SingleNestedBlock{
 										MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
@@ -1775,15 +1882,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											},
 										},
 									},
-									"default_security": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"low_security": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"medium_security": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 								},
 							},
 							"use_mtls": schema.SingleNestedBlock{
@@ -1794,12 +1892,22 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
 										Optional:            true,
 									},
+									"no_crl": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
 									"trusted_ca_url": schema.StringAttribute{
 										MarkdownDescription: "Exclusive with [trusted_ca] Upload a Root CA Certificate specifically for this Load Balancer.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 131072),
 										},
+									},
+									"xfcc_disabled": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 								Blocks: map[string]schema.Block{
@@ -1834,9 +1942,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											},
 										},
 									},
-									"no_crl": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 									"trusted_ca": schema.SingleNestedBlock{
 										MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 										Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -1868,9 +1973,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											},
 										},
 									},
-									"xfcc_disabled": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 									"xfcc_options": schema.SingleNestedBlock{
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 										Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
@@ -1892,15 +1994,34 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				MarkdownDescription: "Choice for selecting TLS over TCP proxy with automatic certificates.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"no_mtls": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"no_mtls": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+				},
+				Blocks: map[string]schema.Block{
 					"tls_config": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
-						Attributes:          map[string]schema.Attribute{},
+						Attributes: map[string]schema.Attribute{
+							"default_security": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"low_security": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"medium_security": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"custom_security": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
@@ -1927,15 +2048,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									},
 								},
 							},
-							"default_security": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"low_security": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"medium_security": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 						},
 					},
 					"use_mtls": schema.SingleNestedBlock{
@@ -1946,12 +2058,22 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
 								Optional:            true,
 							},
+							"no_crl": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"trusted_ca_url": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [trusted_ca] Upload a Root CA Certificate specifically for this Load Balancer.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(1, 131072),
 								},
+							},
+							"xfcc_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -1986,9 +2108,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									},
 								},
 							},
-							"no_crl": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"trusted_ca": schema.SingleNestedBlock{
 								MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 								Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -2020,9 +2139,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									},
 								},
 							},
-							"xfcc_disabled": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"xfcc_options": schema.SingleNestedBlock{
 								MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 								Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
@@ -2037,21 +2153,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						},
 					},
 				},
-			},
-			"hash_policy_choice_round_robin": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for hash policy choice round robin. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"no_sni": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"retract_cluster": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"service_policies_from_namespace": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"tcp": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: tcp, tls_tcp, tls_tcp_auto_cert] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
 			},
 		},
 	}
@@ -2079,7 +2180,91 @@ func (r *TCPLoadBalancerResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.ListenPort.IsNull() && !data.PortRanges.IsNull() {
+	if !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("advertise_on_public_default_vip"),
+			"Conflicting Configuration",
+			"advertise_on_public_default_vip and do_not_advertise are mutually exclusive.",
+		)
+	}
+	if !data.DefaultLBWithSni.IsNull() && !data.DefaultLBWithSni.IsUnknown() && !data.NoSni.IsNull() && !data.NoSni.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_lb_with_sni"),
+			"Conflicting Configuration",
+			"default_lb_with_sni and no_sni are mutually exclusive.",
+		)
+	}
+	if !data.DefaultLBWithSni.IsNull() && !data.DefaultLBWithSni.IsUnknown() && !data.Sni.IsNull() && !data.Sni.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_lb_with_sni"),
+			"Conflicting Configuration",
+			"default_lb_with_sni and sni are mutually exclusive.",
+		)
+	}
+	if !data.DoNotRetractCluster.IsNull() && !data.DoNotRetractCluster.IsUnknown() && !data.RetractCluster.IsNull() && !data.RetractCluster.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("do_not_retract_cluster"),
+			"Conflicting Configuration",
+			"do_not_retract_cluster and retract_cluster are mutually exclusive.",
+		)
+	}
+	if !data.HashPolicyChoiceLeastActive.IsNull() && !data.HashPolicyChoiceLeastActive.IsUnknown() && !data.HashPolicyChoiceRandom.IsNull() && !data.HashPolicyChoiceRandom.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_least_active"),
+			"Conflicting Configuration",
+			"hash_policy_choice_least_active and hash_policy_choice_random are mutually exclusive.",
+		)
+	}
+	if !data.HashPolicyChoiceLeastActive.IsNull() && !data.HashPolicyChoiceLeastActive.IsUnknown() && !data.HashPolicyChoiceRoundRobin.IsNull() && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_least_active"),
+			"Conflicting Configuration",
+			"hash_policy_choice_least_active and hash_policy_choice_round_robin are mutually exclusive.",
+		)
+	}
+	if !data.HashPolicyChoiceLeastActive.IsNull() && !data.HashPolicyChoiceLeastActive.IsUnknown() && !data.HashPolicyChoiceSourceIPStickiness.IsNull() && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_least_active"),
+			"Conflicting Configuration",
+			"hash_policy_choice_least_active and hash_policy_choice_source_ip_stickiness are mutually exclusive.",
+		)
+	}
+	if !data.HashPolicyChoiceRandom.IsNull() && !data.HashPolicyChoiceRandom.IsUnknown() && !data.HashPolicyChoiceRoundRobin.IsNull() && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_random"),
+			"Conflicting Configuration",
+			"hash_policy_choice_random and hash_policy_choice_round_robin are mutually exclusive.",
+		)
+	}
+	if !data.HashPolicyChoiceRandom.IsNull() && !data.HashPolicyChoiceRandom.IsUnknown() && !data.HashPolicyChoiceSourceIPStickiness.IsNull() && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_random"),
+			"Conflicting Configuration",
+			"hash_policy_choice_random and hash_policy_choice_source_ip_stickiness are mutually exclusive.",
+		)
+	}
+	if !data.HashPolicyChoiceSourceIPStickiness.IsNull() && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() && !data.HashPolicyChoiceRoundRobin.IsNull() && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("hash_policy_choice_source_ip_stickiness"),
+			"Conflicting Configuration",
+			"hash_policy_choice_source_ip_stickiness and hash_policy_choice_round_robin are mutually exclusive.",
+		)
+	}
+	if !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() && !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_service_policies"),
+			"Conflicting Configuration",
+			"no_service_policies and service_policies_from_namespace are mutually exclusive.",
+		)
+	}
+	if !data.Sni.IsNull() && !data.Sni.IsUnknown() && !data.NoSni.IsNull() && !data.NoSni.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("sni"),
+			"Conflicting Configuration",
+			"sni and no_sni are mutually exclusive.",
+		)
+	}
+	if !data.ListenPort.IsNull() && !data.ListenPort.IsUnknown() && !data.PortRanges.IsNull() && !data.PortRanges.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("listen_port"),
 			"Conflicting Configuration",
@@ -2260,15 +2445,15 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						AdvertiseWhereItemMap["site"] = AdvertiseCustomAdvertiseWhereSiteMap
 					}
-					if AdvertiseWhereItem.UseDefaultPort != nil {
+					if !AdvertiseWhereItem.UseDefaultPort.IsNull() && !AdvertiseWhereItem.UseDefaultPort.IsUnknown() {
 						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 					}
 					if AdvertiseWhereItem.VirtualNetwork != nil {
 						AdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
-						if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+						if !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsUnknown() {
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 						}
-						if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+						if !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsUnknown() {
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 						}
 						if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
@@ -2371,16 +2556,16 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		}
 		createReq.Spec["advertise_on_public"] = AdvertiseOnPublicMap
 	}
-	if data.AdvertiseOnPublicDefaultVIP != nil {
+	if !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 		createReq.Spec["advertise_on_public_default_vip"] = map[string]interface{}{}
 	}
-	if data.DefaultLBWithSni != nil {
+	if !data.DefaultLBWithSni.IsNull() && !data.DefaultLBWithSni.IsUnknown() {
 		createReq.Spec["default_lb_with_sni"] = map[string]interface{}{}
 	}
-	if data.DoNotAdvertise != nil {
+	if !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
 		createReq.Spec["do_not_advertise"] = map[string]interface{}{}
 	}
-	if data.DoNotRetractCluster != nil {
+	if !data.DoNotRetractCluster.IsNull() && !data.DoNotRetractCluster.IsUnknown() {
 		createReq.Spec["do_not_retract_cluster"] = map[string]interface{}{}
 	}
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
@@ -2391,16 +2576,16 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			createReq.Spec["domains"] = DomainsItems
 		}
 	}
-	if data.HashPolicyChoiceLeastActive != nil {
+	if !data.HashPolicyChoiceLeastActive.IsNull() && !data.HashPolicyChoiceLeastActive.IsUnknown() {
 		createReq.Spec["hash_policy_choice_least_active"] = map[string]interface{}{}
 	}
-	if data.HashPolicyChoiceRandom != nil {
+	if !data.HashPolicyChoiceRandom.IsNull() && !data.HashPolicyChoiceRandom.IsUnknown() {
 		createReq.Spec["hash_policy_choice_random"] = map[string]interface{}{}
 	}
-	if data.HashPolicyChoiceSourceIPStickiness != nil {
+	if !data.HashPolicyChoiceSourceIPStickiness.IsNull() && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
 		createReq.Spec["hash_policy_choice_source_ip_stickiness"] = map[string]interface{}{}
 	}
-	if data.NoServicePolicies != nil {
+	if !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() {
 		createReq.Spec["no_service_policies"] = map[string]interface{}{}
 	}
 	if !data.OriginPoolsWeights.IsNull() && !data.OriginPoolsWeights.IsUnknown() {
@@ -2445,7 +2630,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			createReq.Spec["origin_pools_weights"] = OriginPoolsWeightsList
 		}
 	}
-	if data.Sni != nil {
+	if !data.Sni.IsNull() && !data.Sni.IsUnknown() {
 		createReq.Spec["sni"] = map[string]interface{}{}
 	}
 	if data.TLSTCP != nil {
@@ -2471,7 +2656,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					TLSTCPTLSCertParamsMap["certificates"] = CertificatesList
 				}
 			}
-			if data.TLSTCP.TLSCertParams.NoMtls != nil {
+			if !data.TLSTCP.TLSCertParams.NoMtls.IsNull() && !data.TLSTCP.TLSCertParams.NoMtls.IsUnknown() {
 				TLSTCPTLSCertParamsMap["no_mtls"] = map[string]interface{}{}
 			}
 			if data.TLSTCP.TLSCertParams.TLSConfig != nil {
@@ -2494,13 +2679,13 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					}
 					TLSTCPTLSCertParamsTLSConfigMap["custom_security"] = TLSTCPTLSCertParamsTLSConfigCustomSecurityMap
 				}
-				if data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity != nil {
+				if !data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity.IsUnknown() {
 					TLSTCPTLSCertParamsTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
-				if data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity != nil {
+				if !data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity.IsUnknown() {
 					TLSTCPTLSCertParamsTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
-				if data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity != nil {
+				if !data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity.IsUnknown() {
 					TLSTCPTLSCertParamsTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
 				TLSTCPTLSCertParamsMap["tls_config"] = TLSTCPTLSCertParamsTLSConfigMap
@@ -2520,7 +2705,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					}
 					TLSTCPTLSCertParamsUseMtlsMap["crl"] = TLSTCPTLSCertParamsUseMtlsCRLMap
 				}
-				if data.TLSTCP.TLSCertParams.UseMtls.NoCRL != nil {
+				if !data.TLSTCP.TLSCertParams.UseMtls.NoCRL.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.NoCRL.IsUnknown() {
 					TLSTCPTLSCertParamsUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.TrustedCA != nil {
@@ -2536,7 +2721,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.IsUnknown() {
 					TLSTCPTLSCertParamsUseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
 				}
-				if data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled != nil {
+				if !data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled.IsUnknown() {
 					TLSTCPTLSCertParamsUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.XfccOptions != nil {
@@ -2557,7 +2742,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		}
 		if data.TLSTCP.TLSParameters != nil {
 			TLSTCPTLSParametersMap := make(map[string]interface{})
-			if data.TLSTCP.TLSParameters.NoMtls != nil {
+			if !data.TLSTCP.TLSParameters.NoMtls.IsNull() && !data.TLSTCP.TLSParameters.NoMtls.IsUnknown() {
 				TLSTCPTLSParametersMap["no_mtls"] = map[string]interface{}{}
 			}
 			if !data.TLSTCP.TLSParameters.TLSCertificates.IsNull() && !data.TLSTCP.TLSParameters.TLSCertificates.IsUnknown() {
@@ -2586,7 +2771,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
+						if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
@@ -2616,7 +2801,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							TLSCertificatesItemMap["private_key"] = TLSTCPTLSParametersTLSCertificatesPrivateKeyMap
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
+						if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -2644,13 +2829,13 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					}
 					TLSTCPTLSParametersTLSConfigMap["custom_security"] = TLSTCPTLSParametersTLSConfigCustomSecurityMap
 				}
-				if data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity != nil {
+				if !data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity.IsUnknown() {
 					TLSTCPTLSParametersTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
-				if data.TLSTCP.TLSParameters.TLSConfig.LowSecurity != nil {
+				if !data.TLSTCP.TLSParameters.TLSConfig.LowSecurity.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.LowSecurity.IsUnknown() {
 					TLSTCPTLSParametersTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
-				if data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity != nil {
+				if !data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity.IsUnknown() {
 					TLSTCPTLSParametersTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
 				TLSTCPTLSParametersMap["tls_config"] = TLSTCPTLSParametersTLSConfigMap
@@ -2670,7 +2855,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					}
 					TLSTCPTLSParametersUseMtlsMap["crl"] = TLSTCPTLSParametersUseMtlsCRLMap
 				}
-				if data.TLSTCP.TLSParameters.UseMtls.NoCRL != nil {
+				if !data.TLSTCP.TLSParameters.UseMtls.NoCRL.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.NoCRL.IsUnknown() {
 					TLSTCPTLSParametersUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.TrustedCA != nil {
@@ -2686,7 +2871,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				if !data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.IsUnknown() {
 					TLSTCPTLSParametersUseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.ValueString()
 				}
-				if data.TLSTCP.TLSParameters.UseMtls.XfccDisabled != nil {
+				if !data.TLSTCP.TLSParameters.UseMtls.XfccDisabled.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.XfccDisabled.IsUnknown() {
 					TLSTCPTLSParametersUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.XfccOptions != nil {
@@ -2709,7 +2894,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	}
 	if data.TLSTCPAutoCert != nil {
 		TLSTCPAutoCertMap := make(map[string]interface{})
-		if data.TLSTCPAutoCert.NoMtls != nil {
+		if !data.TLSTCPAutoCert.NoMtls.IsNull() && !data.TLSTCPAutoCert.NoMtls.IsUnknown() {
 			TLSTCPAutoCertMap["no_mtls"] = map[string]interface{}{}
 		}
 		if data.TLSTCPAutoCert.TLSConfig != nil {
@@ -2732,13 +2917,13 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				}
 				TLSTCPAutoCertTLSConfigMap["custom_security"] = TLSTCPAutoCertTLSConfigCustomSecurityMap
 			}
-			if data.TLSTCPAutoCert.TLSConfig.DefaultSecurity != nil {
+			if !data.TLSTCPAutoCert.TLSConfig.DefaultSecurity.IsNull() && !data.TLSTCPAutoCert.TLSConfig.DefaultSecurity.IsUnknown() {
 				TLSTCPAutoCertTLSConfigMap["default_security"] = map[string]interface{}{}
 			}
-			if data.TLSTCPAutoCert.TLSConfig.LowSecurity != nil {
+			if !data.TLSTCPAutoCert.TLSConfig.LowSecurity.IsNull() && !data.TLSTCPAutoCert.TLSConfig.LowSecurity.IsUnknown() {
 				TLSTCPAutoCertTLSConfigMap["low_security"] = map[string]interface{}{}
 			}
-			if data.TLSTCPAutoCert.TLSConfig.MediumSecurity != nil {
+			if !data.TLSTCPAutoCert.TLSConfig.MediumSecurity.IsNull() && !data.TLSTCPAutoCert.TLSConfig.MediumSecurity.IsUnknown() {
 				TLSTCPAutoCertTLSConfigMap["medium_security"] = map[string]interface{}{}
 			}
 			TLSTCPAutoCertMap["tls_config"] = TLSTCPAutoCertTLSConfigMap
@@ -2758,7 +2943,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				}
 				TLSTCPAutoCertUseMtlsMap["crl"] = TLSTCPAutoCertUseMtlsCRLMap
 			}
-			if data.TLSTCPAutoCert.UseMtls.NoCRL != nil {
+			if !data.TLSTCPAutoCert.UseMtls.NoCRL.IsNull() && !data.TLSTCPAutoCert.UseMtls.NoCRL.IsUnknown() {
 				TLSTCPAutoCertUseMtlsMap["no_crl"] = map[string]interface{}{}
 			}
 			if data.TLSTCPAutoCert.UseMtls.TrustedCA != nil {
@@ -2774,7 +2959,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			if !data.TLSTCPAutoCert.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCAURL.IsUnknown() {
 				TLSTCPAutoCertUseMtlsMap["trusted_ca_url"] = data.TLSTCPAutoCert.UseMtls.TrustedCAURL.ValueString()
 			}
-			if data.TLSTCPAutoCert.UseMtls.XfccDisabled != nil {
+			if !data.TLSTCPAutoCert.UseMtls.XfccDisabled.IsNull() && !data.TLSTCPAutoCert.UseMtls.XfccDisabled.IsUnknown() {
 				TLSTCPAutoCertUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 			}
 			if data.TLSTCPAutoCert.UseMtls.XfccOptions != nil {
@@ -2796,7 +2981,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if !data.DNSVolterraManaged.IsNull() && !data.DNSVolterraManaged.IsUnknown() {
 		createReq.Spec["dns_volterra_managed"] = data.DNSVolterraManaged.ValueBool()
 	}
-	if data.HashPolicyChoiceRoundRobin != nil {
+	if !data.HashPolicyChoiceRoundRobin.IsNull() && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
 		createReq.Spec["hash_policy_choice_round_robin"] = map[string]interface{}{}
 	}
 	if !data.IdleTimeout.IsNull() && !data.IdleTimeout.IsUnknown() {
@@ -2805,19 +2990,19 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if !data.ListenPort.IsNull() && !data.ListenPort.IsUnknown() {
 		createReq.Spec["listen_port"] = data.ListenPort.ValueInt64()
 	}
-	if data.NoSni != nil {
+	if !data.NoSni.IsNull() && !data.NoSni.IsUnknown() {
 		createReq.Spec["no_sni"] = map[string]interface{}{}
 	}
 	if !data.PortRanges.IsNull() && !data.PortRanges.IsUnknown() {
 		createReq.Spec["port_ranges"] = data.PortRanges.ValueString()
 	}
-	if data.RetractCluster != nil {
+	if !data.RetractCluster.IsNull() && !data.RetractCluster.IsUnknown() {
 		createReq.Spec["retract_cluster"] = map[string]interface{}{}
 	}
-	if data.ServicePoliciesFromNamespace != nil {
+	if !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
 		createReq.Spec["service_policies_from_namespace"] = map[string]interface{}{}
 	}
-	if data.TCP != nil {
+	if !data.TCP.IsNull() && !data.TCP.IsUnknown() {
 		createReq.Spec["tcp"] = map[string]interface{}{}
 	}
 
@@ -3007,35 +3192,35 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									}
 									return nil
 								}(),
-								UseDefaultPort: func() *TCPLoadBalancerEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+								UseDefaultPort: func() types.Object {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-										return &TCPLoadBalancerEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								VirtualNetwork: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
 									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
-											DefaultV6VIP: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+											DefaultV6VIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
 												}
 												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
-													return &TCPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											DefaultVIP: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+											DefaultVIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
 												}
 												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
-													return &TCPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SpecificV6VIP: func() types.String {
 												if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
@@ -3256,17 +3441,33 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok && isImport && data.AdvertiseOnPublicDefaultVIP == nil {
-		data.AdvertiseOnPublicDefaultVIP = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["default_lb_with_sni"].(map[string]interface{}); ok && isImport && data.DefaultLBWithSni == nil {
-		data.DefaultLBWithSni = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.DefaultLBWithSni.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_lb_with_sni"].(map[string]interface{}); ok {
+		data.DefaultLBWithSni = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultLBWithSni = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		data.DoNotAdvertise = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.DoNotAdvertise.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok {
+		data.DoNotAdvertise = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DoNotAdvertise = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok && isImport && data.DoNotRetractCluster == nil {
-		data.DoNotRetractCluster = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.DoNotRetractCluster.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok {
+		data.DoNotRetractCluster = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DoNotRetractCluster = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
 		domainsList := make([]string, 0, len(v))
@@ -3283,17 +3484,33 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceLeastActive == nil {
-		data.HashPolicyChoiceLeastActive = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceLeastActive.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceLeastActive = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceLeastActive = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {
-		data.HashPolicyChoiceRandom = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceRandom.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceRandom = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRandom = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceSourceIPStickiness == nil {
-		data.HashPolicyChoiceSourceIPStickiness = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok && isImport && data.NoServicePolicies == nil {
-		data.NoServicePolicies = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.NoServicePolicies.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok {
+		data.NoServicePolicies = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoServicePolicies = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.OriginPoolsWeights.IsNull() || len(data.OriginPoolsWeights.Elements()) == 0) {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
@@ -3389,8 +3606,12 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	} else {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["sni"].(map[string]interface{}); ok && isImport && data.Sni == nil {
-		data.Sni = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.Sni.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["sni"].(map[string]interface{}); ok {
+		data.Sni = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Sni = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["tls_tcp"].(map[string]interface{}); ok && (isImport || data.TLSTCP != nil) {
 		data.TLSTCP = &TCPLoadBalancerTLSTCPModel{
@@ -3437,14 +3658,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes})
 						}(),
-						NoMtls: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil {
+						NoMtls: func() types.Object {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && !data.TLSTCP.TLSCertParams.NoMtls.IsUnknown() {
 								return data.TLSTCP.TLSCertParams.NoMtls
 							}
 							if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel {
 							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
@@ -3488,32 +3709,32 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										}
 										return nil
 									}(),
-									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+									DefaultSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil && !data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity
 										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									LowSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+									LowSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil && !data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity
 										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+									MediumSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil && !data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity
 										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -3556,14 +3777,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										}
 										return nil
 									}(),
-									NoCRL: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil {
+									NoCRL: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && !data.TLSTCP.TLSCertParams.UseMtls.NoCRL.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.UseMtls.NoCRL
 										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TrustedCA: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsTrustedCAModel {
 										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -3596,14 +3817,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										}
 										return types.StringNull()
 									}(),
-									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil {
+									XfccDisabled: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && !data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled
 										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel {
 										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && data.TLSTCP.TLSCertParams.UseMtls.XfccOptions != nil {
@@ -3640,14 +3861,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			TLSParameters: func() *TCPLoadBalancerTLSTCPTLSParametersModel {
 				if TLSParametersData, ok := blockData["tls_parameters"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSParametersModel{
-						NoMtls: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil {
+						NoMtls: func() types.Object {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && !data.TLSTCP.TLSParameters.NoMtls.IsUnknown() {
 								return data.TLSTCP.TLSParameters.NoMtls
 							}
 							if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TLSCertificates: func() types.List {
 							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && (data.TLSTCP.TLSParameters.TLSCertificates.IsNull() || len(data.TLSTCP.TLSParameters.TLSCertificates.Elements()) == 0) {
@@ -3696,14 +3917,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &TCPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -3762,14 +3983,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &TCPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -3821,32 +4042,32 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										}
 										return nil
 									}(),
-									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+									DefaultSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil && !data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity.IsUnknown() {
 											return data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity
 										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									LowSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+									LowSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil && !data.TLSTCP.TLSParameters.TLSConfig.LowSecurity.IsUnknown() {
 											return data.TLSTCP.TLSParameters.TLSConfig.LowSecurity
 										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+									MediumSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil && !data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity.IsUnknown() {
 											return data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity
 										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -3889,14 +4110,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										}
 										return nil
 									}(),
-									NoCRL: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil {
+									NoCRL: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && !data.TLSTCP.TLSParameters.UseMtls.NoCRL.IsUnknown() {
 											return data.TLSTCP.TLSParameters.UseMtls.NoCRL
 										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TrustedCA: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsTrustedCAModel {
 										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -3929,14 +4150,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 										}
 										return types.StringNull()
 									}(),
-									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil {
+									XfccDisabled: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && !data.TLSTCP.TLSParameters.UseMtls.XfccDisabled.IsUnknown() {
 											return data.TLSTCP.TLSParameters.UseMtls.XfccDisabled
 										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel {
 										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && data.TLSTCP.TLSParameters.UseMtls.XfccOptions != nil {
@@ -3974,14 +4195,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	}
 	if blockData, ok := apiResource.Spec["tls_tcp_auto_cert"].(map[string]interface{}); ok && (isImport || data.TLSTCPAutoCert != nil) {
 		data.TLSTCPAutoCert = &TCPLoadBalancerTLSTCPAutoCertModel{
-			NoMtls: func() *TCPLoadBalancerEmptyModel {
-				if !isImport && data.TLSTCPAutoCert != nil {
+			NoMtls: func() types.Object {
+				if !isImport && data.TLSTCPAutoCert != nil && !data.TLSTCPAutoCert.NoMtls.IsUnknown() {
 					return data.TLSTCPAutoCert.NoMtls
 				}
 				if _, ok := blockData["no_mtls"].(map[string]interface{}); ok {
-					return &TCPLoadBalancerEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			TLSConfig: func() *TCPLoadBalancerTLSTCPAutoCertTLSConfigModel {
 				if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
@@ -4025,32 +4246,32 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							return nil
 						}(),
-						DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+						DefaultSecurity: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil && !data.TLSTCPAutoCert.TLSConfig.DefaultSecurity.IsUnknown() {
 								return data.TLSTCPAutoCert.TLSConfig.DefaultSecurity
 							}
 							if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						LowSecurity: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+						LowSecurity: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil && !data.TLSTCPAutoCert.TLSConfig.LowSecurity.IsUnknown() {
 								return data.TLSTCPAutoCert.TLSConfig.LowSecurity
 							}
 							if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						MediumSecurity: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+						MediumSecurity: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil && !data.TLSTCPAutoCert.TLSConfig.MediumSecurity.IsUnknown() {
 								return data.TLSTCPAutoCert.TLSConfig.MediumSecurity
 							}
 							if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -4093,14 +4314,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							return nil
 						}(),
-						NoCRL: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+						NoCRL: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && !data.TLSTCPAutoCert.UseMtls.NoCRL.IsUnknown() {
 								return data.TLSTCPAutoCert.UseMtls.NoCRL
 							}
 							if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TrustedCA: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsTrustedCAModel {
 							if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -4133,14 +4354,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							return types.StringNull()
 						}(),
-						XfccDisabled: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+						XfccDisabled: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && !data.TLSTCPAutoCert.UseMtls.XfccDisabled.IsUnknown() {
 								return data.TLSTCPAutoCert.UseMtls.XfccDisabled
 							}
 							if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						XfccOptions: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel {
 							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && data.TLSTCPAutoCert.UseMtls.XfccOptions != nil {
@@ -4182,6 +4403,13 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			data.DNSVolterraManaged = types.BoolNull()
 		}
 	}
+	if !isImport && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok && !isImport {
+		data.HashPolicyChoiceRoundRobin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRoundRobin = types.ObjectNull(map[string]attr.Type{})
+	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
 	} else {
@@ -4192,16 +4420,38 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	} else {
 		data.ListenPort = types.Int64Null()
 	}
-	if _, ok := apiResource.Spec["no_sni"].(map[string]interface{}); ok && isImport && data.NoSni == nil {
-		data.NoSni = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.NoSni.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_sni"].(map[string]interface{}); ok {
+		data.NoSni = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoSni = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["port_ranges"].(string); ok && v != "" {
 		data.PortRanges = types.StringValue(v)
 	} else {
 		data.PortRanges = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["tcp"].(map[string]interface{}); ok && isImport && data.TCP == nil {
-		data.TCP = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.RetractCluster.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["retract_cluster"].(map[string]interface{}); ok && !isImport {
+		data.RetractCluster = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.RetractCluster = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.ServicePoliciesFromNamespace.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok && !isImport {
+		data.ServicePoliciesFromNamespace = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ServicePoliciesFromNamespace = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.TCP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["tcp"].(map[string]interface{}); ok {
+		data.TCP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.TCP = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	tflog.Trace(ctx, "created TCPLoadBalancer resource")
@@ -4482,35 +4732,35 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									}
 									return nil
 								}(),
-								UseDefaultPort: func() *TCPLoadBalancerEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+								UseDefaultPort: func() types.Object {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-										return &TCPLoadBalancerEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								VirtualNetwork: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
 									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
-											DefaultV6VIP: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+											DefaultV6VIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
 												}
 												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
-													return &TCPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											DefaultVIP: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+											DefaultVIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
 												}
 												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
-													return &TCPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SpecificV6VIP: func() types.String {
 												if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
@@ -4731,17 +4981,33 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok && isImport && data.AdvertiseOnPublicDefaultVIP == nil {
-		data.AdvertiseOnPublicDefaultVIP = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["default_lb_with_sni"].(map[string]interface{}); ok && isImport && data.DefaultLBWithSni == nil {
-		data.DefaultLBWithSni = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.DefaultLBWithSni.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_lb_with_sni"].(map[string]interface{}); ok {
+		data.DefaultLBWithSni = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultLBWithSni = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		data.DoNotAdvertise = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.DoNotAdvertise.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok {
+		data.DoNotAdvertise = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DoNotAdvertise = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok && isImport && data.DoNotRetractCluster == nil {
-		data.DoNotRetractCluster = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.DoNotRetractCluster.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok {
+		data.DoNotRetractCluster = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DoNotRetractCluster = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
 		domainsList := make([]string, 0, len(v))
@@ -4758,17 +5024,33 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceLeastActive == nil {
-		data.HashPolicyChoiceLeastActive = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceLeastActive.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceLeastActive = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceLeastActive = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {
-		data.HashPolicyChoiceRandom = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceRandom.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceRandom = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRandom = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceSourceIPStickiness == nil {
-		data.HashPolicyChoiceSourceIPStickiness = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok && isImport && data.NoServicePolicies == nil {
-		data.NoServicePolicies = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.NoServicePolicies.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok {
+		data.NoServicePolicies = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoServicePolicies = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.OriginPoolsWeights.IsNull() || len(data.OriginPoolsWeights.Elements()) == 0) {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
@@ -4864,8 +5146,12 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	} else {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["sni"].(map[string]interface{}); ok && isImport && data.Sni == nil {
-		data.Sni = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.Sni.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["sni"].(map[string]interface{}); ok {
+		data.Sni = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Sni = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["tls_tcp"].(map[string]interface{}); ok && (isImport || data.TLSTCP != nil) {
 		data.TLSTCP = &TCPLoadBalancerTLSTCPModel{
@@ -4912,14 +5198,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes})
 						}(),
-						NoMtls: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil {
+						NoMtls: func() types.Object {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && !data.TLSTCP.TLSCertParams.NoMtls.IsUnknown() {
 								return data.TLSTCP.TLSCertParams.NoMtls
 							}
 							if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel {
 							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
@@ -4963,32 +5249,32 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										}
 										return nil
 									}(),
-									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+									DefaultSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil && !data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity
 										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									LowSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+									LowSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil && !data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity
 										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+									MediumSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil && !data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity
 										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -5031,14 +5317,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										}
 										return nil
 									}(),
-									NoCRL: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil {
+									NoCRL: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && !data.TLSTCP.TLSCertParams.UseMtls.NoCRL.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.UseMtls.NoCRL
 										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TrustedCA: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsTrustedCAModel {
 										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -5071,14 +5357,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										}
 										return types.StringNull()
 									}(),
-									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil {
+									XfccDisabled: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && !data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled
 										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel {
 										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && data.TLSTCP.TLSCertParams.UseMtls.XfccOptions != nil {
@@ -5115,14 +5401,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 			TLSParameters: func() *TCPLoadBalancerTLSTCPTLSParametersModel {
 				if TLSParametersData, ok := blockData["tls_parameters"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSParametersModel{
-						NoMtls: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil {
+						NoMtls: func() types.Object {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && !data.TLSTCP.TLSParameters.NoMtls.IsUnknown() {
 								return data.TLSTCP.TLSParameters.NoMtls
 							}
 							if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TLSCertificates: func() types.List {
 							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && (data.TLSTCP.TLSParameters.TLSCertificates.IsNull() || len(data.TLSTCP.TLSParameters.TLSCertificates.Elements()) == 0) {
@@ -5171,14 +5457,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &TCPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -5237,14 +5523,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &TCPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -5296,32 +5582,32 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										}
 										return nil
 									}(),
-									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+									DefaultSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil && !data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity.IsUnknown() {
 											return data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity
 										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									LowSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+									LowSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil && !data.TLSTCP.TLSParameters.TLSConfig.LowSecurity.IsUnknown() {
 											return data.TLSTCP.TLSParameters.TLSConfig.LowSecurity
 										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+									MediumSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil && !data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity.IsUnknown() {
 											return data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity
 										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -5364,14 +5650,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										}
 										return nil
 									}(),
-									NoCRL: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil {
+									NoCRL: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && !data.TLSTCP.TLSParameters.UseMtls.NoCRL.IsUnknown() {
 											return data.TLSTCP.TLSParameters.UseMtls.NoCRL
 										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TrustedCA: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsTrustedCAModel {
 										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -5404,14 +5690,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 										}
 										return types.StringNull()
 									}(),
-									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil {
+									XfccDisabled: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && !data.TLSTCP.TLSParameters.UseMtls.XfccDisabled.IsUnknown() {
 											return data.TLSTCP.TLSParameters.UseMtls.XfccDisabled
 										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel {
 										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && data.TLSTCP.TLSParameters.UseMtls.XfccOptions != nil {
@@ -5449,14 +5735,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	}
 	if blockData, ok := apiResource.Spec["tls_tcp_auto_cert"].(map[string]interface{}); ok && (isImport || data.TLSTCPAutoCert != nil) {
 		data.TLSTCPAutoCert = &TCPLoadBalancerTLSTCPAutoCertModel{
-			NoMtls: func() *TCPLoadBalancerEmptyModel {
-				if !isImport && data.TLSTCPAutoCert != nil {
+			NoMtls: func() types.Object {
+				if !isImport && data.TLSTCPAutoCert != nil && !data.TLSTCPAutoCert.NoMtls.IsUnknown() {
 					return data.TLSTCPAutoCert.NoMtls
 				}
 				if _, ok := blockData["no_mtls"].(map[string]interface{}); ok {
-					return &TCPLoadBalancerEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			TLSConfig: func() *TCPLoadBalancerTLSTCPAutoCertTLSConfigModel {
 				if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
@@ -5500,32 +5786,32 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							}
 							return nil
 						}(),
-						DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+						DefaultSecurity: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil && !data.TLSTCPAutoCert.TLSConfig.DefaultSecurity.IsUnknown() {
 								return data.TLSTCPAutoCert.TLSConfig.DefaultSecurity
 							}
 							if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						LowSecurity: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+						LowSecurity: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil && !data.TLSTCPAutoCert.TLSConfig.LowSecurity.IsUnknown() {
 								return data.TLSTCPAutoCert.TLSConfig.LowSecurity
 							}
 							if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						MediumSecurity: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+						MediumSecurity: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil && !data.TLSTCPAutoCert.TLSConfig.MediumSecurity.IsUnknown() {
 								return data.TLSTCPAutoCert.TLSConfig.MediumSecurity
 							}
 							if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -5568,14 +5854,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							}
 							return nil
 						}(),
-						NoCRL: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+						NoCRL: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && !data.TLSTCPAutoCert.UseMtls.NoCRL.IsUnknown() {
 								return data.TLSTCPAutoCert.UseMtls.NoCRL
 							}
 							if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TrustedCA: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsTrustedCAModel {
 							if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -5608,14 +5894,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 							}
 							return types.StringNull()
 						}(),
-						XfccDisabled: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+						XfccDisabled: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && !data.TLSTCPAutoCert.UseMtls.XfccDisabled.IsUnknown() {
 								return data.TLSTCPAutoCert.UseMtls.XfccDisabled
 							}
 							if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						XfccOptions: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel {
 							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && data.TLSTCPAutoCert.UseMtls.XfccOptions != nil {
@@ -5657,6 +5943,13 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 			data.DNSVolterraManaged = types.BoolNull()
 		}
 	}
+	if !isImport && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok && !isImport {
+		data.HashPolicyChoiceRoundRobin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRoundRobin = types.ObjectNull(map[string]attr.Type{})
+	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
 	} else {
@@ -5667,16 +5960,38 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	} else {
 		data.ListenPort = types.Int64Null()
 	}
-	if _, ok := apiResource.Spec["no_sni"].(map[string]interface{}); ok && isImport && data.NoSni == nil {
-		data.NoSni = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.NoSni.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_sni"].(map[string]interface{}); ok {
+		data.NoSni = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoSni = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["port_ranges"].(string); ok && v != "" {
 		data.PortRanges = types.StringValue(v)
 	} else {
 		data.PortRanges = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["tcp"].(map[string]interface{}); ok && isImport && data.TCP == nil {
-		data.TCP = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.RetractCluster.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["retract_cluster"].(map[string]interface{}); ok && !isImport {
+		data.RetractCluster = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.RetractCluster = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.ServicePoliciesFromNamespace.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok && !isImport {
+		data.ServicePoliciesFromNamespace = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ServicePoliciesFromNamespace = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.TCP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["tcp"].(map[string]interface{}); ok {
+		data.TCP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.TCP = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -5845,15 +6160,15 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						AdvertiseWhereItemMap["site"] = AdvertiseCustomAdvertiseWhereSiteMap
 					}
-					if AdvertiseWhereItem.UseDefaultPort != nil {
+					if !AdvertiseWhereItem.UseDefaultPort.IsNull() && !AdvertiseWhereItem.UseDefaultPort.IsUnknown() {
 						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 					}
 					if AdvertiseWhereItem.VirtualNetwork != nil {
 						AdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
-						if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+						if !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsUnknown() {
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 						}
-						if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+						if !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsUnknown() {
 							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 						}
 						if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
@@ -5956,16 +6271,16 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		}
 		apiResource.Spec["advertise_on_public"] = AdvertiseOnPublicMap
 	}
-	if data.AdvertiseOnPublicDefaultVIP != nil {
+	if !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 		apiResource.Spec["advertise_on_public_default_vip"] = map[string]interface{}{}
 	}
-	if data.DefaultLBWithSni != nil {
+	if !data.DefaultLBWithSni.IsNull() && !data.DefaultLBWithSni.IsUnknown() {
 		apiResource.Spec["default_lb_with_sni"] = map[string]interface{}{}
 	}
-	if data.DoNotAdvertise != nil {
+	if !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
 		apiResource.Spec["do_not_advertise"] = map[string]interface{}{}
 	}
-	if data.DoNotRetractCluster != nil {
+	if !data.DoNotRetractCluster.IsNull() && !data.DoNotRetractCluster.IsUnknown() {
 		apiResource.Spec["do_not_retract_cluster"] = map[string]interface{}{}
 	}
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
@@ -5976,16 +6291,16 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			apiResource.Spec["domains"] = DomainsItems
 		}
 	}
-	if data.HashPolicyChoiceLeastActive != nil {
+	if !data.HashPolicyChoiceLeastActive.IsNull() && !data.HashPolicyChoiceLeastActive.IsUnknown() {
 		apiResource.Spec["hash_policy_choice_least_active"] = map[string]interface{}{}
 	}
-	if data.HashPolicyChoiceRandom != nil {
+	if !data.HashPolicyChoiceRandom.IsNull() && !data.HashPolicyChoiceRandom.IsUnknown() {
 		apiResource.Spec["hash_policy_choice_random"] = map[string]interface{}{}
 	}
-	if data.HashPolicyChoiceSourceIPStickiness != nil {
+	if !data.HashPolicyChoiceSourceIPStickiness.IsNull() && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
 		apiResource.Spec["hash_policy_choice_source_ip_stickiness"] = map[string]interface{}{}
 	}
-	if data.NoServicePolicies != nil {
+	if !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() {
 		apiResource.Spec["no_service_policies"] = map[string]interface{}{}
 	}
 	if !data.OriginPoolsWeights.IsNull() && !data.OriginPoolsWeights.IsUnknown() {
@@ -6030,7 +6345,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			apiResource.Spec["origin_pools_weights"] = OriginPoolsWeightsList
 		}
 	}
-	if data.Sni != nil {
+	if !data.Sni.IsNull() && !data.Sni.IsUnknown() {
 		apiResource.Spec["sni"] = map[string]interface{}{}
 	}
 	if data.TLSTCP != nil {
@@ -6056,7 +6371,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					TLSTCPTLSCertParamsMap["certificates"] = CertificatesList
 				}
 			}
-			if data.TLSTCP.TLSCertParams.NoMtls != nil {
+			if !data.TLSTCP.TLSCertParams.NoMtls.IsNull() && !data.TLSTCP.TLSCertParams.NoMtls.IsUnknown() {
 				TLSTCPTLSCertParamsMap["no_mtls"] = map[string]interface{}{}
 			}
 			if data.TLSTCP.TLSCertParams.TLSConfig != nil {
@@ -6079,13 +6394,13 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					}
 					TLSTCPTLSCertParamsTLSConfigMap["custom_security"] = TLSTCPTLSCertParamsTLSConfigCustomSecurityMap
 				}
-				if data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity != nil {
+				if !data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity.IsUnknown() {
 					TLSTCPTLSCertParamsTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
-				if data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity != nil {
+				if !data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity.IsUnknown() {
 					TLSTCPTLSCertParamsTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
-				if data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity != nil {
+				if !data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity.IsUnknown() {
 					TLSTCPTLSCertParamsTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
 				TLSTCPTLSCertParamsMap["tls_config"] = TLSTCPTLSCertParamsTLSConfigMap
@@ -6105,7 +6420,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					}
 					TLSTCPTLSCertParamsUseMtlsMap["crl"] = TLSTCPTLSCertParamsUseMtlsCRLMap
 				}
-				if data.TLSTCP.TLSCertParams.UseMtls.NoCRL != nil {
+				if !data.TLSTCP.TLSCertParams.UseMtls.NoCRL.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.NoCRL.IsUnknown() {
 					TLSTCPTLSCertParamsUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.TrustedCA != nil {
@@ -6121,7 +6436,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.IsUnknown() {
 					TLSTCPTLSCertParamsUseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
 				}
-				if data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled != nil {
+				if !data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled.IsUnknown() {
 					TLSTCPTLSCertParamsUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.XfccOptions != nil {
@@ -6142,7 +6457,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		}
 		if data.TLSTCP.TLSParameters != nil {
 			TLSTCPTLSParametersMap := make(map[string]interface{})
-			if data.TLSTCP.TLSParameters.NoMtls != nil {
+			if !data.TLSTCP.TLSParameters.NoMtls.IsNull() && !data.TLSTCP.TLSParameters.NoMtls.IsUnknown() {
 				TLSTCPTLSParametersMap["no_mtls"] = map[string]interface{}{}
 			}
 			if !data.TLSTCP.TLSParameters.TLSCertificates.IsNull() && !data.TLSTCP.TLSParameters.TLSCertificates.IsUnknown() {
@@ -6171,7 +6486,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
+						if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
@@ -6201,7 +6516,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							TLSCertificatesItemMap["private_key"] = TLSTCPTLSParametersTLSCertificatesPrivateKeyMap
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
+						if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -6229,13 +6544,13 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					}
 					TLSTCPTLSParametersTLSConfigMap["custom_security"] = TLSTCPTLSParametersTLSConfigCustomSecurityMap
 				}
-				if data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity != nil {
+				if !data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity.IsUnknown() {
 					TLSTCPTLSParametersTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
-				if data.TLSTCP.TLSParameters.TLSConfig.LowSecurity != nil {
+				if !data.TLSTCP.TLSParameters.TLSConfig.LowSecurity.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.LowSecurity.IsUnknown() {
 					TLSTCPTLSParametersTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
-				if data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity != nil {
+				if !data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity.IsUnknown() {
 					TLSTCPTLSParametersTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
 				TLSTCPTLSParametersMap["tls_config"] = TLSTCPTLSParametersTLSConfigMap
@@ -6255,7 +6570,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					}
 					TLSTCPTLSParametersUseMtlsMap["crl"] = TLSTCPTLSParametersUseMtlsCRLMap
 				}
-				if data.TLSTCP.TLSParameters.UseMtls.NoCRL != nil {
+				if !data.TLSTCP.TLSParameters.UseMtls.NoCRL.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.NoCRL.IsUnknown() {
 					TLSTCPTLSParametersUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.TrustedCA != nil {
@@ -6271,7 +6586,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				if !data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.IsUnknown() {
 					TLSTCPTLSParametersUseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.ValueString()
 				}
-				if data.TLSTCP.TLSParameters.UseMtls.XfccDisabled != nil {
+				if !data.TLSTCP.TLSParameters.UseMtls.XfccDisabled.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.XfccDisabled.IsUnknown() {
 					TLSTCPTLSParametersUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.XfccOptions != nil {
@@ -6294,7 +6609,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	}
 	if data.TLSTCPAutoCert != nil {
 		TLSTCPAutoCertMap := make(map[string]interface{})
-		if data.TLSTCPAutoCert.NoMtls != nil {
+		if !data.TLSTCPAutoCert.NoMtls.IsNull() && !data.TLSTCPAutoCert.NoMtls.IsUnknown() {
 			TLSTCPAutoCertMap["no_mtls"] = map[string]interface{}{}
 		}
 		if data.TLSTCPAutoCert.TLSConfig != nil {
@@ -6317,13 +6632,13 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				}
 				TLSTCPAutoCertTLSConfigMap["custom_security"] = TLSTCPAutoCertTLSConfigCustomSecurityMap
 			}
-			if data.TLSTCPAutoCert.TLSConfig.DefaultSecurity != nil {
+			if !data.TLSTCPAutoCert.TLSConfig.DefaultSecurity.IsNull() && !data.TLSTCPAutoCert.TLSConfig.DefaultSecurity.IsUnknown() {
 				TLSTCPAutoCertTLSConfigMap["default_security"] = map[string]interface{}{}
 			}
-			if data.TLSTCPAutoCert.TLSConfig.LowSecurity != nil {
+			if !data.TLSTCPAutoCert.TLSConfig.LowSecurity.IsNull() && !data.TLSTCPAutoCert.TLSConfig.LowSecurity.IsUnknown() {
 				TLSTCPAutoCertTLSConfigMap["low_security"] = map[string]interface{}{}
 			}
-			if data.TLSTCPAutoCert.TLSConfig.MediumSecurity != nil {
+			if !data.TLSTCPAutoCert.TLSConfig.MediumSecurity.IsNull() && !data.TLSTCPAutoCert.TLSConfig.MediumSecurity.IsUnknown() {
 				TLSTCPAutoCertTLSConfigMap["medium_security"] = map[string]interface{}{}
 			}
 			TLSTCPAutoCertMap["tls_config"] = TLSTCPAutoCertTLSConfigMap
@@ -6343,7 +6658,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				}
 				TLSTCPAutoCertUseMtlsMap["crl"] = TLSTCPAutoCertUseMtlsCRLMap
 			}
-			if data.TLSTCPAutoCert.UseMtls.NoCRL != nil {
+			if !data.TLSTCPAutoCert.UseMtls.NoCRL.IsNull() && !data.TLSTCPAutoCert.UseMtls.NoCRL.IsUnknown() {
 				TLSTCPAutoCertUseMtlsMap["no_crl"] = map[string]interface{}{}
 			}
 			if data.TLSTCPAutoCert.UseMtls.TrustedCA != nil {
@@ -6359,7 +6674,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			if !data.TLSTCPAutoCert.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCAURL.IsUnknown() {
 				TLSTCPAutoCertUseMtlsMap["trusted_ca_url"] = data.TLSTCPAutoCert.UseMtls.TrustedCAURL.ValueString()
 			}
-			if data.TLSTCPAutoCert.UseMtls.XfccDisabled != nil {
+			if !data.TLSTCPAutoCert.UseMtls.XfccDisabled.IsNull() && !data.TLSTCPAutoCert.UseMtls.XfccDisabled.IsUnknown() {
 				TLSTCPAutoCertUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 			}
 			if data.TLSTCPAutoCert.UseMtls.XfccOptions != nil {
@@ -6381,7 +6696,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if !data.DNSVolterraManaged.IsNull() && !data.DNSVolterraManaged.IsUnknown() {
 		apiResource.Spec["dns_volterra_managed"] = data.DNSVolterraManaged.ValueBool()
 	}
-	if data.HashPolicyChoiceRoundRobin != nil {
+	if !data.HashPolicyChoiceRoundRobin.IsNull() && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
 		apiResource.Spec["hash_policy_choice_round_robin"] = map[string]interface{}{}
 	}
 	if !data.IdleTimeout.IsNull() && !data.IdleTimeout.IsUnknown() {
@@ -6390,19 +6705,19 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if !data.ListenPort.IsNull() && !data.ListenPort.IsUnknown() {
 		apiResource.Spec["listen_port"] = data.ListenPort.ValueInt64()
 	}
-	if data.NoSni != nil {
+	if !data.NoSni.IsNull() && !data.NoSni.IsUnknown() {
 		apiResource.Spec["no_sni"] = map[string]interface{}{}
 	}
 	if !data.PortRanges.IsNull() && !data.PortRanges.IsUnknown() {
 		apiResource.Spec["port_ranges"] = data.PortRanges.ValueString()
 	}
-	if data.RetractCluster != nil {
+	if !data.RetractCluster.IsNull() && !data.RetractCluster.IsUnknown() {
 		apiResource.Spec["retract_cluster"] = map[string]interface{}{}
 	}
-	if data.ServicePoliciesFromNamespace != nil {
+	if !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
 		apiResource.Spec["service_policies_from_namespace"] = map[string]interface{}{}
 	}
-	if data.TCP != nil {
+	if !data.TCP.IsNull() && !data.TCP.IsUnknown() {
 		apiResource.Spec["tcp"] = map[string]interface{}{}
 	}
 
@@ -6640,35 +6955,35 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									}
 									return nil
 								}(),
-								UseDefaultPort: func() *TCPLoadBalancerEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+								UseDefaultPort: func() types.Object {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-										return &TCPLoadBalancerEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								VirtualNetwork: func() *TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
 									if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
-											DefaultV6VIP: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+											DefaultV6VIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
 												}
 												if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
-													return &TCPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											DefaultVIP: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+											DefaultVIP: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
 												}
 												if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
-													return &TCPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SpecificV6VIP: func() types.String {
 												if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
@@ -6889,17 +7204,33 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok && isImport && data.AdvertiseOnPublicDefaultVIP == nil {
-		data.AdvertiseOnPublicDefaultVIP = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["advertise_on_public_default_vip"].(map[string]interface{}); ok {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AdvertiseOnPublicDefaultVIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["default_lb_with_sni"].(map[string]interface{}); ok && isImport && data.DefaultLBWithSni == nil {
-		data.DefaultLBWithSni = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.DefaultLBWithSni.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_lb_with_sni"].(map[string]interface{}); ok {
+		data.DefaultLBWithSni = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultLBWithSni = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		data.DoNotAdvertise = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.DoNotAdvertise.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok {
+		data.DoNotAdvertise = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DoNotAdvertise = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok && isImport && data.DoNotRetractCluster == nil {
-		data.DoNotRetractCluster = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.DoNotRetractCluster.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["do_not_retract_cluster"].(map[string]interface{}); ok {
+		data.DoNotRetractCluster = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DoNotRetractCluster = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
 		domainsList := make([]string, 0, len(v))
@@ -6916,17 +7247,33 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	} else if isImport || data.Domains.IsUnknown() {
 		data.Domains = types.ListNull(types.StringType)
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceLeastActive == nil {
-		data.HashPolicyChoiceLeastActive = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceLeastActive.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_least_active"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceLeastActive = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceLeastActive = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceRandom == nil {
-		data.HashPolicyChoiceRandom = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceRandom.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_random"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceRandom = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRandom = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok && isImport && data.HashPolicyChoiceSourceIPStickiness == nil {
-		data.HashPolicyChoiceSourceIPStickiness = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.HashPolicyChoiceSourceIPStickiness.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_source_ip_stickiness"].(map[string]interface{}); ok {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceSourceIPStickiness = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok && isImport && data.NoServicePolicies == nil {
-		data.NoServicePolicies = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.NoServicePolicies.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_service_policies"].(map[string]interface{}); ok {
+		data.NoServicePolicies = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoServicePolicies = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.OriginPoolsWeights.IsNull() || len(data.OriginPoolsWeights.Elements()) == 0) {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
@@ -7022,8 +7369,12 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	} else {
 		data.OriginPoolsWeights = types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["sni"].(map[string]interface{}); ok && isImport && data.Sni == nil {
-		data.Sni = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.Sni.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["sni"].(map[string]interface{}); ok {
+		data.Sni = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Sni = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["tls_tcp"].(map[string]interface{}); ok && (isImport || data.TLSTCP != nil) {
 		data.TLSTCP = &TCPLoadBalancerTLSTCPModel{
@@ -7070,14 +7421,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModelAttrTypes})
 						}(),
-						NoMtls: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil {
+						NoMtls: func() types.Object {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && !data.TLSTCP.TLSCertParams.NoMtls.IsUnknown() {
 								return data.TLSTCP.TLSCertParams.NoMtls
 							}
 							if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TLSConfig: func() *TCPLoadBalancerTLSTCPTLSCertParamsTLSConfigModel {
 							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
@@ -7121,32 +7472,32 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										}
 										return nil
 									}(),
-									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+									DefaultSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil && !data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity
 										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									LowSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+									LowSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil && !data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity
 										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil {
+									MediumSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.TLSConfig != nil && !data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity
 										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -7189,14 +7540,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										}
 										return nil
 									}(),
-									NoCRL: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil {
+									NoCRL: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && !data.TLSTCP.TLSCertParams.UseMtls.NoCRL.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.UseMtls.NoCRL
 										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TrustedCA: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsTrustedCAModel {
 										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -7229,14 +7580,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										}
 										return types.StringNull()
 									}(),
-									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil {
+									XfccDisabled: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && !data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled.IsUnknown() {
 											return data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled
 										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSCertParamsUseMtlsXfccOptionsModel {
 										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSCertParams != nil && data.TLSTCP.TLSCertParams.UseMtls != nil && data.TLSTCP.TLSCertParams.UseMtls.XfccOptions != nil {
@@ -7273,14 +7624,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			TLSParameters: func() *TCPLoadBalancerTLSTCPTLSParametersModel {
 				if TLSParametersData, ok := blockData["tls_parameters"].(map[string]interface{}); ok {
 					return &TCPLoadBalancerTLSTCPTLSParametersModel{
-						NoMtls: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil {
+						NoMtls: func() types.Object {
+							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && !data.TLSTCP.TLSParameters.NoMtls.IsUnknown() {
 								return data.TLSTCP.TLSParameters.NoMtls
 							}
 							if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TLSCertificates: func() types.List {
 							if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && (data.TLSTCP.TLSParameters.TLSCertificates.IsNull() || len(data.TLSTCP.TLSParameters.TLSCertificates.Elements()) == 0) {
@@ -7329,14 +7680,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &TCPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -7395,14 +7746,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &TCPLoadBalancerEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -7454,32 +7805,32 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										}
 										return nil
 									}(),
-									DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+									DefaultSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil && !data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity.IsUnknown() {
 											return data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity
 										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									LowSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+									LowSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil && !data.TLSTCP.TLSParameters.TLSConfig.LowSecurity.IsUnknown() {
 											return data.TLSTCP.TLSParameters.TLSConfig.LowSecurity
 										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									MediumSecurity: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil {
+									MediumSecurity: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.TLSConfig != nil && !data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity.IsUnknown() {
 											return data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity
 										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -7522,14 +7873,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										}
 										return nil
 									}(),
-									NoCRL: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil {
+									NoCRL: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && !data.TLSTCP.TLSParameters.UseMtls.NoCRL.IsUnknown() {
 											return data.TLSTCP.TLSParameters.UseMtls.NoCRL
 										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TrustedCA: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsTrustedCAModel {
 										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -7562,14 +7913,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 										}
 										return types.StringNull()
 									}(),
-									XfccDisabled: func() *TCPLoadBalancerEmptyModel {
-										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil {
+									XfccDisabled: func() types.Object {
+										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && !data.TLSTCP.TLSParameters.UseMtls.XfccDisabled.IsUnknown() {
 											return data.TLSTCP.TLSParameters.UseMtls.XfccDisabled
 										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-											return &TCPLoadBalancerEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									XfccOptions: func() *TCPLoadBalancerTLSTCPTLSParametersUseMtlsXfccOptionsModel {
 										if !isImport && data.TLSTCP != nil && data.TLSTCP.TLSParameters != nil && data.TLSTCP.TLSParameters.UseMtls != nil && data.TLSTCP.TLSParameters.UseMtls.XfccOptions != nil {
@@ -7607,14 +7958,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	}
 	if blockData, ok := apiResource.Spec["tls_tcp_auto_cert"].(map[string]interface{}); ok && (isImport || data.TLSTCPAutoCert != nil) {
 		data.TLSTCPAutoCert = &TCPLoadBalancerTLSTCPAutoCertModel{
-			NoMtls: func() *TCPLoadBalancerEmptyModel {
-				if !isImport && data.TLSTCPAutoCert != nil {
+			NoMtls: func() types.Object {
+				if !isImport && data.TLSTCPAutoCert != nil && !data.TLSTCPAutoCert.NoMtls.IsUnknown() {
 					return data.TLSTCPAutoCert.NoMtls
 				}
 				if _, ok := blockData["no_mtls"].(map[string]interface{}); ok {
-					return &TCPLoadBalancerEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			TLSConfig: func() *TCPLoadBalancerTLSTCPAutoCertTLSConfigModel {
 				if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
@@ -7658,32 +8009,32 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							return nil
 						}(),
-						DefaultSecurity: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+						DefaultSecurity: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil && !data.TLSTCPAutoCert.TLSConfig.DefaultSecurity.IsUnknown() {
 								return data.TLSTCPAutoCert.TLSConfig.DefaultSecurity
 							}
 							if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						LowSecurity: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+						LowSecurity: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil && !data.TLSTCPAutoCert.TLSConfig.LowSecurity.IsUnknown() {
 								return data.TLSTCPAutoCert.TLSConfig.LowSecurity
 							}
 							if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						MediumSecurity: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil {
+						MediumSecurity: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.TLSConfig != nil && !data.TLSTCPAutoCert.TLSConfig.MediumSecurity.IsUnknown() {
 								return data.TLSTCPAutoCert.TLSConfig.MediumSecurity
 							}
 							if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -7726,14 +8077,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							return nil
 						}(),
-						NoCRL: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+						NoCRL: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && !data.TLSTCPAutoCert.UseMtls.NoCRL.IsUnknown() {
 								return data.TLSTCPAutoCert.UseMtls.NoCRL
 							}
 							if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						TrustedCA: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsTrustedCAModel {
 							if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -7766,14 +8117,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							return types.StringNull()
 						}(),
-						XfccDisabled: func() *TCPLoadBalancerEmptyModel {
-							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil {
+						XfccDisabled: func() types.Object {
+							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && !data.TLSTCPAutoCert.UseMtls.XfccDisabled.IsUnknown() {
 								return data.TLSTCPAutoCert.UseMtls.XfccDisabled
 							}
 							if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-								return &TCPLoadBalancerEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						XfccOptions: func() *TCPLoadBalancerTLSTCPAutoCertUseMtlsXfccOptionsModel {
 							if !isImport && data.TLSTCPAutoCert != nil && data.TLSTCPAutoCert.UseMtls != nil && data.TLSTCPAutoCert.UseMtls.XfccOptions != nil {
@@ -7815,6 +8166,13 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			data.DNSVolterraManaged = types.BoolNull()
 		}
 	}
+	if !isImport && !data.HashPolicyChoiceRoundRobin.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["hash_policy_choice_round_robin"].(map[string]interface{}); ok && !isImport {
+		data.HashPolicyChoiceRoundRobin = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.HashPolicyChoiceRoundRobin = types.ObjectNull(map[string]attr.Type{})
+	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
 	} else {
@@ -7825,16 +8183,38 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	} else {
 		data.ListenPort = types.Int64Null()
 	}
-	if _, ok := apiResource.Spec["no_sni"].(map[string]interface{}); ok && isImport && data.NoSni == nil {
-		data.NoSni = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.NoSni.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_sni"].(map[string]interface{}); ok {
+		data.NoSni = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoSni = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["port_ranges"].(string); ok && v != "" {
 		data.PortRanges = types.StringValue(v)
 	} else {
 		data.PortRanges = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["tcp"].(map[string]interface{}); ok && isImport && data.TCP == nil {
-		data.TCP = &TCPLoadBalancerEmptyModel{}
+	if !isImport && !data.RetractCluster.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["retract_cluster"].(map[string]interface{}); ok && !isImport {
+		data.RetractCluster = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.RetractCluster = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.ServicePoliciesFromNamespace.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["service_policies_from_namespace"].(map[string]interface{}); ok && !isImport {
+		data.ServicePoliciesFromNamespace = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ServicePoliciesFromNamespace = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.TCP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["tcp"].(map[string]interface{}); ok {
+		data.TCP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.TCP = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

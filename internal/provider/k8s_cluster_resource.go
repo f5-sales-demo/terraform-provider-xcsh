@@ -18,6 +18,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
@@ -64,18 +65,18 @@ var K8SClusterClusterWideAppListModelAttrTypes = map[string]attr.Type{
 
 // K8SClusterClusterWideAppListClusterWideAppsModel represents cluster_wide_apps block
 type K8SClusterClusterWideAppListClusterWideAppsModel struct {
+	Dashboard     types.Object                                            `tfsdk:"dashboard"`
+	MetricsServer types.Object                                            `tfsdk:"metrics_server"`
+	Prometheus    types.Object                                            `tfsdk:"prometheus"`
 	ArgoCd        *K8SClusterClusterWideAppListClusterWideAppsArgoCdModel `tfsdk:"argo_cd"`
-	Dashboard     *K8SClusterEmptyModel                                   `tfsdk:"dashboard"`
-	MetricsServer *K8SClusterEmptyModel                                   `tfsdk:"metrics_server"`
-	Prometheus    *K8SClusterEmptyModel                                   `tfsdk:"prometheus"`
 }
 
 // K8SClusterClusterWideAppListClusterWideAppsModelAttrTypes defines the attribute types for K8SClusterClusterWideAppListClusterWideAppsModel
 var K8SClusterClusterWideAppListClusterWideAppsModelAttrTypes = map[string]attr.Type{
-	"argo_cd":        types.ObjectType{AttrTypes: K8SClusterClusterWideAppListClusterWideAppsArgoCdModelAttrTypes},
 	"dashboard":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"metrics_server": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"prometheus":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"argo_cd":        types.ObjectType{AttrTypes: K8SClusterClusterWideAppListClusterWideAppsArgoCdModelAttrTypes},
 }
 
 // K8SClusterClusterWideAppListClusterWideAppsArgoCdModel represents argo_cd block
@@ -90,17 +91,17 @@ var K8SClusterClusterWideAppListClusterWideAppsArgoCdModelAttrTypes = map[string
 
 // K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModel represents local_domain block
 type K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModel struct {
+	DefaultPort types.Object                                                               `tfsdk:"default_port"`
 	LocalDomain types.String                                                               `tfsdk:"local_domain"`
 	Port        types.Int64                                                                `tfsdk:"port"`
-	DefaultPort *K8SClusterEmptyModel                                                      `tfsdk:"default_port"`
 	Password    *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordModel `tfsdk:"password"`
 }
 
 // K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModelAttrTypes defines the attribute types for K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModel
 var K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModelAttrTypes = map[string]attr.Type{
+	"default_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"local_domain": types.StringType,
 	"port":         types.Int64Type,
-	"default_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"password":     types.ObjectType{AttrTypes: K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordModelAttrTypes},
 }
 
@@ -154,16 +155,16 @@ var K8SClusterInsecureRegistryListModelAttrTypes = map[string]attr.Type{
 
 // K8SClusterLocalAccessConfigModel represents local_access_config block
 type K8SClusterLocalAccessConfigModel struct {
-	LocalDomain types.String          `tfsdk:"local_domain"`
-	Port        types.Int64           `tfsdk:"port"`
-	DefaultPort *K8SClusterEmptyModel `tfsdk:"default_port"`
+	DefaultPort types.Object `tfsdk:"default_port"`
+	LocalDomain types.String `tfsdk:"local_domain"`
+	Port        types.Int64  `tfsdk:"port"`
 }
 
 // K8SClusterLocalAccessConfigModelAttrTypes defines the attribute types for K8SClusterLocalAccessConfigModel
 var K8SClusterLocalAccessConfigModelAttrTypes = map[string]attr.Type{
+	"default_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"local_domain": types.StringType,
 	"port":         types.Int64Type,
-	"default_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // K8SClusterUseCustomClusterRoleBindingsModel represents use_custom_cluster_role_bindings block
@@ -256,31 +257,31 @@ type K8SClusterResourceModel struct {
 	Name                           types.String                                  `tfsdk:"name"`
 	Namespace                      types.String                                  `tfsdk:"namespace"`
 	Annotations                    types.Map                                     `tfsdk:"annotations"`
+	ClusterScopedAccessPermit      types.Object                                  `tfsdk:"cluster_scoped_access_permit"`
 	Description                    types.String                                  `tfsdk:"description"`
 	Disable                        types.Bool                                    `tfsdk:"disable"`
+	GlobalAccessEnable             types.Object                                  `tfsdk:"global_access_enable"`
 	Labels                         types.Map                                     `tfsdk:"labels"`
+	UseDefaultPodSecurityAdmission types.Object                                  `tfsdk:"use_default_pod_security_admission"`
+	Vk8sNamespaceAccessPermit      types.Object                                  `tfsdk:"vk8s_namespace_access_permit"`
 	ID                             types.String                                  `tfsdk:"id"`
+	ClusterScopedAccessDeny        types.Object                                  `tfsdk:"cluster_scoped_access_deny"`
+	NoClusterWideApps              types.Object                                  `tfsdk:"no_cluster_wide_apps"`
+	NoGlobalAccess                 types.Object                                  `tfsdk:"no_global_access"`
+	NoInsecureRegistries           types.Object                                  `tfsdk:"no_insecure_registries"`
+	NoLocalAccess                  types.Object                                  `tfsdk:"no_local_access"`
+	UseDefaultClusterRoleBindings  types.Object                                  `tfsdk:"use_default_cluster_role_bindings"`
+	UseDefaultClusterRoles         types.Object                                  `tfsdk:"use_default_cluster_roles"`
+	UseDefaultPsp                  types.Object                                  `tfsdk:"use_default_psp"`
+	Vk8sNamespaceAccessDeny        types.Object                                  `tfsdk:"vk8s_namespace_access_deny"`
 	Timeouts                       timeouts.Value                                `tfsdk:"timeouts"`
-	ClusterScopedAccessPermit      *K8SClusterEmptyModel                         `tfsdk:"cluster_scoped_access_permit"`
 	ClusterWideAppList             *K8SClusterClusterWideAppListModel            `tfsdk:"cluster_wide_app_list"`
-	GlobalAccessEnable             *K8SClusterEmptyModel                         `tfsdk:"global_access_enable"`
 	InsecureRegistryList           *K8SClusterInsecureRegistryListModel          `tfsdk:"insecure_registry_list"`
 	LocalAccessConfig              *K8SClusterLocalAccessConfigModel             `tfsdk:"local_access_config"`
 	UseCustomClusterRoleBindings   *K8SClusterUseCustomClusterRoleBindingsModel  `tfsdk:"use_custom_cluster_role_bindings"`
 	UseCustomClusterRoleList       *K8SClusterUseCustomClusterRoleListModel      `tfsdk:"use_custom_cluster_role_list"`
 	UseCustomPodSecurityAdmission  *K8SClusterUseCustomPodSecurityAdmissionModel `tfsdk:"use_custom_pod_security_admission"`
 	UseCustomPspList               *K8SClusterUseCustomPspListModel              `tfsdk:"use_custom_psp_list"`
-	UseDefaultPodSecurityAdmission *K8SClusterEmptyModel                         `tfsdk:"use_default_pod_security_admission"`
-	Vk8sNamespaceAccessPermit      *K8SClusterEmptyModel                         `tfsdk:"vk8s_namespace_access_permit"`
-	ClusterScopedAccessDeny        *K8SClusterEmptyModel                         `tfsdk:"cluster_scoped_access_deny"`
-	NoClusterWideApps              *K8SClusterEmptyModel                         `tfsdk:"no_cluster_wide_apps"`
-	NoGlobalAccess                 *K8SClusterEmptyModel                         `tfsdk:"no_global_access"`
-	NoInsecureRegistries           *K8SClusterEmptyModel                         `tfsdk:"no_insecure_registries"`
-	NoLocalAccess                  *K8SClusterEmptyModel                         `tfsdk:"no_local_access"`
-	UseDefaultClusterRoleBindings  *K8SClusterEmptyModel                         `tfsdk:"use_default_cluster_role_bindings"`
-	UseDefaultClusterRoles         *K8SClusterEmptyModel                         `tfsdk:"use_default_cluster_roles"`
-	UseDefaultPsp                  *K8SClusterEmptyModel                         `tfsdk:"use_default_psp"`
-	Vk8sNamespaceAccessDeny        *K8SClusterEmptyModel                         `tfsdk:"vk8s_namespace_access_deny"`
 }
 
 func (r *K8SClusterResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -319,6 +320,11 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"cluster_scoped_access_permit": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
@@ -327,16 +333,112 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"global_access_enable": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: global_access_enable, no_global_access; Default: no_global_access] Configuration parameter for global access enable.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"use_default_pod_security_admission": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"vk8s_namespace_access_permit": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"cluster_scoped_access_deny": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: cluster_scoped_access_deny, cluster_scoped_access_permit] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"no_cluster_wide_apps": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"no_global_access": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for no global access. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"no_insecure_registries": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"no_local_access": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for no local access. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"use_default_cluster_role_bindings": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"use_default_cluster_roles": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"use_default_psp": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for use default psp. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"vk8s_namespace_access_deny": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: vk8s_namespace_access_deny, vk8s_namespace_access_permit] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
 		},
@@ -347,9 +449,6 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Update: true,
 				Delete: true,
 			}),
-			"cluster_scoped_access_permit": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
 			"cluster_wide_app_list": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: cluster_wide_app_list, no_cluster_wide_apps; Default: no_cluster_wide_apps] Cluster Wide Application List. List of cluster wide applications.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("cluster_wide_apps")},
@@ -360,7 +459,23 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 						MarkdownDescription: "Cluster Wide Application List. List of cluster wide applications.",
 						Validators:          []validator.List{validators.ConflictingListObjectAttributes("argo_cd", "dashboard"), validators.ConflictingListObjectAttributes("argo_cd", "metrics_server"), validators.ConflictingListObjectAttributes("argo_cd", "prometheus"), validators.ConflictingListObjectAttributes("dashboard", "metrics_server"), validators.ConflictingListObjectAttributes("dashboard", "prometheus"), validators.ConflictingListObjectAttributes("metrics_server", "prometheus")},
 						NestedObject: schema.NestedBlockObject{
-							Attributes: map[string]schema.Attribute{},
+							Attributes: map[string]schema.Attribute{
+								"dashboard": schema.ObjectAttribute{
+									MarkdownDescription: "Description Parameters for K8s dashboard.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"metrics_server": schema.ObjectAttribute{
+									MarkdownDescription: "Description Parameters for Kubernetes Metrics Server application.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"prometheus": schema.ObjectAttribute{
+									MarkdownDescription: "Description Parameters for Prometheus server access.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+							},
 							Blocks: map[string]schema.Block{
 								"argo_cd": schema.SingleNestedBlock{
 									MarkdownDescription: "Description Parameters for Argo Continuous Deployment(CD) application.",
@@ -370,6 +485,11 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 											MarkdownDescription: "Parameters required to enable local access.",
 											Validators:          []validator.Object{validators.RequiredObjectAttributes("local_domain"), validators.ConflictingObjectAttributes("default_port", "port")},
 											Attributes: map[string]schema.Attribute{
+												"default_port": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"local_domain": schema.StringAttribute{
 													MarkdownDescription: "ArgoCD will be accessible at <site name>.<local domain>.",
 													Optional:            true,
@@ -386,9 +506,6 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 											},
 											Blocks: map[string]schema.Block{
-												"default_port": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
 												"password": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
 													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
@@ -438,22 +555,10 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 									},
 								},
-								"dashboard": schema.SingleNestedBlock{
-									MarkdownDescription: "Description Parameters for K8s dashboard.",
-								},
-								"metrics_server": schema.SingleNestedBlock{
-									MarkdownDescription: "Description Parameters for Kubernetes Metrics Server application.",
-								},
-								"prometheus": schema.SingleNestedBlock{
-									MarkdownDescription: "Description Parameters for Prometheus server access.",
-								},
 							},
 						},
 					},
 				},
-			},
-			"global_access_enable": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: global_access_enable, no_global_access; Default: no_global_access] Configuration parameter for global access enable.",
 			},
 			"insecure_registry_list": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: insecure_registry_list, no_insecure_registries; Default: no_insecure_registries] Docker Insecure Registry List. List of docker insecure registries.",
@@ -475,6 +580,11 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("local_domain"), validators.ConflictingObjectAttributes("default_port", "port")},
 
 				Attributes: map[string]schema.Attribute{
+					"default_port": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"local_domain": schema.StringAttribute{
 						MarkdownDescription: "Local K8s API server will be accessible at <site name>.<local domain>.",
 						Optional:            true,
@@ -488,11 +598,6 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Validators: []validator.Int64{
 							int64validator.Between(1, 65535),
 						},
-					},
-				},
-				Blocks: map[string]schema.Block{
-					"default_port": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 				},
 			},
@@ -651,39 +756,6 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
-			"use_default_pod_security_admission": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"vk8s_namespace_access_permit": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"cluster_scoped_access_deny": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: cluster_scoped_access_deny, cluster_scoped_access_permit] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"no_cluster_wide_apps": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"no_global_access": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for no global access. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"no_insecure_registries": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"no_local_access": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for no local access. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"use_default_cluster_role_bindings": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"use_default_cluster_roles": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"use_default_psp": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for use default psp. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"vk8s_namespace_access_deny": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: vk8s_namespace_access_deny, vk8s_namespace_access_permit] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
 		},
 	}
 }
@@ -710,6 +782,28 @@ func (r *K8SClusterResource) ValidateConfig(ctx context.Context, req resource.Va
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.ClusterScopedAccessPermit.IsNull() && !data.ClusterScopedAccessPermit.IsUnknown() && !data.ClusterScopedAccessDeny.IsNull() && !data.ClusterScopedAccessDeny.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("cluster_scoped_access_permit"),
+			"Conflicting Configuration",
+			"cluster_scoped_access_permit and cluster_scoped_access_deny are mutually exclusive.",
+		)
+	}
+	if !data.GlobalAccessEnable.IsNull() && !data.GlobalAccessEnable.IsUnknown() && !data.NoGlobalAccess.IsNull() && !data.NoGlobalAccess.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("global_access_enable"),
+			"Conflicting Configuration",
+			"global_access_enable and no_global_access are mutually exclusive.",
+		)
+	}
+	if !data.Vk8sNamespaceAccessPermit.IsNull() && !data.Vk8sNamespaceAccessPermit.IsUnknown() && !data.Vk8sNamespaceAccessDeny.IsNull() && !data.Vk8sNamespaceAccessDeny.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("vk8s_namespace_access_permit"),
+			"Conflicting Configuration",
+			"vk8s_namespace_access_permit and vk8s_namespace_access_deny are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -810,7 +904,7 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.ClusterScopedAccessPermit != nil {
+	if !data.ClusterScopedAccessPermit.IsNull() && !data.ClusterScopedAccessPermit.IsUnknown() {
 		createReq.Spec["cluster_scoped_access_permit"] = map[string]interface{}{}
 	}
 	if data.ClusterWideAppList != nil {
@@ -827,7 +921,7 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 						ClusterWideAppListClusterWideAppsArgoCdMap := make(map[string]interface{})
 						if ClusterWideAppsItem.ArgoCd.LocalDomain != nil {
 							ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap := make(map[string]interface{})
-							if ClusterWideAppsItem.ArgoCd.LocalDomain.DefaultPort != nil {
+							if !ClusterWideAppsItem.ArgoCd.LocalDomain.DefaultPort.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.DefaultPort.IsUnknown() {
 								ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap["default_port"] = map[string]interface{}{}
 							}
 							if !ClusterWideAppsItem.ArgoCd.LocalDomain.LocalDomain.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.LocalDomain.IsUnknown() {
@@ -867,13 +961,13 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						ClusterWideAppsItemMap["argo_cd"] = ClusterWideAppListClusterWideAppsArgoCdMap
 					}
-					if ClusterWideAppsItem.Dashboard != nil {
+					if !ClusterWideAppsItem.Dashboard.IsNull() && !ClusterWideAppsItem.Dashboard.IsUnknown() {
 						ClusterWideAppsItemMap["dashboard"] = map[string]interface{}{}
 					}
-					if ClusterWideAppsItem.MetricsServer != nil {
+					if !ClusterWideAppsItem.MetricsServer.IsNull() && !ClusterWideAppsItem.MetricsServer.IsUnknown() {
 						ClusterWideAppsItemMap["metrics_server"] = map[string]interface{}{}
 					}
-					if ClusterWideAppsItem.Prometheus != nil {
+					if !ClusterWideAppsItem.Prometheus.IsNull() && !ClusterWideAppsItem.Prometheus.IsUnknown() {
 						ClusterWideAppsItemMap["prometheus"] = map[string]interface{}{}
 					}
 					ClusterWideAppsList = append(ClusterWideAppsList, ClusterWideAppsItemMap)
@@ -883,7 +977,7 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["cluster_wide_app_list"] = ClusterWideAppListMap
 	}
-	if data.GlobalAccessEnable != nil {
+	if !data.GlobalAccessEnable.IsNull() && !data.GlobalAccessEnable.IsUnknown() {
 		createReq.Spec["global_access_enable"] = map[string]interface{}{}
 	}
 	if data.InsecureRegistryList != nil {
@@ -900,7 +994,7 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if data.LocalAccessConfig != nil {
 		LocalAccessConfigMap := make(map[string]interface{})
-		if data.LocalAccessConfig.DefaultPort != nil {
+		if !data.LocalAccessConfig.DefaultPort.IsNull() && !data.LocalAccessConfig.DefaultPort.IsUnknown() {
 			LocalAccessConfigMap["default_port"] = map[string]interface{}{}
 		}
 		if !data.LocalAccessConfig.LocalDomain.IsNull() && !data.LocalAccessConfig.LocalDomain.IsUnknown() {
@@ -990,37 +1084,37 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["use_custom_psp_list"] = UseCustomPspListMap
 	}
-	if data.UseDefaultPodSecurityAdmission != nil {
+	if !data.UseDefaultPodSecurityAdmission.IsNull() && !data.UseDefaultPodSecurityAdmission.IsUnknown() {
 		createReq.Spec["use_default_pod_security_admission"] = map[string]interface{}{}
 	}
-	if data.Vk8sNamespaceAccessPermit != nil {
+	if !data.Vk8sNamespaceAccessPermit.IsNull() && !data.Vk8sNamespaceAccessPermit.IsUnknown() {
 		createReq.Spec["vk8s_namespace_access_permit"] = map[string]interface{}{}
 	}
-	if data.ClusterScopedAccessDeny != nil {
+	if !data.ClusterScopedAccessDeny.IsNull() && !data.ClusterScopedAccessDeny.IsUnknown() {
 		createReq.Spec["cluster_scoped_access_deny"] = map[string]interface{}{}
 	}
-	if data.NoClusterWideApps != nil {
+	if !data.NoClusterWideApps.IsNull() && !data.NoClusterWideApps.IsUnknown() {
 		createReq.Spec["no_cluster_wide_apps"] = map[string]interface{}{}
 	}
-	if data.NoGlobalAccess != nil {
+	if !data.NoGlobalAccess.IsNull() && !data.NoGlobalAccess.IsUnknown() {
 		createReq.Spec["no_global_access"] = map[string]interface{}{}
 	}
-	if data.NoInsecureRegistries != nil {
+	if !data.NoInsecureRegistries.IsNull() && !data.NoInsecureRegistries.IsUnknown() {
 		createReq.Spec["no_insecure_registries"] = map[string]interface{}{}
 	}
-	if data.NoLocalAccess != nil {
+	if !data.NoLocalAccess.IsNull() && !data.NoLocalAccess.IsUnknown() {
 		createReq.Spec["no_local_access"] = map[string]interface{}{}
 	}
-	if data.UseDefaultClusterRoleBindings != nil {
+	if !data.UseDefaultClusterRoleBindings.IsNull() && !data.UseDefaultClusterRoleBindings.IsUnknown() {
 		createReq.Spec["use_default_cluster_role_bindings"] = map[string]interface{}{}
 	}
-	if data.UseDefaultClusterRoles != nil {
+	if !data.UseDefaultClusterRoles.IsNull() && !data.UseDefaultClusterRoles.IsUnknown() {
 		createReq.Spec["use_default_cluster_roles"] = map[string]interface{}{}
 	}
-	if data.UseDefaultPsp != nil {
+	if !data.UseDefaultPsp.IsNull() && !data.UseDefaultPsp.IsUnknown() {
 		createReq.Spec["use_default_psp"] = map[string]interface{}{}
 	}
-	if data.Vk8sNamespaceAccessDeny != nil {
+	if !data.Vk8sNamespaceAccessDeny.IsNull() && !data.Vk8sNamespaceAccessDeny.IsUnknown() {
 		createReq.Spec["vk8s_namespace_access_deny"] = map[string]interface{}{}
 	}
 
@@ -1062,8 +1156,12 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["cluster_scoped_access_permit"].(map[string]interface{}); ok && isImport && data.ClusterScopedAccessPermit == nil {
-		data.ClusterScopedAccessPermit = &K8SClusterEmptyModel{}
+	if !isImport && !data.ClusterScopedAccessPermit.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["cluster_scoped_access_permit"].(map[string]interface{}); ok {
+		data.ClusterScopedAccessPermit = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ClusterScopedAccessPermit = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["cluster_wide_app_list"].(map[string]interface{}); ok && (isImport || data.ClusterWideAppList != nil) {
 		data.ClusterWideAppList = &K8SClusterClusterWideAppListModel{
@@ -1090,14 +1188,14 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 												}
 												if LocalDomainData, ok := ArgoCdData["local_domain"].(map[string]interface{}); ok {
 													return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModel{
-														DefaultPort: func() *K8SClusterEmptyModel {
-															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil {
+														DefaultPort: func() types.Object {
+															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && !ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.DefaultPort.IsUnknown() {
 																return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.DefaultPort
 															}
 															if _, ok := LocalDomainData["default_port"].(map[string]interface{}); ok {
-																return &K8SClusterEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														LocalDomain: func() types.String {
 															if v, ok := LocalDomainData["local_domain"].(string); ok && v != "" {
@@ -1182,32 +1280,32 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									return nil
 								}(),
-								Dashboard: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+								Dashboard: func() types.Object {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && !ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard.IsUnknown() {
 										return ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard
 									}
 									if _, ok := ClusterWideAppsItemMap["dashboard"].(map[string]interface{}); ok {
-										return &K8SClusterEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								MetricsServer: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+								MetricsServer: func() types.Object {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && !ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer.IsUnknown() {
 										return ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer
 									}
 									if _, ok := ClusterWideAppsItemMap["metrics_server"].(map[string]interface{}); ok {
-										return &K8SClusterEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								Prometheus: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+								Prometheus: func() types.Object {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && !ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus.IsUnknown() {
 										return ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus
 									}
 									if _, ok := ClusterWideAppsItemMap["prometheus"].(map[string]interface{}); ok {
-										return &K8SClusterEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -1219,8 +1317,12 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["global_access_enable"].(map[string]interface{}); ok && isImport && data.GlobalAccessEnable == nil {
-		data.GlobalAccessEnable = &K8SClusterEmptyModel{}
+	if !isImport && !data.GlobalAccessEnable.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["global_access_enable"].(map[string]interface{}); ok {
+		data.GlobalAccessEnable = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.GlobalAccessEnable = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["insecure_registry_list"].(map[string]interface{}); ok && (isImport || data.InsecureRegistryList != nil) {
 		data.InsecureRegistryList = &K8SClusterInsecureRegistryListModel{
@@ -1242,14 +1344,14 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if blockData, ok := apiResource.Spec["local_access_config"].(map[string]interface{}); ok && (isImport || data.LocalAccessConfig != nil) {
 		data.LocalAccessConfig = &K8SClusterLocalAccessConfigModel{
-			DefaultPort: func() *K8SClusterEmptyModel {
-				if !isImport && data.LocalAccessConfig != nil {
+			DefaultPort: func() types.Object {
+				if !isImport && data.LocalAccessConfig != nil && !data.LocalAccessConfig.DefaultPort.IsUnknown() {
 					return data.LocalAccessConfig.DefaultPort
 				}
 				if _, ok := blockData["default_port"].(map[string]interface{}); ok {
-					return &K8SClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			LocalDomain: func() types.String {
 				if v, ok := blockData["local_domain"].(string); ok && v != "" {
@@ -1422,38 +1524,82 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_default_pod_security_admission"].(map[string]interface{}); ok && isImport && data.UseDefaultPodSecurityAdmission == nil {
-		data.UseDefaultPodSecurityAdmission = &K8SClusterEmptyModel{}
+	if !isImport && !data.UseDefaultPodSecurityAdmission.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_pod_security_admission"].(map[string]interface{}); ok {
+		data.UseDefaultPodSecurityAdmission = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultPodSecurityAdmission = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["vk8s_namespace_access_permit"].(map[string]interface{}); ok && isImport && data.Vk8sNamespaceAccessPermit == nil {
-		data.Vk8sNamespaceAccessPermit = &K8SClusterEmptyModel{}
+	if !isImport && !data.Vk8sNamespaceAccessPermit.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["vk8s_namespace_access_permit"].(map[string]interface{}); ok {
+		data.Vk8sNamespaceAccessPermit = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Vk8sNamespaceAccessPermit = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["cluster_scoped_access_deny"].(map[string]interface{}); ok && isImport && data.ClusterScopedAccessDeny == nil {
-		data.ClusterScopedAccessDeny = &K8SClusterEmptyModel{}
+	if !isImport && !data.ClusterScopedAccessDeny.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["cluster_scoped_access_deny"].(map[string]interface{}); ok {
+		data.ClusterScopedAccessDeny = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ClusterScopedAccessDeny = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_cluster_wide_apps"].(map[string]interface{}); ok && isImport && data.NoClusterWideApps == nil {
-		data.NoClusterWideApps = &K8SClusterEmptyModel{}
+	if !isImport && !data.NoClusterWideApps.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_cluster_wide_apps"].(map[string]interface{}); ok {
+		data.NoClusterWideApps = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoClusterWideApps = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_global_access"].(map[string]interface{}); ok && isImport && data.NoGlobalAccess == nil {
-		data.NoGlobalAccess = &K8SClusterEmptyModel{}
+	if !isImport && !data.NoGlobalAccess.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_global_access"].(map[string]interface{}); ok {
+		data.NoGlobalAccess = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoGlobalAccess = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_insecure_registries"].(map[string]interface{}); ok && isImport && data.NoInsecureRegistries == nil {
-		data.NoInsecureRegistries = &K8SClusterEmptyModel{}
+	if !isImport && !data.NoInsecureRegistries.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_insecure_registries"].(map[string]interface{}); ok {
+		data.NoInsecureRegistries = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoInsecureRegistries = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_local_access"].(map[string]interface{}); ok && isImport && data.NoLocalAccess == nil {
-		data.NoLocalAccess = &K8SClusterEmptyModel{}
+	if !isImport && !data.NoLocalAccess.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_local_access"].(map[string]interface{}); ok {
+		data.NoLocalAccess = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoLocalAccess = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["use_default_cluster_role_bindings"].(map[string]interface{}); ok && isImport && data.UseDefaultClusterRoleBindings == nil {
-		data.UseDefaultClusterRoleBindings = &K8SClusterEmptyModel{}
+	if !isImport && !data.UseDefaultClusterRoleBindings.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_cluster_role_bindings"].(map[string]interface{}); ok {
+		data.UseDefaultClusterRoleBindings = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultClusterRoleBindings = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["use_default_cluster_roles"].(map[string]interface{}); ok && isImport && data.UseDefaultClusterRoles == nil {
-		data.UseDefaultClusterRoles = &K8SClusterEmptyModel{}
+	if !isImport && !data.UseDefaultClusterRoles.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_cluster_roles"].(map[string]interface{}); ok {
+		data.UseDefaultClusterRoles = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultClusterRoles = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["use_default_psp"].(map[string]interface{}); ok && isImport && data.UseDefaultPsp == nil {
-		data.UseDefaultPsp = &K8SClusterEmptyModel{}
+	if !isImport && !data.UseDefaultPsp.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_psp"].(map[string]interface{}); ok {
+		data.UseDefaultPsp = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultPsp = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["vk8s_namespace_access_deny"].(map[string]interface{}); ok && isImport && data.Vk8sNamespaceAccessDeny == nil {
-		data.Vk8sNamespaceAccessDeny = &K8SClusterEmptyModel{}
+	if !isImport && !data.Vk8sNamespaceAccessDeny.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["vk8s_namespace_access_deny"].(map[string]interface{}); ok {
+		data.Vk8sNamespaceAccessDeny = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Vk8sNamespaceAccessDeny = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	tflog.Trace(ctx, "created K8SCluster resource")
@@ -1586,8 +1732,12 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["cluster_scoped_access_permit"].(map[string]interface{}); ok && isImport && data.ClusterScopedAccessPermit == nil {
-		data.ClusterScopedAccessPermit = &K8SClusterEmptyModel{}
+	if !isImport && !data.ClusterScopedAccessPermit.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["cluster_scoped_access_permit"].(map[string]interface{}); ok {
+		data.ClusterScopedAccessPermit = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ClusterScopedAccessPermit = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["cluster_wide_app_list"].(map[string]interface{}); ok && (isImport || data.ClusterWideAppList != nil) {
 		data.ClusterWideAppList = &K8SClusterClusterWideAppListModel{
@@ -1614,14 +1764,14 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 												}
 												if LocalDomainData, ok := ArgoCdData["local_domain"].(map[string]interface{}); ok {
 													return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModel{
-														DefaultPort: func() *K8SClusterEmptyModel {
-															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil {
+														DefaultPort: func() types.Object {
+															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && !ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.DefaultPort.IsUnknown() {
 																return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.DefaultPort
 															}
 															if _, ok := LocalDomainData["default_port"].(map[string]interface{}); ok {
-																return &K8SClusterEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														LocalDomain: func() types.String {
 															if v, ok := LocalDomainData["local_domain"].(string); ok && v != "" {
@@ -1706,32 +1856,32 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 									}
 									return nil
 								}(),
-								Dashboard: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+								Dashboard: func() types.Object {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && !ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard.IsUnknown() {
 										return ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard
 									}
 									if _, ok := ClusterWideAppsItemMap["dashboard"].(map[string]interface{}); ok {
-										return &K8SClusterEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								MetricsServer: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+								MetricsServer: func() types.Object {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && !ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer.IsUnknown() {
 										return ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer
 									}
 									if _, ok := ClusterWideAppsItemMap["metrics_server"].(map[string]interface{}); ok {
-										return &K8SClusterEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								Prometheus: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+								Prometheus: func() types.Object {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && !ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus.IsUnknown() {
 										return ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus
 									}
 									if _, ok := ClusterWideAppsItemMap["prometheus"].(map[string]interface{}); ok {
-										return &K8SClusterEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -1743,8 +1893,12 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["global_access_enable"].(map[string]interface{}); ok && isImport && data.GlobalAccessEnable == nil {
-		data.GlobalAccessEnable = &K8SClusterEmptyModel{}
+	if !isImport && !data.GlobalAccessEnable.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["global_access_enable"].(map[string]interface{}); ok {
+		data.GlobalAccessEnable = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.GlobalAccessEnable = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["insecure_registry_list"].(map[string]interface{}); ok && (isImport || data.InsecureRegistryList != nil) {
 		data.InsecureRegistryList = &K8SClusterInsecureRegistryListModel{
@@ -1766,14 +1920,14 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 	}
 	if blockData, ok := apiResource.Spec["local_access_config"].(map[string]interface{}); ok && (isImport || data.LocalAccessConfig != nil) {
 		data.LocalAccessConfig = &K8SClusterLocalAccessConfigModel{
-			DefaultPort: func() *K8SClusterEmptyModel {
-				if !isImport && data.LocalAccessConfig != nil {
+			DefaultPort: func() types.Object {
+				if !isImport && data.LocalAccessConfig != nil && !data.LocalAccessConfig.DefaultPort.IsUnknown() {
 					return data.LocalAccessConfig.DefaultPort
 				}
 				if _, ok := blockData["default_port"].(map[string]interface{}); ok {
-					return &K8SClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			LocalDomain: func() types.String {
 				if v, ok := blockData["local_domain"].(string); ok && v != "" {
@@ -1946,38 +2100,82 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_default_pod_security_admission"].(map[string]interface{}); ok && isImport && data.UseDefaultPodSecurityAdmission == nil {
-		data.UseDefaultPodSecurityAdmission = &K8SClusterEmptyModel{}
+	if !isImport && !data.UseDefaultPodSecurityAdmission.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_pod_security_admission"].(map[string]interface{}); ok {
+		data.UseDefaultPodSecurityAdmission = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultPodSecurityAdmission = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["vk8s_namespace_access_permit"].(map[string]interface{}); ok && isImport && data.Vk8sNamespaceAccessPermit == nil {
-		data.Vk8sNamespaceAccessPermit = &K8SClusterEmptyModel{}
+	if !isImport && !data.Vk8sNamespaceAccessPermit.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["vk8s_namespace_access_permit"].(map[string]interface{}); ok {
+		data.Vk8sNamespaceAccessPermit = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Vk8sNamespaceAccessPermit = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["cluster_scoped_access_deny"].(map[string]interface{}); ok && isImport && data.ClusterScopedAccessDeny == nil {
-		data.ClusterScopedAccessDeny = &K8SClusterEmptyModel{}
+	if !isImport && !data.ClusterScopedAccessDeny.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["cluster_scoped_access_deny"].(map[string]interface{}); ok {
+		data.ClusterScopedAccessDeny = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ClusterScopedAccessDeny = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_cluster_wide_apps"].(map[string]interface{}); ok && isImport && data.NoClusterWideApps == nil {
-		data.NoClusterWideApps = &K8SClusterEmptyModel{}
+	if !isImport && !data.NoClusterWideApps.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_cluster_wide_apps"].(map[string]interface{}); ok {
+		data.NoClusterWideApps = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoClusterWideApps = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_global_access"].(map[string]interface{}); ok && isImport && data.NoGlobalAccess == nil {
-		data.NoGlobalAccess = &K8SClusterEmptyModel{}
+	if !isImport && !data.NoGlobalAccess.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_global_access"].(map[string]interface{}); ok {
+		data.NoGlobalAccess = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoGlobalAccess = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_insecure_registries"].(map[string]interface{}); ok && isImport && data.NoInsecureRegistries == nil {
-		data.NoInsecureRegistries = &K8SClusterEmptyModel{}
+	if !isImport && !data.NoInsecureRegistries.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_insecure_registries"].(map[string]interface{}); ok {
+		data.NoInsecureRegistries = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoInsecureRegistries = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_local_access"].(map[string]interface{}); ok && isImport && data.NoLocalAccess == nil {
-		data.NoLocalAccess = &K8SClusterEmptyModel{}
+	if !isImport && !data.NoLocalAccess.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_local_access"].(map[string]interface{}); ok {
+		data.NoLocalAccess = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoLocalAccess = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["use_default_cluster_role_bindings"].(map[string]interface{}); ok && isImport && data.UseDefaultClusterRoleBindings == nil {
-		data.UseDefaultClusterRoleBindings = &K8SClusterEmptyModel{}
+	if !isImport && !data.UseDefaultClusterRoleBindings.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_cluster_role_bindings"].(map[string]interface{}); ok {
+		data.UseDefaultClusterRoleBindings = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultClusterRoleBindings = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["use_default_cluster_roles"].(map[string]interface{}); ok && isImport && data.UseDefaultClusterRoles == nil {
-		data.UseDefaultClusterRoles = &K8SClusterEmptyModel{}
+	if !isImport && !data.UseDefaultClusterRoles.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_cluster_roles"].(map[string]interface{}); ok {
+		data.UseDefaultClusterRoles = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultClusterRoles = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["use_default_psp"].(map[string]interface{}); ok && isImport && data.UseDefaultPsp == nil {
-		data.UseDefaultPsp = &K8SClusterEmptyModel{}
+	if !isImport && !data.UseDefaultPsp.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_psp"].(map[string]interface{}); ok {
+		data.UseDefaultPsp = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultPsp = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["vk8s_namespace_access_deny"].(map[string]interface{}); ok && isImport && data.Vk8sNamespaceAccessDeny == nil {
-		data.Vk8sNamespaceAccessDeny = &K8SClusterEmptyModel{}
+	if !isImport && !data.Vk8sNamespaceAccessDeny.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["vk8s_namespace_access_deny"].(map[string]interface{}); ok {
+		data.Vk8sNamespaceAccessDeny = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Vk8sNamespaceAccessDeny = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -2073,7 +2271,7 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.ClusterScopedAccessPermit != nil {
+	if !data.ClusterScopedAccessPermit.IsNull() && !data.ClusterScopedAccessPermit.IsUnknown() {
 		apiResource.Spec["cluster_scoped_access_permit"] = map[string]interface{}{}
 	}
 	if data.ClusterWideAppList != nil {
@@ -2090,7 +2288,7 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 						ClusterWideAppListClusterWideAppsArgoCdMap := make(map[string]interface{})
 						if ClusterWideAppsItem.ArgoCd.LocalDomain != nil {
 							ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap := make(map[string]interface{})
-							if ClusterWideAppsItem.ArgoCd.LocalDomain.DefaultPort != nil {
+							if !ClusterWideAppsItem.ArgoCd.LocalDomain.DefaultPort.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.DefaultPort.IsUnknown() {
 								ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap["default_port"] = map[string]interface{}{}
 							}
 							if !ClusterWideAppsItem.ArgoCd.LocalDomain.LocalDomain.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.LocalDomain.IsUnknown() {
@@ -2130,13 +2328,13 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						ClusterWideAppsItemMap["argo_cd"] = ClusterWideAppListClusterWideAppsArgoCdMap
 					}
-					if ClusterWideAppsItem.Dashboard != nil {
+					if !ClusterWideAppsItem.Dashboard.IsNull() && !ClusterWideAppsItem.Dashboard.IsUnknown() {
 						ClusterWideAppsItemMap["dashboard"] = map[string]interface{}{}
 					}
-					if ClusterWideAppsItem.MetricsServer != nil {
+					if !ClusterWideAppsItem.MetricsServer.IsNull() && !ClusterWideAppsItem.MetricsServer.IsUnknown() {
 						ClusterWideAppsItemMap["metrics_server"] = map[string]interface{}{}
 					}
-					if ClusterWideAppsItem.Prometheus != nil {
+					if !ClusterWideAppsItem.Prometheus.IsNull() && !ClusterWideAppsItem.Prometheus.IsUnknown() {
 						ClusterWideAppsItemMap["prometheus"] = map[string]interface{}{}
 					}
 					ClusterWideAppsList = append(ClusterWideAppsList, ClusterWideAppsItemMap)
@@ -2146,7 +2344,7 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["cluster_wide_app_list"] = ClusterWideAppListMap
 	}
-	if data.GlobalAccessEnable != nil {
+	if !data.GlobalAccessEnable.IsNull() && !data.GlobalAccessEnable.IsUnknown() {
 		apiResource.Spec["global_access_enable"] = map[string]interface{}{}
 	}
 	if data.InsecureRegistryList != nil {
@@ -2163,7 +2361,7 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if data.LocalAccessConfig != nil {
 		LocalAccessConfigMap := make(map[string]interface{})
-		if data.LocalAccessConfig.DefaultPort != nil {
+		if !data.LocalAccessConfig.DefaultPort.IsNull() && !data.LocalAccessConfig.DefaultPort.IsUnknown() {
 			LocalAccessConfigMap["default_port"] = map[string]interface{}{}
 		}
 		if !data.LocalAccessConfig.LocalDomain.IsNull() && !data.LocalAccessConfig.LocalDomain.IsUnknown() {
@@ -2253,37 +2451,37 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["use_custom_psp_list"] = UseCustomPspListMap
 	}
-	if data.UseDefaultPodSecurityAdmission != nil {
+	if !data.UseDefaultPodSecurityAdmission.IsNull() && !data.UseDefaultPodSecurityAdmission.IsUnknown() {
 		apiResource.Spec["use_default_pod_security_admission"] = map[string]interface{}{}
 	}
-	if data.Vk8sNamespaceAccessPermit != nil {
+	if !data.Vk8sNamespaceAccessPermit.IsNull() && !data.Vk8sNamespaceAccessPermit.IsUnknown() {
 		apiResource.Spec["vk8s_namespace_access_permit"] = map[string]interface{}{}
 	}
-	if data.ClusterScopedAccessDeny != nil {
+	if !data.ClusterScopedAccessDeny.IsNull() && !data.ClusterScopedAccessDeny.IsUnknown() {
 		apiResource.Spec["cluster_scoped_access_deny"] = map[string]interface{}{}
 	}
-	if data.NoClusterWideApps != nil {
+	if !data.NoClusterWideApps.IsNull() && !data.NoClusterWideApps.IsUnknown() {
 		apiResource.Spec["no_cluster_wide_apps"] = map[string]interface{}{}
 	}
-	if data.NoGlobalAccess != nil {
+	if !data.NoGlobalAccess.IsNull() && !data.NoGlobalAccess.IsUnknown() {
 		apiResource.Spec["no_global_access"] = map[string]interface{}{}
 	}
-	if data.NoInsecureRegistries != nil {
+	if !data.NoInsecureRegistries.IsNull() && !data.NoInsecureRegistries.IsUnknown() {
 		apiResource.Spec["no_insecure_registries"] = map[string]interface{}{}
 	}
-	if data.NoLocalAccess != nil {
+	if !data.NoLocalAccess.IsNull() && !data.NoLocalAccess.IsUnknown() {
 		apiResource.Spec["no_local_access"] = map[string]interface{}{}
 	}
-	if data.UseDefaultClusterRoleBindings != nil {
+	if !data.UseDefaultClusterRoleBindings.IsNull() && !data.UseDefaultClusterRoleBindings.IsUnknown() {
 		apiResource.Spec["use_default_cluster_role_bindings"] = map[string]interface{}{}
 	}
-	if data.UseDefaultClusterRoles != nil {
+	if !data.UseDefaultClusterRoles.IsNull() && !data.UseDefaultClusterRoles.IsUnknown() {
 		apiResource.Spec["use_default_cluster_roles"] = map[string]interface{}{}
 	}
-	if data.UseDefaultPsp != nil {
+	if !data.UseDefaultPsp.IsNull() && !data.UseDefaultPsp.IsUnknown() {
 		apiResource.Spec["use_default_psp"] = map[string]interface{}{}
 	}
-	if data.Vk8sNamespaceAccessDeny != nil {
+	if !data.Vk8sNamespaceAccessDeny.IsNull() && !data.Vk8sNamespaceAccessDeny.IsUnknown() {
 		apiResource.Spec["vk8s_namespace_access_deny"] = map[string]interface{}{}
 	}
 
@@ -2345,8 +2543,12 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["cluster_scoped_access_permit"].(map[string]interface{}); ok && isImport && data.ClusterScopedAccessPermit == nil {
-		data.ClusterScopedAccessPermit = &K8SClusterEmptyModel{}
+	if !isImport && !data.ClusterScopedAccessPermit.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["cluster_scoped_access_permit"].(map[string]interface{}); ok {
+		data.ClusterScopedAccessPermit = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ClusterScopedAccessPermit = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["cluster_wide_app_list"].(map[string]interface{}); ok && (isImport || data.ClusterWideAppList != nil) {
 		data.ClusterWideAppList = &K8SClusterClusterWideAppListModel{
@@ -2373,14 +2575,14 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 												}
 												if LocalDomainData, ok := ArgoCdData["local_domain"].(map[string]interface{}); ok {
 													return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModel{
-														DefaultPort: func() *K8SClusterEmptyModel {
-															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil {
+														DefaultPort: func() types.Object {
+															if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && !ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.DefaultPort.IsUnknown() {
 																return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.DefaultPort
 															}
 															if _, ok := LocalDomainData["default_port"].(map[string]interface{}); ok {
-																return &K8SClusterEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														LocalDomain: func() types.String {
 															if v, ok := LocalDomainData["local_domain"].(string); ok && v != "" {
@@ -2465,32 +2667,32 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									return nil
 								}(),
-								Dashboard: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+								Dashboard: func() types.Object {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && !ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard.IsUnknown() {
 										return ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard
 									}
 									if _, ok := ClusterWideAppsItemMap["dashboard"].(map[string]interface{}); ok {
-										return &K8SClusterEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								MetricsServer: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+								MetricsServer: func() types.Object {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && !ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer.IsUnknown() {
 										return ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer
 									}
 									if _, ok := ClusterWideAppsItemMap["metrics_server"].(map[string]interface{}); ok {
-										return &K8SClusterEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								Prometheus: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+								Prometheus: func() types.Object {
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && !ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus.IsUnknown() {
 										return ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus
 									}
 									if _, ok := ClusterWideAppsItemMap["prometheus"].(map[string]interface{}); ok {
-										return &K8SClusterEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -2502,8 +2704,12 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["global_access_enable"].(map[string]interface{}); ok && isImport && data.GlobalAccessEnable == nil {
-		data.GlobalAccessEnable = &K8SClusterEmptyModel{}
+	if !isImport && !data.GlobalAccessEnable.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["global_access_enable"].(map[string]interface{}); ok {
+		data.GlobalAccessEnable = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.GlobalAccessEnable = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["insecure_registry_list"].(map[string]interface{}); ok && (isImport || data.InsecureRegistryList != nil) {
 		data.InsecureRegistryList = &K8SClusterInsecureRegistryListModel{
@@ -2525,14 +2731,14 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if blockData, ok := apiResource.Spec["local_access_config"].(map[string]interface{}); ok && (isImport || data.LocalAccessConfig != nil) {
 		data.LocalAccessConfig = &K8SClusterLocalAccessConfigModel{
-			DefaultPort: func() *K8SClusterEmptyModel {
-				if !isImport && data.LocalAccessConfig != nil {
+			DefaultPort: func() types.Object {
+				if !isImport && data.LocalAccessConfig != nil && !data.LocalAccessConfig.DefaultPort.IsUnknown() {
 					return data.LocalAccessConfig.DefaultPort
 				}
 				if _, ok := blockData["default_port"].(map[string]interface{}); ok {
-					return &K8SClusterEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			LocalDomain: func() types.String {
 				if v, ok := blockData["local_domain"].(string); ok && v != "" {
@@ -2705,38 +2911,82 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_default_pod_security_admission"].(map[string]interface{}); ok && isImport && data.UseDefaultPodSecurityAdmission == nil {
-		data.UseDefaultPodSecurityAdmission = &K8SClusterEmptyModel{}
+	if !isImport && !data.UseDefaultPodSecurityAdmission.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_pod_security_admission"].(map[string]interface{}); ok {
+		data.UseDefaultPodSecurityAdmission = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultPodSecurityAdmission = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["vk8s_namespace_access_permit"].(map[string]interface{}); ok && isImport && data.Vk8sNamespaceAccessPermit == nil {
-		data.Vk8sNamespaceAccessPermit = &K8SClusterEmptyModel{}
+	if !isImport && !data.Vk8sNamespaceAccessPermit.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["vk8s_namespace_access_permit"].(map[string]interface{}); ok {
+		data.Vk8sNamespaceAccessPermit = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Vk8sNamespaceAccessPermit = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["cluster_scoped_access_deny"].(map[string]interface{}); ok && isImport && data.ClusterScopedAccessDeny == nil {
-		data.ClusterScopedAccessDeny = &K8SClusterEmptyModel{}
+	if !isImport && !data.ClusterScopedAccessDeny.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["cluster_scoped_access_deny"].(map[string]interface{}); ok {
+		data.ClusterScopedAccessDeny = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ClusterScopedAccessDeny = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_cluster_wide_apps"].(map[string]interface{}); ok && isImport && data.NoClusterWideApps == nil {
-		data.NoClusterWideApps = &K8SClusterEmptyModel{}
+	if !isImport && !data.NoClusterWideApps.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_cluster_wide_apps"].(map[string]interface{}); ok {
+		data.NoClusterWideApps = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoClusterWideApps = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_global_access"].(map[string]interface{}); ok && isImport && data.NoGlobalAccess == nil {
-		data.NoGlobalAccess = &K8SClusterEmptyModel{}
+	if !isImport && !data.NoGlobalAccess.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_global_access"].(map[string]interface{}); ok {
+		data.NoGlobalAccess = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoGlobalAccess = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_insecure_registries"].(map[string]interface{}); ok && isImport && data.NoInsecureRegistries == nil {
-		data.NoInsecureRegistries = &K8SClusterEmptyModel{}
+	if !isImport && !data.NoInsecureRegistries.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_insecure_registries"].(map[string]interface{}); ok {
+		data.NoInsecureRegistries = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoInsecureRegistries = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_local_access"].(map[string]interface{}); ok && isImport && data.NoLocalAccess == nil {
-		data.NoLocalAccess = &K8SClusterEmptyModel{}
+	if !isImport && !data.NoLocalAccess.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_local_access"].(map[string]interface{}); ok {
+		data.NoLocalAccess = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoLocalAccess = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["use_default_cluster_role_bindings"].(map[string]interface{}); ok && isImport && data.UseDefaultClusterRoleBindings == nil {
-		data.UseDefaultClusterRoleBindings = &K8SClusterEmptyModel{}
+	if !isImport && !data.UseDefaultClusterRoleBindings.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_cluster_role_bindings"].(map[string]interface{}); ok {
+		data.UseDefaultClusterRoleBindings = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultClusterRoleBindings = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["use_default_cluster_roles"].(map[string]interface{}); ok && isImport && data.UseDefaultClusterRoles == nil {
-		data.UseDefaultClusterRoles = &K8SClusterEmptyModel{}
+	if !isImport && !data.UseDefaultClusterRoles.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_cluster_roles"].(map[string]interface{}); ok {
+		data.UseDefaultClusterRoles = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultClusterRoles = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["use_default_psp"].(map[string]interface{}); ok && isImport && data.UseDefaultPsp == nil {
-		data.UseDefaultPsp = &K8SClusterEmptyModel{}
+	if !isImport && !data.UseDefaultPsp.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_psp"].(map[string]interface{}); ok {
+		data.UseDefaultPsp = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultPsp = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["vk8s_namespace_access_deny"].(map[string]interface{}); ok && isImport && data.Vk8sNamespaceAccessDeny == nil {
-		data.Vk8sNamespaceAccessDeny = &K8SClusterEmptyModel{}
+	if !isImport && !data.Vk8sNamespaceAccessDeny.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["vk8s_namespace_access_deny"].(map[string]interface{}); ok {
+		data.Vk8sNamespaceAccessDeny = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Vk8sNamespaceAccessDeny = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

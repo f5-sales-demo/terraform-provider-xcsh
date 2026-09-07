@@ -78,9 +78,9 @@ var ProxyActiveForwardProxyPoliciesForwardProxyPoliciesModelAttrTypes = map[stri
 
 // ProxyDynamicProxyModel represents dynamic_proxy block
 type ProxyDynamicProxyModel struct {
+	DisableDNSMasquerade types.Object                      `tfsdk:"disable_dns_masquerade"`
 	Domains              types.List                        `tfsdk:"domains"`
-	DisableDNSMasquerade *ProxyEmptyModel                  `tfsdk:"disable_dns_masquerade"`
-	EnableDNSMasquerade  *ProxyEmptyModel                  `tfsdk:"enable_dns_masquerade"`
+	EnableDNSMasquerade  types.Object                      `tfsdk:"enable_dns_masquerade"`
 	HTTPProxy            *ProxyDynamicProxyHTTPProxyModel  `tfsdk:"http_proxy"`
 	HTTPSProxy           *ProxyDynamicProxyHTTPSProxyModel `tfsdk:"https_proxy"`
 	SniProxy             *ProxyDynamicProxySniProxyModel   `tfsdk:"sni_proxy"`
@@ -88,8 +88,8 @@ type ProxyDynamicProxyModel struct {
 
 // ProxyDynamicProxyModelAttrTypes defines the attribute types for ProxyDynamicProxyModel
 var ProxyDynamicProxyModelAttrTypes = map[string]attr.Type{
-	"domains":                types.ListType{ElemType: types.StringType},
 	"disable_dns_masquerade": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"domains":                types.ListType{ElemType: types.StringType},
 	"enable_dns_masquerade":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"http_proxy":             types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyModelAttrTypes},
 	"https_proxy":            types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyModelAttrTypes},
@@ -110,18 +110,18 @@ var ProxyDynamicProxyHTTPProxyModelAttrTypes = map[string]attr.Type{
 type ProxyDynamicProxyHTTPProxyMoreOptionModel struct {
 	CustomErrors                types.Map                                                   `tfsdk:"custom_errors"`
 	DisableDefaultErrorPages    types.Bool                                                  `tfsdk:"disable_default_error_pages"`
+	DisablePathNormalize        types.Object                                                `tfsdk:"disable_path_normalize"`
+	EnablePathNormalize         types.Object                                                `tfsdk:"enable_path_normalize"`
 	IdleTimeout                 types.Int64                                                 `tfsdk:"idle_timeout"`
 	MaxRequestHeaderSize        types.Int64                                                 `tfsdk:"max_request_header_size"`
 	MaxRequestsPerConnection    types.Int64                                                 `tfsdk:"max_requests_per_connection"`
+	NoRequestLimitPerConnection types.Object                                                `tfsdk:"no_request_limit_per_connection"`
 	RequestCookiesToRemove      types.List                                                  `tfsdk:"request_cookies_to_remove"`
 	RequestHeadersToRemove      types.List                                                  `tfsdk:"request_headers_to_remove"`
 	ResponseCookiesToRemove     types.List                                                  `tfsdk:"response_cookies_to_remove"`
 	ResponseHeadersToRemove     types.List                                                  `tfsdk:"response_headers_to_remove"`
 	BufferPolicy                *ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModel      `tfsdk:"buffer_policy"`
 	CompressionParams           *ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModel `tfsdk:"compression_params"`
-	DisablePathNormalize        *ProxyEmptyModel                                            `tfsdk:"disable_path_normalize"`
-	EnablePathNormalize         *ProxyEmptyModel                                            `tfsdk:"enable_path_normalize"`
-	NoRequestLimitPerConnection *ProxyEmptyModel                                            `tfsdk:"no_request_limit_per_connection"`
 	RequestCookiesToAdd         types.List                                                  `tfsdk:"request_cookies_to_add"`
 	RequestHeadersToAdd         types.List                                                  `tfsdk:"request_headers_to_add"`
 	ResponseCookiesToAdd        types.List                                                  `tfsdk:"response_cookies_to_add"`
@@ -132,18 +132,18 @@ type ProxyDynamicProxyHTTPProxyMoreOptionModel struct {
 var ProxyDynamicProxyHTTPProxyMoreOptionModelAttrTypes = map[string]attr.Type{
 	"custom_errors":                   types.MapType{ElemType: types.StringType},
 	"disable_default_error_pages":     types.BoolType,
+	"disable_path_normalize":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enable_path_normalize":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"idle_timeout":                    types.Int64Type,
 	"max_request_header_size":         types.Int64Type,
 	"max_requests_per_connection":     types.Int64Type,
+	"no_request_limit_per_connection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"request_cookies_to_remove":       types.ListType{ElemType: types.StringType},
 	"request_headers_to_remove":       types.ListType{ElemType: types.StringType},
 	"response_cookies_to_remove":      types.ListType{ElemType: types.StringType},
 	"response_headers_to_remove":      types.ListType{ElemType: types.StringType},
 	"buffer_policy":                   types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionBufferPolicyModelAttrTypes},
 	"compression_params":              types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionCompressionParamsModelAttrTypes},
-	"disable_path_normalize":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable_path_normalize":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_request_limit_per_connection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"request_cookies_to_add":          types.ListType{ElemType: types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionRequestCookiesToAddModelAttrTypes}},
 	"request_headers_to_add":          types.ListType{ElemType: types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddModelAttrTypes}},
 	"response_cookies_to_add":         types.ListType{ElemType: types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModelAttrTypes}},
@@ -290,26 +290,26 @@ var ProxyDynamicProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecre
 type ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel struct {
 	AddDomain         types.String                                                              `tfsdk:"add_domain"`
 	AddExpiry         types.String                                                              `tfsdk:"add_expiry"`
+	AddHttponly       types.Object                                                              `tfsdk:"add_httponly"`
+	AddPartitioned    types.Object                                                              `tfsdk:"add_partitioned"`
 	AddPath           types.String                                                              `tfsdk:"add_path"`
+	AddSecure         types.Object                                                              `tfsdk:"add_secure"`
+	IgnoreDomain      types.Object                                                              `tfsdk:"ignore_domain"`
+	IgnoreExpiry      types.Object                                                              `tfsdk:"ignore_expiry"`
+	IgnoreHttponly    types.Object                                                              `tfsdk:"ignore_httponly"`
+	IgnoreMaxAge      types.Object                                                              `tfsdk:"ignore_max_age"`
+	IgnorePartitioned types.Object                                                              `tfsdk:"ignore_partitioned"`
+	IgnorePath        types.Object                                                              `tfsdk:"ignore_path"`
+	IgnoreSamesite    types.Object                                                              `tfsdk:"ignore_samesite"`
+	IgnoreSecure      types.Object                                                              `tfsdk:"ignore_secure"`
+	IgnoreValue       types.Object                                                              `tfsdk:"ignore_value"`
 	MaxAgeValue       types.Int64                                                               `tfsdk:"max_age_value"`
 	Name              types.String                                                              `tfsdk:"name"`
 	Overwrite         types.Bool                                                                `tfsdk:"overwrite"`
+	SamesiteLax       types.Object                                                              `tfsdk:"samesite_lax"`
+	SamesiteNone      types.Object                                                              `tfsdk:"samesite_none"`
+	SamesiteStrict    types.Object                                                              `tfsdk:"samesite_strict"`
 	Value             types.String                                                              `tfsdk:"value"`
-	AddHttponly       *ProxyEmptyModel                                                          `tfsdk:"add_httponly"`
-	AddPartitioned    *ProxyEmptyModel                                                          `tfsdk:"add_partitioned"`
-	AddSecure         *ProxyEmptyModel                                                          `tfsdk:"add_secure"`
-	IgnoreDomain      *ProxyEmptyModel                                                          `tfsdk:"ignore_domain"`
-	IgnoreExpiry      *ProxyEmptyModel                                                          `tfsdk:"ignore_expiry"`
-	IgnoreHttponly    *ProxyEmptyModel                                                          `tfsdk:"ignore_httponly"`
-	IgnoreMaxAge      *ProxyEmptyModel                                                          `tfsdk:"ignore_max_age"`
-	IgnorePartitioned *ProxyEmptyModel                                                          `tfsdk:"ignore_partitioned"`
-	IgnorePath        *ProxyEmptyModel                                                          `tfsdk:"ignore_path"`
-	IgnoreSamesite    *ProxyEmptyModel                                                          `tfsdk:"ignore_samesite"`
-	IgnoreSecure      *ProxyEmptyModel                                                          `tfsdk:"ignore_secure"`
-	IgnoreValue       *ProxyEmptyModel                                                          `tfsdk:"ignore_value"`
-	SamesiteLax       *ProxyEmptyModel                                                          `tfsdk:"samesite_lax"`
-	SamesiteNone      *ProxyEmptyModel                                                          `tfsdk:"samesite_none"`
-	SamesiteStrict    *ProxyEmptyModel                                                          `tfsdk:"samesite_strict"`
 	SecretValue       *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel `tfsdk:"secret_value"`
 }
 
@@ -317,13 +317,9 @@ type ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModel struct {
 var ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModelAttrTypes = map[string]attr.Type{
 	"add_domain":         types.StringType,
 	"add_expiry":         types.StringType,
-	"add_path":           types.StringType,
-	"max_age_value":      types.Int64Type,
-	"name":               types.StringType,
-	"overwrite":          types.BoolType,
-	"value":              types.StringType,
 	"add_httponly":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"add_partitioned":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"add_path":           types.StringType,
 	"add_secure":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_domain":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_expiry":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -334,9 +330,13 @@ var ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddModelAttrTypes = map
 	"ignore_samesite":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_secure":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_value":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_age_value":      types.Int64Type,
+	"name":               types.StringType,
+	"overwrite":          types.BoolType,
 	"samesite_lax":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"samesite_none":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"samesite_strict":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"value":              types.StringType,
 	"secret_value":       types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModelAttrTypes},
 }
 
@@ -448,18 +448,18 @@ var ProxyDynamicProxyHTTPSProxyModelAttrTypes = map[string]attr.Type{
 type ProxyDynamicProxyHTTPSProxyMoreOptionModel struct {
 	CustomErrors                types.Map                                                    `tfsdk:"custom_errors"`
 	DisableDefaultErrorPages    types.Bool                                                   `tfsdk:"disable_default_error_pages"`
+	DisablePathNormalize        types.Object                                                 `tfsdk:"disable_path_normalize"`
+	EnablePathNormalize         types.Object                                                 `tfsdk:"enable_path_normalize"`
 	IdleTimeout                 types.Int64                                                  `tfsdk:"idle_timeout"`
 	MaxRequestHeaderSize        types.Int64                                                  `tfsdk:"max_request_header_size"`
 	MaxRequestsPerConnection    types.Int64                                                  `tfsdk:"max_requests_per_connection"`
+	NoRequestLimitPerConnection types.Object                                                 `tfsdk:"no_request_limit_per_connection"`
 	RequestCookiesToRemove      types.List                                                   `tfsdk:"request_cookies_to_remove"`
 	RequestHeadersToRemove      types.List                                                   `tfsdk:"request_headers_to_remove"`
 	ResponseCookiesToRemove     types.List                                                   `tfsdk:"response_cookies_to_remove"`
 	ResponseHeadersToRemove     types.List                                                   `tfsdk:"response_headers_to_remove"`
 	BufferPolicy                *ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModel      `tfsdk:"buffer_policy"`
 	CompressionParams           *ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModel `tfsdk:"compression_params"`
-	DisablePathNormalize        *ProxyEmptyModel                                             `tfsdk:"disable_path_normalize"`
-	EnablePathNormalize         *ProxyEmptyModel                                             `tfsdk:"enable_path_normalize"`
-	NoRequestLimitPerConnection *ProxyEmptyModel                                             `tfsdk:"no_request_limit_per_connection"`
 	RequestCookiesToAdd         types.List                                                   `tfsdk:"request_cookies_to_add"`
 	RequestHeadersToAdd         types.List                                                   `tfsdk:"request_headers_to_add"`
 	ResponseCookiesToAdd        types.List                                                   `tfsdk:"response_cookies_to_add"`
@@ -470,18 +470,18 @@ type ProxyDynamicProxyHTTPSProxyMoreOptionModel struct {
 var ProxyDynamicProxyHTTPSProxyMoreOptionModelAttrTypes = map[string]attr.Type{
 	"custom_errors":                   types.MapType{ElemType: types.StringType},
 	"disable_default_error_pages":     types.BoolType,
+	"disable_path_normalize":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enable_path_normalize":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"idle_timeout":                    types.Int64Type,
 	"max_request_header_size":         types.Int64Type,
 	"max_requests_per_connection":     types.Int64Type,
+	"no_request_limit_per_connection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"request_cookies_to_remove":       types.ListType{ElemType: types.StringType},
 	"request_headers_to_remove":       types.ListType{ElemType: types.StringType},
 	"response_cookies_to_remove":      types.ListType{ElemType: types.StringType},
 	"response_headers_to_remove":      types.ListType{ElemType: types.StringType},
 	"buffer_policy":                   types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionBufferPolicyModelAttrTypes},
 	"compression_params":              types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionCompressionParamsModelAttrTypes},
-	"disable_path_normalize":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable_path_normalize":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_request_limit_per_connection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"request_cookies_to_add":          types.ListType{ElemType: types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionRequestCookiesToAddModelAttrTypes}},
 	"request_headers_to_add":          types.ListType{ElemType: types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddModelAttrTypes}},
 	"response_cookies_to_add":         types.ListType{ElemType: types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModelAttrTypes}},
@@ -628,26 +628,26 @@ var ProxyDynamicProxyHTTPSProxyMoreOptionRequestHeadersToAddSecretValueClearSecr
 type ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel struct {
 	AddDomain         types.String                                                               `tfsdk:"add_domain"`
 	AddExpiry         types.String                                                               `tfsdk:"add_expiry"`
+	AddHttponly       types.Object                                                               `tfsdk:"add_httponly"`
+	AddPartitioned    types.Object                                                               `tfsdk:"add_partitioned"`
 	AddPath           types.String                                                               `tfsdk:"add_path"`
+	AddSecure         types.Object                                                               `tfsdk:"add_secure"`
+	IgnoreDomain      types.Object                                                               `tfsdk:"ignore_domain"`
+	IgnoreExpiry      types.Object                                                               `tfsdk:"ignore_expiry"`
+	IgnoreHttponly    types.Object                                                               `tfsdk:"ignore_httponly"`
+	IgnoreMaxAge      types.Object                                                               `tfsdk:"ignore_max_age"`
+	IgnorePartitioned types.Object                                                               `tfsdk:"ignore_partitioned"`
+	IgnorePath        types.Object                                                               `tfsdk:"ignore_path"`
+	IgnoreSamesite    types.Object                                                               `tfsdk:"ignore_samesite"`
+	IgnoreSecure      types.Object                                                               `tfsdk:"ignore_secure"`
+	IgnoreValue       types.Object                                                               `tfsdk:"ignore_value"`
 	MaxAgeValue       types.Int64                                                                `tfsdk:"max_age_value"`
 	Name              types.String                                                               `tfsdk:"name"`
 	Overwrite         types.Bool                                                                 `tfsdk:"overwrite"`
+	SamesiteLax       types.Object                                                               `tfsdk:"samesite_lax"`
+	SamesiteNone      types.Object                                                               `tfsdk:"samesite_none"`
+	SamesiteStrict    types.Object                                                               `tfsdk:"samesite_strict"`
 	Value             types.String                                                               `tfsdk:"value"`
-	AddHttponly       *ProxyEmptyModel                                                           `tfsdk:"add_httponly"`
-	AddPartitioned    *ProxyEmptyModel                                                           `tfsdk:"add_partitioned"`
-	AddSecure         *ProxyEmptyModel                                                           `tfsdk:"add_secure"`
-	IgnoreDomain      *ProxyEmptyModel                                                           `tfsdk:"ignore_domain"`
-	IgnoreExpiry      *ProxyEmptyModel                                                           `tfsdk:"ignore_expiry"`
-	IgnoreHttponly    *ProxyEmptyModel                                                           `tfsdk:"ignore_httponly"`
-	IgnoreMaxAge      *ProxyEmptyModel                                                           `tfsdk:"ignore_max_age"`
-	IgnorePartitioned *ProxyEmptyModel                                                           `tfsdk:"ignore_partitioned"`
-	IgnorePath        *ProxyEmptyModel                                                           `tfsdk:"ignore_path"`
-	IgnoreSamesite    *ProxyEmptyModel                                                           `tfsdk:"ignore_samesite"`
-	IgnoreSecure      *ProxyEmptyModel                                                           `tfsdk:"ignore_secure"`
-	IgnoreValue       *ProxyEmptyModel                                                           `tfsdk:"ignore_value"`
-	SamesiteLax       *ProxyEmptyModel                                                           `tfsdk:"samesite_lax"`
-	SamesiteNone      *ProxyEmptyModel                                                           `tfsdk:"samesite_none"`
-	SamesiteStrict    *ProxyEmptyModel                                                           `tfsdk:"samesite_strict"`
 	SecretValue       *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModel `tfsdk:"secret_value"`
 }
 
@@ -655,13 +655,9 @@ type ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModel struct {
 var ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModelAttrTypes = map[string]attr.Type{
 	"add_domain":         types.StringType,
 	"add_expiry":         types.StringType,
-	"add_path":           types.StringType,
-	"max_age_value":      types.Int64Type,
-	"name":               types.StringType,
-	"overwrite":          types.BoolType,
-	"value":              types.StringType,
 	"add_httponly":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"add_partitioned":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"add_path":           types.StringType,
 	"add_secure":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_domain":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_expiry":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -672,9 +668,13 @@ var ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddModelAttrTypes = ma
 	"ignore_samesite":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_secure":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_value":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_age_value":      types.Int64Type,
+	"name":               types.StringType,
+	"overwrite":          types.BoolType,
 	"samesite_lax":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"samesite_none":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"samesite_strict":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"value":              types.StringType,
 	"secret_value":       types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModelAttrTypes},
 }
 
@@ -772,7 +772,7 @@ var ProxyDynamicProxyHTTPSProxyMoreOptionResponseHeadersToAddSecretValueClearSec
 
 // ProxyDynamicProxyHTTPSProxyTLSParamsModel represents tls_params block
 type ProxyDynamicProxyHTTPSProxyTLSParamsModel struct {
-	NoMtls          *ProxyEmptyModel                                    `tfsdk:"no_mtls"`
+	NoMtls          types.Object                                        `tfsdk:"no_mtls"`
 	TLSCertificates types.List                                          `tfsdk:"tls_certificates"`
 	TLSConfig       *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel `tfsdk:"tls_config"`
 	UseMtls         *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModel   `tfsdk:"use_mtls"`
@@ -790,20 +790,20 @@ var ProxyDynamicProxyHTTPSProxyTLSParamsModelAttrTypes = map[string]attr.Type{
 type ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel struct {
 	CertificateURL       types.String                                                                  `tfsdk:"certificate_url"`
 	DescriptionSpec      types.String                                                                  `tfsdk:"description_spec"`
+	DisableOCSPStapling  types.Object                                                                  `tfsdk:"disable_ocsp_stapling"`
+	UseSystemDefaults    types.Object                                                                  `tfsdk:"use_system_defaults"`
 	CustomHashAlgorithms *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesCustomHashAlgorithmsModel `tfsdk:"custom_hash_algorithms"`
-	DisableOCSPStapling  *ProxyEmptyModel                                                              `tfsdk:"disable_ocsp_stapling"`
 	PrivateKey           *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModel           `tfsdk:"private_key"`
-	UseSystemDefaults    *ProxyEmptyModel                                                              `tfsdk:"use_system_defaults"`
 }
 
 // ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModelAttrTypes defines the attribute types for ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModel
 var ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesModelAttrTypes = map[string]attr.Type{
 	"certificate_url":        types.StringType,
 	"description_spec":       types.StringType,
-	"custom_hash_algorithms": types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
 	"disable_ocsp_stapling":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"private_key":            types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModelAttrTypes},
 	"use_system_defaults":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_hash_algorithms": types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
+	"private_key":            types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModelAttrTypes},
 }
 
 // ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesCustomHashAlgorithmsModel represents custom_hash_algorithms block
@@ -856,18 +856,18 @@ var ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyClearSecretInfo
 
 // ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel represents tls_config block
 type ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel struct {
+	DefaultSecurity types.Object                                                      `tfsdk:"default_security"`
+	LowSecurity     types.Object                                                      `tfsdk:"low_security"`
+	MediumSecurity  types.Object                                                      `tfsdk:"medium_security"`
 	CustomSecurity  *ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel `tfsdk:"custom_security"`
-	DefaultSecurity *ProxyEmptyModel                                                  `tfsdk:"default_security"`
-	LowSecurity     *ProxyEmptyModel                                                  `tfsdk:"low_security"`
-	MediumSecurity  *ProxyEmptyModel                                                  `tfsdk:"medium_security"`
 }
 
 // ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModelAttrTypes defines the attribute types for ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModel
 var ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigModelAttrTypes = map[string]attr.Type{
-	"custom_security":  types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModelAttrTypes},
 	"default_security": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"low_security":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"medium_security":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_security":  types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModelAttrTypes},
 }
 
 // ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModel represents custom_security block
@@ -887,22 +887,22 @@ var ProxyDynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityModelAttrTypes = 
 // ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModel represents use_mtls block
 type ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModel struct {
 	ClientCertificateOptional types.Bool                                                   `tfsdk:"client_certificate_optional"`
+	NoCRL                     types.Object                                                 `tfsdk:"no_crl"`
 	TrustedCAURL              types.String                                                 `tfsdk:"trusted_ca_url"`
+	XfccDisabled              types.Object                                                 `tfsdk:"xfcc_disabled"`
 	CRL                       *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsCRLModel         `tfsdk:"crl"`
-	NoCRL                     *ProxyEmptyModel                                             `tfsdk:"no_crl"`
 	TrustedCA                 *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAModel   `tfsdk:"trusted_ca"`
-	XfccDisabled              *ProxyEmptyModel                                             `tfsdk:"xfcc_disabled"`
 	XfccOptions               *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel `tfsdk:"xfcc_options"`
 }
 
 // ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModelAttrTypes defines the attribute types for ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModel
 var ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsModelAttrTypes = map[string]attr.Type{
 	"client_certificate_optional": types.BoolType,
-	"trusted_ca_url":              types.StringType,
-	"crl":                         types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsCRLModelAttrTypes},
 	"no_crl":                      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"trusted_ca":                  types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAModelAttrTypes},
+	"trusted_ca_url":              types.StringType,
 	"xfcc_disabled":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"crl":                         types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsCRLModelAttrTypes},
+	"trusted_ca":                  types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAModelAttrTypes},
 	"xfcc_options":                types.ObjectType{AttrTypes: ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModelAttrTypes},
 }
 
@@ -970,18 +970,18 @@ var ProxyHTTPProxyModelAttrTypes = map[string]attr.Type{
 type ProxyHTTPProxyMoreOptionModel struct {
 	CustomErrors                types.Map                                       `tfsdk:"custom_errors"`
 	DisableDefaultErrorPages    types.Bool                                      `tfsdk:"disable_default_error_pages"`
+	DisablePathNormalize        types.Object                                    `tfsdk:"disable_path_normalize"`
+	EnablePathNormalize         types.Object                                    `tfsdk:"enable_path_normalize"`
 	IdleTimeout                 types.Int64                                     `tfsdk:"idle_timeout"`
 	MaxRequestHeaderSize        types.Int64                                     `tfsdk:"max_request_header_size"`
 	MaxRequestsPerConnection    types.Int64                                     `tfsdk:"max_requests_per_connection"`
+	NoRequestLimitPerConnection types.Object                                    `tfsdk:"no_request_limit_per_connection"`
 	RequestCookiesToRemove      types.List                                      `tfsdk:"request_cookies_to_remove"`
 	RequestHeadersToRemove      types.List                                      `tfsdk:"request_headers_to_remove"`
 	ResponseCookiesToRemove     types.List                                      `tfsdk:"response_cookies_to_remove"`
 	ResponseHeadersToRemove     types.List                                      `tfsdk:"response_headers_to_remove"`
 	BufferPolicy                *ProxyHTTPProxyMoreOptionBufferPolicyModel      `tfsdk:"buffer_policy"`
 	CompressionParams           *ProxyHTTPProxyMoreOptionCompressionParamsModel `tfsdk:"compression_params"`
-	DisablePathNormalize        *ProxyEmptyModel                                `tfsdk:"disable_path_normalize"`
-	EnablePathNormalize         *ProxyEmptyModel                                `tfsdk:"enable_path_normalize"`
-	NoRequestLimitPerConnection *ProxyEmptyModel                                `tfsdk:"no_request_limit_per_connection"`
 	RequestCookiesToAdd         types.List                                      `tfsdk:"request_cookies_to_add"`
 	RequestHeadersToAdd         types.List                                      `tfsdk:"request_headers_to_add"`
 	ResponseCookiesToAdd        types.List                                      `tfsdk:"response_cookies_to_add"`
@@ -992,18 +992,18 @@ type ProxyHTTPProxyMoreOptionModel struct {
 var ProxyHTTPProxyMoreOptionModelAttrTypes = map[string]attr.Type{
 	"custom_errors":                   types.MapType{ElemType: types.StringType},
 	"disable_default_error_pages":     types.BoolType,
+	"disable_path_normalize":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enable_path_normalize":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"idle_timeout":                    types.Int64Type,
 	"max_request_header_size":         types.Int64Type,
 	"max_requests_per_connection":     types.Int64Type,
+	"no_request_limit_per_connection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"request_cookies_to_remove":       types.ListType{ElemType: types.StringType},
 	"request_headers_to_remove":       types.ListType{ElemType: types.StringType},
 	"response_cookies_to_remove":      types.ListType{ElemType: types.StringType},
 	"response_headers_to_remove":      types.ListType{ElemType: types.StringType},
 	"buffer_policy":                   types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionBufferPolicyModelAttrTypes},
 	"compression_params":              types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionCompressionParamsModelAttrTypes},
-	"disable_path_normalize":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable_path_normalize":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_request_limit_per_connection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"request_cookies_to_add":          types.ListType{ElemType: types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionRequestCookiesToAddModelAttrTypes}},
 	"request_headers_to_add":          types.ListType{ElemType: types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionRequestHeadersToAddModelAttrTypes}},
 	"response_cookies_to_add":         types.ListType{ElemType: types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionResponseCookiesToAddModelAttrTypes}},
@@ -1150,26 +1150,26 @@ var ProxyHTTPProxyMoreOptionRequestHeadersToAddSecretValueClearSecretInfoModelAt
 type ProxyHTTPProxyMoreOptionResponseCookiesToAddModel struct {
 	AddDomain         types.String                                                  `tfsdk:"add_domain"`
 	AddExpiry         types.String                                                  `tfsdk:"add_expiry"`
+	AddHttponly       types.Object                                                  `tfsdk:"add_httponly"`
+	AddPartitioned    types.Object                                                  `tfsdk:"add_partitioned"`
 	AddPath           types.String                                                  `tfsdk:"add_path"`
+	AddSecure         types.Object                                                  `tfsdk:"add_secure"`
+	IgnoreDomain      types.Object                                                  `tfsdk:"ignore_domain"`
+	IgnoreExpiry      types.Object                                                  `tfsdk:"ignore_expiry"`
+	IgnoreHttponly    types.Object                                                  `tfsdk:"ignore_httponly"`
+	IgnoreMaxAge      types.Object                                                  `tfsdk:"ignore_max_age"`
+	IgnorePartitioned types.Object                                                  `tfsdk:"ignore_partitioned"`
+	IgnorePath        types.Object                                                  `tfsdk:"ignore_path"`
+	IgnoreSamesite    types.Object                                                  `tfsdk:"ignore_samesite"`
+	IgnoreSecure      types.Object                                                  `tfsdk:"ignore_secure"`
+	IgnoreValue       types.Object                                                  `tfsdk:"ignore_value"`
 	MaxAgeValue       types.Int64                                                   `tfsdk:"max_age_value"`
 	Name              types.String                                                  `tfsdk:"name"`
 	Overwrite         types.Bool                                                    `tfsdk:"overwrite"`
+	SamesiteLax       types.Object                                                  `tfsdk:"samesite_lax"`
+	SamesiteNone      types.Object                                                  `tfsdk:"samesite_none"`
+	SamesiteStrict    types.Object                                                  `tfsdk:"samesite_strict"`
 	Value             types.String                                                  `tfsdk:"value"`
-	AddHttponly       *ProxyEmptyModel                                              `tfsdk:"add_httponly"`
-	AddPartitioned    *ProxyEmptyModel                                              `tfsdk:"add_partitioned"`
-	AddSecure         *ProxyEmptyModel                                              `tfsdk:"add_secure"`
-	IgnoreDomain      *ProxyEmptyModel                                              `tfsdk:"ignore_domain"`
-	IgnoreExpiry      *ProxyEmptyModel                                              `tfsdk:"ignore_expiry"`
-	IgnoreHttponly    *ProxyEmptyModel                                              `tfsdk:"ignore_httponly"`
-	IgnoreMaxAge      *ProxyEmptyModel                                              `tfsdk:"ignore_max_age"`
-	IgnorePartitioned *ProxyEmptyModel                                              `tfsdk:"ignore_partitioned"`
-	IgnorePath        *ProxyEmptyModel                                              `tfsdk:"ignore_path"`
-	IgnoreSamesite    *ProxyEmptyModel                                              `tfsdk:"ignore_samesite"`
-	IgnoreSecure      *ProxyEmptyModel                                              `tfsdk:"ignore_secure"`
-	IgnoreValue       *ProxyEmptyModel                                              `tfsdk:"ignore_value"`
-	SamesiteLax       *ProxyEmptyModel                                              `tfsdk:"samesite_lax"`
-	SamesiteNone      *ProxyEmptyModel                                              `tfsdk:"samesite_none"`
-	SamesiteStrict    *ProxyEmptyModel                                              `tfsdk:"samesite_strict"`
 	SecretValue       *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel `tfsdk:"secret_value"`
 }
 
@@ -1177,13 +1177,9 @@ type ProxyHTTPProxyMoreOptionResponseCookiesToAddModel struct {
 var ProxyHTTPProxyMoreOptionResponseCookiesToAddModelAttrTypes = map[string]attr.Type{
 	"add_domain":         types.StringType,
 	"add_expiry":         types.StringType,
-	"add_path":           types.StringType,
-	"max_age_value":      types.Int64Type,
-	"name":               types.StringType,
-	"overwrite":          types.BoolType,
-	"value":              types.StringType,
 	"add_httponly":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"add_partitioned":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"add_path":           types.StringType,
 	"add_secure":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_domain":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_expiry":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -1194,9 +1190,13 @@ var ProxyHTTPProxyMoreOptionResponseCookiesToAddModelAttrTypes = map[string]attr
 	"ignore_samesite":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_secure":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_value":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_age_value":      types.Int64Type,
+	"name":               types.StringType,
+	"overwrite":          types.BoolType,
 	"samesite_lax":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"samesite_none":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"samesite_strict":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"value":              types.StringType,
 	"secret_value":       types.ObjectType{AttrTypes: ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModelAttrTypes},
 }
 
@@ -1305,16 +1305,16 @@ var ProxySiteVirtualSitesModelAttrTypes = map[string]attr.Type{
 // ProxySiteVirtualSitesAdvertiseWhereModel represents advertise_where block
 type ProxySiteVirtualSitesAdvertiseWhereModel struct {
 	Port           types.Int64                                          `tfsdk:"port"`
+	UseDefaultPort types.Object                                         `tfsdk:"use_default_port"`
 	Site           *ProxySiteVirtualSitesAdvertiseWhereSiteModel        `tfsdk:"site"`
-	UseDefaultPort *ProxyEmptyModel                                     `tfsdk:"use_default_port"`
 	VirtualSite    *ProxySiteVirtualSitesAdvertiseWhereVirtualSiteModel `tfsdk:"virtual_site"`
 }
 
 // ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes defines the attribute types for ProxySiteVirtualSitesAdvertiseWhereModel
 var ProxySiteVirtualSitesAdvertiseWhereModelAttrTypes = map[string]attr.Type{
 	"port":             types.Int64Type,
-	"site":             types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereSiteModelAttrTypes},
 	"use_default_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"site":             types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereSiteModelAttrTypes},
 	"virtual_site":     types.ObjectType{AttrTypes: ProxySiteVirtualSitesAdvertiseWhereVirtualSiteModelAttrTypes},
 }
 
@@ -1374,42 +1374,42 @@ var ProxySiteVirtualSitesAdvertiseWhereVirtualSiteVirtualSiteModelAttrTypes = ma
 
 // ProxyTLSInterceptModel represents tls_intercept block
 type ProxyTLSInterceptModel struct {
+	EnableForAllDomains types.Object                             `tfsdk:"enable_for_all_domains"`
 	TrustedCAURL        types.String                             `tfsdk:"trusted_ca_url"`
+	VolterraCertificate types.Object                             `tfsdk:"volterra_certificate"`
+	VolterraTrustedCA   types.Object                             `tfsdk:"volterra_trusted_ca"`
 	CustomCertificate   *ProxyTLSInterceptCustomCertificateModel `tfsdk:"custom_certificate"`
-	EnableForAllDomains *ProxyEmptyModel                         `tfsdk:"enable_for_all_domains"`
 	Policy              *ProxyTLSInterceptPolicyModel            `tfsdk:"policy"`
-	VolterraCertificate *ProxyEmptyModel                         `tfsdk:"volterra_certificate"`
-	VolterraTrustedCA   *ProxyEmptyModel                         `tfsdk:"volterra_trusted_ca"`
 }
 
 // ProxyTLSInterceptModelAttrTypes defines the attribute types for ProxyTLSInterceptModel
 var ProxyTLSInterceptModelAttrTypes = map[string]attr.Type{
-	"trusted_ca_url":         types.StringType,
-	"custom_certificate":     types.ObjectType{AttrTypes: ProxyTLSInterceptCustomCertificateModelAttrTypes},
 	"enable_for_all_domains": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"policy":                 types.ObjectType{AttrTypes: ProxyTLSInterceptPolicyModelAttrTypes},
+	"trusted_ca_url":         types.StringType,
 	"volterra_certificate":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"volterra_trusted_ca":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_certificate":     types.ObjectType{AttrTypes: ProxyTLSInterceptCustomCertificateModelAttrTypes},
+	"policy":                 types.ObjectType{AttrTypes: ProxyTLSInterceptPolicyModelAttrTypes},
 }
 
 // ProxyTLSInterceptCustomCertificateModel represents custom_certificate block
 type ProxyTLSInterceptCustomCertificateModel struct {
 	CertificateURL       types.String                                                 `tfsdk:"certificate_url"`
 	DescriptionSpec      types.String                                                 `tfsdk:"description_spec"`
+	DisableOCSPStapling  types.Object                                                 `tfsdk:"disable_ocsp_stapling"`
+	UseSystemDefaults    types.Object                                                 `tfsdk:"use_system_defaults"`
 	CustomHashAlgorithms *ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel `tfsdk:"custom_hash_algorithms"`
-	DisableOCSPStapling  *ProxyEmptyModel                                             `tfsdk:"disable_ocsp_stapling"`
 	PrivateKey           *ProxyTLSInterceptCustomCertificatePrivateKeyModel           `tfsdk:"private_key"`
-	UseSystemDefaults    *ProxyEmptyModel                                             `tfsdk:"use_system_defaults"`
 }
 
 // ProxyTLSInterceptCustomCertificateModelAttrTypes defines the attribute types for ProxyTLSInterceptCustomCertificateModel
 var ProxyTLSInterceptCustomCertificateModelAttrTypes = map[string]attr.Type{
 	"certificate_url":        types.StringType,
 	"description_spec":       types.StringType,
-	"custom_hash_algorithms": types.ObjectType{AttrTypes: ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModelAttrTypes},
 	"disable_ocsp_stapling":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"private_key":            types.ObjectType{AttrTypes: ProxyTLSInterceptCustomCertificatePrivateKeyModelAttrTypes},
 	"use_system_defaults":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_hash_algorithms": types.ObjectType{AttrTypes: ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModelAttrTypes},
+	"private_key":            types.ObjectType{AttrTypes: ProxyTLSInterceptCustomCertificatePrivateKeyModelAttrTypes},
 }
 
 // ProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel represents custom_hash_algorithms block
@@ -1472,16 +1472,16 @@ var ProxyTLSInterceptPolicyModelAttrTypes = map[string]attr.Type{
 
 // ProxyTLSInterceptPolicyInterceptionRulesModel represents interception_rules block
 type ProxyTLSInterceptPolicyInterceptionRulesModel struct {
-	DisableInterception *ProxyEmptyModel                                          `tfsdk:"disable_interception"`
+	DisableInterception types.Object                                              `tfsdk:"disable_interception"`
+	EnableInterception  types.Object                                              `tfsdk:"enable_interception"`
 	DomainMatch         *ProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel `tfsdk:"domain_match"`
-	EnableInterception  *ProxyEmptyModel                                          `tfsdk:"enable_interception"`
 }
 
 // ProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes defines the attribute types for ProxyTLSInterceptPolicyInterceptionRulesModel
 var ProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes = map[string]attr.Type{
 	"disable_interception": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"domain_match":         types.ObjectType{AttrTypes: ProxyTLSInterceptPolicyInterceptionRulesDomainMatchModelAttrTypes},
 	"enable_interception":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"domain_match":         types.ObjectType{AttrTypes: ProxyTLSInterceptPolicyInterceptionRulesDomainMatchModelAttrTypes},
 }
 
 // ProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel represents domain_match block
@@ -1504,18 +1504,18 @@ type ProxyResourceModel struct {
 	Annotations                types.Map                             `tfsdk:"annotations"`
 	Description                types.String                          `tfsdk:"description"`
 	Disable                    types.Bool                            `tfsdk:"disable"`
+	DoNotAdvertise             types.Object                          `tfsdk:"do_not_advertise"`
 	Labels                     types.Map                             `tfsdk:"labels"`
+	NoForwardProxyPolicy       types.Object                          `tfsdk:"no_forward_proxy_policy"`
+	NoInterception             types.Object                          `tfsdk:"no_interception"`
+	SiteLocalInsideNetwork     types.Object                          `tfsdk:"site_local_inside_network"`
+	SiteLocalNetwork           types.Object                          `tfsdk:"site_local_network"`
 	ID                         types.String                          `tfsdk:"id"`
 	ConnectionTimeout          types.Int64                           `tfsdk:"connection_timeout"`
 	Timeouts                   timeouts.Value                        `tfsdk:"timeouts"`
 	ActiveForwardProxyPolicies *ProxyActiveForwardProxyPoliciesModel `tfsdk:"active_forward_proxy_policies"`
-	DoNotAdvertise             *ProxyEmptyModel                      `tfsdk:"do_not_advertise"`
 	DynamicProxy               *ProxyDynamicProxyModel               `tfsdk:"dynamic_proxy"`
 	HTTPProxy                  *ProxyHTTPProxyModel                  `tfsdk:"http_proxy"`
-	NoForwardProxyPolicy       *ProxyEmptyModel                      `tfsdk:"no_forward_proxy_policy"`
-	NoInterception             *ProxyEmptyModel                      `tfsdk:"no_interception"`
-	SiteLocalInsideNetwork     *ProxyEmptyModel                      `tfsdk:"site_local_inside_network"`
-	SiteLocalNetwork           *ProxyEmptyModel                      `tfsdk:"site_local_network"`
 	SiteVirtualSites           *ProxySiteVirtualSitesModel           `tfsdk:"site_virtual_sites"`
 	TLSIntercept               *ProxyTLSInterceptModel               `tfsdk:"tls_intercept"`
 }
@@ -1561,10 +1561,35 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"do_not_advertise": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: do_not_advertise, site_virtual_sites] Configuration parameter for do not advertise.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"no_forward_proxy_policy": schema.ObjectAttribute{
+				MarkdownDescription: "Policy configuration for this feature.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_interception": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: no_interception, tls_intercept; Default: no_interception] Configuration parameter for no interception.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"site_local_inside_network": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: site_local_inside_network, site_local_network] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"site_local_network": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -1633,14 +1658,16 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					},
 				},
 			},
-			"do_not_advertise": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: do_not_advertise, site_virtual_sites] Configuration parameter for do not advertise.",
-			},
 			"dynamic_proxy": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: dynamic_proxy, http_proxy] Configuration parameter for dynamic proxy.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("domains"), validators.ConflictingObjectAttributes("disable_dns_masquerade", "enable_dns_masquerade"), validators.ConflictingObjectAttributes("http_proxy", "https_proxy"), validators.ConflictingObjectAttributes("http_proxy", "sni_proxy"), validators.ConflictingObjectAttributes("https_proxy", "sni_proxy")},
 
 				Attributes: map[string]schema.Attribute{
+					"disable_dns_masquerade": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable dns masquerade.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"domains": schema.ListAttribute{
 						MarkdownDescription: "List of Domains to be proxied. Wildcard hosts are supported in the suffix or prefix form Supported Domains and search order: 1. Exact Domain names: www.example.com. 2.",
 						Optional:            true,
@@ -1649,14 +1676,13 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							listvalidator.SizeBetween(1, 32),
 						},
 					},
+					"enable_dns_masquerade": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for enable dns masquerade.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 				},
 				Blocks: map[string]schema.Block{
-					"disable_dns_masquerade": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable dns masquerade.",
-					},
-					"enable_dns_masquerade": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for enable dns masquerade.",
-					},
 					"http_proxy": schema.SingleNestedBlock{
 						MarkdownDescription: "Dynamic HTTP Proxy Type. Parameters for dynamic HTTP proxy.",
 						Attributes:          map[string]schema.Attribute{},
@@ -1673,6 +1699,16 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									"disable_default_error_pages": schema.BoolAttribute{
 										MarkdownDescription: "Disable the use of default F5XC error pages.",
 										Optional:            true,
+									},
+									"disable_path_normalize": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"enable_path_normalize": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 									"idle_timeout": schema.Int64Attribute{
 										MarkdownDescription: "The amount of time that a stream can exist without upstream or downstream activity, in milliseconds. The stream is terminated with a HTTP 504 (Gateway Timeout) error code if no upstream response header has been received, otherwise the stream is reset.",
@@ -1694,6 +1730,11 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										Validators: []validator.Int64{
 											int64validator.AtLeast(1),
 										},
+									},
+									"no_request_limit_per_connection": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for no request limit per connection.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 									"request_cookies_to_remove": schema.ListAttribute{
 										MarkdownDescription: "List of keys of Cookies to be removed from the HTTP request being sent towards upstream.",
@@ -1773,15 +1814,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												Optional:            true,
 											},
 										},
-									},
-									"disable_path_normalize": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"enable_path_normalize": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"no_request_limit_per_connection": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for no request limit per connection.",
 									},
 									"request_cookies_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
@@ -1948,12 +1980,72 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														stringvalidator.LengthAtMost(256),
 													},
 												},
+												"add_httponly": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for add httponly.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"add_partitioned": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for add partitioned.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"add_path": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [ignore_path] Add path attribute.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(256),
 													},
+												},
+												"add_secure": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_domain": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for ignore domain.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_expiry": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for ignore expiry.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_httponly": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for ignore httponly.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_max_age": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for ignore max age.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_partitioned": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for ignore partitioned.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_path": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_samesite": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_secure": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_value": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for ignore value.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 												"max_age_value": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [ignore_max_age] Add max age attribute.",
@@ -1973,6 +2065,21 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													MarkdownDescription: "Should the value be overwritten? If true, the value is overwritten to existing values.  not overwrite. Defaults to `do`.",
 													Optional:            true,
 												},
+												"samesite_lax": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"samesite_none": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"samesite_strict": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"value": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [ignore_value secret_value] Value of the Cookie header.",
 													Optional:            true,
@@ -1982,51 +2089,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 											},
 											Blocks: map[string]schema.Block{
-												"add_httponly": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for add httponly.",
-												},
-												"add_partitioned": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for add partitioned.",
-												},
-												"add_secure": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"ignore_domain": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for ignore domain.",
-												},
-												"ignore_expiry": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for ignore expiry.",
-												},
-												"ignore_httponly": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for ignore httponly.",
-												},
-												"ignore_max_age": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for ignore max age.",
-												},
-												"ignore_partitioned": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for ignore partitioned.",
-												},
-												"ignore_path": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"ignore_samesite": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"ignore_secure": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"ignore_value": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for ignore value.",
-												},
-												"samesite_lax": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"samesite_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"samesite_strict": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
 												"secret_value": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
 													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
@@ -2169,6 +2231,16 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										MarkdownDescription: "Disable the use of default F5XC error pages.",
 										Optional:            true,
 									},
+									"disable_path_normalize": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"enable_path_normalize": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
 									"idle_timeout": schema.Int64Attribute{
 										MarkdownDescription: "The amount of time that a stream can exist without upstream or downstream activity, in milliseconds. The stream is terminated with a HTTP 504 (Gateway Timeout) error code if no upstream response header has been received, otherwise the stream is reset.",
 										Optional:            true,
@@ -2189,6 +2261,11 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										Validators: []validator.Int64{
 											int64validator.AtLeast(1),
 										},
+									},
+									"no_request_limit_per_connection": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for no request limit per connection.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 									"request_cookies_to_remove": schema.ListAttribute{
 										MarkdownDescription: "List of keys of Cookies to be removed from the HTTP request being sent towards upstream.",
@@ -2268,15 +2345,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												Optional:            true,
 											},
 										},
-									},
-									"disable_path_normalize": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"enable_path_normalize": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"no_request_limit_per_connection": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for no request limit per connection.",
 									},
 									"request_cookies_to_add": schema.ListNestedBlock{
 										MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
@@ -2443,12 +2511,72 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														stringvalidator.LengthAtMost(256),
 													},
 												},
+												"add_httponly": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for add httponly.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"add_partitioned": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for add partitioned.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"add_path": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [ignore_path] Add path attribute.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(256),
 													},
+												},
+												"add_secure": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_domain": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for ignore domain.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_expiry": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for ignore expiry.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_httponly": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for ignore httponly.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_max_age": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for ignore max age.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_partitioned": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for ignore partitioned.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_path": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_samesite": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_secure": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"ignore_value": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for ignore value.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 												"max_age_value": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [ignore_max_age] Add max age attribute.",
@@ -2468,6 +2596,21 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													MarkdownDescription: "Should the value be overwritten? If true, the value is overwritten to existing values.  not overwrite. Defaults to `do`.",
 													Optional:            true,
 												},
+												"samesite_lax": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"samesite_none": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"samesite_strict": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"value": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [ignore_value secret_value] Value of the Cookie header.",
 													Optional:            true,
@@ -2477,51 +2620,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 											},
 											Blocks: map[string]schema.Block{
-												"add_httponly": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for add httponly.",
-												},
-												"add_partitioned": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for add partitioned.",
-												},
-												"add_secure": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"ignore_domain": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for ignore domain.",
-												},
-												"ignore_expiry": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for ignore expiry.",
-												},
-												"ignore_httponly": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for ignore httponly.",
-												},
-												"ignore_max_age": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for ignore max age.",
-												},
-												"ignore_partitioned": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for ignore partitioned.",
-												},
-												"ignore_path": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"ignore_samesite": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"ignore_secure": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"ignore_value": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for ignore value.",
-												},
-												"samesite_lax": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"samesite_none": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"samesite_strict": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
 												"secret_value": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
 													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
@@ -2648,11 +2746,14 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							"tls_params": schema.SingleNestedBlock{
 								MarkdownDescription: "Inline TLS Parameters. Inline TLS parameters.",
 								Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"no_mtls": schema.SingleNestedBlock{
+								Attributes: map[string]schema.Attribute{
+									"no_mtls": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
+								},
+								Blocks: map[string]schema.Block{
 									"tls_certificates": schema.ListNestedBlock{
 										MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
 										Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
@@ -2669,6 +2770,16 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													MarkdownDescription: "Description. Description for the certificate.",
 													Optional:            true,
 												},
+												"disable_ocsp_stapling": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"use_system_defaults": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for use system defaults.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 											},
 											Blocks: map[string]schema.Block{
 												"custom_hash_algorithms": schema.SingleNestedBlock{
@@ -2684,9 +2795,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															},
 														},
 													},
-												},
-												"disable_ocsp_stapling": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
 												},
 												"private_key": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
@@ -2733,16 +2841,29 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 													},
 												},
-												"use_system_defaults": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for use system defaults.",
-												},
 											},
 										},
 									},
 									"tls_config": schema.SingleNestedBlock{
 										MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
 										Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
-										Attributes:          map[string]schema.Attribute{},
+										Attributes: map[string]schema.Attribute{
+											"default_security": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+											"low_security": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+											"medium_security": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+										},
 										Blocks: map[string]schema.Block{
 											"custom_security": schema.SingleNestedBlock{
 												MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
@@ -2769,15 +2890,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													},
 												},
 											},
-											"default_security": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
-											"low_security": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
-											"medium_security": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
 										},
 									},
 									"use_mtls": schema.SingleNestedBlock{
@@ -2788,12 +2900,22 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
 												Optional:            true,
 											},
+											"no_crl": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
 											"trusted_ca_url": schema.StringAttribute{
 												MarkdownDescription: "Exclusive with [trusted_ca] Upload a Root CA Certificate specifically for this Load Balancer.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 131072),
 												},
+											},
+											"xfcc_disabled": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
 											},
 										},
 										Blocks: map[string]schema.Block{
@@ -2828,9 +2950,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													},
 												},
 											},
-											"no_crl": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
 											"trusted_ca": schema.SingleNestedBlock{
 												MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 												Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -2861,9 +2980,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 													},
 												},
-											},
-											"xfcc_disabled": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
 											},
 											"xfcc_options": schema.SingleNestedBlock{
 												MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
@@ -2917,6 +3033,16 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								MarkdownDescription: "Disable the use of default F5XC error pages.",
 								Optional:            true,
 							},
+							"disable_path_normalize": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_path_normalize": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"idle_timeout": schema.Int64Attribute{
 								MarkdownDescription: "The amount of time that a stream can exist without upstream or downstream activity, in milliseconds. The stream is terminated with a HTTP 504 (Gateway Timeout) error code if no upstream response header has been received, otherwise the stream is reset.",
 								Optional:            true,
@@ -2937,6 +3063,11 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								Validators: []validator.Int64{
 									int64validator.AtLeast(1),
 								},
+							},
+							"no_request_limit_per_connection": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for no request limit per connection.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 							"request_cookies_to_remove": schema.ListAttribute{
 								MarkdownDescription: "List of keys of Cookies to be removed from the HTTP request being sent towards upstream.",
@@ -3016,15 +3147,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										Optional:            true,
 									},
 								},
-							},
-							"disable_path_normalize": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"enable_path_normalize": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"no_request_limit_per_connection": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for no request limit per connection.",
 							},
 							"request_cookies_to_add": schema.ListNestedBlock{
 								MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
@@ -3191,12 +3313,72 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												stringvalidator.LengthAtMost(256),
 											},
 										},
+										"add_httponly": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for add httponly.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"add_partitioned": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for add partitioned.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"add_path": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [ignore_path] Add path attribute.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(256),
 											},
+										},
+										"add_secure": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"ignore_domain": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for ignore domain.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"ignore_expiry": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for ignore expiry.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"ignore_httponly": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for ignore httponly.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"ignore_max_age": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for ignore max age.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"ignore_partitioned": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for ignore partitioned.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"ignore_path": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"ignore_samesite": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"ignore_secure": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"ignore_value": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for ignore value.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
 										"max_age_value": schema.Int64Attribute{
 											MarkdownDescription: "Exclusive with [ignore_max_age] Add max age attribute.",
@@ -3216,6 +3398,21 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											MarkdownDescription: "Should the value be overwritten? If true, the value is overwritten to existing values.  not overwrite. Defaults to `do`.",
 											Optional:            true,
 										},
+										"samesite_lax": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"samesite_none": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"samesite_strict": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"value": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [ignore_value secret_value] Value of the Cookie header.",
 											Optional:            true,
@@ -3225,51 +3422,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 									},
 									Blocks: map[string]schema.Block{
-										"add_httponly": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for add httponly.",
-										},
-										"add_partitioned": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for add partitioned.",
-										},
-										"add_secure": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
-										"ignore_domain": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for ignore domain.",
-										},
-										"ignore_expiry": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for ignore expiry.",
-										},
-										"ignore_httponly": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for ignore httponly.",
-										},
-										"ignore_max_age": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for ignore max age.",
-										},
-										"ignore_partitioned": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for ignore partitioned.",
-										},
-										"ignore_path": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
-										"ignore_samesite": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
-										"ignore_secure": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
-										"ignore_value": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for ignore value.",
-										},
-										"samesite_lax": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
-										"samesite_none": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
-										"samesite_strict": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 										"secret_value": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
@@ -3395,18 +3547,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					},
 				},
 			},
-			"no_forward_proxy_policy": schema.SingleNestedBlock{
-				MarkdownDescription: "Policy configuration for this feature.",
-			},
-			"no_interception": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: no_interception, tls_intercept; Default: no_interception] Configuration parameter for no interception.",
-			},
-			"site_local_inside_network": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: site_local_inside_network, site_local_network] Enable this option",
-			},
-			"site_local_network": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
 			"site_virtual_sites": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines a way to advertise a VIP on specific sites.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("advertise_where")},
@@ -3424,6 +3564,11 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									Validators: []validator.Int64{
 										int64validator.Between(1, 65535),
 									},
+								},
+								"use_default_port": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
 							},
 							Blocks: map[string]schema.Block{
@@ -3480,9 +3625,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 									},
 								},
-								"use_default_port": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
 								"virtual_site": schema.SingleNestedBlock{
 									MarkdownDescription: "Defines a reference to a customer site virtual site along with network type where a load balancer could be advertised.",
 									Attributes: map[string]schema.Attribute{
@@ -3538,12 +3680,27 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_certificate", "volterra_certificate"), validators.ConflictingObjectAttributes("enable_for_all_domains", "policy"), validators.ConflictingObjectAttributes("trusted_ca_url", "volterra_trusted_ca")},
 
 				Attributes: map[string]schema.Attribute{
+					"enable_for_all_domains": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for enable for all domains.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"trusted_ca_url": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [volterra_trusted_ca] Custom Root CA Certificate for validating upstream server certificate.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(131072),
 						},
+					},
+					"volterra_certificate": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for volterra certificate.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"volterra_trusted_ca": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for volterra trusted ca.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -3562,6 +3719,16 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								MarkdownDescription: "Description. Description for the certificate.",
 								Optional:            true,
 							},
+							"disable_ocsp_stapling": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_system_defaults": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for use system defaults.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 						},
 						Blocks: map[string]schema.Block{
 							"custom_hash_algorithms": schema.SingleNestedBlock{
@@ -3577,9 +3744,6 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 									},
 								},
-							},
-							"disable_ocsp_stapling": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
 							},
 							"private_key": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
@@ -3626,13 +3790,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 								},
 							},
-							"use_system_defaults": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for use system defaults.",
-							},
 						},
-					},
-					"enable_for_all_domains": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for enable for all domains.",
 					},
 					"policy": schema.SingleNestedBlock{
 						MarkdownDescription: "Policy to enable or disable TLS interception.",
@@ -3643,11 +3801,19 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								MarkdownDescription: "List of ordered rules to enable or disable for TLS interception.",
 								Validators:          []validator.List{validators.ConflictingListObjectAttributes("disable_interception", "enable_interception")},
 								NestedObject: schema.NestedBlockObject{
-									Attributes: map[string]schema.Attribute{},
-									Blocks: map[string]schema.Block{
-										"disable_interception": schema.SingleNestedBlock{
+									Attributes: map[string]schema.Attribute{
+										"disable_interception": schema.ObjectAttribute{
 											MarkdownDescription: "Configuration parameter for disable interception.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
+										"enable_interception": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for enable interception.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+									},
+									Blocks: map[string]schema.Block{
 										"domain_match": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for domain match.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
@@ -3675,19 +3841,10 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 											},
 										},
-										"enable_interception": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for enable interception.",
-										},
 									},
 								},
 							},
 						},
-					},
-					"volterra_certificate": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for volterra certificate.",
-					},
-					"volterra_trusted_ca": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for volterra trusted ca.",
 					},
 				},
 			},
@@ -3717,6 +3874,14 @@ func (r *ProxyResource) ValidateConfig(ctx context.Context, req resource.Validat
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.SiteLocalInsideNetwork.IsNull() && !data.SiteLocalInsideNetwork.IsUnknown() && !data.SiteLocalNetwork.IsNull() && !data.SiteLocalNetwork.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("site_local_inside_network"),
+			"Conflicting Configuration",
+			"site_local_inside_network and site_local_network are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -3840,12 +4005,12 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 		}
 		createReq.Spec["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
 	}
-	if data.DoNotAdvertise != nil {
+	if !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
 		createReq.Spec["do_not_advertise"] = map[string]interface{}{}
 	}
 	if data.DynamicProxy != nil {
 		DynamicProxyMap := make(map[string]interface{})
-		if data.DynamicProxy.DisableDNSMasquerade != nil {
+		if !data.DynamicProxy.DisableDNSMasquerade.IsNull() && !data.DynamicProxy.DisableDNSMasquerade.IsUnknown() {
 			DynamicProxyMap["disable_dns_masquerade"] = map[string]interface{}{}
 		}
 		if !data.DynamicProxy.Domains.IsNull() && !data.DynamicProxy.Domains.IsUnknown() {
@@ -3856,7 +4021,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				DynamicProxyMap["domains"] = DomainsItems
 			}
 		}
-		if data.DynamicProxy.EnableDNSMasquerade != nil {
+		if !data.DynamicProxy.EnableDNSMasquerade.IsNull() && !data.DynamicProxy.EnableDNSMasquerade.IsUnknown() {
 			DynamicProxyMap["enable_dns_masquerade"] = map[string]interface{}{}
 		}
 		if data.DynamicProxy.HTTPProxy != nil {
@@ -3905,10 +4070,10 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					DynamicProxyHTTPProxyMoreOptionMap["disable_default_error_pages"] = data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
 				}
-				if data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize != nil {
+				if !data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 					DynamicProxyHTTPProxyMoreOptionMap["disable_path_normalize"] = map[string]interface{}{}
 				}
-				if data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize != nil {
+				if !data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 					DynamicProxyHTTPProxyMoreOptionMap["enable_path_normalize"] = map[string]interface{}{}
 				}
 				if !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -3920,7 +4085,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
 					DynamicProxyHTTPProxyMoreOptionMap["max_requests_per_connection"] = data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
 				}
-				if data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection != nil {
+				if !data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 					DynamicProxyHTTPProxyMoreOptionMap["no_request_limit_per_connection"] = map[string]interface{}{}
 				}
 				if !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
@@ -4051,43 +4216,43 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
 							}
-							if ResponseCookiesToAddItem.AddHttponly != nil {
+							if !ResponseCookiesToAddItem.AddHttponly.IsNull() && !ResponseCookiesToAddItem.AddHttponly.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.AddPartitioned != nil {
+							if !ResponseCookiesToAddItem.AddPartitioned.IsNull() && !ResponseCookiesToAddItem.AddPartitioned.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
 							}
 							if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
 							}
-							if ResponseCookiesToAddItem.AddSecure != nil {
+							if !ResponseCookiesToAddItem.AddSecure.IsNull() && !ResponseCookiesToAddItem.AddSecure.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreDomain != nil {
+							if !ResponseCookiesToAddItem.IgnoreDomain.IsNull() && !ResponseCookiesToAddItem.IgnoreDomain.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+							if !ResponseCookiesToAddItem.IgnoreExpiry.IsNull() && !ResponseCookiesToAddItem.IgnoreExpiry.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+							if !ResponseCookiesToAddItem.IgnoreHttponly.IsNull() && !ResponseCookiesToAddItem.IgnoreHttponly.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+							if !ResponseCookiesToAddItem.IgnoreMaxAge.IsNull() && !ResponseCookiesToAddItem.IgnoreMaxAge.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+							if !ResponseCookiesToAddItem.IgnorePartitioned.IsNull() && !ResponseCookiesToAddItem.IgnorePartitioned.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnorePath != nil {
+							if !ResponseCookiesToAddItem.IgnorePath.IsNull() && !ResponseCookiesToAddItem.IgnorePath.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+							if !ResponseCookiesToAddItem.IgnoreSamesite.IsNull() && !ResponseCookiesToAddItem.IgnoreSamesite.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreSecure != nil {
+							if !ResponseCookiesToAddItem.IgnoreSecure.IsNull() && !ResponseCookiesToAddItem.IgnoreSecure.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreValue != nil {
+							if !ResponseCookiesToAddItem.IgnoreValue.IsNull() && !ResponseCookiesToAddItem.IgnoreValue.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
 							}
 							if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
@@ -4099,13 +4264,13 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
 								ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
 							}
-							if ResponseCookiesToAddItem.SamesiteLax != nil {
+							if !ResponseCookiesToAddItem.SamesiteLax.IsNull() && !ResponseCookiesToAddItem.SamesiteLax.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.SamesiteNone != nil {
+							if !ResponseCookiesToAddItem.SamesiteNone.IsNull() && !ResponseCookiesToAddItem.SamesiteNone.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.SamesiteStrict != nil {
+							if !ResponseCookiesToAddItem.SamesiteStrict.IsNull() && !ResponseCookiesToAddItem.SamesiteStrict.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
 							}
 							if ResponseCookiesToAddItem.SecretValue != nil {
@@ -4258,10 +4423,10 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					DynamicProxyHTTPSProxyMoreOptionMap["disable_default_error_pages"] = data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
 				}
-				if data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize != nil {
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 					DynamicProxyHTTPSProxyMoreOptionMap["disable_path_normalize"] = map[string]interface{}{}
 				}
-				if data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize != nil {
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 					DynamicProxyHTTPSProxyMoreOptionMap["enable_path_normalize"] = map[string]interface{}{}
 				}
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -4273,7 +4438,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
 					DynamicProxyHTTPSProxyMoreOptionMap["max_requests_per_connection"] = data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
 				}
-				if data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection != nil {
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 					DynamicProxyHTTPSProxyMoreOptionMap["no_request_limit_per_connection"] = map[string]interface{}{}
 				}
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
@@ -4404,43 +4569,43 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
 							}
-							if ResponseCookiesToAddItem.AddHttponly != nil {
+							if !ResponseCookiesToAddItem.AddHttponly.IsNull() && !ResponseCookiesToAddItem.AddHttponly.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.AddPartitioned != nil {
+							if !ResponseCookiesToAddItem.AddPartitioned.IsNull() && !ResponseCookiesToAddItem.AddPartitioned.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
 							}
 							if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
 							}
-							if ResponseCookiesToAddItem.AddSecure != nil {
+							if !ResponseCookiesToAddItem.AddSecure.IsNull() && !ResponseCookiesToAddItem.AddSecure.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreDomain != nil {
+							if !ResponseCookiesToAddItem.IgnoreDomain.IsNull() && !ResponseCookiesToAddItem.IgnoreDomain.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+							if !ResponseCookiesToAddItem.IgnoreExpiry.IsNull() && !ResponseCookiesToAddItem.IgnoreExpiry.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+							if !ResponseCookiesToAddItem.IgnoreHttponly.IsNull() && !ResponseCookiesToAddItem.IgnoreHttponly.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+							if !ResponseCookiesToAddItem.IgnoreMaxAge.IsNull() && !ResponseCookiesToAddItem.IgnoreMaxAge.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+							if !ResponseCookiesToAddItem.IgnorePartitioned.IsNull() && !ResponseCookiesToAddItem.IgnorePartitioned.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnorePath != nil {
+							if !ResponseCookiesToAddItem.IgnorePath.IsNull() && !ResponseCookiesToAddItem.IgnorePath.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+							if !ResponseCookiesToAddItem.IgnoreSamesite.IsNull() && !ResponseCookiesToAddItem.IgnoreSamesite.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreSecure != nil {
+							if !ResponseCookiesToAddItem.IgnoreSecure.IsNull() && !ResponseCookiesToAddItem.IgnoreSecure.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreValue != nil {
+							if !ResponseCookiesToAddItem.IgnoreValue.IsNull() && !ResponseCookiesToAddItem.IgnoreValue.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
 							}
 							if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
@@ -4452,13 +4617,13 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
 								ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
 							}
-							if ResponseCookiesToAddItem.SamesiteLax != nil {
+							if !ResponseCookiesToAddItem.SamesiteLax.IsNull() && !ResponseCookiesToAddItem.SamesiteLax.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.SamesiteNone != nil {
+							if !ResponseCookiesToAddItem.SamesiteNone.IsNull() && !ResponseCookiesToAddItem.SamesiteNone.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.SamesiteStrict != nil {
+							if !ResponseCookiesToAddItem.SamesiteStrict.IsNull() && !ResponseCookiesToAddItem.SamesiteStrict.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
 							}
 							if ResponseCookiesToAddItem.SecretValue != nil {
@@ -4565,7 +4730,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}
 			if data.DynamicProxy.HTTPSProxy.TLSParams != nil {
 				DynamicProxyHTTPSProxyTLSParamsMap := make(map[string]interface{})
-				if data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls != nil {
+				if !data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls.IsUnknown() {
 					DynamicProxyHTTPSProxyTLSParamsMap["no_mtls"] = map[string]interface{}{}
 				}
 				if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsUnknown() {
@@ -4594,7 +4759,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 							}
-							if TLSCertificatesItem.DisableOCSPStapling != nil {
+							if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 							}
 							if TLSCertificatesItem.PrivateKey != nil {
@@ -4624,7 +4789,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 								}
 								TLSCertificatesItemMap["private_key"] = DynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyMap
 							}
-							if TLSCertificatesItem.UseSystemDefaults != nil {
+							if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 							}
 							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -4652,13 +4817,13 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						DynamicProxyHTTPSProxyTLSParamsTLSConfigMap["custom_security"] = DynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityMap
 					}
-					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity != nil {
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity.IsUnknown() {
 						DynamicProxyHTTPSProxyTLSParamsTLSConfigMap["default_security"] = map[string]interface{}{}
 					}
-					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity != nil {
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity.IsUnknown() {
 						DynamicProxyHTTPSProxyTLSParamsTLSConfigMap["low_security"] = map[string]interface{}{}
 					}
-					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity != nil {
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity.IsUnknown() {
 						DynamicProxyHTTPSProxyTLSParamsTLSConfigMap["medium_security"] = map[string]interface{}{}
 					}
 					DynamicProxyHTTPSProxyTLSParamsMap["tls_config"] = DynamicProxyHTTPSProxyTLSParamsTLSConfigMap
@@ -4678,7 +4843,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						DynamicProxyHTTPSProxyTLSParamsUseMtlsMap["crl"] = DynamicProxyHTTPSProxyTLSParamsUseMtlsCRLMap
 					}
-					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL != nil {
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL.IsUnknown() {
 						DynamicProxyHTTPSProxyTLSParamsUseMtlsMap["no_crl"] = map[string]interface{}{}
 					}
 					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA != nil {
@@ -4694,7 +4859,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 					if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCAURL.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCAURL.IsUnknown() {
 						DynamicProxyHTTPSProxyTLSParamsUseMtlsMap["trusted_ca_url"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCAURL.ValueString()
 					}
-					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled != nil {
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled.IsUnknown() {
 						DynamicProxyHTTPSProxyTLSParamsUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 					}
 					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions != nil {
@@ -4773,10 +4938,10 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			if !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 				HTTPProxyMoreOptionMap["disable_default_error_pages"] = data.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
 			}
-			if data.HTTPProxy.MoreOption.DisablePathNormalize != nil {
+			if !data.HTTPProxy.MoreOption.DisablePathNormalize.IsNull() && !data.HTTPProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 				HTTPProxyMoreOptionMap["disable_path_normalize"] = map[string]interface{}{}
 			}
-			if data.HTTPProxy.MoreOption.EnablePathNormalize != nil {
+			if !data.HTTPProxy.MoreOption.EnablePathNormalize.IsNull() && !data.HTTPProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 				HTTPProxyMoreOptionMap["enable_path_normalize"] = map[string]interface{}{}
 			}
 			if !data.HTTPProxy.MoreOption.IdleTimeout.IsNull() && !data.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -4788,7 +4953,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			if !data.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsNull() && !data.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
 				HTTPProxyMoreOptionMap["max_requests_per_connection"] = data.HTTPProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
 			}
-			if data.HTTPProxy.MoreOption.NoRequestLimitPerConnection != nil {
+			if !data.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsNull() && !data.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 				HTTPProxyMoreOptionMap["no_request_limit_per_connection"] = map[string]interface{}{}
 			}
 			if !data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
@@ -4919,43 +5084,43 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
 							ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
 						}
-						if ResponseCookiesToAddItem.AddHttponly != nil {
+						if !ResponseCookiesToAddItem.AddHttponly.IsNull() && !ResponseCookiesToAddItem.AddHttponly.IsUnknown() {
 							ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.AddPartitioned != nil {
+						if !ResponseCookiesToAddItem.AddPartitioned.IsNull() && !ResponseCookiesToAddItem.AddPartitioned.IsUnknown() {
 							ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
 						}
 						if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
 							ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
 						}
-						if ResponseCookiesToAddItem.AddSecure != nil {
+						if !ResponseCookiesToAddItem.AddSecure.IsNull() && !ResponseCookiesToAddItem.AddSecure.IsUnknown() {
 							ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreDomain != nil {
+						if !ResponseCookiesToAddItem.IgnoreDomain.IsNull() && !ResponseCookiesToAddItem.IgnoreDomain.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+						if !ResponseCookiesToAddItem.IgnoreExpiry.IsNull() && !ResponseCookiesToAddItem.IgnoreExpiry.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+						if !ResponseCookiesToAddItem.IgnoreHttponly.IsNull() && !ResponseCookiesToAddItem.IgnoreHttponly.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+						if !ResponseCookiesToAddItem.IgnoreMaxAge.IsNull() && !ResponseCookiesToAddItem.IgnoreMaxAge.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+						if !ResponseCookiesToAddItem.IgnorePartitioned.IsNull() && !ResponseCookiesToAddItem.IgnorePartitioned.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnorePath != nil {
+						if !ResponseCookiesToAddItem.IgnorePath.IsNull() && !ResponseCookiesToAddItem.IgnorePath.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+						if !ResponseCookiesToAddItem.IgnoreSamesite.IsNull() && !ResponseCookiesToAddItem.IgnoreSamesite.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreSecure != nil {
+						if !ResponseCookiesToAddItem.IgnoreSecure.IsNull() && !ResponseCookiesToAddItem.IgnoreSecure.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreValue != nil {
+						if !ResponseCookiesToAddItem.IgnoreValue.IsNull() && !ResponseCookiesToAddItem.IgnoreValue.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
 						}
 						if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
@@ -4967,13 +5132,13 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 						if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
 							ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
 						}
-						if ResponseCookiesToAddItem.SamesiteLax != nil {
+						if !ResponseCookiesToAddItem.SamesiteLax.IsNull() && !ResponseCookiesToAddItem.SamesiteLax.IsUnknown() {
 							ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.SamesiteNone != nil {
+						if !ResponseCookiesToAddItem.SamesiteNone.IsNull() && !ResponseCookiesToAddItem.SamesiteNone.IsUnknown() {
 							ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.SamesiteStrict != nil {
+						if !ResponseCookiesToAddItem.SamesiteStrict.IsNull() && !ResponseCookiesToAddItem.SamesiteStrict.IsUnknown() {
 							ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
 						}
 						if ResponseCookiesToAddItem.SecretValue != nil {
@@ -5080,16 +5245,16 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 		}
 		createReq.Spec["http_proxy"] = HTTPProxyMap
 	}
-	if data.NoForwardProxyPolicy != nil {
+	if !data.NoForwardProxyPolicy.IsNull() && !data.NoForwardProxyPolicy.IsUnknown() {
 		createReq.Spec["no_forward_proxy_policy"] = map[string]interface{}{}
 	}
-	if data.NoInterception != nil {
+	if !data.NoInterception.IsNull() && !data.NoInterception.IsUnknown() {
 		createReq.Spec["no_interception"] = map[string]interface{}{}
 	}
-	if data.SiteLocalInsideNetwork != nil {
+	if !data.SiteLocalInsideNetwork.IsNull() && !data.SiteLocalInsideNetwork.IsUnknown() {
 		createReq.Spec["site_local_inside_network"] = map[string]interface{}{}
 	}
-	if data.SiteLocalNetwork != nil {
+	if !data.SiteLocalNetwork.IsNull() && !data.SiteLocalNetwork.IsUnknown() {
 		createReq.Spec["site_local_network"] = map[string]interface{}{}
 	}
 	if data.SiteVirtualSites != nil {
@@ -5125,7 +5290,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						AdvertiseWhereItemMap["site"] = SiteVirtualSitesAdvertiseWhereSiteMap
 					}
-					if AdvertiseWhereItem.UseDefaultPort != nil {
+					if !AdvertiseWhereItem.UseDefaultPort.IsNull() && !AdvertiseWhereItem.UseDefaultPort.IsUnknown() {
 						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 					}
 					if AdvertiseWhereItem.VirtualSite != nil {
@@ -5174,7 +5339,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			if !data.TLSIntercept.CustomCertificate.DescriptionSpec.IsNull() && !data.TLSIntercept.CustomCertificate.DescriptionSpec.IsUnknown() {
 				TLSInterceptCustomCertificateMap["description"] = data.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
 			}
-			if data.TLSIntercept.CustomCertificate.DisableOCSPStapling != nil {
+			if !data.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsNull() && !data.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsUnknown() {
 				TLSInterceptCustomCertificateMap["disable_ocsp_stapling"] = map[string]interface{}{}
 			}
 			if data.TLSIntercept.CustomCertificate.PrivateKey != nil {
@@ -5204,12 +5369,12 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				}
 				TLSInterceptCustomCertificateMap["private_key"] = TLSInterceptCustomCertificatePrivateKeyMap
 			}
-			if data.TLSIntercept.CustomCertificate.UseSystemDefaults != nil {
+			if !data.TLSIntercept.CustomCertificate.UseSystemDefaults.IsNull() && !data.TLSIntercept.CustomCertificate.UseSystemDefaults.IsUnknown() {
 				TLSInterceptCustomCertificateMap["use_system_defaults"] = map[string]interface{}{}
 			}
 			TLSInterceptMap["custom_certificate"] = TLSInterceptCustomCertificateMap
 		}
-		if data.TLSIntercept.EnableForAllDomains != nil {
+		if !data.TLSIntercept.EnableForAllDomains.IsNull() && !data.TLSIntercept.EnableForAllDomains.IsUnknown() {
 			TLSInterceptMap["enable_for_all_domains"] = map[string]interface{}{}
 		}
 		if data.TLSIntercept.Policy != nil {
@@ -5222,7 +5387,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 					var InterceptionRulesList []map[string]interface{}
 					for _, InterceptionRulesItem := range InterceptionRulesElems {
 						InterceptionRulesItemMap := make(map[string]interface{})
-						if InterceptionRulesItem.DisableInterception != nil {
+						if !InterceptionRulesItem.DisableInterception.IsNull() && !InterceptionRulesItem.DisableInterception.IsUnknown() {
 							InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
 						}
 						if InterceptionRulesItem.DomainMatch != nil {
@@ -5238,7 +5403,7 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							}
 							InterceptionRulesItemMap["domain_match"] = TLSInterceptPolicyInterceptionRulesDomainMatchMap
 						}
-						if InterceptionRulesItem.EnableInterception != nil {
+						if !InterceptionRulesItem.EnableInterception.IsNull() && !InterceptionRulesItem.EnableInterception.IsUnknown() {
 							InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
 						}
 						InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
@@ -5251,10 +5416,10 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 		if !data.TLSIntercept.TrustedCAURL.IsNull() && !data.TLSIntercept.TrustedCAURL.IsUnknown() {
 			TLSInterceptMap["trusted_ca_url"] = data.TLSIntercept.TrustedCAURL.ValueString()
 		}
-		if data.TLSIntercept.VolterraCertificate != nil {
+		if !data.TLSIntercept.VolterraCertificate.IsNull() && !data.TLSIntercept.VolterraCertificate.IsUnknown() {
 			TLSInterceptMap["volterra_certificate"] = map[string]interface{}{}
 		}
-		if data.TLSIntercept.VolterraTrustedCA != nil {
+		if !data.TLSIntercept.VolterraTrustedCA.IsNull() && !data.TLSIntercept.VolterraTrustedCA.IsUnknown() {
 			TLSInterceptMap["volterra_trusted_ca"] = map[string]interface{}{}
 		}
 		createReq.Spec["tls_intercept"] = TLSInterceptMap
@@ -5345,19 +5510,23 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		data.DoNotAdvertise = &ProxyEmptyModel{}
+	if !isImport && !data.DoNotAdvertise.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok {
+		data.DoNotAdvertise = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DoNotAdvertise = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["dynamic_proxy"].(map[string]interface{}); ok && (isImport || data.DynamicProxy != nil) {
 		data.DynamicProxy = &ProxyDynamicProxyModel{
-			DisableDNSMasquerade: func() *ProxyEmptyModel {
-				if !isImport && data.DynamicProxy != nil {
+			DisableDNSMasquerade: func() types.Object {
+				if !isImport && data.DynamicProxy != nil && !data.DynamicProxy.DisableDNSMasquerade.IsUnknown() {
 					return data.DynamicProxy.DisableDNSMasquerade
 				}
 				if _, ok := blockData["disable_dns_masquerade"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Domains: func() types.List {
 				if v, ok := blockData["domains"].([]interface{}); ok && len(v) > 0 {
@@ -5373,14 +5542,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			EnableDNSMasquerade: func() *ProxyEmptyModel {
-				if !isImport && data.DynamicProxy != nil {
+			EnableDNSMasquerade: func() types.Object {
+				if !isImport && data.DynamicProxy != nil && !data.DynamicProxy.EnableDNSMasquerade.IsUnknown() {
 					return data.DynamicProxy.EnableDNSMasquerade
 				}
 				if _, ok := blockData["enable_dns_masquerade"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HTTPProxy: func() *ProxyDynamicProxyHTTPProxyModel {
 				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil {
@@ -5488,23 +5657,23 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										}
 										return types.BoolNull()
 									}(),
-									DisablePathNormalize: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+									DisablePathNormalize: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize
 										}
 										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									EnablePathNormalize: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+									EnablePathNormalize: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize
 										}
 										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									IdleTimeout: func() types.Int64 {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -5533,14 +5702,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										}
 										return types.Int64Null()
 									}(),
-									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+									NoRequestLimitPerConnection: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection
 										}
 										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									RequestCookiesToAdd: func() types.List {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
@@ -5790,23 +5959,23 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														AddHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddHttponly: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														AddPartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddPartitioned: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														AddPath: func() types.String {
 															if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
@@ -5814,95 +5983,95 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														AddSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddSecure: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreDomain: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreDomain: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreExpiry: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreExpiry: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreHttponly: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreMaxAge: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreMaxAge: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnorePartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnorePartitioned: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnorePath: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnorePath: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreSamesite: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreSamesite: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreSecure: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreValue: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreValue: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxAgeValue: func() types.Int64 {
 															if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
@@ -5922,32 +6091,32 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.BoolNull()
 														}(),
-														SamesiteLax: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteLax: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SamesiteNone: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteNone: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SamesiteStrict: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteStrict: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel {
 															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
@@ -6256,23 +6425,23 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										}
 										return types.BoolNull()
 									}(),
-									DisablePathNormalize: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+									DisablePathNormalize: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize
 										}
 										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									EnablePathNormalize: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+									EnablePathNormalize: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize
 										}
 										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									IdleTimeout: func() types.Int64 {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -6301,14 +6470,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										}
 										return types.Int64Null()
 									}(),
-									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+									NoRequestLimitPerConnection: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection
 										}
 										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									RequestCookiesToAdd: func() types.List {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
@@ -6558,23 +6727,23 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														AddHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddHttponly: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														AddPartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddPartitioned: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														AddPath: func() types.String {
 															if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
@@ -6582,95 +6751,95 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														AddSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddSecure: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreDomain: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreDomain: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreExpiry: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreExpiry: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreHttponly: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreMaxAge: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreMaxAge: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnorePartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnorePartitioned: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnorePath: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnorePath: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreSamesite: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreSamesite: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreSecure: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreValue: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreValue: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxAgeValue: func() types.Int64 {
 															if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
@@ -6690,32 +6859,32 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.BoolNull()
 														}(),
-														SamesiteLax: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteLax: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SamesiteNone: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteNone: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SamesiteStrict: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteStrict: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModel {
 															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
@@ -6920,14 +7089,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 						TLSParams: func() *ProxyDynamicProxyHTTPSProxyTLSParamsModel {
 							if TLSParamsData, ok := HTTPSProxyData["tls_params"].(map[string]interface{}); ok {
 								return &ProxyDynamicProxyHTTPSProxyTLSParamsModel{
-									NoMtls: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil {
+									NoMtls: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls
 										}
 										if _, ok := TLSParamsData["no_mtls"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TLSCertificates: func() types.List {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && (data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsNull() || len(data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.Elements()) == 0) {
@@ -6976,14 +7145,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														DisableOCSPStapling: func() *ProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														DisableOCSPStapling: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														PrivateKey: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModel {
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -7042,14 +7211,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return nil
 														}(),
-														UseSystemDefaults: func() *ProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														UseSystemDefaults: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													})
 												}
@@ -7101,32 +7270,32 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													}
 													return nil
 												}(),
-												DefaultSecurity: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+												DefaultSecurity: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity
 													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												LowSecurity: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+												LowSecurity: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity
 													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												MediumSecurity: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+												MediumSecurity: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity
 													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -7169,14 +7338,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													}
 													return nil
 												}(),
-												NoCRL: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+												NoCRL: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL
 													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												TrustedCA: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAModel {
 													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -7209,14 +7378,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 													}
 													return types.StringNull()
 												}(),
-												XfccDisabled: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+												XfccDisabled: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled
 													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												XfccOptions: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel {
 													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions != nil {
@@ -7386,23 +7555,23 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							}
 							return types.BoolNull()
 						}(),
-						DisablePathNormalize: func() *ProxyEmptyModel {
-							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+						DisablePathNormalize: func() types.Object {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 								return data.HTTPProxy.MoreOption.DisablePathNormalize
 							}
 							if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnablePathNormalize: func() *ProxyEmptyModel {
-							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+						EnablePathNormalize: func() types.Object {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 								return data.HTTPProxy.MoreOption.EnablePathNormalize
 							}
 							if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						IdleTimeout: func() types.Int64 {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -7431,14 +7600,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							}
 							return types.Int64Null()
 						}(),
-						NoRequestLimitPerConnection: func() *ProxyEmptyModel {
-							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+						NoRequestLimitPerConnection: func() types.Object {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 								return data.HTTPProxy.MoreOption.NoRequestLimitPerConnection
 							}
 							if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						RequestCookiesToAdd: func() types.List {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.HTTPProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
@@ -7688,23 +7857,23 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												}
 												return types.StringNull()
 											}(),
-											AddHttponly: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											AddHttponly: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											AddPartitioned: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											AddPartitioned: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											AddPath: func() types.String {
 												if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
@@ -7712,95 +7881,95 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												}
 												return types.StringNull()
 											}(),
-											AddSecure: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											AddSecure: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreDomain: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreDomain: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreExpiry: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreExpiry: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreHttponly: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreHttponly: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreMaxAge: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreMaxAge: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnorePartitioned: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnorePartitioned: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnorePath: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnorePath: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreSamesite: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreSamesite: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreSecure: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreSecure: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreValue: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreValue: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											MaxAgeValue: func() types.Int64 {
 												if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
@@ -7820,32 +7989,32 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												}
 												return types.BoolNull()
 											}(),
-											SamesiteLax: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											SamesiteLax: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											SamesiteNone: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											SamesiteNone: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											SamesiteStrict: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											SamesiteStrict: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SecretValue: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel {
 												if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
@@ -8049,17 +8218,33 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["no_forward_proxy_policy"].(map[string]interface{}); ok && isImport && data.NoForwardProxyPolicy == nil {
-		data.NoForwardProxyPolicy = &ProxyEmptyModel{}
+	if !isImport && !data.NoForwardProxyPolicy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_forward_proxy_policy"].(map[string]interface{}); ok {
+		data.NoForwardProxyPolicy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoForwardProxyPolicy = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_interception"].(map[string]interface{}); ok && isImport && data.NoInterception == nil {
-		data.NoInterception = &ProxyEmptyModel{}
+	if !isImport && !data.NoInterception.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_interception"].(map[string]interface{}); ok {
+		data.NoInterception = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoInterception = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok && isImport && data.SiteLocalInsideNetwork == nil {
-		data.SiteLocalInsideNetwork = &ProxyEmptyModel{}
+	if !isImport && !data.SiteLocalInsideNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok {
+		data.SiteLocalInsideNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SiteLocalInsideNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok && isImport && data.SiteLocalNetwork == nil {
-		data.SiteLocalNetwork = &ProxyEmptyModel{}
+	if !isImport && !data.SiteLocalNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok {
+		data.SiteLocalNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SiteLocalNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["site_virtual_sites"].(map[string]interface{}); ok && (isImport || data.SiteVirtualSites != nil) {
 		data.SiteVirtualSites = &ProxySiteVirtualSitesModel{
@@ -8127,14 +8312,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return nil
 								}(),
-								UseDefaultPort: func() *ProxyEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+								UseDefaultPort: func() types.Object {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-										return &ProxyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								VirtualSite: func() *ProxySiteVirtualSitesAdvertiseWhereVirtualSiteModel {
 									if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
@@ -8228,14 +8413,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							}
 							return types.StringNull()
 						}(),
-						DisableOCSPStapling: func() *ProxyEmptyModel {
-							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
+						DisableOCSPStapling: func() types.Object {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && !data.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsUnknown() {
 								return data.TLSIntercept.CustomCertificate.DisableOCSPStapling
 							}
 							if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						PrivateKey: func() *ProxyTLSInterceptCustomCertificatePrivateKeyModel {
 							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.PrivateKey != nil {
@@ -8297,27 +8482,27 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							}
 							return nil
 						}(),
-						UseSystemDefaults: func() *ProxyEmptyModel {
-							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
+						UseSystemDefaults: func() types.Object {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && !data.TLSIntercept.CustomCertificate.UseSystemDefaults.IsUnknown() {
 								return data.TLSIntercept.CustomCertificate.UseSystemDefaults
 							}
 							if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
 				return nil
 			}(),
-			EnableForAllDomains: func() *ProxyEmptyModel {
-				if !isImport && data.TLSIntercept != nil {
+			EnableForAllDomains: func() types.Object {
+				if !isImport && data.TLSIntercept != nil && !data.TLSIntercept.EnableForAllDomains.IsUnknown() {
 					return data.TLSIntercept.EnableForAllDomains
 				}
 				if _, ok := blockData["enable_for_all_domains"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Policy: func() *ProxyTLSInterceptPolicyModel {
 				if !isImport && data.TLSIntercept != nil && data.TLSIntercept.Policy != nil {
@@ -8339,14 +8524,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 									_ = InterceptionRulesIdx
 									if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 										InterceptionRulesResult = append(InterceptionRulesResult, ProxyTLSInterceptPolicyInterceptionRulesModel{
-											DisableInterception: func() *ProxyEmptyModel {
-												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+											DisableInterception: func() types.Object {
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && !InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception.IsUnknown() {
 													return InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception
 												}
 												if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											DomainMatch: func() *ProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel {
 												if DomainMatchData, ok := InterceptionRulesItemMap["domain_match"].(map[string]interface{}); ok {
@@ -8373,14 +8558,14 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												}
 												return nil
 											}(),
-											EnableInterception: func() *ProxyEmptyModel {
-												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+											EnableInterception: func() types.Object {
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && !InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception.IsUnknown() {
 													return InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception
 												}
 												if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -8400,23 +8585,23 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 				}
 				return types.StringNull()
 			}(),
-			VolterraCertificate: func() *ProxyEmptyModel {
-				if !isImport && data.TLSIntercept != nil {
+			VolterraCertificate: func() types.Object {
+				if !isImport && data.TLSIntercept != nil && !data.TLSIntercept.VolterraCertificate.IsUnknown() {
 					return data.TLSIntercept.VolterraCertificate
 				}
 				if _, ok := blockData["volterra_certificate"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			VolterraTrustedCA: func() *ProxyEmptyModel {
-				if !isImport && data.TLSIntercept != nil {
+			VolterraTrustedCA: func() types.Object {
+				if !isImport && data.TLSIntercept != nil && !data.TLSIntercept.VolterraTrustedCA.IsUnknown() {
 					return data.TLSIntercept.VolterraTrustedCA
 				}
 				if _, ok := blockData["volterra_trusted_ca"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -8600,19 +8785,23 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		data.DoNotAdvertise = &ProxyEmptyModel{}
+	if !isImport && !data.DoNotAdvertise.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok {
+		data.DoNotAdvertise = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DoNotAdvertise = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["dynamic_proxy"].(map[string]interface{}); ok && (isImport || data.DynamicProxy != nil) {
 		data.DynamicProxy = &ProxyDynamicProxyModel{
-			DisableDNSMasquerade: func() *ProxyEmptyModel {
-				if !isImport && data.DynamicProxy != nil {
+			DisableDNSMasquerade: func() types.Object {
+				if !isImport && data.DynamicProxy != nil && !data.DynamicProxy.DisableDNSMasquerade.IsUnknown() {
 					return data.DynamicProxy.DisableDNSMasquerade
 				}
 				if _, ok := blockData["disable_dns_masquerade"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Domains: func() types.List {
 				if v, ok := blockData["domains"].([]interface{}); ok && len(v) > 0 {
@@ -8628,14 +8817,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			EnableDNSMasquerade: func() *ProxyEmptyModel {
-				if !isImport && data.DynamicProxy != nil {
+			EnableDNSMasquerade: func() types.Object {
+				if !isImport && data.DynamicProxy != nil && !data.DynamicProxy.EnableDNSMasquerade.IsUnknown() {
 					return data.DynamicProxy.EnableDNSMasquerade
 				}
 				if _, ok := blockData["enable_dns_masquerade"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HTTPProxy: func() *ProxyDynamicProxyHTTPProxyModel {
 				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil {
@@ -8743,23 +8932,23 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										}
 										return types.BoolNull()
 									}(),
-									DisablePathNormalize: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+									DisablePathNormalize: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize
 										}
 										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									EnablePathNormalize: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+									EnablePathNormalize: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize
 										}
 										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									IdleTimeout: func() types.Int64 {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -8788,14 +8977,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										}
 										return types.Int64Null()
 									}(),
-									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+									NoRequestLimitPerConnection: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection
 										}
 										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									RequestCookiesToAdd: func() types.List {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
@@ -9045,23 +9234,23 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.StringNull()
 														}(),
-														AddHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddHttponly: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														AddPartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddPartitioned: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														AddPath: func() types.String {
 															if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
@@ -9069,95 +9258,95 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.StringNull()
 														}(),
-														AddSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddSecure: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreDomain: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreDomain: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreExpiry: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreExpiry: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreHttponly: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreMaxAge: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreMaxAge: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnorePartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnorePartitioned: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnorePath: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnorePath: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreSamesite: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreSamesite: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreSecure: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreValue: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreValue: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxAgeValue: func() types.Int64 {
 															if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
@@ -9177,32 +9366,32 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.BoolNull()
 														}(),
-														SamesiteLax: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteLax: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SamesiteNone: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteNone: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SamesiteStrict: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteStrict: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel {
 															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
@@ -9511,23 +9700,23 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										}
 										return types.BoolNull()
 									}(),
-									DisablePathNormalize: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+									DisablePathNormalize: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize
 										}
 										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									EnablePathNormalize: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+									EnablePathNormalize: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize
 										}
 										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									IdleTimeout: func() types.Int64 {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -9556,14 +9745,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										}
 										return types.Int64Null()
 									}(),
-									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+									NoRequestLimitPerConnection: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection
 										}
 										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									RequestCookiesToAdd: func() types.List {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
@@ -9813,23 +10002,23 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.StringNull()
 														}(),
-														AddHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddHttponly: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														AddPartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddPartitioned: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														AddPath: func() types.String {
 															if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
@@ -9837,95 +10026,95 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.StringNull()
 														}(),
-														AddSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddSecure: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreDomain: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreDomain: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreExpiry: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreExpiry: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreHttponly: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreMaxAge: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreMaxAge: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnorePartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnorePartitioned: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnorePath: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnorePath: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreSamesite: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreSamesite: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreSecure: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreValue: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreValue: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxAgeValue: func() types.Int64 {
 															if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
@@ -9945,32 +10134,32 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.BoolNull()
 														}(),
-														SamesiteLax: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteLax: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SamesiteNone: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteNone: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SamesiteStrict: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteStrict: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModel {
 															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
@@ -10175,14 +10364,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						TLSParams: func() *ProxyDynamicProxyHTTPSProxyTLSParamsModel {
 							if TLSParamsData, ok := HTTPSProxyData["tls_params"].(map[string]interface{}); ok {
 								return &ProxyDynamicProxyHTTPSProxyTLSParamsModel{
-									NoMtls: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil {
+									NoMtls: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls
 										}
 										if _, ok := TLSParamsData["no_mtls"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TLSCertificates: func() types.List {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && (data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsNull() || len(data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.Elements()) == 0) {
@@ -10231,14 +10420,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.StringNull()
 														}(),
-														DisableOCSPStapling: func() *ProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														DisableOCSPStapling: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														PrivateKey: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModel {
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -10297,14 +10486,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return nil
 														}(),
-														UseSystemDefaults: func() *ProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														UseSystemDefaults: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													})
 												}
@@ -10356,32 +10545,32 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													}
 													return nil
 												}(),
-												DefaultSecurity: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+												DefaultSecurity: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity
 													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												LowSecurity: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+												LowSecurity: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity
 													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												MediumSecurity: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+												MediumSecurity: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity
 													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -10424,14 +10613,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													}
 													return nil
 												}(),
-												NoCRL: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+												NoCRL: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL
 													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												TrustedCA: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAModel {
 													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -10464,14 +10653,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													}
 													return types.StringNull()
 												}(),
-												XfccDisabled: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+												XfccDisabled: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled
 													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												XfccOptions: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel {
 													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions != nil {
@@ -10641,23 +10830,23 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							}
 							return types.BoolNull()
 						}(),
-						DisablePathNormalize: func() *ProxyEmptyModel {
-							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+						DisablePathNormalize: func() types.Object {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 								return data.HTTPProxy.MoreOption.DisablePathNormalize
 							}
 							if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnablePathNormalize: func() *ProxyEmptyModel {
-							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+						EnablePathNormalize: func() types.Object {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 								return data.HTTPProxy.MoreOption.EnablePathNormalize
 							}
 							if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						IdleTimeout: func() types.Int64 {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -10686,14 +10875,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							}
 							return types.Int64Null()
 						}(),
-						NoRequestLimitPerConnection: func() *ProxyEmptyModel {
-							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+						NoRequestLimitPerConnection: func() types.Object {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 								return data.HTTPProxy.MoreOption.NoRequestLimitPerConnection
 							}
 							if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						RequestCookiesToAdd: func() types.List {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.HTTPProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
@@ -10943,23 +11132,23 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												}
 												return types.StringNull()
 											}(),
-											AddHttponly: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											AddHttponly: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											AddPartitioned: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											AddPartitioned: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											AddPath: func() types.String {
 												if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
@@ -10967,95 +11156,95 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												}
 												return types.StringNull()
 											}(),
-											AddSecure: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											AddSecure: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreDomain: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreDomain: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreExpiry: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreExpiry: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreHttponly: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreHttponly: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreMaxAge: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreMaxAge: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnorePartitioned: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnorePartitioned: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnorePath: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnorePath: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreSamesite: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreSamesite: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreSecure: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreSecure: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreValue: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreValue: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											MaxAgeValue: func() types.Int64 {
 												if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
@@ -11075,32 +11264,32 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												}
 												return types.BoolNull()
 											}(),
-											SamesiteLax: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											SamesiteLax: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											SamesiteNone: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											SamesiteNone: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											SamesiteStrict: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											SamesiteStrict: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SecretValue: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel {
 												if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
@@ -11304,17 +11493,33 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["no_forward_proxy_policy"].(map[string]interface{}); ok && isImport && data.NoForwardProxyPolicy == nil {
-		data.NoForwardProxyPolicy = &ProxyEmptyModel{}
+	if !isImport && !data.NoForwardProxyPolicy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_forward_proxy_policy"].(map[string]interface{}); ok {
+		data.NoForwardProxyPolicy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoForwardProxyPolicy = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_interception"].(map[string]interface{}); ok && isImport && data.NoInterception == nil {
-		data.NoInterception = &ProxyEmptyModel{}
+	if !isImport && !data.NoInterception.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_interception"].(map[string]interface{}); ok {
+		data.NoInterception = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoInterception = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok && isImport && data.SiteLocalInsideNetwork == nil {
-		data.SiteLocalInsideNetwork = &ProxyEmptyModel{}
+	if !isImport && !data.SiteLocalInsideNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok {
+		data.SiteLocalInsideNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SiteLocalInsideNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok && isImport && data.SiteLocalNetwork == nil {
-		data.SiteLocalNetwork = &ProxyEmptyModel{}
+	if !isImport && !data.SiteLocalNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok {
+		data.SiteLocalNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SiteLocalNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["site_virtual_sites"].(map[string]interface{}); ok && (isImport || data.SiteVirtualSites != nil) {
 		data.SiteVirtualSites = &ProxySiteVirtualSitesModel{
@@ -11382,14 +11587,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return nil
 								}(),
-								UseDefaultPort: func() *ProxyEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+								UseDefaultPort: func() types.Object {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-										return &ProxyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								VirtualSite: func() *ProxySiteVirtualSitesAdvertiseWhereVirtualSiteModel {
 									if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
@@ -11483,14 +11688,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							}
 							return types.StringNull()
 						}(),
-						DisableOCSPStapling: func() *ProxyEmptyModel {
-							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
+						DisableOCSPStapling: func() types.Object {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && !data.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsUnknown() {
 								return data.TLSIntercept.CustomCertificate.DisableOCSPStapling
 							}
 							if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						PrivateKey: func() *ProxyTLSInterceptCustomCertificatePrivateKeyModel {
 							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.PrivateKey != nil {
@@ -11552,27 +11757,27 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							}
 							return nil
 						}(),
-						UseSystemDefaults: func() *ProxyEmptyModel {
-							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
+						UseSystemDefaults: func() types.Object {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && !data.TLSIntercept.CustomCertificate.UseSystemDefaults.IsUnknown() {
 								return data.TLSIntercept.CustomCertificate.UseSystemDefaults
 							}
 							if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
 				return nil
 			}(),
-			EnableForAllDomains: func() *ProxyEmptyModel {
-				if !isImport && data.TLSIntercept != nil {
+			EnableForAllDomains: func() types.Object {
+				if !isImport && data.TLSIntercept != nil && !data.TLSIntercept.EnableForAllDomains.IsUnknown() {
 					return data.TLSIntercept.EnableForAllDomains
 				}
 				if _, ok := blockData["enable_for_all_domains"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Policy: func() *ProxyTLSInterceptPolicyModel {
 				if !isImport && data.TLSIntercept != nil && data.TLSIntercept.Policy != nil {
@@ -11594,14 +11799,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									_ = InterceptionRulesIdx
 									if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 										InterceptionRulesResult = append(InterceptionRulesResult, ProxyTLSInterceptPolicyInterceptionRulesModel{
-											DisableInterception: func() *ProxyEmptyModel {
-												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+											DisableInterception: func() types.Object {
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && !InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception.IsUnknown() {
 													return InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception
 												}
 												if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											DomainMatch: func() *ProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel {
 												if DomainMatchData, ok := InterceptionRulesItemMap["domain_match"].(map[string]interface{}); ok {
@@ -11628,14 +11833,14 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												}
 												return nil
 											}(),
-											EnableInterception: func() *ProxyEmptyModel {
-												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+											EnableInterception: func() types.Object {
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && !InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception.IsUnknown() {
 													return InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception
 												}
 												if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -11655,23 +11860,23 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				}
 				return types.StringNull()
 			}(),
-			VolterraCertificate: func() *ProxyEmptyModel {
-				if !isImport && data.TLSIntercept != nil {
+			VolterraCertificate: func() types.Object {
+				if !isImport && data.TLSIntercept != nil && !data.TLSIntercept.VolterraCertificate.IsUnknown() {
 					return data.TLSIntercept.VolterraCertificate
 				}
 				if _, ok := blockData["volterra_certificate"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			VolterraTrustedCA: func() *ProxyEmptyModel {
-				if !isImport && data.TLSIntercept != nil {
+			VolterraTrustedCA: func() types.Object {
+				if !isImport && data.TLSIntercept != nil && !data.TLSIntercept.VolterraTrustedCA.IsUnknown() {
 					return data.TLSIntercept.VolterraTrustedCA
 				}
 				if _, ok := blockData["volterra_trusted_ca"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -11797,12 +12002,12 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		}
 		apiResource.Spec["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
 	}
-	if data.DoNotAdvertise != nil {
+	if !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
 		apiResource.Spec["do_not_advertise"] = map[string]interface{}{}
 	}
 	if data.DynamicProxy != nil {
 		DynamicProxyMap := make(map[string]interface{})
-		if data.DynamicProxy.DisableDNSMasquerade != nil {
+		if !data.DynamicProxy.DisableDNSMasquerade.IsNull() && !data.DynamicProxy.DisableDNSMasquerade.IsUnknown() {
 			DynamicProxyMap["disable_dns_masquerade"] = map[string]interface{}{}
 		}
 		if !data.DynamicProxy.Domains.IsNull() && !data.DynamicProxy.Domains.IsUnknown() {
@@ -11813,7 +12018,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				DynamicProxyMap["domains"] = DomainsItems
 			}
 		}
-		if data.DynamicProxy.EnableDNSMasquerade != nil {
+		if !data.DynamicProxy.EnableDNSMasquerade.IsNull() && !data.DynamicProxy.EnableDNSMasquerade.IsUnknown() {
 			DynamicProxyMap["enable_dns_masquerade"] = map[string]interface{}{}
 		}
 		if data.DynamicProxy.HTTPProxy != nil {
@@ -11862,10 +12067,10 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					DynamicProxyHTTPProxyMoreOptionMap["disable_default_error_pages"] = data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
 				}
-				if data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize != nil {
+				if !data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 					DynamicProxyHTTPProxyMoreOptionMap["disable_path_normalize"] = map[string]interface{}{}
 				}
-				if data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize != nil {
+				if !data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 					DynamicProxyHTTPProxyMoreOptionMap["enable_path_normalize"] = map[string]interface{}{}
 				}
 				if !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -11877,7 +12082,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
 					DynamicProxyHTTPProxyMoreOptionMap["max_requests_per_connection"] = data.DynamicProxy.HTTPProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
 				}
-				if data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection != nil {
+				if !data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 					DynamicProxyHTTPProxyMoreOptionMap["no_request_limit_per_connection"] = map[string]interface{}{}
 				}
 				if !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
@@ -12008,43 +12213,43 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
 							}
-							if ResponseCookiesToAddItem.AddHttponly != nil {
+							if !ResponseCookiesToAddItem.AddHttponly.IsNull() && !ResponseCookiesToAddItem.AddHttponly.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.AddPartitioned != nil {
+							if !ResponseCookiesToAddItem.AddPartitioned.IsNull() && !ResponseCookiesToAddItem.AddPartitioned.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
 							}
 							if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
 							}
-							if ResponseCookiesToAddItem.AddSecure != nil {
+							if !ResponseCookiesToAddItem.AddSecure.IsNull() && !ResponseCookiesToAddItem.AddSecure.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreDomain != nil {
+							if !ResponseCookiesToAddItem.IgnoreDomain.IsNull() && !ResponseCookiesToAddItem.IgnoreDomain.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+							if !ResponseCookiesToAddItem.IgnoreExpiry.IsNull() && !ResponseCookiesToAddItem.IgnoreExpiry.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+							if !ResponseCookiesToAddItem.IgnoreHttponly.IsNull() && !ResponseCookiesToAddItem.IgnoreHttponly.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+							if !ResponseCookiesToAddItem.IgnoreMaxAge.IsNull() && !ResponseCookiesToAddItem.IgnoreMaxAge.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+							if !ResponseCookiesToAddItem.IgnorePartitioned.IsNull() && !ResponseCookiesToAddItem.IgnorePartitioned.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnorePath != nil {
+							if !ResponseCookiesToAddItem.IgnorePath.IsNull() && !ResponseCookiesToAddItem.IgnorePath.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+							if !ResponseCookiesToAddItem.IgnoreSamesite.IsNull() && !ResponseCookiesToAddItem.IgnoreSamesite.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreSecure != nil {
+							if !ResponseCookiesToAddItem.IgnoreSecure.IsNull() && !ResponseCookiesToAddItem.IgnoreSecure.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreValue != nil {
+							if !ResponseCookiesToAddItem.IgnoreValue.IsNull() && !ResponseCookiesToAddItem.IgnoreValue.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
 							}
 							if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
@@ -12056,13 +12261,13 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
 								ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
 							}
-							if ResponseCookiesToAddItem.SamesiteLax != nil {
+							if !ResponseCookiesToAddItem.SamesiteLax.IsNull() && !ResponseCookiesToAddItem.SamesiteLax.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.SamesiteNone != nil {
+							if !ResponseCookiesToAddItem.SamesiteNone.IsNull() && !ResponseCookiesToAddItem.SamesiteNone.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.SamesiteStrict != nil {
+							if !ResponseCookiesToAddItem.SamesiteStrict.IsNull() && !ResponseCookiesToAddItem.SamesiteStrict.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
 							}
 							if ResponseCookiesToAddItem.SecretValue != nil {
@@ -12215,10 +12420,10 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					DynamicProxyHTTPSProxyMoreOptionMap["disable_default_error_pages"] = data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
 				}
-				if data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize != nil {
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 					DynamicProxyHTTPSProxyMoreOptionMap["disable_path_normalize"] = map[string]interface{}{}
 				}
-				if data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize != nil {
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 					DynamicProxyHTTPSProxyMoreOptionMap["enable_path_normalize"] = map[string]interface{}{}
 				}
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -12230,7 +12435,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
 					DynamicProxyHTTPSProxyMoreOptionMap["max_requests_per_connection"] = data.DynamicProxy.HTTPSProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
 				}
-				if data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection != nil {
+				if !data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 					DynamicProxyHTTPSProxyMoreOptionMap["no_request_limit_per_connection"] = map[string]interface{}{}
 				}
 				if !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
@@ -12361,43 +12566,43 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
 							}
-							if ResponseCookiesToAddItem.AddHttponly != nil {
+							if !ResponseCookiesToAddItem.AddHttponly.IsNull() && !ResponseCookiesToAddItem.AddHttponly.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.AddPartitioned != nil {
+							if !ResponseCookiesToAddItem.AddPartitioned.IsNull() && !ResponseCookiesToAddItem.AddPartitioned.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
 							}
 							if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
 							}
-							if ResponseCookiesToAddItem.AddSecure != nil {
+							if !ResponseCookiesToAddItem.AddSecure.IsNull() && !ResponseCookiesToAddItem.AddSecure.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreDomain != nil {
+							if !ResponseCookiesToAddItem.IgnoreDomain.IsNull() && !ResponseCookiesToAddItem.IgnoreDomain.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+							if !ResponseCookiesToAddItem.IgnoreExpiry.IsNull() && !ResponseCookiesToAddItem.IgnoreExpiry.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+							if !ResponseCookiesToAddItem.IgnoreHttponly.IsNull() && !ResponseCookiesToAddItem.IgnoreHttponly.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+							if !ResponseCookiesToAddItem.IgnoreMaxAge.IsNull() && !ResponseCookiesToAddItem.IgnoreMaxAge.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+							if !ResponseCookiesToAddItem.IgnorePartitioned.IsNull() && !ResponseCookiesToAddItem.IgnorePartitioned.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnorePath != nil {
+							if !ResponseCookiesToAddItem.IgnorePath.IsNull() && !ResponseCookiesToAddItem.IgnorePath.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+							if !ResponseCookiesToAddItem.IgnoreSamesite.IsNull() && !ResponseCookiesToAddItem.IgnoreSamesite.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreSecure != nil {
+							if !ResponseCookiesToAddItem.IgnoreSecure.IsNull() && !ResponseCookiesToAddItem.IgnoreSecure.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreValue != nil {
+							if !ResponseCookiesToAddItem.IgnoreValue.IsNull() && !ResponseCookiesToAddItem.IgnoreValue.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
 							}
 							if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
@@ -12409,13 +12614,13 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
 								ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
 							}
-							if ResponseCookiesToAddItem.SamesiteLax != nil {
+							if !ResponseCookiesToAddItem.SamesiteLax.IsNull() && !ResponseCookiesToAddItem.SamesiteLax.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.SamesiteNone != nil {
+							if !ResponseCookiesToAddItem.SamesiteNone.IsNull() && !ResponseCookiesToAddItem.SamesiteNone.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.SamesiteStrict != nil {
+							if !ResponseCookiesToAddItem.SamesiteStrict.IsNull() && !ResponseCookiesToAddItem.SamesiteStrict.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
 							}
 							if ResponseCookiesToAddItem.SecretValue != nil {
@@ -12522,7 +12727,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}
 			if data.DynamicProxy.HTTPSProxy.TLSParams != nil {
 				DynamicProxyHTTPSProxyTLSParamsMap := make(map[string]interface{})
-				if data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls != nil {
+				if !data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls.IsUnknown() {
 					DynamicProxyHTTPSProxyTLSParamsMap["no_mtls"] = map[string]interface{}{}
 				}
 				if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsUnknown() {
@@ -12551,7 +12756,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 							}
-							if TLSCertificatesItem.DisableOCSPStapling != nil {
+							if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 							}
 							if TLSCertificatesItem.PrivateKey != nil {
@@ -12581,7 +12786,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 								}
 								TLSCertificatesItemMap["private_key"] = DynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyMap
 							}
-							if TLSCertificatesItem.UseSystemDefaults != nil {
+							if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 							}
 							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -12609,13 +12814,13 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						DynamicProxyHTTPSProxyTLSParamsTLSConfigMap["custom_security"] = DynamicProxyHTTPSProxyTLSParamsTLSConfigCustomSecurityMap
 					}
-					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity != nil {
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity.IsUnknown() {
 						DynamicProxyHTTPSProxyTLSParamsTLSConfigMap["default_security"] = map[string]interface{}{}
 					}
-					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity != nil {
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity.IsUnknown() {
 						DynamicProxyHTTPSProxyTLSParamsTLSConfigMap["low_security"] = map[string]interface{}{}
 					}
-					if data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity != nil {
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity.IsUnknown() {
 						DynamicProxyHTTPSProxyTLSParamsTLSConfigMap["medium_security"] = map[string]interface{}{}
 					}
 					DynamicProxyHTTPSProxyTLSParamsMap["tls_config"] = DynamicProxyHTTPSProxyTLSParamsTLSConfigMap
@@ -12635,7 +12840,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						DynamicProxyHTTPSProxyTLSParamsUseMtlsMap["crl"] = DynamicProxyHTTPSProxyTLSParamsUseMtlsCRLMap
 					}
-					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL != nil {
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL.IsUnknown() {
 						DynamicProxyHTTPSProxyTLSParamsUseMtlsMap["no_crl"] = map[string]interface{}{}
 					}
 					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCA != nil {
@@ -12651,7 +12856,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCAURL.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCAURL.IsUnknown() {
 						DynamicProxyHTTPSProxyTLSParamsUseMtlsMap["trusted_ca_url"] = data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.TrustedCAURL.ValueString()
 					}
-					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled != nil {
+					if !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled.IsNull() && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled.IsUnknown() {
 						DynamicProxyHTTPSProxyTLSParamsUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 					}
 					if data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions != nil {
@@ -12730,10 +12935,10 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			if !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsNull() && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 				HTTPProxyMoreOptionMap["disable_default_error_pages"] = data.HTTPProxy.MoreOption.DisableDefaultErrorPages.ValueBool()
 			}
-			if data.HTTPProxy.MoreOption.DisablePathNormalize != nil {
+			if !data.HTTPProxy.MoreOption.DisablePathNormalize.IsNull() && !data.HTTPProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 				HTTPProxyMoreOptionMap["disable_path_normalize"] = map[string]interface{}{}
 			}
-			if data.HTTPProxy.MoreOption.EnablePathNormalize != nil {
+			if !data.HTTPProxy.MoreOption.EnablePathNormalize.IsNull() && !data.HTTPProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 				HTTPProxyMoreOptionMap["enable_path_normalize"] = map[string]interface{}{}
 			}
 			if !data.HTTPProxy.MoreOption.IdleTimeout.IsNull() && !data.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -12745,7 +12950,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			if !data.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsNull() && !data.HTTPProxy.MoreOption.MaxRequestsPerConnection.IsUnknown() {
 				HTTPProxyMoreOptionMap["max_requests_per_connection"] = data.HTTPProxy.MoreOption.MaxRequestsPerConnection.ValueInt64()
 			}
-			if data.HTTPProxy.MoreOption.NoRequestLimitPerConnection != nil {
+			if !data.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsNull() && !data.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 				HTTPProxyMoreOptionMap["no_request_limit_per_connection"] = map[string]interface{}{}
 			}
 			if !data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() && !data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsUnknown() {
@@ -12876,43 +13081,43 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
 							ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
 						}
-						if ResponseCookiesToAddItem.AddHttponly != nil {
+						if !ResponseCookiesToAddItem.AddHttponly.IsNull() && !ResponseCookiesToAddItem.AddHttponly.IsUnknown() {
 							ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.AddPartitioned != nil {
+						if !ResponseCookiesToAddItem.AddPartitioned.IsNull() && !ResponseCookiesToAddItem.AddPartitioned.IsUnknown() {
 							ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
 						}
 						if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
 							ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
 						}
-						if ResponseCookiesToAddItem.AddSecure != nil {
+						if !ResponseCookiesToAddItem.AddSecure.IsNull() && !ResponseCookiesToAddItem.AddSecure.IsUnknown() {
 							ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreDomain != nil {
+						if !ResponseCookiesToAddItem.IgnoreDomain.IsNull() && !ResponseCookiesToAddItem.IgnoreDomain.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+						if !ResponseCookiesToAddItem.IgnoreExpiry.IsNull() && !ResponseCookiesToAddItem.IgnoreExpiry.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+						if !ResponseCookiesToAddItem.IgnoreHttponly.IsNull() && !ResponseCookiesToAddItem.IgnoreHttponly.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+						if !ResponseCookiesToAddItem.IgnoreMaxAge.IsNull() && !ResponseCookiesToAddItem.IgnoreMaxAge.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+						if !ResponseCookiesToAddItem.IgnorePartitioned.IsNull() && !ResponseCookiesToAddItem.IgnorePartitioned.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnorePath != nil {
+						if !ResponseCookiesToAddItem.IgnorePath.IsNull() && !ResponseCookiesToAddItem.IgnorePath.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+						if !ResponseCookiesToAddItem.IgnoreSamesite.IsNull() && !ResponseCookiesToAddItem.IgnoreSamesite.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreSecure != nil {
+						if !ResponseCookiesToAddItem.IgnoreSecure.IsNull() && !ResponseCookiesToAddItem.IgnoreSecure.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.IgnoreValue != nil {
+						if !ResponseCookiesToAddItem.IgnoreValue.IsNull() && !ResponseCookiesToAddItem.IgnoreValue.IsUnknown() {
 							ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
 						}
 						if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
@@ -12924,13 +13129,13 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
 							ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
 						}
-						if ResponseCookiesToAddItem.SamesiteLax != nil {
+						if !ResponseCookiesToAddItem.SamesiteLax.IsNull() && !ResponseCookiesToAddItem.SamesiteLax.IsUnknown() {
 							ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.SamesiteNone != nil {
+						if !ResponseCookiesToAddItem.SamesiteNone.IsNull() && !ResponseCookiesToAddItem.SamesiteNone.IsUnknown() {
 							ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
 						}
-						if ResponseCookiesToAddItem.SamesiteStrict != nil {
+						if !ResponseCookiesToAddItem.SamesiteStrict.IsNull() && !ResponseCookiesToAddItem.SamesiteStrict.IsUnknown() {
 							ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
 						}
 						if ResponseCookiesToAddItem.SecretValue != nil {
@@ -13037,16 +13242,16 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		}
 		apiResource.Spec["http_proxy"] = HTTPProxyMap
 	}
-	if data.NoForwardProxyPolicy != nil {
+	if !data.NoForwardProxyPolicy.IsNull() && !data.NoForwardProxyPolicy.IsUnknown() {
 		apiResource.Spec["no_forward_proxy_policy"] = map[string]interface{}{}
 	}
-	if data.NoInterception != nil {
+	if !data.NoInterception.IsNull() && !data.NoInterception.IsUnknown() {
 		apiResource.Spec["no_interception"] = map[string]interface{}{}
 	}
-	if data.SiteLocalInsideNetwork != nil {
+	if !data.SiteLocalInsideNetwork.IsNull() && !data.SiteLocalInsideNetwork.IsUnknown() {
 		apiResource.Spec["site_local_inside_network"] = map[string]interface{}{}
 	}
-	if data.SiteLocalNetwork != nil {
+	if !data.SiteLocalNetwork.IsNull() && !data.SiteLocalNetwork.IsUnknown() {
 		apiResource.Spec["site_local_network"] = map[string]interface{}{}
 	}
 	if data.SiteVirtualSites != nil {
@@ -13082,7 +13287,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						AdvertiseWhereItemMap["site"] = SiteVirtualSitesAdvertiseWhereSiteMap
 					}
-					if AdvertiseWhereItem.UseDefaultPort != nil {
+					if !AdvertiseWhereItem.UseDefaultPort.IsNull() && !AdvertiseWhereItem.UseDefaultPort.IsUnknown() {
 						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 					}
 					if AdvertiseWhereItem.VirtualSite != nil {
@@ -13131,7 +13336,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			if !data.TLSIntercept.CustomCertificate.DescriptionSpec.IsNull() && !data.TLSIntercept.CustomCertificate.DescriptionSpec.IsUnknown() {
 				TLSInterceptCustomCertificateMap["description"] = data.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
 			}
-			if data.TLSIntercept.CustomCertificate.DisableOCSPStapling != nil {
+			if !data.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsNull() && !data.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsUnknown() {
 				TLSInterceptCustomCertificateMap["disable_ocsp_stapling"] = map[string]interface{}{}
 			}
 			if data.TLSIntercept.CustomCertificate.PrivateKey != nil {
@@ -13161,12 +13366,12 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				}
 				TLSInterceptCustomCertificateMap["private_key"] = TLSInterceptCustomCertificatePrivateKeyMap
 			}
-			if data.TLSIntercept.CustomCertificate.UseSystemDefaults != nil {
+			if !data.TLSIntercept.CustomCertificate.UseSystemDefaults.IsNull() && !data.TLSIntercept.CustomCertificate.UseSystemDefaults.IsUnknown() {
 				TLSInterceptCustomCertificateMap["use_system_defaults"] = map[string]interface{}{}
 			}
 			TLSInterceptMap["custom_certificate"] = TLSInterceptCustomCertificateMap
 		}
-		if data.TLSIntercept.EnableForAllDomains != nil {
+		if !data.TLSIntercept.EnableForAllDomains.IsNull() && !data.TLSIntercept.EnableForAllDomains.IsUnknown() {
 			TLSInterceptMap["enable_for_all_domains"] = map[string]interface{}{}
 		}
 		if data.TLSIntercept.Policy != nil {
@@ -13179,7 +13384,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					var InterceptionRulesList []map[string]interface{}
 					for _, InterceptionRulesItem := range InterceptionRulesElems {
 						InterceptionRulesItemMap := make(map[string]interface{})
-						if InterceptionRulesItem.DisableInterception != nil {
+						if !InterceptionRulesItem.DisableInterception.IsNull() && !InterceptionRulesItem.DisableInterception.IsUnknown() {
 							InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
 						}
 						if InterceptionRulesItem.DomainMatch != nil {
@@ -13195,7 +13400,7 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							}
 							InterceptionRulesItemMap["domain_match"] = TLSInterceptPolicyInterceptionRulesDomainMatchMap
 						}
-						if InterceptionRulesItem.EnableInterception != nil {
+						if !InterceptionRulesItem.EnableInterception.IsNull() && !InterceptionRulesItem.EnableInterception.IsUnknown() {
 							InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
 						}
 						InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
@@ -13208,10 +13413,10 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		if !data.TLSIntercept.TrustedCAURL.IsNull() && !data.TLSIntercept.TrustedCAURL.IsUnknown() {
 			TLSInterceptMap["trusted_ca_url"] = data.TLSIntercept.TrustedCAURL.ValueString()
 		}
-		if data.TLSIntercept.VolterraCertificate != nil {
+		if !data.TLSIntercept.VolterraCertificate.IsNull() && !data.TLSIntercept.VolterraCertificate.IsUnknown() {
 			TLSInterceptMap["volterra_certificate"] = map[string]interface{}{}
 		}
-		if data.TLSIntercept.VolterraTrustedCA != nil {
+		if !data.TLSIntercept.VolterraTrustedCA.IsNull() && !data.TLSIntercept.VolterraTrustedCA.IsUnknown() {
 			TLSInterceptMap["volterra_trusted_ca"] = map[string]interface{}{}
 		}
 		apiResource.Spec["tls_intercept"] = TLSInterceptMap
@@ -13329,19 +13534,23 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok && isImport && data.DoNotAdvertise == nil {
-		data.DoNotAdvertise = &ProxyEmptyModel{}
+	if !isImport && !data.DoNotAdvertise.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["do_not_advertise"].(map[string]interface{}); ok {
+		data.DoNotAdvertise = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DoNotAdvertise = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["dynamic_proxy"].(map[string]interface{}); ok && (isImport || data.DynamicProxy != nil) {
 		data.DynamicProxy = &ProxyDynamicProxyModel{
-			DisableDNSMasquerade: func() *ProxyEmptyModel {
-				if !isImport && data.DynamicProxy != nil {
+			DisableDNSMasquerade: func() types.Object {
+				if !isImport && data.DynamicProxy != nil && !data.DynamicProxy.DisableDNSMasquerade.IsUnknown() {
 					return data.DynamicProxy.DisableDNSMasquerade
 				}
 				if _, ok := blockData["disable_dns_masquerade"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Domains: func() types.List {
 				if v, ok := blockData["domains"].([]interface{}); ok && len(v) > 0 {
@@ -13357,14 +13566,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			EnableDNSMasquerade: func() *ProxyEmptyModel {
-				if !isImport && data.DynamicProxy != nil {
+			EnableDNSMasquerade: func() types.Object {
+				if !isImport && data.DynamicProxy != nil && !data.DynamicProxy.EnableDNSMasquerade.IsUnknown() {
 					return data.DynamicProxy.EnableDNSMasquerade
 				}
 				if _, ok := blockData["enable_dns_masquerade"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HTTPProxy: func() *ProxyDynamicProxyHTTPProxyModel {
 				if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil {
@@ -13472,23 +13681,23 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										}
 										return types.BoolNull()
 									}(),
-									DisablePathNormalize: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+									DisablePathNormalize: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.DisablePathNormalize
 										}
 										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									EnablePathNormalize: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+									EnablePathNormalize: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.EnablePathNormalize
 										}
 										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									IdleTimeout: func() types.Int64 {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -13517,14 +13726,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										}
 										return types.Int64Null()
 									}(),
-									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
+									NoRequestLimitPerConnection: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.NoRequestLimitPerConnection
 										}
 										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									RequestCookiesToAdd: func() types.List {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && (data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
@@ -13774,23 +13983,23 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														AddHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddHttponly: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														AddPartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddPartitioned: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														AddPath: func() types.String {
 															if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
@@ -13798,95 +14007,95 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														AddSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddSecure: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreDomain: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreDomain: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreExpiry: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreExpiry: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreHttponly: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreMaxAge: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreMaxAge: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnorePartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnorePartitioned: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnorePath: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnorePath: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreSamesite: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreSamesite: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreSecure: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreValue: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreValue: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxAgeValue: func() types.Int64 {
 															if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
@@ -13906,32 +14115,32 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.BoolNull()
 														}(),
-														SamesiteLax: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteLax: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SamesiteNone: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteNone: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SamesiteStrict: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteStrict: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SecretValue: func() *ProxyDynamicProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel {
 															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
@@ -14240,23 +14449,23 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										}
 										return types.BoolNull()
 									}(),
-									DisablePathNormalize: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+									DisablePathNormalize: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.DisablePathNormalize
 										}
 										if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									EnablePathNormalize: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+									EnablePathNormalize: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.EnablePathNormalize
 										}
 										if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									IdleTimeout: func() types.Int64 {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -14285,14 +14494,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										}
 										return types.Int64Null()
 									}(),
-									NoRequestLimitPerConnection: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
+									NoRequestLimitPerConnection: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.NoRequestLimitPerConnection
 										}
 										if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									RequestCookiesToAdd: func() types.List {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && (data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.DynamicProxy.HTTPSProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
@@ -14542,23 +14751,23 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														AddHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddHttponly: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														AddPartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddPartitioned: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														AddPath: func() types.String {
 															if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
@@ -14566,95 +14775,95 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														AddSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														AddSecure: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreDomain: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreDomain: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreExpiry: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreExpiry: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreHttponly: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreMaxAge: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreMaxAge: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnorePartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnorePartitioned: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnorePath: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnorePath: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreSamesite: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreSamesite: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreSecure: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														IgnoreValue: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														IgnoreValue: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														MaxAgeValue: func() types.Int64 {
 															if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
@@ -14674,32 +14883,32 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.BoolNull()
 														}(),
-														SamesiteLax: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteLax: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SamesiteNone: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteNone: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														SamesiteStrict: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+														SamesiteStrict: func() types.Object {
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict.IsUnknown() {
 																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SecretValue: func() *ProxyDynamicProxyHTTPSProxyMoreOptionResponseCookiesToAddSecretValueModel {
 															if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
@@ -14904,14 +15113,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						TLSParams: func() *ProxyDynamicProxyHTTPSProxyTLSParamsModel {
 							if TLSParamsData, ok := HTTPSProxyData["tls_params"].(map[string]interface{}); ok {
 								return &ProxyDynamicProxyHTTPSProxyTLSParamsModel{
-									NoMtls: func() *ProxyEmptyModel {
-										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil {
+									NoMtls: func() types.Object {
+										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.TLSParams.NoMtls
 										}
 										if _, ok := TLSParamsData["no_mtls"].(map[string]interface{}); ok {
-											return &ProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TLSCertificates: func() types.List {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && (data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.IsNull() || len(data.DynamicProxy.HTTPSProxy.TLSParams.TLSCertificates.Elements()) == 0) {
@@ -14960,14 +15169,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														DisableOCSPStapling: func() *ProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														DisableOCSPStapling: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														PrivateKey: func() *ProxyDynamicProxyHTTPSProxyTLSParamsTLSCertificatesPrivateKeyModel {
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -15026,14 +15235,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return nil
 														}(),
-														UseSystemDefaults: func() *ProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														UseSystemDefaults: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-																return &ProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													})
 												}
@@ -15085,32 +15294,32 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													}
 													return nil
 												}(),
-												DefaultSecurity: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+												DefaultSecurity: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.DefaultSecurity
 													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												LowSecurity: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+												LowSecurity: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.LowSecurity
 													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												MediumSecurity: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil {
+												MediumSecurity: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.TLSConfig.MediumSecurity
 													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -15153,14 +15362,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													}
 													return nil
 												}(),
-												NoCRL: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+												NoCRL: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.NoCRL
 													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												TrustedCA: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsTrustedCAModel {
 													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -15193,14 +15402,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													}
 													return types.StringNull()
 												}(),
-												XfccDisabled: func() *ProxyEmptyModel {
-													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil {
+												XfccDisabled: func() types.Object {
+													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && !data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled.IsUnknown() {
 														return data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccDisabled
 													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-														return &ProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												XfccOptions: func() *ProxyDynamicProxyHTTPSProxyTLSParamsUseMtlsXfccOptionsModel {
 													if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.TLSParams != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls != nil && data.DynamicProxy.HTTPSProxy.TLSParams.UseMtls.XfccOptions != nil {
@@ -15370,23 +15579,23 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							}
 							return types.BoolNull()
 						}(),
-						DisablePathNormalize: func() *ProxyEmptyModel {
-							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+						DisablePathNormalize: func() types.Object {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisablePathNormalize.IsUnknown() {
 								return data.HTTPProxy.MoreOption.DisablePathNormalize
 							}
 							if _, ok := MoreOptionData["disable_path_normalize"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnablePathNormalize: func() *ProxyEmptyModel {
-							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+						EnablePathNormalize: func() types.Object {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.EnablePathNormalize.IsUnknown() {
 								return data.HTTPProxy.MoreOption.EnablePathNormalize
 							}
 							if _, ok := MoreOptionData["enable_path_normalize"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						IdleTimeout: func() types.Int64 {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.IdleTimeout.IsUnknown() {
@@ -15415,14 +15624,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							}
 							return types.Int64Null()
 						}(),
-						NoRequestLimitPerConnection: func() *ProxyEmptyModel {
-							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
+						NoRequestLimitPerConnection: func() types.Object {
+							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.NoRequestLimitPerConnection.IsUnknown() {
 								return data.HTTPProxy.MoreOption.NoRequestLimitPerConnection
 							}
 							if _, ok := MoreOptionData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						RequestCookiesToAdd: func() types.List {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && (data.HTTPProxy.MoreOption.RequestCookiesToAdd.IsNull() || len(data.HTTPProxy.MoreOption.RequestCookiesToAdd.Elements()) == 0) {
@@ -15672,23 +15881,23 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												}
 												return types.StringNull()
 											}(),
-											AddHttponly: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											AddHttponly: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											AddPartitioned: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											AddPartitioned: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											AddPath: func() types.String {
 												if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
@@ -15696,95 +15905,95 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												}
 												return types.StringNull()
 											}(),
-											AddSecure: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											AddSecure: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreDomain: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreDomain: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreExpiry: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreExpiry: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreHttponly: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreHttponly: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreMaxAge: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreMaxAge: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnorePartitioned: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnorePartitioned: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnorePath: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnorePath: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreSamesite: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreSamesite: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreSecure: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreSecure: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											IgnoreValue: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											IgnoreValue: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											MaxAgeValue: func() types.Int64 {
 												if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
@@ -15804,32 +16013,32 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												}
 												return types.BoolNull()
 											}(),
-											SamesiteLax: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											SamesiteLax: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											SamesiteNone: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											SamesiteNone: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											SamesiteStrict: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+											SamesiteStrict: func() types.Object {
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict.IsUnknown() {
 													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SecretValue: func() *ProxyHTTPProxyMoreOptionResponseCookiesToAddSecretValueModel {
 												if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
@@ -16033,17 +16242,33 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["no_forward_proxy_policy"].(map[string]interface{}); ok && isImport && data.NoForwardProxyPolicy == nil {
-		data.NoForwardProxyPolicy = &ProxyEmptyModel{}
+	if !isImport && !data.NoForwardProxyPolicy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_forward_proxy_policy"].(map[string]interface{}); ok {
+		data.NoForwardProxyPolicy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoForwardProxyPolicy = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_interception"].(map[string]interface{}); ok && isImport && data.NoInterception == nil {
-		data.NoInterception = &ProxyEmptyModel{}
+	if !isImport && !data.NoInterception.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_interception"].(map[string]interface{}); ok {
+		data.NoInterception = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoInterception = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok && isImport && data.SiteLocalInsideNetwork == nil {
-		data.SiteLocalInsideNetwork = &ProxyEmptyModel{}
+	if !isImport && !data.SiteLocalInsideNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok {
+		data.SiteLocalInsideNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SiteLocalInsideNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok && isImport && data.SiteLocalNetwork == nil {
-		data.SiteLocalNetwork = &ProxyEmptyModel{}
+	if !isImport && !data.SiteLocalNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok {
+		data.SiteLocalNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SiteLocalNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["site_virtual_sites"].(map[string]interface{}); ok && (isImport || data.SiteVirtualSites != nil) {
 		data.SiteVirtualSites = &ProxySiteVirtualSitesModel{
@@ -16111,14 +16336,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return nil
 								}(),
-								UseDefaultPort: func() *ProxyEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+								UseDefaultPort: func() types.Object {
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-										return &ProxyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								VirtualSite: func() *ProxySiteVirtualSitesAdvertiseWhereVirtualSiteModel {
 									if VirtualSiteData, ok := AdvertiseWhereItemMap["virtual_site"].(map[string]interface{}); ok {
@@ -16212,14 +16437,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							}
 							return types.StringNull()
 						}(),
-						DisableOCSPStapling: func() *ProxyEmptyModel {
-							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
+						DisableOCSPStapling: func() types.Object {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && !data.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsUnknown() {
 								return data.TLSIntercept.CustomCertificate.DisableOCSPStapling
 							}
 							if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						PrivateKey: func() *ProxyTLSInterceptCustomCertificatePrivateKeyModel {
 							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && data.TLSIntercept.CustomCertificate.PrivateKey != nil {
@@ -16281,27 +16506,27 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							}
 							return nil
 						}(),
-						UseSystemDefaults: func() *ProxyEmptyModel {
-							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil {
+						UseSystemDefaults: func() types.Object {
+							if !isImport && data.TLSIntercept != nil && data.TLSIntercept.CustomCertificate != nil && !data.TLSIntercept.CustomCertificate.UseSystemDefaults.IsUnknown() {
 								return data.TLSIntercept.CustomCertificate.UseSystemDefaults
 							}
 							if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
-								return &ProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
 				return nil
 			}(),
-			EnableForAllDomains: func() *ProxyEmptyModel {
-				if !isImport && data.TLSIntercept != nil {
+			EnableForAllDomains: func() types.Object {
+				if !isImport && data.TLSIntercept != nil && !data.TLSIntercept.EnableForAllDomains.IsUnknown() {
 					return data.TLSIntercept.EnableForAllDomains
 				}
 				if _, ok := blockData["enable_for_all_domains"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Policy: func() *ProxyTLSInterceptPolicyModel {
 				if !isImport && data.TLSIntercept != nil && data.TLSIntercept.Policy != nil {
@@ -16323,14 +16548,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									_ = InterceptionRulesIdx
 									if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 										InterceptionRulesResult = append(InterceptionRulesResult, ProxyTLSInterceptPolicyInterceptionRulesModel{
-											DisableInterception: func() *ProxyEmptyModel {
-												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+											DisableInterception: func() types.Object {
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && !InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception.IsUnknown() {
 													return InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception
 												}
 												if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											DomainMatch: func() *ProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel {
 												if DomainMatchData, ok := InterceptionRulesItemMap["domain_match"].(map[string]interface{}); ok {
@@ -16357,14 +16582,14 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												}
 												return nil
 											}(),
-											EnableInterception: func() *ProxyEmptyModel {
-												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+											EnableInterception: func() types.Object {
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && !InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception.IsUnknown() {
 													return InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception
 												}
 												if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
-													return &ProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -16384,23 +16609,23 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				}
 				return types.StringNull()
 			}(),
-			VolterraCertificate: func() *ProxyEmptyModel {
-				if !isImport && data.TLSIntercept != nil {
+			VolterraCertificate: func() types.Object {
+				if !isImport && data.TLSIntercept != nil && !data.TLSIntercept.VolterraCertificate.IsUnknown() {
 					return data.TLSIntercept.VolterraCertificate
 				}
 				if _, ok := blockData["volterra_certificate"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			VolterraTrustedCA: func() *ProxyEmptyModel {
-				if !isImport && data.TLSIntercept != nil {
+			VolterraTrustedCA: func() types.Object {
+				if !isImport && data.TLSIntercept != nil && !data.TLSIntercept.VolterraTrustedCA.IsUnknown() {
 					return data.TLSIntercept.VolterraTrustedCA
 				}
 				if _, ok := blockData["volterra_trusted_ca"].(map[string]interface{}); ok {
-					return &ProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

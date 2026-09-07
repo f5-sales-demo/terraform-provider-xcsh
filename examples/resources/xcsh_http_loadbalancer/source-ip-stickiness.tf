@@ -20,7 +20,7 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  source_ip_stickiness {}
+  source_ip_stickiness = {}
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }

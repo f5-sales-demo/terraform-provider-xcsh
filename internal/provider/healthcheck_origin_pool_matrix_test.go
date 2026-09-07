@@ -258,8 +258,8 @@ resource "xcsh_origin_pool" "test" {
     namespace = xcsh_healthcheck.test.namespace
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 `, name)
 }
@@ -279,8 +279,8 @@ resource "xcsh_origin_pool" "test" {
   }
 
   # Using no_tls for now since TLS configuration requires additional setup
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 `, name)
 }

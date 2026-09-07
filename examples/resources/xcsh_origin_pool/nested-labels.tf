@@ -27,6 +27,6 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls                = {}
+  same_as_endpoint_port = {}
 }

@@ -39,7 +39,7 @@ resource "xcsh_alert_policy" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -81,24 +81,36 @@ A [`notification_parameters`](#notification-parameters) block supports the follo
 
 <a id="notification-parameters-custom"></a>&#x2022; [`custom`](#notification-parameters-custom) - Optional Block<br>Specify list of custom labels to group/aggregate the alerts<br>See [Custom](#notification-parameters-custom) below.
 
-<a id="notification-parameters-default"></a>&#x2022; [`default`](#notification-parameters-default) - Optional Block<br>Enable this option
+<a id="notification-parameters-default"></a>&#x2022; [`default`](#notification-parameters-default) - Optional Object<br>Enable this option
 
 <a id="notification-parameters-group-interval"></a>&#x2022; [`group_interval`](#notification-parameters-group-interval) - Optional String<br>Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days If
 not specified, group_interval
 
 <a id="notification-parameters-group-wait"></a>&#x2022; [`group_wait`](#notification-parameters-group-wait) - Optional String<br>Time value used to specify how long to initially wait for an inhibiting alert to arrive or collect more alerts for the same group. Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_wait defaults to '30s'
 
-<a id="notification-parameters-individual"></a>&#x2022; [`individual`](#notification-parameters-individual) - Optional Block<br>Enable this option
+<a id="notification-parameters-individual"></a>&#x2022; [`individual`](#notification-parameters-individual) - Optional Object<br>Enable this option
 
 <a id="notification-parameters-repeat-interval"></a>&#x2022; [`repeat_interval`](#notification-parameters-repeat-interval) - Optional String<br>Repeat Interval is used to specify how long to wait before sending a notification again if it has already been sent successfully. Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to '4h'
 
-<a id="notification-parameters-ves-io-group"></a>&#x2022; [`ves_io_group`](#notification-parameters-ves-io-group) - Optional Block<br>Configuration parameter for ves io group
+<a id="notification-parameters-ves-io-group"></a>&#x2022; [`ves_io_group`](#notification-parameters-ves-io-group) - Optional Object<br>Configuration parameter for ves io group
 
 #### Notification Parameters Custom
 
 A [`custom`](#notification-parameters-custom) block (within [`notification_parameters`](#notification-parameters)) supports the following:
 
 <a id="notification-parameters-custom-labels"></a>&#x2022; [`labels`](#notification-parameters-custom-labels) - Optional List<br>Name of labels to group/aggregate the alerts
+
+#### Notification Parameters Default
+
+A [`default`](#notification-parameters-default) block (within [`notification_parameters`](#notification-parameters)) supports the following:
+
+#### Notification Parameters Individual
+
+An [`individual`](#notification-parameters-individual) block (within [`notification_parameters`](#notification-parameters)) supports the following:
+
+#### Notification Parameters Ves Io Group
+
+A [`ves_io_group`](#notification-parameters-ves-io-group) block (within [`notification_parameters`](#notification-parameters)) supports the following:
 
 #### Receivers
 
@@ -127,17 +139,17 @@ List of Alert Names Customer tunnel interface down Physical Interface down Tunne
 
 <a id="routes-alertname-regex"></a>&#x2022; [`alertname_regex`](#routes-alertname-regex) - Optional String<br>Regular Expression match for the alertname
 
-<a id="routes-any"></a>&#x2022; [`any`](#routes-any) - Optional Block<br>Enable this option
+<a id="routes-any"></a>&#x2022; [`any`](#routes-any) - Optional Object<br>Enable this option
 
 <a id="routes-custom"></a>&#x2022; [`custom`](#routes-custom) - Optional Block<br>Set of matchers an alert has to fulfill to match the route<br>See [Custom](#routes-custom) below.
 
-<a id="routes-dont-send"></a>&#x2022; [`dont_send`](#routes-dont-send) - Optional Block<br>Enable this option
+<a id="routes-dont-send"></a>&#x2022; [`dont_send`](#routes-dont-send) - Optional Object<br>Enable this option
 
 <a id="routes-group"></a>&#x2022; [`group`](#routes-group) - Optional Block<br>Select one or more known group names to match the incoming alert<br>See [Group](#routes-group) below.
 
 <a id="routes-notification-parameters"></a>&#x2022; [`notification_parameters`](#routes-notification-parameters) - Optional Block<br>Set of notification parameters to decide how and when the alert notifications should be sent to the receivers<br>See [Notification Parameters](#routes-notification-parameters) below.
 
-<a id="routes-send"></a>&#x2022; [`send`](#routes-send) - Optional Block<br>Enable this option
+<a id="routes-send"></a>&#x2022; [`send`](#routes-send) - Optional Object<br>Enable this option
 
 <a id="routes-severity"></a>&#x2022; [`severity`](#routes-severity) - Optional Block<br>Select one or more severity levels to match the incoming alert<br>See [Severity](#routes-severity) below.
 
@@ -177,6 +189,10 @@ A [`severity`](#routes-custom-severity) block (within [`routes.custom`](#routes-
 
 <a id="routes-custom-severity-regex-match"></a>&#x2022; [`regex_match`](#routes-custom-severity-regex-match) - Optional String<br>Regular expression match value for the label
 
+#### Routes Dont Send
+
+A [`dont_send`](#routes-dont-send) block (within [`routes`](#routes)) supports the following:
+
 #### Routes Group
 
 A [`group`](#routes-group) block (within [`routes`](#routes)) supports the following:
@@ -190,23 +206,35 @@ A [`notification_parameters`](#routes-notification-parameters) block (within [`r
 
 <a id="routes-notification-parameters-custom"></a>&#x2022; [`custom`](#routes-notification-parameters-custom) - Optional Block<br>Specify list of custom labels to group/aggregate the alerts<br>See [Custom](#routes-notification-parameters-custom) below.
 
-<a id="routes-notification-parameters-default"></a>&#x2022; [`default`](#routes-notification-parameters-default) - Optional Block<br>Enable this option
+<a id="routes-notification-parameters-default"></a>&#x2022; [`default`](#routes-notification-parameters-default) - Optional Object<br>Enable this option
 
 <a id="interval-b0bcc1"></a>&#x2022; [`group_interval`](#interval-b0bcc1) - Optional String<br>Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval
 
 <a id="wait-34a75e"></a>&#x2022; [`group_wait`](#wait-34a75e) - Optional String<br>Time value used to specify how long to initially wait for an inhibiting alert to arrive or collect more alerts for the same group. Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_wait defaults to '30s'
 
-<a id="individual-096c32"></a>&#x2022; [`individual`](#individual-096c32) - Optional Block<br>Enable this option
+<a id="individual-096c32"></a>&#x2022; [`individual`](#individual-096c32) - Optional Object<br>Enable this option
 
 <a id="interval-4b248a"></a>&#x2022; [`repeat_interval`](#interval-4b248a) - Optional String<br>Repeat Interval is used to specify how long to wait before sending a notification again if it has already been sent successfully. Format: [0-9]\[smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to '4h'
 
-<a id="group-12b5ad"></a>&#x2022; [`ves_io_group`](#group-12b5ad) - Optional Block<br>Configuration parameter for ves io group
+<a id="group-12b5ad"></a>&#x2022; [`ves_io_group`](#group-12b5ad) - Optional Object<br>Configuration parameter for ves io group
 
 #### Routes Notification Parameters Custom
 
 A [`custom`](#routes-notification-parameters-custom) block (within [`routes.notification_parameters`](#routes-notification-parameters)) supports the following:
 
 <a id="labels-bf3226"></a>&#x2022; [`labels`](#labels-bf3226) - Optional List<br>Name of labels to group/aggregate the alerts
+
+#### Routes Notification Parameters Default
+
+A [`default`](#routes-notification-parameters-default) block (within [`routes.notification_parameters`](#routes-notification-parameters)) supports the following:
+
+#### Routes Notification Parameters Individual
+
+An [`individual`](#individual-096c32) block (within [`routes.notification_parameters`](#routes-notification-parameters)) supports the following:
+
+#### Routes Notification Parameters Ves Io Group
+
+A [`ves_io_group`](#group-12b5ad) block (within [`routes.notification_parameters`](#routes-notification-parameters)) supports the following:
 
 #### Routes Severity
 

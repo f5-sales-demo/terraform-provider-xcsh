@@ -39,7 +39,7 @@ resource "xcsh_forwarding_class" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -61,10 +61,10 @@ resource "xcsh_forwarding_class" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="dscp"></a>[`dscp`](#dscp) - Optional Block<br>DSCP Marking setting. DSCP marking setting as per RFC 2475<br>See [Dscp](#dscp) below for details.
-<br><br>&#x2022; <a id="no-marking"></a>[`no_marking`](#no-marking) - Optional Block<br>Enable this option
+<br><br>&#x2022; <a id="no-marking"></a>[`no_marking`](#no-marking) - Optional Object<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="dscp-based-queue"></a>[`dscp_based_queue`](#dscp-based-queue) - Optional Block<br>Configuration parameter for dscp based queue
+&#x2022; <a id="dscp-based-queue"></a>[`dscp_based_queue`](#dscp-based-queue) - Optional Object<br>Configuration parameter for dscp based queue
 <br><br>&#x2022; <a id="queue-id-to-use"></a>[`queue_id_to_use`](#queue-id-to-use) - Optional String  Defaults to `DSCP_BEST_EFFORT`<br>Possible values are `DSCP_BEST_EFFORT`, `DSCP_CLASS1`, `DSCP_CLASS2`, `DSCP_CLASS3`, `DSCP_CLASS4`, `DSCP_EXPRESS_FORWARDING`, `DSCP_CONTROL_L3`, `DSCP_CONTROL_L2`<br>[Enum:
 DSCP_BEST_EFFORT|DSCP_CLASS1|DSCP_CLASS2|DSCP_CLASS3|DSCP_CLASS4|DSCP_EXPRESS_FORWARDING|DSCP_CONTROL_L3|DSCP_CONTROL_L2] DSCP Precedence Level Values Best Effort service will GET any available bandwidth DSCP Class 1 service DSCP Class 2 service DSCP Class 3 service DSCP Class 4 service Express Forwarding is used for low latency traffic Control is used for routing traffic, not recommended Link
 Layer traffic like
@@ -73,7 +73,7 @@ Layer traffic like
 Choose any of the available interfaces Choose all interfaces with label group1 Choose all interfaces with label group2 Choose all interfaces with label group3
 
 -> **One of the following:**
-&#x2022; <a id="no-policer"></a>[`no_policer`](#no-policer) - Optional Block<br>Enable this option
+&#x2022; <a id="no-policer"></a>[`no_policer`](#no-policer) - Optional Object<br>Enable this option
 
 <a id="policer"></a>&#x2022; [`policer`](#policer) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Policer](#policer) below for details.
 
@@ -99,6 +99,18 @@ value is taken from output of policer
 <a id="dscp-dscp-class"></a>&#x2022; [`dscp_class`](#dscp-dscp-class) - Optional String  Defaults to `DSCP_BEST_EFFORT`<br>Possible values are `DSCP_BEST_EFFORT`, `DSCP_CLASS1`, `DSCP_CLASS2`, `DSCP_CLASS3`, `DSCP_CLASS4`, `DSCP_EXPRESS_FORWARDING`, `DSCP_CONTROL_L3`, `DSCP_CONTROL_L2`<br>[Enum:
 DSCP_BEST_EFFORT|DSCP_CLASS1|DSCP_CLASS2|DSCP_CLASS3|DSCP_CLASS4|DSCP_EXPRESS_FORWARDING|DSCP_CONTROL_L3|DSCP_CONTROL_L2] DSCP Precedence Level Values Best Effort service will GET any available bandwidth DSCP Class 1 service DSCP Class 2 service DSCP Class 3 service DSCP Class 4 service Express Forwarding is used for low latency traffic Control is used for routing traffic, not recommended Link
 Layer traffic like
+
+#### Dscp Based Queue
+
+A [`dscp_based_queue`](#dscp-based-queue) block supports the following:
+
+#### No Marking
+
+A [`no_marking`](#no-marking) block supports the following:
+
+#### No Policer
+
+A [`no_policer`](#no-policer) block supports the following:
 
 #### Policer
 

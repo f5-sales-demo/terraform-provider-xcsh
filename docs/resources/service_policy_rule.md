@@ -41,7 +41,7 @@ resource "xcsh_service_policy_rule" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -65,12 +65,12 @@ resource "xcsh_service_policy_rule" "example" {
 the request is terminated and an appropriate message/code returned to
 
 -> **One of the following:**
-&#x2022; <a id="any-asn"></a>[`any_asn`](#any-asn) - Optional Block<br>Enable this option
+&#x2022; <a id="any-asn"></a>[`any_asn`](#any-asn) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="asn-list"></a>[`asn_list`](#asn-list) - Optional Block<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer<br>See [Asn List](#asn-list) below for details.
 <br><br>&#x2022; <a id="asn-matcher"></a>[`asn_matcher`](#asn-matcher) - Optional Block<br>Match any AS number contained in the list of bgp_asn_sets<br>See [Asn Matcher](#asn-matcher) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="any-client"></a>[`any_client`](#any-client) - Optional Block<br>Enable this option
+&#x2022; <a id="any-client"></a>[`any_client`](#any-client) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="client-name"></a>[`client_name`](#client-name) - Optional String<br>The expected name of the client invoking the request API. The predicate evaluates to true if any of the actual names is the same as the expected client name
 <br><br>&#x2022; <a id="client-name-matcher"></a>[`client_name_matcher`](#client-name-matcher) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See [Client Name
 Matcher](#client-name-matcher) below for details.
@@ -79,7 +79,7 @@ Selector](#client-selector) below for details.
 <br><br>&#x2022; <a id="ip-threat-category-list"></a>[`ip_threat_category_list`](#ip-threat-category-list) - Optional Block<br>IP Threat Category List Type. List of IP threat categories<br>See [IP Threat Category List](#ip-threat-category-list) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="any-ip"></a>[`any_ip`](#any-ip) - Optional Block<br>Enable this option
+&#x2022; <a id="any-ip"></a>[`any_ip`](#any-ip) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="ip-matcher"></a>[`ip_matcher`](#ip-matcher) - Optional Block<br>Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true<br>See [IP Matcher](#ip-matcher) below for details.
 <br><br>&#x2022; <a id="ip-prefix-list"></a>[`ip_prefix_list`](#ip-prefix-list) - Optional Block<br>List of IP Prefix strings to match against<br>See [IP Prefix List](#ip-prefix-list) below for details.
 
@@ -150,15 +150,23 @@ An [`api_group_matcher`](#api-group-matcher) block supports the following:
 
 An [`arg_matchers`](#arg-matchers) block supports the following:
 
-<a id="arg-matchers-check-not-present"></a>&#x2022; [`check_not_present`](#arg-matchers-check-not-present) - Optional Block<br>Configuration parameter for check not present
+<a id="arg-matchers-check-not-present"></a>&#x2022; [`check_not_present`](#arg-matchers-check-not-present) - Optional Object<br>Configuration parameter for check not present
 
-<a id="arg-matchers-check-present"></a>&#x2022; [`check_present`](#arg-matchers-check-present) - Optional Block<br>Configuration parameter for check present
+<a id="arg-matchers-check-present"></a>&#x2022; [`check_present`](#arg-matchers-check-present) - Optional Object<br>Configuration parameter for check present
 
 <a id="arg-matchers-invert-matcher"></a>&#x2022; [`invert_matcher`](#arg-matchers-invert-matcher) - Optional Bool<br>Invert Matcher. Invert Match of the expression defined
 
 <a id="arg-matchers-item"></a>&#x2022; [`item`](#arg-matchers-item) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See [Item](#arg-matchers-item) below.
 
 <a id="arg-matchers-name"></a>&#x2022; [`name`](#arg-matchers-name) - Optional String<br>Case-sensitive JSON path in the HTTP request body
+
+#### Arg Matchers Check Not Present
+
+A [`check_not_present`](#arg-matchers-check-not-present) block (within [`arg_matchers`](#arg-matchers)) supports the following:
+
+#### Arg Matchers Check Present
+
+A [`check_present`](#arg-matchers-check-present) block (within [`arg_matchers`](#arg-matchers)) supports the following:
 
 #### Arg Matchers Item
 
@@ -210,9 +218,17 @@ A [`body_matcher`](#body-matcher) block supports the following:
 
 A [`bot_action`](#bot-action) block supports the following:
 
-<a id="bot-action-bot-skip-processing"></a>&#x2022; [`bot_skip_processing`](#bot-action-bot-skip-processing) - Optional Block<br>Enable this option
+<a id="bot-action-bot-skip-processing"></a>&#x2022; [`bot_skip_processing`](#bot-action-bot-skip-processing) - Optional Object<br>Enable this option
 
-<a id="bot-action-none"></a>&#x2022; [`none`](#bot-action-none) - Optional Block<br>Enable this option
+<a id="bot-action-none"></a>&#x2022; [`none`](#bot-action-none) - Optional Object<br>Enable this option
+
+#### Bot Action Bot Skip Processing
+
+A [`bot_skip_processing`](#bot-action-bot-skip-processing) block (within [`bot_action`](#bot-action)) supports the following:
+
+#### Bot Action None
+
+A [`none`](#bot-action-none) block (within [`bot_action`](#bot-action)) supports the following:
 
 #### Client Name Matcher
 
@@ -232,15 +248,23 @@ A [`client_selector`](#client-selector) block supports the following:
 
 A [`cookie_matchers`](#cookie-matchers) block supports the following:
 
-<a id="cookie-matchers-check-not-present"></a>&#x2022; [`check_not_present`](#cookie-matchers-check-not-present) - Optional Block<br>Configuration parameter for check not present
+<a id="cookie-matchers-check-not-present"></a>&#x2022; [`check_not_present`](#cookie-matchers-check-not-present) - Optional Object<br>Configuration parameter for check not present
 
-<a id="cookie-matchers-check-present"></a>&#x2022; [`check_present`](#cookie-matchers-check-present) - Optional Block<br>Configuration parameter for check present
+<a id="cookie-matchers-check-present"></a>&#x2022; [`check_present`](#cookie-matchers-check-present) - Optional Object<br>Configuration parameter for check present
 
 <a id="cookie-matchers-invert-matcher"></a>&#x2022; [`invert_matcher`](#cookie-matchers-invert-matcher) - Optional Bool<br>Invert Matcher. Invert Match of the expression defined
 
 <a id="cookie-matchers-item"></a>&#x2022; [`item`](#cookie-matchers-item) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See [Item](#cookie-matchers-item) below.
 
 <a id="cookie-matchers-name"></a>&#x2022; [`name`](#cookie-matchers-name) - Optional String<br>Cookie Name. A case-sensitive cookie name
+
+#### Cookie Matchers Check Not Present
+
+A [`check_not_present`](#cookie-matchers-check-not-present) block (within [`cookie_matchers`](#cookie-matchers)) supports the following:
+
+#### Cookie Matchers Check Present
+
+A [`check_present`](#cookie-matchers-check-present) block (within [`cookie_matchers`](#cookie-matchers)) supports the following:
 
 #### Cookie Matchers Item
 
@@ -264,15 +288,23 @@ A [`domain_matcher`](#domain-matcher) block supports the following:
 
 A [`headers`](#headers) block supports the following:
 
-<a id="headers-check-not-present"></a>&#x2022; [`check_not_present`](#headers-check-not-present) - Optional Block<br>Configuration parameter for check not present
+<a id="headers-check-not-present"></a>&#x2022; [`check_not_present`](#headers-check-not-present) - Optional Object<br>Configuration parameter for check not present
 
-<a id="headers-check-present"></a>&#x2022; [`check_present`](#headers-check-present) - Optional Block<br>Configuration parameter for check present
+<a id="headers-check-present"></a>&#x2022; [`check_present`](#headers-check-present) - Optional Object<br>Configuration parameter for check present
 
 <a id="headers-invert-matcher"></a>&#x2022; [`invert_matcher`](#headers-invert-matcher) - Optional Bool<br>Invert Header Matcher. Invert the match result
 
 <a id="headers-item"></a>&#x2022; [`item`](#headers-item) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See [Item](#headers-item) below.
 
 <a id="headers-name"></a>&#x2022; [`name`](#headers-name) - Optional String<br>Header Name. A case-insensitive HTTP header name
+
+#### Headers Check Not Present
+
+A [`check_not_present`](#headers-check-not-present) block (within [`headers`](#headers)) supports the following:
+
+#### Headers Check Present
+
+A [`check_present`](#headers-check-present) block (within [`headers`](#headers)) supports the following:
 
 #### Headers Item
 
@@ -339,15 +371,23 @@ A [`ja4_tls_fingerprint`](#ja4-tls-fingerprint) block supports the following:
 
 A [`jwt_claims`](#jwt-claims) block supports the following:
 
-<a id="jwt-claims-check-not-present"></a>&#x2022; [`check_not_present`](#jwt-claims-check-not-present) - Optional Block<br>Configuration parameter for check not present
+<a id="jwt-claims-check-not-present"></a>&#x2022; [`check_not_present`](#jwt-claims-check-not-present) - Optional Object<br>Configuration parameter for check not present
 
-<a id="jwt-claims-check-present"></a>&#x2022; [`check_present`](#jwt-claims-check-present) - Optional Block<br>Configuration parameter for check present
+<a id="jwt-claims-check-present"></a>&#x2022; [`check_present`](#jwt-claims-check-present) - Optional Object<br>Configuration parameter for check present
 
 <a id="jwt-claims-invert-matcher"></a>&#x2022; [`invert_matcher`](#jwt-claims-invert-matcher) - Optional Bool<br>Invert Matcher. Invert the match result
 
 <a id="jwt-claims-item"></a>&#x2022; [`item`](#jwt-claims-item) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See [Item](#jwt-claims-item) below.
 
 <a id="jwt-claims-name"></a>&#x2022; [`name`](#jwt-claims-name) - Optional String<br>JWT Claim Name. JWT claim name
+
+#### JWT Claims Check Not Present
+
+A [`check_not_present`](#jwt-claims-check-not-present) block (within [`jwt_claims`](#jwt-claims)) supports the following:
+
+#### JWT Claims Check Present
+
+A [`check_present`](#jwt-claims-check-present) block (within [`jwt_claims`](#jwt-claims)) supports the following:
 
 #### JWT Claims Item
 
@@ -369,9 +409,17 @@ A [`label_matcher`](#label-matcher) block supports the following:
 
 A [`mum_action`](#mum-action) block supports the following:
 
-<a id="mum-action-default"></a>&#x2022; [`default`](#mum-action-default) - Optional Block<br>Enable this option
+<a id="mum-action-default"></a>&#x2022; [`default`](#mum-action-default) - Optional Object<br>Enable this option
 
-<a id="mum-action-skip-processing"></a>&#x2022; [`skip_processing`](#mum-action-skip-processing) - Optional Block<br>Enable this option
+<a id="mum-action-skip-processing"></a>&#x2022; [`skip_processing`](#mum-action-skip-processing) - Optional Object<br>Enable this option
+
+#### Mum Action Default
+
+A [`default`](#mum-action-default) block (within [`mum_action`](#mum-action)) supports the following:
+
+#### Mum Action Skip Processing
+
+A [`skip_processing`](#mum-action-skip-processing) block (within [`mum_action`](#mum-action)) supports the following:
 
 #### Path
 
@@ -403,15 +451,23 @@ A [`port_matcher`](#port-matcher) block supports the following:
 
 A [`query_params`](#query-params) block supports the following:
 
-<a id="query-params-check-not-present"></a>&#x2022; [`check_not_present`](#query-params-check-not-present) - Optional Block<br>Configuration parameter for check not present
+<a id="query-params-check-not-present"></a>&#x2022; [`check_not_present`](#query-params-check-not-present) - Optional Object<br>Configuration parameter for check not present
 
-<a id="query-params-check-present"></a>&#x2022; [`check_present`](#query-params-check-present) - Optional Block<br>Configuration parameter for check present
+<a id="query-params-check-present"></a>&#x2022; [`check_present`](#query-params-check-present) - Optional Object<br>Configuration parameter for check present
 
 <a id="query-params-invert-matcher"></a>&#x2022; [`invert_matcher`](#query-params-invert-matcher) - Optional Bool<br>Invert Query Parameter Matcher. Invert the match result
 
 <a id="query-params-item"></a>&#x2022; [`item`](#query-params-item) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See [Item](#query-params-item) below.
 
 <a id="query-params-key"></a>&#x2022; [`key`](#query-params-key) - Optional String<br>Case-sensitive HTTP query parameter name
+
+#### Query Params Check Not Present
+
+A [`check_not_present`](#query-params-check-not-present) block (within [`query_params`](#query-params)) supports the following:
+
+#### Query Params Check Present
+
+A [`check_present`](#query-params-check-present) block (within [`query_params`](#query-params)) supports the following:
 
 #### Query Params Item
 
@@ -429,69 +485,125 @@ A [`request_constraints`](#request-constraints) block supports the following:
 
 <a id="exceeds-0e8746"></a>&#x2022; [`max_cookie_count_exceeds`](#exceeds-0e8746) - Optional Number<br>Match on the Count for all Cookies that exceed this value
 
-<a id="none-291d57"></a>&#x2022; [`max_cookie_count_none`](#none-291d57) - Optional Block<br>Configuration parameter for max cookie count none
+<a id="none-291d57"></a>&#x2022; [`max_cookie_count_none`](#none-291d57) - Optional Object<br>Configuration parameter for max cookie count none
 
 <a id="exceeds-7352a4"></a>&#x2022; [`max_cookie_key_size_exceeds`](#exceeds-7352a4) - Optional Number
 
-<a id="none-0c2b38"></a>&#x2022; [`max_cookie_key_size_none`](#none-0c2b38) - Optional Block<br>Configuration parameter for max cookie key size none
+<a id="none-0c2b38"></a>&#x2022; [`max_cookie_key_size_none`](#none-0c2b38) - Optional Object<br>Configuration parameter for max cookie key size none
 
 <a id="exceeds-ec487d"></a>&#x2022; [`max_cookie_value_size_exceeds`](#exceeds-ec487d) - Optional Number
 
-<a id="none-cfea13"></a>&#x2022; [`max_cookie_value_size_none`](#none-cfea13) - Optional Block<br>Configuration parameter for max cookie value size none
+<a id="none-cfea13"></a>&#x2022; [`max_cookie_value_size_none`](#none-cfea13) - Optional Object<br>Configuration parameter for max cookie value size none
 
 <a id="exceeds-d461a1"></a>&#x2022; [`max_header_count_exceeds`](#exceeds-d461a1) - Optional Number<br>Match on the Count for all Headers that exceed this value
 
-<a id="none-d12b83"></a>&#x2022; [`max_header_count_none`](#none-d12b83) - Optional Block<br>Configuration parameter for max header count none
+<a id="none-d12b83"></a>&#x2022; [`max_header_count_none`](#none-d12b83) - Optional Object<br>Configuration parameter for max header count none
 
 <a id="exceeds-87df1c"></a>&#x2022; [`max_header_key_size_exceeds`](#exceeds-87df1c) - Optional Number
 
-<a id="none-6ea93c"></a>&#x2022; [`max_header_key_size_none`](#none-6ea93c) - Optional Block<br>Configuration parameter for max header key size none
+<a id="none-6ea93c"></a>&#x2022; [`max_header_key_size_none`](#none-6ea93c) - Optional Object<br>Configuration parameter for max header key size none
 
 <a id="exceeds-883323"></a>&#x2022; [`max_header_value_size_exceeds`](#exceeds-883323) - Optional Number
 
-<a id="none-d2e74f"></a>&#x2022; [`max_header_value_size_none`](#none-d2e74f) - Optional Block<br>Configuration parameter for max header value size none
+<a id="none-d2e74f"></a>&#x2022; [`max_header_value_size_none`](#none-d2e74f) - Optional Object<br>Configuration parameter for max header value size none
 
 <a id="exceeds-480590"></a>&#x2022; [`max_parameter_count_exceeds`](#exceeds-480590) - Optional Number
 
-<a id="none-cea22c"></a>&#x2022; [`max_parameter_count_none`](#none-cea22c) - Optional Block<br>Configuration parameter for max parameter count none
+<a id="none-cea22c"></a>&#x2022; [`max_parameter_count_none`](#none-cea22c) - Optional Object<br>Configuration parameter for max parameter count none
 
 <a id="exceeds-c96298"></a>&#x2022; [`max_parameter_name_size_exceeds`](#exceeds-c96298) - Optional Number
 
-<a id="none-b2e47d"></a>&#x2022; [`max_parameter_name_size_none`](#none-b2e47d) - Optional Block<br>Enable this option
+<a id="none-b2e47d"></a>&#x2022; [`max_parameter_name_size_none`](#none-b2e47d) - Optional Object<br>Enable this option
 
 <a id="exceeds-c345d4"></a>&#x2022; [`max_parameter_value_size_exceeds`](#exceeds-c345d4) - Optional Number
 
-<a id="none-bd1b4b"></a>&#x2022; [`max_parameter_value_size_none`](#none-bd1b4b) - Optional Block<br>Configuration parameter for max parameter value size none
+<a id="none-bd1b4b"></a>&#x2022; [`max_parameter_value_size_none`](#none-bd1b4b) - Optional Object<br>Configuration parameter for max parameter value size none
 
 <a id="exceeds-a9b09b"></a>&#x2022; [`max_query_size_exceeds`](#exceeds-a9b09b) - Optional Number<br>Match on the URL Query Size that exceed this value
 
-<a id="request-constraints-max-query-size-none"></a>&#x2022; [`max_query_size_none`](#request-constraints-max-query-size-none) - Optional Block<br>Configuration parameter for max query size none
+<a id="request-constraints-max-query-size-none"></a>&#x2022; [`max_query_size_none`](#request-constraints-max-query-size-none) - Optional Object<br>Configuration parameter for max query size none
 
 <a id="exceeds-80bd97"></a>&#x2022; [`max_request_line_size_exceeds`](#exceeds-80bd97) - Optional Number
 
-<a id="none-76b27d"></a>&#x2022; [`max_request_line_size_none`](#none-76b27d) - Optional Block<br>Configuration parameter for max request line size none
+<a id="none-76b27d"></a>&#x2022; [`max_request_line_size_none`](#none-76b27d) - Optional Object<br>Configuration parameter for max request line size none
 
 <a id="exceeds-2156ce"></a>&#x2022; [`max_request_size_exceeds`](#exceeds-2156ce) - Optional Number<br>Match on the Request Size that exceed this value
 
-<a id="none-250223"></a>&#x2022; [`max_request_size_none`](#none-250223) - Optional Block<br>Configuration parameter for max request size none
+<a id="none-250223"></a>&#x2022; [`max_request_size_none`](#none-250223) - Optional Object<br>Configuration parameter for max request size none
 
 <a id="exceeds-4ce081"></a>&#x2022; [`max_url_size_exceeds`](#exceeds-4ce081) - Optional Number<br>Match on the URL Size that exceed this value
 
-<a id="request-constraints-max-url-size-none"></a>&#x2022; [`max_url_size_none`](#request-constraints-max-url-size-none) - Optional Block<br>Enable this option
+<a id="request-constraints-max-url-size-none"></a>&#x2022; [`max_url_size_none`](#request-constraints-max-url-size-none) - Optional Object<br>Enable this option
+
+#### Request Constraints Max Cookie Count None
+
+A [`max_cookie_count_none`](#none-291d57) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Cookie Key Size None
+
+A [`max_cookie_key_size_none`](#none-0c2b38) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Cookie Value Size None
+
+A [`max_cookie_value_size_none`](#none-cfea13) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Header Count None
+
+A [`max_header_count_none`](#none-d12b83) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Header Key Size None
+
+A [`max_header_key_size_none`](#none-6ea93c) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Header Value Size None
+
+A [`max_header_value_size_none`](#none-d2e74f) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Parameter Count None
+
+A [`max_parameter_count_none`](#none-cea22c) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Parameter Name Size None
+
+A [`max_parameter_name_size_none`](#none-b2e47d) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Parameter Value Size None
+
+A [`max_parameter_value_size_none`](#none-bd1b4b) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Query Size None
+
+A [`max_query_size_none`](#request-constraints-max-query-size-none) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Request Line Size None
+
+A [`max_request_line_size_none`](#none-76b27d) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max Request Size None
+
+A [`max_request_size_none`](#none-250223) block (within [`request_constraints`](#request-constraints)) supports the following:
+
+#### Request Constraints Max URL Size None
+
+A [`max_url_size_none`](#request-constraints-max-url-size-none) block (within [`request_constraints`](#request-constraints)) supports the following:
 
 #### Segment Policy
 
 A [`segment_policy`](#segment-policy) block supports the following:
 
-<a id="segment-policy-dst-any"></a>&#x2022; [`dst_any`](#segment-policy-dst-any) - Optional Block<br>Enable this option
+<a id="segment-policy-dst-any"></a>&#x2022; [`dst_any`](#segment-policy-dst-any) - Optional Object<br>Enable this option
 
 <a id="segment-policy-dst-segments"></a>&#x2022; [`dst_segments`](#segment-policy-dst-segments) - Optional Block<br>Configuration parameter for dst segments<br>See [Dst Segments](#segment-policy-dst-segments) below.
 
-<a id="segment-policy-intra-segment"></a>&#x2022; [`intra_segment`](#segment-policy-intra-segment) - Optional Block<br>Configuration parameter for intra segment
+<a id="segment-policy-intra-segment"></a>&#x2022; [`intra_segment`](#segment-policy-intra-segment) - Optional Object<br>Configuration parameter for intra segment
 
-<a id="segment-policy-src-any"></a>&#x2022; [`src_any`](#segment-policy-src-any) - Optional Block<br>Enable this option
+<a id="segment-policy-src-any"></a>&#x2022; [`src_any`](#segment-policy-src-any) - Optional Object<br>Enable this option
 
 <a id="segment-policy-src-segments"></a>&#x2022; [`src_segments`](#segment-policy-src-segments) - Optional Block<br>Configuration parameter for src segments<br>See [Src Segments](#segment-policy-src-segments) below.
+
+#### Segment Policy Dst Any
+
+A [`dst_any`](#segment-policy-dst-any) block (within [`segment_policy`](#segment-policy)) supports the following:
 
 #### Segment Policy Dst Segments
 
@@ -508,6 +620,14 @@ A [`segments`](#segment-policy-dst-segments-segments) block (within [`segment_po
 <a id="namespace-6bd8a4"></a>&#x2022; [`namespace`](#namespace-6bd8a4) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="tenant-0605a6"></a>&#x2022; [`tenant`](#tenant-0605a6) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Segment Policy Intra Segment
+
+An [`intra_segment`](#segment-policy-intra-segment) block (within [`segment_policy`](#segment-policy)) supports the following:
+
+#### Segment Policy Src Any
+
+A [`src_any`](#segment-policy-src-any) block (within [`segment_policy`](#segment-policy)) supports the following:
 
 #### Segment Policy Src Segments
 
@@ -554,9 +674,9 @@ A [`waf_action`](#waf-action) block supports the following:
 
 <a id="control-b9f62f"></a>&#x2022; [`app_firewall_detection_control`](#control-b9f62f) - Optional Block<br>Define the list of Signature IDs, Violations, Attack Types and Bot Names that should be excluded from triggering on the defined match criteria<br>See [App Firewall Detection Control](#control-b9f62f) below.
 
-<a id="waf-action-none"></a>&#x2022; [`none`](#waf-action-none) - Optional Block<br>Enable this option
+<a id="waf-action-none"></a>&#x2022; [`none`](#waf-action-none) - Optional Object<br>Enable this option
 
-<a id="waf-action-waf-skip-processing"></a>&#x2022; [`waf_skip_processing`](#waf-action-waf-skip-processing) - Optional Block<br>Enable this option
+<a id="waf-action-waf-skip-processing"></a>&#x2022; [`waf_skip_processing`](#waf-action-waf-skip-processing) - Optional Object<br>Enable this option
 
 #### WAF Action App Firewall Detection Control
 
@@ -586,6 +706,14 @@ Contexts](#contexts-69b36c) below.
 #### WAF Action App Firewall Detection Control Exclude Violation Contexts
 
 <a id="deep-17f42c"></a>Deeply nested **Contexts** block collapsed for readability.
+
+#### WAF Action None
+
+A [`none`](#waf-action-none) block (within [`waf_action`](#waf-action)) supports the following:
+
+#### WAF Action WAF Skip Processing
+
+A [`waf_skip_processing`](#waf-action-waf-skip-processing) block (within [`waf_action`](#waf-action)) supports the following:
 
 ---
 

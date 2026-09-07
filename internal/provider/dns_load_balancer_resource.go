@@ -69,8 +69,8 @@ var DNSLoadBalancerFallbackPoolModelAttrTypes = map[string]attr.Type{
 
 // DNSLoadBalancerResponseCacheModel represents response_cache block
 type DNSLoadBalancerResponseCacheModel struct {
-	DefaultResponseCacheParameters *DNSLoadBalancerEmptyModel                                `tfsdk:"default_response_cache_parameters"`
-	DisableSpec                    *DNSLoadBalancerEmptyModel                                `tfsdk:"disable_spec"`
+	DefaultResponseCacheParameters types.Object                                              `tfsdk:"default_response_cache_parameters"`
+	DisableSpec                    types.Object                                              `tfsdk:"disable_spec"`
 	ResponseCacheParameters        *DNSLoadBalancerResponseCacheResponseCacheParametersModel `tfsdk:"response_cache_parameters"`
 }
 
@@ -373,14 +373,19 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				MarkdownDescription: "Configuration parameter for response cache.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_response_cache_parameters", "disable_spec"), validators.ConflictingObjectAttributes("default_response_cache_parameters", "response_cache_parameters"), validators.ConflictingObjectAttributes("disable_spec", "response_cache_parameters")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"default_response_cache_parameters": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"default_response_cache_parameters": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for default response cache parameters.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"disable_spec": schema.SingleNestedBlock{
+					"disable_spec": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+				},
+				Blocks: map[string]schema.Block{
 					"response_cache_parameters": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for response cache parameters.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("cache_cidr_ipv6")},
@@ -769,10 +774,10 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	}
 	if data.ResponseCache != nil {
 		ResponseCacheMap := make(map[string]interface{})
-		if data.ResponseCache.DefaultResponseCacheParameters != nil {
+		if !data.ResponseCache.DefaultResponseCacheParameters.IsNull() && !data.ResponseCache.DefaultResponseCacheParameters.IsUnknown() {
 			ResponseCacheMap["default_response_cache_parameters"] = map[string]interface{}{}
 		}
-		if data.ResponseCache.DisableSpec != nil {
+		if !data.ResponseCache.DisableSpec.IsNull() && !data.ResponseCache.DisableSpec.IsUnknown() {
 			ResponseCacheMap["disable"] = map[string]interface{}{}
 		}
 		if data.ResponseCache.ResponseCacheParameters != nil {
@@ -984,23 +989,23 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	}
 	if blockData, ok := apiResource.Spec["response_cache"].(map[string]interface{}); ok && (isImport || data.ResponseCache != nil) {
 		data.ResponseCache = &DNSLoadBalancerResponseCacheModel{
-			DefaultResponseCacheParameters: func() *DNSLoadBalancerEmptyModel {
-				if !isImport && data.ResponseCache != nil {
+			DefaultResponseCacheParameters: func() types.Object {
+				if !isImport && data.ResponseCache != nil && !data.ResponseCache.DefaultResponseCacheParameters.IsUnknown() {
 					return data.ResponseCache.DefaultResponseCacheParameters
 				}
 				if _, ok := blockData["default_response_cache_parameters"].(map[string]interface{}); ok {
-					return &DNSLoadBalancerEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSpec: func() *DNSLoadBalancerEmptyModel {
-				if !isImport && data.ResponseCache != nil {
+			DisableSpec: func() types.Object {
+				if !isImport && data.ResponseCache != nil && !data.ResponseCache.DisableSpec.IsUnknown() {
 					return data.ResponseCache.DisableSpec
 				}
 				if _, ok := blockData["disable"].(map[string]interface{}); ok {
-					return &DNSLoadBalancerEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			ResponseCacheParameters: func() *DNSLoadBalancerResponseCacheResponseCacheParametersModel {
 				if !isImport && data.ResponseCache != nil && data.ResponseCache.ResponseCacheParameters != nil {
@@ -1482,23 +1487,23 @@ func (r *DNSLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	}
 	if blockData, ok := apiResource.Spec["response_cache"].(map[string]interface{}); ok && (isImport || data.ResponseCache != nil) {
 		data.ResponseCache = &DNSLoadBalancerResponseCacheModel{
-			DefaultResponseCacheParameters: func() *DNSLoadBalancerEmptyModel {
-				if !isImport && data.ResponseCache != nil {
+			DefaultResponseCacheParameters: func() types.Object {
+				if !isImport && data.ResponseCache != nil && !data.ResponseCache.DefaultResponseCacheParameters.IsUnknown() {
 					return data.ResponseCache.DefaultResponseCacheParameters
 				}
 				if _, ok := blockData["default_response_cache_parameters"].(map[string]interface{}); ok {
-					return &DNSLoadBalancerEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSpec: func() *DNSLoadBalancerEmptyModel {
-				if !isImport && data.ResponseCache != nil {
+			DisableSpec: func() types.Object {
+				if !isImport && data.ResponseCache != nil && !data.ResponseCache.DisableSpec.IsUnknown() {
 					return data.ResponseCache.DisableSpec
 				}
 				if _, ok := blockData["disable"].(map[string]interface{}); ok {
-					return &DNSLoadBalancerEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			ResponseCacheParameters: func() *DNSLoadBalancerResponseCacheResponseCacheParametersModel {
 				if !isImport && data.ResponseCache != nil && data.ResponseCache.ResponseCacheParameters != nil {
@@ -1931,10 +1936,10 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	}
 	if data.ResponseCache != nil {
 		ResponseCacheMap := make(map[string]interface{})
-		if data.ResponseCache.DefaultResponseCacheParameters != nil {
+		if !data.ResponseCache.DefaultResponseCacheParameters.IsNull() && !data.ResponseCache.DefaultResponseCacheParameters.IsUnknown() {
 			ResponseCacheMap["default_response_cache_parameters"] = map[string]interface{}{}
 		}
-		if data.ResponseCache.DisableSpec != nil {
+		if !data.ResponseCache.DisableSpec.IsNull() && !data.ResponseCache.DisableSpec.IsUnknown() {
 			ResponseCacheMap["disable"] = map[string]interface{}{}
 		}
 		if data.ResponseCache.ResponseCacheParameters != nil {
@@ -2173,23 +2178,23 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	}
 	if blockData, ok := apiResource.Spec["response_cache"].(map[string]interface{}); ok && (isImport || data.ResponseCache != nil) {
 		data.ResponseCache = &DNSLoadBalancerResponseCacheModel{
-			DefaultResponseCacheParameters: func() *DNSLoadBalancerEmptyModel {
-				if !isImport && data.ResponseCache != nil {
+			DefaultResponseCacheParameters: func() types.Object {
+				if !isImport && data.ResponseCache != nil && !data.ResponseCache.DefaultResponseCacheParameters.IsUnknown() {
 					return data.ResponseCache.DefaultResponseCacheParameters
 				}
 				if _, ok := blockData["default_response_cache_parameters"].(map[string]interface{}); ok {
-					return &DNSLoadBalancerEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSpec: func() *DNSLoadBalancerEmptyModel {
-				if !isImport && data.ResponseCache != nil {
+			DisableSpec: func() types.Object {
+				if !isImport && data.ResponseCache != nil && !data.ResponseCache.DisableSpec.IsUnknown() {
 					return data.ResponseCache.DisableSpec
 				}
 				if _, ok := blockData["disable"].(map[string]interface{}); ok {
-					return &DNSLoadBalancerEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			ResponseCacheParameters: func() *DNSLoadBalancerResponseCacheResponseCacheParametersModel {
 				if !isImport && data.ResponseCache != nil && data.ResponseCache.ResponseCacheParameters != nil {

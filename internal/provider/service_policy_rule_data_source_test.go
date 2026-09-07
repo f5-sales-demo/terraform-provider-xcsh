@@ -58,7 +58,7 @@ resource "xcsh_service_policy_rule" "test" {
   namespace = "system"
 
   waf_action {
-    none {}
+    none = {}
   }
 }
 

@@ -6,6 +6,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -13,6 +14,14 @@ import (
 )
 
 type conflictingAttributesValidator struct{ left, right string }
+
+type configurationPresence uint8
+
+const (
+	configurationAbsent configurationPresence = iota
+	configurationUnresolved
+	configurationPresent
+)
 
 // ConflictingObjectAttributes rejects two known, non-null sibling values,
 // including empty blocks and scalar zero values. Unknown values defer validation.
@@ -41,10 +50,50 @@ func (v conflictingAttributesValidator) validate(ctx context.Context, value type
 	attributes := value.Attributes()
 	left, leftExists := attributes[v.left]
 	right, rightExists := attributes[v.right]
-	if !leftExists || !rightExists || left.IsNull() || right.IsNull() || left.IsUnknown() || right.IsUnknown() {
+	if !leftExists || !rightExists || configuredPresence(left) != configurationPresent || configuredPresence(right) != configurationPresent {
 		return
 	}
 	diagnostics.AddAttributeError(location.AtName(v.right), "Conflicting Configuration", v.Description(ctx))
+}
+
+// configuredPresence distinguishes a configured block from the synthetic
+// object Terraform constructs while a dynamic block's for_each is unresolved.
+// The latter has only unknown descendants and must defer validation. A known
+// empty object remains configured because empty protobuf oneof members use it
+// as their payload.
+func configuredPresence(value attr.Value) configurationPresence {
+	if value == nil || value.IsNull() {
+		return configurationAbsent
+	}
+	if value.IsUnknown() {
+		return configurationUnresolved
+	}
+	switch typed := value.(type) {
+	case types.Object:
+		if len(typed.Attributes()) == 0 {
+			return configurationPresent
+		}
+		unresolved := false
+		for _, child := range typed.Attributes() {
+			switch configuredPresence(child) {
+			case configurationPresent:
+				return configurationPresent
+			case configurationUnresolved:
+				unresolved = true
+			}
+		}
+		if unresolved {
+			return configurationUnresolved
+		}
+		// A known object whose optional children are all null represents an
+		// explicitly configured empty block.
+		return configurationPresent
+	case types.List:
+		if len(typed.Elements()) == 0 {
+			return configurationAbsent
+		}
+	}
+	return configurationPresent
 }
 
 func (v conflictingAttributesValidator) ValidateObject(ctx context.Context, req validator.ObjectRequest, resp *validator.ObjectResponse) {

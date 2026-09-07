@@ -49,12 +49,17 @@ type CurrentManifest struct {
 	DeprecatedExclusions    []string                   `json:"deprecated_exclusions"`
 	PlatformRemovalEvidence map[string]RemovalEvidence `json:"platform_removal_evidence"`
 	CurrentPlatformRemovals []string                   `json:"current_platform_removals"`
+	VerifiedRemovalEvidence map[string]RemovalEvidence `json:"verified_removal_evidence"`
+	VerifiedRemovals        []string                   `json:"verified_removals"`
 }
 
 type RemovalEvidence struct {
 	ProofKind           string `json:"proof_kind"`
 	HTTPStatus          int    `json:"http_status"`
+	CreateStatus        int    `json:"create_status"`
+	GetStatus           int    `json:"get_status"`
 	ServerMessage       string `json:"server_message"`
+	ServerBehavior      string `json:"server_behavior"`
 	ObservedDate        string `json:"observed_date"`
 	LegacyFixtureSHA256 string `json:"legacy_fixture_sha256"`
 	ProbeReceiptSHA256  string `json:"probe_receipt_sha256"`
@@ -215,6 +220,11 @@ func buildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest, generate
 				entry.RemovalEvidence = proof
 				entry.OwningRepository = "f5-sales-demo/api-specs-enriched"
 				entry.RequiredTests = []string{"explicit platform rejection", "legacy fixture and live receipt digest verification"}
+				if proof.ProofKind == "create_read_normalization" {
+					entry.Classification = "current_feature_removal"
+					entry.Reason = "current API create/read normalization removes the legacy field"
+					entry.RequiredTests = []string{"create/read normalization and cleanup", "legacy fixture and live receipt digest verification"}
+				}
 			}
 		}
 		if entry.Classification == "" {
@@ -290,12 +300,16 @@ func classifyLegacyField(field LegacyField, current map[string]CurrentField, con
 		} else if classification != "" {
 			entry.Classification = classification
 			entry.Reason = reason
+			entry.OwningRepository = "f5-sales-demo/terraform-provider-xcsh"
+			entry.RequiredTests = []string{"current schema mapping", "request serialization", "response handling", "import, refresh and drift"}
 		} else if semanticallyEqual(entry.Legacy, entry.Current) {
 			entry.Classification = "current_parity"
 			entry.Reason = "path and normalized Terraform semantics match"
 		} else {
 			entry.Classification = "modernized_semantics"
 			entry.Reason = "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics"
+			entry.OwningRepository = "f5-sales-demo/terraform-provider-xcsh"
+			entry.RequiredTests = []string{"generated schema", "request serialization", "response handling", "import, refresh and drift"}
 		}
 		return entry
 	}
@@ -309,6 +323,53 @@ func classifyLegacyField(field LegacyField, current map[string]CurrentField, con
 }
 
 func mappedCurrentPath(path string) (string, string, string) {
+	if path == "log_receiver" || strings.HasPrefix(path, "log_receiver.") {
+		return apiPath(strings.Replace(path, "log_receiver", "log_receiver_with_net.log_receiver", 1)), "legacy logging receiver selection is nested with an explicit payload-network choice", "modernized_semantics"
+	}
+	if strings.Contains(path, ".blindfold_secret_info_internal") {
+		return apiPath(strings.Replace(path, ".blindfold_secret_info_internal", ".blindfold_secret_info", 1)), "legacy internal blindfold naming is represented by the current blindfold secret contract", "modernized_semantics"
+	}
+	for _, legacySecret := range []string{".vault_secret_info", ".wingman_secret_info", ".secret_encoding_type"} {
+		if index := strings.Index(path, legacySecret); index >= 0 {
+			return apiPath(path[:index] + ".blindfold_secret_info"), "legacy backend-specific secret configuration is represented by the current blindfold or clear-secret contract", "modernized_semantics"
+		}
+	}
+	if strings.Contains(path, ".ipv6_auto_config.router.stateful.dhcp_networks[].pools[].exclude") {
+		return apiPath(strings.Replace(path, ".pools[].exclude", ".pool_settings", 1)), "per-pool exclusion is represented by the current DHCP pool inclusion policy", "modernized_semantics"
+	}
+	if index := strings.Index(path, ".static_ipv6_address.fleet_static_ip"); index >= 0 {
+		prefix := path[:index] + ".static_ipv6_address"
+		tail := strings.TrimPrefix(path[index+len(".static_ipv6_address.fleet_static_ip"):], ".")
+		switch tail {
+		case "default_gw", "dns_server":
+			return apiPath(prefix + ".node_static_ip." + tail), "fleet-assigned addressing is represented by explicit node or cluster static IPv6 configuration", "modernized_semantics"
+		case "", "network_prefix_allocator", "network_prefix_allocator.name", "network_prefix_allocator.namespace", "network_prefix_allocator.tenant":
+			target := prefix + ".cluster_static_ip"
+			if tail != "" {
+				target += ".interface_ip_map"
+			}
+			return apiPath(target), "fleet-assigned addressing is represented by explicit node or cluster static IPv6 configuration", "modernized_semantics"
+		}
+	}
+	if index := strings.Index(path, ".network_prefix_allocator"); index >= 0 {
+		return apiPath(path[:index] + ".network_prefix"), "legacy allocator references are represented by an explicit current network prefix", "modernized_semantics"
+	}
+	if index := strings.Index(path, ".static_routes.static_routes[].interface"); index >= 0 {
+		prefix := path[:index] + ".static_routes.static_routes[].node_interface"
+		tail := strings.TrimPrefix(path[index+len(".static_routes.static_routes[].interface"):], ".")
+		if tail == "" {
+			return apiPath(prefix), "single interface references are represented by the current node-aware interface list", "modernized_semantics"
+		}
+		return apiPath(prefix + ".list[].interface[]." + tail), "single interface references are represented by the current node-aware interface list", "modernized_semantics"
+	}
+	if index := strings.Index(path, ".static_v6_routes.static_routes[].interface"); index >= 0 {
+		prefix := path[:index] + ".static_v6_routes.static_routes[].node_interface"
+		tail := strings.TrimPrefix(path[index+len(".static_v6_routes.static_routes[].interface"):], ".")
+		if tail == "" {
+			return apiPath(prefix), "single interface references are represented by the current node-aware interface list", "modernized_semantics"
+		}
+		return apiPath(prefix + ".list[].interface[]." + tail), "single interface references are represented by the current node-aware interface list", "modernized_semantics"
+	}
 	if strings.Contains(path, ".network_option.segment_network") {
 		return "spec.segment_vrf[].segment_network", "per-interface Segment selection is represented by the named top-level Segment VRF contract", "modernized_semantics"
 	}
@@ -320,12 +381,14 @@ func mappedCurrentPath(path string) (string, string, string) {
 		return apiPath(strings.Replace(path, "blocked_sevice", "blocked_service", 1)), "corrected legacy blocked_sevice spelling while preserving the current blocked_service wire key", "modernized_semantics"
 	}
 	for legacy, current := range map[string]string{
-		"local_vrf.sli_config.nameserver_v6":           "local_vrf.sli_config.nameserver",
-		"local_vrf.sli_config.secondary_nameserver_v6": "local_vrf.sli_config.secondary_nameserver",
-		"local_vrf.sli_config.vip_v6":                  "local_vrf.sli_config.vip",
-		"local_vrf.slo_config.nameserver_v6":           "local_vrf.slo_config.nameserver",
-		"local_vrf.slo_config.secondary_nameserver_v6": "local_vrf.slo_config.secondary_nameserver",
-		"local_vrf.slo_config.vip_v6":                  "local_vrf.slo_config.vip",
+		"local_vrf.sli_config.nameserver_v6":                   "local_vrf.sli_config.nameserver",
+		"local_vrf.sli_config.secondary_nameserver_v6":         "local_vrf.sli_config.secondary_nameserver",
+		"local_vrf.sli_config.vip_v6":                          "local_vrf.sli_config.vip",
+		"local_vrf.slo_config.nameserver_v6":                   "local_vrf.slo_config.nameserver",
+		"local_vrf.slo_config.secondary_nameserver_v6":         "local_vrf.slo_config.secondary_nameserver",
+		"local_vrf.slo_config.vip_v6":                          "local_vrf.slo_config.vip",
+		"segment_vrf[].segment_config.nameserver_v6":           "segment_vrf[].segment_config.nameserver",
+		"segment_vrf[].segment_config.secondary_nameserver_v6": "segment_vrf[].segment_config.secondary_nameserver",
 	} {
 		if path == legacy {
 			return apiPath(current), "address-family-specific field is represented by the current IP-address field", "modernized_semantics"
@@ -490,6 +553,25 @@ func verifiedRemoval(path string, current *CurrentManifest) *RemovalEvidence {
 			continue
 		}
 		if proof.HTTPStatus != 400 && proof.HTTPStatus != 410 && proof.HTTPStatus != 422 {
+			continue
+		}
+		present := false
+		for _, field := range current.Paths {
+			if field.Path == root || strings.HasPrefix(field.Path, root+".") {
+				present = true
+				break
+			}
+		}
+		if !present {
+			return &proof
+		}
+	}
+	for _, root := range current.VerifiedRemovals {
+		if path != root && !strings.HasPrefix(path, root+".") {
+			continue
+		}
+		proof, ok := current.VerifiedRemovalEvidence[root]
+		if !ok || proof.ProofKind != "create_read_normalization" || proof.CreateStatus != 200 || proof.GetStatus != 200 || proof.ServerBehavior != "silently_removed" || proof.ObservedDate == "" || !validSHA256(proof.LegacyFixtureSHA256) || !validSHA256(proof.ProbeReceiptSHA256) {
 			continue
 		}
 		present := false

@@ -67,11 +67,11 @@ type GeoLocationSetResourceModel struct {
 	Annotations               types.Map                                     `tfsdk:"annotations"`
 	Description               types.String                                  `tfsdk:"description"`
 	Disable                   types.Bool                                    `tfsdk:"disable"`
+	Global                    types.Object                                  `tfsdk:"global"`
 	Labels                    types.Map                                     `tfsdk:"labels"`
 	ID                        types.String                                  `tfsdk:"id"`
 	Timeouts                  timeouts.Value                                `tfsdk:"timeouts"`
 	CustomGeoLocationSelector *GeoLocationSetCustomGeoLocationSelectorModel `tfsdk:"custom_geo_location_selector"`
-	Global                    *GeoLocationSetEmptyModel                     `tfsdk:"global"`
 }
 
 func (r *GeoLocationSetResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -118,6 +118,11 @@ func (r *GeoLocationSetResource) Schema(ctx context.Context, req resource.Schema
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"global": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
@@ -152,9 +157,6 @@ func (r *GeoLocationSetResource) Schema(ctx context.Context, req resource.Schema
 						},
 					},
 				},
-			},
-			"global": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
 			},
 		},
 	}
@@ -294,7 +296,7 @@ func (r *GeoLocationSetResource) Create(ctx context.Context, req resource.Create
 		}
 		createReq.Spec["custom_geo_location_selector"] = CustomGeoLocationSelectorMap
 	}
-	if data.Global != nil {
+	if !data.Global.IsNull() && !data.Global.IsUnknown() {
 		createReq.Spec["global"] = map[string]interface{}{}
 	}
 
@@ -354,8 +356,12 @@ func (r *GeoLocationSetResource) Create(ctx context.Context, req resource.Create
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["global"].(map[string]interface{}); ok && isImport && data.Global == nil {
-		data.Global = &GeoLocationSetEmptyModel{}
+	if !isImport && !data.Global.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["global"].(map[string]interface{}); ok {
+		data.Global = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Global = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	tflog.Trace(ctx, "created GeoLocationSet resource")
@@ -506,8 +512,12 @@ func (r *GeoLocationSetResource) Read(ctx context.Context, req resource.ReadRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["global"].(map[string]interface{}); ok && isImport && data.Global == nil {
-		data.Global = &GeoLocationSetEmptyModel{}
+	if !isImport && !data.Global.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["global"].(map[string]interface{}); ok {
+		data.Global = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Global = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -615,7 +625,7 @@ func (r *GeoLocationSetResource) Update(ctx context.Context, req resource.Update
 		}
 		apiResource.Spec["custom_geo_location_selector"] = CustomGeoLocationSelectorMap
 	}
-	if data.Global != nil {
+	if !data.Global.IsNull() && !data.Global.IsUnknown() {
 		apiResource.Spec["global"] = map[string]interface{}{}
 	}
 
@@ -695,8 +705,12 @@ func (r *GeoLocationSetResource) Update(ctx context.Context, req resource.Update
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["global"].(map[string]interface{}); ok && isImport && data.Global == nil {
-		data.Global = &GeoLocationSetEmptyModel{}
+	if !isImport && !data.Global.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["global"].(map[string]interface{}); ok {
+		data.Global = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Global = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

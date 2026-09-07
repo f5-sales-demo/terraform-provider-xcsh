@@ -53,10 +53,10 @@ type NetworkPolicyEmptyModel struct {
 
 // NetworkPolicyEndpointModel represents endpoint block
 type NetworkPolicyEndpointModel struct {
-	Any              *NetworkPolicyEmptyModel                 `tfsdk:"any"`
-	InsideEndpoints  *NetworkPolicyEmptyModel                 `tfsdk:"inside_endpoints"`
+	Any              types.Object                             `tfsdk:"any"`
+	InsideEndpoints  types.Object                             `tfsdk:"inside_endpoints"`
+	OutsideEndpoints types.Object                             `tfsdk:"outside_endpoints"`
 	LabelSelector    *NetworkPolicyEndpointLabelSelectorModel `tfsdk:"label_selector"`
-	OutsideEndpoints *NetworkPolicyEmptyModel                 `tfsdk:"outside_endpoints"`
 	PrefixList       *NetworkPolicyEndpointPrefixListModel    `tfsdk:"prefix_list"`
 }
 
@@ -64,8 +64,8 @@ type NetworkPolicyEndpointModel struct {
 var NetworkPolicyEndpointModelAttrTypes = map[string]attr.Type{
 	"any":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"inside_endpoints":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"label_selector":    types.ObjectType{AttrTypes: NetworkPolicyEndpointLabelSelectorModelAttrTypes},
 	"outside_endpoints": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"label_selector":    types.ObjectType{AttrTypes: NetworkPolicyEndpointLabelSelectorModelAttrTypes},
 	"prefix_list":       types.ObjectType{AttrTypes: NetworkPolicyEndpointPrefixListModelAttrTypes},
 }
 
@@ -104,18 +104,18 @@ var NetworkPolicyRulesModelAttrTypes = map[string]attr.Type{
 // NetworkPolicyRulesEgressRulesModel represents egress_rules block
 type NetworkPolicyRulesEgressRulesModel struct {
 	Action            types.String                                         `tfsdk:"action"`
+	AllTCPTraffic     types.Object                                         `tfsdk:"all_tcp_traffic"`
+	AllTraffic        types.Object                                         `tfsdk:"all_traffic"`
+	AllUDPTraffic     types.Object                                         `tfsdk:"all_udp_traffic"`
+	Any               types.Object                                         `tfsdk:"any"`
+	InsideEndpoints   types.Object                                         `tfsdk:"inside_endpoints"`
+	OutsideEndpoints  types.Object                                         `tfsdk:"outside_endpoints"`
 	AdvAction         *NetworkPolicyRulesEgressRulesAdvActionModel         `tfsdk:"adv_action"`
-	AllTCPTraffic     *NetworkPolicyEmptyModel                             `tfsdk:"all_tcp_traffic"`
-	AllTraffic        *NetworkPolicyEmptyModel                             `tfsdk:"all_traffic"`
-	AllUDPTraffic     *NetworkPolicyEmptyModel                             `tfsdk:"all_udp_traffic"`
-	Any               *NetworkPolicyEmptyModel                             `tfsdk:"any"`
 	Applications      *NetworkPolicyRulesEgressRulesApplicationsModel      `tfsdk:"applications"`
-	InsideEndpoints   *NetworkPolicyEmptyModel                             `tfsdk:"inside_endpoints"`
 	IPPrefixSet       *NetworkPolicyRulesEgressRulesIPPrefixSetModel       `tfsdk:"ip_prefix_set"`
 	LabelMatcher      *NetworkPolicyRulesEgressRulesLabelMatcherModel      `tfsdk:"label_matcher"`
 	LabelSelector     *NetworkPolicyRulesEgressRulesLabelSelectorModel     `tfsdk:"label_selector"`
 	Metadata          *NetworkPolicyRulesEgressRulesMetadataModel          `tfsdk:"metadata"`
-	OutsideEndpoints  *NetworkPolicyEmptyModel                             `tfsdk:"outside_endpoints"`
 	PrefixList        *NetworkPolicyRulesEgressRulesPrefixListModel        `tfsdk:"prefix_list"`
 	ProtocolPortRange *NetworkPolicyRulesEgressRulesProtocolPortRangeModel `tfsdk:"protocol_port_range"`
 }
@@ -123,18 +123,18 @@ type NetworkPolicyRulesEgressRulesModel struct {
 // NetworkPolicyRulesEgressRulesModelAttrTypes defines the attribute types for NetworkPolicyRulesEgressRulesModel
 var NetworkPolicyRulesEgressRulesModelAttrTypes = map[string]attr.Type{
 	"action":              types.StringType,
-	"adv_action":          types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesAdvActionModelAttrTypes},
 	"all_tcp_traffic":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"all_traffic":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"all_udp_traffic":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"any":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"applications":        types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesApplicationsModelAttrTypes},
 	"inside_endpoints":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"outside_endpoints":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"adv_action":          types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesAdvActionModelAttrTypes},
+	"applications":        types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesApplicationsModelAttrTypes},
 	"ip_prefix_set":       types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesIPPrefixSetModelAttrTypes},
 	"label_matcher":       types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesLabelMatcherModelAttrTypes},
 	"label_selector":      types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesLabelSelectorModelAttrTypes},
 	"metadata":            types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesMetadataModelAttrTypes},
-	"outside_endpoints":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"prefix_list":         types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesPrefixListModelAttrTypes},
 	"protocol_port_range": types.ObjectType{AttrTypes: NetworkPolicyRulesEgressRulesProtocolPortRangeModelAttrTypes},
 }
@@ -244,18 +244,18 @@ var NetworkPolicyRulesEgressRulesProtocolPortRangeModelAttrTypes = map[string]at
 // NetworkPolicyRulesIngressRulesModel represents ingress_rules block
 type NetworkPolicyRulesIngressRulesModel struct {
 	Action            types.String                                          `tfsdk:"action"`
+	AllTCPTraffic     types.Object                                          `tfsdk:"all_tcp_traffic"`
+	AllTraffic        types.Object                                          `tfsdk:"all_traffic"`
+	AllUDPTraffic     types.Object                                          `tfsdk:"all_udp_traffic"`
+	Any               types.Object                                          `tfsdk:"any"`
+	InsideEndpoints   types.Object                                          `tfsdk:"inside_endpoints"`
+	OutsideEndpoints  types.Object                                          `tfsdk:"outside_endpoints"`
 	AdvAction         *NetworkPolicyRulesIngressRulesAdvActionModel         `tfsdk:"adv_action"`
-	AllTCPTraffic     *NetworkPolicyEmptyModel                              `tfsdk:"all_tcp_traffic"`
-	AllTraffic        *NetworkPolicyEmptyModel                              `tfsdk:"all_traffic"`
-	AllUDPTraffic     *NetworkPolicyEmptyModel                              `tfsdk:"all_udp_traffic"`
-	Any               *NetworkPolicyEmptyModel                              `tfsdk:"any"`
 	Applications      *NetworkPolicyRulesIngressRulesApplicationsModel      `tfsdk:"applications"`
-	InsideEndpoints   *NetworkPolicyEmptyModel                              `tfsdk:"inside_endpoints"`
 	IPPrefixSet       *NetworkPolicyRulesIngressRulesIPPrefixSetModel       `tfsdk:"ip_prefix_set"`
 	LabelMatcher      *NetworkPolicyRulesIngressRulesLabelMatcherModel      `tfsdk:"label_matcher"`
 	LabelSelector     *NetworkPolicyRulesIngressRulesLabelSelectorModel     `tfsdk:"label_selector"`
 	Metadata          *NetworkPolicyRulesIngressRulesMetadataModel          `tfsdk:"metadata"`
-	OutsideEndpoints  *NetworkPolicyEmptyModel                              `tfsdk:"outside_endpoints"`
 	PrefixList        *NetworkPolicyRulesIngressRulesPrefixListModel        `tfsdk:"prefix_list"`
 	ProtocolPortRange *NetworkPolicyRulesIngressRulesProtocolPortRangeModel `tfsdk:"protocol_port_range"`
 }
@@ -263,18 +263,18 @@ type NetworkPolicyRulesIngressRulesModel struct {
 // NetworkPolicyRulesIngressRulesModelAttrTypes defines the attribute types for NetworkPolicyRulesIngressRulesModel
 var NetworkPolicyRulesIngressRulesModelAttrTypes = map[string]attr.Type{
 	"action":              types.StringType,
-	"adv_action":          types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesAdvActionModelAttrTypes},
 	"all_tcp_traffic":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"all_traffic":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"all_udp_traffic":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"any":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"applications":        types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesApplicationsModelAttrTypes},
 	"inside_endpoints":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"outside_endpoints":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"adv_action":          types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesAdvActionModelAttrTypes},
+	"applications":        types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesApplicationsModelAttrTypes},
 	"ip_prefix_set":       types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesIPPrefixSetModelAttrTypes},
 	"label_matcher":       types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesLabelMatcherModelAttrTypes},
 	"label_selector":      types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesLabelSelectorModelAttrTypes},
 	"metadata":            types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesMetadataModelAttrTypes},
-	"outside_endpoints":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"prefix_list":         types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesPrefixListModelAttrTypes},
 	"protocol_port_range": types.ObjectType{AttrTypes: NetworkPolicyRulesIngressRulesProtocolPortRangeModelAttrTypes},
 }
@@ -459,14 +459,24 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "Shape of the endpoint choices for a view.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("any", "inside_endpoints"), validators.ConflictingObjectAttributes("any", "label_selector"), validators.ConflictingObjectAttributes("any", "outside_endpoints"), validators.ConflictingObjectAttributes("any", "prefix_list"), validators.ConflictingObjectAttributes("inside_endpoints", "label_selector"), validators.ConflictingObjectAttributes("inside_endpoints", "outside_endpoints"), validators.ConflictingObjectAttributes("inside_endpoints", "prefix_list"), validators.ConflictingObjectAttributes("label_selector", "outside_endpoints"), validators.ConflictingObjectAttributes("label_selector", "prefix_list"), validators.ConflictingObjectAttributes("outside_endpoints", "prefix_list")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"any": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"inside_endpoints": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"outside_endpoints": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
-					"any": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"inside_endpoints": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"label_selector": schema.SingleNestedBlock{
 						MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("expressions")},
@@ -480,9 +490,6 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 							},
 						},
-					},
-					"outside_endpoints": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 					"prefix_list": schema.SingleNestedBlock{
 						MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
@@ -516,6 +523,36 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										stringvalidator.OneOf("DENY", "ALLOW"),
 									},
 								},
+								"all_tcp_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all tcp traffic.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all traffic.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_udp_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all udp traffic.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"any": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"inside_endpoints": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"outside_endpoints": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 							},
 							Blocks: map[string]schema.Block{
 								"adv_action": schema.SingleNestedBlock{
@@ -530,18 +567,6 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 									},
 								},
-								"all_tcp_traffic": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for all tcp traffic.",
-								},
-								"all_traffic": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for all traffic.",
-								},
-								"all_udp_traffic": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for all udp traffic.",
-								},
-								"any": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
 								"applications": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for applications.",
 									Attributes: map[string]schema.Attribute{
@@ -551,9 +576,6 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 											ElementType:         types.StringType,
 										},
 									},
-								},
-								"inside_endpoints": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
 								},
 								"ip_prefix_set": schema.SingleNestedBlock{
 									MarkdownDescription: "List of references to ip_prefix_set objects.",
@@ -642,9 +664,6 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 										},
 									},
-								},
-								"outside_endpoints": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
 								},
 								"prefix_list": schema.SingleNestedBlock{
 									MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
@@ -694,6 +713,36 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										stringvalidator.OneOf("DENY", "ALLOW"),
 									},
 								},
+								"all_tcp_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all tcp traffic.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all traffic.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_udp_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all udp traffic.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"any": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"inside_endpoints": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"outside_endpoints": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 							},
 							Blocks: map[string]schema.Block{
 								"adv_action": schema.SingleNestedBlock{
@@ -708,18 +757,6 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 									},
 								},
-								"all_tcp_traffic": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for all tcp traffic.",
-								},
-								"all_traffic": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for all traffic.",
-								},
-								"all_udp_traffic": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for all udp traffic.",
-								},
-								"any": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
 								"applications": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for applications.",
 									Attributes: map[string]schema.Attribute{
@@ -729,9 +766,6 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 											ElementType:         types.StringType,
 										},
 									},
-								},
-								"inside_endpoints": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
 								},
 								"ip_prefix_set": schema.SingleNestedBlock{
 									MarkdownDescription: "List of references to ip_prefix_set objects.",
@@ -820,9 +854,6 @@ func (r *NetworkPolicyResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 										},
 									},
-								},
-								"outside_endpoints": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
 								},
 								"prefix_list": schema.SingleNestedBlock{
 									MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
@@ -990,10 +1021,10 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 	// Marshal spec fields from Terraform state to API struct
 	if data.Endpoint != nil {
 		EndpointMap := make(map[string]interface{})
-		if data.Endpoint.Any != nil {
+		if !data.Endpoint.Any.IsNull() && !data.Endpoint.Any.IsUnknown() {
 			EndpointMap["any"] = map[string]interface{}{}
 		}
-		if data.Endpoint.InsideEndpoints != nil {
+		if !data.Endpoint.InsideEndpoints.IsNull() && !data.Endpoint.InsideEndpoints.IsUnknown() {
 			EndpointMap["inside_endpoints"] = map[string]interface{}{}
 		}
 		if data.Endpoint.LabelSelector != nil {
@@ -1008,7 +1039,7 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 			}
 			EndpointMap["label_selector"] = EndpointLabelSelectorMap
 		}
-		if data.Endpoint.OutsideEndpoints != nil {
+		if !data.Endpoint.OutsideEndpoints.IsNull() && !data.Endpoint.OutsideEndpoints.IsUnknown() {
 			EndpointMap["outside_endpoints"] = map[string]interface{}{}
 		}
 		if data.Endpoint.PrefixList != nil {
@@ -1045,16 +1076,16 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 						}
 						EgressRulesItemMap["adv_action"] = RulesEgressRulesAdvActionMap
 					}
-					if EgressRulesItem.AllTCPTraffic != nil {
+					if !EgressRulesItem.AllTCPTraffic.IsNull() && !EgressRulesItem.AllTCPTraffic.IsUnknown() {
 						EgressRulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
 					}
-					if EgressRulesItem.AllTraffic != nil {
+					if !EgressRulesItem.AllTraffic.IsNull() && !EgressRulesItem.AllTraffic.IsUnknown() {
 						EgressRulesItemMap["all_traffic"] = map[string]interface{}{}
 					}
-					if EgressRulesItem.AllUDPTraffic != nil {
+					if !EgressRulesItem.AllUDPTraffic.IsNull() && !EgressRulesItem.AllUDPTraffic.IsUnknown() {
 						EgressRulesItemMap["all_udp_traffic"] = map[string]interface{}{}
 					}
-					if EgressRulesItem.Any != nil {
+					if !EgressRulesItem.Any.IsNull() && !EgressRulesItem.Any.IsUnknown() {
 						EgressRulesItemMap["any"] = map[string]interface{}{}
 					}
 					if EgressRulesItem.Applications != nil {
@@ -1069,7 +1100,7 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 						}
 						EgressRulesItemMap["applications"] = RulesEgressRulesApplicationsMap
 					}
-					if EgressRulesItem.InsideEndpoints != nil {
+					if !EgressRulesItem.InsideEndpoints.IsNull() && !EgressRulesItem.InsideEndpoints.IsUnknown() {
 						EgressRulesItemMap["inside_endpoints"] = map[string]interface{}{}
 					}
 					if EgressRulesItem.IPPrefixSet != nil {
@@ -1129,7 +1160,7 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 						}
 						EgressRulesItemMap["metadata"] = RulesEgressRulesMetadataMap
 					}
-					if EgressRulesItem.OutsideEndpoints != nil {
+					if !EgressRulesItem.OutsideEndpoints.IsNull() && !EgressRulesItem.OutsideEndpoints.IsUnknown() {
 						EgressRulesItemMap["outside_endpoints"] = map[string]interface{}{}
 					}
 					if EgressRulesItem.PrefixList != nil {
@@ -1182,16 +1213,16 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 						}
 						IngressRulesItemMap["adv_action"] = RulesIngressRulesAdvActionMap
 					}
-					if IngressRulesItem.AllTCPTraffic != nil {
+					if !IngressRulesItem.AllTCPTraffic.IsNull() && !IngressRulesItem.AllTCPTraffic.IsUnknown() {
 						IngressRulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
 					}
-					if IngressRulesItem.AllTraffic != nil {
+					if !IngressRulesItem.AllTraffic.IsNull() && !IngressRulesItem.AllTraffic.IsUnknown() {
 						IngressRulesItemMap["all_traffic"] = map[string]interface{}{}
 					}
-					if IngressRulesItem.AllUDPTraffic != nil {
+					if !IngressRulesItem.AllUDPTraffic.IsNull() && !IngressRulesItem.AllUDPTraffic.IsUnknown() {
 						IngressRulesItemMap["all_udp_traffic"] = map[string]interface{}{}
 					}
-					if IngressRulesItem.Any != nil {
+					if !IngressRulesItem.Any.IsNull() && !IngressRulesItem.Any.IsUnknown() {
 						IngressRulesItemMap["any"] = map[string]interface{}{}
 					}
 					if IngressRulesItem.Applications != nil {
@@ -1206,7 +1237,7 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 						}
 						IngressRulesItemMap["applications"] = RulesIngressRulesApplicationsMap
 					}
-					if IngressRulesItem.InsideEndpoints != nil {
+					if !IngressRulesItem.InsideEndpoints.IsNull() && !IngressRulesItem.InsideEndpoints.IsUnknown() {
 						IngressRulesItemMap["inside_endpoints"] = map[string]interface{}{}
 					}
 					if IngressRulesItem.IPPrefixSet != nil {
@@ -1266,7 +1297,7 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 						}
 						IngressRulesItemMap["metadata"] = RulesIngressRulesMetadataMap
 					}
-					if IngressRulesItem.OutsideEndpoints != nil {
+					if !IngressRulesItem.OutsideEndpoints.IsNull() && !IngressRulesItem.OutsideEndpoints.IsUnknown() {
 						IngressRulesItemMap["outside_endpoints"] = map[string]interface{}{}
 					}
 					if IngressRulesItem.PrefixList != nil {
@@ -1344,23 +1375,23 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["endpoint"].(map[string]interface{}); ok && (isImport || data.Endpoint != nil) {
 		data.Endpoint = &NetworkPolicyEndpointModel{
-			Any: func() *NetworkPolicyEmptyModel {
-				if !isImport && data.Endpoint != nil {
+			Any: func() types.Object {
+				if !isImport && data.Endpoint != nil && !data.Endpoint.Any.IsUnknown() {
 					return data.Endpoint.Any
 				}
 				if _, ok := blockData["any"].(map[string]interface{}); ok {
-					return &NetworkPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			InsideEndpoints: func() *NetworkPolicyEmptyModel {
-				if !isImport && data.Endpoint != nil {
+			InsideEndpoints: func() types.Object {
+				if !isImport && data.Endpoint != nil && !data.Endpoint.InsideEndpoints.IsUnknown() {
 					return data.Endpoint.InsideEndpoints
 				}
 				if _, ok := blockData["inside_endpoints"].(map[string]interface{}); ok {
-					return &NetworkPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			LabelSelector: func() *NetworkPolicyEndpointLabelSelectorModel {
 				if !isImport && data.Endpoint != nil && data.Endpoint.LabelSelector != nil {
@@ -1386,14 +1417,14 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-				if !isImport && data.Endpoint != nil {
+			OutsideEndpoints: func() types.Object {
+				if !isImport && data.Endpoint != nil && !data.Endpoint.OutsideEndpoints.IsUnknown() {
 					return data.Endpoint.OutsideEndpoints
 				}
 				if _, ok := blockData["outside_endpoints"].(map[string]interface{}); ok {
-					return &NetworkPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			PrefixList: func() *NetworkPolicyEndpointPrefixListModel {
 				if !isImport && data.Endpoint != nil && data.Endpoint.PrefixList != nil {
@@ -1456,41 +1487,41 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									}
 									return nil
 								}(),
-								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								AllTCPTraffic: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].AllTCPTraffic.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].AllTCPTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								AllTraffic: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].AllTraffic.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].AllTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								AllUDPTraffic: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].AllUDPTraffic.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].AllUDPTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								Any: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								Any: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].Any.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].Any
 									}
 									if _, ok := EgressRulesItemMap["any"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Applications: func() *NetworkPolicyRulesEgressRulesApplicationsModel {
 									if ApplicationsData, ok := EgressRulesItemMap["applications"].(map[string]interface{}); ok {
@@ -1513,14 +1544,14 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									}
 									return nil
 								}(),
-								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								InsideEndpoints: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].InsideEndpoints.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].InsideEndpoints
 									}
 									if _, ok := EgressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								IPPrefixSet: func() *NetworkPolicyRulesEgressRulesIPPrefixSetModel {
 									if IPPrefixSetData, ok := EgressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
@@ -1642,14 +1673,14 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									}
 									return nil
 								}(),
-								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								OutsideEndpoints: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].OutsideEndpoints.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].OutsideEndpoints
 									}
 									if _, ok := EgressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								PrefixList: func() *NetworkPolicyRulesEgressRulesPrefixListModel {
 									if PrefixListData, ok := EgressRulesItemMap["prefix_list"].(map[string]interface{}); ok {
@@ -1740,41 +1771,41 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									}
 									return nil
 								}(),
-								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								AllTCPTraffic: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].AllTCPTraffic.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].AllTCPTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								AllTraffic: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].AllTraffic.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].AllTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								AllUDPTraffic: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].AllUDPTraffic.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].AllUDPTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								Any: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								Any: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].Any.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].Any
 									}
 									if _, ok := IngressRulesItemMap["any"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Applications: func() *NetworkPolicyRulesIngressRulesApplicationsModel {
 									if ApplicationsData, ok := IngressRulesItemMap["applications"].(map[string]interface{}); ok {
@@ -1797,14 +1828,14 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									}
 									return nil
 								}(),
-								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								InsideEndpoints: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].InsideEndpoints.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].InsideEndpoints
 									}
 									if _, ok := IngressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								IPPrefixSet: func() *NetworkPolicyRulesIngressRulesIPPrefixSetModel {
 									if IPPrefixSetData, ok := IngressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
@@ -1926,14 +1957,14 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									}
 									return nil
 								}(),
-								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								OutsideEndpoints: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].OutsideEndpoints.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].OutsideEndpoints
 									}
 									if _, ok := IngressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								PrefixList: func() *NetworkPolicyRulesIngressRulesPrefixListModel {
 									if PrefixListData, ok := IngressRulesItemMap["prefix_list"].(map[string]interface{}); ok {
@@ -2126,23 +2157,23 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["endpoint"].(map[string]interface{}); ok && (isImport || data.Endpoint != nil) {
 		data.Endpoint = &NetworkPolicyEndpointModel{
-			Any: func() *NetworkPolicyEmptyModel {
-				if !isImport && data.Endpoint != nil {
+			Any: func() types.Object {
+				if !isImport && data.Endpoint != nil && !data.Endpoint.Any.IsUnknown() {
 					return data.Endpoint.Any
 				}
 				if _, ok := blockData["any"].(map[string]interface{}); ok {
-					return &NetworkPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			InsideEndpoints: func() *NetworkPolicyEmptyModel {
-				if !isImport && data.Endpoint != nil {
+			InsideEndpoints: func() types.Object {
+				if !isImport && data.Endpoint != nil && !data.Endpoint.InsideEndpoints.IsUnknown() {
 					return data.Endpoint.InsideEndpoints
 				}
 				if _, ok := blockData["inside_endpoints"].(map[string]interface{}); ok {
-					return &NetworkPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			LabelSelector: func() *NetworkPolicyEndpointLabelSelectorModel {
 				if !isImport && data.Endpoint != nil && data.Endpoint.LabelSelector != nil {
@@ -2168,14 +2199,14 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-				if !isImport && data.Endpoint != nil {
+			OutsideEndpoints: func() types.Object {
+				if !isImport && data.Endpoint != nil && !data.Endpoint.OutsideEndpoints.IsUnknown() {
 					return data.Endpoint.OutsideEndpoints
 				}
 				if _, ok := blockData["outside_endpoints"].(map[string]interface{}); ok {
-					return &NetworkPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			PrefixList: func() *NetworkPolicyEndpointPrefixListModel {
 				if !isImport && data.Endpoint != nil && data.Endpoint.PrefixList != nil {
@@ -2238,41 +2269,41 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									}
 									return nil
 								}(),
-								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								AllTCPTraffic: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].AllTCPTraffic.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].AllTCPTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								AllTraffic: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].AllTraffic.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].AllTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								AllUDPTraffic: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].AllUDPTraffic.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].AllUDPTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								Any: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								Any: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].Any.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].Any
 									}
 									if _, ok := EgressRulesItemMap["any"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Applications: func() *NetworkPolicyRulesEgressRulesApplicationsModel {
 									if ApplicationsData, ok := EgressRulesItemMap["applications"].(map[string]interface{}); ok {
@@ -2295,14 +2326,14 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									}
 									return nil
 								}(),
-								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								InsideEndpoints: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].InsideEndpoints.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].InsideEndpoints
 									}
 									if _, ok := EgressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								IPPrefixSet: func() *NetworkPolicyRulesEgressRulesIPPrefixSetModel {
 									if IPPrefixSetData, ok := EgressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
@@ -2424,14 +2455,14 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									}
 									return nil
 								}(),
-								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								OutsideEndpoints: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].OutsideEndpoints.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].OutsideEndpoints
 									}
 									if _, ok := EgressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								PrefixList: func() *NetworkPolicyRulesEgressRulesPrefixListModel {
 									if PrefixListData, ok := EgressRulesItemMap["prefix_list"].(map[string]interface{}); ok {
@@ -2522,41 +2553,41 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									}
 									return nil
 								}(),
-								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								AllTCPTraffic: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].AllTCPTraffic.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].AllTCPTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								AllTraffic: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].AllTraffic.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].AllTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								AllUDPTraffic: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].AllUDPTraffic.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].AllUDPTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								Any: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								Any: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].Any.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].Any
 									}
 									if _, ok := IngressRulesItemMap["any"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Applications: func() *NetworkPolicyRulesIngressRulesApplicationsModel {
 									if ApplicationsData, ok := IngressRulesItemMap["applications"].(map[string]interface{}); ok {
@@ -2579,14 +2610,14 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									}
 									return nil
 								}(),
-								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								InsideEndpoints: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].InsideEndpoints.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].InsideEndpoints
 									}
 									if _, ok := IngressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								IPPrefixSet: func() *NetworkPolicyRulesIngressRulesIPPrefixSetModel {
 									if IPPrefixSetData, ok := IngressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
@@ -2708,14 +2739,14 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									}
 									return nil
 								}(),
-								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								OutsideEndpoints: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].OutsideEndpoints.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].OutsideEndpoints
 									}
 									if _, ok := IngressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								PrefixList: func() *NetworkPolicyRulesIngressRulesPrefixListModel {
 									if PrefixListData, ok := IngressRulesItemMap["prefix_list"].(map[string]interface{}); ok {
@@ -2871,10 +2902,10 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 	// Marshal spec fields from Terraform state to API struct
 	if data.Endpoint != nil {
 		EndpointMap := make(map[string]interface{})
-		if data.Endpoint.Any != nil {
+		if !data.Endpoint.Any.IsNull() && !data.Endpoint.Any.IsUnknown() {
 			EndpointMap["any"] = map[string]interface{}{}
 		}
-		if data.Endpoint.InsideEndpoints != nil {
+		if !data.Endpoint.InsideEndpoints.IsNull() && !data.Endpoint.InsideEndpoints.IsUnknown() {
 			EndpointMap["inside_endpoints"] = map[string]interface{}{}
 		}
 		if data.Endpoint.LabelSelector != nil {
@@ -2889,7 +2920,7 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			EndpointMap["label_selector"] = EndpointLabelSelectorMap
 		}
-		if data.Endpoint.OutsideEndpoints != nil {
+		if !data.Endpoint.OutsideEndpoints.IsNull() && !data.Endpoint.OutsideEndpoints.IsUnknown() {
 			EndpointMap["outside_endpoints"] = map[string]interface{}{}
 		}
 		if data.Endpoint.PrefixList != nil {
@@ -2926,16 +2957,16 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						EgressRulesItemMap["adv_action"] = RulesEgressRulesAdvActionMap
 					}
-					if EgressRulesItem.AllTCPTraffic != nil {
+					if !EgressRulesItem.AllTCPTraffic.IsNull() && !EgressRulesItem.AllTCPTraffic.IsUnknown() {
 						EgressRulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
 					}
-					if EgressRulesItem.AllTraffic != nil {
+					if !EgressRulesItem.AllTraffic.IsNull() && !EgressRulesItem.AllTraffic.IsUnknown() {
 						EgressRulesItemMap["all_traffic"] = map[string]interface{}{}
 					}
-					if EgressRulesItem.AllUDPTraffic != nil {
+					if !EgressRulesItem.AllUDPTraffic.IsNull() && !EgressRulesItem.AllUDPTraffic.IsUnknown() {
 						EgressRulesItemMap["all_udp_traffic"] = map[string]interface{}{}
 					}
-					if EgressRulesItem.Any != nil {
+					if !EgressRulesItem.Any.IsNull() && !EgressRulesItem.Any.IsUnknown() {
 						EgressRulesItemMap["any"] = map[string]interface{}{}
 					}
 					if EgressRulesItem.Applications != nil {
@@ -2950,7 +2981,7 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						EgressRulesItemMap["applications"] = RulesEgressRulesApplicationsMap
 					}
-					if EgressRulesItem.InsideEndpoints != nil {
+					if !EgressRulesItem.InsideEndpoints.IsNull() && !EgressRulesItem.InsideEndpoints.IsUnknown() {
 						EgressRulesItemMap["inside_endpoints"] = map[string]interface{}{}
 					}
 					if EgressRulesItem.IPPrefixSet != nil {
@@ -3010,7 +3041,7 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						EgressRulesItemMap["metadata"] = RulesEgressRulesMetadataMap
 					}
-					if EgressRulesItem.OutsideEndpoints != nil {
+					if !EgressRulesItem.OutsideEndpoints.IsNull() && !EgressRulesItem.OutsideEndpoints.IsUnknown() {
 						EgressRulesItemMap["outside_endpoints"] = map[string]interface{}{}
 					}
 					if EgressRulesItem.PrefixList != nil {
@@ -3063,16 +3094,16 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						IngressRulesItemMap["adv_action"] = RulesIngressRulesAdvActionMap
 					}
-					if IngressRulesItem.AllTCPTraffic != nil {
+					if !IngressRulesItem.AllTCPTraffic.IsNull() && !IngressRulesItem.AllTCPTraffic.IsUnknown() {
 						IngressRulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
 					}
-					if IngressRulesItem.AllTraffic != nil {
+					if !IngressRulesItem.AllTraffic.IsNull() && !IngressRulesItem.AllTraffic.IsUnknown() {
 						IngressRulesItemMap["all_traffic"] = map[string]interface{}{}
 					}
-					if IngressRulesItem.AllUDPTraffic != nil {
+					if !IngressRulesItem.AllUDPTraffic.IsNull() && !IngressRulesItem.AllUDPTraffic.IsUnknown() {
 						IngressRulesItemMap["all_udp_traffic"] = map[string]interface{}{}
 					}
-					if IngressRulesItem.Any != nil {
+					if !IngressRulesItem.Any.IsNull() && !IngressRulesItem.Any.IsUnknown() {
 						IngressRulesItemMap["any"] = map[string]interface{}{}
 					}
 					if IngressRulesItem.Applications != nil {
@@ -3087,7 +3118,7 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						IngressRulesItemMap["applications"] = RulesIngressRulesApplicationsMap
 					}
-					if IngressRulesItem.InsideEndpoints != nil {
+					if !IngressRulesItem.InsideEndpoints.IsNull() && !IngressRulesItem.InsideEndpoints.IsUnknown() {
 						IngressRulesItemMap["inside_endpoints"] = map[string]interface{}{}
 					}
 					if IngressRulesItem.IPPrefixSet != nil {
@@ -3147,7 +3178,7 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						IngressRulesItemMap["metadata"] = RulesIngressRulesMetadataMap
 					}
-					if IngressRulesItem.OutsideEndpoints != nil {
+					if !IngressRulesItem.OutsideEndpoints.IsNull() && !IngressRulesItem.OutsideEndpoints.IsUnknown() {
 						IngressRulesItemMap["outside_endpoints"] = map[string]interface{}{}
 					}
 					if IngressRulesItem.PrefixList != nil {
@@ -3245,23 +3276,23 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["endpoint"].(map[string]interface{}); ok && (isImport || data.Endpoint != nil) {
 		data.Endpoint = &NetworkPolicyEndpointModel{
-			Any: func() *NetworkPolicyEmptyModel {
-				if !isImport && data.Endpoint != nil {
+			Any: func() types.Object {
+				if !isImport && data.Endpoint != nil && !data.Endpoint.Any.IsUnknown() {
 					return data.Endpoint.Any
 				}
 				if _, ok := blockData["any"].(map[string]interface{}); ok {
-					return &NetworkPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			InsideEndpoints: func() *NetworkPolicyEmptyModel {
-				if !isImport && data.Endpoint != nil {
+			InsideEndpoints: func() types.Object {
+				if !isImport && data.Endpoint != nil && !data.Endpoint.InsideEndpoints.IsUnknown() {
 					return data.Endpoint.InsideEndpoints
 				}
 				if _, ok := blockData["inside_endpoints"].(map[string]interface{}); ok {
-					return &NetworkPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			LabelSelector: func() *NetworkPolicyEndpointLabelSelectorModel {
 				if !isImport && data.Endpoint != nil && data.Endpoint.LabelSelector != nil {
@@ -3287,14 +3318,14 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-				if !isImport && data.Endpoint != nil {
+			OutsideEndpoints: func() types.Object {
+				if !isImport && data.Endpoint != nil && !data.Endpoint.OutsideEndpoints.IsUnknown() {
 					return data.Endpoint.OutsideEndpoints
 				}
 				if _, ok := blockData["outside_endpoints"].(map[string]interface{}); ok {
-					return &NetworkPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			PrefixList: func() *NetworkPolicyEndpointPrefixListModel {
 				if !isImport && data.Endpoint != nil && data.Endpoint.PrefixList != nil {
@@ -3357,41 +3388,41 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									}
 									return nil
 								}(),
-								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								AllTCPTraffic: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].AllTCPTraffic.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].AllTCPTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								AllTraffic: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].AllTraffic.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].AllTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								AllUDPTraffic: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].AllUDPTraffic.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].AllUDPTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								Any: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								Any: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].Any.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].Any
 									}
 									if _, ok := EgressRulesItemMap["any"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Applications: func() *NetworkPolicyRulesEgressRulesApplicationsModel {
 									if ApplicationsData, ok := EgressRulesItemMap["applications"].(map[string]interface{}); ok {
@@ -3414,14 +3445,14 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									}
 									return nil
 								}(),
-								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								InsideEndpoints: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].InsideEndpoints.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].InsideEndpoints
 									}
 									if _, ok := EgressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								IPPrefixSet: func() *NetworkPolicyRulesEgressRulesIPPrefixSetModel {
 									if IPPrefixSetData, ok := EgressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
@@ -3543,14 +3574,14 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									}
 									return nil
 								}(),
-								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+								OutsideEndpoints: func() types.Object {
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && !EgressRulesExisting[EgressRulesIdx].OutsideEndpoints.IsUnknown() {
 										return EgressRulesExisting[EgressRulesIdx].OutsideEndpoints
 									}
 									if _, ok := EgressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								PrefixList: func() *NetworkPolicyRulesEgressRulesPrefixListModel {
 									if PrefixListData, ok := EgressRulesItemMap["prefix_list"].(map[string]interface{}); ok {
@@ -3641,41 +3672,41 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									}
 									return nil
 								}(),
-								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								AllTCPTraffic: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].AllTCPTraffic.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].AllTCPTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								AllTraffic: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].AllTraffic.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].AllTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								AllUDPTraffic: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].AllUDPTraffic.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].AllUDPTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								Any: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								Any: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].Any.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].Any
 									}
 									if _, ok := IngressRulesItemMap["any"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Applications: func() *NetworkPolicyRulesIngressRulesApplicationsModel {
 									if ApplicationsData, ok := IngressRulesItemMap["applications"].(map[string]interface{}); ok {
@@ -3698,14 +3729,14 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									}
 									return nil
 								}(),
-								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								InsideEndpoints: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].InsideEndpoints.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].InsideEndpoints
 									}
 									if _, ok := IngressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								IPPrefixSet: func() *NetworkPolicyRulesIngressRulesIPPrefixSetModel {
 									if IPPrefixSetData, ok := IngressRulesItemMap["ip_prefix_set"].(map[string]interface{}); ok {
@@ -3827,14 +3858,14 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									}
 									return nil
 								}(),
-								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+								OutsideEndpoints: func() types.Object {
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && !IngressRulesExisting[IngressRulesIdx].OutsideEndpoints.IsUnknown() {
 										return IngressRulesExisting[IngressRulesIdx].OutsideEndpoints
 									}
 									if _, ok := IngressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
-										return &NetworkPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								PrefixList: func() *NetworkPolicyRulesIngressRulesPrefixListModel {
 									if PrefixListData, ok := IngressRulesItemMap["prefix_list"].(map[string]interface{}); ok {

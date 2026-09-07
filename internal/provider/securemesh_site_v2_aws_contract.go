@@ -128,10 +128,10 @@ func validateSecuremeshSiteV2AWSContract(
 			}
 			macs[mac] = true
 			role := ""
-			if iface.NetworkOption != nil && iface.NetworkOption.SiteLocalNetwork != nil {
+			if iface.NetworkOption != nil && emptyObjectMarkerConfigured(iface.NetworkOption.SiteLocalNetwork) {
 				role = "slo"
 			}
-			if iface.NetworkOption != nil && iface.NetworkOption.SiteLocalInsideNetwork != nil {
+			if iface.NetworkOption != nil && emptyObjectMarkerConfigured(iface.NetworkOption.SiteLocalInsideNetwork) {
 				if role != "" {
 					resp.Diagnostics.AddAttributeError(interfacePath.AtName("network_option"), "AWS SMSv2 Interface Role Is Ambiguous", "An interface may have exactly one role.")
 					continue

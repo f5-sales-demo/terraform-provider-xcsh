@@ -57,15 +57,15 @@ resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes   = {}
+  blocking                   = {}
+  use_default_blocking_page  = {}
+  default_bot_setting        = {}
+  default_anonymization      = {}
 
   enable_ai_enhancements {
-    mitigate_high_risk_action {}
+    mitigate_high_risk_action = {}
   }
 }
 ```
@@ -96,12 +96,12 @@ resource "xcsh_app_firewall" "test" {
     purpose = "acceptance-testing"
   }
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes   = {}
+  blocking                   = {}
+  use_default_blocking_page  = {}
+  default_bot_setting        = {}
+  default_anonymization      = {}
 }
 ```
 
@@ -121,11 +121,11 @@ resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
 
-  default_detection_settings {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  blocking                   = {}
+  use_default_blocking_page  = {}
+  default_bot_setting        = {}
+  default_anonymization      = {}
 
   allowed_response_codes {
     response_code = [200, 204, 301, 302]
@@ -166,11 +166,11 @@ resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes   = {}
+  blocking                   = {}
+  use_default_blocking_page  = {}
+  default_anonymization      = {}
 
   bot_protection_setting {
     good_bot_action       = "REPORT"
@@ -196,11 +196,11 @@ resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes   = {}
+  blocking                   = {}
+  default_bot_setting        = {}
+  default_anonymization      = {}
 
   blocking_page {
     blocking_page = "https://example.com/blocked.html"
@@ -225,20 +225,20 @@ resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
 
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  allow_all_response_codes  = {}
+  blocking                  = {}
+  use_default_blocking_page = {}
+  default_bot_setting       = {}
+  default_anonymization     = {}
 
   detection_settings {
-    default_violation_settings {}
-    default_bot_setting {}
-    enable_suppression {}
-    enable_threat_campaigns {}
+    default_violation_settings = {}
+    default_bot_setting        = {}
+    enable_suppression         = {}
+    enable_threat_campaigns    = {}
     signature_selection_setting {
-      high_medium_accuracy_signatures {}
-      default_attack_type_settings {}
+      high_medium_accuracy_signatures = {}
+      default_attack_type_settings    = {}
     }
   }
 }
@@ -260,13 +260,13 @@ resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
+  default_detection_settings = {}
+  allow_all_response_codes   = {}
+  blocking                   = {}
+  use_default_blocking_page  = {}
+  default_bot_setting        = {}
 
-  disable_anonymization {}
+  disable_anonymization = {}
 }
 ```
 
@@ -286,12 +286,12 @@ resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  monitoring {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes   = {}
+  monitoring                 = {}
+  use_default_blocking_page  = {}
+  default_bot_setting        = {}
+  default_anonymization      = {}
 }
 ```
 
@@ -340,18 +340,18 @@ resource "xcsh_app_firewall" "test" {
     team        = "platform"
   }
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes   = {}
+  blocking                   = {}
+  use_default_blocking_page  = {}
+  default_bot_setting        = {}
+  default_anonymization      = {}
 }
 ```
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -392,12 +392,12 @@ spec:
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="allow-all-response-codes"></a>[`allow_all_response_codes`](#allow-all-response-codes) - Optional Block  Defaults to `map[]`<br>Configuration parameter for allow all response codes.  Server applies default when omitted
+&#x2022; <a id="allow-all-response-codes"></a>[`allow_all_response_codes`](#allow-all-response-codes) - Optional Object  Defaults to `map[]`<br>Configuration parameter for allow all response codes.  Server applies default when omitted
 <br><br>&#x2022; <a id="allowed-response-codes"></a>[`allowed_response_codes`](#allowed-response-codes) - Optional Block<br>List of HTTP response status codes that are allowed<br>See [Allowed Response Codes](#allowed-response-codes) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="blocking"></a>[`blocking`](#blocking) - Optional Block<br>Enable this option
-<br><br>&#x2022; <a id="monitoring"></a>[`monitoring`](#monitoring) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+&#x2022; <a id="blocking"></a>[`blocking`](#blocking) - Optional Object<br>Enable this option
+<br><br>&#x2022; <a id="monitoring"></a>[`monitoring`](#monitoring) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 -> **One of the following:**
 &#x2022; <a id="blocking-page"></a>[`blocking_page`](#blocking-page) - Optional Block<br>Custom Blocking Response Page. Custom blocking response page body<br>See [Blocking Page](#blocking-page) below for details.
@@ -407,25 +407,25 @@ spec:
 
 -> **One of the following:**
 &#x2022; <a id="custom-anonymization"></a>[`custom_anonymization`](#custom-anonymization) - Optional Block<br>Anonymization settings which is a list of HTTP headers, parameters and cookies<br>See [Custom Anonymization](#custom-anonymization) below for details.
-<br><br>&#x2022; <a id="default-anonymization"></a>[`default_anonymization`](#default-anonymization) - Optional Block  Defaults to `map[]`<br>Configuration parameter for default anonymization.  Server applies default when omitted
+<br><br>&#x2022; <a id="default-anonymization"></a>[`default_anonymization`](#default-anonymization) - Optional Object  Defaults to `map[]`<br>Configuration parameter for default anonymization.  Server applies default when omitted
 
-<a id="default-bot-setting"></a>&#x2022; [`default_bot_setting`](#default-bot-setting) - Optional Block  Defaults to `map[]`<br>Configuration parameter for default bot setting.  Server applies default when omitted
+<a id="default-bot-setting"></a>&#x2022; [`default_bot_setting`](#default-bot-setting) - Optional Object  Defaults to `map[]`<br>Configuration parameter for default bot setting.  Server applies default when omitted
 
 -> **One of the following:**
-&#x2022; <a id="default-detection-settings"></a>[`default_detection_settings`](#default-detection-settings) - Optional Block  Defaults to `map[]`<br>Configuration parameter for default detection settings.  Server applies default when omitted
+&#x2022; <a id="default-detection-settings"></a>[`default_detection_settings`](#default-detection-settings) - Optional Object  Defaults to `map[]`<br>Configuration parameter for default detection settings.  Server applies default when omitted
 
 <a id="detection-settings"></a>&#x2022; [`detection_settings`](#detection-settings) - Optional Block<br>Specifies detection settings to be used by WAF<br>See [Detection Settings](#detection-settings) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="disable-ai-enhancements"></a>[`disable_ai_enhancements`](#disable-ai-enhancements) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable ai enhancements.  Server applies default when omitted
+&#x2022; <a id="disable-ai-enhancements"></a>[`disable_ai_enhancements`](#disable-ai-enhancements) - Optional Object  Defaults to `map[]`<br>Configuration parameter for disable ai enhancements.  Server applies default when omitted
 
-<a id="disable-anonymization"></a>&#x2022; [`disable_anonymization`](#disable-anonymization) - Optional Block<br>Configuration parameter for disable anonymization
+<a id="disable-anonymization"></a>&#x2022; [`disable_anonymization`](#disable-anonymization) - Optional Object<br>Configuration parameter for disable anonymization
 
 <a id="enable-ai-enhancements"></a>&#x2022; [`enable_ai_enhancements`](#enable-ai-enhancements) - Optional Block<br>Actions complimented by the additional intelligence of the F5 AI Powered Risk-based analysis<br>See [Enable Ai Enhancements](#enable-ai-enhancements) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="use-default-blocking-page"></a>&#x2022; [`use_default_blocking_page`](#use-default-blocking-page) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<a id="use-default-blocking-page"></a>&#x2022; [`use_default_blocking_page`](#use-default-blocking-page) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 ### Attributes Reference
 
@@ -499,25 +499,37 @@ A [`query_parameter`](#parameter-dd1b2a) block (within [`custom_anonymization.an
 
 <a id="name-043171"></a>&#x2022; [`query_param_name`](#name-043171) - Optional String<br>Masks the query parameter value. The setting does not mask the query parameter name. Wildcard matching can be used by prefixing or suffixing the query parameter name with a wildcard asterisk (*), or by using only an asterisk to match any query parameter name
 
+#### Default Anonymization
+
+A [`default_anonymization`](#default-anonymization) block supports the following:
+
+#### Default Bot Setting
+
+A [`default_bot_setting`](#default-bot-setting) block supports the following:
+
+#### Default Detection Settings
+
+A [`default_detection_settings`](#default-detection-settings) block supports the following:
+
 #### Detection Settings
 
 A [`detection_settings`](#detection-settings) block supports the following:
 
 <a id="setting-37e8d9"></a>&#x2022; [`bot_protection_setting`](#setting-37e8d9) - Optional Block<br>Configuration parameter for bot protection setting<br>See [Bot Protection Setting](#setting-37e8d9) below.
 
-<a id="detection-settings-default-bot-setting"></a>&#x2022; [`default_bot_setting`](#detection-settings-default-bot-setting) - Optional Block<br>Configuration parameter for default bot setting
+<a id="detection-settings-default-bot-setting"></a>&#x2022; [`default_bot_setting`](#detection-settings-default-bot-setting) - Optional Object<br>Configuration parameter for default bot setting
 
-<a id="settings-da3fa7"></a>&#x2022; [`default_violation_settings`](#settings-da3fa7) - Optional Block<br>Configuration parameter for default violation settings
+<a id="settings-da3fa7"></a>&#x2022; [`default_violation_settings`](#settings-da3fa7) - Optional Object<br>Configuration parameter for default violation settings
 
-<a id="detection-settings-disable-staging"></a>&#x2022; [`disable_staging`](#detection-settings-disable-staging) - Optional Block<br>Enable this option
+<a id="detection-settings-disable-staging"></a>&#x2022; [`disable_staging`](#detection-settings-disable-staging) - Optional Object<br>Enable this option
 
-<a id="detection-settings-disable-suppression"></a>&#x2022; [`disable_suppression`](#detection-settings-disable-suppression) - Optional Block<br>Configuration parameter for disable suppression
+<a id="detection-settings-disable-suppression"></a>&#x2022; [`disable_suppression`](#detection-settings-disable-suppression) - Optional Object<br>Configuration parameter for disable suppression
 
-<a id="campaigns-7bf1af"></a>&#x2022; [`disable_threat_campaigns`](#campaigns-7bf1af) - Optional Block<br>Enable this option
+<a id="campaigns-7bf1af"></a>&#x2022; [`disable_threat_campaigns`](#campaigns-7bf1af) - Optional Object<br>Enable this option
 
-<a id="detection-settings-enable-suppression"></a>&#x2022; [`enable_suppression`](#detection-settings-enable-suppression) - Optional Block<br>Configuration parameter for enable suppression
+<a id="detection-settings-enable-suppression"></a>&#x2022; [`enable_suppression`](#detection-settings-enable-suppression) - Optional Object<br>Configuration parameter for enable suppression
 
-<a id="campaigns-16aa5e"></a>&#x2022; [`enable_threat_campaigns`](#campaigns-16aa5e) - Optional Block<br>Enable this option
+<a id="campaigns-16aa5e"></a>&#x2022; [`enable_threat_campaigns`](#campaigns-16aa5e) - Optional Object<br>Enable this option
 
 <a id="setting-306450"></a>&#x2022; [`signature_selection_setting`](#setting-306450) - Optional Block<br>Attack Signatures are patterns that identify attacks on a web application and its components<br>See [Signature Selection Setting](#setting-306450) below.
 
@@ -539,23 +551,67 @@ A [`bot_protection_setting`](#setting-37e8d9) block (within [`detection_settings
 
 <a id="action-223ae0"></a>&#x2022; [`suspicious_bot_action`](#action-223ae0) - Optional String  Defaults to `BLOCK`<br>Possible values are `BLOCK`, `REPORT`, `IGNORE`<br>[Enum: BLOCK|REPORT|IGNORE] Action to be performed on the request Log and block Log only Disable detection
 
+#### Detection Settings Default Bot Setting
+
+A [`default_bot_setting`](#detection-settings-default-bot-setting) block (within [`detection_settings`](#detection-settings)) supports the following:
+
+#### Detection Settings Default Violation Settings
+
+A [`default_violation_settings`](#settings-da3fa7) block (within [`detection_settings`](#detection-settings)) supports the following:
+
+#### Detection Settings Disable Staging
+
+A [`disable_staging`](#detection-settings-disable-staging) block (within [`detection_settings`](#detection-settings)) supports the following:
+
+#### Detection Settings Disable Suppression
+
+A [`disable_suppression`](#detection-settings-disable-suppression) block (within [`detection_settings`](#detection-settings)) supports the following:
+
+#### Detection Settings Disable Threat Campaigns
+
+A [`disable_threat_campaigns`](#campaigns-7bf1af) block (within [`detection_settings`](#detection-settings)) supports the following:
+
+#### Detection Settings Enable Suppression
+
+An [`enable_suppression`](#detection-settings-enable-suppression) block (within [`detection_settings`](#detection-settings)) supports the following:
+
+#### Detection Settings Enable Threat Campaigns
+
+An [`enable_threat_campaigns`](#campaigns-16aa5e) block (within [`detection_settings`](#detection-settings)) supports the following:
+
 #### Detection Settings Signature Selection Setting
 
 A [`signature_selection_setting`](#setting-306450) block (within [`detection_settings`](#detection-settings)) supports the following:
 
 <a id="settings-72f64b"></a>&#x2022; [`attack_type_settings`](#settings-72f64b) - Optional Block<br>Specifies attack-type settings to be used by WAF<br>See [Attack Type Settings](#settings-72f64b) below.
 
-<a id="settings-067018"></a>&#x2022; [`default_attack_type_settings`](#settings-067018) - Optional Block<br>Configuration parameter for default attack type settings
+<a id="settings-067018"></a>&#x2022; [`default_attack_type_settings`](#settings-067018) - Optional Object<br>Configuration parameter for default attack type settings
 
-<a id="signatures-38e545"></a>&#x2022; [`high_medium_accuracy_signatures`](#signatures-38e545) - Optional Block<br>Configuration parameter for high medium accuracy signatures
+<a id="signatures-38e545"></a>&#x2022; [`high_medium_accuracy_signatures`](#signatures-38e545) - Optional Object<br>Configuration parameter for high medium accuracy signatures
 
-<a id="signatures-b902f3"></a>&#x2022; [`high_medium_low_accuracy_signatures`](#signatures-b902f3) - Optional Block<br>Configuration parameter for high medium low accuracy signatures
+<a id="signatures-b902f3"></a>&#x2022; [`high_medium_low_accuracy_signatures`](#signatures-b902f3) - Optional Object<br>Configuration parameter for high medium low accuracy signatures
 
-<a id="signatures-a0c47d"></a>&#x2022; [`only_high_accuracy_signatures`](#signatures-a0c47d) - Optional Block<br>Configuration parameter for only high accuracy signatures
+<a id="signatures-a0c47d"></a>&#x2022; [`only_high_accuracy_signatures`](#signatures-a0c47d) - Optional Object<br>Configuration parameter for only high accuracy signatures
 
 #### Detection Settings Signature Selection Setting Attack Type Settings
 
 <a id="deep-c427aa"></a>Deeply nested **Settings** block collapsed for readability.
+
+#### Detection Settings Signature Selection Setting Default Attack Type Settings
+
+<a id="deep-21eef1"></a>Deeply nested **Settings** block collapsed for readability.
+
+#### Detection Settings Signature Selection Setting High Medium Accuracy Signatures
+
+<a id="deep-759553"></a>Deeply nested **Signatures** block collapsed for readability.
+
+#### Detection Settings Signature Selection Setting High Medium Low Accuracy Signatures
+
+<a id="deep-58f926"></a>Deeply nested **Signatures** block collapsed for readability.
+
+#### Detection Settings Signature Selection Setting Only High Accuracy Signatures
+
+<a id="deep-d0101f"></a>Deeply nested **Signatures** block collapsed for readability.
 
 #### Detection Settings Stage New And Updated Signatures
 
@@ -594,13 +650,29 @@ A [`violations_view`](#detection-settings-violations-view) block (within [`detec
 
 <a id="title-c5ca03"></a>&#x2022; [`title`](#title-c5ca03) - Optional String<br>Title. Human-readable title for the resource
 
+#### Disable Ai Enhancements
+
+A [`disable_ai_enhancements`](#disable-ai-enhancements) block supports the following:
+
+#### Disable Anonymization
+
+A [`disable_anonymization`](#disable-anonymization) block supports the following:
+
 #### Enable Ai Enhancements
 
 An [`enable_ai_enhancements`](#enable-ai-enhancements) block supports the following:
 
-<a id="action-3002ca"></a>&#x2022; [`mitigate_high_medium_risk_action`](#action-3002ca) - Optional Block<br>Enable this option
+<a id="action-3002ca"></a>&#x2022; [`mitigate_high_medium_risk_action`](#action-3002ca) - Optional Object<br>Enable this option
 
-<a id="action-19c1da"></a>&#x2022; [`mitigate_high_risk_action`](#action-19c1da) - Optional Block<br>Enable this option
+<a id="action-19c1da"></a>&#x2022; [`mitigate_high_risk_action`](#action-19c1da) - Optional Object<br>Enable this option
+
+#### Enable Ai Enhancements Mitigate High Medium Risk Action
+
+<a id="deep-a8a8cf"></a>Deeply nested **Action** block collapsed for readability.
+
+#### Enable Ai Enhancements Mitigate High Risk Action
+
+A [`mitigate_high_risk_action`](#action-19c1da) block (within [`enable_ai_enhancements`](#enable-ai-enhancements)) supports the following:
 
 #### Timeouts
 
@@ -613,6 +685,10 @@ A [`timeouts`](#timeouts) block supports the following:
 <a id="timeouts-read"></a>&#x2022; [`read`](#timeouts-read) - Optional String (Defaults to `5 minutes`)<br>Used when retrieving the resource
 
 <a id="timeouts-update"></a>&#x2022; [`update`](#timeouts-update) - Optional String (Defaults to `10 minutes`)<br>Used when updating the resource
+
+#### Use Default Blocking Page
+
+An [`use_default_blocking_page`](#use-default-blocking-page) block supports the following:
 
 ---
 

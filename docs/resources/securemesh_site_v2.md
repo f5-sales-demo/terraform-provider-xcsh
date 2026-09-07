@@ -39,7 +39,7 @@ resource "xcsh_securemesh_site_v2" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -83,12 +83,12 @@ access<br>See [Admin User Credentials](#admin-user-credentials) below for detail
 <br><br>&#x2022; <a id="vmware"></a>[`vmware`](#vmware) - Optional Block<br>VMware Provider Type. VMware Provider Type
 
 -> **One of the following:**
-&#x2022; <a id="block-all-services"></a>[`block_all_services`](#block-all-services) - Optional Block<br>Enable this option
+&#x2022; <a id="block-all-services"></a>[`block_all_services`](#block-all-services) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="blocked-services"></a>[`blocked_services`](#blocked-services) - Optional Block<br>Disable node local services on this site
 
 -> **One of the following:**
 &#x2022; <a id="custom-proxy"></a>[`custom_proxy`](#custom-proxy) - Optional Block<br>Configuration parameter for custom proxy
-<br><br>&#x2022; <a id="f5-proxy"></a>[`f5_proxy`](#f5-proxy) - Optional Block<br>Enable this option
+<br><br>&#x2022; <a id="f5-proxy"></a>[`f5_proxy`](#f5-proxy) - Optional Object<br>Enable this option
 
 -> **One of the following:**
 &#x2022; <a id="custom-proxy-bypass"></a>[`custom_proxy_bypass`](#custom-proxy-bypass) - Optional Block<br>Configuration parameter for custom proxy bypass
@@ -98,34 +98,34 @@ access<br>See [Admin User Credentials](#admin-user-credentials) below for detail
 
 -> **One of the following:**
 &#x2022; <a id="dc-cluster-group-slo"></a>[`dc_cluster_group_slo`](#dc-cluster-group-slo) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
-<br><br>&#x2022; <a id="no-s2s-connectivity-slo"></a>[`no_s2s_connectivity_slo`](#no-s2s-connectivity-slo) - Optional Block<br>Configuration parameter for no S2S connectivity slo
+<br><br>&#x2022; <a id="no-s2s-connectivity-slo"></a>[`no_s2s_connectivity_slo`](#no-s2s-connectivity-slo) - Optional Object<br>Configuration parameter for no S2S connectivity slo
 
 -> **One of the following:**
-&#x2022; <a id="disable-advanced-delivery"></a>[`disable_advanced_delivery`](#disable-advanced-delivery) - Optional Block<br>Configuration parameter for disable advanced delivery
+&#x2022; <a id="disable-advanced-delivery"></a>[`disable_advanced_delivery`](#disable-advanced-delivery) - Optional Object<br>Configuration parameter for disable advanced delivery
 
 -> **One of the following:**
-&#x2022; <a id="disable-ha"></a>[`disable_ha`](#disable-ha) - Optional Block<br>Enable this option
+&#x2022; <a id="disable-ha"></a>[`disable_ha`](#disable-ha) - Optional Object<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="disable-log-anonymization"></a>[`disable_log_anonymization`](#disable-log-anonymization) - Optional Block<br>Configuration parameter for disable log anonymization
+&#x2022; <a id="disable-log-anonymization"></a>[`disable_log_anonymization`](#disable-log-anonymization) - Optional Object<br>Configuration parameter for disable log anonymization
 
 -> **One of the following:**
-&#x2022; <a id="disable-management-network"></a>[`disable_management_network`](#disable-management-network) - Optional Block<br>Configuration parameter for disable management network
+&#x2022; <a id="disable-management-network"></a>[`disable_management_network`](#disable-management-network) - Optional Object<br>Configuration parameter for disable management network
 
 -> **One of the following:**
-&#x2022; <a id="disable-url-categorization"></a>[`disable_url_categorization`](#disable-url-categorization) - Optional Block<br>Enable this option
+&#x2022; <a id="disable-url-categorization"></a>[`disable_url_categorization`](#disable-url-categorization) - Optional Object<br>Enable this option
 
 <a id="dns-ntp-config"></a>&#x2022; [`dns_ntp_config`](#dns-ntp-config) - Optional Block<br>Specify DNS and NTP servers that will be used by the nodes in this Customer Edge site
 
-<a id="enable-advanced-delivery"></a>&#x2022; [`enable_advanced_delivery`](#enable-advanced-delivery) - Optional Block<br>Configuration parameter for enable advanced delivery
+<a id="enable-advanced-delivery"></a>&#x2022; [`enable_advanced_delivery`](#enable-advanced-delivery) - Optional Object<br>Configuration parameter for enable advanced delivery
 
-<a id="enable-ha"></a>&#x2022; [`enable_ha`](#enable-ha) - Optional Block<br>Enable this option
+<a id="enable-ha"></a>&#x2022; [`enable_ha`](#enable-ha) - Optional Object<br>Enable this option
 
-<a id="enable-log-anonymization"></a>&#x2022; [`enable_log_anonymization`](#enable-log-anonymization) - Optional Block<br>Configuration parameter for enable log anonymization
+<a id="enable-log-anonymization"></a>&#x2022; [`enable_log_anonymization`](#enable-log-anonymization) - Optional Object<br>Configuration parameter for enable log anonymization
 
-<a id="enable-management-network"></a>&#x2022; [`enable_management_network`](#enable-management-network) - Optional Block<br>Configuration parameter for enable management network
+<a id="enable-management-network"></a>&#x2022; [`enable_management_network`](#enable-management-network) - Optional Object<br>Configuration parameter for enable management network
 
-<a id="enable-url-categorization"></a>&#x2022; [`enable_url_categorization`](#enable-url-categorization) - Optional Block<br>Enable this option
+<a id="enable-url-categorization"></a>&#x2022; [`enable_url_categorization`](#enable-url-categorization) - Optional Object<br>Enable this option
 
 <a id="load-balancing"></a>&#x2022; [`load_balancing`](#load-balancing) - Optional Block<br>Section contains settings on the site that relate to Load Balancing functionality
 
@@ -133,15 +133,15 @@ access<br>See [Admin User Credentials](#admin-user-credentials) below for detail
 
 -> **One of the following:**
 &#x2022; <a id="log-receiver-with-net"></a>[`log_receiver_with_net`](#log-receiver-with-net) - Optional Block<br>Select log receiver for logs streaming with network option
-<br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Block<br>Enable this option
+<br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Object<br>Enable this option
 
-<a id="no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#no-forward-proxy) - Optional Block<br>Configuration parameter for no forward proxy
+<a id="no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#no-forward-proxy) - Optional Object<br>Configuration parameter for no forward proxy
 
-<a id="no-network-policy"></a>&#x2022; [`no_network_policy`](#no-network-policy) - Optional Block<br>Policy configuration for this feature
+<a id="no-network-policy"></a>&#x2022; [`no_network_policy`](#no-network-policy) - Optional Object<br>Policy configuration for this feature
 
-<a id="no-proxy-bypass"></a>&#x2022; [`no_proxy_bypass`](#no-proxy-bypass) - Optional Block<br>Configuration parameter for no proxy bypass
+<a id="no-proxy-bypass"></a>&#x2022; [`no_proxy_bypass`](#no-proxy-bypass) - Optional Object<br>Configuration parameter for no proxy bypass
 
-<a id="no-s2s-connectivity-sli"></a>&#x2022; [`no_s2s_connectivity_sli`](#no-s2s-connectivity-sli) - Optional Block<br>Configuration parameter for no S2S connectivity SLI
+<a id="no-s2s-connectivity-sli"></a>&#x2022; [`no_s2s_connectivity_sli`](#no-s2s-connectivity-sli) - Optional Object<br>Configuration parameter for no S2S connectivity SLI
 
 <a id="offline-survivability-mode"></a>&#x2022; [`offline_survivability_mode`](#offline-survivability-mode) - Optional Block<br>Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing
 configuration for upto 7
@@ -262,7 +262,9 @@ An [`interface_list`](#list-6c6298) block (within [`aws.not_managed.node_list`](
 
 <a id="spec-f3edfe"></a>&#x2022; [`description_spec`](#spec-f3edfe) - Optional String<br>Interface Description. Description for this Interface
 
-<a id="client-35134d"></a>&#x2022; [`dhcp_client`](#client-35134d) - Optional Block<br>Enable this option
+<a id="client-35134d"></a>&#x2022; [`dhcp_client`](#client-35134d) - Optional Object<br>Enable this option
+
+<a id="server-22ad4f"></a>&#x2022; [`dhcp_server`](#server-22ad4f) - Optional Block<br>DHCPServerParametersType<br>See [DHCP Server](#server-22ad4f) below.
 
 <a id="interface-f28fa7"></a>&#x2022; [`ethernet_interface`](#interface-f28fa7) - Optional Block<br>Configuration parameter for ethernet interface<br>See [Ethernet Interface](#interface-f28fa7) below.
 
@@ -270,9 +272,9 @@ An [`interface_list`](#list-6c6298) block (within [`aws.not_managed.node_list`](
 
 <a id="labels-188d84"></a>&#x2022; [`labels`](#labels-188d84) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
-<a id="monitor-169def"></a>&#x2022; [`monitor`](#monitor-169def) - Optional Block<br>Link Quality Monitoring configuration for a network interface
+<a id="monitor-169def"></a>&#x2022; [`monitor`](#monitor-169def) - Optional Object<br>Link Quality Monitoring configuration for a network interface
 
-<a id="disabled-428eab"></a>&#x2022; [`monitor_disabled`](#disabled-428eab) - Optional Block<br>Enable this option
+<a id="disabled-428eab"></a>&#x2022; [`monitor_disabled`](#disabled-428eab) - Optional Object<br>Enable this option
 
 <a id="mtu-9ea6fa"></a>&#x2022; [`mtu`](#mtu-9ea6fa) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
 
@@ -281,15 +283,15 @@ An [`interface_list`](#list-6c6298) block (within [`aws.not_managed.node_list`](
 <a id="option-4d9fd7"></a>&#x2022; [`network_option`](#option-4d9fd7) - Optional Block<br>Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional<br>See
 [Network Option](#option-4d9fd7) below.
 
-<a id="address-95964e"></a>&#x2022; [`no_ipv4_address`](#address-95964e) - Optional Block<br>Enable this option
+<a id="address-95964e"></a>&#x2022; [`no_ipv4_address`](#address-95964e) - Optional Object<br>Enable this option
 
-<a id="address-b6fb0a"></a>&#x2022; [`no_ipv6_address`](#address-b6fb0a) - Optional Block<br>Enable this option
+<a id="address-b6fb0a"></a>&#x2022; [`no_ipv6_address`](#address-b6fb0a) - Optional Object<br>Enable this option
 
 <a id="priority-a786bf"></a>&#x2022; [`priority`](#priority-a786bf) - Optional Number<br>For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority
 
-<a id="disabled-1942d4"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-1942d4) - Optional Block<br>Enable this option
+<a id="disabled-1942d4"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-1942d4) - Optional Object<br>Enable this option
 
-<a id="enabled-850dad"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-850dad) - Optional Block<br>Enable this option
+<a id="enabled-850dad"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-850dad) - Optional Object<br>Enable this option
 
 <a id="static-ip-f224ff"></a>&#x2022; [`static_ip`](#static-ip-f224ff) - Optional Block<br>Configure Static IP parameters for a node<br>See [Static IP](#static-ip-f224ff) below.
 
@@ -305,9 +307,53 @@ An [`interface_list`](#list-6c6298) block (within [`aws.not_managed.node_list`](
 
 <a id="deep-4224d9"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### AWS Not Managed Node List Interface List Bond Interface Active Backup
+
+<a id="deep-9edf5d"></a>Deeply nested **Backup** block collapsed for readability.
+
 #### AWS Not Managed Node List Interface List Bond Interface Lacp
 
 <a id="deep-5560e6"></a>Deeply nested **Lacp** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List DHCP Client
+
+<a id="deep-6cebf0"></a>Deeply nested **Client** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List DHCP Server
+
+<a id="deep-d19f89"></a>Deeply nested **Server** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List DHCP Server Automatic From End
+
+<a id="deep-8682ae"></a>Deeply nested **End** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List DHCP Server Automatic From Start
+
+<a id="deep-e644f9"></a>Deeply nested **Start** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List DHCP Server DHCP Networks
+
+<a id="deep-231887"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List DHCP Server DHCP Networks First Address
+
+<a id="deep-2a902c"></a>Deeply nested **Address** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List DHCP Server DHCP Networks Last Address
+
+<a id="deep-ba8d98"></a>Deeply nested **Address** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List DHCP Server DHCP Networks Pools
+
+<a id="deep-7a66f3"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-4375b7"></a>Deeply nested **Dgw** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List DHCP Server Interface IP Map
+
+<a id="deep-bdd34e"></a>Deeply nested **Map** block collapsed for readability.
 
 #### AWS Not Managed Node List Interface List Ethernet Interface
 
@@ -316,6 +362,10 @@ An [`interface_list`](#list-6c6298) block (within [`aws.not_managed.node_list`](
 #### AWS Not Managed Node List Interface List IPv6 Auto Config
 
 <a id="deep-72b9a7"></a>Deeply nested **Config** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List IPv6 Auto Config Host
+
+<a id="deep-04757b"></a>Deeply nested **Host** block collapsed for readability.
 
 #### AWS Not Managed Node List Interface List IPv6 Auto Config Router
 
@@ -333,9 +383,25 @@ An [`interface_list`](#list-6c6298) block (within [`aws.not_managed.node_list`](
 
 <a id="deep-92f368"></a>Deeply nested **DNS** block collapsed for readability.
 
+#### AWS Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-4ba646"></a>Deeply nested **Address** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-4741c0"></a>Deeply nested **Address** block collapsed for readability.
+
 #### AWS Not Managed Node List Interface List IPv6 Auto Config Router Stateful
 
 <a id="deep-1075b3"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-b5cfa5"></a>Deeply nested **End** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-382913"></a>Deeply nested **Start** block collapsed for readability.
 
 #### AWS Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks
 
@@ -349,9 +415,41 @@ An [`interface_list`](#list-6c6298) block (within [`aws.not_managed.node_list`](
 
 <a id="deep-b470b4"></a>Deeply nested **Map** block collapsed for readability.
 
+#### AWS Not Managed Node List Interface List Monitor
+
+<a id="deep-921a1c"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List Monitor Disabled
+
+<a id="deep-6940dc"></a>Deeply nested **Disabled** block collapsed for readability.
+
 #### AWS Not Managed Node List Interface List Network Option
 
 <a id="deep-ccc2da"></a>Deeply nested **Option** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List Network Option Site Local Inside Network
+
+<a id="deep-46212c"></a>Deeply nested **Network** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List Network Option Site Local Network
+
+<a id="deep-8c7e4a"></a>Deeply nested **Network** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List No IPv4 Address
+
+<a id="deep-ec3ba1"></a>Deeply nested **Address** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List No IPv6 Address
+
+<a id="deep-fa654c"></a>Deeply nested **Address** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List Site To Site Connectivity Interface Disabled
+
+<a id="deep-1973f8"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### AWS Not Managed Node List Interface List Site To Site Connectivity Interface Enabled
+
+<a id="deep-6890ac"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### AWS Not Managed Node List Interface List Static IP
 
@@ -405,7 +503,9 @@ An [`interface_list`](#list-6e5295) block (within [`azure.not_managed.node_list`
 
 <a id="spec-d00c38"></a>&#x2022; [`description_spec`](#spec-d00c38) - Optional String<br>Interface Description. Description for this Interface
 
-<a id="client-613ccb"></a>&#x2022; [`dhcp_client`](#client-613ccb) - Optional Block<br>Enable this option
+<a id="client-613ccb"></a>&#x2022; [`dhcp_client`](#client-613ccb) - Optional Object<br>Enable this option
+
+<a id="server-d53a0a"></a>&#x2022; [`dhcp_server`](#server-d53a0a) - Optional Block<br>DHCPServerParametersType<br>See [DHCP Server](#server-d53a0a) below.
 
 <a id="interface-04b9b6"></a>&#x2022; [`ethernet_interface`](#interface-04b9b6) - Optional Block<br>Configuration parameter for ethernet interface<br>See [Ethernet Interface](#interface-04b9b6) below.
 
@@ -413,9 +513,9 @@ An [`interface_list`](#list-6e5295) block (within [`azure.not_managed.node_list`
 
 <a id="labels-eb7a23"></a>&#x2022; [`labels`](#labels-eb7a23) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
-<a id="monitor-533eb1"></a>&#x2022; [`monitor`](#monitor-533eb1) - Optional Block<br>Link Quality Monitoring configuration for a network interface
+<a id="monitor-533eb1"></a>&#x2022; [`monitor`](#monitor-533eb1) - Optional Object<br>Link Quality Monitoring configuration for a network interface
 
-<a id="disabled-6e8e01"></a>&#x2022; [`monitor_disabled`](#disabled-6e8e01) - Optional Block<br>Enable this option
+<a id="disabled-6e8e01"></a>&#x2022; [`monitor_disabled`](#disabled-6e8e01) - Optional Object<br>Enable this option
 
 <a id="mtu-faf1c8"></a>&#x2022; [`mtu`](#mtu-faf1c8) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
 
@@ -424,15 +524,15 @@ An [`interface_list`](#list-6e5295) block (within [`azure.not_managed.node_list`
 <a id="option-7351bd"></a>&#x2022; [`network_option`](#option-7351bd) - Optional Block<br>Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional<br>See
 [Network Option](#option-7351bd) below.
 
-<a id="address-f2078c"></a>&#x2022; [`no_ipv4_address`](#address-f2078c) - Optional Block<br>Enable this option
+<a id="address-f2078c"></a>&#x2022; [`no_ipv4_address`](#address-f2078c) - Optional Object<br>Enable this option
 
-<a id="address-d0d445"></a>&#x2022; [`no_ipv6_address`](#address-d0d445) - Optional Block<br>Enable this option
+<a id="address-d0d445"></a>&#x2022; [`no_ipv6_address`](#address-d0d445) - Optional Object<br>Enable this option
 
 <a id="priority-502acf"></a>&#x2022; [`priority`](#priority-502acf) - Optional Number<br>For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority
 
-<a id="disabled-9f522e"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-9f522e) - Optional Block<br>Enable this option
+<a id="disabled-9f522e"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-9f522e) - Optional Object<br>Enable this option
 
-<a id="enabled-b02cce"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-b02cce) - Optional Block<br>Enable this option
+<a id="enabled-b02cce"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-b02cce) - Optional Object<br>Enable this option
 
 <a id="static-ip-2aa2b4"></a>&#x2022; [`static_ip`](#static-ip-2aa2b4) - Optional Block<br>Configure Static IP parameters for a node<br>See [Static IP](#static-ip-2aa2b4) below.
 
@@ -448,9 +548,53 @@ An [`interface_list`](#list-6e5295) block (within [`azure.not_managed.node_list`
 
 <a id="deep-4cb273"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### Azure Not Managed Node List Interface List Bond Interface Active Backup
+
+<a id="deep-c73cc3"></a>Deeply nested **Backup** block collapsed for readability.
+
 #### Azure Not Managed Node List Interface List Bond Interface Lacp
 
 <a id="deep-5db881"></a>Deeply nested **Lacp** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List DHCP Client
+
+<a id="deep-5e3cef"></a>Deeply nested **Client** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List DHCP Server
+
+<a id="deep-47e884"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List DHCP Server Automatic From End
+
+<a id="deep-abfe52"></a>Deeply nested **End** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List DHCP Server Automatic From Start
+
+<a id="deep-bd9088"></a>Deeply nested **Start** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List DHCP Server DHCP Networks
+
+<a id="deep-de466a"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List DHCP Server DHCP Networks First Address
+
+<a id="deep-63b60f"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List DHCP Server DHCP Networks Last Address
+
+<a id="deep-1a5aa8"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List DHCP Server DHCP Networks Pools
+
+<a id="deep-a95809"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-2c21c8"></a>Deeply nested **Dgw** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List DHCP Server Interface IP Map
+
+<a id="deep-80f761"></a>Deeply nested **Map** block collapsed for readability.
 
 #### Azure Not Managed Node List Interface List Ethernet Interface
 
@@ -459,6 +603,10 @@ An [`interface_list`](#list-6e5295) block (within [`azure.not_managed.node_list`
 #### Azure Not Managed Node List Interface List IPv6 Auto Config
 
 <a id="deep-435f70"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List IPv6 Auto Config Host
+
+<a id="deep-6c7a4d"></a>Deeply nested **Host** block collapsed for readability.
 
 #### Azure Not Managed Node List Interface List IPv6 Auto Config Router
 
@@ -476,9 +624,25 @@ An [`interface_list`](#list-6e5295) block (within [`azure.not_managed.node_list`
 
 <a id="deep-453621"></a>Deeply nested **DNS** block collapsed for readability.
 
+#### Azure Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-904551"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-b6bc92"></a>Deeply nested **Address** block collapsed for readability.
+
 #### Azure Not Managed Node List Interface List IPv6 Auto Config Router Stateful
 
 <a id="deep-cd224b"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-26486c"></a>Deeply nested **End** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-47334e"></a>Deeply nested **Start** block collapsed for readability.
 
 #### Azure Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks
 
@@ -492,9 +656,41 @@ An [`interface_list`](#list-6e5295) block (within [`azure.not_managed.node_list`
 
 <a id="deep-6e23fb"></a>Deeply nested **Map** block collapsed for readability.
 
+#### Azure Not Managed Node List Interface List Monitor
+
+<a id="deep-a1af80"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List Monitor Disabled
+
+<a id="deep-3ebf3b"></a>Deeply nested **Disabled** block collapsed for readability.
+
 #### Azure Not Managed Node List Interface List Network Option
 
 <a id="deep-2a92f3"></a>Deeply nested **Option** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List Network Option Site Local Inside Network
+
+<a id="deep-de3bd1"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List Network Option Site Local Network
+
+<a id="deep-03055c"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List No IPv4 Address
+
+<a id="deep-1e8b14"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List No IPv6 Address
+
+<a id="deep-b6fc76"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List Site To Site Connectivity Interface Disabled
+
+<a id="deep-062858"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Azure Not Managed Node List Interface List Site To Site Connectivity Interface Enabled
+
+<a id="deep-1371ef"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Azure Not Managed Node List Interface List Static IP
 
@@ -548,7 +744,9 @@ An [`interface_list`](#list-30e058) block (within [`baremetal.not_managed.node_l
 
 <a id="spec-b7ed1b"></a>&#x2022; [`description_spec`](#spec-b7ed1b) - Optional String<br>Interface Description. Description for this Interface
 
-<a id="client-829bf8"></a>&#x2022; [`dhcp_client`](#client-829bf8) - Optional Block<br>Enable this option
+<a id="client-829bf8"></a>&#x2022; [`dhcp_client`](#client-829bf8) - Optional Object<br>Enable this option
+
+<a id="server-ada795"></a>&#x2022; [`dhcp_server`](#server-ada795) - Optional Block<br>DHCPServerParametersType<br>See [DHCP Server](#server-ada795) below.
 
 <a id="interface-3933d2"></a>&#x2022; [`ethernet_interface`](#interface-3933d2) - Optional Block<br>Configuration parameter for ethernet interface<br>See [Ethernet Interface](#interface-3933d2) below.
 
@@ -556,9 +754,9 @@ An [`interface_list`](#list-30e058) block (within [`baremetal.not_managed.node_l
 
 <a id="labels-816fbc"></a>&#x2022; [`labels`](#labels-816fbc) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
-<a id="monitor-1cb67f"></a>&#x2022; [`monitor`](#monitor-1cb67f) - Optional Block<br>Link Quality Monitoring configuration for a network interface
+<a id="monitor-1cb67f"></a>&#x2022; [`monitor`](#monitor-1cb67f) - Optional Object<br>Link Quality Monitoring configuration for a network interface
 
-<a id="disabled-1756b3"></a>&#x2022; [`monitor_disabled`](#disabled-1756b3) - Optional Block<br>Enable this option
+<a id="disabled-1756b3"></a>&#x2022; [`monitor_disabled`](#disabled-1756b3) - Optional Object<br>Enable this option
 
 <a id="mtu-2d7f6c"></a>&#x2022; [`mtu`](#mtu-2d7f6c) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
 
@@ -567,15 +765,15 @@ An [`interface_list`](#list-30e058) block (within [`baremetal.not_managed.node_l
 <a id="option-ad2bbb"></a>&#x2022; [`network_option`](#option-ad2bbb) - Optional Block<br>Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional<br>See
 [Network Option](#option-ad2bbb) below.
 
-<a id="address-ac89d0"></a>&#x2022; [`no_ipv4_address`](#address-ac89d0) - Optional Block<br>Enable this option
+<a id="address-ac89d0"></a>&#x2022; [`no_ipv4_address`](#address-ac89d0) - Optional Object<br>Enable this option
 
-<a id="address-b8923c"></a>&#x2022; [`no_ipv6_address`](#address-b8923c) - Optional Block<br>Enable this option
+<a id="address-b8923c"></a>&#x2022; [`no_ipv6_address`](#address-b8923c) - Optional Object<br>Enable this option
 
 <a id="priority-d77987"></a>&#x2022; [`priority`](#priority-d77987) - Optional Number<br>For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority
 
-<a id="disabled-309cd0"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-309cd0) - Optional Block<br>Enable this option
+<a id="disabled-309cd0"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-309cd0) - Optional Object<br>Enable this option
 
-<a id="enabled-832872"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-832872) - Optional Block<br>Enable this option
+<a id="enabled-832872"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-832872) - Optional Object<br>Enable this option
 
 <a id="static-ip-9bad70"></a>&#x2022; [`static_ip`](#static-ip-9bad70) - Optional Block<br>Configure Static IP parameters for a node<br>See [Static IP](#static-ip-9bad70) below.
 
@@ -591,9 +789,53 @@ An [`interface_list`](#list-30e058) block (within [`baremetal.not_managed.node_l
 
 <a id="deep-5827e6"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### Baremetal Not Managed Node List Interface List Bond Interface Active Backup
+
+<a id="deep-680b83"></a>Deeply nested **Backup** block collapsed for readability.
+
 #### Baremetal Not Managed Node List Interface List Bond Interface Lacp
 
 <a id="deep-a0f77e"></a>Deeply nested **Lacp** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List DHCP Client
+
+<a id="deep-7ec456"></a>Deeply nested **Client** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List DHCP Server
+
+<a id="deep-9d3eca"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List DHCP Server Automatic From End
+
+<a id="deep-54fcb1"></a>Deeply nested **End** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List DHCP Server Automatic From Start
+
+<a id="deep-38e713"></a>Deeply nested **Start** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List DHCP Server DHCP Networks
+
+<a id="deep-6e183c"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List DHCP Server DHCP Networks First Address
+
+<a id="deep-4ade54"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List DHCP Server DHCP Networks Last Address
+
+<a id="deep-971015"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List DHCP Server DHCP Networks Pools
+
+<a id="deep-945ded"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-4fddd2"></a>Deeply nested **Dgw** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List DHCP Server Interface IP Map
+
+<a id="deep-07a525"></a>Deeply nested **Map** block collapsed for readability.
 
 #### Baremetal Not Managed Node List Interface List Ethernet Interface
 
@@ -602,6 +844,10 @@ An [`interface_list`](#list-30e058) block (within [`baremetal.not_managed.node_l
 #### Baremetal Not Managed Node List Interface List IPv6 Auto Config
 
 <a id="deep-0dfce3"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List IPv6 Auto Config Host
+
+<a id="deep-604f2e"></a>Deeply nested **Host** block collapsed for readability.
 
 #### Baremetal Not Managed Node List Interface List IPv6 Auto Config Router
 
@@ -619,9 +865,25 @@ An [`interface_list`](#list-30e058) block (within [`baremetal.not_managed.node_l
 
 <a id="deep-88b0ae"></a>Deeply nested **DNS** block collapsed for readability.
 
+#### Baremetal Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-45e57b"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-59c0ad"></a>Deeply nested **Address** block collapsed for readability.
+
 #### Baremetal Not Managed Node List Interface List IPv6 Auto Config Router Stateful
 
 <a id="deep-93e220"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-7457b3"></a>Deeply nested **End** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-cdc4d5"></a>Deeply nested **Start** block collapsed for readability.
 
 #### Baremetal Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks
 
@@ -635,9 +897,41 @@ An [`interface_list`](#list-30e058) block (within [`baremetal.not_managed.node_l
 
 <a id="deep-7e8e06"></a>Deeply nested **Map** block collapsed for readability.
 
+#### Baremetal Not Managed Node List Interface List Monitor
+
+<a id="deep-68fb7e"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List Monitor Disabled
+
+<a id="deep-d18d8c"></a>Deeply nested **Disabled** block collapsed for readability.
+
 #### Baremetal Not Managed Node List Interface List Network Option
 
 <a id="deep-485083"></a>Deeply nested **Option** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List Network Option Site Local Inside Network
+
+<a id="deep-e55a94"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List Network Option Site Local Network
+
+<a id="deep-7c0907"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List No IPv4 Address
+
+<a id="deep-b7b20b"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List No IPv6 Address
+
+<a id="deep-c8ff0a"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List Site To Site Connectivity Interface Disabled
+
+<a id="deep-4286d5"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Baremetal Not Managed Node List Interface List Site To Site Connectivity Interface Enabled
+
+<a id="deep-ac9010"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Baremetal Not Managed Node List Interface List Static IP
 
@@ -659,6 +953,10 @@ An [`interface_list`](#list-30e058) block (within [`baremetal.not_managed.node_l
 
 <a id="deep-910d0a"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### Block All Services
+
+A [`block_all_services`](#block-all-services) block supports the following:
+
 #### Blocked Services
 
 A [`blocked_services`](#blocked-services) block supports the following:
@@ -669,24 +967,36 @@ A [`blocked_services`](#blocked-services) block supports the following:
 
 A [`blocked_service`](#blocked-services-blocked-service) block (within [`blocked_services`](#blocked-services)) supports the following:
 
-<a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Block<br>Enable this option
+<a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Object<br>Enable this option
 
 <a id="type-5b1d65"></a>&#x2022; [`network_type`](#type-5b1d65) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
-<a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Block<br>Enable this option
+<a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Object<br>Enable this option
 
-<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Block<br>Enable this option
+<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Object<br>Enable this option
+
+#### Blocked Services Blocked Service DNS
+
+A [`dns`](#blocked-services-blocked-service-dns) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
+
+#### Blocked Services Blocked Service SSH
+
+A [`ssh`](#blocked-services-blocked-service-ssh) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
+
+#### Blocked Services Blocked Service Web User Interface
+
+A [`web_user_interface`](#interface-1ff33c) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
 
 #### Custom Proxy
 
 A [`custom_proxy`](#custom-proxy) block supports the following:
 
-<a id="custom-proxy-disable-re-tunnel"></a>&#x2022; [`disable_re_tunnel`](#custom-proxy-disable-re-tunnel) - Optional Block<br>Configuration parameter for disable RE tunnel
+<a id="custom-proxy-disable-re-tunnel"></a>&#x2022; [`disable_re_tunnel`](#custom-proxy-disable-re-tunnel) - Optional Object<br>Configuration parameter for disable RE tunnel
 
-<a id="custom-proxy-enable-re-tunnel"></a>&#x2022; [`enable_re_tunnel`](#custom-proxy-enable-re-tunnel) - Optional Block<br>Configuration parameter for enable RE tunnel
+<a id="custom-proxy-enable-re-tunnel"></a>&#x2022; [`enable_re_tunnel`](#custom-proxy-enable-re-tunnel) - Optional Object<br>Configuration parameter for enable RE tunnel
 
 <a id="custom-proxy-password"></a>&#x2022; [`password`](#custom-proxy-password) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Password](#custom-proxy-password) below.
 
@@ -695,6 +1005,14 @@ A [`custom_proxy`](#custom-proxy) block supports the following:
 <a id="custom-proxy-proxy-port"></a>&#x2022; [`proxy_port`](#custom-proxy-proxy-port) - Optional Number<br>Specify the Port of the internal Enterprise Proxy
 
 <a id="custom-proxy-username"></a>&#x2022; [`username`](#custom-proxy-username) - Optional String<br>If the internal Enterprise Proxy is using basic authentication, specify the username. This is an optional field
+
+#### Custom Proxy Disable RE Tunnel
+
+A [`disable_re_tunnel`](#custom-proxy-disable-re-tunnel) block (within [`custom_proxy`](#custom-proxy)) supports the following:
+
+#### Custom Proxy Enable RE Tunnel
+
+An [`enable_re_tunnel`](#custom-proxy-enable-re-tunnel) block (within [`custom_proxy`](#custom-proxy)) supports the following:
 
 #### Custom Proxy Password
 
@@ -748,6 +1066,26 @@ A [`dc_cluster_group_slo`](#dc-cluster-group-slo) block supports the following:
 
 <a id="dc-cluster-group-slo-tenant"></a>&#x2022; [`tenant`](#dc-cluster-group-slo-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Disable Advanced Delivery
+
+A [`disable_advanced_delivery`](#disable-advanced-delivery) block supports the following:
+
+#### Disable HA
+
+A [`disable_ha`](#disable-ha) block supports the following:
+
+#### Disable Log Anonymization
+
+A [`disable_log_anonymization`](#disable-log-anonymization) block supports the following:
+
+#### Disable Management Network
+
+A [`disable_management_network`](#disable-management-network) block supports the following:
+
+#### Disable URL Categorization
+
+A [`disable_url_categorization`](#disable-url-categorization) block supports the following:
+
 #### DNS NTP Config
 
 A [`dns_ntp_config`](#dns-ntp-config) block supports the following:
@@ -756,9 +1094,9 @@ A [`dns_ntp_config`](#dns-ntp-config) block supports the following:
 
 <a id="dns-ntp-config-custom-ntp"></a>&#x2022; [`custom_ntp`](#dns-ntp-config-custom-ntp) - Optional Block<br>NTP Servers. NTP Servers<br>See [Custom NTP](#dns-ntp-config-custom-ntp) below.
 
-<a id="dns-ntp-config-f5-dns-default"></a>&#x2022; [`f5_dns_default`](#dns-ntp-config-f5-dns-default) - Optional Block<br>Configuration parameter for f5 DNS default
+<a id="dns-ntp-config-f5-dns-default"></a>&#x2022; [`f5_dns_default`](#dns-ntp-config-f5-dns-default) - Optional Object<br>Configuration parameter for f5 DNS default
 
-<a id="dns-ntp-config-f5-ntp-default"></a>&#x2022; [`f5_ntp_default`](#dns-ntp-config-f5-ntp-default) - Optional Block<br>Configuration parameter for f5 NTP default
+<a id="dns-ntp-config-f5-ntp-default"></a>&#x2022; [`f5_ntp_default`](#dns-ntp-config-f5-ntp-default) - Optional Object<br>Configuration parameter for f5 NTP default
 
 #### DNS NTP Config Custom DNS
 
@@ -771,6 +1109,34 @@ A [`custom_dns`](#dns-ntp-config-custom-dns) block (within [`dns_ntp_config`](#d
 A [`custom_ntp`](#dns-ntp-config-custom-ntp) block (within [`dns_ntp_config`](#dns-ntp-config)) supports the following:
 
 <a id="dns-ntp-config-custom-ntp-ntp-servers"></a>&#x2022; [`ntp_servers`](#dns-ntp-config-custom-ntp-ntp-servers) - Optional List<br>NTP Servers. NTP Servers
+
+#### DNS NTP Config F5 DNS Default
+
+A [`f5_dns_default`](#dns-ntp-config-f5-dns-default) block (within [`dns_ntp_config`](#dns-ntp-config)) supports the following:
+
+#### DNS NTP Config F5 NTP Default
+
+A [`f5_ntp_default`](#dns-ntp-config-f5-ntp-default) block (within [`dns_ntp_config`](#dns-ntp-config)) supports the following:
+
+#### Enable Advanced Delivery
+
+An [`enable_advanced_delivery`](#enable-advanced-delivery) block supports the following:
+
+#### Enable HA
+
+An [`enable_ha`](#enable-ha) block supports the following:
+
+#### Enable Log Anonymization
+
+An [`enable_log_anonymization`](#enable-log-anonymization) block supports the following:
+
+#### Enable Management Network
+
+An [`enable_management_network`](#enable-management-network) block supports the following:
+
+#### Enable URL Categorization
+
+An [`enable_url_categorization`](#enable-url-categorization) block supports the following:
 
 #### Equinix
 
@@ -804,7 +1170,9 @@ An [`interface_list`](#list-3a9b82) block (within [`equinix.not_managed.node_lis
 
 <a id="spec-d32b48"></a>&#x2022; [`description_spec`](#spec-d32b48) - Optional String<br>Interface Description. Description for this Interface
 
-<a id="client-c83f23"></a>&#x2022; [`dhcp_client`](#client-c83f23) - Optional Block<br>Enable this option
+<a id="client-c83f23"></a>&#x2022; [`dhcp_client`](#client-c83f23) - Optional Object<br>Enable this option
+
+<a id="server-8c84fe"></a>&#x2022; [`dhcp_server`](#server-8c84fe) - Optional Block<br>DHCPServerParametersType<br>See [DHCP Server](#server-8c84fe) below.
 
 <a id="interface-a2d3e0"></a>&#x2022; [`ethernet_interface`](#interface-a2d3e0) - Optional Block<br>Configuration parameter for ethernet interface<br>See [Ethernet Interface](#interface-a2d3e0) below.
 
@@ -812,9 +1180,9 @@ An [`interface_list`](#list-3a9b82) block (within [`equinix.not_managed.node_lis
 
 <a id="labels-718666"></a>&#x2022; [`labels`](#labels-718666) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
-<a id="monitor-15c36b"></a>&#x2022; [`monitor`](#monitor-15c36b) - Optional Block<br>Link Quality Monitoring configuration for a network interface
+<a id="monitor-15c36b"></a>&#x2022; [`monitor`](#monitor-15c36b) - Optional Object<br>Link Quality Monitoring configuration for a network interface
 
-<a id="disabled-5d3350"></a>&#x2022; [`monitor_disabled`](#disabled-5d3350) - Optional Block<br>Enable this option
+<a id="disabled-5d3350"></a>&#x2022; [`monitor_disabled`](#disabled-5d3350) - Optional Object<br>Enable this option
 
 <a id="mtu-80c067"></a>&#x2022; [`mtu`](#mtu-80c067) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
 
@@ -823,15 +1191,15 @@ An [`interface_list`](#list-3a9b82) block (within [`equinix.not_managed.node_lis
 <a id="option-1659e3"></a>&#x2022; [`network_option`](#option-1659e3) - Optional Block<br>Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional<br>See
 [Network Option](#option-1659e3) below.
 
-<a id="address-e9c2b1"></a>&#x2022; [`no_ipv4_address`](#address-e9c2b1) - Optional Block<br>Enable this option
+<a id="address-e9c2b1"></a>&#x2022; [`no_ipv4_address`](#address-e9c2b1) - Optional Object<br>Enable this option
 
-<a id="address-278ecf"></a>&#x2022; [`no_ipv6_address`](#address-278ecf) - Optional Block<br>Enable this option
+<a id="address-278ecf"></a>&#x2022; [`no_ipv6_address`](#address-278ecf) - Optional Object<br>Enable this option
 
 <a id="priority-8326e4"></a>&#x2022; [`priority`](#priority-8326e4) - Optional Number<br>For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority
 
-<a id="disabled-381ac6"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-381ac6) - Optional Block<br>Enable this option
+<a id="disabled-381ac6"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-381ac6) - Optional Object<br>Enable this option
 
-<a id="enabled-ea35c6"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-ea35c6) - Optional Block<br>Enable this option
+<a id="enabled-ea35c6"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-ea35c6) - Optional Object<br>Enable this option
 
 <a id="static-ip-bfc08c"></a>&#x2022; [`static_ip`](#static-ip-bfc08c) - Optional Block<br>Configure Static IP parameters for a node<br>See [Static IP](#static-ip-bfc08c) below.
 
@@ -847,9 +1215,53 @@ An [`interface_list`](#list-3a9b82) block (within [`equinix.not_managed.node_lis
 
 <a id="deep-b565ca"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### Equinix Not Managed Node List Interface List Bond Interface Active Backup
+
+<a id="deep-61baed"></a>Deeply nested **Backup** block collapsed for readability.
+
 #### Equinix Not Managed Node List Interface List Bond Interface Lacp
 
 <a id="deep-08a8f4"></a>Deeply nested **Lacp** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List DHCP Client
+
+<a id="deep-a4e0fb"></a>Deeply nested **Client** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List DHCP Server
+
+<a id="deep-c0cc0b"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List DHCP Server Automatic From End
+
+<a id="deep-acd773"></a>Deeply nested **End** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List DHCP Server Automatic From Start
+
+<a id="deep-22f3aa"></a>Deeply nested **Start** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List DHCP Server DHCP Networks
+
+<a id="deep-fc2878"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List DHCP Server DHCP Networks First Address
+
+<a id="deep-7aab83"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List DHCP Server DHCP Networks Last Address
+
+<a id="deep-246f36"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List DHCP Server DHCP Networks Pools
+
+<a id="deep-f761c7"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-705300"></a>Deeply nested **Dgw** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List DHCP Server Interface IP Map
+
+<a id="deep-26e512"></a>Deeply nested **Map** block collapsed for readability.
 
 #### Equinix Not Managed Node List Interface List Ethernet Interface
 
@@ -858,6 +1270,10 @@ An [`interface_list`](#list-3a9b82) block (within [`equinix.not_managed.node_lis
 #### Equinix Not Managed Node List Interface List IPv6 Auto Config
 
 <a id="deep-f79b98"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List IPv6 Auto Config Host
+
+<a id="deep-27dc30"></a>Deeply nested **Host** block collapsed for readability.
 
 #### Equinix Not Managed Node List Interface List IPv6 Auto Config Router
 
@@ -875,9 +1291,25 @@ An [`interface_list`](#list-3a9b82) block (within [`equinix.not_managed.node_lis
 
 <a id="deep-d0977a"></a>Deeply nested **DNS** block collapsed for readability.
 
+#### Equinix Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-ec62e5"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-a30c95"></a>Deeply nested **Address** block collapsed for readability.
+
 #### Equinix Not Managed Node List Interface List IPv6 Auto Config Router Stateful
 
 <a id="deep-c5835c"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-d45a72"></a>Deeply nested **End** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-e47734"></a>Deeply nested **Start** block collapsed for readability.
 
 #### Equinix Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks
 
@@ -891,9 +1323,41 @@ An [`interface_list`](#list-3a9b82) block (within [`equinix.not_managed.node_lis
 
 <a id="deep-27f6d9"></a>Deeply nested **Map** block collapsed for readability.
 
+#### Equinix Not Managed Node List Interface List Monitor
+
+<a id="deep-c82cf3"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List Monitor Disabled
+
+<a id="deep-d6d39b"></a>Deeply nested **Disabled** block collapsed for readability.
+
 #### Equinix Not Managed Node List Interface List Network Option
 
 <a id="deep-da1af1"></a>Deeply nested **Option** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List Network Option Site Local Inside Network
+
+<a id="deep-c0b59f"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List Network Option Site Local Network
+
+<a id="deep-c00057"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List No IPv4 Address
+
+<a id="deep-9747f9"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List No IPv6 Address
+
+<a id="deep-dce05c"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List Site To Site Connectivity Interface Disabled
+
+<a id="deep-4e9d46"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Equinix Not Managed Node List Interface List Site To Site Connectivity Interface Enabled
+
+<a id="deep-110d09"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Equinix Not Managed Node List Interface List Static IP
 
@@ -914,6 +1378,10 @@ An [`interface_list`](#list-3a9b82) block (within [`equinix.not_managed.node_lis
 #### Equinix Not Managed Node List Interface List VLAN Interface
 
 <a id="deep-94cba8"></a>Deeply nested **Interface** block collapsed for readability.
+
+#### F5 Proxy
+
+A [`f5_proxy`](#f5-proxy) block supports the following:
 
 #### GCP
 
@@ -947,7 +1415,9 @@ An [`interface_list`](#list-2f49ff) block (within [`gcp.not_managed.node_list`](
 
 <a id="spec-801a55"></a>&#x2022; [`description_spec`](#spec-801a55) - Optional String<br>Interface Description. Description for this Interface
 
-<a id="client-649578"></a>&#x2022; [`dhcp_client`](#client-649578) - Optional Block<br>Enable this option
+<a id="client-649578"></a>&#x2022; [`dhcp_client`](#client-649578) - Optional Object<br>Enable this option
+
+<a id="server-902e42"></a>&#x2022; [`dhcp_server`](#server-902e42) - Optional Block<br>DHCPServerParametersType<br>See [DHCP Server](#server-902e42) below.
 
 <a id="interface-fa1d2a"></a>&#x2022; [`ethernet_interface`](#interface-fa1d2a) - Optional Block<br>Configuration parameter for ethernet interface<br>See [Ethernet Interface](#interface-fa1d2a) below.
 
@@ -955,9 +1425,9 @@ An [`interface_list`](#list-2f49ff) block (within [`gcp.not_managed.node_list`](
 
 <a id="labels-43ee17"></a>&#x2022; [`labels`](#labels-43ee17) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
-<a id="monitor-986ba9"></a>&#x2022; [`monitor`](#monitor-986ba9) - Optional Block<br>Link Quality Monitoring configuration for a network interface
+<a id="monitor-986ba9"></a>&#x2022; [`monitor`](#monitor-986ba9) - Optional Object<br>Link Quality Monitoring configuration for a network interface
 
-<a id="disabled-33388b"></a>&#x2022; [`monitor_disabled`](#disabled-33388b) - Optional Block<br>Enable this option
+<a id="disabled-33388b"></a>&#x2022; [`monitor_disabled`](#disabled-33388b) - Optional Object<br>Enable this option
 
 <a id="mtu-46e579"></a>&#x2022; [`mtu`](#mtu-46e579) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
 
@@ -966,15 +1436,15 @@ An [`interface_list`](#list-2f49ff) block (within [`gcp.not_managed.node_list`](
 <a id="option-ca04ce"></a>&#x2022; [`network_option`](#option-ca04ce) - Optional Block<br>Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional<br>See
 [Network Option](#option-ca04ce) below.
 
-<a id="address-c52373"></a>&#x2022; [`no_ipv4_address`](#address-c52373) - Optional Block<br>Enable this option
+<a id="address-c52373"></a>&#x2022; [`no_ipv4_address`](#address-c52373) - Optional Object<br>Enable this option
 
-<a id="address-40bebe"></a>&#x2022; [`no_ipv6_address`](#address-40bebe) - Optional Block<br>Enable this option
+<a id="address-40bebe"></a>&#x2022; [`no_ipv6_address`](#address-40bebe) - Optional Object<br>Enable this option
 
 <a id="priority-b17ea9"></a>&#x2022; [`priority`](#priority-b17ea9) - Optional Number<br>For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority
 
-<a id="disabled-45fbad"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-45fbad) - Optional Block<br>Enable this option
+<a id="disabled-45fbad"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-45fbad) - Optional Object<br>Enable this option
 
-<a id="enabled-b641ce"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-b641ce) - Optional Block<br>Enable this option
+<a id="enabled-b641ce"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-b641ce) - Optional Object<br>Enable this option
 
 <a id="static-ip-b40b52"></a>&#x2022; [`static_ip`](#static-ip-b40b52) - Optional Block<br>Configure Static IP parameters for a node<br>See [Static IP](#static-ip-b40b52) below.
 
@@ -990,9 +1460,53 @@ An [`interface_list`](#list-2f49ff) block (within [`gcp.not_managed.node_list`](
 
 <a id="deep-afd6e8"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### GCP Not Managed Node List Interface List Bond Interface Active Backup
+
+<a id="deep-7018e7"></a>Deeply nested **Backup** block collapsed for readability.
+
 #### GCP Not Managed Node List Interface List Bond Interface Lacp
 
 <a id="deep-6c8fc7"></a>Deeply nested **Lacp** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List DHCP Client
+
+<a id="deep-b0de7a"></a>Deeply nested **Client** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List DHCP Server
+
+<a id="deep-037d87"></a>Deeply nested **Server** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List DHCP Server Automatic From End
+
+<a id="deep-22fb3c"></a>Deeply nested **End** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List DHCP Server Automatic From Start
+
+<a id="deep-3ac715"></a>Deeply nested **Start** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List DHCP Server DHCP Networks
+
+<a id="deep-e3e82c"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List DHCP Server DHCP Networks First Address
+
+<a id="deep-8dd958"></a>Deeply nested **Address** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List DHCP Server DHCP Networks Last Address
+
+<a id="deep-c500bf"></a>Deeply nested **Address** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List DHCP Server DHCP Networks Pools
+
+<a id="deep-fe78e5"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-50dae2"></a>Deeply nested **Dgw** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List DHCP Server Interface IP Map
+
+<a id="deep-536382"></a>Deeply nested **Map** block collapsed for readability.
 
 #### GCP Not Managed Node List Interface List Ethernet Interface
 
@@ -1001,6 +1515,10 @@ An [`interface_list`](#list-2f49ff) block (within [`gcp.not_managed.node_list`](
 #### GCP Not Managed Node List Interface List IPv6 Auto Config
 
 <a id="deep-f3d749"></a>Deeply nested **Config** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List IPv6 Auto Config Host
+
+<a id="deep-60fc10"></a>Deeply nested **Host** block collapsed for readability.
 
 #### GCP Not Managed Node List Interface List IPv6 Auto Config Router
 
@@ -1018,9 +1536,25 @@ An [`interface_list`](#list-2f49ff) block (within [`gcp.not_managed.node_list`](
 
 <a id="deep-7cb154"></a>Deeply nested **DNS** block collapsed for readability.
 
+#### GCP Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-313ab5"></a>Deeply nested **Address** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-c1228a"></a>Deeply nested **Address** block collapsed for readability.
+
 #### GCP Not Managed Node List Interface List IPv6 Auto Config Router Stateful
 
 <a id="deep-001e66"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-c81a23"></a>Deeply nested **End** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-8c14dc"></a>Deeply nested **Start** block collapsed for readability.
 
 #### GCP Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks
 
@@ -1034,9 +1568,41 @@ An [`interface_list`](#list-2f49ff) block (within [`gcp.not_managed.node_list`](
 
 <a id="deep-bd61fc"></a>Deeply nested **Map** block collapsed for readability.
 
+#### GCP Not Managed Node List Interface List Monitor
+
+<a id="deep-fac43a"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List Monitor Disabled
+
+<a id="deep-9d3f2a"></a>Deeply nested **Disabled** block collapsed for readability.
+
 #### GCP Not Managed Node List Interface List Network Option
 
 <a id="deep-8d0ef6"></a>Deeply nested **Option** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List Network Option Site Local Inside Network
+
+<a id="deep-ccab19"></a>Deeply nested **Network** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List Network Option Site Local Network
+
+<a id="deep-352848"></a>Deeply nested **Network** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List No IPv4 Address
+
+<a id="deep-fbf204"></a>Deeply nested **Address** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List No IPv6 Address
+
+<a id="deep-90dc5a"></a>Deeply nested **Address** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List Site To Site Connectivity Interface Disabled
+
+<a id="deep-94fb32"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### GCP Not Managed Node List Interface List Site To Site Connectivity Interface Enabled
+
+<a id="deep-00cd6a"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### GCP Not Managed Node List Interface List Static IP
 
@@ -1090,7 +1656,9 @@ An [`interface_list`](#list-92338f) block (within [`kvm.not_managed.node_list`](
 
 <a id="spec-c3f95c"></a>&#x2022; [`description_spec`](#spec-c3f95c) - Optional String<br>Interface Description. Description for this Interface
 
-<a id="client-59a349"></a>&#x2022; [`dhcp_client`](#client-59a349) - Optional Block<br>Enable this option
+<a id="client-59a349"></a>&#x2022; [`dhcp_client`](#client-59a349) - Optional Object<br>Enable this option
+
+<a id="server-1d27e8"></a>&#x2022; [`dhcp_server`](#server-1d27e8) - Optional Block<br>DHCPServerParametersType<br>See [DHCP Server](#server-1d27e8) below.
 
 <a id="interface-0aad1d"></a>&#x2022; [`ethernet_interface`](#interface-0aad1d) - Optional Block<br>Configuration parameter for ethernet interface<br>See [Ethernet Interface](#interface-0aad1d) below.
 
@@ -1098,9 +1666,9 @@ An [`interface_list`](#list-92338f) block (within [`kvm.not_managed.node_list`](
 
 <a id="labels-36ae51"></a>&#x2022; [`labels`](#labels-36ae51) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
-<a id="monitor-1bfade"></a>&#x2022; [`monitor`](#monitor-1bfade) - Optional Block<br>Link Quality Monitoring configuration for a network interface
+<a id="monitor-1bfade"></a>&#x2022; [`monitor`](#monitor-1bfade) - Optional Object<br>Link Quality Monitoring configuration for a network interface
 
-<a id="disabled-2ad250"></a>&#x2022; [`monitor_disabled`](#disabled-2ad250) - Optional Block<br>Enable this option
+<a id="disabled-2ad250"></a>&#x2022; [`monitor_disabled`](#disabled-2ad250) - Optional Object<br>Enable this option
 
 <a id="mtu-d603a1"></a>&#x2022; [`mtu`](#mtu-d603a1) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
 
@@ -1109,15 +1677,15 @@ An [`interface_list`](#list-92338f) block (within [`kvm.not_managed.node_list`](
 <a id="option-437c33"></a>&#x2022; [`network_option`](#option-437c33) - Optional Block<br>Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional<br>See
 [Network Option](#option-437c33) below.
 
-<a id="address-4c9457"></a>&#x2022; [`no_ipv4_address`](#address-4c9457) - Optional Block<br>Enable this option
+<a id="address-4c9457"></a>&#x2022; [`no_ipv4_address`](#address-4c9457) - Optional Object<br>Enable this option
 
-<a id="address-e9ec91"></a>&#x2022; [`no_ipv6_address`](#address-e9ec91) - Optional Block<br>Enable this option
+<a id="address-e9ec91"></a>&#x2022; [`no_ipv6_address`](#address-e9ec91) - Optional Object<br>Enable this option
 
 <a id="priority-931ade"></a>&#x2022; [`priority`](#priority-931ade) - Optional Number<br>For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority
 
-<a id="disabled-320aad"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-320aad) - Optional Block<br>Enable this option
+<a id="disabled-320aad"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-320aad) - Optional Object<br>Enable this option
 
-<a id="enabled-390b0a"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-390b0a) - Optional Block<br>Enable this option
+<a id="enabled-390b0a"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-390b0a) - Optional Object<br>Enable this option
 
 <a id="static-ip-f20c45"></a>&#x2022; [`static_ip`](#static-ip-f20c45) - Optional Block<br>Configure Static IP parameters for a node<br>See [Static IP](#static-ip-f20c45) below.
 
@@ -1133,9 +1701,53 @@ An [`interface_list`](#list-92338f) block (within [`kvm.not_managed.node_list`](
 
 <a id="deep-fc631b"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### Kvm Not Managed Node List Interface List Bond Interface Active Backup
+
+<a id="deep-43b4b4"></a>Deeply nested **Backup** block collapsed for readability.
+
 #### Kvm Not Managed Node List Interface List Bond Interface Lacp
 
 <a id="deep-1326df"></a>Deeply nested **Lacp** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List DHCP Client
+
+<a id="deep-7d187b"></a>Deeply nested **Client** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List DHCP Server
+
+<a id="deep-4093a9"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List DHCP Server Automatic From End
+
+<a id="deep-674e36"></a>Deeply nested **End** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List DHCP Server Automatic From Start
+
+<a id="deep-efc5a1"></a>Deeply nested **Start** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List DHCP Server DHCP Networks
+
+<a id="deep-9f8d49"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List DHCP Server DHCP Networks First Address
+
+<a id="deep-b00981"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List DHCP Server DHCP Networks Last Address
+
+<a id="deep-e32f55"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List DHCP Server DHCP Networks Pools
+
+<a id="deep-73f494"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-356dd8"></a>Deeply nested **Dgw** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List DHCP Server Interface IP Map
+
+<a id="deep-9d7093"></a>Deeply nested **Map** block collapsed for readability.
 
 #### Kvm Not Managed Node List Interface List Ethernet Interface
 
@@ -1144,6 +1756,10 @@ An [`interface_list`](#list-92338f) block (within [`kvm.not_managed.node_list`](
 #### Kvm Not Managed Node List Interface List IPv6 Auto Config
 
 <a id="deep-c39ea2"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List IPv6 Auto Config Host
+
+<a id="deep-8d7325"></a>Deeply nested **Host** block collapsed for readability.
 
 #### Kvm Not Managed Node List Interface List IPv6 Auto Config Router
 
@@ -1161,9 +1777,25 @@ An [`interface_list`](#list-92338f) block (within [`kvm.not_managed.node_list`](
 
 <a id="deep-ca2600"></a>Deeply nested **DNS** block collapsed for readability.
 
+#### Kvm Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-bd077c"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-f638fa"></a>Deeply nested **Address** block collapsed for readability.
+
 #### Kvm Not Managed Node List Interface List IPv6 Auto Config Router Stateful
 
 <a id="deep-0e9ec4"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-4550de"></a>Deeply nested **End** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-783831"></a>Deeply nested **Start** block collapsed for readability.
 
 #### Kvm Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks
 
@@ -1177,9 +1809,41 @@ An [`interface_list`](#list-92338f) block (within [`kvm.not_managed.node_list`](
 
 <a id="deep-4a6bec"></a>Deeply nested **Map** block collapsed for readability.
 
+#### Kvm Not Managed Node List Interface List Monitor
+
+<a id="deep-291073"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List Monitor Disabled
+
+<a id="deep-57b0ea"></a>Deeply nested **Disabled** block collapsed for readability.
+
 #### Kvm Not Managed Node List Interface List Network Option
 
 <a id="deep-62e6b3"></a>Deeply nested **Option** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List Network Option Site Local Inside Network
+
+<a id="deep-98e089"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List Network Option Site Local Network
+
+<a id="deep-2f304a"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List No IPv4 Address
+
+<a id="deep-c6ca83"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List No IPv6 Address
+
+<a id="deep-f199e5"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List Site To Site Connectivity Interface Disabled
+
+<a id="deep-3eb12c"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Kvm Not Managed Node List Interface List Site To Site Connectivity Interface Enabled
+
+<a id="deep-d46d08"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Kvm Not Managed Node List Interface List Static IP
 
@@ -1211,13 +1875,21 @@ A [`load_balancing`](#load-balancing) block supports the following:
 
 A [`local_vrf`](#local-vrf) block supports the following:
 
-<a id="local-vrf-default-config"></a>&#x2022; [`default_config`](#local-vrf-default-config) - Optional Block<br>Enable this option
+<a id="local-vrf-default-config"></a>&#x2022; [`default_config`](#local-vrf-default-config) - Optional Object<br>Enable this option
 
-<a id="local-vrf-default-sli-config"></a>&#x2022; [`default_sli_config`](#local-vrf-default-sli-config) - Optional Block<br>Enable this option
+<a id="local-vrf-default-sli-config"></a>&#x2022; [`default_sli_config`](#local-vrf-default-sli-config) - Optional Object<br>Enable this option
 
 <a id="local-vrf-sli-config"></a>&#x2022; [`sli_config`](#local-vrf-sli-config) - Optional Block<br>Site Local Network Configuration. Site local network configuration<br>See [SLI Config](#local-vrf-sli-config) below.
 
 <a id="local-vrf-slo-config"></a>&#x2022; [`slo_config`](#local-vrf-slo-config) - Optional Block<br>Site Local Network Configuration. Site local network configuration<br>See [Slo Config](#local-vrf-slo-config) below.
+
+#### Local Vrf Default Config
+
+A [`default_config`](#local-vrf-default-config) block (within [`local_vrf`](#local-vrf)) supports the following:
+
+#### Local Vrf Default SLI Config
+
+A [`default_sli_config`](#local-vrf-default-sli-config) block (within [`local_vrf`](#local-vrf)) supports the following:
 
 #### Local Vrf SLI Config
 
@@ -1227,9 +1899,9 @@ A [`sli_config`](#local-vrf-sli-config) block (within [`local_vrf`](#local-vrf))
 
 <a id="local-vrf-sli-config-nameserver"></a>&#x2022; [`nameserver`](#local-vrf-sli-config-nameserver) - Optional String<br>Optional IPv4 DNS server to be used for name resolution
 
-<a id="local-vrf-sli-config-no-static-routes"></a>&#x2022; [`no_static_routes`](#local-vrf-sli-config-no-static-routes) - Optional Block<br>Configuration parameter for no static routes
+<a id="local-vrf-sli-config-no-static-routes"></a>&#x2022; [`no_static_routes`](#local-vrf-sli-config-no-static-routes) - Optional Object<br>Configuration parameter for no static routes
 
-<a id="routes-53016e"></a>&#x2022; [`no_v6_static_routes`](#routes-53016e) - Optional Block<br>Configuration parameter for no v6 static routes
+<a id="routes-53016e"></a>&#x2022; [`no_v6_static_routes`](#routes-53016e) - Optional Object<br>Configuration parameter for no v6 static routes
 
 <a id="nameserver-76fa19"></a>&#x2022; [`secondary_nameserver`](#nameserver-76fa19) - Optional String<br>Optional Secondary IPv4 DNS server to be used for name resolution
 
@@ -1238,6 +1910,14 @@ A [`sli_config`](#local-vrf-sli-config) block (within [`local_vrf`](#local-vrf))
 <a id="local-vrf-sli-config-static-v6-routes"></a>&#x2022; [`static_v6_routes`](#local-vrf-sli-config-static-v6-routes) - Optional Block<br>Configuration parameter for static v6 routes<br>See [Static V6 Routes](#local-vrf-sli-config-static-v6-routes) below.
 
 <a id="local-vrf-sli-config-vip"></a>&#x2022; [`vip`](#local-vrf-sli-config-vip) - Optional String<br>Optional common virtual V4 IP across all nodes to be used as automatic VIP
+
+#### Local Vrf SLI Config No Static Routes
+
+A [`no_static_routes`](#local-vrf-sli-config-no-static-routes) block (within [`local_vrf.sli_config`](#local-vrf-sli-config)) supports the following:
+
+#### Local Vrf SLI Config No V6 Static Routes
+
+<a id="deep-f29235"></a>Deeply nested **Routes** block collapsed for readability.
 
 #### Local Vrf SLI Config Static Routes
 
@@ -1248,6 +1928,10 @@ A [`static_routes`](#local-vrf-sli-config-static-routes) block (within [`local_v
 #### Local Vrf SLI Config Static Routes Static Routes
 
 <a id="deep-0b00a5"></a>Deeply nested **Routes** block collapsed for readability.
+
+#### Local Vrf SLI Config Static Routes Static Routes Default Gateway
+
+<a id="deep-e27ff0"></a>Deeply nested **Gateway** block collapsed for readability.
 
 #### Local Vrf SLI Config Static Routes Static Routes Node Interface
 
@@ -1271,6 +1955,10 @@ A [`static_v6_routes`](#local-vrf-sli-config-static-v6-routes) block (within [`l
 
 <a id="deep-26bfb4"></a>Deeply nested **Routes** block collapsed for readability.
 
+#### Local Vrf SLI Config Static V6 Routes Static Routes Default Gateway
+
+<a id="deep-d9613d"></a>Deeply nested **Gateway** block collapsed for readability.
+
 #### Local Vrf SLI Config Static V6 Routes Static Routes Node Interface
 
 <a id="deep-989f5e"></a>Deeply nested **Interface** block collapsed for readability.
@@ -1291,9 +1979,9 @@ A [`slo_config`](#local-vrf-slo-config) block (within [`local_vrf`](#local-vrf))
 
 <a id="local-vrf-slo-config-nameserver"></a>&#x2022; [`nameserver`](#local-vrf-slo-config-nameserver) - Optional String<br>Optional IPv4 DNS server to be used for name resolution
 
-<a id="local-vrf-slo-config-no-static-routes"></a>&#x2022; [`no_static_routes`](#local-vrf-slo-config-no-static-routes) - Optional Block<br>Configuration parameter for no static routes
+<a id="local-vrf-slo-config-no-static-routes"></a>&#x2022; [`no_static_routes`](#local-vrf-slo-config-no-static-routes) - Optional Object<br>Configuration parameter for no static routes
 
-<a id="routes-a47310"></a>&#x2022; [`no_v6_static_routes`](#routes-a47310) - Optional Block<br>Configuration parameter for no v6 static routes
+<a id="routes-a47310"></a>&#x2022; [`no_v6_static_routes`](#routes-a47310) - Optional Object<br>Configuration parameter for no v6 static routes
 
 <a id="nameserver-8a32f8"></a>&#x2022; [`secondary_nameserver`](#nameserver-8a32f8) - Optional String<br>Optional Secondary IPv4 DNS server to be used for name resolution
 
@@ -1302,6 +1990,14 @@ A [`slo_config`](#local-vrf-slo-config) block (within [`local_vrf`](#local-vrf))
 <a id="local-vrf-slo-config-static-v6-routes"></a>&#x2022; [`static_v6_routes`](#local-vrf-slo-config-static-v6-routes) - Optional Block<br>Configuration parameter for static v6 routes<br>See [Static V6 Routes](#local-vrf-slo-config-static-v6-routes) below.
 
 <a id="local-vrf-slo-config-vip"></a>&#x2022; [`vip`](#local-vrf-slo-config-vip) - Optional String<br>Optional common virtual V4 IP across all nodes to be used as automatic VIP
+
+#### Local Vrf Slo Config No Static Routes
+
+A [`no_static_routes`](#local-vrf-slo-config-no-static-routes) block (within [`local_vrf.slo_config`](#local-vrf-slo-config)) supports the following:
+
+#### Local Vrf Slo Config No V6 Static Routes
+
+<a id="deep-76160d"></a>Deeply nested **Routes** block collapsed for readability.
 
 #### Local Vrf Slo Config Static Routes
 
@@ -1312,6 +2008,10 @@ A [`static_routes`](#local-vrf-slo-config-static-routes) block (within [`local_v
 #### Local Vrf Slo Config Static Routes Static Routes
 
 <a id="deep-c4ba70"></a>Deeply nested **Routes** block collapsed for readability.
+
+#### Local Vrf Slo Config Static Routes Static Routes Default Gateway
+
+<a id="deep-ad0d5b"></a>Deeply nested **Gateway** block collapsed for readability.
 
 #### Local Vrf Slo Config Static Routes Static Routes Node Interface
 
@@ -1335,6 +2035,10 @@ A [`static_v6_routes`](#local-vrf-slo-config-static-v6-routes) block (within [`l
 
 <a id="deep-69c74f"></a>Deeply nested **Routes** block collapsed for readability.
 
+#### Local Vrf Slo Config Static V6 Routes Static Routes Default Gateway
+
+<a id="deep-5d04de"></a>Deeply nested **Gateway** block collapsed for readability.
+
 #### Local Vrf Slo Config Static V6 Routes Static Routes Node Interface
 
 <a id="deep-c59810"></a>Deeply nested **Interface** block collapsed for readability.
@@ -1353,9 +2057,9 @@ A [`log_receiver_with_net`](#log-receiver-with-net) block supports the following
 
 <a id="log-receiver-with-net-log-receiver"></a>&#x2022; [`log_receiver`](#log-receiver-with-net-log-receiver) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Log Receiver](#log-receiver-with-net-log-receiver) below.
 
-<a id="network-b0393d"></a>&#x2022; [`use_management_network`](#network-b0393d) - Optional Block<br>Configuration parameter for use management network
+<a id="network-b0393d"></a>&#x2022; [`use_management_network`](#network-b0393d) - Optional Object<br>Configuration parameter for use management network
 
-<a id="log-receiver-with-net-use-slo-sli"></a>&#x2022; [`use_slo_sli`](#log-receiver-with-net-use-slo-sli) - Optional Block<br>Configuration parameter for use slo SLI
+<a id="log-receiver-with-net-use-slo-sli"></a>&#x2022; [`use_slo_sli`](#log-receiver-with-net-use-slo-sli) - Optional Object<br>Configuration parameter for use slo SLI
 
 #### Log Receiver With Net Log Receiver
 
@@ -1366,6 +2070,38 @@ A [`log_receiver`](#log-receiver-with-net-log-receiver) block (within [`log_rece
 <a id="namespace-b8fecb"></a>&#x2022; [`namespace`](#namespace-b8fecb) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="tenant-b45a11"></a>&#x2022; [`tenant`](#tenant-b45a11) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Log Receiver With Net Use Management Network
+
+An [`use_management_network`](#network-b0393d) block (within [`log_receiver_with_net`](#log-receiver-with-net)) supports the following:
+
+#### Log Receiver With Net Use Slo SLI
+
+An [`use_slo_sli`](#log-receiver-with-net-use-slo-sli) block (within [`log_receiver_with_net`](#log-receiver-with-net)) supports the following:
+
+#### Logs Streaming Disabled
+
+A [`logs_streaming_disabled`](#logs-streaming-disabled) block supports the following:
+
+#### No Forward Proxy
+
+A [`no_forward_proxy`](#no-forward-proxy) block supports the following:
+
+#### No Network Policy
+
+A [`no_network_policy`](#no-network-policy) block supports the following:
+
+#### No Proxy Bypass
+
+A [`no_proxy_bypass`](#no-proxy-bypass) block supports the following:
+
+#### No S2S Connectivity SLI
+
+A [`no_s2s_connectivity_sli`](#no-s2s-connectivity-sli) block supports the following:
+
+#### No S2S Connectivity Slo
+
+A [`no_s2s_connectivity_slo`](#no-s2s-connectivity-slo) block supports the following:
 
 #### Nutanix
 
@@ -1399,7 +2135,9 @@ An [`interface_list`](#list-b40ceb) block (within [`nutanix.not_managed.node_lis
 
 <a id="spec-baa727"></a>&#x2022; [`description_spec`](#spec-baa727) - Optional String<br>Interface Description. Description for this Interface
 
-<a id="client-112522"></a>&#x2022; [`dhcp_client`](#client-112522) - Optional Block<br>Enable this option
+<a id="client-112522"></a>&#x2022; [`dhcp_client`](#client-112522) - Optional Object<br>Enable this option
+
+<a id="server-72a068"></a>&#x2022; [`dhcp_server`](#server-72a068) - Optional Block<br>DHCPServerParametersType<br>See [DHCP Server](#server-72a068) below.
 
 <a id="interface-d78243"></a>&#x2022; [`ethernet_interface`](#interface-d78243) - Optional Block<br>Configuration parameter for ethernet interface<br>See [Ethernet Interface](#interface-d78243) below.
 
@@ -1407,9 +2145,9 @@ An [`interface_list`](#list-b40ceb) block (within [`nutanix.not_managed.node_lis
 
 <a id="labels-c91cb8"></a>&#x2022; [`labels`](#labels-c91cb8) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
-<a id="monitor-824921"></a>&#x2022; [`monitor`](#monitor-824921) - Optional Block<br>Link Quality Monitoring configuration for a network interface
+<a id="monitor-824921"></a>&#x2022; [`monitor`](#monitor-824921) - Optional Object<br>Link Quality Monitoring configuration for a network interface
 
-<a id="disabled-1b5f4c"></a>&#x2022; [`monitor_disabled`](#disabled-1b5f4c) - Optional Block<br>Enable this option
+<a id="disabled-1b5f4c"></a>&#x2022; [`monitor_disabled`](#disabled-1b5f4c) - Optional Object<br>Enable this option
 
 <a id="mtu-9286d4"></a>&#x2022; [`mtu`](#mtu-9286d4) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
 
@@ -1418,15 +2156,15 @@ An [`interface_list`](#list-b40ceb) block (within [`nutanix.not_managed.node_lis
 <a id="option-40de75"></a>&#x2022; [`network_option`](#option-40de75) - Optional Block<br>Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional<br>See
 [Network Option](#option-40de75) below.
 
-<a id="address-768ec8"></a>&#x2022; [`no_ipv4_address`](#address-768ec8) - Optional Block<br>Enable this option
+<a id="address-768ec8"></a>&#x2022; [`no_ipv4_address`](#address-768ec8) - Optional Object<br>Enable this option
 
-<a id="address-9dd875"></a>&#x2022; [`no_ipv6_address`](#address-9dd875) - Optional Block<br>Enable this option
+<a id="address-9dd875"></a>&#x2022; [`no_ipv6_address`](#address-9dd875) - Optional Object<br>Enable this option
 
 <a id="priority-e54ce8"></a>&#x2022; [`priority`](#priority-e54ce8) - Optional Number<br>For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority
 
-<a id="disabled-a3014f"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-a3014f) - Optional Block<br>Enable this option
+<a id="disabled-a3014f"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-a3014f) - Optional Object<br>Enable this option
 
-<a id="enabled-47989b"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-47989b) - Optional Block<br>Enable this option
+<a id="enabled-47989b"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-47989b) - Optional Object<br>Enable this option
 
 <a id="static-ip-09302a"></a>&#x2022; [`static_ip`](#static-ip-09302a) - Optional Block<br>Configure Static IP parameters for a node<br>See [Static IP](#static-ip-09302a) below.
 
@@ -1442,9 +2180,53 @@ An [`interface_list`](#list-b40ceb) block (within [`nutanix.not_managed.node_lis
 
 <a id="deep-a0d86e"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### Nutanix Not Managed Node List Interface List Bond Interface Active Backup
+
+<a id="deep-0840d1"></a>Deeply nested **Backup** block collapsed for readability.
+
 #### Nutanix Not Managed Node List Interface List Bond Interface Lacp
 
 <a id="deep-452ac2"></a>Deeply nested **Lacp** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List DHCP Client
+
+<a id="deep-bdf3d0"></a>Deeply nested **Client** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List DHCP Server
+
+<a id="deep-bca651"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List DHCP Server Automatic From End
+
+<a id="deep-8ad526"></a>Deeply nested **End** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List DHCP Server Automatic From Start
+
+<a id="deep-98cc51"></a>Deeply nested **Start** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List DHCP Server DHCP Networks
+
+<a id="deep-a4e990"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List DHCP Server DHCP Networks First Address
+
+<a id="deep-eec262"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List DHCP Server DHCP Networks Last Address
+
+<a id="deep-58cf10"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List DHCP Server DHCP Networks Pools
+
+<a id="deep-695e58"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-a0693e"></a>Deeply nested **Dgw** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List DHCP Server Interface IP Map
+
+<a id="deep-2b181c"></a>Deeply nested **Map** block collapsed for readability.
 
 #### Nutanix Not Managed Node List Interface List Ethernet Interface
 
@@ -1453,6 +2235,10 @@ An [`interface_list`](#list-b40ceb) block (within [`nutanix.not_managed.node_lis
 #### Nutanix Not Managed Node List Interface List IPv6 Auto Config
 
 <a id="deep-ae55a4"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List IPv6 Auto Config Host
+
+<a id="deep-c8c1df"></a>Deeply nested **Host** block collapsed for readability.
 
 #### Nutanix Not Managed Node List Interface List IPv6 Auto Config Router
 
@@ -1470,9 +2256,25 @@ An [`interface_list`](#list-b40ceb) block (within [`nutanix.not_managed.node_lis
 
 <a id="deep-d92def"></a>Deeply nested **DNS** block collapsed for readability.
 
+#### Nutanix Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-87b616"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-2125e9"></a>Deeply nested **Address** block collapsed for readability.
+
 #### Nutanix Not Managed Node List Interface List IPv6 Auto Config Router Stateful
 
 <a id="deep-be66c9"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-30379f"></a>Deeply nested **End** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-0af5a4"></a>Deeply nested **Start** block collapsed for readability.
 
 #### Nutanix Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks
 
@@ -1486,9 +2288,41 @@ An [`interface_list`](#list-b40ceb) block (within [`nutanix.not_managed.node_lis
 
 <a id="deep-138aec"></a>Deeply nested **Map** block collapsed for readability.
 
+#### Nutanix Not Managed Node List Interface List Monitor
+
+<a id="deep-e4510a"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List Monitor Disabled
+
+<a id="deep-301be0"></a>Deeply nested **Disabled** block collapsed for readability.
+
 #### Nutanix Not Managed Node List Interface List Network Option
 
 <a id="deep-bd2504"></a>Deeply nested **Option** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List Network Option Site Local Inside Network
+
+<a id="deep-2864b2"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List Network Option Site Local Network
+
+<a id="deep-2a7823"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List No IPv4 Address
+
+<a id="deep-dfc7c8"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List No IPv6 Address
+
+<a id="deep-c9e295"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List Site To Site Connectivity Interface Disabled
+
+<a id="deep-0df02b"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Nutanix Not Managed Node List Interface List Site To Site Connectivity Interface Enabled
+
+<a id="deep-768c0e"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Nutanix Not Managed Node List Interface List Static IP
 
@@ -1542,7 +2376,9 @@ An [`interface_list`](#list-af4877) block (within [`oci.not_managed.node_list`](
 
 <a id="spec-6e395f"></a>&#x2022; [`description_spec`](#spec-6e395f) - Optional String<br>Interface Description. Description for this Interface
 
-<a id="client-29509c"></a>&#x2022; [`dhcp_client`](#client-29509c) - Optional Block<br>Enable this option
+<a id="client-29509c"></a>&#x2022; [`dhcp_client`](#client-29509c) - Optional Object<br>Enable this option
+
+<a id="server-19b578"></a>&#x2022; [`dhcp_server`](#server-19b578) - Optional Block<br>DHCPServerParametersType<br>See [DHCP Server](#server-19b578) below.
 
 <a id="interface-e66013"></a>&#x2022; [`ethernet_interface`](#interface-e66013) - Optional Block<br>Configuration parameter for ethernet interface<br>See [Ethernet Interface](#interface-e66013) below.
 
@@ -1550,9 +2386,9 @@ An [`interface_list`](#list-af4877) block (within [`oci.not_managed.node_list`](
 
 <a id="labels-66a173"></a>&#x2022; [`labels`](#labels-66a173) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
-<a id="monitor-2b293c"></a>&#x2022; [`monitor`](#monitor-2b293c) - Optional Block<br>Link Quality Monitoring configuration for a network interface
+<a id="monitor-2b293c"></a>&#x2022; [`monitor`](#monitor-2b293c) - Optional Object<br>Link Quality Monitoring configuration for a network interface
 
-<a id="disabled-773f90"></a>&#x2022; [`monitor_disabled`](#disabled-773f90) - Optional Block<br>Enable this option
+<a id="disabled-773f90"></a>&#x2022; [`monitor_disabled`](#disabled-773f90) - Optional Object<br>Enable this option
 
 <a id="mtu-314a9f"></a>&#x2022; [`mtu`](#mtu-314a9f) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
 
@@ -1561,15 +2397,15 @@ An [`interface_list`](#list-af4877) block (within [`oci.not_managed.node_list`](
 <a id="option-747ef7"></a>&#x2022; [`network_option`](#option-747ef7) - Optional Block<br>Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional<br>See
 [Network Option](#option-747ef7) below.
 
-<a id="address-23b964"></a>&#x2022; [`no_ipv4_address`](#address-23b964) - Optional Block<br>Enable this option
+<a id="address-23b964"></a>&#x2022; [`no_ipv4_address`](#address-23b964) - Optional Object<br>Enable this option
 
-<a id="address-009f48"></a>&#x2022; [`no_ipv6_address`](#address-009f48) - Optional Block<br>Enable this option
+<a id="address-009f48"></a>&#x2022; [`no_ipv6_address`](#address-009f48) - Optional Object<br>Enable this option
 
 <a id="priority-aeec59"></a>&#x2022; [`priority`](#priority-aeec59) - Optional Number<br>For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority
 
-<a id="disabled-91e657"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-91e657) - Optional Block<br>Enable this option
+<a id="disabled-91e657"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-91e657) - Optional Object<br>Enable this option
 
-<a id="enabled-9b24dc"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-9b24dc) - Optional Block<br>Enable this option
+<a id="enabled-9b24dc"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-9b24dc) - Optional Object<br>Enable this option
 
 <a id="static-ip-bd24d4"></a>&#x2022; [`static_ip`](#static-ip-bd24d4) - Optional Block<br>Configure Static IP parameters for a node<br>See [Static IP](#static-ip-bd24d4) below.
 
@@ -1585,9 +2421,53 @@ An [`interface_list`](#list-af4877) block (within [`oci.not_managed.node_list`](
 
 <a id="deep-446af8"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### Oci Not Managed Node List Interface List Bond Interface Active Backup
+
+<a id="deep-f644fc"></a>Deeply nested **Backup** block collapsed for readability.
+
 #### Oci Not Managed Node List Interface List Bond Interface Lacp
 
 <a id="deep-4ae1cd"></a>Deeply nested **Lacp** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List DHCP Client
+
+<a id="deep-f28e5a"></a>Deeply nested **Client** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List DHCP Server
+
+<a id="deep-376713"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List DHCP Server Automatic From End
+
+<a id="deep-aade74"></a>Deeply nested **End** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List DHCP Server Automatic From Start
+
+<a id="deep-17fab7"></a>Deeply nested **Start** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List DHCP Server DHCP Networks
+
+<a id="deep-040c2f"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List DHCP Server DHCP Networks First Address
+
+<a id="deep-b236ee"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List DHCP Server DHCP Networks Last Address
+
+<a id="deep-e72ecc"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List DHCP Server DHCP Networks Pools
+
+<a id="deep-40adeb"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-c65e89"></a>Deeply nested **Dgw** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List DHCP Server Interface IP Map
+
+<a id="deep-f57e70"></a>Deeply nested **Map** block collapsed for readability.
 
 #### Oci Not Managed Node List Interface List Ethernet Interface
 
@@ -1596,6 +2476,10 @@ An [`interface_list`](#list-af4877) block (within [`oci.not_managed.node_list`](
 #### Oci Not Managed Node List Interface List IPv6 Auto Config
 
 <a id="deep-a7e52b"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List IPv6 Auto Config Host
+
+<a id="deep-bbfbf7"></a>Deeply nested **Host** block collapsed for readability.
 
 #### Oci Not Managed Node List Interface List IPv6 Auto Config Router
 
@@ -1613,9 +2497,25 @@ An [`interface_list`](#list-af4877) block (within [`oci.not_managed.node_list`](
 
 <a id="deep-d366cc"></a>Deeply nested **DNS** block collapsed for readability.
 
+#### Oci Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-3c3f70"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-2489bf"></a>Deeply nested **Address** block collapsed for readability.
+
 #### Oci Not Managed Node List Interface List IPv6 Auto Config Router Stateful
 
 <a id="deep-41029f"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-1f298c"></a>Deeply nested **End** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-f3b1b8"></a>Deeply nested **Start** block collapsed for readability.
 
 #### Oci Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks
 
@@ -1629,9 +2529,41 @@ An [`interface_list`](#list-af4877) block (within [`oci.not_managed.node_list`](
 
 <a id="deep-108398"></a>Deeply nested **Map** block collapsed for readability.
 
+#### Oci Not Managed Node List Interface List Monitor
+
+<a id="deep-4c9803"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List Monitor Disabled
+
+<a id="deep-4c6cdd"></a>Deeply nested **Disabled** block collapsed for readability.
+
 #### Oci Not Managed Node List Interface List Network Option
 
 <a id="deep-4dc97a"></a>Deeply nested **Option** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List Network Option Site Local Inside Network
+
+<a id="deep-5508d2"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List Network Option Site Local Network
+
+<a id="deep-daa159"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List No IPv4 Address
+
+<a id="deep-f9f47a"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List No IPv6 Address
+
+<a id="deep-22b869"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List Site To Site Connectivity Interface Disabled
+
+<a id="deep-b39ea7"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Oci Not Managed Node List Interface List Site To Site Connectivity Interface Enabled
+
+<a id="deep-db2806"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Oci Not Managed Node List Interface List Static IP
 
@@ -1657,9 +2589,17 @@ An [`interface_list`](#list-af4877) block (within [`oci.not_managed.node_list`](
 
 An [`offline_survivability_mode`](#offline-survivability-mode) block supports the following:
 
-<a id="mode-565021"></a>&#x2022; [`enable_offline_survivability_mode`](#mode-565021) - Optional Block<br>Configuration parameter for enable offline survivability mode
+<a id="mode-565021"></a>&#x2022; [`enable_offline_survivability_mode`](#mode-565021) - Optional Object<br>Configuration parameter for enable offline survivability mode
 
-<a id="mode-02f0c8"></a>&#x2022; [`no_offline_survivability_mode`](#mode-02f0c8) - Optional Block<br>Configuration parameter for no offline survivability mode
+<a id="mode-02f0c8"></a>&#x2022; [`no_offline_survivability_mode`](#mode-02f0c8) - Optional Object<br>Configuration parameter for no offline survivability mode
+
+#### Offline Survivability Mode Enable Offline Survivability Mode
+
+An [`enable_offline_survivability_mode`](#mode-565021) block (within [`offline_survivability_mode`](#offline-survivability-mode)) supports the following:
+
+#### Offline Survivability Mode No Offline Survivability Mode
+
+A [`no_offline_survivability_mode`](#mode-02f0c8) block (within [`offline_survivability_mode`](#offline-survivability-mode)) supports the following:
 
 #### Openshift Virtualization
 
@@ -1693,9 +2633,53 @@ A [`node_list`](#list-2f388f) block (within [`openshift_virtualization.not_manag
 
 <a id="deep-49e0e2"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### Openshift Virtualization Not Managed Node List Interface List Bond Interface Active Backup
+
+<a id="deep-307a75"></a>Deeply nested **Backup** block collapsed for readability.
+
 #### Openshift Virtualization Not Managed Node List Interface List Bond Interface Lacp
 
 <a id="deep-e8e2a1"></a>Deeply nested **Lacp** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List DHCP Client
+
+<a id="deep-80bef4"></a>Deeply nested **Client** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List DHCP Server
+
+<a id="deep-53dbb4"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List DHCP Server Automatic From End
+
+<a id="deep-86c18a"></a>Deeply nested **End** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List DHCP Server Automatic From Start
+
+<a id="deep-2f1a9e"></a>Deeply nested **Start** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List DHCP Server DHCP Networks
+
+<a id="deep-d2bf3e"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List DHCP Server DHCP Networks First Address
+
+<a id="deep-dec76a"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List DHCP Server DHCP Networks Last Address
+
+<a id="deep-d4a1cc"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List DHCP Server DHCP Networks Pools
+
+<a id="deep-3ada11"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-f60817"></a>Deeply nested **Dgw** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List DHCP Server Interface IP Map
+
+<a id="deep-b92a43"></a>Deeply nested **Map** block collapsed for readability.
 
 #### Openshift Virtualization Not Managed Node List Interface List Ethernet Interface
 
@@ -1704,6 +2688,10 @@ A [`node_list`](#list-2f388f) block (within [`openshift_virtualization.not_manag
 #### Openshift Virtualization Not Managed Node List Interface List IPv6 Auto Config
 
 <a id="deep-fd8a3d"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List IPv6 Auto Config Host
+
+<a id="deep-561ab2"></a>Deeply nested **Host** block collapsed for readability.
 
 #### Openshift Virtualization Not Managed Node List Interface List IPv6 Auto Config Router
 
@@ -1721,9 +2709,25 @@ A [`node_list`](#list-2f388f) block (within [`openshift_virtualization.not_manag
 
 <a id="deep-5f799c"></a>Deeply nested **DNS** block collapsed for readability.
 
+#### Openshift Virtualization Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-b4b761"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-4faab7"></a>Deeply nested **Address** block collapsed for readability.
+
 #### Openshift Virtualization Not Managed Node List Interface List IPv6 Auto Config Router Stateful
 
 <a id="deep-d5033c"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-8f1188"></a>Deeply nested **End** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-3e4d3f"></a>Deeply nested **Start** block collapsed for readability.
 
 #### Openshift Virtualization Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks
 
@@ -1737,9 +2741,41 @@ A [`node_list`](#list-2f388f) block (within [`openshift_virtualization.not_manag
 
 <a id="deep-9f6f06"></a>Deeply nested **Map** block collapsed for readability.
 
+#### Openshift Virtualization Not Managed Node List Interface List Monitor
+
+<a id="deep-da7290"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List Monitor Disabled
+
+<a id="deep-4da6a5"></a>Deeply nested **Disabled** block collapsed for readability.
+
 #### Openshift Virtualization Not Managed Node List Interface List Network Option
 
 <a id="deep-74bdcd"></a>Deeply nested **Option** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List Network Option Site Local Inside Network
+
+<a id="deep-34126b"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List Network Option Site Local Network
+
+<a id="deep-d8570e"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List No IPv4 Address
+
+<a id="deep-21047b"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List No IPv6 Address
+
+<a id="deep-8deba1"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List Site To Site Connectivity Interface Disabled
+
+<a id="deep-457c5d"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Openshift Virtualization Not Managed Node List Interface List Site To Site Connectivity Interface Enabled
+
+<a id="deep-a1e854"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Openshift Virtualization Not Managed Node List Interface List Static IP
 
@@ -1793,7 +2829,9 @@ An [`interface_list`](#list-08a137) block (within [`openstack.not_managed.node_l
 
 <a id="spec-6e2a64"></a>&#x2022; [`description_spec`](#spec-6e2a64) - Optional String<br>Interface Description. Description for this Interface
 
-<a id="client-3f6d38"></a>&#x2022; [`dhcp_client`](#client-3f6d38) - Optional Block<br>Enable this option
+<a id="client-3f6d38"></a>&#x2022; [`dhcp_client`](#client-3f6d38) - Optional Object<br>Enable this option
+
+<a id="server-afaa4c"></a>&#x2022; [`dhcp_server`](#server-afaa4c) - Optional Block<br>DHCPServerParametersType<br>See [DHCP Server](#server-afaa4c) below.
 
 <a id="interface-b6bf86"></a>&#x2022; [`ethernet_interface`](#interface-b6bf86) - Optional Block<br>Configuration parameter for ethernet interface<br>See [Ethernet Interface](#interface-b6bf86) below.
 
@@ -1801,9 +2839,9 @@ An [`interface_list`](#list-08a137) block (within [`openstack.not_managed.node_l
 
 <a id="labels-f228d0"></a>&#x2022; [`labels`](#labels-f228d0) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
-<a id="monitor-430458"></a>&#x2022; [`monitor`](#monitor-430458) - Optional Block<br>Link Quality Monitoring configuration for a network interface
+<a id="monitor-430458"></a>&#x2022; [`monitor`](#monitor-430458) - Optional Object<br>Link Quality Monitoring configuration for a network interface
 
-<a id="disabled-7cde43"></a>&#x2022; [`monitor_disabled`](#disabled-7cde43) - Optional Block<br>Enable this option
+<a id="disabled-7cde43"></a>&#x2022; [`monitor_disabled`](#disabled-7cde43) - Optional Object<br>Enable this option
 
 <a id="mtu-12e85c"></a>&#x2022; [`mtu`](#mtu-12e85c) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
 
@@ -1812,15 +2850,15 @@ An [`interface_list`](#list-08a137) block (within [`openstack.not_managed.node_l
 <a id="option-c423fd"></a>&#x2022; [`network_option`](#option-c423fd) - Optional Block<br>Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional<br>See
 [Network Option](#option-c423fd) below.
 
-<a id="address-96a5c5"></a>&#x2022; [`no_ipv4_address`](#address-96a5c5) - Optional Block<br>Enable this option
+<a id="address-96a5c5"></a>&#x2022; [`no_ipv4_address`](#address-96a5c5) - Optional Object<br>Enable this option
 
-<a id="address-9ee17d"></a>&#x2022; [`no_ipv6_address`](#address-9ee17d) - Optional Block<br>Enable this option
+<a id="address-9ee17d"></a>&#x2022; [`no_ipv6_address`](#address-9ee17d) - Optional Object<br>Enable this option
 
 <a id="priority-34866f"></a>&#x2022; [`priority`](#priority-34866f) - Optional Number<br>For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority
 
-<a id="disabled-006035"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-006035) - Optional Block<br>Enable this option
+<a id="disabled-006035"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-006035) - Optional Object<br>Enable this option
 
-<a id="enabled-f181b0"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-f181b0) - Optional Block<br>Enable this option
+<a id="enabled-f181b0"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-f181b0) - Optional Object<br>Enable this option
 
 <a id="static-ip-458635"></a>&#x2022; [`static_ip`](#static-ip-458635) - Optional Block<br>Configure Static IP parameters for a node<br>See [Static IP](#static-ip-458635) below.
 
@@ -1836,9 +2874,53 @@ An [`interface_list`](#list-08a137) block (within [`openstack.not_managed.node_l
 
 <a id="deep-63720a"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### Openstack Not Managed Node List Interface List Bond Interface Active Backup
+
+<a id="deep-3eb1d5"></a>Deeply nested **Backup** block collapsed for readability.
+
 #### Openstack Not Managed Node List Interface List Bond Interface Lacp
 
 <a id="deep-40e69b"></a>Deeply nested **Lacp** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List DHCP Client
+
+<a id="deep-495114"></a>Deeply nested **Client** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List DHCP Server
+
+<a id="deep-b28f93"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List DHCP Server Automatic From End
+
+<a id="deep-619a96"></a>Deeply nested **End** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List DHCP Server Automatic From Start
+
+<a id="deep-8b3873"></a>Deeply nested **Start** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List DHCP Server DHCP Networks
+
+<a id="deep-71d1b5"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List DHCP Server DHCP Networks First Address
+
+<a id="deep-a39c97"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List DHCP Server DHCP Networks Last Address
+
+<a id="deep-c80612"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List DHCP Server DHCP Networks Pools
+
+<a id="deep-b20bd8"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-aa2abe"></a>Deeply nested **Dgw** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List DHCP Server Interface IP Map
+
+<a id="deep-210931"></a>Deeply nested **Map** block collapsed for readability.
 
 #### Openstack Not Managed Node List Interface List Ethernet Interface
 
@@ -1847,6 +2929,10 @@ An [`interface_list`](#list-08a137) block (within [`openstack.not_managed.node_l
 #### Openstack Not Managed Node List Interface List IPv6 Auto Config
 
 <a id="deep-961f80"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List IPv6 Auto Config Host
+
+<a id="deep-90578e"></a>Deeply nested **Host** block collapsed for readability.
 
 #### Openstack Not Managed Node List Interface List IPv6 Auto Config Router
 
@@ -1864,9 +2950,25 @@ An [`interface_list`](#list-08a137) block (within [`openstack.not_managed.node_l
 
 <a id="deep-f991e0"></a>Deeply nested **DNS** block collapsed for readability.
 
+#### Openstack Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-432bca"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-2ee309"></a>Deeply nested **Address** block collapsed for readability.
+
 #### Openstack Not Managed Node List Interface List IPv6 Auto Config Router Stateful
 
 <a id="deep-3b5b14"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-5cbb35"></a>Deeply nested **End** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-c814a7"></a>Deeply nested **Start** block collapsed for readability.
 
 #### Openstack Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks
 
@@ -1880,9 +2982,41 @@ An [`interface_list`](#list-08a137) block (within [`openstack.not_managed.node_l
 
 <a id="deep-4f6a88"></a>Deeply nested **Map** block collapsed for readability.
 
+#### Openstack Not Managed Node List Interface List Monitor
+
+<a id="deep-361597"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List Monitor Disabled
+
+<a id="deep-3375c9"></a>Deeply nested **Disabled** block collapsed for readability.
+
 #### Openstack Not Managed Node List Interface List Network Option
 
 <a id="deep-f60961"></a>Deeply nested **Option** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List Network Option Site Local Inside Network
+
+<a id="deep-c5ea93"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List Network Option Site Local Network
+
+<a id="deep-162760"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List No IPv4 Address
+
+<a id="deep-746cd6"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List No IPv6 Address
+
+<a id="deep-8770b4"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List Site To Site Connectivity Interface Disabled
+
+<a id="deep-b99a3e"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Openstack Not Managed Node List Interface List Site To Site Connectivity Interface Enabled
+
+<a id="deep-b5f787"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Openstack Not Managed Node List Interface List Static IP
 
@@ -1916,25 +3050,47 @@ A [`performance_enhancement_mode`](#performance-enhancement-mode) block supports
 
 A [`perf_mode_l3_enhanced`](#enhanced-31b8ac) block (within [`performance_enhancement_mode`](#performance-enhancement-mode)) supports the following:
 
-<a id="jumbo-7ba5b8"></a>&#x2022; [`jumbo`](#jumbo-7ba5b8) - Optional Block<br>Enable this option
+<a id="jumbo-7ba5b8"></a>&#x2022; [`jumbo`](#jumbo-7ba5b8) - Optional Object<br>Enable this option
 
-<a id="jumbo-95338e"></a>&#x2022; [`no_jumbo`](#jumbo-95338e) - Optional Block<br>Enable this option
+<a id="jumbo-95338e"></a>&#x2022; [`no_jumbo`](#jumbo-95338e) - Optional Object<br>Enable this option
+
+#### Performance Enhancement Mode Perf Mode L3 Enhanced Jumbo
+
+<a id="deep-fc6f31"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Performance Enhancement Mode Perf Mode L3 Enhanced No Jumbo
+
+<a id="deep-7b763f"></a>Deeply nested **Jumbo** block collapsed for readability.
 
 #### Performance Enhancement Mode Perf Mode L7 Enhanced
 
 A [`perf_mode_l7_enhanced`](#enhanced-38f174) block (within [`performance_enhancement_mode`](#performance-enhancement-mode)) supports the following:
 
-<a id="disabled-0c2193"></a>&#x2022; [`jumbo_disabled`](#disabled-0c2193) - Optional Block<br>Enable this option
+<a id="disabled-0c2193"></a>&#x2022; [`jumbo_disabled`](#disabled-0c2193) - Optional Object<br>Enable this option
 
-<a id="enabled-a434b3"></a>&#x2022; [`jumbo_enabled`](#enabled-a434b3) - Optional Block<br>Enable this option
+<a id="enabled-a434b3"></a>&#x2022; [`jumbo_enabled`](#enabled-a434b3) - Optional Object<br>Enable this option
+
+#### Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Disabled
+
+<a id="deep-d34d62"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Enabled
+
+<a id="deep-b16dbd"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### RE Select
 
 A [`re_select`](#re-select) block supports the following:
 
-<a id="re-select-geo-proximity"></a>&#x2022; [`geo_proximity`](#re-select-geo-proximity) - Optional Block<br>Configuration parameter for geo proximity
+<a id="re-select-geo-proximity"></a>&#x2022; [`geo_proximity`](#re-select-geo-proximity) - Optional Object<br>Configuration parameter for geo proximity
+
+<a id="re-select-specific-geography"></a>&#x2022; [`specific_geography`](#re-select-specific-geography) - Optional String<br>Geographic selection for the site's Regional Edge connections
 
 <a id="re-select-specific-re"></a>&#x2022; [`specific_re`](#re-select-specific-re) - Optional Block<br>Select specific REs. This is useful when a site needs to deterministically connect to a set of REs. A site will always be connected to 2 REs<br>See [Specific RE](#re-select-specific-re) below.
+
+#### RE Select Geo Proximity
+
+A [`geo_proximity`](#re-select-geo-proximity) block (within [`re_select`](#re-select)) supports the following:
 
 #### RE Select Specific RE
 
@@ -1959,15 +3115,23 @@ A [`segment_config`](#segment-vrf-segment-config) block (within [`segment_vrf`](
 
 <a id="segment-vrf-segment-config-nameserver"></a>&#x2022; [`nameserver`](#segment-vrf-segment-config-nameserver) - Optional String<br>Optional IPv4 DNS server to be used for name resolution
 
-<a id="routes-e44bf3"></a>&#x2022; [`no_static_routes`](#routes-e44bf3) - Optional Block<br>Configuration parameter for no static routes
+<a id="routes-e44bf3"></a>&#x2022; [`no_static_routes`](#routes-e44bf3) - Optional Object<br>Configuration parameter for no static routes
 
-<a id="routes-16a293"></a>&#x2022; [`no_v6_static_routes`](#routes-16a293) - Optional Block<br>Configuration parameter for no v6 static routes
+<a id="routes-16a293"></a>&#x2022; [`no_v6_static_routes`](#routes-16a293) - Optional Object<br>Configuration parameter for no v6 static routes
 
 <a id="nameserver-70593f"></a>&#x2022; [`secondary_nameserver`](#nameserver-70593f) - Optional String<br>Optional Secondary IPv4 DNS server to be used for name resolution
 
 <a id="routes-657895"></a>&#x2022; [`static_routes`](#routes-657895) - Optional Block<br>Configuration parameter for static routes<br>See [Static Routes](#routes-657895) below.
 
 <a id="routes-b310b9"></a>&#x2022; [`static_v6_routes`](#routes-b310b9) - Optional Block<br>Configuration parameter for static v6 routes<br>See [Static V6 Routes](#routes-b310b9) below.
+
+#### Segment Vrf Segment Config No Static Routes
+
+A [`no_static_routes`](#routes-e44bf3) block (within [`segment_vrf.segment_config`](#segment-vrf-segment-config)) supports the following:
+
+#### Segment Vrf Segment Config No V6 Static Routes
+
+<a id="deep-a13397"></a>Deeply nested **Routes** block collapsed for readability.
 
 #### Segment Vrf Segment Config Static Routes
 
@@ -1978,6 +3142,10 @@ A [`static_routes`](#routes-657895) block (within [`segment_vrf.segment_config`]
 #### Segment Vrf Segment Config Static Routes Static Routes
 
 <a id="deep-ee7098"></a>Deeply nested **Routes** block collapsed for readability.
+
+#### Segment Vrf Segment Config Static Routes Static Routes Default Gateway
+
+<a id="deep-ae6dfa"></a>Deeply nested **Gateway** block collapsed for readability.
 
 #### Segment Vrf Segment Config Static Routes Static Routes Node Interface
 
@@ -2000,6 +3168,10 @@ A [`static_v6_routes`](#routes-b310b9) block (within [`segment_vrf.segment_confi
 #### Segment Vrf Segment Config Static V6 Routes Static Routes
 
 <a id="deep-6bf738"></a>Deeply nested **Routes** block collapsed for readability.
+
+#### Segment Vrf Segment Config Static V6 Routes Static Routes Default Gateway
+
+<a id="deep-878e6f"></a>Deeply nested **Gateway** block collapsed for readability.
 
 #### Segment Vrf Segment Config Static V6 Routes Static Routes Node Interface
 
@@ -2031,17 +3203,29 @@ A [`segment_network`](#segment-vrf-segment-network) block (within [`segment_vrf`
 
 A [`site_mesh_group_on_slo`](#site-mesh-group-on-slo) block supports the following:
 
-<a id="group-0918cc"></a>&#x2022; [`no_site_mesh_group`](#group-0918cc) - Optional Block<br>Enable this option
+<a id="group-0918cc"></a>&#x2022; [`no_site_mesh_group`](#group-0918cc) - Optional Object<br>Enable this option
 
 <a id="site-mesh-group-on-slo-site-mesh-group"></a>&#x2022; [`site_mesh_group`](#site-mesh-group-on-slo-site-mesh-group) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Site Mesh Group](#site-mesh-group-on-slo-site-mesh-group) below.
 
-<a id="public-ip-ebd29c"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-ebd29c) - Optional Block<br>Enable this option
+<a id="public-ip-ebd29c"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-ebd29c) - Optional Object<br>Enable this option
 
-<a id="pvt-ip-9317b2"></a>&#x2022; [`sm_connection_pvt_ip`](#pvt-ip-9317b2) - Optional Block<br>Enable this option
+<a id="pvt-ip-9317b2"></a>&#x2022; [`sm_connection_pvt_ip`](#pvt-ip-9317b2) - Optional Object<br>Enable this option
+
+#### Site Mesh Group On Slo No Site Mesh Group
+
+<a id="deep-206db8"></a>Deeply nested **Group** block collapsed for readability.
 
 #### Site Mesh Group On Slo Site Mesh Group
 
 <a id="deep-e180b6"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Site Mesh Group On Slo Sm Connection Public IP
+
+<a id="deep-272934"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Site Mesh Group On Slo Sm Connection Pvt IP
+
+<a id="deep-c5f70b"></a>Deeply nested **IP** block collapsed for readability.
 
 #### Software Settings
 
@@ -2055,17 +3239,25 @@ A [`software_settings`](#software-settings) block supports the following:
 
 An [`os`](#software-settings-os) block (within [`software_settings`](#software-settings)) supports the following:
 
-<a id="software-settings-os-default-os-version"></a>&#x2022; [`default_os_version`](#software-settings-os-default-os-version) - Optional Block<br>Enable this option
+<a id="software-settings-os-default-os-version"></a>&#x2022; [`default_os_version`](#software-settings-os-default-os-version) - Optional Object<br>Enable this option
 
 <a id="version-dbab0c"></a>&#x2022; [`operating_system_version`](#version-dbab0c) - Optional String<br>Specify a OS version to be used e.g. 9.2024.6
+
+#### Software Settings OS Default OS Version
+
+A [`default_os_version`](#software-settings-os-default-os-version) block (within [`software_settings.os`](#software-settings-os)) supports the following:
 
 #### Software Settings Sw
 
 A [`sw`](#software-settings-sw) block (within [`software_settings`](#software-settings)) supports the following:
 
-<a id="software-settings-sw-default-sw-version"></a>&#x2022; [`default_sw_version`](#software-settings-sw-default-sw-version) - Optional Block<br>Enable this option
+<a id="software-settings-sw-default-sw-version"></a>&#x2022; [`default_sw_version`](#software-settings-sw-default-sw-version) - Optional Object<br>Enable this option
 
 <a id="version-0a788c"></a>&#x2022; [`volterra_software_version`](#version-0a788c) - Optional String<br>Specify a F5XC Software Version to be used e.g. Crt-20210329-1002
+
+#### Software Settings Sw Default Sw Version
+
+A [`default_sw_version`](#software-settings-sw-default-sw-version) block (within [`software_settings.sw`](#software-settings-sw)) supports the following:
 
 #### Timeouts
 
@@ -2089,13 +3281,25 @@ An [`upgrade_settings`](#upgrade-settings) block supports the following:
 
 A [`kubernetes_upgrade_drain`](#drain-bb0463) block (within [`upgrade_settings`](#upgrade-settings)) supports the following:
 
-<a id="drain-897b77"></a>&#x2022; [`disable_upgrade_drain`](#drain-897b77) - Optional Block<br>Configuration parameter for disable upgrade drain
+<a id="drain-897b77"></a>&#x2022; [`disable_upgrade_drain`](#drain-897b77) - Optional Object<br>Configuration parameter for disable upgrade drain
 
 <a id="drain-817909"></a>&#x2022; [`enable_upgrade_drain`](#drain-817909) - Optional Block<br>Specify batch upgrade settings for worker nodes within a site<br>See [Enable Upgrade Drain](#drain-817909) below.
+
+#### Upgrade Settings Kubernetes Upgrade Drain Disable Upgrade Drain
+
+<a id="deep-ad03cd"></a>Deeply nested **Drain** block collapsed for readability.
 
 #### Upgrade Settings Kubernetes Upgrade Drain Enable Upgrade Drain
 
 <a id="deep-c91971"></a>Deeply nested **Drain** block collapsed for readability.
+
+#### Upgrade Settings Kubernetes Upgrade Drain Enable Upgrade Drain Disable Vega Upgrade Mode
+
+<a id="deep-76b5df"></a>Deeply nested **Mode** block collapsed for readability.
+
+#### Upgrade Settings Kubernetes Upgrade Drain Enable Upgrade Drain Enable Vega Upgrade Mode
+
+<a id="deep-765038"></a>Deeply nested **Mode** block collapsed for readability.
 
 #### Vmware
 
@@ -2129,7 +3333,9 @@ An [`interface_list`](#list-7c5ba9) block (within [`vmware.not_managed.node_list
 
 <a id="spec-2a2415"></a>&#x2022; [`description_spec`](#spec-2a2415) - Optional String<br>Interface Description. Description for this Interface
 
-<a id="client-c6d6b2"></a>&#x2022; [`dhcp_client`](#client-c6d6b2) - Optional Block<br>Enable this option
+<a id="client-c6d6b2"></a>&#x2022; [`dhcp_client`](#client-c6d6b2) - Optional Object<br>Enable this option
+
+<a id="server-f2b079"></a>&#x2022; [`dhcp_server`](#server-f2b079) - Optional Block<br>DHCPServerParametersType<br>See [DHCP Server](#server-f2b079) below.
 
 <a id="interface-d5d7ec"></a>&#x2022; [`ethernet_interface`](#interface-d5d7ec) - Optional Block<br>Configuration parameter for ethernet interface<br>See [Ethernet Interface](#interface-d5d7ec) below.
 
@@ -2137,9 +3343,9 @@ An [`interface_list`](#list-7c5ba9) block (within [`vmware.not_managed.node_list
 
 <a id="labels-2ed8c9"></a>&#x2022; [`labels`](#labels-2ed8c9) - Optional Map<br>Add Labels for this Interface, these labels can be used in firewall policy
 
-<a id="monitor-ad3d04"></a>&#x2022; [`monitor`](#monitor-ad3d04) - Optional Block<br>Link Quality Monitoring configuration for a network interface
+<a id="monitor-ad3d04"></a>&#x2022; [`monitor`](#monitor-ad3d04) - Optional Object<br>Link Quality Monitoring configuration for a network interface
 
-<a id="disabled-3f7207"></a>&#x2022; [`monitor_disabled`](#disabled-3f7207) - Optional Block<br>Enable this option
+<a id="disabled-3f7207"></a>&#x2022; [`monitor_disabled`](#disabled-3f7207) - Optional Object<br>Enable this option
 
 <a id="mtu-2aef73"></a>&#x2022; [`mtu`](#mtu-2aef73) - Optional Number<br>Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384
 
@@ -2148,15 +3354,15 @@ An [`interface_list`](#list-7c5ba9) block (within [`vmware.not_managed.node_list
 <a id="option-e71ea9"></a>&#x2022; [`network_option`](#option-e71ea9) - Optional Block<br>Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs, Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is optional<br>See
 [Network Option](#option-e71ea9) below.
 
-<a id="address-208212"></a>&#x2022; [`no_ipv4_address`](#address-208212) - Optional Block<br>Enable this option
+<a id="address-208212"></a>&#x2022; [`no_ipv4_address`](#address-208212) - Optional Object<br>Enable this option
 
-<a id="address-b8f24d"></a>&#x2022; [`no_ipv6_address`](#address-b8f24d) - Optional Block<br>Enable this option
+<a id="address-b8f24d"></a>&#x2022; [`no_ipv6_address`](#address-b8f24d) - Optional Object<br>Enable this option
 
 <a id="priority-378726"></a>&#x2022; [`priority`](#priority-378726) - Optional Number<br>For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority
 
-<a id="disabled-dfbb95"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-dfbb95) - Optional Block<br>Enable this option
+<a id="disabled-dfbb95"></a>&#x2022; [`site_to_site_connectivity_interface_disabled`](#disabled-dfbb95) - Optional Object<br>Enable this option
 
-<a id="enabled-223030"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-223030) - Optional Block<br>Enable this option
+<a id="enabled-223030"></a>&#x2022; [`site_to_site_connectivity_interface_enabled`](#enabled-223030) - Optional Object<br>Enable this option
 
 <a id="static-ip-7bbfdd"></a>&#x2022; [`static_ip`](#static-ip-7bbfdd) - Optional Block<br>Configure Static IP parameters for a node<br>See [Static IP](#static-ip-7bbfdd) below.
 
@@ -2172,9 +3378,53 @@ An [`interface_list`](#list-7c5ba9) block (within [`vmware.not_managed.node_list
 
 <a id="deep-633873"></a>Deeply nested **Interface** block collapsed for readability.
 
+#### Vmware Not Managed Node List Interface List Bond Interface Active Backup
+
+<a id="deep-c7a925"></a>Deeply nested **Backup** block collapsed for readability.
+
 #### Vmware Not Managed Node List Interface List Bond Interface Lacp
 
 <a id="deep-7afe62"></a>Deeply nested **Lacp** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List DHCP Client
+
+<a id="deep-4e392d"></a>Deeply nested **Client** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List DHCP Server
+
+<a id="deep-5cb7ba"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List DHCP Server Automatic From End
+
+<a id="deep-fbdc72"></a>Deeply nested **End** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List DHCP Server Automatic From Start
+
+<a id="deep-74f8de"></a>Deeply nested **Start** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List DHCP Server DHCP Networks
+
+<a id="deep-19022e"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List DHCP Server DHCP Networks First Address
+
+<a id="deep-a8531d"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List DHCP Server DHCP Networks Last Address
+
+<a id="deep-b7acdc"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List DHCP Server DHCP Networks Pools
+
+<a id="deep-a600c3"></a>Deeply nested **Pools** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List DHCP Server DHCP Networks Same As Dgw
+
+<a id="deep-6cf569"></a>Deeply nested **Dgw** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List DHCP Server Interface IP Map
+
+<a id="deep-edb06f"></a>Deeply nested **Map** block collapsed for readability.
 
 #### Vmware Not Managed Node List Interface List Ethernet Interface
 
@@ -2183,6 +3433,10 @@ An [`interface_list`](#list-7c5ba9) block (within [`vmware.not_managed.node_list
 #### Vmware Not Managed Node List Interface List IPv6 Auto Config
 
 <a id="deep-c33317"></a>Deeply nested **Config** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List IPv6 Auto Config Host
+
+<a id="deep-d2d8cc"></a>Deeply nested **Host** block collapsed for readability.
 
 #### Vmware Not Managed Node List Interface List IPv6 Auto Config Router
 
@@ -2200,9 +3454,25 @@ An [`interface_list`](#list-7c5ba9) block (within [`vmware.not_managed.node_list
 
 <a id="deep-45525f"></a>Deeply nested **DNS** block collapsed for readability.
 
+#### Vmware Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS First Address
+
+<a id="deep-33afa8"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List IPv6 Auto Config Router DNS Config Local DNS Last Address
+
+<a id="deep-af79ab"></a>Deeply nested **Address** block collapsed for readability.
+
 #### Vmware Not Managed Node List Interface List IPv6 Auto Config Router Stateful
 
 <a id="deep-c19fa0"></a>Deeply nested **Stateful** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From End
+
+<a id="deep-60b7e4"></a>Deeply nested **End** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List IPv6 Auto Config Router Stateful Automatic From Start
+
+<a id="deep-8597f0"></a>Deeply nested **Start** block collapsed for readability.
 
 #### Vmware Not Managed Node List Interface List IPv6 Auto Config Router Stateful DHCP Networks
 
@@ -2216,9 +3486,41 @@ An [`interface_list`](#list-7c5ba9) block (within [`vmware.not_managed.node_list
 
 <a id="deep-949cb5"></a>Deeply nested **Map** block collapsed for readability.
 
+#### Vmware Not Managed Node List Interface List Monitor
+
+<a id="deep-29823c"></a>Deeply nested **Monitor** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List Monitor Disabled
+
+<a id="deep-ffd19b"></a>Deeply nested **Disabled** block collapsed for readability.
+
 #### Vmware Not Managed Node List Interface List Network Option
 
 <a id="deep-995b74"></a>Deeply nested **Option** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List Network Option Site Local Inside Network
+
+<a id="deep-f84183"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List Network Option Site Local Network
+
+<a id="deep-2cdc27"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List No IPv4 Address
+
+<a id="deep-8e468e"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List No IPv6 Address
+
+<a id="deep-eab940"></a>Deeply nested **Address** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List Site To Site Connectivity Interface Disabled
+
+<a id="deep-94b21b"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Vmware Not Managed Node List Interface List Site To Site Connectivity Interface Enabled
+
+<a id="deep-4a25ac"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Vmware Not Managed Node List Interface List Static IP
 

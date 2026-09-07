@@ -39,7 +39,7 @@ resource "xcsh_virtual_host" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -66,8 +66,8 @@ resource "xcsh_virtual_host" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="append-server-name"></a>[`append_server_name`](#append-server-name) - Optional String<br>Specifies the value to be used for Server header if it is not already present. If Server Header is already present it is not overwritten. It is just passed
-<br><br>&#x2022; <a id="default-header"></a>[`default_header`](#default-header) - Optional Block<br>Configuration parameter for default header
-<br><br>&#x2022; <a id="pass-through"></a>[`pass_through`](#pass-through) - Optional Block<br>Configuration parameter for pass through
+<br><br>&#x2022; <a id="default-header"></a>[`default_header`](#default-header) - Optional Object<br>Configuration parameter for default header
+<br><br>&#x2022; <a id="pass-through"></a>[`pass_through`](#pass-through) - Optional Object<br>Configuration parameter for pass through
 
 -> **One of the following:**
 &#x2022; <a id="authentication"></a>[`authentication`](#authentication) - Optional Block<br>Authentication related information. This allows to configure the URL to redirect after the authentication Authentication Object Reference, configuration of cookie params etc<br>See [Authentication](#authentication) below for details.
@@ -96,21 +96,21 @@ Policy](#csrf-policy) below for details.
 <a id="custom-errors"></a>&#x2022; [`custom_errors`](#custom-errors) - Optional Map<br>Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx
 
 -> **One of the following:**
-&#x2022; <a id="default-loadbalancer"></a>[`default_loadbalancer`](#default-loadbalancer) - Optional Block<br>Configuration parameter for default loadbalancer
+&#x2022; <a id="default-loadbalancer"></a>[`default_loadbalancer`](#default-loadbalancer) - Optional Object<br>Configuration parameter for default loadbalancer
 
 <a id="disable-default-error-pages"></a>&#x2022; [`disable_default_error_pages`](#disable-default-error-pages) - Optional Bool<br>Option to specify whether to disable using default F5XC error pages
 
 <a id="disable-dns-resolve"></a>&#x2022; [`disable_dns_resolve`](#disable-dns-resolve) - Optional Bool  Specified in the virtual host When the virtual host is configured as Dynamive Resolve Proxy (DRP), disable DNS resolution for domains configured<br>Disable DNS resolution for domains  This configuration is suitable for HTTP CONNECT proxy
 
 -> **One of the following:**
-&#x2022; <a id="disable-path-normalize"></a>[`disable_path_normalize`](#disable-path-normalize) - Optional Block<br>Enable this option
+&#x2022; <a id="disable-path-normalize"></a>[`disable_path_normalize`](#disable-path-normalize) - Optional Object<br>Enable this option
 
 <a id="domains"></a>&#x2022; [`domains`](#domains) - Optional List<br>List of domain names matched to this virtual host for routing incoming requests. Supports wildcard patterns like \*.example.com for subdomain matching
 
 <a id="dynamic-reverse-proxy"></a>&#x2022; [`dynamic_reverse_proxy`](#dynamic-reverse-proxy) - Optional Block<br>In this mode of proxy, virtual host will resolve the destination endpoint dynamically. The dynamic resolution is done using a predefined field in the request. This predefined field depends on the ProxyType configured on the Virtual Host<br>See [Dynamic Reverse
 Proxy](#dynamic-reverse-proxy) below for details.
 
-<a id="enable-path-normalize"></a>&#x2022; [`enable_path_normalize`](#enable-path-normalize) - Optional Block<br>Enable this option
+<a id="enable-path-normalize"></a>&#x2022; [`enable_path_normalize`](#enable-path-normalize) - Optional Object<br>Enable this option
 
 <a id="http-protocol-options"></a>&#x2022; [`http_protocol_options`](#http-protocol-options) - Optional Block<br>HTTP protocol configuration OPTIONS for downstream connections<br>See [HTTP Protocol Options](#http-protocol-options) below for details.
 
@@ -121,13 +121,13 @@ Proxy](#dynamic-reverse-proxy) below for details.
 -> **One of the following:**
 &#x2022; <a id="max-requests-per-connection"></a>[`max_requests_per_connection`](#max-requests-per-connection) - Optional Number<br>Sets the maximum number of requests a downstream client can send over a single connection to Envoy. Enter a value >=1 to define the request limit per connection
 
-<a id="no-authentication"></a>&#x2022; [`no_authentication`](#no-authentication) - Optional Block<br>Configuration parameter for no authentication
+<a id="no-authentication"></a>&#x2022; [`no_authentication`](#no-authentication) - Optional Object<br>Configuration parameter for no authentication
 
-<a id="no-challenge"></a>&#x2022; [`no_challenge`](#no-challenge) - Optional Block<br>Configuration parameter for no challenge
+<a id="no-challenge"></a>&#x2022; [`no_challenge`](#no-challenge) - Optional Object<br>Configuration parameter for no challenge
 
-<a id="no-request-limit-per-connection"></a>&#x2022; [`no_request_limit_per_connection`](#no-request-limit-per-connection) - Optional Block<br>Configuration parameter for no request limit per connection
+<a id="no-request-limit-per-connection"></a>&#x2022; [`no_request_limit_per_connection`](#no-request-limit-per-connection) - Optional Object<br>Configuration parameter for no request limit per connection
 
-<a id="non-default-loadbalancer"></a>&#x2022; [`non_default_loadbalancer`](#non-default-loadbalancer) - Optional Block<br>Configuration parameter for non default loadbalancer
+<a id="non-default-loadbalancer"></a>&#x2022; [`non_default_loadbalancer`](#non-default-loadbalancer) - Optional Object<br>Configuration parameter for non default loadbalancer
 
 <a id="proxy"></a>&#x2022; [`proxy`](#proxy) - Optional String<br>Possible values are `UDP_PROXY`, `SMA_PROXY`, `DNS_PROXY`, `ZTNA_PROXY`, `UZTNA_PROXY`, `TMM_HTTP_PROXY`, `TMM_HTTPS_PROXY`, `TMM_TCP_PROXY`, `TMM_UDP_PROXY`, `TMM_QUIC_PROXY`<br>[Enum: UDP_PROXY|SMA_PROXY|DNS_PROXY|ZTNA_PROXY|UZTNA_PROXY|TMM_HTTP_PROXY|TMM_HTTPS_PROXY|TMM_TCP_PROXY|TMM_UDP_PROXY|TMM_QUIC_PROXY] ProxyType tells the
 type of proxy to install for the virtual host. Only the following combination of VirtualHosts within same AdvertisePolicy is permitted (None of them should have '*' in domains when used with other VirtualHosts in same AdvertisePolicy) 1. Multiple TCP_PROXY_WITH_SNI and
@@ -201,11 +201,11 @@ An [`authentication`](#authentication) block supports the following:
 
 <a id="authentication-cookie-params"></a>&#x2022; [`cookie_params`](#authentication-cookie-params) - Optional Block<br>Specifies different cookie related config parameters for authentication<br>See [Cookie Params](#authentication-cookie-params) below.
 
-<a id="authentication-redirect-dynamic"></a>&#x2022; [`redirect_dynamic`](#authentication-redirect-dynamic) - Optional Block<br>Configuration parameter for redirect dynamic
+<a id="authentication-redirect-dynamic"></a>&#x2022; [`redirect_dynamic`](#authentication-redirect-dynamic) - Optional Object<br>Configuration parameter for redirect dynamic
 
 <a id="authentication-redirect-url"></a>&#x2022; [`redirect_url`](#authentication-redirect-url) - Optional String<br>user can provide a URL for e.g `HTTPS://abc.xyz.com` where user gets redirected. This URL configured here must match with the redirect URL configured with the OIDC provider
 
-<a id="authentication-use-auth-object-config"></a>&#x2022; [`use_auth_object_config`](#authentication-use-auth-object-config) - Optional Block<br>Enable this option
+<a id="authentication-use-auth-object-config"></a>&#x2022; [`use_auth_object_config`](#authentication-use-auth-object-config) - Optional Object<br>Enable this option
 
 #### Authentication Auth Config
 
@@ -231,7 +231,7 @@ A [`cookie_params`](#authentication-cookie-params) block (within [`authenticatio
 
 <a id="interval-13cbce"></a>&#x2022; [`cookie_refresh_interval`](#interval-13cbce) - Optional Number<br>Specifies in seconds refresh interval for session cookie. This is used to keep the active user active and reduce RE-login. When an incoming cookie's session expiry is still valid, and time to expire falls behind this interval, RE-issue a cookie with new expiry and with the same original session
 
-<a id="hmac-2097df"></a>&#x2022; [`kms_key_hmac`](#hmac-2097df) - Optional Block<br>Configuration parameter for kms key HMAC
+<a id="hmac-2097df"></a>&#x2022; [`kms_key_hmac`](#hmac-2097df) - Optional Object<br>Configuration parameter for kms key HMAC
 
 <a id="expiry-0b152c"></a>&#x2022; [`session_expiry`](#expiry-0b152c) - Optional Number<br>Specifies in seconds max lifetime of an authenticated session after which the user will be forced to login again. Default session expiry is 86400 seconds(24 hours)
 
@@ -279,6 +279,18 @@ A [`sec_key`](#key-f289cf) block (within [`authentication.cookie_params.auth_hma
 
 <a id="deep-cfac36"></a>Deeply nested **Info** block collapsed for readability.
 
+#### Authentication Cookie Params Kms Key HMAC
+
+A [`kms_key_hmac`](#hmac-2097df) block (within [`authentication.cookie_params`](#authentication-cookie-params)) supports the following:
+
+#### Authentication Redirect Dynamic
+
+A [`redirect_dynamic`](#authentication-redirect-dynamic) block (within [`authentication`](#authentication)) supports the following:
+
+#### Authentication Use Auth Object Config
+
+An [`use_auth_object_config`](#authentication-use-auth-object-config) block (within [`authentication`](#authentication)) supports the following:
+
 #### Buffer Policy
 
 A [`buffer_policy`](#buffer-policy) block supports the following:
@@ -299,9 +311,17 @@ A [`captcha_challenge`](#captcha-challenge) block supports the following:
 
 A [`coalescing_options`](#coalescing-options) block supports the following:
 
-<a id="coalescing-options-default-coalescing"></a>&#x2022; [`default_coalescing`](#coalescing-options-default-coalescing) - Optional Block<br>Configuration parameter for default coalescing
+<a id="coalescing-options-default-coalescing"></a>&#x2022; [`default_coalescing`](#coalescing-options-default-coalescing) - Optional Object<br>Configuration parameter for default coalescing
 
-<a id="coalescing-options-strict-coalescing"></a>&#x2022; [`strict_coalescing`](#coalescing-options-strict-coalescing) - Optional Block<br>Configuration parameter for strict coalescing
+<a id="coalescing-options-strict-coalescing"></a>&#x2022; [`strict_coalescing`](#coalescing-options-strict-coalescing) - Optional Object<br>Configuration parameter for strict coalescing
+
+#### Coalescing Options Default Coalescing
+
+A [`default_coalescing`](#coalescing-options-default-coalescing) block (within [`coalescing_options`](#coalescing-options)) supports the following:
+
+#### Coalescing Options Strict Coalescing
+
+A [`strict_coalescing`](#coalescing-options-strict-coalescing) block (within [`coalescing_options`](#coalescing-options)) supports the following:
 
 #### Compression Params
 
@@ -340,17 +360,37 @@ A [`cors_policy`](#cors-policy) block supports the following:
 
 A [`csrf_policy`](#csrf-policy) block supports the following:
 
-<a id="csrf-policy-all-load-balancer-domains"></a>&#x2022; [`all_load_balancer_domains`](#csrf-policy-all-load-balancer-domains) - Optional Block<br>Configuration parameter for all load balancer domains
+<a id="csrf-policy-all-load-balancer-domains"></a>&#x2022; [`all_load_balancer_domains`](#csrf-policy-all-load-balancer-domains) - Optional Object<br>Configuration parameter for all load balancer domains
 
 <a id="csrf-policy-custom-domain-list"></a>&#x2022; [`custom_domain_list`](#csrf-policy-custom-domain-list) - Optional Block<br>List of domain names used for Host header matching<br>See [Custom Domain List](#csrf-policy-custom-domain-list) below.
 
-<a id="csrf-policy-disabled"></a>&#x2022; [`disabled`](#csrf-policy-disabled) - Optional Block<br>Enable this option
+<a id="csrf-policy-disabled"></a>&#x2022; [`disabled`](#csrf-policy-disabled) - Optional Object<br>Enable this option
+
+#### CSRF Policy All Load Balancer Domains
+
+An [`all_load_balancer_domains`](#csrf-policy-all-load-balancer-domains) block (within [`csrf_policy`](#csrf-policy)) supports the following:
 
 #### CSRF Policy Custom Domain List
 
 A [`custom_domain_list`](#csrf-policy-custom-domain-list) block (within [`csrf_policy`](#csrf-policy)) supports the following:
 
 <a id="csrf-policy-custom-domain-list-domains"></a>&#x2022; [`domains`](#csrf-policy-custom-domain-list-domains) - Optional List<br>List of domain names that will be matched to loadbalancer. These domains are not used for SNI match. Wildcard names are supported in the suffix or prefix form
+
+#### CSRF Policy Disabled
+
+A [`disabled`](#csrf-policy-disabled) block (within [`csrf_policy`](#csrf-policy)) supports the following:
+
+#### Default Header
+
+A [`default_header`](#default-header) block supports the following:
+
+#### Default Loadbalancer
+
+A [`default_loadbalancer`](#default-loadbalancer) block supports the following:
+
+#### Disable Path Normalize
+
+A [`disable_path_normalize`](#disable-path-normalize) block supports the following:
 
 #### Dynamic Reverse Proxy
 
@@ -381,15 +421,19 @@ A [`resolution_network`](#network-fd11f9) block (within [`dynamic_reverse_proxy`
 
 <a id="uid-2ee5fb"></a>&#x2022; [`uid`](#uid-2ee5fb) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
+#### Enable Path Normalize
+
+An [`enable_path_normalize`](#enable-path-normalize) block supports the following:
+
 #### HTTP Protocol Options
 
 A [`http_protocol_options`](#http-protocol-options) block supports the following:
 
 <a id="only-d91b7d"></a>&#x2022; [`http_protocol_enable_v1_only`](#only-d91b7d) - Optional Block<br>HTTP/1.1 Protocol OPTIONS for downstream connections<br>See [HTTP Protocol Enable V1 Only](#only-d91b7d) below.
 
-<a id="v1-v2-79c7b6"></a>&#x2022; [`http_protocol_enable_v1_v2`](#v1-v2-79c7b6) - Optional Block<br>Configuration parameter for HTTP protocol enable v1 v2
+<a id="v1-v2-79c7b6"></a>&#x2022; [`http_protocol_enable_v1_v2`](#v1-v2-79c7b6) - Optional Object<br>Configuration parameter for HTTP protocol enable v1 v2
 
-<a id="only-e64b55"></a>&#x2022; [`http_protocol_enable_v2_only`](#only-e64b55) - Optional Block<br>Configuration parameter for HTTP protocol enable v2 only
+<a id="only-e64b55"></a>&#x2022; [`http_protocol_enable_v2_only`](#only-e64b55) - Optional Object<br>Configuration parameter for HTTP protocol enable v2 only
 
 #### HTTP Protocol Options HTTP Protocol Enable V1 Only
 
@@ -398,6 +442,26 @@ A [`http_protocol_options`](#http-protocol-options) block supports the following
 #### HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation
 
 <a id="deep-e44357"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Default Header Transformation
+
+<a id="deep-2d3d63"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Preserve Case Header Transformation
+
+<a id="deep-4879ee"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Proper Case Header Transformation
+
+<a id="deep-9d049f"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### HTTP Protocol Options HTTP Protocol Enable V1 V2
+
+<a id="deep-f57521"></a>Deeply nested **V2** block collapsed for readability.
+
+#### HTTP Protocol Options HTTP Protocol Enable V2 Only
+
+<a id="deep-89d1e2"></a>Deeply nested **Only** block collapsed for readability.
 
 #### Js Challenge
 
@@ -408,6 +472,26 @@ A [`js_challenge`](#js-challenge) block supports the following:
 <a id="js-challenge-custom-page"></a>&#x2022; [`custom_page`](#js-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
 
 <a id="js-challenge-js-script-delay"></a>&#x2022; [`js_script_delay`](#js-challenge-js-script-delay) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
+
+#### No Authentication
+
+A [`no_authentication`](#no-authentication) block supports the following:
+
+#### No Challenge
+
+A [`no_challenge`](#no-challenge) block supports the following:
+
+#### No Request Limit Per Connection
+
+A [`no_request_limit_per_connection`](#no-request-limit-per-connection) block supports the following:
+
+#### Non Default Loadbalancer
+
+A [`non_default_loadbalancer`](#non-default-loadbalancer) block supports the following:
+
+#### Pass Through
+
+A [`pass_through`](#pass-through) block supports the following:
 
 #### Rate Limiter Allowed Prefixes
 
@@ -487,31 +571,31 @@ A [`response_cookies_to_add`](#response-cookies-to-add) block supports the follo
 
 <a id="response-cookies-to-add-add-expiry"></a>&#x2022; [`add_expiry`](#response-cookies-to-add-add-expiry) - Optional String<br>Add expiry attribute
 
-<a id="response-cookies-to-add-add-httponly"></a>&#x2022; [`add_httponly`](#response-cookies-to-add-add-httponly) - Optional Block<br>Configuration parameter for add httponly
+<a id="response-cookies-to-add-add-httponly"></a>&#x2022; [`add_httponly`](#response-cookies-to-add-add-httponly) - Optional Object<br>Configuration parameter for add httponly
 
-<a id="response-cookies-to-add-add-partitioned"></a>&#x2022; [`add_partitioned`](#response-cookies-to-add-add-partitioned) - Optional Block<br>Configuration parameter for add partitioned
+<a id="response-cookies-to-add-add-partitioned"></a>&#x2022; [`add_partitioned`](#response-cookies-to-add-add-partitioned) - Optional Object<br>Configuration parameter for add partitioned
 
 <a id="response-cookies-to-add-add-path"></a>&#x2022; [`add_path`](#response-cookies-to-add-add-path) - Optional String<br>Add path attribute
 
-<a id="response-cookies-to-add-add-secure"></a>&#x2022; [`add_secure`](#response-cookies-to-add-add-secure) - Optional Block<br>Enable this option
+<a id="response-cookies-to-add-add-secure"></a>&#x2022; [`add_secure`](#response-cookies-to-add-add-secure) - Optional Object<br>Enable this option
 
-<a id="response-cookies-to-add-ignore-domain"></a>&#x2022; [`ignore_domain`](#response-cookies-to-add-ignore-domain) - Optional Block<br>Configuration parameter for ignore domain
+<a id="response-cookies-to-add-ignore-domain"></a>&#x2022; [`ignore_domain`](#response-cookies-to-add-ignore-domain) - Optional Object<br>Configuration parameter for ignore domain
 
-<a id="response-cookies-to-add-ignore-expiry"></a>&#x2022; [`ignore_expiry`](#response-cookies-to-add-ignore-expiry) - Optional Block<br>Configuration parameter for ignore expiry
+<a id="response-cookies-to-add-ignore-expiry"></a>&#x2022; [`ignore_expiry`](#response-cookies-to-add-ignore-expiry) - Optional Object<br>Configuration parameter for ignore expiry
 
-<a id="response-cookies-to-add-ignore-httponly"></a>&#x2022; [`ignore_httponly`](#response-cookies-to-add-ignore-httponly) - Optional Block<br>Configuration parameter for ignore httponly
+<a id="response-cookies-to-add-ignore-httponly"></a>&#x2022; [`ignore_httponly`](#response-cookies-to-add-ignore-httponly) - Optional Object<br>Configuration parameter for ignore httponly
 
-<a id="response-cookies-to-add-ignore-max-age"></a>&#x2022; [`ignore_max_age`](#response-cookies-to-add-ignore-max-age) - Optional Block<br>Configuration parameter for ignore max age
+<a id="response-cookies-to-add-ignore-max-age"></a>&#x2022; [`ignore_max_age`](#response-cookies-to-add-ignore-max-age) - Optional Object<br>Configuration parameter for ignore max age
 
-<a id="partitioned-36b0ea"></a>&#x2022; [`ignore_partitioned`](#partitioned-36b0ea) - Optional Block<br>Configuration parameter for ignore partitioned
+<a id="partitioned-36b0ea"></a>&#x2022; [`ignore_partitioned`](#partitioned-36b0ea) - Optional Object<br>Configuration parameter for ignore partitioned
 
-<a id="response-cookies-to-add-ignore-path"></a>&#x2022; [`ignore_path`](#response-cookies-to-add-ignore-path) - Optional Block<br>Enable this option
+<a id="response-cookies-to-add-ignore-path"></a>&#x2022; [`ignore_path`](#response-cookies-to-add-ignore-path) - Optional Object<br>Enable this option
 
-<a id="response-cookies-to-add-ignore-samesite"></a>&#x2022; [`ignore_samesite`](#response-cookies-to-add-ignore-samesite) - Optional Block<br>Enable this option
+<a id="response-cookies-to-add-ignore-samesite"></a>&#x2022; [`ignore_samesite`](#response-cookies-to-add-ignore-samesite) - Optional Object<br>Enable this option
 
-<a id="response-cookies-to-add-ignore-secure"></a>&#x2022; [`ignore_secure`](#response-cookies-to-add-ignore-secure) - Optional Block<br>Enable this option
+<a id="response-cookies-to-add-ignore-secure"></a>&#x2022; [`ignore_secure`](#response-cookies-to-add-ignore-secure) - Optional Object<br>Enable this option
 
-<a id="response-cookies-to-add-ignore-value"></a>&#x2022; [`ignore_value`](#response-cookies-to-add-ignore-value) - Optional Block<br>Configuration parameter for ignore value
+<a id="response-cookies-to-add-ignore-value"></a>&#x2022; [`ignore_value`](#response-cookies-to-add-ignore-value) - Optional Object<br>Configuration parameter for ignore value
 
 <a id="response-cookies-to-add-max-age-value"></a>&#x2022; [`max_age_value`](#response-cookies-to-add-max-age-value) - Optional Number<br>Add max age attribute
 
@@ -519,15 +603,75 @@ A [`response_cookies_to_add`](#response-cookies-to-add) block supports the follo
 
 <a id="response-cookies-to-add-overwrite"></a>&#x2022; [`overwrite`](#response-cookies-to-add-overwrite) - Optional Bool  Defaults to `do`<br>Should the value be overwritten? If true, the value is overwritten to existing values. not overwrite
 
-<a id="response-cookies-to-add-samesite-lax"></a>&#x2022; [`samesite_lax`](#response-cookies-to-add-samesite-lax) - Optional Block<br>Enable this option
+<a id="response-cookies-to-add-samesite-lax"></a>&#x2022; [`samesite_lax`](#response-cookies-to-add-samesite-lax) - Optional Object<br>Enable this option
 
-<a id="response-cookies-to-add-samesite-none"></a>&#x2022; [`samesite_none`](#response-cookies-to-add-samesite-none) - Optional Block<br>Enable this option
+<a id="response-cookies-to-add-samesite-none"></a>&#x2022; [`samesite_none`](#response-cookies-to-add-samesite-none) - Optional Object<br>Enable this option
 
-<a id="response-cookies-to-add-samesite-strict"></a>&#x2022; [`samesite_strict`](#response-cookies-to-add-samesite-strict) - Optional Block<br>Enable this option
+<a id="response-cookies-to-add-samesite-strict"></a>&#x2022; [`samesite_strict`](#response-cookies-to-add-samesite-strict) - Optional Object<br>Enable this option
 
 <a id="response-cookies-to-add-secret-value"></a>&#x2022; [`secret_value`](#response-cookies-to-add-secret-value) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Secret Value](#response-cookies-to-add-secret-value) below.
 
 <a id="response-cookies-to-add-value"></a>&#x2022; [`value`](#response-cookies-to-add-value) - Optional String<br>Value of the Cookie header
+
+#### Response Cookies To Add Add Httponly
+
+An [`add_httponly`](#response-cookies-to-add-add-httponly) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Add Partitioned
+
+An [`add_partitioned`](#response-cookies-to-add-add-partitioned) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Add Secure
+
+An [`add_secure`](#response-cookies-to-add-add-secure) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Domain
+
+An [`ignore_domain`](#response-cookies-to-add-ignore-domain) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Expiry
+
+An [`ignore_expiry`](#response-cookies-to-add-ignore-expiry) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Httponly
+
+An [`ignore_httponly`](#response-cookies-to-add-ignore-httponly) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Max Age
+
+An [`ignore_max_age`](#response-cookies-to-add-ignore-max-age) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Partitioned
+
+An [`ignore_partitioned`](#partitioned-36b0ea) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Path
+
+An [`ignore_path`](#response-cookies-to-add-ignore-path) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Samesite
+
+An [`ignore_samesite`](#response-cookies-to-add-ignore-samesite) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Secure
+
+An [`ignore_secure`](#response-cookies-to-add-ignore-secure) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Ignore Value
+
+An [`ignore_value`](#response-cookies-to-add-ignore-value) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Samesite Lax
+
+A [`samesite_lax`](#response-cookies-to-add-samesite-lax) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Samesite None
+
+A [`samesite_none`](#response-cookies-to-add-samesite-none) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
+
+#### Response Cookies To Add Samesite Strict
+
+A [`samesite_strict`](#response-cookies-to-add-samesite-strict) block (within [`response_cookies_to_add`](#response-cookies-to-add)) supports the following:
 
 #### Response Cookies To Add Secret Value
 
@@ -628,11 +772,15 @@ A [`sensitive_data_policy`](#sensitive-data-policy) block supports the following
 
 A [`slow_ddos_mitigation`](#slow-ddos-mitigation) block supports the following:
 
-<a id="timeout-81071e"></a>&#x2022; [`disable_request_timeout`](#timeout-81071e) - Optional Block<br>Configuration parameter for disable request timeout
+<a id="timeout-81071e"></a>&#x2022; [`disable_request_timeout`](#timeout-81071e) - Optional Object<br>Configuration parameter for disable request timeout
 
 <a id="timeout-da89d3"></a>&#x2022; [`request_headers_timeout`](#timeout-da89d3) - Optional Number  Defaults to `10000`<br>The amount of time the client has to send only the headers on the request stream before the stream is cancelled. The milliseconds. This setting provides protection against Slowloris attacks
 
 <a id="slow-ddos-mitigation-request-timeout"></a>&#x2022; [`request_timeout`](#slow-ddos-mitigation-request-timeout) - Optional Number
+
+#### Slow DDOS Mitigation Disable Request Timeout
+
+A [`disable_request_timeout`](#timeout-81071e) block (within [`slow_ddos_mitigation`](#slow-ddos-mitigation)) supports the following:
 
 #### Timeouts
 
@@ -655,15 +803,15 @@ A [`tls_cert_params`](#tls-cert-params) block supports the following:
 <a id="tls-cert-params-cipher-suites"></a>&#x2022; [`cipher_suites`](#tls-cert-params-cipher-suites) - Optional List<br>The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 
-<a id="optional-41418d"></a>&#x2022; [`client_certificate_optional`](#optional-41418d) - Optional Block<br>Enable this option
+<a id="optional-41418d"></a>&#x2022; [`client_certificate_optional`](#optional-41418d) - Optional Object<br>Enable this option
 
-<a id="required-58689a"></a>&#x2022; [`client_certificate_required`](#required-58689a) - Optional Block<br>Enable this option
+<a id="required-58689a"></a>&#x2022; [`client_certificate_required`](#required-58689a) - Optional Object<br>Enable this option
 
 <a id="version-93b9ed"></a>&#x2022; [`maximum_protocol_version`](#version-93b9ed) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
 
 <a id="version-77eedf"></a>&#x2022; [`minimum_protocol_version`](#version-77eedf) - Optional String  Defaults to `TLS_AUTO`<br>Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`<br>[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version
 
-<a id="tls-cert-params-no-client-certificate"></a>&#x2022; [`no_client_certificate`](#tls-cert-params-no-client-certificate) - Optional Block<br>Enable this option
+<a id="tls-cert-params-no-client-certificate"></a>&#x2022; [`no_client_certificate`](#tls-cert-params-no-client-certificate) - Optional Object<br>Enable this option
 
 <a id="tls-cert-params-validation-params"></a>&#x2022; [`validation_params`](#tls-cert-params-validation-params) - Optional Block<br>Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification<br>See [Validation Params](#tls-cert-params-validation-params) below.
 
@@ -683,6 +831,18 @@ A [`certificates`](#tls-cert-params-certificates) block (within [`tls_cert_param
 <a id="tls-cert-params-certificates-tenant"></a>&#x2022; [`tenant`](#tls-cert-params-certificates-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 <a id="tls-cert-params-certificates-uid"></a>&#x2022; [`uid`](#tls-cert-params-certificates-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### TLS Cert Params Client Certificate Optional
+
+A [`client_certificate_optional`](#optional-41418d) block (within [`tls_cert_params`](#tls-cert-params)) supports the following:
+
+#### TLS Cert Params Client Certificate Required
+
+A [`client_certificate_required`](#required-58689a) block (within [`tls_cert_params`](#tls-cert-params)) supports the following:
+
+#### TLS Cert Params No Client Certificate
+
+A [`no_client_certificate`](#tls-cert-params-no-client-certificate) block (within [`tls_cert_params`](#tls-cert-params)) supports the following:
 
 #### TLS Cert Params Validation Params
 
@@ -710,16 +870,24 @@ A [`trusted_ca`](#trusted-ca-f27956) block (within [`tls_cert_params.validation_
 
 A [`tls_parameters`](#tls-parameters) block supports the following:
 
-<a id="optional-56d793"></a>&#x2022; [`client_certificate_optional`](#optional-56d793) - Optional Block<br>Enable this option
+<a id="optional-56d793"></a>&#x2022; [`client_certificate_optional`](#optional-56d793) - Optional Object<br>Enable this option
 
-<a id="required-544cf5"></a>&#x2022; [`client_certificate_required`](#required-544cf5) - Optional Block<br>Enable this option
+<a id="required-544cf5"></a>&#x2022; [`client_certificate_required`](#required-544cf5) - Optional Object<br>Enable this option
 
 <a id="tls-parameters-common-params"></a>&#x2022; [`common_params`](#tls-parameters-common-params) - Optional Block<br>Information of different aspects for TLS authentication related to ciphers, certificates and trust store<br>See [Common Params](#tls-parameters-common-params) below.
 
-<a id="tls-parameters-no-client-certificate"></a>&#x2022; [`no_client_certificate`](#tls-parameters-no-client-certificate) - Optional Block<br>Enable this option
+<a id="tls-parameters-no-client-certificate"></a>&#x2022; [`no_client_certificate`](#tls-parameters-no-client-certificate) - Optional Object<br>Enable this option
 
 <a id="tls-parameters-xfcc-header-elements"></a>&#x2022; [`xfcc_header_elements`](#tls-parameters-xfcc-header-elements) - Optional List  Defaults to `XFCC_NONE`<br>Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`<br>[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be set in an mTLS
 enabled connections. If none are defined, the header will not be added
+
+#### TLS Parameters Client Certificate Optional
+
+A [`client_certificate_optional`](#optional-56d793) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
+#### TLS Parameters Client Certificate Required
+
+A [`client_certificate_required`](#required-544cf5) block (within [`tls_parameters`](#tls-parameters)) supports the following:
 
 #### TLS Parameters Common Params
 
@@ -745,15 +913,19 @@ A [`tls_certificates`](#certificates-c9caff) block (within [`tls_parameters.comm
 
 <a id="spec-5af02c"></a>&#x2022; [`description_spec`](#spec-5af02c) - Optional String<br>Description. Description for the certificate
 
-<a id="stapling-c091fa"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-c091fa) - Optional Block<br>Configuration parameter for disable OCSP stapling
+<a id="stapling-c091fa"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-c091fa) - Optional Object<br>Configuration parameter for disable OCSP stapling
 
 <a id="key-da7979"></a>&#x2022; [`private_key`](#key-da7979) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Private Key](#key-da7979) below.
 
-<a id="defaults-f58bc7"></a>&#x2022; [`use_system_defaults`](#defaults-f58bc7) - Optional Block<br>Configuration parameter for use system defaults
+<a id="defaults-f58bc7"></a>&#x2022; [`use_system_defaults`](#defaults-f58bc7) - Optional Object<br>Configuration parameter for use system defaults
 
 #### TLS Parameters Common Params TLS Certificates Custom Hash Algorithms
 
 <a id="deep-2bb8e0"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Disable OCSP Stapling
+
+<a id="deep-4477da"></a>Deeply nested **Stapling** block collapsed for readability.
 
 #### TLS Parameters Common Params TLS Certificates Private Key
 
@@ -766,6 +938,10 @@ A [`tls_certificates`](#certificates-c9caff) block (within [`tls_parameters.comm
 #### TLS Parameters Common Params TLS Certificates Private Key Clear Secret Info
 
 <a id="deep-fbf9ed"></a>Deeply nested **Info** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Use System Defaults
+
+<a id="deep-82b16e"></a>Deeply nested **Defaults** block collapsed for readability.
 
 #### TLS Parameters Common Params Validation Params
 
@@ -787,6 +963,10 @@ A [`validation_params`](#params-6e95a6) block (within [`tls_parameters.common_pa
 
 <a id="deep-7e09ed"></a>Deeply nested **List** block collapsed for readability.
 
+#### TLS Parameters No Client Certificate
+
+A [`no_client_certificate`](#tls-parameters-no-client-certificate) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
 #### User Identification
 
 An [`user_identification`](#user-identification) block supports the following:
@@ -807,9 +987,9 @@ A [`waf_type`](#waf-type) block supports the following:
 
 <a id="waf-type-app-firewall"></a>&#x2022; [`app_firewall`](#waf-type-app-firewall) - Optional Block<br>List of references to the app_firewall configuration objects<br>See [App Firewall](#waf-type-app-firewall) below.
 
-<a id="waf-type-disable-waf"></a>&#x2022; [`disable_waf`](#waf-type-disable-waf) - Optional Block<br>Configuration parameter for disable WAF
+<a id="waf-type-disable-waf"></a>&#x2022; [`disable_waf`](#waf-type-disable-waf) - Optional Object<br>Configuration parameter for disable WAF
 
-<a id="waf-type-inherit-waf"></a>&#x2022; [`inherit_waf`](#waf-type-inherit-waf) - Optional Block<br>Configuration parameter for inherit WAF
+<a id="waf-type-inherit-waf"></a>&#x2022; [`inherit_waf`](#waf-type-inherit-waf) - Optional Object<br>Configuration parameter for inherit WAF
 
 #### WAF Type App Firewall
 
@@ -830,6 +1010,14 @@ An [`app_firewall`](#waf-type-app-firewall-app-firewall) block (within [`waf_typ
 <a id="tenant-441c06"></a>&#x2022; [`tenant`](#tenant-441c06) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 <a id="waf-type-app-firewall-app-firewall-uid"></a>&#x2022; [`uid`](#waf-type-app-firewall-app-firewall-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### WAF Type Disable WAF
+
+A [`disable_waf`](#waf-type-disable-waf) block (within [`waf_type`](#waf-type)) supports the following:
+
+#### WAF Type Inherit WAF
+
+An [`inherit_waf`](#waf-type-inherit-waf) block (within [`waf_type`](#waf-type)) supports the following:
 
 ---
 

@@ -58,8 +58,8 @@ resource "xcsh_proxy" "test" {
   namespace  = xcsh_namespace.test.name
 
   http_proxy {}
-  do_not_advertise {}
-  no_interception {}
+  do_not_advertise = {}
+  no_interception = {}
 }
 
 data "xcsh_proxy" "test" {

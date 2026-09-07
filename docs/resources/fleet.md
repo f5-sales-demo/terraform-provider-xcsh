@@ -41,7 +41,7 @@ resource "xcsh_fleet" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -62,8 +62,8 @@ resource "xcsh_fleet" "example" {
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="allow-all-usb"></a>[`allow_all_usb`](#allow-all-usb) - Optional Block<br>Configuration parameter for allow all usb
-<br><br>&#x2022; <a id="deny-all-usb"></a>[`deny_all_usb`](#deny-all-usb) - Optional Block<br>Configuration parameter for deny all usb
+&#x2022; <a id="allow-all-usb"></a>[`allow_all_usb`](#allow-all-usb) - Optional Object<br>Configuration parameter for allow all usb
+<br><br>&#x2022; <a id="deny-all-usb"></a>[`deny_all_usb`](#deny-all-usb) - Optional Object<br>Configuration parameter for deny all usb
 <br><br>&#x2022; <a id="usb-policy"></a>[`usb_policy`](#usb-policy) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
 
 <a id="blocked-services"></a>&#x2022; [`blocked_services`](#blocked-services) - Optional Block<br>Disable node local services on this site<br>See [Blocked Services](#blocked-services) below for details.
@@ -76,32 +76,32 @@ resource "xcsh_fleet" "example" {
 <br><br>&#x2022; <a id="dc-cluster-group-inside"></a>[`dc_cluster_group_inside`](#dc-cluster-group-inside) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group Inside](#dc-cluster-group-inside) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="default-config"></a>[`default_config`](#default-config) - Optional Block<br>Enable this option
+&#x2022; <a id="default-config"></a>[`default_config`](#default-config) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="device-list"></a>[`device_list`](#device-list) - Optional Block<br>Add device for all interfaces belonging to this fleet<br>See [Device List](#device-list) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="default-sriov-interface"></a>[`default_sriov_interface`](#default-sriov-interface) - Optional Block<br>Configuration parameter for default sriov interface
+&#x2022; <a id="default-sriov-interface"></a>[`default_sriov_interface`](#default-sriov-interface) - Optional Object<br>Configuration parameter for default sriov interface
 
 -> **One of the following:**
-&#x2022; <a id="default-storage-class"></a>[`default_storage_class`](#default-storage-class) - Optional Block<br>Configuration parameter for default storage class
+&#x2022; <a id="default-storage-class"></a>[`default_storage_class`](#default-storage-class) - Optional Object<br>Configuration parameter for default storage class
 
 -> **One of the following:**
-&#x2022; <a id="disable-gpu"></a>[`disable_gpu`](#disable-gpu) - Optional Block<br>Configuration parameter for disable GPU
-<br><br>&#x2022; <a id="enable-gpu"></a>[`enable_gpu`](#enable-gpu) - Optional Block<br>Enable this option
+&#x2022; <a id="disable-gpu"></a>[`disable_gpu`](#disable-gpu) - Optional Object<br>Configuration parameter for disable GPU
+<br><br>&#x2022; <a id="enable-gpu"></a>[`enable_gpu`](#enable-gpu) - Optional Object<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="disable-log-anonymization"></a>[`disable_log_anonymization`](#disable-log-anonymization) - Optional Block<br>Configuration parameter for disable log anonymization
+&#x2022; <a id="disable-log-anonymization"></a>[`disable_log_anonymization`](#disable-log-anonymization) - Optional Object<br>Configuration parameter for disable log anonymization
 
 -> **One of the following:**
-&#x2022; <a id="disable-vm"></a>[`disable_vm`](#disable-vm) - Optional Block<br>Enable this option
+&#x2022; <a id="disable-vm"></a>[`disable_vm`](#disable-vm) - Optional Object<br>Enable this option
 
 <a id="enable-default-fleet-config-download"></a>&#x2022; [`enable_default_fleet_config_download`](#enable-default-fleet-config-download) - Optional Bool<br>Enable default fleet config, It must be set for storage config and GPU config
 
-<a id="enable-log-anonymization"></a>&#x2022; [`enable_log_anonymization`](#enable-log-anonymization) - Optional Block<br>Configuration parameter for enable log anonymization
+<a id="enable-log-anonymization"></a>&#x2022; [`enable_log_anonymization`](#enable-log-anonymization) - Optional Object<br>Configuration parameter for enable log anonymization
 
 <a id="enable-vgpu"></a>&#x2022; [`enable_vgpu`](#enable-vgpu) - Optional Block<br>Licensing configuration for NVIDIA vGPU<br>See [Enable Vgpu](#enable-vgpu) below for details.
 
-<a id="enable-vm"></a>&#x2022; [`enable_vm`](#enable-vm) - Optional Block<br>VM Configuration. VMs support configuration
+<a id="enable-vm"></a>&#x2022; [`enable_vm`](#enable-vm) - Optional Object<br>VM Configuration. VMs support configuration
 
 <a id="fleet-label"></a>&#x2022; [`fleet_label`](#fleet-label) - Required String<br>Fleet_label value is used to create known_label 'F5 XC/fleet=`<fleet_label>`' The known_label is created in the 'shared' namespace for the tenant. A virtual_site object with name `<fleet_label>` is also created in 'shared' namespace for tenant. The virtual_site object will select all sites
 
@@ -113,25 +113,25 @@ resource "xcsh_fleet" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="log-receiver"></a>[`log_receiver`](#log-receiver) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Log Receiver](#log-receiver) below for details.
-<br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Block<br>Enable this option
+<br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Object<br>Enable this option
 
 <a id="network-connectors"></a>&#x2022; [`network_connectors`](#network-connectors) - Optional Block<br>Network Connector defines connection between two virtual networks in a given site. Fleet defines one or more such network connectors. The network connectors configuration is applied on all sites that are member of the fleet<br>See [Network Connectors](#network-connectors) below for details.
 
 <a id="network-firewall"></a>&#x2022; [`network_firewall`](#network-firewall) - Optional Block<br>Network Firewall defines firewall to be applied for the virtual networks in the fleet. The network firewall configuration is applied on all sites that are member of the fleet. Constraints The Network Firewall is applied on Virtual Networks of type site local network and site local inside
 network<br>See [Network Firewall](#network-firewall) below for details.
 
-<a id="no-bond-devices"></a>&#x2022; [`no_bond_devices`](#no-bond-devices) - Optional Block<br>Configuration parameter for no bond devices
+<a id="no-bond-devices"></a>&#x2022; [`no_bond_devices`](#no-bond-devices) - Optional Object<br>Configuration parameter for no bond devices
 
-<a id="no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#no-dc-cluster-group) - Optional Block<br>Enable this option
-
--> **One of the following:**
-&#x2022; <a id="no-storage-device"></a>[`no_storage_device`](#no-storage-device) - Optional Block<br>Configuration parameter for no storage device
+<a id="no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#no-dc-cluster-group) - Optional Object<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="no-storage-interfaces"></a>[`no_storage_interfaces`](#no-storage-interfaces) - Optional Block<br>Configuration parameter for no storage interfaces
+&#x2022; <a id="no-storage-device"></a>[`no_storage_device`](#no-storage-device) - Optional Object<br>Configuration parameter for no storage device
 
 -> **One of the following:**
-&#x2022; <a id="no-storage-static-routes"></a>[`no_storage_static_routes`](#no-storage-static-routes) - Optional Block<br>Configuration parameter for no storage static routes
+&#x2022; <a id="no-storage-interfaces"></a>[`no_storage_interfaces`](#no-storage-interfaces) - Optional Object<br>Configuration parameter for no storage interfaces
+
+-> **One of the following:**
+&#x2022; <a id="no-storage-static-routes"></a>[`no_storage_static_routes`](#no-storage-static-routes) - Optional Object<br>Configuration parameter for no storage static routes
 
 <a id="operating-system-version"></a>&#x2022; [`operating_system_version`](#operating-system-version) - Optional String<br>Desired Operating System version that is applied to all sites that are member of the fleet. Current Operating System version can be overridden via site config
 
@@ -165,16 +165,28 @@ In addition to all arguments above, the following attributes are exported:
 
 A [`blocked_services`](#blocked-services) block supports the following:
 
-<a id="blocked-services-dns"></a>&#x2022; [`dns`](#blocked-services-dns) - Optional Block<br>Enable this option
+<a id="blocked-services-dns"></a>&#x2022; [`dns`](#blocked-services-dns) - Optional Object<br>Enable this option
 
 <a id="blocked-services-network-type"></a>&#x2022; [`network_type`](#blocked-services-network-type) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
-<a id="blocked-services-ssh"></a>&#x2022; [`ssh`](#blocked-services-ssh) - Optional Block<br>Enable this option
+<a id="blocked-services-ssh"></a>&#x2022; [`ssh`](#blocked-services-ssh) - Optional Object<br>Enable this option
 
-<a id="blocked-services-web-user-interface"></a>&#x2022; [`web_user_interface`](#blocked-services-web-user-interface) - Optional Block<br>Enable this option
+<a id="blocked-services-web-user-interface"></a>&#x2022; [`web_user_interface`](#blocked-services-web-user-interface) - Optional Object<br>Enable this option
+
+#### Blocked Services DNS
+
+A [`dns`](#blocked-services-dns) block (within [`blocked_services`](#blocked-services)) supports the following:
+
+#### Blocked Services SSH
+
+A [`ssh`](#blocked-services-ssh) block (within [`blocked_services`](#blocked-services)) supports the following:
+
+#### Blocked Services Web User Interface
+
+A [`web_user_interface`](#blocked-services-web-user-interface) block (within [`blocked_services`](#blocked-services)) supports the following:
 
 #### Bond Device List
 
@@ -186,7 +198,7 @@ A [`bond_device_list`](#bond-device-list) block supports the following:
 
 A [`bond_devices`](#bond-device-list-bond-devices) block (within [`bond_device_list`](#bond-device-list)) supports the following:
 
-<a id="backup-c22794"></a>&#x2022; [`active_backup`](#backup-c22794) - Optional Block<br>Configuration parameter for active backup
+<a id="backup-c22794"></a>&#x2022; [`active_backup`](#backup-c22794) - Optional Object<br>Configuration parameter for active backup
 
 <a id="bond-device-list-bond-devices-devices"></a>&#x2022; [`devices`](#bond-device-list-bond-devices-devices) - Optional List<br>Ethernet devices that will make up this bond
 
@@ -197,6 +209,10 @@ A [`bond_devices`](#bond-device-list-bond-devices) block (within [`bond_device_l
 <a id="delay-b1200b"></a>&#x2022; [`link_up_delay`](#delay-b1200b) - Optional Number<br>Milliseconds wait before link is declared up
 
 <a id="bond-device-list-bond-devices-name"></a>&#x2022; [`name`](#bond-device-list-bond-devices-name) - Optional String<br>Bond Device Name. Name for the Bond. Ex 'bond0'
+
+#### Bond Device List Bond Devices Active Backup
+
+An [`active_backup`](#backup-c22794) block (within [`bond_device_list.bond_devices`](#bond-device-list-bond-devices)) supports the following:
 
 #### Bond Device List Bond Devices Lacp
 
@@ -223,6 +239,22 @@ A [`dc_cluster_group_inside`](#dc-cluster-group-inside) block supports the follo
 <a id="dc-cluster-group-inside-namespace"></a>&#x2022; [`namespace`](#dc-cluster-group-inside-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="dc-cluster-group-inside-tenant"></a>&#x2022; [`tenant`](#dc-cluster-group-inside-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Default Config
+
+A [`default_config`](#default-config) block supports the following:
+
+#### Default Sriov Interface
+
+A [`default_sriov_interface`](#default-sriov-interface) block supports the following:
+
+#### Default Storage Class
+
+A [`default_storage_class`](#default-storage-class) block supports the following:
+
+#### Deny All Usb
+
+A [`deny_all_usb`](#deny-all-usb) block supports the following:
 
 #### Device List
 
@@ -265,6 +297,26 @@ An [`interface`](#interface-d1eaa7) block (within [`device_list.devices.network_
 
 <a id="uid-ea614b"></a>&#x2022; [`uid`](#uid-ea614b) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
+#### Disable GPU
+
+A [`disable_gpu`](#disable-gpu) block supports the following:
+
+#### Disable Log Anonymization
+
+A [`disable_log_anonymization`](#disable-log-anonymization) block supports the following:
+
+#### Disable VM
+
+A [`disable_vm`](#disable-vm) block supports the following:
+
+#### Enable GPU
+
+An [`enable_gpu`](#enable-gpu) block supports the following:
+
+#### Enable Log Anonymization
+
+An [`enable_log_anonymization`](#enable-log-anonymization) block supports the following:
+
 #### Enable Vgpu
 
 An [`enable_vgpu`](#enable-vgpu) block supports the following:
@@ -274,6 +326,10 @@ An [`enable_vgpu`](#enable-vgpu) block supports the following:
 <a id="enable-vgpu-server-address"></a>&#x2022; [`server_address`](#enable-vgpu-server-address) - Optional String<br>License Server Address. Set License Server Address
 
 <a id="enable-vgpu-server-port"></a>&#x2022; [`server_port`](#enable-vgpu-server-port) - Optional Number<br>License Server Port Number. Set License Server port number
+
+#### Enable VM
+
+An [`enable_vm`](#enable-vm) block supports the following:
 
 #### Inside Virtual Network
 
@@ -309,21 +365,35 @@ An [`interfaces`](#interface-list-interfaces) block (within [`interface_list`](#
 
 A [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain) block supports the following:
 
-<a id="drain-0d0936"></a>&#x2022; [`disable_upgrade_drain`](#drain-0d0936) - Optional Block<br>Configuration parameter for disable upgrade drain
+<a id="drain-0d0936"></a>&#x2022; [`disable_upgrade_drain`](#drain-0d0936) - Optional Object<br>Configuration parameter for disable upgrade drain
 
 <a id="drain-7e30d4"></a>&#x2022; [`enable_upgrade_drain`](#drain-7e30d4) - Optional Block<br>Specify batch upgrade settings for worker nodes within a site<br>See [Enable Upgrade Drain](#drain-7e30d4) below.
+
+#### Kubernetes Upgrade Drain Disable Upgrade Drain
+
+A [`disable_upgrade_drain`](#drain-0d0936) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
 
 #### Kubernetes Upgrade Drain Enable Upgrade Drain
 
 An [`enable_upgrade_drain`](#drain-7e30d4) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
 
-<a id="mode-668699"></a>&#x2022; [`disable_vega_upgrade_mode`](#mode-668699) - Optional Block<br>Configuration parameter for disable vega upgrade mode
+<a id="mode-668699"></a>&#x2022; [`disable_vega_upgrade_mode`](#mode-668699) - Optional Object<br>Configuration parameter for disable vega upgrade mode
 
 <a id="count-3aa796"></a>&#x2022; [`drain_max_unavailable_node_count`](#count-3aa796) - Optional Number<br>Node Batch Size Count
 
+<a id="percentage-7723a9"></a>&#x2022; [`drain_max_unavailable_node_percentage`](#percentage-7723a9) - Optional Number<br>Maximum percentage of nodes unavailable during upgrade draining
+
 <a id="timeout-ac4ee9"></a>&#x2022; [`drain_node_timeout`](#timeout-ac4ee9) - Optional Number<br>Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is
 
-<a id="mode-9c557b"></a>&#x2022; [`enable_vega_upgrade_mode`](#mode-9c557b) - Optional Block<br>Configuration parameter for enable vega upgrade mode
+<a id="mode-9c557b"></a>&#x2022; [`enable_vega_upgrade_mode`](#mode-9c557b) - Optional Object<br>Configuration parameter for enable vega upgrade mode
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Disable Vega Upgrade Mode
+
+<a id="deep-6040f2"></a>Deeply nested **Mode** block collapsed for readability.
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Enable Vega Upgrade Mode
+
+<a id="deep-ea033c"></a>Deeply nested **Mode** block collapsed for readability.
 
 #### Log Receiver
 
@@ -334,6 +404,10 @@ A [`log_receiver`](#log-receiver) block supports the following:
 <a id="log-receiver-namespace"></a>&#x2022; [`namespace`](#log-receiver-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="log-receiver-tenant"></a>&#x2022; [`tenant`](#log-receiver-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Logs Streaming Disabled
+
+A [`logs_streaming_disabled`](#logs-streaming-disabled) block supports the following:
 
 #### Network Connectors
 
@@ -363,6 +437,26 @@ A [`network_firewall`](#network-firewall) block supports the following:
 
 <a id="network-firewall-uid"></a>&#x2022; [`uid`](#network-firewall-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
+#### No Bond Devices
+
+A [`no_bond_devices`](#no-bond-devices) block supports the following:
+
+#### No Dc Cluster Group
+
+A [`no_dc_cluster_group`](#no-dc-cluster-group) block supports the following:
+
+#### No Storage Device
+
+A [`no_storage_device`](#no-storage-device) block supports the following:
+
+#### No Storage Interfaces
+
+A [`no_storage_interfaces`](#no-storage-interfaces) block supports the following:
+
+#### No Storage Static Routes
+
+A [`no_storage_static_routes`](#no-storage-static-routes) block supports the following:
+
 #### Outside Virtual Network
 
 An [`outside_virtual_network`](#outside-virtual-network) block supports the following:
@@ -389,17 +483,33 @@ A [`performance_enhancement_mode`](#performance-enhancement-mode) block supports
 
 A [`perf_mode_l3_enhanced`](#enhanced-31b8ac) block (within [`performance_enhancement_mode`](#performance-enhancement-mode)) supports the following:
 
-<a id="jumbo-7ba5b8"></a>&#x2022; [`jumbo`](#jumbo-7ba5b8) - Optional Block<br>Enable this option
+<a id="jumbo-7ba5b8"></a>&#x2022; [`jumbo`](#jumbo-7ba5b8) - Optional Object<br>Enable this option
 
-<a id="jumbo-95338e"></a>&#x2022; [`no_jumbo`](#jumbo-95338e) - Optional Block<br>Enable this option
+<a id="jumbo-95338e"></a>&#x2022; [`no_jumbo`](#jumbo-95338e) - Optional Object<br>Enable this option
+
+#### Performance Enhancement Mode Perf Mode L3 Enhanced Jumbo
+
+<a id="deep-fc6f31"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Performance Enhancement Mode Perf Mode L3 Enhanced No Jumbo
+
+<a id="deep-7b763f"></a>Deeply nested **Jumbo** block collapsed for readability.
 
 #### Performance Enhancement Mode Perf Mode L7 Enhanced
 
 A [`perf_mode_l7_enhanced`](#enhanced-38f174) block (within [`performance_enhancement_mode`](#performance-enhancement-mode)) supports the following:
 
-<a id="disabled-0c2193"></a>&#x2022; [`jumbo_disabled`](#disabled-0c2193) - Optional Block<br>Enable this option
+<a id="disabled-0c2193"></a>&#x2022; [`jumbo_disabled`](#disabled-0c2193) - Optional Object<br>Enable this option
 
-<a id="enabled-a434b3"></a>&#x2022; [`jumbo_enabled`](#enabled-a434b3) - Optional Block<br>Enable this option
+<a id="enabled-a434b3"></a>&#x2022; [`jumbo_enabled`](#enabled-a434b3) - Optional Object<br>Enable this option
+
+#### Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Disabled
+
+<a id="deep-d34d62"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Enabled
+
+<a id="deep-b16dbd"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Sriov Interfaces
 
@@ -515,7 +625,7 @@ A [`storage_devices`](#storage-device-list-storage-devices) block (within [`stor
 
 <a id="parameters-88bc5e"></a>&#x2022; [`advanced_advanced_parameters`](#parameters-88bc5e) - Optional Map<br>Advanced Parameters. Map of parameter name and string value
 
-<a id="storage-06f9ba"></a>&#x2022; [`custom_storage`](#storage-06f9ba) - Optional Block<br>Configuration parameter for custom storage
+<a id="storage-06f9ba"></a>&#x2022; [`custom_storage`](#storage-06f9ba) - Optional Object<br>Configuration parameter for custom storage
 
 <a id="storage-af052c"></a>&#x2022; [`hpe_storage`](#storage-af052c) - Optional Block<br>Configuration parameter for hpe storage<br>See [Hpe Storage](#storage-af052c) below.
 
@@ -524,6 +634,10 @@ A [`storage_devices`](#storage-device-list-storage-devices) block (within [`stor
 <a id="orchestrator-9f97a6"></a>&#x2022; [`pure_service_orchestrator`](#orchestrator-9f97a6) - Optional Block<br>Device configuration for Pure Storage Service Orchestrator<br>See [Pure Service Orchestrator](#orchestrator-9f97a6) below.
 
 <a id="device-9157b6"></a>&#x2022; [`storage_device`](#device-9157b6) - Optional String<br>Storage Device. Storage device and device unit
+
+#### Storage Device List Storage Devices Custom Storage
+
+A [`custom_storage`](#storage-06f9ba) block (within [`storage_device_list.storage_devices`](#storage-device-list-storage-devices)) supports the following:
 
 #### Storage Device List Storage Devices Hpe Storage
 
@@ -615,9 +729,17 @@ A [`netapp_trident`](#trident-c1203e) block (within [`storage_device_list.storag
 
 <a id="deep-ea3010"></a>Deeply nested **Defaults** block collapsed for readability.
 
+#### Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Storage Volume Defaults No QOS
+
+<a id="deep-f192e4"></a>Deeply nested **QOS** block collapsed for readability.
+
 #### Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Volume Defaults
 
 <a id="deep-f28c80"></a>Deeply nested **Defaults** block collapsed for readability.
+
+#### Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Volume Defaults No QOS
+
+<a id="deep-9fd0a6"></a>Deeply nested **QOS** block collapsed for readability.
 
 #### Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San
 
@@ -634,6 +756,10 @@ A [`netapp_trident`](#trident-c1203e) block (within [`storage_device_list.storag
 #### Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Client Private Key Clear Secret Info
 
 <a id="deep-be8d78"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San No Chap
+
+<a id="deep-60482c"></a>Deeply nested **Chap** block collapsed for readability.
 
 #### Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Password
 
@@ -654,6 +780,10 @@ A [`netapp_trident`](#trident-c1203e) block (within [`storage_device_list.storag
 #### Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Storage Volume Defaults
 
 <a id="deep-20d6d7"></a>Deeply nested **Defaults** block collapsed for readability.
+
+#### Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Storage Volume Defaults No QOS
+
+<a id="deep-316e0f"></a>Deeply nested **QOS** block collapsed for readability.
 
 #### Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Use Chap
 
@@ -686,6 +816,10 @@ A [`netapp_trident`](#trident-c1203e) block (within [`storage_device_list.storag
 #### Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Volume Defaults
 
 <a id="deep-833704"></a>Deeply nested **Defaults** block collapsed for readability.
+
+#### Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Volume Defaults No QOS
+
+<a id="deep-def1ef"></a>Deeply nested **QOS** block collapsed for readability.
 
 #### Storage Device List Storage Devices Pure Service Orchestrator
 

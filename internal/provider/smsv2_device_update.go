@@ -13,7 +13,9 @@ import (
 // the API: ethernet device edits on an explicitly non-HA, single-node site. It
 // preserves replacement behavior for node identities/counts and other AWS edits.
 func canUpdateSMSv2AWSDevices(ctx context.Context, plan, state SecuremeshSiteV2ResourceModel) bool {
-	if plan.DisableHA == nil || state.DisableHA == nil || plan.EnableHA != nil || state.EnableHA != nil || plan.AWS == nil || state.AWS == nil || plan.AWS.NotManaged == nil || state.AWS.NotManaged == nil {
+	if !emptyObjectMarkerConfigured(plan.DisableHA) || !emptyObjectMarkerConfigured(state.DisableHA) ||
+		emptyObjectMarkerConfigured(plan.EnableHA) || emptyObjectMarkerConfigured(state.EnableHA) ||
+		plan.AWS == nil || state.AWS == nil || plan.AWS.NotManaged == nil || state.AWS.NotManaged == nil {
 		return false
 	}
 	planned, previous := plan.AWS.NotManaged.NodeList, state.AWS.NotManaged.NodeList
@@ -61,6 +63,10 @@ func canUpdateSMSv2AWSDevices(ctx context.Context, plan, state SecuremeshSiteV2R
 	normalizedNotManaged.NodeList = normalizedNodes
 	normalizedAWS.NotManaged = &normalizedNotManaged
 	return sameSMSv2AWSInputs(ctx, &normalizedAWS, state.AWS)
+}
+
+func emptyObjectMarkerConfigured(value types.Object) bool {
+	return !value.IsNull() && !value.IsUnknown()
 }
 
 // sameSMSv2AWSInputs excludes read-only interface observations from topology

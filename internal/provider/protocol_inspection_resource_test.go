@@ -79,11 +79,11 @@ resource "xcsh_protocol_inspection" "test" {
   namespace = xcsh_namespace.test.name
 
   enable_disable_compliance_checks {
-    disable_compliance_checks {}
+    disable_compliance_checks = {}
   }
 
   enable_disable_signatures {
-    disable_signature {}
+    disable_signature = {}
   }
 }
 `, nsName, name))

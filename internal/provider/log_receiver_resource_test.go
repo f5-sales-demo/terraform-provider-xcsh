@@ -86,7 +86,7 @@ resource "xcsh_log_receiver" "test" {
     syslog_rfc5424 = 500
   }
 
-  site_local {}
+  site_local = {}
 }
 `, nsName, name))
 }

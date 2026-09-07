@@ -91,7 +91,7 @@ resource "xcsh_rate_limiter" "test" {
     unit             = "SECOND"
     burst_multiplier = 5
 
-    token_bucket {}
+    token_bucket = {}
   }
 }
 ```
@@ -117,7 +117,7 @@ resource "xcsh_rate_limiter" "test" {
     unit             = "MINUTE"
     burst_multiplier = 2
 
-    leaky_bucket {}
+    leaky_bucket = {}
   }
 }
 ```
@@ -208,14 +208,14 @@ resource "xcsh_rate_limiter" "test" {
     burst_multiplier  = 2
     period_multiplier = 1
 
-    leaky_bucket {}
+    leaky_bucket = {}
   }
 }
 ```
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -257,13 +257,13 @@ A [`limits`](#limits) block supports the following:
 
 <a id="limits-burst-multiplier"></a>&#x2022; [`burst_multiplier`](#limits-burst-multiplier) - Optional Number<br>The maximum burst of requests to accommodate, expressed as a multiple of the rate
 
-<a id="limits-disabled"></a>&#x2022; [`disabled`](#limits-disabled) - Optional Block<br>Enable this option
+<a id="limits-disabled"></a>&#x2022; [`disabled`](#limits-disabled) - Optional Object<br>Enable this option
 
-<a id="limits-leaky-bucket"></a>&#x2022; [`leaky_bucket`](#limits-leaky-bucket) - Optional Block<br>Leaky-Bucket is the default rate limiter algorithm for F5
+<a id="limits-leaky-bucket"></a>&#x2022; [`leaky_bucket`](#limits-leaky-bucket) - Optional Object<br>Leaky-Bucket is the default rate limiter algorithm for F5
 
 <a id="limits-period-multiplier"></a>&#x2022; [`period_multiplier`](#limits-period-multiplier) - Optional Number<br>Setting, combined with Per Period units, provides a duration
 
-<a id="limits-token-bucket"></a>&#x2022; [`token_bucket`](#limits-token-bucket) - Optional Block<br>Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits
+<a id="limits-token-bucket"></a>&#x2022; [`token_bucket`](#limits-token-bucket) - Optional Object<br>Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits
 
 <a id="limits-total-number"></a>&#x2022; [`total_number`](#limits-total-number) - Optional Number<br>The total number of allowed requests per rate-limiting period
 

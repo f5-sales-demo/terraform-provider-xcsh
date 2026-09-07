@@ -30,9 +30,9 @@ resource "xcsh_securemesh_site_v2" "test" {
   aws {
     not_managed {}
   }
-  disable_ha {}
-  block_all_services {}
-  logs_streaming_disabled {}
+  disable_ha              = {}
+  block_all_services      = {}
+  logs_streaming_disabled = {}
   re_select { specific_geography = %q }
   upgrade_settings {
     kubernetes_upgrade_drain {
@@ -98,7 +98,7 @@ resource "xcsh_securemesh_site_v2" "test" {
 		Steps: []resource.TestStep{
 			{Config: config("US", 50), Check: check("POST", "US", 50)},
 			{
-				Config:      strings.Replace(config("US", 50), `re_select { specific_geography = "US" }`, "re_select {\n specific_geography = \"US\"\n geo_proximity {}\n}", 1),
+				Config:      strings.Replace(config("US", 50), `re_select { specific_geography = "US" }`, "re_select {\n specific_geography = \"US\"\n geo_proximity = {}\n}", 1),
 				PlanOnly:    true,
 				ExpectError: regexp.MustCompile("Conflicting Configuration"),
 			},
@@ -110,7 +110,7 @@ resource "xcsh_securemesh_site_v2" "test" {
 			{PreConfig: mock.Server.ClearRequestLog, Config: config("EU", 25), Check: check("PUT", "EU", 25)},
 			{
 				Config: strings.Replace(config("EU", 25), `re_select { specific_geography = "EU" }`, `re_select {
-  geo_proximity {}
+  geo_proximity = {}
   specific_re {
     primary_re = "example-primary-re"
     backup_re = "example-backup-re"

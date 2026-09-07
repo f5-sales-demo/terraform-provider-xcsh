@@ -39,7 +39,7 @@ resource "xcsh_k8s_pod_security_admission" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -75,17 +75,41 @@ In addition to all arguments above, the following attributes are exported:
 
 A [`pod_security_admission_specs`](#pod-security-admission-specs) block supports the following:
 
-<a id="pod-security-admission-specs-audit"></a>&#x2022; [`audit`](#pod-security-admission-specs-audit) - Optional Block<br>Enable this option
+<a id="pod-security-admission-specs-audit"></a>&#x2022; [`audit`](#pod-security-admission-specs-audit) - Optional Object<br>Enable this option
 
-<a id="pod-security-admission-specs-baseline"></a>&#x2022; [`baseline`](#pod-security-admission-specs-baseline) - Optional Block<br>Enable this option
+<a id="pod-security-admission-specs-baseline"></a>&#x2022; [`baseline`](#pod-security-admission-specs-baseline) - Optional Object<br>Enable this option
 
-<a id="pod-security-admission-specs-enforce"></a>&#x2022; [`enforce`](#pod-security-admission-specs-enforce) - Optional Block<br>Enable this option
+<a id="pod-security-admission-specs-enforce"></a>&#x2022; [`enforce`](#pod-security-admission-specs-enforce) - Optional Object<br>Enable this option
 
-<a id="pod-security-admission-specs-privileged"></a>&#x2022; [`privileged`](#pod-security-admission-specs-privileged) - Optional Block<br>Enable this option
+<a id="pod-security-admission-specs-privileged"></a>&#x2022; [`privileged`](#pod-security-admission-specs-privileged) - Optional Object<br>Enable this option
 
-<a id="pod-security-admission-specs-restricted"></a>&#x2022; [`restricted`](#pod-security-admission-specs-restricted) - Optional Block<br>Enable this option
+<a id="pod-security-admission-specs-restricted"></a>&#x2022; [`restricted`](#pod-security-admission-specs-restricted) - Optional Object<br>Enable this option
 
-<a id="pod-security-admission-specs-warn"></a>&#x2022; [`warn`](#pod-security-admission-specs-warn) - Optional Block<br>Enable this option
+<a id="pod-security-admission-specs-warn"></a>&#x2022; [`warn`](#pod-security-admission-specs-warn) - Optional Object<br>Enable this option
+
+#### Pod Security Admission Specs Audit
+
+An [`audit`](#pod-security-admission-specs-audit) block (within [`pod_security_admission_specs`](#pod-security-admission-specs)) supports the following:
+
+#### Pod Security Admission Specs Baseline
+
+A [`baseline`](#pod-security-admission-specs-baseline) block (within [`pod_security_admission_specs`](#pod-security-admission-specs)) supports the following:
+
+#### Pod Security Admission Specs Enforce
+
+An [`enforce`](#pod-security-admission-specs-enforce) block (within [`pod_security_admission_specs`](#pod-security-admission-specs)) supports the following:
+
+#### Pod Security Admission Specs Privileged
+
+A [`privileged`](#pod-security-admission-specs-privileged) block (within [`pod_security_admission_specs`](#pod-security-admission-specs)) supports the following:
+
+#### Pod Security Admission Specs Restricted
+
+A [`restricted`](#pod-security-admission-specs-restricted) block (within [`pod_security_admission_specs`](#pod-security-admission-specs)) supports the following:
+
+#### Pod Security Admission Specs Warn
+
+A [`warn`](#pod-security-admission-specs-warn) block (within [`pod_security_admission_specs`](#pod-security-admission-specs)) supports the following:
 
 #### Timeouts
 

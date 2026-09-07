@@ -25,5 +25,5 @@ resource "xcsh_http_loadbalancer" "test" {
     cookie_expiry   = 3600
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }

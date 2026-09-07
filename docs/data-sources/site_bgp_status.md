@@ -67,7 +67,7 @@ output "bgp_peers" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 ### Metadata Argument Reference
 
@@ -99,7 +99,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="slo-routes-json"></a>&#x2022; [`slo_routes_json`](#slo-routes-json) - Optional String
 
-<a id="expected-routes"></a>&#x2022; [`expected_routes`](#expected-routes) - Optional Set
+<a id="expected-routes"></a>&#x2022; [`expected_routes`](#expected-routes) - Optional Set<br>Prefixes that must be imported from this remote peer on the expected node
 
 <a id="mac"></a>&#x2022; [`mac`](#mac) - Optional String
 

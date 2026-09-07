@@ -80,26 +80,26 @@ var LogReceiverSyslogTCPServerModelAttrTypes = map[string]attr.Type{
 
 // LogReceiverSyslogTLSServerModel represents tls_server block
 type LogReceiverSyslogTLSServerModel struct {
+	DefaultHTTPSPort     types.Object                               `tfsdk:"default_https_port"`
+	DefaultSyslogTLSPort types.Object                               `tfsdk:"default_syslog_tls_port"`
+	MtlsDisabled         types.Object                               `tfsdk:"mtls_disabled"`
 	Port                 types.Int64                                `tfsdk:"port"`
 	ServerName           types.String                               `tfsdk:"server_name"`
 	TrustedCAURL         types.String                               `tfsdk:"trusted_ca_url"`
-	DefaultHTTPSPort     *LogReceiverEmptyModel                     `tfsdk:"default_https_port"`
-	DefaultSyslogTLSPort *LogReceiverEmptyModel                     `tfsdk:"default_syslog_tls_port"`
-	MtlsDisabled         *LogReceiverEmptyModel                     `tfsdk:"mtls_disabled"`
+	VolterraCA           types.Object                               `tfsdk:"volterra_ca"`
 	MtlsEnable           *LogReceiverSyslogTLSServerMtlsEnableModel `tfsdk:"mtls_enable"`
-	VolterraCA           *LogReceiverEmptyModel                     `tfsdk:"volterra_ca"`
 }
 
 // LogReceiverSyslogTLSServerModelAttrTypes defines the attribute types for LogReceiverSyslogTLSServerModel
 var LogReceiverSyslogTLSServerModelAttrTypes = map[string]attr.Type{
-	"port":                    types.Int64Type,
-	"server_name":             types.StringType,
-	"trusted_ca_url":          types.StringType,
 	"default_https_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"default_syslog_tls_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"mtls_disabled":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"mtls_enable":             types.ObjectType{AttrTypes: LogReceiverSyslogTLSServerMtlsEnableModelAttrTypes},
+	"port":                    types.Int64Type,
+	"server_name":             types.StringType,
+	"trusted_ca_url":          types.StringType,
 	"volterra_ca":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"mtls_enable":             types.ObjectType{AttrTypes: LogReceiverSyslogTLSServerMtlsEnableModelAttrTypes},
 }
 
 // LogReceiverSyslogTLSServerMtlsEnableModel represents mtls_enable block
@@ -279,6 +279,21 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 						MarkdownDescription: "TLS config for client of discovery service.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("server_name"), validators.ConflictingObjectAttributes("default_https_port", "default_syslog_tls_port"), validators.ConflictingObjectAttributes("default_https_port", "port"), validators.ConflictingObjectAttributes("default_syslog_tls_port", "port"), validators.ConflictingObjectAttributes("mtls_disabled", "mtls_enable"), validators.ConflictingObjectAttributes("trusted_ca_url", "volterra_ca")},
 						Attributes: map[string]schema.Attribute{
+							"default_https_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"default_syslog_tls_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"mtls_disabled": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"port": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [default_https_port default_syslog_tls_port] Custom port number used for communication.",
 								Optional:            true,
@@ -300,17 +315,13 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 									stringvalidator.LengthAtMost(131072),
 								},
 							},
+							"volterra_ca": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for volterra ca.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 						},
 						Blocks: map[string]schema.Block{
-							"default_https_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"default_syslog_tls_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"mtls_disabled": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"mtls_enable": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for mtls enable.",
 								Attributes: map[string]schema.Attribute{
@@ -369,9 +380,6 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 										},
 									},
 								},
-							},
-							"volterra_ca": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for volterra ca.",
 							},
 						},
 					},
@@ -543,13 +551,13 @@ func (r *LogReceiverResource) Create(ctx context.Context, req resource.CreateReq
 		}
 		if data.Syslog.TLSServer != nil {
 			SyslogTLSServerMap := make(map[string]interface{})
-			if data.Syslog.TLSServer.DefaultHTTPSPort != nil {
+			if !data.Syslog.TLSServer.DefaultHTTPSPort.IsNull() && !data.Syslog.TLSServer.DefaultHTTPSPort.IsUnknown() {
 				SyslogTLSServerMap["default_https_port"] = map[string]interface{}{}
 			}
-			if data.Syslog.TLSServer.DefaultSyslogTLSPort != nil {
+			if !data.Syslog.TLSServer.DefaultSyslogTLSPort.IsNull() && !data.Syslog.TLSServer.DefaultSyslogTLSPort.IsUnknown() {
 				SyslogTLSServerMap["default_syslog_tls_port"] = map[string]interface{}{}
 			}
-			if data.Syslog.TLSServer.MtlsDisabled != nil {
+			if !data.Syslog.TLSServer.MtlsDisabled.IsNull() && !data.Syslog.TLSServer.MtlsDisabled.IsUnknown() {
 				SyslogTLSServerMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.Syslog.TLSServer.MtlsEnable != nil {
@@ -595,7 +603,7 @@ func (r *LogReceiverResource) Create(ctx context.Context, req resource.CreateReq
 			if !data.Syslog.TLSServer.TrustedCAURL.IsNull() && !data.Syslog.TLSServer.TrustedCAURL.IsUnknown() {
 				SyslogTLSServerMap["trusted_ca_url"] = data.Syslog.TLSServer.TrustedCAURL.ValueString()
 			}
-			if data.Syslog.TLSServer.VolterraCA != nil {
+			if !data.Syslog.TLSServer.VolterraCA.IsNull() && !data.Syslog.TLSServer.VolterraCA.IsUnknown() {
 				SyslogTLSServerMap["volterra_ca"] = map[string]interface{}{}
 			}
 			SyslogMap["tls_server"] = SyslogTLSServerMap
@@ -696,32 +704,32 @@ func (r *LogReceiverResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				if TLSServerData, ok := blockData["tls_server"].(map[string]interface{}); ok {
 					return &LogReceiverSyslogTLSServerModel{
-						DefaultHTTPSPort: func() *LogReceiverEmptyModel {
-							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+						DefaultHTTPSPort: func() types.Object {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.DefaultHTTPSPort.IsUnknown() {
 								return data.Syslog.TLSServer.DefaultHTTPSPort
 							}
 							if _, ok := TLSServerData["default_https_port"].(map[string]interface{}); ok {
-								return &LogReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DefaultSyslogTLSPort: func() *LogReceiverEmptyModel {
-							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+						DefaultSyslogTLSPort: func() types.Object {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.DefaultSyslogTLSPort.IsUnknown() {
 								return data.Syslog.TLSServer.DefaultSyslogTLSPort
 							}
 							if _, ok := TLSServerData["default_syslog_tls_port"].(map[string]interface{}); ok {
-								return &LogReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						MtlsDisabled: func() *LogReceiverEmptyModel {
-							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+						MtlsDisabled: func() types.Object {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.MtlsDisabled.IsUnknown() {
 								return data.Syslog.TLSServer.MtlsDisabled
 							}
 							if _, ok := TLSServerData["mtls_disabled"].(map[string]interface{}); ok {
-								return &LogReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						MtlsEnable: func() *LogReceiverSyslogTLSServerMtlsEnableModel {
 							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil {
@@ -820,14 +828,14 @@ func (r *LogReceiverResource) Create(ctx context.Context, req resource.CreateReq
 							}
 							return types.StringNull()
 						}(),
-						VolterraCA: func() *LogReceiverEmptyModel {
-							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+						VolterraCA: func() types.Object {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.VolterraCA.IsUnknown() {
 								return data.Syslog.TLSServer.VolterraCA
 							}
 							if _, ok := TLSServerData["volterra_ca"].(map[string]interface{}); ok {
-								return &LogReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -1036,32 +1044,32 @@ func (r *LogReceiverResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				if TLSServerData, ok := blockData["tls_server"].(map[string]interface{}); ok {
 					return &LogReceiverSyslogTLSServerModel{
-						DefaultHTTPSPort: func() *LogReceiverEmptyModel {
-							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+						DefaultHTTPSPort: func() types.Object {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.DefaultHTTPSPort.IsUnknown() {
 								return data.Syslog.TLSServer.DefaultHTTPSPort
 							}
 							if _, ok := TLSServerData["default_https_port"].(map[string]interface{}); ok {
-								return &LogReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DefaultSyslogTLSPort: func() *LogReceiverEmptyModel {
-							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+						DefaultSyslogTLSPort: func() types.Object {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.DefaultSyslogTLSPort.IsUnknown() {
 								return data.Syslog.TLSServer.DefaultSyslogTLSPort
 							}
 							if _, ok := TLSServerData["default_syslog_tls_port"].(map[string]interface{}); ok {
-								return &LogReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						MtlsDisabled: func() *LogReceiverEmptyModel {
-							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+						MtlsDisabled: func() types.Object {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.MtlsDisabled.IsUnknown() {
 								return data.Syslog.TLSServer.MtlsDisabled
 							}
 							if _, ok := TLSServerData["mtls_disabled"].(map[string]interface{}); ok {
-								return &LogReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						MtlsEnable: func() *LogReceiverSyslogTLSServerMtlsEnableModel {
 							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil {
@@ -1160,14 +1168,14 @@ func (r *LogReceiverResource) Read(ctx context.Context, req resource.ReadRequest
 							}
 							return types.StringNull()
 						}(),
-						VolterraCA: func() *LogReceiverEmptyModel {
-							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+						VolterraCA: func() types.Object {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.VolterraCA.IsUnknown() {
 								return data.Syslog.TLSServer.VolterraCA
 							}
 							if _, ok := TLSServerData["volterra_ca"].(map[string]interface{}); ok {
-								return &LogReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -1314,13 +1322,13 @@ func (r *LogReceiverResource) Update(ctx context.Context, req resource.UpdateReq
 		}
 		if data.Syslog.TLSServer != nil {
 			SyslogTLSServerMap := make(map[string]interface{})
-			if data.Syslog.TLSServer.DefaultHTTPSPort != nil {
+			if !data.Syslog.TLSServer.DefaultHTTPSPort.IsNull() && !data.Syslog.TLSServer.DefaultHTTPSPort.IsUnknown() {
 				SyslogTLSServerMap["default_https_port"] = map[string]interface{}{}
 			}
-			if data.Syslog.TLSServer.DefaultSyslogTLSPort != nil {
+			if !data.Syslog.TLSServer.DefaultSyslogTLSPort.IsNull() && !data.Syslog.TLSServer.DefaultSyslogTLSPort.IsUnknown() {
 				SyslogTLSServerMap["default_syslog_tls_port"] = map[string]interface{}{}
 			}
-			if data.Syslog.TLSServer.MtlsDisabled != nil {
+			if !data.Syslog.TLSServer.MtlsDisabled.IsNull() && !data.Syslog.TLSServer.MtlsDisabled.IsUnknown() {
 				SyslogTLSServerMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.Syslog.TLSServer.MtlsEnable != nil {
@@ -1366,7 +1374,7 @@ func (r *LogReceiverResource) Update(ctx context.Context, req resource.UpdateReq
 			if !data.Syslog.TLSServer.TrustedCAURL.IsNull() && !data.Syslog.TLSServer.TrustedCAURL.IsUnknown() {
 				SyslogTLSServerMap["trusted_ca_url"] = data.Syslog.TLSServer.TrustedCAURL.ValueString()
 			}
-			if data.Syslog.TLSServer.VolterraCA != nil {
+			if !data.Syslog.TLSServer.VolterraCA.IsNull() && !data.Syslog.TLSServer.VolterraCA.IsUnknown() {
 				SyslogTLSServerMap["volterra_ca"] = map[string]interface{}{}
 			}
 			SyslogMap["tls_server"] = SyslogTLSServerMap
@@ -1487,32 +1495,32 @@ func (r *LogReceiverResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				if TLSServerData, ok := blockData["tls_server"].(map[string]interface{}); ok {
 					return &LogReceiverSyslogTLSServerModel{
-						DefaultHTTPSPort: func() *LogReceiverEmptyModel {
-							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+						DefaultHTTPSPort: func() types.Object {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.DefaultHTTPSPort.IsUnknown() {
 								return data.Syslog.TLSServer.DefaultHTTPSPort
 							}
 							if _, ok := TLSServerData["default_https_port"].(map[string]interface{}); ok {
-								return &LogReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DefaultSyslogTLSPort: func() *LogReceiverEmptyModel {
-							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+						DefaultSyslogTLSPort: func() types.Object {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.DefaultSyslogTLSPort.IsUnknown() {
 								return data.Syslog.TLSServer.DefaultSyslogTLSPort
 							}
 							if _, ok := TLSServerData["default_syslog_tls_port"].(map[string]interface{}); ok {
-								return &LogReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						MtlsDisabled: func() *LogReceiverEmptyModel {
-							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+						MtlsDisabled: func() types.Object {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.MtlsDisabled.IsUnknown() {
 								return data.Syslog.TLSServer.MtlsDisabled
 							}
 							if _, ok := TLSServerData["mtls_disabled"].(map[string]interface{}); ok {
-								return &LogReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						MtlsEnable: func() *LogReceiverSyslogTLSServerMtlsEnableModel {
 							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && data.Syslog.TLSServer.MtlsEnable != nil {
@@ -1611,14 +1619,14 @@ func (r *LogReceiverResource) Update(ctx context.Context, req resource.UpdateReq
 							}
 							return types.StringNull()
 						}(),
-						VolterraCA: func() *LogReceiverEmptyModel {
-							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil {
+						VolterraCA: func() types.Object {
+							if !isImport && data.Syslog != nil && data.Syslog.TLSServer != nil && !data.Syslog.TLSServer.VolterraCA.IsUnknown() {
 								return data.Syslog.TLSServer.VolterraCA
 							}
 							if _, ok := TLSServerData["volterra_ca"].(map[string]interface{}); ok {
-								return &LogReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}

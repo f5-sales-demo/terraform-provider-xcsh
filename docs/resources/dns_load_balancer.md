@@ -39,7 +39,7 @@ resource "xcsh_dns_load_balancer" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -93,11 +93,19 @@ A [`fallback_pool`](#fallback-pool) block supports the following:
 
 A [`response_cache`](#response-cache) block supports the following:
 
-<a id="parameters-3b3c71"></a>&#x2022; [`default_response_cache_parameters`](#parameters-3b3c71) - Optional Block<br>Configuration parameter for default response cache parameters
+<a id="parameters-3b3c71"></a>&#x2022; [`default_response_cache_parameters`](#parameters-3b3c71) - Optional Object<br>Configuration parameter for default response cache parameters
 
-<a id="response-cache-disable-spec"></a>&#x2022; [`disable_spec`](#response-cache-disable-spec) - Optional Block<br>Enable this option
+<a id="response-cache-disable-spec"></a>&#x2022; [`disable_spec`](#response-cache-disable-spec) - Optional Object<br>Enable this option
 
 <a id="parameters-0ffd09"></a>&#x2022; [`response_cache_parameters`](#parameters-0ffd09) - Optional Block<br>Configuration parameter for response cache parameters<br>See [Response Cache Parameters](#parameters-0ffd09) below.
+
+#### Response Cache Default Response Cache Parameters
+
+A [`default_response_cache_parameters`](#parameters-3b3c71) block (within [`response_cache`](#response-cache)) supports the following:
+
+#### Response Cache Disable Spec
+
+A [`disable_spec`](#response-cache-disable-spec) block (within [`response_cache`](#response-cache)) supports the following:
 
 #### Response Cache Response Cache Parameters
 

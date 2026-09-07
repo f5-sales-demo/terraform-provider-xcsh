@@ -39,7 +39,7 @@ resource "xcsh_dns_lb_health_check" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -62,7 +62,7 @@ resource "xcsh_dns_lb_health_check" "example" {
 -> **One of the following:**
 &#x2022; <a id="http-health-check"></a>[`http_health_check`](#http-health-check) - Optional Block<br>Configuration parameter for HTTP health check<br>See [HTTP Health Check](#http-health-check) below for details.
 <br><br>&#x2022; <a id="https-health-check"></a>[`https_health_check`](#https-health-check) - Optional Block<br>Configuration parameter for HTTPS health check<br>See [HTTPS Health Check](#https-health-check) below for details.
-<br><br>&#x2022; <a id="icmp-health-check"></a>[`icmp_health_check`](#icmp-health-check) - Optional Block<br>Configuration parameter for ICMP health check
+<br><br>&#x2022; <a id="icmp-health-check"></a>[`icmp_health_check`](#icmp-health-check) - Optional Object<br>Configuration parameter for ICMP health check
 <br><br>&#x2022; <a id="tcp-health-check"></a>[`tcp_health_check`](#tcp-health-check) - Optional Block<br>Configuration parameter for TCP health check<br>See [TCP Health Check](#tcp-health-check) below for details.
 <br><br>&#x2022; <a id="tcp-hex-health-check"></a>[`tcp_hex_health_check`](#tcp-hex-health-check) - Optional Block<br>Configuration parameter for TCP hex health check<br>See [TCP Hex Health Check](#tcp-hex-health-check) below for details.
 <br><br>&#x2022; <a id="udp-health-check"></a>[`udp_health_check`](#udp-health-check) - Optional Block<br>Configuration parameter for UDP health check<br>See [UDP Health Check](#udp-health-check) below for details.
@@ -81,7 +81,7 @@ In addition to all arguments above, the following attributes are exported:
 
 A [`http_health_check`](#http-health-check) block supports the following:
 
-<a id="http-health-check-disable-virtual-host"></a>&#x2022; [`disable_virtual_host`](#http-health-check-disable-virtual-host) - Optional Block<br>Enable this option
+<a id="http-health-check-disable-virtual-host"></a>&#x2022; [`disable_virtual_host`](#http-health-check-disable-virtual-host) - Optional Object<br>Enable this option
 
 <a id="http-health-check-health-check-port"></a>&#x2022; [`health_check_port`](#http-health-check-health-check-port) - Optional Number<br>Health Check Port. Port used for performing health check
 
@@ -93,11 +93,15 @@ A [`http_health_check`](#http-health-check) block supports the following:
 
 <a id="http-health-check-virtual-host"></a>&#x2022; [`virtual_host`](#http-health-check-virtual-host) - Optional String<br>Name of the virtual host to use for SNI
 
+#### HTTP Health Check Disable Virtual Host
+
+A [`disable_virtual_host`](#http-health-check-disable-virtual-host) block (within [`http_health_check`](#http-health-check)) supports the following:
+
 #### HTTPS Health Check
 
 A [`https_health_check`](#https-health-check) block supports the following:
 
-<a id="https-health-check-disable-virtual-host"></a>&#x2022; [`disable_virtual_host`](#https-health-check-disable-virtual-host) - Optional Block<br>Enable this option
+<a id="https-health-check-disable-virtual-host"></a>&#x2022; [`disable_virtual_host`](#https-health-check-disable-virtual-host) - Optional Object<br>Enable this option
 
 <a id="https-health-check-health-check-port"></a>&#x2022; [`health_check_port`](#https-health-check-health-check-port) - Optional Number<br>Health Check Port. Port used for performing health check
 
@@ -108,6 +112,14 @@ A [`https_health_check`](#https-health-check) block supports the following:
 <a id="https-health-check-send"></a>&#x2022; [`send`](#https-health-check-send) - Optional String<br>Send String. HTTP payload to send to the target
 
 <a id="https-health-check-virtual-host"></a>&#x2022; [`virtual_host`](#https-health-check-virtual-host) - Optional String<br>Name of the virtual host to use for SNI
+
+#### HTTPS Health Check Disable Virtual Host
+
+A [`disable_virtual_host`](#https-health-check-disable-virtual-host) block (within [`https_health_check`](#https-health-check)) supports the following:
+
+#### ICMP Health Check
+
+An [`icmp_health_check`](#icmp-health-check) block supports the following:
 
 #### TCP Health Check
 

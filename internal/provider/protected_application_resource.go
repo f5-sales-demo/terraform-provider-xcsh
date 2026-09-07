@@ -54,10 +54,10 @@ type ProtectedApplicationEmptyModel struct {
 // ProtectedApplicationCloudflareModel represents cloudflare block
 type ProtectedApplicationCloudflareModel struct {
 	ContinueMitigationActionHdr types.String                                         `tfsdk:"continue_mitigation_action_hdr"`
+	DisableJsInsert             types.Object                                         `tfsdk:"disable_js_insert"`
+	DisableMobileSdk            types.Object                                         `tfsdk:"disable_mobile_sdk"`
 	Loglevel                    types.String                                         `tfsdk:"loglevel"`
 	Timeout                     types.Int64                                          `tfsdk:"timeout"`
-	DisableJsInsert             *ProtectedApplicationEmptyModel                      `tfsdk:"disable_js_insert"`
-	DisableMobileSdk            *ProtectedApplicationEmptyModel                      `tfsdk:"disable_mobile_sdk"`
 	JsInsertionRules            *ProtectedApplicationCloudflareJsInsertionRulesModel `tfsdk:"js_insertion_rules"`
 	ManualJsInsert              *ProtectedApplicationCloudflareManualJsInsertModel   `tfsdk:"manual_js_insert"`
 	MobileSdkConfig             *ProtectedApplicationCloudflareMobileSdkConfigModel  `tfsdk:"mobile_sdk_config"`
@@ -68,10 +68,10 @@ type ProtectedApplicationCloudflareModel struct {
 // ProtectedApplicationCloudflareModelAttrTypes defines the attribute types for ProtectedApplicationCloudflareModel
 var ProtectedApplicationCloudflareModelAttrTypes = map[string]attr.Type{
 	"continue_mitigation_action_hdr": types.StringType,
-	"loglevel":                       types.StringType,
-	"timeout":                        types.Int64Type,
 	"disable_js_insert":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_mobile_sdk":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"loglevel":                       types.StringType,
+	"timeout":                        types.Int64Type,
 	"js_insertion_rules":             types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesModelAttrTypes},
 	"manual_js_insert":               types.ObjectType{AttrTypes: ProtectedApplicationCloudflareManualJsInsertModelAttrTypes},
 	"mobile_sdk_config":              types.ObjectType{AttrTypes: ProtectedApplicationCloudflareMobileSdkConfigModelAttrTypes},
@@ -97,7 +97,7 @@ var ProtectedApplicationCloudflareJsInsertionRulesModelAttrTypes = map[string]at
 
 // ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel represents exclude_list block
 type ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel struct {
-	AnyDomain *ProtectedApplicationEmptyModel                                         `tfsdk:"any_domain"`
+	AnyDomain types.Object                                                            `tfsdk:"any_domain"`
 	Domain    *ProtectedApplicationCloudflareJsInsertionRulesExcludeListDomainModel   `tfsdk:"domain"`
 	Metadata  *ProtectedApplicationCloudflareJsInsertionRulesExcludeListMetadataModel `tfsdk:"metadata"`
 	Path      *ProtectedApplicationCloudflareJsInsertionRulesExcludeListPathModel     `tfsdk:"path"`
@@ -153,20 +153,20 @@ var ProtectedApplicationCloudflareJsInsertionRulesExcludeListPathModelAttrTypes 
 
 // ProtectedApplicationCloudflareJsInsertionRulesRulesModel represents rules block
 type ProtectedApplicationCloudflareJsInsertionRulesRulesModel struct {
+	AnyDomain types.Object                                                      `tfsdk:"any_domain"`
 	ExactPath types.String                                                      `tfsdk:"exact_path"`
 	Glob      types.String                                                      `tfsdk:"glob"`
 	Prefix    types.String                                                      `tfsdk:"prefix"`
-	AnyDomain *ProtectedApplicationEmptyModel                                   `tfsdk:"any_domain"`
 	Domain    *ProtectedApplicationCloudflareJsInsertionRulesRulesDomainModel   `tfsdk:"domain"`
 	Metadata  *ProtectedApplicationCloudflareJsInsertionRulesRulesMetadataModel `tfsdk:"metadata"`
 }
 
 // ProtectedApplicationCloudflareJsInsertionRulesRulesModelAttrTypes defines the attribute types for ProtectedApplicationCloudflareJsInsertionRulesRulesModel
 var ProtectedApplicationCloudflareJsInsertionRulesRulesModelAttrTypes = map[string]attr.Type{
+	"any_domain": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"exact_path": types.StringType,
 	"glob":       types.StringType,
 	"prefix":     types.StringType,
-	"any_domain": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"domain":     types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesRulesDomainModelAttrTypes},
 	"metadata":   types.ObjectType{AttrTypes: ProtectedApplicationCloudflareJsInsertionRulesRulesMetadataModelAttrTypes},
 }
@@ -243,9 +243,9 @@ var ProtectedApplicationCloudflareMobileSdkConfigMobileIdentifierHeadersModelAtt
 
 // ProtectedApplicationCloudflareProtectedEndpointsModel represents protected_endpoints block
 type ProtectedApplicationCloudflareProtectedEndpointsModel struct {
+	AnyDomain       types.Object                                                          `tfsdk:"any_domain"`
 	HTTPMethods     types.List                                                            `tfsdk:"http_methods"`
 	Query           types.String                                                          `tfsdk:"query"`
-	AnyDomain       *ProtectedApplicationEmptyModel                                       `tfsdk:"any_domain"`
 	Domain          *ProtectedApplicationCloudflareProtectedEndpointsDomainModel          `tfsdk:"domain"`
 	Metadata        *ProtectedApplicationCloudflareProtectedEndpointsMetadataModel        `tfsdk:"metadata"`
 	MobileClient    *ProtectedApplicationCloudflareProtectedEndpointsMobileClientModel    `tfsdk:"mobile_client"`
@@ -256,9 +256,9 @@ type ProtectedApplicationCloudflareProtectedEndpointsModel struct {
 
 // ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes defines the attribute types for ProtectedApplicationCloudflareProtectedEndpointsModel
 var ProtectedApplicationCloudflareProtectedEndpointsModelAttrTypes = map[string]attr.Type{
+	"any_domain":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"http_methods":      types.ListType{ElemType: types.StringType},
 	"query":             types.StringType,
-	"any_domain":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"domain":            types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsDomainModelAttrTypes},
 	"metadata":          types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsMetadataModelAttrTypes},
 	"mobile_client":     types.ObjectType{AttrTypes: ProtectedApplicationCloudflareProtectedEndpointsMobileClientModelAttrTypes},
@@ -321,8 +321,8 @@ var ProtectedApplicationCloudflareProtectedEndpointsMobileClientBlockModelAttrTy
 
 // ProtectedApplicationCloudflareProtectedEndpointsMobileClientContinueModel represents continue block
 type ProtectedApplicationCloudflareProtectedEndpointsMobileClientContinueModel struct {
-	AddHeader *ProtectedApplicationEmptyModel `tfsdk:"add_header"`
-	NoHeader  *ProtectedApplicationEmptyModel `tfsdk:"no_header"`
+	AddHeader types.Object `tfsdk:"add_header"`
+	NoHeader  types.Object `tfsdk:"no_header"`
 }
 
 // ProtectedApplicationCloudflareProtectedEndpointsMobileClientContinueModelAttrTypes defines the attribute types for ProtectedApplicationCloudflareProtectedEndpointsMobileClientContinueModel
@@ -373,8 +373,8 @@ var ProtectedApplicationCloudflareProtectedEndpointsWebClientBlockModelAttrTypes
 
 // ProtectedApplicationCloudflareProtectedEndpointsWebClientContinueModel represents continue block
 type ProtectedApplicationCloudflareProtectedEndpointsWebClientContinueModel struct {
-	AddHeader *ProtectedApplicationEmptyModel `tfsdk:"add_header"`
-	NoHeader  *ProtectedApplicationEmptyModel `tfsdk:"no_header"`
+	AddHeader types.Object `tfsdk:"add_header"`
+	NoHeader  types.Object `tfsdk:"no_header"`
 }
 
 // ProtectedApplicationCloudflareProtectedEndpointsWebClientContinueModelAttrTypes defines the attribute types for ProtectedApplicationCloudflareProtectedEndpointsWebClientContinueModel
@@ -443,8 +443,8 @@ var ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientBlockWebModel
 
 // ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobileModel represents continue_mobile block
 type ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobileModel struct {
-	AddHeader *ProtectedApplicationEmptyModel `tfsdk:"add_header"`
-	NoHeader  *ProtectedApplicationEmptyModel `tfsdk:"no_header"`
+	AddHeader types.Object `tfsdk:"add_header"`
+	NoHeader  types.Object `tfsdk:"no_header"`
 }
 
 // ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobileModelAttrTypes defines the attribute types for ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobileModel
@@ -455,8 +455,8 @@ var ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobil
 
 // ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueWebModel represents continue_web block
 type ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueWebModel struct {
-	AddHeader *ProtectedApplicationEmptyModel `tfsdk:"add_header"`
-	NoHeader  *ProtectedApplicationEmptyModel `tfsdk:"no_header"`
+	AddHeader types.Object `tfsdk:"add_header"`
+	NoHeader  types.Object `tfsdk:"no_header"`
 }
 
 // ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueWebModelAttrTypes defines the attribute types for ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueWebModel
@@ -531,13 +531,13 @@ var ProtectedApplicationCloudflareTrustedClientsMetadataModelAttrTypes = map[str
 type ProtectedApplicationCloudfrontModel struct {
 	ContinueMitigationActionHdr types.String                                                    `tfsdk:"continue_mitigation_action_hdr"`
 	DataSample                  types.Int64                                                     `tfsdk:"data_sample"`
+	DisableAWSConfiguration     types.Object                                                    `tfsdk:"disable_aws_configuration"`
+	DisableJsInsert             types.Object                                                    `tfsdk:"disable_js_insert"`
+	DisableMobileSdk            types.Object                                                    `tfsdk:"disable_mobile_sdk"`
 	Loglevel                    types.String                                                    `tfsdk:"loglevel"`
 	Timeout                     types.Int64                                                     `tfsdk:"timeout"`
 	AWSConfigurationIDSelector  *ProtectedApplicationCloudfrontAWSConfigurationIDSelectorModel  `tfsdk:"aws_configuration_id_selector"`
 	AWSConfigurationTagSelector *ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel `tfsdk:"aws_configuration_tag_selector"`
-	DisableAWSConfiguration     *ProtectedApplicationEmptyModel                                 `tfsdk:"disable_aws_configuration"`
-	DisableJsInsert             *ProtectedApplicationEmptyModel                                 `tfsdk:"disable_js_insert"`
-	DisableMobileSdk            *ProtectedApplicationEmptyModel                                 `tfsdk:"disable_mobile_sdk"`
 	JsInsertionRules            *ProtectedApplicationCloudfrontJsInsertionRulesModel            `tfsdk:"js_insertion_rules"`
 	ManualJsInsert              *ProtectedApplicationCloudfrontManualJsInsertModel              `tfsdk:"manual_js_insert"`
 	MobileSdkConfig             *ProtectedApplicationCloudfrontMobileSdkConfigModel             `tfsdk:"mobile_sdk_config"`
@@ -549,13 +549,13 @@ type ProtectedApplicationCloudfrontModel struct {
 var ProtectedApplicationCloudfrontModelAttrTypes = map[string]attr.Type{
 	"continue_mitigation_action_hdr": types.StringType,
 	"data_sample":                    types.Int64Type,
+	"disable_aws_configuration":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disable_js_insert":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disable_mobile_sdk":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"loglevel":                       types.StringType,
 	"timeout":                        types.Int64Type,
 	"aws_configuration_id_selector":  types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontAWSConfigurationIDSelectorModelAttrTypes},
 	"aws_configuration_tag_selector": types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModelAttrTypes},
-	"disable_aws_configuration":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"disable_js_insert":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"disable_mobile_sdk":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"js_insertion_rules":             types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesModelAttrTypes},
 	"manual_js_insert":               types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontManualJsInsertModelAttrTypes},
 	"mobile_sdk_config":              types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontMobileSdkConfigModelAttrTypes},
@@ -603,7 +603,7 @@ var ProtectedApplicationCloudfrontJsInsertionRulesModelAttrTypes = map[string]at
 
 // ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel represents exclude_list block
 type ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel struct {
-	AnyDomain *ProtectedApplicationEmptyModel                                         `tfsdk:"any_domain"`
+	AnyDomain types.Object                                                            `tfsdk:"any_domain"`
 	Domain    *ProtectedApplicationCloudfrontJsInsertionRulesExcludeListDomainModel   `tfsdk:"domain"`
 	Metadata  *ProtectedApplicationCloudfrontJsInsertionRulesExcludeListMetadataModel `tfsdk:"metadata"`
 	Path      *ProtectedApplicationCloudfrontJsInsertionRulesExcludeListPathModel     `tfsdk:"path"`
@@ -659,20 +659,20 @@ var ProtectedApplicationCloudfrontJsInsertionRulesExcludeListPathModelAttrTypes 
 
 // ProtectedApplicationCloudfrontJsInsertionRulesRulesModel represents rules block
 type ProtectedApplicationCloudfrontJsInsertionRulesRulesModel struct {
+	AnyDomain types.Object                                                      `tfsdk:"any_domain"`
 	ExactPath types.String                                                      `tfsdk:"exact_path"`
 	Glob      types.String                                                      `tfsdk:"glob"`
 	Prefix    types.String                                                      `tfsdk:"prefix"`
-	AnyDomain *ProtectedApplicationEmptyModel                                   `tfsdk:"any_domain"`
 	Domain    *ProtectedApplicationCloudfrontJsInsertionRulesRulesDomainModel   `tfsdk:"domain"`
 	Metadata  *ProtectedApplicationCloudfrontJsInsertionRulesRulesMetadataModel `tfsdk:"metadata"`
 }
 
 // ProtectedApplicationCloudfrontJsInsertionRulesRulesModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontJsInsertionRulesRulesModel
 var ProtectedApplicationCloudfrontJsInsertionRulesRulesModelAttrTypes = map[string]attr.Type{
+	"any_domain": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"exact_path": types.StringType,
 	"glob":       types.StringType,
 	"prefix":     types.StringType,
-	"any_domain": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"domain":     types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesRulesDomainModelAttrTypes},
 	"metadata":   types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontJsInsertionRulesRulesMetadataModelAttrTypes},
 }
@@ -751,30 +751,30 @@ var ProtectedApplicationCloudfrontMobileSdkConfigMobileIdentifierHeadersModelAtt
 
 // ProtectedApplicationCloudfrontProtectedEndpointsModel represents protected_endpoints block
 type ProtectedApplicationCloudfrontProtectedEndpointsModel struct {
+	AnyDomain          types.Object                                                          `tfsdk:"any_domain"`
 	HTTPMethods        types.List                                                            `tfsdk:"http_methods"`
 	Path               types.String                                                          `tfsdk:"path"`
 	Query              types.String                                                          `tfsdk:"query"`
-	AnyDomain          *ProtectedApplicationEmptyModel                                       `tfsdk:"any_domain"`
+	UndefinedFlowLabel types.Object                                                          `tfsdk:"undefined_flow_label"`
 	Domain             *ProtectedApplicationCloudfrontProtectedEndpointsDomainModel          `tfsdk:"domain"`
 	FlowLabel          *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelModel       `tfsdk:"flow_label"`
 	Metadata           *ProtectedApplicationCloudfrontProtectedEndpointsMetadataModel        `tfsdk:"metadata"`
 	MobileClient       *ProtectedApplicationCloudfrontProtectedEndpointsMobileClientModel    `tfsdk:"mobile_client"`
-	UndefinedFlowLabel *ProtectedApplicationEmptyModel                                       `tfsdk:"undefined_flow_label"`
 	WebClient          *ProtectedApplicationCloudfrontProtectedEndpointsWebClientModel       `tfsdk:"web_client"`
 	WebMobileClient    *ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientModel `tfsdk:"web_mobile_client"`
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontProtectedEndpointsModel
 var ProtectedApplicationCloudfrontProtectedEndpointsModelAttrTypes = map[string]attr.Type{
+	"any_domain":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"http_methods":         types.ListType{ElemType: types.StringType},
 	"path":                 types.StringType,
 	"query":                types.StringType,
-	"any_domain":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"undefined_flow_label": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"domain":               types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsDomainModelAttrTypes},
 	"flow_label":           types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelModelAttrTypes},
 	"metadata":             types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsMetadataModelAttrTypes},
 	"mobile_client":        types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsMobileClientModelAttrTypes},
-	"undefined_flow_label": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"web_client":           types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsWebClientModelAttrTypes},
 	"web_mobile_client":    types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientModelAttrTypes},
 }
@@ -817,8 +817,8 @@ var ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelModelAttrTypes = ma
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementModel represents account_management block
 type ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementModel struct {
-	Create        *ProtectedApplicationEmptyModel `tfsdk:"create"`
-	PasswordReset *ProtectedApplicationEmptyModel `tfsdk:"password_reset"`
+	Create        types.Object `tfsdk:"create"`
+	PasswordReset types.Object `tfsdk:"password_reset"`
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementModel
@@ -829,25 +829,25 @@ var ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementMo
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationModel represents authentication block
 type ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationModel struct {
+	LoginMFA     types.Object                                                                       `tfsdk:"login_mfa"`
+	LoginPartner types.Object                                                                       `tfsdk:"login_partner"`
+	Logout       types.Object                                                                       `tfsdk:"logout"`
+	TokenRefresh types.Object                                                                       `tfsdk:"token_refresh"`
 	Login        *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModel `tfsdk:"login"`
-	LoginMFA     *ProtectedApplicationEmptyModel                                                    `tfsdk:"login_mfa"`
-	LoginPartner *ProtectedApplicationEmptyModel                                                    `tfsdk:"login_partner"`
-	Logout       *ProtectedApplicationEmptyModel                                                    `tfsdk:"logout"`
-	TokenRefresh *ProtectedApplicationEmptyModel                                                    `tfsdk:"token_refresh"`
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationModel
 var ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationModelAttrTypes = map[string]attr.Type{
-	"login":         types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModelAttrTypes},
 	"login_mfa":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"login_partner": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"logout":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"token_refresh": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"login":         types.ObjectType{AttrTypes: ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModelAttrTypes},
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModel represents login block
 type ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModel struct {
-	DisableTransactionResult *ProtectedApplicationEmptyModel                                                                     `tfsdk:"disable_transaction_result"`
+	DisableTransactionResult types.Object                                                                                        `tfsdk:"disable_transaction_result"`
 	TransactionResult        *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel `tfsdk:"transaction_result"`
 }
 
@@ -899,8 +899,8 @@ var ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLogin
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesModel represents financial_services block
 type ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesModel struct {
-	Apply         *ProtectedApplicationEmptyModel `tfsdk:"apply"`
-	MoneyTransfer *ProtectedApplicationEmptyModel `tfsdk:"money_transfer"`
+	Apply         types.Object `tfsdk:"apply"`
+	MoneyTransfer types.Object `tfsdk:"money_transfer"`
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesModel
@@ -921,9 +921,9 @@ var ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModelAttrType
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModel represents profile_management block
 type ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModel struct {
-	Create *ProtectedApplicationEmptyModel `tfsdk:"create"`
-	Update *ProtectedApplicationEmptyModel `tfsdk:"update"`
-	View   *ProtectedApplicationEmptyModel `tfsdk:"view"`
+	Create types.Object `tfsdk:"create"`
+	Update types.Object `tfsdk:"update"`
+	View   types.Object `tfsdk:"view"`
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModel
@@ -935,10 +935,10 @@ var ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementMo
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModel represents search block
 type ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModel struct {
-	FlightSearch      *ProtectedApplicationEmptyModel `tfsdk:"flight_search"`
-	ProductSearch     *ProtectedApplicationEmptyModel `tfsdk:"product_search"`
-	ReservationSearch *ProtectedApplicationEmptyModel `tfsdk:"reservation_search"`
-	RoomSearch        *ProtectedApplicationEmptyModel `tfsdk:"room_search"`
+	FlightSearch      types.Object `tfsdk:"flight_search"`
+	ProductSearch     types.Object `tfsdk:"product_search"`
+	ReservationSearch types.Object `tfsdk:"reservation_search"`
+	RoomSearch        types.Object `tfsdk:"room_search"`
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModel
@@ -951,18 +951,18 @@ var ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModelAttrType
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsModel represents shopping_gift_cards block
 type ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsModel struct {
-	GiftCardMakePurchaseWithGiftCard *ProtectedApplicationEmptyModel `tfsdk:"gift_card_make_purchase_with_gift_card"`
-	GiftCardValidation               *ProtectedApplicationEmptyModel `tfsdk:"gift_card_validation"`
-	ShopAddToCart                    *ProtectedApplicationEmptyModel `tfsdk:"shop_add_to_cart"`
-	ShopCheckout                     *ProtectedApplicationEmptyModel `tfsdk:"shop_checkout"`
-	ShopChooseSeat                   *ProtectedApplicationEmptyModel `tfsdk:"shop_choose_seat"`
-	ShopEnterDrawingSubmission       *ProtectedApplicationEmptyModel `tfsdk:"shop_enter_drawing_submission"`
-	ShopMakePayment                  *ProtectedApplicationEmptyModel `tfsdk:"shop_make_payment"`
-	ShopOrder                        *ProtectedApplicationEmptyModel `tfsdk:"shop_order"`
-	ShopPriceInquiry                 *ProtectedApplicationEmptyModel `tfsdk:"shop_price_inquiry"`
-	ShopPromoCodeValidation          *ProtectedApplicationEmptyModel `tfsdk:"shop_promo_code_validation"`
-	ShopPurchaseGiftCard             *ProtectedApplicationEmptyModel `tfsdk:"shop_purchase_gift_card"`
-	ShopUpdateQuantity               *ProtectedApplicationEmptyModel `tfsdk:"shop_update_quantity"`
+	GiftCardMakePurchaseWithGiftCard types.Object `tfsdk:"gift_card_make_purchase_with_gift_card"`
+	GiftCardValidation               types.Object `tfsdk:"gift_card_validation"`
+	ShopAddToCart                    types.Object `tfsdk:"shop_add_to_cart"`
+	ShopCheckout                     types.Object `tfsdk:"shop_checkout"`
+	ShopChooseSeat                   types.Object `tfsdk:"shop_choose_seat"`
+	ShopEnterDrawingSubmission       types.Object `tfsdk:"shop_enter_drawing_submission"`
+	ShopMakePayment                  types.Object `tfsdk:"shop_make_payment"`
+	ShopOrder                        types.Object `tfsdk:"shop_order"`
+	ShopPriceInquiry                 types.Object `tfsdk:"shop_price_inquiry"`
+	ShopPromoCodeValidation          types.Object `tfsdk:"shop_promo_code_validation"`
+	ShopPurchaseGiftCard             types.Object `tfsdk:"shop_purchase_gift_card"`
+	ShopUpdateQuantity               types.Object `tfsdk:"shop_update_quantity"`
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsModel
@@ -1021,8 +1021,8 @@ var ProtectedApplicationCloudfrontProtectedEndpointsMobileClientBlockModelAttrTy
 
 // ProtectedApplicationCloudfrontProtectedEndpointsMobileClientContinueModel represents continue block
 type ProtectedApplicationCloudfrontProtectedEndpointsMobileClientContinueModel struct {
-	AddHeader *ProtectedApplicationEmptyModel `tfsdk:"add_header"`
-	NoHeader  *ProtectedApplicationEmptyModel `tfsdk:"no_header"`
+	AddHeader types.Object `tfsdk:"add_header"`
+	NoHeader  types.Object `tfsdk:"no_header"`
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsMobileClientContinueModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontProtectedEndpointsMobileClientContinueModel
@@ -1061,8 +1061,8 @@ var ProtectedApplicationCloudfrontProtectedEndpointsWebClientBlockModelAttrTypes
 
 // ProtectedApplicationCloudfrontProtectedEndpointsWebClientContinueModel represents continue block
 type ProtectedApplicationCloudfrontProtectedEndpointsWebClientContinueModel struct {
-	AddHeader *ProtectedApplicationEmptyModel `tfsdk:"add_header"`
-	NoHeader  *ProtectedApplicationEmptyModel `tfsdk:"no_header"`
+	AddHeader types.Object `tfsdk:"add_header"`
+	NoHeader  types.Object `tfsdk:"no_header"`
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsWebClientContinueModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontProtectedEndpointsWebClientContinueModel
@@ -1131,8 +1131,8 @@ var ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientBlockWebModel
 
 // ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobileModel represents continue_mobile block
 type ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobileModel struct {
-	AddHeader *ProtectedApplicationEmptyModel `tfsdk:"add_header"`
-	NoHeader  *ProtectedApplicationEmptyModel `tfsdk:"no_header"`
+	AddHeader types.Object `tfsdk:"add_header"`
+	NoHeader  types.Object `tfsdk:"no_header"`
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobileModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobileModel
@@ -1143,8 +1143,8 @@ var ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobil
 
 // ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueWebModel represents continue_web block
 type ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueWebModel struct {
-	AddHeader *ProtectedApplicationEmptyModel `tfsdk:"add_header"`
-	NoHeader  *ProtectedApplicationEmptyModel `tfsdk:"no_header"`
+	AddHeader types.Object `tfsdk:"add_header"`
+	NoHeader  types.Object `tfsdk:"no_header"`
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueWebModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueWebModel
@@ -1218,20 +1218,20 @@ var ProtectedApplicationCloudfrontTrustedClientsMetadataModelAttrTypes = map[str
 type ProtectedApplicationResourceModel struct {
 	Name                        types.String                         `tfsdk:"name"`
 	Namespace                   types.String                         `tfsdk:"namespace"`
+	AdobeCommerceConnector      types.Object                         `tfsdk:"adobe_commerce_connector"`
 	Annotations                 types.Map                            `tfsdk:"annotations"`
+	BigIPIapp                   types.Object                         `tfsdk:"big_ip_iapp"`
+	CustomConnector             types.Object                         `tfsdk:"custom_connector"`
 	Description                 types.String                         `tfsdk:"description"`
 	Disable                     types.Bool                           `tfsdk:"disable"`
+	F5BigIP                     types.Object                         `tfsdk:"f5_big_ip"`
 	Labels                      types.Map                            `tfsdk:"labels"`
+	SalesforceCommerceConnector types.Object                         `tfsdk:"salesforce_commerce_connector"`
 	ID                          types.String                         `tfsdk:"id"`
 	Region                      types.String                         `tfsdk:"region"`
 	Timeouts                    timeouts.Value                       `tfsdk:"timeouts"`
-	AdobeCommerceConnector      *ProtectedApplicationEmptyModel      `tfsdk:"adobe_commerce_connector"`
-	BigIPIapp                   *ProtectedApplicationEmptyModel      `tfsdk:"big_ip_iapp"`
 	Cloudflare                  *ProtectedApplicationCloudflareModel `tfsdk:"cloudflare"`
 	Cloudfront                  *ProtectedApplicationCloudfrontModel `tfsdk:"cloudfront"`
-	CustomConnector             *ProtectedApplicationEmptyModel      `tfsdk:"custom_connector"`
-	F5BigIP                     *ProtectedApplicationEmptyModel      `tfsdk:"f5_big_ip"`
-	SalesforceCommerceConnector *ProtectedApplicationEmptyModel      `tfsdk:"salesforce_commerce_connector"`
 }
 
 func (r *ProtectedApplicationResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -1262,10 +1262,25 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					validators.NamespaceValidator(),
 				},
 			},
+			"adobe_commerce_connector": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: adobe_commerce_connector, big_ip_iapp, cloudflare, cloudfront, custom_connector, f5_big_ip, salesforce_commerce_connector] Configuration parameter for adobe commerce connector.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"annotations": schema.MapAttribute{
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"big_ip_iapp": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"custom_connector": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for custom connector.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
@@ -1275,10 +1290,20 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"f5_big_ip": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"salesforce_commerce_connector": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for salesforce commerce connector.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -1306,12 +1331,6 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 				Update: true,
 				Delete: true,
 			}),
-			"adobe_commerce_connector": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: adobe_commerce_connector, big_ip_iapp, cloudflare, cloudfront, custom_connector, f5_big_ip, salesforce_commerce_connector] Configuration parameter for adobe commerce connector.",
-			},
-			"big_ip_iapp": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
 			"cloudflare": schema.SingleNestedBlock{
 				MarkdownDescription: "Bot Defense policy configuration for Cloudflare.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("protected_endpoints"), validators.ConflictingObjectAttributes("disable_js_insert", "js_insertion_rules"), validators.ConflictingObjectAttributes("disable_js_insert", "manual_js_insert"), validators.ConflictingObjectAttributes("disable_mobile_sdk", "mobile_sdk_config"), validators.ConflictingObjectAttributes("js_insertion_rules", "manual_js_insert")},
@@ -1323,6 +1342,16 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(256),
 						},
+					},
+					"disable_js_insert": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable js insert.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_mobile_sdk": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 					"loglevel": schema.StringAttribute{
 						MarkdownDescription: "[Enum: LOG_UNDEFINED|LOG_ERROR|LOG_WARNING|LOG_INFO|LOG_DEBUG] Select the level of logging desired. Levels are cumulative (e.g. Debug includes Error, Warning, and Informational) - LOG_UNDEFINED: Undefined - LOG_ERROR: Error Log only errors - LOG_WARNING: Warning Log malicious requests - LOG_INFO: Info Log all requests - LOG_DEBUG: Debug Log debugging data. Possible values are `LOG_UNDEFINED`, `LOG_ERROR`, `LOG_WARNING`, `LOG_INFO`, `LOG_DEBUG`. Defaults to `LOG_UNDEFINED`.",
@@ -1340,12 +1369,6 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					},
 				},
 				Blocks: map[string]schema.Block{
-					"disable_js_insert": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable js insert.",
-					},
-					"disable_mobile_sdk": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"js_insertion_rules": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines custom JavaScript insertion rules for Bot Defense Policy.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("rules")},
@@ -1367,11 +1390,14 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								MarkdownDescription: "Optional JavaScript insertions exclude list of domain and path matchers.",
 								Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain")},
 								NestedObject: schema.NestedBlockObject{
-									Attributes: map[string]schema.Attribute{},
-									Blocks: map[string]schema.Block{
-										"any_domain": schema.SingleNestedBlock{
+									Attributes: map[string]schema.Attribute{
+										"any_domain": schema.ObjectAttribute{
 											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
+									},
+									Blocks: map[string]schema.Block{
 										"domain": schema.SingleNestedBlock{
 											MarkdownDescription: "Domain name for routing and identification.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
@@ -1454,6 +1480,11 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain"), validators.ConflictingListObjectAttributes("exact_path", "glob"), validators.ConflictingListObjectAttributes("exact_path", "prefix"), validators.ConflictingListObjectAttributes("glob", "prefix")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
+										"any_domain": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"exact_path": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [glob prefix] Exact path value to match.",
 											Optional:            true,
@@ -1477,9 +1508,6 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 									},
 									Blocks: map[string]schema.Block{
-										"any_domain": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 										"domain": schema.SingleNestedBlock{
 											MarkdownDescription: "Domain name for routing and identification.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
@@ -1587,6 +1615,11 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 						Validators:          []validator.List{validators.RequiredListObjectAttributes("http_methods"), validators.ConflictingListObjectAttributes("any_domain", "domain"), validators.ConflictingListObjectAttributes("mobile_client", "web_client"), validators.ConflictingListObjectAttributes("mobile_client", "web_mobile_client"), validators.ConflictingListObjectAttributes("web_client", "web_mobile_client")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
+								"any_domain": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"http_methods": schema.ListAttribute{
 									MarkdownDescription: "[Enum: METHOD_ANY|METHOD_GET|METHOD_POST|METHOD_PUT|METHOD_PATCH|METHOD_DELETE|METHOD_GET_DOCUMENT] HTTP Methods. List of HTTP methods. Possible values are `METHOD_ANY`, `METHOD_GET`, `METHOD_POST`, `METHOD_PUT`, `METHOD_PATCH`, `METHOD_DELETE`, `METHOD_GET_DOCUMENT`. Defaults to `METHOD_ANY`.",
 									Optional:            true,
@@ -1604,9 +1637,6 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								},
 							},
 							Blocks: map[string]schema.Block{
-								"any_domain": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
 								"domain": schema.SingleNestedBlock{
 									MarkdownDescription: "Domain name for routing and identification.",
 									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
@@ -1688,13 +1718,16 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										"continue": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"add_header": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"add_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"no_header": schema.SingleNestedBlock{
+												"no_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -1751,13 +1784,16 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										"continue": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"add_header": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"add_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"no_header": schema.SingleNestedBlock{
+												"no_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -1843,26 +1879,32 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										"continue_mobile": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"add_header": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"add_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"no_header": schema.SingleNestedBlock{
+												"no_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
 										"continue_web": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"add_header": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"add_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"no_header": schema.SingleNestedBlock{
+												"no_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -1986,6 +2028,21 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 							int64validator.Between(0, 1048576),
 						},
 					},
+					"disable_aws_configuration": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable aws configuration.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_js_insert": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable js insert.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_mobile_sdk": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"loglevel": schema.StringAttribute{
 						MarkdownDescription: "[Enum: LOG_UNDEFINED|LOG_ERROR|LOG_WARNING|LOG_INFO|LOG_DEBUG] Select the level of logging desired. Levels are cumulative (e.g. Debug includes Error, Warning, and Informational) - LOG_UNDEFINED: Undefined - LOG_ERROR: Error Log only errors - LOG_WARNING: Warning Log malicious requests - LOG_INFO: Info Log all requests - LOG_DEBUG: Debug Log debugging data. Possible values are `LOG_UNDEFINED`, `LOG_ERROR`, `LOG_WARNING`, `LOG_INFO`, `LOG_DEBUG`. Defaults to `LOG_UNDEFINED`.",
 						Optional:            true,
@@ -2027,15 +2084,6 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 							},
 						},
 					},
-					"disable_aws_configuration": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable aws configuration.",
-					},
-					"disable_js_insert": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable js insert.",
-					},
-					"disable_mobile_sdk": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"js_insertion_rules": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines custom JavaScript insertion rules for Bot Defense Policy.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("rules")},
@@ -2064,11 +2112,14 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								MarkdownDescription: "Optional JavaScript insertions exclude list of domain and path matchers.",
 								Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain")},
 								NestedObject: schema.NestedBlockObject{
-									Attributes: map[string]schema.Attribute{},
-									Blocks: map[string]schema.Block{
-										"any_domain": schema.SingleNestedBlock{
+									Attributes: map[string]schema.Attribute{
+										"any_domain": schema.ObjectAttribute{
 											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
+									},
+									Blocks: map[string]schema.Block{
 										"domain": schema.SingleNestedBlock{
 											MarkdownDescription: "Domain name for routing and identification.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
@@ -2151,6 +2202,11 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_domain", "domain"), validators.ConflictingListObjectAttributes("exact_path", "glob"), validators.ConflictingListObjectAttributes("exact_path", "prefix"), validators.ConflictingListObjectAttributes("glob", "prefix")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
+										"any_domain": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"exact_path": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [glob prefix] Exact path value to match.",
 											Optional:            true,
@@ -2174,9 +2230,6 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										},
 									},
 									Blocks: map[string]schema.Block{
-										"any_domain": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 										"domain": schema.SingleNestedBlock{
 											MarkdownDescription: "Domain name for routing and identification.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
@@ -2291,6 +2344,11 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 						Validators:          []validator.List{validators.RequiredListObjectAttributes("http_methods", "path"), validators.ConflictingListObjectAttributes("any_domain", "domain"), validators.ConflictingListObjectAttributes("flow_label", "undefined_flow_label"), validators.ConflictingListObjectAttributes("mobile_client", "web_client"), validators.ConflictingListObjectAttributes("mobile_client", "web_mobile_client"), validators.ConflictingListObjectAttributes("web_client", "web_mobile_client")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
+								"any_domain": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"http_methods": schema.ListAttribute{
 									MarkdownDescription: "[Enum: METHOD_ANY|METHOD_GET|METHOD_POST|METHOD_PUT|METHOD_PATCH|METHOD_DELETE|METHOD_GET_DOCUMENT] HTTP Methods. List of HTTP methods. Possible values are `METHOD_ANY`, `METHOD_GET`, `METHOD_POST`, `METHOD_PUT`, `METHOD_PATCH`, `METHOD_DELETE`, `METHOD_GET_DOCUMENT`. Defaults to `METHOD_ANY`.",
 									Optional:            true,
@@ -2313,11 +2371,13 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										stringvalidator.LengthAtMost(256),
 									},
 								},
+								"undefined_flow_label": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 							},
 							Blocks: map[string]schema.Block{
-								"any_domain": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
 								"domain": schema.SingleNestedBlock{
 									MarkdownDescription: "Domain name for routing and identification.",
 									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
@@ -2353,29 +2413,56 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										"account_management": schema.SingleNestedBlock{
 											MarkdownDescription: "Bot Defense Flow Label Account Management Category.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("create", "password_reset")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"create": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"create": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"password_reset": schema.SingleNestedBlock{
+												"password_reset": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for password reset.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
 										"authentication": schema.SingleNestedBlock{
 											MarkdownDescription: "Bot Defense Flow Label Authentication Category.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("login", "login_mfa"), validators.ConflictingObjectAttributes("login", "login_partner"), validators.ConflictingObjectAttributes("login", "logout"), validators.ConflictingObjectAttributes("login", "token_refresh"), validators.ConflictingObjectAttributes("login_mfa", "login_partner"), validators.ConflictingObjectAttributes("login_mfa", "logout"), validators.ConflictingObjectAttributes("login_mfa", "token_refresh"), validators.ConflictingObjectAttributes("login_partner", "logout"), validators.ConflictingObjectAttributes("login_partner", "token_refresh"), validators.ConflictingObjectAttributes("logout", "token_refresh")},
-											Attributes:          map[string]schema.Attribute{},
+											Attributes: map[string]schema.Attribute{
+												"login_mfa": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"login_partner": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for login partner.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"logout": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"token_refresh": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for token refresh.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+											},
 											Blocks: map[string]schema.Block{
 												"login": schema.SingleNestedBlock{
 													MarkdownDescription: "Bot Defense Transaction Result. Bot Defense Transaction Result.",
 													Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_transaction_result", "transaction_result")},
-													Attributes:          map[string]schema.Attribute{},
-													Blocks: map[string]schema.Block{
-														"disable_transaction_result": schema.SingleNestedBlock{
+													Attributes: map[string]schema.Attribute{
+														"disable_transaction_result": schema.ObjectAttribute{
 															MarkdownDescription: "Enable this option",
+															Optional:            true,
+															AttributeTypes:      map[string]attr.Type{},
 														},
+													},
+													Blocks: map[string]schema.Block{
 														"transaction_result": schema.SingleNestedBlock{
 															MarkdownDescription: "Bot Defense Transaction Result Type. Bot Defense Transaction ResultType.",
 															Attributes:          map[string]schema.Attribute{},
@@ -2442,30 +2529,21 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 														},
 													},
 												},
-												"login_mfa": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"login_partner": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for login partner.",
-												},
-												"logout": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"token_refresh": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for token refresh.",
-												},
 											},
 										},
 										"financial_services": schema.SingleNestedBlock{
 											MarkdownDescription: "Bot Defense Flow Label Financial Services Category.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("apply", "money_transfer")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"apply": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"apply": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"money_transfer": schema.SingleNestedBlock{
+												"money_transfer": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for money transfer.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -2481,78 +2559,113 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										"profile_management": schema.SingleNestedBlock{
 											MarkdownDescription: "Bot Defense Flow Label Profile Management Category.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("create", "update"), validators.ConflictingObjectAttributes("create", "view"), validators.ConflictingObjectAttributes("update", "view")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"create": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"create": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"update": schema.SingleNestedBlock{
+												"update": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"view": schema.SingleNestedBlock{
+												"view": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
 										"search": schema.SingleNestedBlock{
 											MarkdownDescription: "Bot Defense Flow Label Search Category. Bot Defense Flow Label Search Category.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("flight_search", "product_search"), validators.ConflictingObjectAttributes("flight_search", "reservation_search"), validators.ConflictingObjectAttributes("flight_search", "room_search"), validators.ConflictingObjectAttributes("product_search", "reservation_search"), validators.ConflictingObjectAttributes("product_search", "room_search"), validators.ConflictingObjectAttributes("reservation_search", "room_search")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"flight_search": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"flight_search": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for flight search.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"product_search": schema.SingleNestedBlock{
+												"product_search": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for product search.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"reservation_search": schema.SingleNestedBlock{
+												"reservation_search": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for reservation search.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"room_search": schema.SingleNestedBlock{
+												"room_search": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for room search.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
 										"shopping_gift_cards": schema.SingleNestedBlock{
 											MarkdownDescription: "Bot Defense Flow Label Shopping & Gift Cards Category.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "gift_card_validation"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_add_to_cart"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_checkout"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_choose_seat"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_enter_drawing_submission"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_make_payment"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_order"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_price_inquiry"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card", "shop_update_quantity"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_add_to_cart"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_checkout"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_choose_seat"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_enter_drawing_submission"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_make_payment"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_order"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_price_inquiry"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("gift_card_validation", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_checkout"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_choose_seat"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_enter_drawing_submission"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_make_payment"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_order"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_price_inquiry"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_add_to_cart", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_checkout", "shop_choose_seat"), validators.ConflictingObjectAttributes("shop_checkout", "shop_enter_drawing_submission"), validators.ConflictingObjectAttributes("shop_checkout", "shop_make_payment"), validators.ConflictingObjectAttributes("shop_checkout", "shop_order"), validators.ConflictingObjectAttributes("shop_checkout", "shop_price_inquiry"), validators.ConflictingObjectAttributes("shop_checkout", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_checkout", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_checkout", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_enter_drawing_submission"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_make_payment"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_order"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_price_inquiry"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_choose_seat", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_enter_drawing_submission", "shop_make_payment"), validators.ConflictingObjectAttributes("shop_enter_drawing_submission", "shop_order"), validators.ConflictingObjectAttributes("shop_enter_drawing_submission", "shop_price_inquiry"), validators.ConflictingObjectAttributes("shop_enter_drawing_submission", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_enter_drawing_submission", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_enter_drawing_submission", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_make_payment", "shop_order"), validators.ConflictingObjectAttributes("shop_make_payment", "shop_price_inquiry"), validators.ConflictingObjectAttributes("shop_make_payment", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_make_payment", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_make_payment", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_order", "shop_price_inquiry"), validators.ConflictingObjectAttributes("shop_order", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_order", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_order", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_price_inquiry", "shop_promo_code_validation"), validators.ConflictingObjectAttributes("shop_price_inquiry", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_price_inquiry", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_promo_code_validation", "shop_purchase_gift_card"), validators.ConflictingObjectAttributes("shop_promo_code_validation", "shop_update_quantity"), validators.ConflictingObjectAttributes("shop_purchase_gift_card", "shop_update_quantity")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"gift_card_make_purchase_with_gift_card": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"gift_card_make_purchase_with_gift_card": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for gift card make purchase with gift card.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"gift_card_validation": schema.SingleNestedBlock{
+												"gift_card_validation": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for gift card validation.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"shop_add_to_cart": schema.SingleNestedBlock{
+												"shop_add_to_cart": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for shop add to cart.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"shop_checkout": schema.SingleNestedBlock{
+												"shop_checkout": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for shop checkout.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"shop_choose_seat": schema.SingleNestedBlock{
+												"shop_choose_seat": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for shop choose seat.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"shop_enter_drawing_submission": schema.SingleNestedBlock{
+												"shop_enter_drawing_submission": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for shop enter drawing submission.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"shop_make_payment": schema.SingleNestedBlock{
+												"shop_make_payment": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for shop make payment.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"shop_order": schema.SingleNestedBlock{
+												"shop_order": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"shop_price_inquiry": schema.SingleNestedBlock{
+												"shop_price_inquiry": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for shop price inquiry.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"shop_promo_code_validation": schema.SingleNestedBlock{
+												"shop_promo_code_validation": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for shop promo code validation.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"shop_purchase_gift_card": schema.SingleNestedBlock{
+												"shop_purchase_gift_card": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for shop purchase gift card.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"shop_update_quantity": schema.SingleNestedBlock{
+												"shop_update_quantity": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for shop update quantity.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -2612,20 +2725,20 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										"continue": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"add_header": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"add_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"no_header": schema.SingleNestedBlock{
+												"no_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
 									},
-								},
-								"undefined_flow_label": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
 								},
 								"web_client": schema.SingleNestedBlock{
 									MarkdownDescription: "Web Client. Web client configuration OPTIONS.",
@@ -2661,13 +2774,16 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										"continue": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"add_header": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"add_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"no_header": schema.SingleNestedBlock{
+												"no_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -2753,26 +2869,32 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 										"continue_mobile": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"add_header": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"add_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"no_header": schema.SingleNestedBlock{
+												"no_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
 										"continue_web": schema.SingleNestedBlock{
 											MarkdownDescription: "Select Continue Bot Mitigation Action. Continue mitigation action.",
 											Validators:          []validator.Object{validators.ConflictingObjectAttributes("add_header", "no_header")},
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"add_header": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"add_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"no_header": schema.SingleNestedBlock{
+												"no_header": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -2877,15 +2999,6 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					},
 				},
 			},
-			"custom_connector": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for custom connector.",
-			},
-			"f5_big_ip": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"salesforce_commerce_connector": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for salesforce commerce connector.",
-			},
 		},
 	}
 }
@@ -2912,6 +3025,77 @@ func (r *ProtectedApplicationResource) ValidateConfig(ctx context.Context, req r
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() && !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("adobe_commerce_connector"),
+			"Conflicting Configuration",
+			"adobe_commerce_connector and big_ip_iapp are mutually exclusive.",
+		)
+	}
+	if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() && !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("adobe_commerce_connector"),
+			"Conflicting Configuration",
+			"adobe_commerce_connector and custom_connector are mutually exclusive.",
+		)
+	}
+	if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() && !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("adobe_commerce_connector"),
+			"Conflicting Configuration",
+			"adobe_commerce_connector and f5_big_ip are mutually exclusive.",
+		)
+	}
+	if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() && !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("adobe_commerce_connector"),
+			"Conflicting Configuration",
+			"adobe_commerce_connector and salesforce_commerce_connector are mutually exclusive.",
+		)
+	}
+	if !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() && !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("big_ip_iapp"),
+			"Conflicting Configuration",
+			"big_ip_iapp and custom_connector are mutually exclusive.",
+		)
+	}
+	if !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() && !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("big_ip_iapp"),
+			"Conflicting Configuration",
+			"big_ip_iapp and f5_big_ip are mutually exclusive.",
+		)
+	}
+	if !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() && !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("big_ip_iapp"),
+			"Conflicting Configuration",
+			"big_ip_iapp and salesforce_commerce_connector are mutually exclusive.",
+		)
+	}
+	if !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() && !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("custom_connector"),
+			"Conflicting Configuration",
+			"custom_connector and f5_big_ip are mutually exclusive.",
+		)
+	}
+	if !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() && !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("custom_connector"),
+			"Conflicting Configuration",
+			"custom_connector and salesforce_commerce_connector are mutually exclusive.",
+		)
+	}
+	if !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() && !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("f5_big_ip"),
+			"Conflicting Configuration",
+			"f5_big_ip and salesforce_commerce_connector are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -3012,10 +3196,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.AdobeCommerceConnector != nil {
+	if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() {
 		createReq.Spec["adobe_commerce_connector"] = map[string]interface{}{}
 	}
-	if data.BigIPIapp != nil {
+	if !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() {
 		createReq.Spec["big_ip_iapp"] = map[string]interface{}{}
 	}
 	if data.Cloudflare != nil {
@@ -3023,10 +3207,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 		if !data.Cloudflare.ContinueMitigationActionHdr.IsNull() && !data.Cloudflare.ContinueMitigationActionHdr.IsUnknown() {
 			CloudflareMap["continue_mitigation_action_hdr"] = data.Cloudflare.ContinueMitigationActionHdr.ValueString()
 		}
-		if data.Cloudflare.DisableJsInsert != nil {
+		if !data.Cloudflare.DisableJsInsert.IsNull() && !data.Cloudflare.DisableJsInsert.IsUnknown() {
 			CloudflareMap["disable_js_insert"] = map[string]interface{}{}
 		}
-		if data.Cloudflare.DisableMobileSdk != nil {
+		if !data.Cloudflare.DisableMobileSdk.IsNull() && !data.Cloudflare.DisableMobileSdk.IsUnknown() {
 			CloudflareMap["disable_mobile_sdk"] = map[string]interface{}{}
 		}
 		if data.Cloudflare.JsInsertionRules != nil {
@@ -3039,7 +3223,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 					var ExcludeListList []map[string]interface{}
 					for _, ExcludeListItem := range ExcludeListElems {
 						ExcludeListItemMap := make(map[string]interface{})
-						if ExcludeListItem.AnyDomain != nil {
+						if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
 							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
 						}
 						if ExcludeListItem.Domain != nil {
@@ -3097,7 +3281,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 					var RulesList []map[string]interface{}
 					for _, RulesItem := range RulesElems {
 						RulesItemMap := make(map[string]interface{})
-						if RulesItem.AnyDomain != nil {
+						if !RulesItem.AnyDomain.IsNull() && !RulesItem.AnyDomain.IsUnknown() {
 							RulesItemMap["any_domain"] = map[string]interface{}{}
 						}
 						if RulesItem.Domain != nil {
@@ -3187,7 +3371,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				var ProtectedEndpointsList []map[string]interface{}
 				for _, ProtectedEndpointsItem := range ProtectedEndpointsElems {
 					ProtectedEndpointsItemMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.AnyDomain != nil {
+					if !ProtectedEndpointsItem.AnyDomain.IsNull() && !ProtectedEndpointsItem.AnyDomain.IsUnknown() {
 						ProtectedEndpointsItemMap["any_domain"] = map[string]interface{}{}
 					}
 					if ProtectedEndpointsItem.Domain != nil {
@@ -3238,10 +3422,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.MobileClient.Continue != nil {
 							CloudflareProtectedEndpointsMobileClientContinueMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.MobileClient.Continue.AddHeader != nil {
+							if !ProtectedEndpointsItem.MobileClient.Continue.AddHeader.IsNull() && !ProtectedEndpointsItem.MobileClient.Continue.AddHeader.IsUnknown() {
 								CloudflareProtectedEndpointsMobileClientContinueMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.MobileClient.Continue.NoHeader != nil {
+							if !ProtectedEndpointsItem.MobileClient.Continue.NoHeader.IsNull() && !ProtectedEndpointsItem.MobileClient.Continue.NoHeader.IsUnknown() {
 								CloudflareProtectedEndpointsMobileClientContinueMap["no_header"] = map[string]interface{}{}
 							}
 							CloudflareProtectedEndpointsMobileClientMap["continue"] = CloudflareProtectedEndpointsMobileClientContinueMap
@@ -3278,10 +3462,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.WebClient.Continue != nil {
 							CloudflareProtectedEndpointsWebClientContinueMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.WebClient.Continue.AddHeader != nil {
+							if !ProtectedEndpointsItem.WebClient.Continue.AddHeader.IsNull() && !ProtectedEndpointsItem.WebClient.Continue.AddHeader.IsUnknown() {
 								CloudflareProtectedEndpointsWebClientContinueMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.WebClient.Continue.NoHeader != nil {
+							if !ProtectedEndpointsItem.WebClient.Continue.NoHeader.IsNull() && !ProtectedEndpointsItem.WebClient.Continue.NoHeader.IsUnknown() {
 								CloudflareProtectedEndpointsWebClientContinueMap["no_header"] = map[string]interface{}{}
 							}
 							CloudflareProtectedEndpointsWebClientMap["continue"] = CloudflareProtectedEndpointsWebClientContinueMap
@@ -3328,20 +3512,20 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile != nil {
 							CloudflareProtectedEndpointsWebMobileClientContinueMobileMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader.IsUnknown() {
 								CloudflareProtectedEndpointsWebMobileClientContinueMobileMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader.IsUnknown() {
 								CloudflareProtectedEndpointsWebMobileClientContinueMobileMap["no_header"] = map[string]interface{}{}
 							}
 							CloudflareProtectedEndpointsWebMobileClientMap["continue_mobile"] = CloudflareProtectedEndpointsWebMobileClientContinueMobileMap
 						}
 						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb != nil {
 							CloudflareProtectedEndpointsWebMobileClientContinueWebMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader.IsUnknown() {
 								CloudflareProtectedEndpointsWebMobileClientContinueWebMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader.IsUnknown() {
 								CloudflareProtectedEndpointsWebMobileClientContinueWebMap["no_header"] = map[string]interface{}{}
 							}
 							CloudflareProtectedEndpointsWebMobileClientMap["continue_web"] = CloudflareProtectedEndpointsWebMobileClientContinueWebMap
@@ -3452,13 +3636,13 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 		if !data.Cloudfront.DataSample.IsNull() && !data.Cloudfront.DataSample.IsUnknown() {
 			CloudfrontMap["data_sample"] = data.Cloudfront.DataSample.ValueInt64()
 		}
-		if data.Cloudfront.DisableAWSConfiguration != nil {
+		if !data.Cloudfront.DisableAWSConfiguration.IsNull() && !data.Cloudfront.DisableAWSConfiguration.IsUnknown() {
 			CloudfrontMap["disable_aws_configuration"] = map[string]interface{}{}
 		}
-		if data.Cloudfront.DisableJsInsert != nil {
+		if !data.Cloudfront.DisableJsInsert.IsNull() && !data.Cloudfront.DisableJsInsert.IsUnknown() {
 			CloudfrontMap["disable_js_insert"] = map[string]interface{}{}
 		}
-		if data.Cloudfront.DisableMobileSdk != nil {
+		if !data.Cloudfront.DisableMobileSdk.IsNull() && !data.Cloudfront.DisableMobileSdk.IsUnknown() {
 			CloudfrontMap["disable_mobile_sdk"] = map[string]interface{}{}
 		}
 		if data.Cloudfront.JsInsertionRules != nil {
@@ -3471,7 +3655,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 					var ExcludeListList []map[string]interface{}
 					for _, ExcludeListItem := range ExcludeListElems {
 						ExcludeListItemMap := make(map[string]interface{})
-						if ExcludeListItem.AnyDomain != nil {
+						if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
 							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
 						}
 						if ExcludeListItem.Domain != nil {
@@ -3532,7 +3716,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 					var RulesList []map[string]interface{}
 					for _, RulesItem := range RulesElems {
 						RulesItemMap := make(map[string]interface{})
-						if RulesItem.AnyDomain != nil {
+						if !RulesItem.AnyDomain.IsNull() && !RulesItem.AnyDomain.IsUnknown() {
 							RulesItemMap["any_domain"] = map[string]interface{}{}
 						}
 						if RulesItem.Domain != nil {
@@ -3625,7 +3809,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				var ProtectedEndpointsList []map[string]interface{}
 				for _, ProtectedEndpointsItem := range ProtectedEndpointsElems {
 					ProtectedEndpointsItemMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.AnyDomain != nil {
+					if !ProtectedEndpointsItem.AnyDomain.IsNull() && !ProtectedEndpointsItem.AnyDomain.IsUnknown() {
 						ProtectedEndpointsItemMap["any_domain"] = map[string]interface{}{}
 					}
 					if ProtectedEndpointsItem.Domain != nil {
@@ -3645,10 +3829,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						CloudfrontProtectedEndpointsFlowLabelMap := make(map[string]interface{})
 						if ProtectedEndpointsItem.FlowLabel.AccountManagement != nil {
 							CloudfrontProtectedEndpointsFlowLabelAccountManagementMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.AccountManagement.Create != nil {
+							if !ProtectedEndpointsItem.FlowLabel.AccountManagement.Create.IsNull() && !ProtectedEndpointsItem.FlowLabel.AccountManagement.Create.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelAccountManagementMap["create"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.AccountManagement.PasswordReset != nil {
+							if !ProtectedEndpointsItem.FlowLabel.AccountManagement.PasswordReset.IsNull() && !ProtectedEndpointsItem.FlowLabel.AccountManagement.PasswordReset.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelAccountManagementMap["password_reset"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["account_management"] = CloudfrontProtectedEndpointsFlowLabelAccountManagementMap
@@ -3657,7 +3841,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 							CloudfrontProtectedEndpointsFlowLabelAuthenticationMap := make(map[string]interface{})
 							if ProtectedEndpointsItem.FlowLabel.Authentication.Login != nil {
 								CloudfrontProtectedEndpointsFlowLabelAuthenticationLoginMap := make(map[string]interface{})
-								if ProtectedEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult != nil {
+								if !ProtectedEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult.IsUnknown() {
 									CloudfrontProtectedEndpointsFlowLabelAuthenticationLoginMap["disable_transaction_result"] = map[string]interface{}{}
 								}
 								if ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult != nil {
@@ -3720,26 +3904,26 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 								}
 								CloudfrontProtectedEndpointsFlowLabelAuthenticationMap["login"] = CloudfrontProtectedEndpointsFlowLabelAuthenticationLoginMap
 							}
-							if ProtectedEndpointsItem.FlowLabel.Authentication.LoginMFA != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Authentication.LoginMFA.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.LoginMFA.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelAuthenticationMap["login_mfa"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.Authentication.LoginPartner != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Authentication.LoginPartner.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.LoginPartner.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelAuthenticationMap["login_partner"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.Authentication.Logout != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Authentication.Logout.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.Logout.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelAuthenticationMap["logout"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.Authentication.TokenRefresh != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Authentication.TokenRefresh.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.TokenRefresh.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelAuthenticationMap["token_refresh"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["authentication"] = CloudfrontProtectedEndpointsFlowLabelAuthenticationMap
 						}
 						if ProtectedEndpointsItem.FlowLabel.FinancialServices != nil {
 							CloudfrontProtectedEndpointsFlowLabelFinancialServicesMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.FinancialServices.Apply != nil {
+							if !ProtectedEndpointsItem.FlowLabel.FinancialServices.Apply.IsNull() && !ProtectedEndpointsItem.FlowLabel.FinancialServices.Apply.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelFinancialServicesMap["apply"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer != nil {
+							if !ProtectedEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer.IsNull() && !ProtectedEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelFinancialServicesMap["money_transfer"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["financial_services"] = CloudfrontProtectedEndpointsFlowLabelFinancialServicesMap
@@ -3753,69 +3937,69 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.FlowLabel.ProfileManagement != nil {
 							CloudfrontProtectedEndpointsFlowLabelProfileManagementMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.ProfileManagement.Create != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ProfileManagement.Create.IsNull() && !ProtectedEndpointsItem.FlowLabel.ProfileManagement.Create.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelProfileManagementMap["create"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ProfileManagement.Update != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ProfileManagement.Update.IsNull() && !ProtectedEndpointsItem.FlowLabel.ProfileManagement.Update.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelProfileManagementMap["update"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ProfileManagement.View != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ProfileManagement.View.IsNull() && !ProtectedEndpointsItem.FlowLabel.ProfileManagement.View.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelProfileManagementMap["view"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["profile_management"] = CloudfrontProtectedEndpointsFlowLabelProfileManagementMap
 						}
 						if ProtectedEndpointsItem.FlowLabel.Search != nil {
 							CloudfrontProtectedEndpointsFlowLabelSearchMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.Search.FlightSearch != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Search.FlightSearch.IsNull() && !ProtectedEndpointsItem.FlowLabel.Search.FlightSearch.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelSearchMap["flight_search"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.Search.ProductSearch != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Search.ProductSearch.IsNull() && !ProtectedEndpointsItem.FlowLabel.Search.ProductSearch.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelSearchMap["product_search"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.Search.ReservationSearch != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Search.ReservationSearch.IsNull() && !ProtectedEndpointsItem.FlowLabel.Search.ReservationSearch.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelSearchMap["reservation_search"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.Search.RoomSearch != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Search.RoomSearch.IsNull() && !ProtectedEndpointsItem.FlowLabel.Search.RoomSearch.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelSearchMap["room_search"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["search"] = CloudfrontProtectedEndpointsFlowLabelSearchMap
 						}
 						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards != nil {
 							CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["gift_card_make_purchase_with_gift_card"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["gift_card_validation"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_add_to_cart"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_checkout"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_choose_seat"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_enter_drawing_submission"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_make_payment"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_order"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_price_inquiry"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_promo_code_validation"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_purchase_gift_card"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_update_quantity"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["shopping_gift_cards"] = CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap
@@ -3857,10 +4041,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.MobileClient.Continue != nil {
 							CloudfrontProtectedEndpointsMobileClientContinueMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.MobileClient.Continue.AddHeader != nil {
+							if !ProtectedEndpointsItem.MobileClient.Continue.AddHeader.IsNull() && !ProtectedEndpointsItem.MobileClient.Continue.AddHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsMobileClientContinueMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.MobileClient.Continue.NoHeader != nil {
+							if !ProtectedEndpointsItem.MobileClient.Continue.NoHeader.IsNull() && !ProtectedEndpointsItem.MobileClient.Continue.NoHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsMobileClientContinueMap["no_header"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsMobileClientMap["continue"] = CloudfrontProtectedEndpointsMobileClientContinueMap
@@ -3873,7 +4057,7 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 					if !ProtectedEndpointsItem.Query.IsNull() && !ProtectedEndpointsItem.Query.IsUnknown() {
 						ProtectedEndpointsItemMap["query"] = ProtectedEndpointsItem.Query.ValueString()
 					}
-					if ProtectedEndpointsItem.UndefinedFlowLabel != nil {
+					if !ProtectedEndpointsItem.UndefinedFlowLabel.IsNull() && !ProtectedEndpointsItem.UndefinedFlowLabel.IsUnknown() {
 						ProtectedEndpointsItemMap["undefined_flow_label"] = map[string]interface{}{}
 					}
 					if ProtectedEndpointsItem.WebClient != nil {
@@ -3893,10 +4077,10 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.WebClient.Continue != nil {
 							CloudfrontProtectedEndpointsWebClientContinueMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.WebClient.Continue.AddHeader != nil {
+							if !ProtectedEndpointsItem.WebClient.Continue.AddHeader.IsNull() && !ProtectedEndpointsItem.WebClient.Continue.AddHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsWebClientContinueMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.WebClient.Continue.NoHeader != nil {
+							if !ProtectedEndpointsItem.WebClient.Continue.NoHeader.IsNull() && !ProtectedEndpointsItem.WebClient.Continue.NoHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsWebClientContinueMap["no_header"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsWebClientMap["continue"] = CloudfrontProtectedEndpointsWebClientContinueMap
@@ -3943,20 +4127,20 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile != nil {
 							CloudfrontProtectedEndpointsWebMobileClientContinueMobileMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsWebMobileClientContinueMobileMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsWebMobileClientContinueMobileMap["no_header"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsWebMobileClientMap["continue_mobile"] = CloudfrontProtectedEndpointsWebMobileClientContinueMobileMap
 						}
 						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb != nil {
 							CloudfrontProtectedEndpointsWebMobileClientContinueWebMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsWebMobileClientContinueWebMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsWebMobileClientContinueWebMap["no_header"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsWebMobileClientMap["continue_web"] = CloudfrontProtectedEndpointsWebMobileClientContinueWebMap
@@ -4035,13 +4219,13 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 		}
 		createReq.Spec["cloudfront"] = CloudfrontMap
 	}
-	if data.CustomConnector != nil {
+	if !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() {
 		createReq.Spec["custom_connector"] = map[string]interface{}{}
 	}
-	if data.F5BigIP != nil {
+	if !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() {
 		createReq.Spec["f5_big_ip"] = map[string]interface{}{}
 	}
-	if data.SalesforceCommerceConnector != nil {
+	if !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
 		createReq.Spec["salesforce_commerce_connector"] = map[string]interface{}{}
 	}
 	if !data.Region.IsNull() && !data.Region.IsUnknown() {
@@ -4086,11 +4270,19 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["adobe_commerce_connector"].(map[string]interface{}); ok && isImport && data.AdobeCommerceConnector == nil {
-		data.AdobeCommerceConnector = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.AdobeCommerceConnector.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["adobe_commerce_connector"].(map[string]interface{}); ok {
+		data.AdobeCommerceConnector = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AdobeCommerceConnector = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["big_ip_iapp"].(map[string]interface{}); ok && isImport && data.BigIPIapp == nil {
-		data.BigIPIapp = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.BigIPIapp.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["big_ip_iapp"].(map[string]interface{}); ok {
+		data.BigIPIapp = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BigIPIapp = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["cloudflare"].(map[string]interface{}); ok && (isImport || data.Cloudflare != nil) {
 		data.Cloudflare = &ProtectedApplicationCloudflareModel{
@@ -4100,23 +4292,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				}
 				return types.StringNull()
 			}(),
-			DisableJsInsert: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudflare != nil {
+			DisableJsInsert: func() types.Object {
+				if !isImport && data.Cloudflare != nil && !data.Cloudflare.DisableJsInsert.IsUnknown() {
 					return data.Cloudflare.DisableJsInsert
 				}
 				if _, ok := blockData["disable_js_insert"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableMobileSdk: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudflare != nil {
+			DisableMobileSdk: func() types.Object {
+				if !isImport && data.Cloudflare != nil && !data.Cloudflare.DisableMobileSdk.IsUnknown() {
 					return data.Cloudflare.DisableMobileSdk
 				}
 				if _, ok := blockData["disable_mobile_sdk"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			JsInsertionRules: func() *ProtectedApplicationCloudflareJsInsertionRulesModel {
 				if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil {
@@ -4138,14 +4330,14 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									_ = ExcludeListIdx
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel{
-											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx {
+											AnyDomain: func() types.Object {
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
 													return ExcludeListExisting[ExcludeListIdx].AnyDomain
 												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
-													return &ProtectedApplicationEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Domain: func() *ProtectedApplicationCloudflareJsInsertionRulesExcludeListDomainModel {
 												if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
@@ -4250,14 +4442,14 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudflareJsInsertionRulesRulesModel{
-											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx {
+											AnyDomain: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
 													return RulesExisting[RulesIdx].AnyDomain
 												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
-													return &ProtectedApplicationEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Domain: func() *ProtectedApplicationCloudflareJsInsertionRulesRulesDomainModel {
 												if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
@@ -4429,14 +4621,14 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						_ = ProtectedEndpointsIdx
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudflareProtectedEndpointsModel{
-								AnyDomain: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+								AnyDomain: func() types.Object {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain.IsUnknown() {
 										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain
 									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
-										return &ProtectedApplicationEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Domain: func() *ProtectedApplicationCloudflareProtectedEndpointsDomainModel {
 									if DomainData, ok := ProtectedEndpointsItemMap["domain"].(map[string]interface{}); ok {
@@ -4533,23 +4725,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if ContinueData, ok := MobileClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsMobileClientContinueModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader
 															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader
 															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -4624,23 +4816,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if ContinueData, ok := WebClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebClientContinueModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader
 															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader
 															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -4737,23 +4929,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if ContinueMobileData, ok := WebMobileClientData["continue_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobileModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader
 															}
 															if _, ok := ContinueMobileData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader
 															}
 															if _, ok := ContinueMobileData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -4765,23 +4957,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if ContinueWebData, ok := WebMobileClientData["continue_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueWebModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader
 															}
 															if _, ok := ContinueWebData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader
 															}
 															if _, ok := ContinueWebData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -4983,32 +5175,32 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				}
 				return types.Int64Null()
 			}(),
-			DisableAWSConfiguration: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudfront != nil {
+			DisableAWSConfiguration: func() types.Object {
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.DisableAWSConfiguration.IsUnknown() {
 					return data.Cloudfront.DisableAWSConfiguration
 				}
 				if _, ok := blockData["disable_aws_configuration"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableJsInsert: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudfront != nil {
+			DisableJsInsert: func() types.Object {
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.DisableJsInsert.IsUnknown() {
 					return data.Cloudfront.DisableJsInsert
 				}
 				if _, ok := blockData["disable_js_insert"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableMobileSdk: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudfront != nil {
+			DisableMobileSdk: func() types.Object {
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.DisableMobileSdk.IsUnknown() {
 					return data.Cloudfront.DisableMobileSdk
 				}
 				if _, ok := blockData["disable_mobile_sdk"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			JsInsertionRules: func() *ProtectedApplicationCloudfrontJsInsertionRulesModel {
 				if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil {
@@ -5030,14 +5222,14 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									_ = ExcludeListIdx
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel{
-											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx {
+											AnyDomain: func() types.Object {
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
 													return ExcludeListExisting[ExcludeListIdx].AnyDomain
 												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
-													return &ProtectedApplicationEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Domain: func() *ProtectedApplicationCloudfrontJsInsertionRulesExcludeListDomainModel {
 												if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
@@ -5148,14 +5340,14 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudfrontJsInsertionRulesRulesModel{
-											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx {
+											AnyDomain: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
 													return RulesExisting[RulesIdx].AnyDomain
 												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
-													return &ProtectedApplicationEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Domain: func() *ProtectedApplicationCloudfrontJsInsertionRulesRulesDomainModel {
 												if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
@@ -5333,14 +5525,14 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						_ = ProtectedEndpointsIdx
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudfrontProtectedEndpointsModel{
-								AnyDomain: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+								AnyDomain: func() types.Object {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain.IsUnknown() {
 										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain
 									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
-										return &ProtectedApplicationEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Domain: func() *ProtectedApplicationCloudfrontProtectedEndpointsDomainModel {
 									if DomainData, ok := ProtectedEndpointsItemMap["domain"].(map[string]interface{}); ok {
@@ -5376,23 +5568,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if AccountManagementData, ok := FlowLabelData["account_management"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementModel{
-														Create: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+														Create: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.Create.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.Create
 															}
 															if _, ok := AccountManagementData["create"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														PasswordReset: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+														PasswordReset: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.PasswordReset.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.PasswordReset
 															}
 															if _, ok := AccountManagementData["password_reset"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -5410,14 +5602,14 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 															}
 															if LoginData, ok := AuthenticationData["login"].(map[string]interface{}); ok {
 																return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModel{
-																	DisableTransactionResult: func() *ProtectedApplicationEmptyModel {
-																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																	DisableTransactionResult: func() types.Object {
+																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.DisableTransactionResult.IsUnknown() {
 																			return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.DisableTransactionResult
 																		}
 																		if _, ok := LoginData["disable_transaction_result"].(map[string]interface{}); ok {
-																			return &ProtectedApplicationEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
 																	TransactionResult: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
 																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil {
@@ -5529,41 +5721,41 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 															}
 															return nil
 														}(),
-														LoginMFA: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+														LoginMFA: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginMFA.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginMFA
 															}
 															if _, ok := AuthenticationData["login_mfa"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														LoginPartner: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+														LoginPartner: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginPartner.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginPartner
 															}
 															if _, ok := AuthenticationData["login_partner"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														Logout: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+														Logout: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Logout.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Logout
 															}
 															if _, ok := AuthenticationData["logout"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														TokenRefresh: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+														TokenRefresh: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.TokenRefresh.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.TokenRefresh
 															}
 															if _, ok := AuthenticationData["token_refresh"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -5575,23 +5767,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if FinancialServicesData, ok := FlowLabelData["financial_services"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesModel{
-														Apply: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+														Apply: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.Apply.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.Apply
 															}
 															if _, ok := FinancialServicesData["apply"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														MoneyTransfer: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+														MoneyTransfer: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.MoneyTransfer.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.MoneyTransfer
 															}
 															if _, ok := FinancialServicesData["money_transfer"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -5622,32 +5814,32 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if ProfileManagementData, ok := FlowLabelData["profile_management"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModel{
-														Create: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+														Create: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Create.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Create
 															}
 															if _, ok := ProfileManagementData["create"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														Update: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+														Update: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Update.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Update
 															}
 															if _, ok := ProfileManagementData["update"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														View: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+														View: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.View.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.View
 															}
 															if _, ok := ProfileManagementData["view"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -5659,41 +5851,41 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if SearchData, ok := FlowLabelData["search"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModel{
-														FlightSearch: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+														FlightSearch: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.FlightSearch.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.FlightSearch
 															}
 															if _, ok := SearchData["flight_search"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ProductSearch: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+														ProductSearch: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ProductSearch.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ProductSearch
 															}
 															if _, ok := SearchData["product_search"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ReservationSearch: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+														ReservationSearch: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ReservationSearch.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ReservationSearch
 															}
 															if _, ok := SearchData["reservation_search"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														RoomSearch: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+														RoomSearch: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.RoomSearch.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.RoomSearch
 															}
 															if _, ok := SearchData["room_search"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -5705,113 +5897,113 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if ShoppingGiftCardsData, ok := FlowLabelData["shopping_gift_cards"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsModel{
-														GiftCardMakePurchaseWithGiftCard: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														GiftCardMakePurchaseWithGiftCard: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard
 															}
 															if _, ok := ShoppingGiftCardsData["gift_card_make_purchase_with_gift_card"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														GiftCardValidation: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														GiftCardValidation: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardValidation.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardValidation
 															}
 															if _, ok := ShoppingGiftCardsData["gift_card_validation"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopAddToCart: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopAddToCart: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopAddToCart.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopAddToCart
 															}
 															if _, ok := ShoppingGiftCardsData["shop_add_to_cart"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopCheckout: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopCheckout: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopCheckout.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopCheckout
 															}
 															if _, ok := ShoppingGiftCardsData["shop_checkout"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopChooseSeat: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopChooseSeat: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopChooseSeat.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopChooseSeat
 															}
 															if _, ok := ShoppingGiftCardsData["shop_choose_seat"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopEnterDrawingSubmission: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopEnterDrawingSubmission: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission
 															}
 															if _, ok := ShoppingGiftCardsData["shop_enter_drawing_submission"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopMakePayment: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopMakePayment: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopMakePayment.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopMakePayment
 															}
 															if _, ok := ShoppingGiftCardsData["shop_make_payment"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopOrder: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopOrder: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopOrder.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopOrder
 															}
 															if _, ok := ShoppingGiftCardsData["shop_order"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopPriceInquiry: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopPriceInquiry: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPriceInquiry.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPriceInquiry
 															}
 															if _, ok := ShoppingGiftCardsData["shop_price_inquiry"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopPromoCodeValidation: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopPromoCodeValidation: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation
 															}
 															if _, ok := ShoppingGiftCardsData["shop_promo_code_validation"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopPurchaseGiftCard: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopPurchaseGiftCard: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard
 															}
 															if _, ok := ShoppingGiftCardsData["shop_purchase_gift_card"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopUpdateQuantity: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopUpdateQuantity: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopUpdateQuantity.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopUpdateQuantity
 															}
 															if _, ok := ShoppingGiftCardsData["shop_update_quantity"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -5891,23 +6083,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if ContinueData, ok := MobileClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsMobileClientContinueModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader
 															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader
 															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -5929,14 +6121,14 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 									}
 									return types.StringNull()
 								}(),
-								UndefinedFlowLabel: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+								UndefinedFlowLabel: func() types.Object {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel.IsUnknown() {
 										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel
 									}
 									if _, ok := ProtectedEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
-										return &ProtectedApplicationEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								WebClient: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebClientModel {
 									if WebClientData, ok := ProtectedEndpointsItemMap["web_client"].(map[string]interface{}); ok {
@@ -5975,23 +6167,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if ContinueData, ok := WebClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientContinueModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader
 															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader
 															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -6088,23 +6280,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if ContinueMobileData, ok := WebMobileClientData["continue_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobileModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader
 															}
 															if _, ok := ContinueMobileData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader
 															}
 															if _, ok := ContinueMobileData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -6116,23 +6308,23 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if ContinueWebData, ok := WebMobileClientData["continue_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueWebModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader
 															}
 															if _, ok := ContinueWebData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader
 															}
 															if _, ok := ContinueWebData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -6277,14 +6469,26 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["custom_connector"].(map[string]interface{}); ok && isImport && data.CustomConnector == nil {
-		data.CustomConnector = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.CustomConnector.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["custom_connector"].(map[string]interface{}); ok {
+		data.CustomConnector = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.CustomConnector = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["f5_big_ip"].(map[string]interface{}); ok && isImport && data.F5BigIP == nil {
-		data.F5BigIP = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.F5BigIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["f5_big_ip"].(map[string]interface{}); ok {
+		data.F5BigIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.F5BigIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["salesforce_commerce_connector"].(map[string]interface{}); ok && isImport && data.SalesforceCommerceConnector == nil {
-		data.SalesforceCommerceConnector = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.SalesforceCommerceConnector.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["salesforce_commerce_connector"].(map[string]interface{}); ok {
+		data.SalesforceCommerceConnector = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SalesforceCommerceConnector = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["region"].(string); ok && v != "" {
 		data.Region = types.StringValue(v)
@@ -6422,11 +6626,19 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["adobe_commerce_connector"].(map[string]interface{}); ok && isImport && data.AdobeCommerceConnector == nil {
-		data.AdobeCommerceConnector = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.AdobeCommerceConnector.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["adobe_commerce_connector"].(map[string]interface{}); ok {
+		data.AdobeCommerceConnector = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AdobeCommerceConnector = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["big_ip_iapp"].(map[string]interface{}); ok && isImport && data.BigIPIapp == nil {
-		data.BigIPIapp = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.BigIPIapp.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["big_ip_iapp"].(map[string]interface{}); ok {
+		data.BigIPIapp = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BigIPIapp = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["cloudflare"].(map[string]interface{}); ok && (isImport || data.Cloudflare != nil) {
 		data.Cloudflare = &ProtectedApplicationCloudflareModel{
@@ -6436,23 +6648,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				}
 				return types.StringNull()
 			}(),
-			DisableJsInsert: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudflare != nil {
+			DisableJsInsert: func() types.Object {
+				if !isImport && data.Cloudflare != nil && !data.Cloudflare.DisableJsInsert.IsUnknown() {
 					return data.Cloudflare.DisableJsInsert
 				}
 				if _, ok := blockData["disable_js_insert"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableMobileSdk: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudflare != nil {
+			DisableMobileSdk: func() types.Object {
+				if !isImport && data.Cloudflare != nil && !data.Cloudflare.DisableMobileSdk.IsUnknown() {
 					return data.Cloudflare.DisableMobileSdk
 				}
 				if _, ok := blockData["disable_mobile_sdk"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			JsInsertionRules: func() *ProtectedApplicationCloudflareJsInsertionRulesModel {
 				if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil {
@@ -6474,14 +6686,14 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									_ = ExcludeListIdx
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel{
-											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx {
+											AnyDomain: func() types.Object {
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
 													return ExcludeListExisting[ExcludeListIdx].AnyDomain
 												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
-													return &ProtectedApplicationEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Domain: func() *ProtectedApplicationCloudflareJsInsertionRulesExcludeListDomainModel {
 												if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
@@ -6586,14 +6798,14 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudflareJsInsertionRulesRulesModel{
-											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx {
+											AnyDomain: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
 													return RulesExisting[RulesIdx].AnyDomain
 												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
-													return &ProtectedApplicationEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Domain: func() *ProtectedApplicationCloudflareJsInsertionRulesRulesDomainModel {
 												if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
@@ -6765,14 +6977,14 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 						_ = ProtectedEndpointsIdx
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudflareProtectedEndpointsModel{
-								AnyDomain: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+								AnyDomain: func() types.Object {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain.IsUnknown() {
 										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain
 									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
-										return &ProtectedApplicationEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Domain: func() *ProtectedApplicationCloudflareProtectedEndpointsDomainModel {
 									if DomainData, ok := ProtectedEndpointsItemMap["domain"].(map[string]interface{}); ok {
@@ -6869,23 +7081,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if ContinueData, ok := MobileClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsMobileClientContinueModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader
 															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader
 															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -6960,23 +7172,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if ContinueData, ok := WebClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebClientContinueModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader
 															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader
 															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -7073,23 +7285,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if ContinueMobileData, ok := WebMobileClientData["continue_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobileModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader
 															}
 															if _, ok := ContinueMobileData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader
 															}
 															if _, ok := ContinueMobileData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -7101,23 +7313,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if ContinueWebData, ok := WebMobileClientData["continue_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueWebModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader
 															}
 															if _, ok := ContinueWebData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader
 															}
 															if _, ok := ContinueWebData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -7319,32 +7531,32 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				}
 				return types.Int64Null()
 			}(),
-			DisableAWSConfiguration: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudfront != nil {
+			DisableAWSConfiguration: func() types.Object {
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.DisableAWSConfiguration.IsUnknown() {
 					return data.Cloudfront.DisableAWSConfiguration
 				}
 				if _, ok := blockData["disable_aws_configuration"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableJsInsert: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudfront != nil {
+			DisableJsInsert: func() types.Object {
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.DisableJsInsert.IsUnknown() {
 					return data.Cloudfront.DisableJsInsert
 				}
 				if _, ok := blockData["disable_js_insert"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableMobileSdk: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudfront != nil {
+			DisableMobileSdk: func() types.Object {
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.DisableMobileSdk.IsUnknown() {
 					return data.Cloudfront.DisableMobileSdk
 				}
 				if _, ok := blockData["disable_mobile_sdk"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			JsInsertionRules: func() *ProtectedApplicationCloudfrontJsInsertionRulesModel {
 				if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil {
@@ -7366,14 +7578,14 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									_ = ExcludeListIdx
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel{
-											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx {
+											AnyDomain: func() types.Object {
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
 													return ExcludeListExisting[ExcludeListIdx].AnyDomain
 												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
-													return &ProtectedApplicationEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Domain: func() *ProtectedApplicationCloudfrontJsInsertionRulesExcludeListDomainModel {
 												if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
@@ -7484,14 +7696,14 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudfrontJsInsertionRulesRulesModel{
-											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx {
+											AnyDomain: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
 													return RulesExisting[RulesIdx].AnyDomain
 												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
-													return &ProtectedApplicationEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Domain: func() *ProtectedApplicationCloudfrontJsInsertionRulesRulesDomainModel {
 												if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
@@ -7669,14 +7881,14 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 						_ = ProtectedEndpointsIdx
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudfrontProtectedEndpointsModel{
-								AnyDomain: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+								AnyDomain: func() types.Object {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain.IsUnknown() {
 										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain
 									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
-										return &ProtectedApplicationEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Domain: func() *ProtectedApplicationCloudfrontProtectedEndpointsDomainModel {
 									if DomainData, ok := ProtectedEndpointsItemMap["domain"].(map[string]interface{}); ok {
@@ -7712,23 +7924,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if AccountManagementData, ok := FlowLabelData["account_management"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementModel{
-														Create: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+														Create: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.Create.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.Create
 															}
 															if _, ok := AccountManagementData["create"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														PasswordReset: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+														PasswordReset: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.PasswordReset.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.PasswordReset
 															}
 															if _, ok := AccountManagementData["password_reset"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -7746,14 +7958,14 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 															}
 															if LoginData, ok := AuthenticationData["login"].(map[string]interface{}); ok {
 																return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModel{
-																	DisableTransactionResult: func() *ProtectedApplicationEmptyModel {
-																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																	DisableTransactionResult: func() types.Object {
+																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.DisableTransactionResult.IsUnknown() {
 																			return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.DisableTransactionResult
 																		}
 																		if _, ok := LoginData["disable_transaction_result"].(map[string]interface{}); ok {
-																			return &ProtectedApplicationEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
 																	TransactionResult: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
 																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil {
@@ -7865,41 +8077,41 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 															}
 															return nil
 														}(),
-														LoginMFA: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+														LoginMFA: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginMFA.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginMFA
 															}
 															if _, ok := AuthenticationData["login_mfa"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														LoginPartner: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+														LoginPartner: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginPartner.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginPartner
 															}
 															if _, ok := AuthenticationData["login_partner"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														Logout: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+														Logout: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Logout.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Logout
 															}
 															if _, ok := AuthenticationData["logout"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														TokenRefresh: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+														TokenRefresh: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.TokenRefresh.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.TokenRefresh
 															}
 															if _, ok := AuthenticationData["token_refresh"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -7911,23 +8123,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if FinancialServicesData, ok := FlowLabelData["financial_services"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesModel{
-														Apply: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+														Apply: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.Apply.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.Apply
 															}
 															if _, ok := FinancialServicesData["apply"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														MoneyTransfer: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+														MoneyTransfer: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.MoneyTransfer.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.MoneyTransfer
 															}
 															if _, ok := FinancialServicesData["money_transfer"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -7958,32 +8170,32 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if ProfileManagementData, ok := FlowLabelData["profile_management"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModel{
-														Create: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+														Create: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Create.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Create
 															}
 															if _, ok := ProfileManagementData["create"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														Update: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+														Update: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Update.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Update
 															}
 															if _, ok := ProfileManagementData["update"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														View: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+														View: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.View.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.View
 															}
 															if _, ok := ProfileManagementData["view"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -7995,41 +8207,41 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if SearchData, ok := FlowLabelData["search"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModel{
-														FlightSearch: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+														FlightSearch: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.FlightSearch.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.FlightSearch
 															}
 															if _, ok := SearchData["flight_search"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ProductSearch: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+														ProductSearch: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ProductSearch.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ProductSearch
 															}
 															if _, ok := SearchData["product_search"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ReservationSearch: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+														ReservationSearch: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ReservationSearch.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ReservationSearch
 															}
 															if _, ok := SearchData["reservation_search"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														RoomSearch: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+														RoomSearch: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.RoomSearch.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.RoomSearch
 															}
 															if _, ok := SearchData["room_search"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -8041,113 +8253,113 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if ShoppingGiftCardsData, ok := FlowLabelData["shopping_gift_cards"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsModel{
-														GiftCardMakePurchaseWithGiftCard: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														GiftCardMakePurchaseWithGiftCard: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard
 															}
 															if _, ok := ShoppingGiftCardsData["gift_card_make_purchase_with_gift_card"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														GiftCardValidation: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														GiftCardValidation: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardValidation.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardValidation
 															}
 															if _, ok := ShoppingGiftCardsData["gift_card_validation"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopAddToCart: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopAddToCart: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopAddToCart.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopAddToCart
 															}
 															if _, ok := ShoppingGiftCardsData["shop_add_to_cart"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopCheckout: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopCheckout: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopCheckout.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopCheckout
 															}
 															if _, ok := ShoppingGiftCardsData["shop_checkout"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopChooseSeat: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopChooseSeat: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopChooseSeat.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopChooseSeat
 															}
 															if _, ok := ShoppingGiftCardsData["shop_choose_seat"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopEnterDrawingSubmission: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopEnterDrawingSubmission: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission
 															}
 															if _, ok := ShoppingGiftCardsData["shop_enter_drawing_submission"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopMakePayment: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopMakePayment: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopMakePayment.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopMakePayment
 															}
 															if _, ok := ShoppingGiftCardsData["shop_make_payment"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopOrder: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopOrder: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopOrder.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopOrder
 															}
 															if _, ok := ShoppingGiftCardsData["shop_order"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopPriceInquiry: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopPriceInquiry: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPriceInquiry.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPriceInquiry
 															}
 															if _, ok := ShoppingGiftCardsData["shop_price_inquiry"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopPromoCodeValidation: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopPromoCodeValidation: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation
 															}
 															if _, ok := ShoppingGiftCardsData["shop_promo_code_validation"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopPurchaseGiftCard: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopPurchaseGiftCard: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard
 															}
 															if _, ok := ShoppingGiftCardsData["shop_purchase_gift_card"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopUpdateQuantity: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopUpdateQuantity: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopUpdateQuantity.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopUpdateQuantity
 															}
 															if _, ok := ShoppingGiftCardsData["shop_update_quantity"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -8227,23 +8439,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if ContinueData, ok := MobileClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsMobileClientContinueModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader
 															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader
 															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -8265,14 +8477,14 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 									}
 									return types.StringNull()
 								}(),
-								UndefinedFlowLabel: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+								UndefinedFlowLabel: func() types.Object {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel.IsUnknown() {
 										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel
 									}
 									if _, ok := ProtectedEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
-										return &ProtectedApplicationEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								WebClient: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebClientModel {
 									if WebClientData, ok := ProtectedEndpointsItemMap["web_client"].(map[string]interface{}); ok {
@@ -8311,23 +8523,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if ContinueData, ok := WebClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientContinueModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader
 															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader
 															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -8424,23 +8636,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if ContinueMobileData, ok := WebMobileClientData["continue_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobileModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader
 															}
 															if _, ok := ContinueMobileData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader
 															}
 															if _, ok := ContinueMobileData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -8452,23 +8664,23 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if ContinueWebData, ok := WebMobileClientData["continue_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueWebModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader
 															}
 															if _, ok := ContinueWebData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader
 															}
 															if _, ok := ContinueWebData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -8613,14 +8825,26 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["custom_connector"].(map[string]interface{}); ok && isImport && data.CustomConnector == nil {
-		data.CustomConnector = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.CustomConnector.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["custom_connector"].(map[string]interface{}); ok {
+		data.CustomConnector = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.CustomConnector = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["f5_big_ip"].(map[string]interface{}); ok && isImport && data.F5BigIP == nil {
-		data.F5BigIP = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.F5BigIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["f5_big_ip"].(map[string]interface{}); ok {
+		data.F5BigIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.F5BigIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["salesforce_commerce_connector"].(map[string]interface{}); ok && isImport && data.SalesforceCommerceConnector == nil {
-		data.SalesforceCommerceConnector = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.SalesforceCommerceConnector.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["salesforce_commerce_connector"].(map[string]interface{}); ok {
+		data.SalesforceCommerceConnector = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SalesforceCommerceConnector = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["region"].(string); ok && v != "" {
 		data.Region = types.StringValue(v)
@@ -8721,10 +8945,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.AdobeCommerceConnector != nil {
+	if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() {
 		apiResource.Spec["adobe_commerce_connector"] = map[string]interface{}{}
 	}
-	if data.BigIPIapp != nil {
+	if !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() {
 		apiResource.Spec["big_ip_iapp"] = map[string]interface{}{}
 	}
 	if data.Cloudflare != nil {
@@ -8732,10 +8956,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 		if !data.Cloudflare.ContinueMitigationActionHdr.IsNull() && !data.Cloudflare.ContinueMitigationActionHdr.IsUnknown() {
 			CloudflareMap["continue_mitigation_action_hdr"] = data.Cloudflare.ContinueMitigationActionHdr.ValueString()
 		}
-		if data.Cloudflare.DisableJsInsert != nil {
+		if !data.Cloudflare.DisableJsInsert.IsNull() && !data.Cloudflare.DisableJsInsert.IsUnknown() {
 			CloudflareMap["disable_js_insert"] = map[string]interface{}{}
 		}
-		if data.Cloudflare.DisableMobileSdk != nil {
+		if !data.Cloudflare.DisableMobileSdk.IsNull() && !data.Cloudflare.DisableMobileSdk.IsUnknown() {
 			CloudflareMap["disable_mobile_sdk"] = map[string]interface{}{}
 		}
 		if data.Cloudflare.JsInsertionRules != nil {
@@ -8748,7 +8972,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 					var ExcludeListList []map[string]interface{}
 					for _, ExcludeListItem := range ExcludeListElems {
 						ExcludeListItemMap := make(map[string]interface{})
-						if ExcludeListItem.AnyDomain != nil {
+						if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
 							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
 						}
 						if ExcludeListItem.Domain != nil {
@@ -8806,7 +9030,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 					var RulesList []map[string]interface{}
 					for _, RulesItem := range RulesElems {
 						RulesItemMap := make(map[string]interface{})
-						if RulesItem.AnyDomain != nil {
+						if !RulesItem.AnyDomain.IsNull() && !RulesItem.AnyDomain.IsUnknown() {
 							RulesItemMap["any_domain"] = map[string]interface{}{}
 						}
 						if RulesItem.Domain != nil {
@@ -8896,7 +9120,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				var ProtectedEndpointsList []map[string]interface{}
 				for _, ProtectedEndpointsItem := range ProtectedEndpointsElems {
 					ProtectedEndpointsItemMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.AnyDomain != nil {
+					if !ProtectedEndpointsItem.AnyDomain.IsNull() && !ProtectedEndpointsItem.AnyDomain.IsUnknown() {
 						ProtectedEndpointsItemMap["any_domain"] = map[string]interface{}{}
 					}
 					if ProtectedEndpointsItem.Domain != nil {
@@ -8947,10 +9171,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.MobileClient.Continue != nil {
 							CloudflareProtectedEndpointsMobileClientContinueMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.MobileClient.Continue.AddHeader != nil {
+							if !ProtectedEndpointsItem.MobileClient.Continue.AddHeader.IsNull() && !ProtectedEndpointsItem.MobileClient.Continue.AddHeader.IsUnknown() {
 								CloudflareProtectedEndpointsMobileClientContinueMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.MobileClient.Continue.NoHeader != nil {
+							if !ProtectedEndpointsItem.MobileClient.Continue.NoHeader.IsNull() && !ProtectedEndpointsItem.MobileClient.Continue.NoHeader.IsUnknown() {
 								CloudflareProtectedEndpointsMobileClientContinueMap["no_header"] = map[string]interface{}{}
 							}
 							CloudflareProtectedEndpointsMobileClientMap["continue"] = CloudflareProtectedEndpointsMobileClientContinueMap
@@ -8987,10 +9211,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.WebClient.Continue != nil {
 							CloudflareProtectedEndpointsWebClientContinueMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.WebClient.Continue.AddHeader != nil {
+							if !ProtectedEndpointsItem.WebClient.Continue.AddHeader.IsNull() && !ProtectedEndpointsItem.WebClient.Continue.AddHeader.IsUnknown() {
 								CloudflareProtectedEndpointsWebClientContinueMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.WebClient.Continue.NoHeader != nil {
+							if !ProtectedEndpointsItem.WebClient.Continue.NoHeader.IsNull() && !ProtectedEndpointsItem.WebClient.Continue.NoHeader.IsUnknown() {
 								CloudflareProtectedEndpointsWebClientContinueMap["no_header"] = map[string]interface{}{}
 							}
 							CloudflareProtectedEndpointsWebClientMap["continue"] = CloudflareProtectedEndpointsWebClientContinueMap
@@ -9037,20 +9261,20 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile != nil {
 							CloudflareProtectedEndpointsWebMobileClientContinueMobileMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader.IsUnknown() {
 								CloudflareProtectedEndpointsWebMobileClientContinueMobileMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader.IsUnknown() {
 								CloudflareProtectedEndpointsWebMobileClientContinueMobileMap["no_header"] = map[string]interface{}{}
 							}
 							CloudflareProtectedEndpointsWebMobileClientMap["continue_mobile"] = CloudflareProtectedEndpointsWebMobileClientContinueMobileMap
 						}
 						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb != nil {
 							CloudflareProtectedEndpointsWebMobileClientContinueWebMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader.IsUnknown() {
 								CloudflareProtectedEndpointsWebMobileClientContinueWebMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader.IsUnknown() {
 								CloudflareProtectedEndpointsWebMobileClientContinueWebMap["no_header"] = map[string]interface{}{}
 							}
 							CloudflareProtectedEndpointsWebMobileClientMap["continue_web"] = CloudflareProtectedEndpointsWebMobileClientContinueWebMap
@@ -9161,13 +9385,13 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 		if !data.Cloudfront.DataSample.IsNull() && !data.Cloudfront.DataSample.IsUnknown() {
 			CloudfrontMap["data_sample"] = data.Cloudfront.DataSample.ValueInt64()
 		}
-		if data.Cloudfront.DisableAWSConfiguration != nil {
+		if !data.Cloudfront.DisableAWSConfiguration.IsNull() && !data.Cloudfront.DisableAWSConfiguration.IsUnknown() {
 			CloudfrontMap["disable_aws_configuration"] = map[string]interface{}{}
 		}
-		if data.Cloudfront.DisableJsInsert != nil {
+		if !data.Cloudfront.DisableJsInsert.IsNull() && !data.Cloudfront.DisableJsInsert.IsUnknown() {
 			CloudfrontMap["disable_js_insert"] = map[string]interface{}{}
 		}
-		if data.Cloudfront.DisableMobileSdk != nil {
+		if !data.Cloudfront.DisableMobileSdk.IsNull() && !data.Cloudfront.DisableMobileSdk.IsUnknown() {
 			CloudfrontMap["disable_mobile_sdk"] = map[string]interface{}{}
 		}
 		if data.Cloudfront.JsInsertionRules != nil {
@@ -9180,7 +9404,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 					var ExcludeListList []map[string]interface{}
 					for _, ExcludeListItem := range ExcludeListElems {
 						ExcludeListItemMap := make(map[string]interface{})
-						if ExcludeListItem.AnyDomain != nil {
+						if !ExcludeListItem.AnyDomain.IsNull() && !ExcludeListItem.AnyDomain.IsUnknown() {
 							ExcludeListItemMap["any_domain"] = map[string]interface{}{}
 						}
 						if ExcludeListItem.Domain != nil {
@@ -9241,7 +9465,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 					var RulesList []map[string]interface{}
 					for _, RulesItem := range RulesElems {
 						RulesItemMap := make(map[string]interface{})
-						if RulesItem.AnyDomain != nil {
+						if !RulesItem.AnyDomain.IsNull() && !RulesItem.AnyDomain.IsUnknown() {
 							RulesItemMap["any_domain"] = map[string]interface{}{}
 						}
 						if RulesItem.Domain != nil {
@@ -9334,7 +9558,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				var ProtectedEndpointsList []map[string]interface{}
 				for _, ProtectedEndpointsItem := range ProtectedEndpointsElems {
 					ProtectedEndpointsItemMap := make(map[string]interface{})
-					if ProtectedEndpointsItem.AnyDomain != nil {
+					if !ProtectedEndpointsItem.AnyDomain.IsNull() && !ProtectedEndpointsItem.AnyDomain.IsUnknown() {
 						ProtectedEndpointsItemMap["any_domain"] = map[string]interface{}{}
 					}
 					if ProtectedEndpointsItem.Domain != nil {
@@ -9354,10 +9578,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						CloudfrontProtectedEndpointsFlowLabelMap := make(map[string]interface{})
 						if ProtectedEndpointsItem.FlowLabel.AccountManagement != nil {
 							CloudfrontProtectedEndpointsFlowLabelAccountManagementMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.AccountManagement.Create != nil {
+							if !ProtectedEndpointsItem.FlowLabel.AccountManagement.Create.IsNull() && !ProtectedEndpointsItem.FlowLabel.AccountManagement.Create.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelAccountManagementMap["create"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.AccountManagement.PasswordReset != nil {
+							if !ProtectedEndpointsItem.FlowLabel.AccountManagement.PasswordReset.IsNull() && !ProtectedEndpointsItem.FlowLabel.AccountManagement.PasswordReset.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelAccountManagementMap["password_reset"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["account_management"] = CloudfrontProtectedEndpointsFlowLabelAccountManagementMap
@@ -9366,7 +9590,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 							CloudfrontProtectedEndpointsFlowLabelAuthenticationMap := make(map[string]interface{})
 							if ProtectedEndpointsItem.FlowLabel.Authentication.Login != nil {
 								CloudfrontProtectedEndpointsFlowLabelAuthenticationLoginMap := make(map[string]interface{})
-								if ProtectedEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult != nil {
+								if !ProtectedEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.Login.DisableTransactionResult.IsUnknown() {
 									CloudfrontProtectedEndpointsFlowLabelAuthenticationLoginMap["disable_transaction_result"] = map[string]interface{}{}
 								}
 								if ProtectedEndpointsItem.FlowLabel.Authentication.Login.TransactionResult != nil {
@@ -9429,26 +9653,26 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 								}
 								CloudfrontProtectedEndpointsFlowLabelAuthenticationMap["login"] = CloudfrontProtectedEndpointsFlowLabelAuthenticationLoginMap
 							}
-							if ProtectedEndpointsItem.FlowLabel.Authentication.LoginMFA != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Authentication.LoginMFA.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.LoginMFA.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelAuthenticationMap["login_mfa"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.Authentication.LoginPartner != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Authentication.LoginPartner.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.LoginPartner.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelAuthenticationMap["login_partner"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.Authentication.Logout != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Authentication.Logout.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.Logout.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelAuthenticationMap["logout"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.Authentication.TokenRefresh != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Authentication.TokenRefresh.IsNull() && !ProtectedEndpointsItem.FlowLabel.Authentication.TokenRefresh.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelAuthenticationMap["token_refresh"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["authentication"] = CloudfrontProtectedEndpointsFlowLabelAuthenticationMap
 						}
 						if ProtectedEndpointsItem.FlowLabel.FinancialServices != nil {
 							CloudfrontProtectedEndpointsFlowLabelFinancialServicesMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.FinancialServices.Apply != nil {
+							if !ProtectedEndpointsItem.FlowLabel.FinancialServices.Apply.IsNull() && !ProtectedEndpointsItem.FlowLabel.FinancialServices.Apply.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelFinancialServicesMap["apply"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer != nil {
+							if !ProtectedEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer.IsNull() && !ProtectedEndpointsItem.FlowLabel.FinancialServices.MoneyTransfer.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelFinancialServicesMap["money_transfer"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["financial_services"] = CloudfrontProtectedEndpointsFlowLabelFinancialServicesMap
@@ -9462,69 +9686,69 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.FlowLabel.ProfileManagement != nil {
 							CloudfrontProtectedEndpointsFlowLabelProfileManagementMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.ProfileManagement.Create != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ProfileManagement.Create.IsNull() && !ProtectedEndpointsItem.FlowLabel.ProfileManagement.Create.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelProfileManagementMap["create"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ProfileManagement.Update != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ProfileManagement.Update.IsNull() && !ProtectedEndpointsItem.FlowLabel.ProfileManagement.Update.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelProfileManagementMap["update"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ProfileManagement.View != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ProfileManagement.View.IsNull() && !ProtectedEndpointsItem.FlowLabel.ProfileManagement.View.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelProfileManagementMap["view"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["profile_management"] = CloudfrontProtectedEndpointsFlowLabelProfileManagementMap
 						}
 						if ProtectedEndpointsItem.FlowLabel.Search != nil {
 							CloudfrontProtectedEndpointsFlowLabelSearchMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.Search.FlightSearch != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Search.FlightSearch.IsNull() && !ProtectedEndpointsItem.FlowLabel.Search.FlightSearch.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelSearchMap["flight_search"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.Search.ProductSearch != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Search.ProductSearch.IsNull() && !ProtectedEndpointsItem.FlowLabel.Search.ProductSearch.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelSearchMap["product_search"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.Search.ReservationSearch != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Search.ReservationSearch.IsNull() && !ProtectedEndpointsItem.FlowLabel.Search.ReservationSearch.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelSearchMap["reservation_search"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.Search.RoomSearch != nil {
+							if !ProtectedEndpointsItem.FlowLabel.Search.RoomSearch.IsNull() && !ProtectedEndpointsItem.FlowLabel.Search.RoomSearch.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelSearchMap["room_search"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["search"] = CloudfrontProtectedEndpointsFlowLabelSearchMap
 						}
 						if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards != nil {
 							CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["gift_card_make_purchase_with_gift_card"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.GiftCardValidation.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["gift_card_validation"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopAddToCart.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_add_to_cart"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopCheckout.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_checkout"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopChooseSeat.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_choose_seat"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_enter_drawing_submission"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopMakePayment.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_make_payment"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopOrder.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_order"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPriceInquiry.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_price_inquiry"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_promo_code_validation"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_purchase_gift_card"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity != nil {
+							if !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity.IsNull() && !ProtectedEndpointsItem.FlowLabel.ShoppingGiftCards.ShopUpdateQuantity.IsUnknown() {
 								CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap["shop_update_quantity"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["shopping_gift_cards"] = CloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsMap
@@ -9566,10 +9790,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.MobileClient.Continue != nil {
 							CloudfrontProtectedEndpointsMobileClientContinueMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.MobileClient.Continue.AddHeader != nil {
+							if !ProtectedEndpointsItem.MobileClient.Continue.AddHeader.IsNull() && !ProtectedEndpointsItem.MobileClient.Continue.AddHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsMobileClientContinueMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.MobileClient.Continue.NoHeader != nil {
+							if !ProtectedEndpointsItem.MobileClient.Continue.NoHeader.IsNull() && !ProtectedEndpointsItem.MobileClient.Continue.NoHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsMobileClientContinueMap["no_header"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsMobileClientMap["continue"] = CloudfrontProtectedEndpointsMobileClientContinueMap
@@ -9582,7 +9806,7 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 					if !ProtectedEndpointsItem.Query.IsNull() && !ProtectedEndpointsItem.Query.IsUnknown() {
 						ProtectedEndpointsItemMap["query"] = ProtectedEndpointsItem.Query.ValueString()
 					}
-					if ProtectedEndpointsItem.UndefinedFlowLabel != nil {
+					if !ProtectedEndpointsItem.UndefinedFlowLabel.IsNull() && !ProtectedEndpointsItem.UndefinedFlowLabel.IsUnknown() {
 						ProtectedEndpointsItemMap["undefined_flow_label"] = map[string]interface{}{}
 					}
 					if ProtectedEndpointsItem.WebClient != nil {
@@ -9602,10 +9826,10 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.WebClient.Continue != nil {
 							CloudfrontProtectedEndpointsWebClientContinueMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.WebClient.Continue.AddHeader != nil {
+							if !ProtectedEndpointsItem.WebClient.Continue.AddHeader.IsNull() && !ProtectedEndpointsItem.WebClient.Continue.AddHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsWebClientContinueMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.WebClient.Continue.NoHeader != nil {
+							if !ProtectedEndpointsItem.WebClient.Continue.NoHeader.IsNull() && !ProtectedEndpointsItem.WebClient.Continue.NoHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsWebClientContinueMap["no_header"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsWebClientMap["continue"] = CloudfrontProtectedEndpointsWebClientContinueMap
@@ -9652,20 +9876,20 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.WebMobileClient.ContinueMobile != nil {
 							CloudfrontProtectedEndpointsWebMobileClientContinueMobileMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.AddHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsWebMobileClientContinueMobileMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueMobile.NoHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsWebMobileClientContinueMobileMap["no_header"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsWebMobileClientMap["continue_mobile"] = CloudfrontProtectedEndpointsWebMobileClientContinueMobileMap
 						}
 						if ProtectedEndpointsItem.WebMobileClient.ContinueWeb != nil {
 							CloudfrontProtectedEndpointsWebMobileClientContinueWebMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.AddHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsWebMobileClientContinueWebMap["add_header"] = map[string]interface{}{}
 							}
-							if ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader != nil {
+							if !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader.IsNull() && !ProtectedEndpointsItem.WebMobileClient.ContinueWeb.NoHeader.IsUnknown() {
 								CloudfrontProtectedEndpointsWebMobileClientContinueWebMap["no_header"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsWebMobileClientMap["continue_web"] = CloudfrontProtectedEndpointsWebMobileClientContinueWebMap
@@ -9744,13 +9968,13 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 		}
 		apiResource.Spec["cloudfront"] = CloudfrontMap
 	}
-	if data.CustomConnector != nil {
+	if !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() {
 		apiResource.Spec["custom_connector"] = map[string]interface{}{}
 	}
-	if data.F5BigIP != nil {
+	if !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() {
 		apiResource.Spec["f5_big_ip"] = map[string]interface{}{}
 	}
-	if data.SalesforceCommerceConnector != nil {
+	if !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
 		apiResource.Spec["salesforce_commerce_connector"] = map[string]interface{}{}
 	}
 	if !data.Region.IsNull() && !data.Region.IsUnknown() {
@@ -9822,11 +10046,19 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["adobe_commerce_connector"].(map[string]interface{}); ok && isImport && data.AdobeCommerceConnector == nil {
-		data.AdobeCommerceConnector = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.AdobeCommerceConnector.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["adobe_commerce_connector"].(map[string]interface{}); ok {
+		data.AdobeCommerceConnector = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AdobeCommerceConnector = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["big_ip_iapp"].(map[string]interface{}); ok && isImport && data.BigIPIapp == nil {
-		data.BigIPIapp = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.BigIPIapp.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["big_ip_iapp"].(map[string]interface{}); ok {
+		data.BigIPIapp = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BigIPIapp = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["cloudflare"].(map[string]interface{}); ok && (isImport || data.Cloudflare != nil) {
 		data.Cloudflare = &ProtectedApplicationCloudflareModel{
@@ -9836,23 +10068,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				}
 				return types.StringNull()
 			}(),
-			DisableJsInsert: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudflare != nil {
+			DisableJsInsert: func() types.Object {
+				if !isImport && data.Cloudflare != nil && !data.Cloudflare.DisableJsInsert.IsUnknown() {
 					return data.Cloudflare.DisableJsInsert
 				}
 				if _, ok := blockData["disable_js_insert"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableMobileSdk: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudflare != nil {
+			DisableMobileSdk: func() types.Object {
+				if !isImport && data.Cloudflare != nil && !data.Cloudflare.DisableMobileSdk.IsUnknown() {
 					return data.Cloudflare.DisableMobileSdk
 				}
 				if _, ok := blockData["disable_mobile_sdk"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			JsInsertionRules: func() *ProtectedApplicationCloudflareJsInsertionRulesModel {
 				if !isImport && data.Cloudflare != nil && data.Cloudflare.JsInsertionRules != nil {
@@ -9874,14 +10106,14 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									_ = ExcludeListIdx
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudflareJsInsertionRulesExcludeListModel{
-											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx {
+											AnyDomain: func() types.Object {
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
 													return ExcludeListExisting[ExcludeListIdx].AnyDomain
 												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
-													return &ProtectedApplicationEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Domain: func() *ProtectedApplicationCloudflareJsInsertionRulesExcludeListDomainModel {
 												if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
@@ -9986,14 +10218,14 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudflareJsInsertionRulesRulesModel{
-											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx {
+											AnyDomain: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
 													return RulesExisting[RulesIdx].AnyDomain
 												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
-													return &ProtectedApplicationEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Domain: func() *ProtectedApplicationCloudflareJsInsertionRulesRulesDomainModel {
 												if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
@@ -10165,14 +10397,14 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						_ = ProtectedEndpointsIdx
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudflareProtectedEndpointsModel{
-								AnyDomain: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+								AnyDomain: func() types.Object {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain.IsUnknown() {
 										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain
 									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
-										return &ProtectedApplicationEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Domain: func() *ProtectedApplicationCloudflareProtectedEndpointsDomainModel {
 									if DomainData, ok := ProtectedEndpointsItemMap["domain"].(map[string]interface{}); ok {
@@ -10269,23 +10501,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if ContinueData, ok := MobileClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsMobileClientContinueModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader
 															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader
 															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -10360,23 +10592,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if ContinueData, ok := WebClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebClientContinueModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader
 															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader
 															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -10473,23 +10705,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if ContinueMobileData, ok := WebMobileClientData["continue_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueMobileModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader
 															}
 															if _, ok := ContinueMobileData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader
 															}
 															if _, ok := ContinueMobileData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -10501,23 +10733,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if ContinueWebData, ok := WebMobileClientData["continue_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudflareProtectedEndpointsWebMobileClientContinueWebModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader
 															}
 															if _, ok := ContinueWebData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader
 															}
 															if _, ok := ContinueWebData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -10719,32 +10951,32 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				}
 				return types.Int64Null()
 			}(),
-			DisableAWSConfiguration: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudfront != nil {
+			DisableAWSConfiguration: func() types.Object {
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.DisableAWSConfiguration.IsUnknown() {
 					return data.Cloudfront.DisableAWSConfiguration
 				}
 				if _, ok := blockData["disable_aws_configuration"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableJsInsert: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudfront != nil {
+			DisableJsInsert: func() types.Object {
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.DisableJsInsert.IsUnknown() {
 					return data.Cloudfront.DisableJsInsert
 				}
 				if _, ok := blockData["disable_js_insert"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableMobileSdk: func() *ProtectedApplicationEmptyModel {
-				if !isImport && data.Cloudfront != nil {
+			DisableMobileSdk: func() types.Object {
+				if !isImport && data.Cloudfront != nil && !data.Cloudfront.DisableMobileSdk.IsUnknown() {
 					return data.Cloudfront.DisableMobileSdk
 				}
 				if _, ok := blockData["disable_mobile_sdk"].(map[string]interface{}); ok {
-					return &ProtectedApplicationEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			JsInsertionRules: func() *ProtectedApplicationCloudfrontJsInsertionRulesModel {
 				if !isImport && data.Cloudfront != nil && data.Cloudfront.JsInsertionRules != nil {
@@ -10766,14 +10998,14 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									_ = ExcludeListIdx
 									if ExcludeListItemMap, ok := ExcludeListItem.(map[string]interface{}); ok {
 										ExcludeListResult = append(ExcludeListResult, ProtectedApplicationCloudfrontJsInsertionRulesExcludeListModel{
-											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(ExcludeListExisting) > ExcludeListIdx {
+											AnyDomain: func() types.Object {
+												if !isImport && len(ExcludeListExisting) > ExcludeListIdx && !ExcludeListExisting[ExcludeListIdx].AnyDomain.IsUnknown() {
 													return ExcludeListExisting[ExcludeListIdx].AnyDomain
 												}
 												if _, ok := ExcludeListItemMap["any_domain"].(map[string]interface{}); ok {
-													return &ProtectedApplicationEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Domain: func() *ProtectedApplicationCloudfrontJsInsertionRulesExcludeListDomainModel {
 												if DomainData, ok := ExcludeListItemMap["domain"].(map[string]interface{}); ok {
@@ -10884,14 +11116,14 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									_ = RulesIdx
 									if RulesItemMap, ok := RulesItem.(map[string]interface{}); ok {
 										RulesResult = append(RulesResult, ProtectedApplicationCloudfrontJsInsertionRulesRulesModel{
-											AnyDomain: func() *ProtectedApplicationEmptyModel {
-												if !isImport && len(RulesExisting) > RulesIdx {
+											AnyDomain: func() types.Object {
+												if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AnyDomain.IsUnknown() {
 													return RulesExisting[RulesIdx].AnyDomain
 												}
 												if _, ok := RulesItemMap["any_domain"].(map[string]interface{}); ok {
-													return &ProtectedApplicationEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Domain: func() *ProtectedApplicationCloudfrontJsInsertionRulesRulesDomainModel {
 												if DomainData, ok := RulesItemMap["domain"].(map[string]interface{}); ok {
@@ -11069,14 +11301,14 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						_ = ProtectedEndpointsIdx
 						if ProtectedEndpointsItemMap, ok := ProtectedEndpointsItem.(map[string]interface{}); ok {
 							ProtectedEndpointsResult = append(ProtectedEndpointsResult, ProtectedApplicationCloudfrontProtectedEndpointsModel{
-								AnyDomain: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+								AnyDomain: func() types.Object {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain.IsUnknown() {
 										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].AnyDomain
 									}
 									if _, ok := ProtectedEndpointsItemMap["any_domain"].(map[string]interface{}); ok {
-										return &ProtectedApplicationEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Domain: func() *ProtectedApplicationCloudfrontProtectedEndpointsDomainModel {
 									if DomainData, ok := ProtectedEndpointsItemMap["domain"].(map[string]interface{}); ok {
@@ -11112,23 +11344,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if AccountManagementData, ok := FlowLabelData["account_management"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAccountManagementModel{
-														Create: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+														Create: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.Create.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.Create
 															}
 															if _, ok := AccountManagementData["create"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														PasswordReset: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil {
+														PasswordReset: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.PasswordReset.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.AccountManagement.PasswordReset
 															}
 															if _, ok := AccountManagementData["password_reset"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -11146,14 +11378,14 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 															}
 															if LoginData, ok := AuthenticationData["login"].(map[string]interface{}); ok {
 																return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginModel{
-																	DisableTransactionResult: func() *ProtectedApplicationEmptyModel {
-																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil {
+																	DisableTransactionResult: func() types.Object {
+																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.DisableTransactionResult.IsUnknown() {
 																			return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.DisableTransactionResult
 																		}
 																		if _, ok := LoginData["disable_transaction_result"].(map[string]interface{}); ok {
-																			return &ProtectedApplicationEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
 																	TransactionResult: func() *ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelAuthenticationLoginTransactionResultModel {
 																		if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Login.TransactionResult != nil {
@@ -11265,41 +11497,41 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 															}
 															return nil
 														}(),
-														LoginMFA: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+														LoginMFA: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginMFA.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginMFA
 															}
 															if _, ok := AuthenticationData["login_mfa"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														LoginPartner: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+														LoginPartner: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginPartner.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.LoginPartner
 															}
 															if _, ok := AuthenticationData["login_partner"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														Logout: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+														Logout: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Logout.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.Logout
 															}
 															if _, ok := AuthenticationData["logout"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														TokenRefresh: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil {
+														TokenRefresh: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.TokenRefresh.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Authentication.TokenRefresh
 															}
 															if _, ok := AuthenticationData["token_refresh"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -11311,23 +11543,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if FinancialServicesData, ok := FlowLabelData["financial_services"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesModel{
-														Apply: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+														Apply: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.Apply.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.Apply
 															}
 															if _, ok := FinancialServicesData["apply"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														MoneyTransfer: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil {
+														MoneyTransfer: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.MoneyTransfer.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.FinancialServices.MoneyTransfer
 															}
 															if _, ok := FinancialServicesData["money_transfer"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -11358,32 +11590,32 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if ProfileManagementData, ok := FlowLabelData["profile_management"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModel{
-														Create: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+														Create: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Create.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Create
 															}
 															if _, ok := ProfileManagementData["create"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														Update: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+														Update: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Update.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.Update
 															}
 															if _, ok := ProfileManagementData["update"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														View: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil {
+														View: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.View.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ProfileManagement.View
 															}
 															if _, ok := ProfileManagementData["view"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -11395,41 +11627,41 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if SearchData, ok := FlowLabelData["search"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelSearchModel{
-														FlightSearch: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+														FlightSearch: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.FlightSearch.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.FlightSearch
 															}
 															if _, ok := SearchData["flight_search"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ProductSearch: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+														ProductSearch: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ProductSearch.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ProductSearch
 															}
 															if _, ok := SearchData["product_search"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ReservationSearch: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+														ReservationSearch: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ReservationSearch.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.ReservationSearch
 															}
 															if _, ok := SearchData["reservation_search"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														RoomSearch: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil {
+														RoomSearch: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.RoomSearch.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Search.RoomSearch
 															}
 															if _, ok := SearchData["room_search"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -11441,113 +11673,113 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if ShoppingGiftCardsData, ok := FlowLabelData["shopping_gift_cards"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelShoppingGiftCardsModel{
-														GiftCardMakePurchaseWithGiftCard: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														GiftCardMakePurchaseWithGiftCard: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardMakePurchaseWithGiftCard
 															}
 															if _, ok := ShoppingGiftCardsData["gift_card_make_purchase_with_gift_card"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														GiftCardValidation: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														GiftCardValidation: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardValidation.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.GiftCardValidation
 															}
 															if _, ok := ShoppingGiftCardsData["gift_card_validation"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopAddToCart: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopAddToCart: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopAddToCart.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopAddToCart
 															}
 															if _, ok := ShoppingGiftCardsData["shop_add_to_cart"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopCheckout: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopCheckout: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopCheckout.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopCheckout
 															}
 															if _, ok := ShoppingGiftCardsData["shop_checkout"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopChooseSeat: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopChooseSeat: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopChooseSeat.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopChooseSeat
 															}
 															if _, ok := ShoppingGiftCardsData["shop_choose_seat"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopEnterDrawingSubmission: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopEnterDrawingSubmission: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopEnterDrawingSubmission
 															}
 															if _, ok := ShoppingGiftCardsData["shop_enter_drawing_submission"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopMakePayment: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopMakePayment: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopMakePayment.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopMakePayment
 															}
 															if _, ok := ShoppingGiftCardsData["shop_make_payment"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopOrder: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopOrder: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopOrder.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopOrder
 															}
 															if _, ok := ShoppingGiftCardsData["shop_order"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopPriceInquiry: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopPriceInquiry: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPriceInquiry.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPriceInquiry
 															}
 															if _, ok := ShoppingGiftCardsData["shop_price_inquiry"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopPromoCodeValidation: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopPromoCodeValidation: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPromoCodeValidation
 															}
 															if _, ok := ShoppingGiftCardsData["shop_promo_code_validation"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopPurchaseGiftCard: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopPurchaseGiftCard: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopPurchaseGiftCard
 															}
 															if _, ok := ShoppingGiftCardsData["shop_purchase_gift_card"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ShopUpdateQuantity: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil {
+														ShopUpdateQuantity: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopUpdateQuantity.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.ShoppingGiftCards.ShopUpdateQuantity
 															}
 															if _, ok := ShoppingGiftCardsData["shop_update_quantity"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -11627,23 +11859,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if ContinueData, ok := MobileClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsMobileClientContinueModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.AddHeader
 															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].MobileClient.Continue.NoHeader
 															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -11665,14 +11897,14 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 									}
 									return types.StringNull()
 								}(),
-								UndefinedFlowLabel: func() *ProtectedApplicationEmptyModel {
-									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx {
+								UndefinedFlowLabel: func() types.Object {
+									if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel.IsUnknown() {
 										return ProtectedEndpointsExisting[ProtectedEndpointsIdx].UndefinedFlowLabel
 									}
 									if _, ok := ProtectedEndpointsItemMap["undefined_flow_label"].(map[string]interface{}); ok {
-										return &ProtectedApplicationEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								WebClient: func() *ProtectedApplicationCloudfrontProtectedEndpointsWebClientModel {
 									if WebClientData, ok := ProtectedEndpointsItemMap["web_client"].(map[string]interface{}); ok {
@@ -11711,23 +11943,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if ContinueData, ok := WebClientData["continue"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebClientContinueModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.AddHeader
 															}
 															if _, ok := ContinueData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebClient.Continue.NoHeader
 															}
 															if _, ok := ContinueData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -11824,23 +12056,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if ContinueMobileData, ok := WebMobileClientData["continue_mobile"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueMobileModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.AddHeader
 															}
 															if _, ok := ContinueMobileData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueMobile.NoHeader
 															}
 															if _, ok := ContinueMobileData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -11852,23 +12084,23 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if ContinueWebData, ok := WebMobileClientData["continue_web"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsWebMobileClientContinueWebModel{
-														AddHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+														AddHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.AddHeader
 															}
 															if _, ok := ContinueWebData["add_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														NoHeader: func() *ProtectedApplicationEmptyModel {
-															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil {
+														NoHeader: func() types.Object {
+															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb != nil && !ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader.IsUnknown() {
 																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].WebMobileClient.ContinueWeb.NoHeader
 															}
 															if _, ok := ContinueWebData["no_header"].(map[string]interface{}); ok {
-																return &ProtectedApplicationEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -12013,14 +12245,26 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["custom_connector"].(map[string]interface{}); ok && isImport && data.CustomConnector == nil {
-		data.CustomConnector = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.CustomConnector.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["custom_connector"].(map[string]interface{}); ok {
+		data.CustomConnector = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.CustomConnector = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["f5_big_ip"].(map[string]interface{}); ok && isImport && data.F5BigIP == nil {
-		data.F5BigIP = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.F5BigIP.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["f5_big_ip"].(map[string]interface{}); ok {
+		data.F5BigIP = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.F5BigIP = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["salesforce_commerce_connector"].(map[string]interface{}); ok && isImport && data.SalesforceCommerceConnector == nil {
-		data.SalesforceCommerceConnector = &ProtectedApplicationEmptyModel{}
+	if !isImport && !data.SalesforceCommerceConnector.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["salesforce_commerce_connector"].(map[string]interface{}); ok {
+		data.SalesforceCommerceConnector = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SalesforceCommerceConnector = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["region"].(string); ok && v != "" {
 		data.Region = types.StringValue(v)

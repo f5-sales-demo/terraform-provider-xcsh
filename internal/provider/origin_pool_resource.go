@@ -19,6 +19,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -95,18 +96,18 @@ var OriginPoolOriginServersCbipServiceModelAttrTypes = map[string]attr.Type{
 
 // OriginPoolOriginServersConsulServiceModel represents consul_service block
 type OriginPoolOriginServersConsulServiceModel struct {
+	InsideNetwork  types.Object                                          `tfsdk:"inside_network"`
+	OutsideNetwork types.Object                                          `tfsdk:"outside_network"`
 	ServiceName    types.String                                          `tfsdk:"service_name"`
-	InsideNetwork  *OriginPoolEmptyModel                                 `tfsdk:"inside_network"`
-	OutsideNetwork *OriginPoolEmptyModel                                 `tfsdk:"outside_network"`
 	SiteLocator    *OriginPoolOriginServersConsulServiceSiteLocatorModel `tfsdk:"site_locator"`
 	SnatPool       *OriginPoolOriginServersConsulServiceSnatPoolModel    `tfsdk:"snat_pool"`
 }
 
 // OriginPoolOriginServersConsulServiceModelAttrTypes defines the attribute types for OriginPoolOriginServersConsulServiceModel
 var OriginPoolOriginServersConsulServiceModelAttrTypes = map[string]attr.Type{
-	"service_name":    types.StringType,
 	"inside_network":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"outside_network": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"service_name":    types.StringType,
 	"site_locator":    types.ObjectType{AttrTypes: OriginPoolOriginServersConsulServiceSiteLocatorModelAttrTypes},
 	"snat_pool":       types.ObjectType{AttrTypes: OriginPoolOriginServersConsulServiceSnatPoolModelAttrTypes},
 }
@@ -153,7 +154,7 @@ var OriginPoolOriginServersConsulServiceSiteLocatorVirtualSiteModelAttrTypes = m
 
 // OriginPoolOriginServersConsulServiceSnatPoolModel represents snat_pool block
 type OriginPoolOriginServersConsulServiceSnatPoolModel struct {
-	NoSnatPool *OriginPoolEmptyModel                                      `tfsdk:"no_snat_pool"`
+	NoSnatPool types.Object                                               `tfsdk:"no_snat_pool"`
 	SnatPool   *OriginPoolOriginServersConsulServiceSnatPoolSnatPoolModel `tfsdk:"snat_pool"`
 }
 
@@ -199,24 +200,24 @@ var OriginPoolOriginServersCustomEndpointObjectEndpointModelAttrTypes = map[stri
 
 // OriginPoolOriginServersK8SServiceModel represents k8s_service block
 type OriginPoolOriginServersK8SServiceModel struct {
+	InsideNetwork  types.Object                                       `tfsdk:"inside_network"`
+	OutsideNetwork types.Object                                       `tfsdk:"outside_network"`
 	Protocol       types.String                                       `tfsdk:"protocol"`
 	ServiceName    types.String                                       `tfsdk:"service_name"`
-	InsideNetwork  *OriginPoolEmptyModel                              `tfsdk:"inside_network"`
-	OutsideNetwork *OriginPoolEmptyModel                              `tfsdk:"outside_network"`
+	Vk8sNetworks   types.Object                                       `tfsdk:"vk8s_networks"`
 	SiteLocator    *OriginPoolOriginServersK8SServiceSiteLocatorModel `tfsdk:"site_locator"`
 	SnatPool       *OriginPoolOriginServersK8SServiceSnatPoolModel    `tfsdk:"snat_pool"`
-	Vk8sNetworks   *OriginPoolEmptyModel                              `tfsdk:"vk8s_networks"`
 }
 
 // OriginPoolOriginServersK8SServiceModelAttrTypes defines the attribute types for OriginPoolOriginServersK8SServiceModel
 var OriginPoolOriginServersK8SServiceModelAttrTypes = map[string]attr.Type{
-	"protocol":        types.StringType,
-	"service_name":    types.StringType,
 	"inside_network":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"outside_network": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"protocol":        types.StringType,
+	"service_name":    types.StringType,
+	"vk8s_networks":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"site_locator":    types.ObjectType{AttrTypes: OriginPoolOriginServersK8SServiceSiteLocatorModelAttrTypes},
 	"snat_pool":       types.ObjectType{AttrTypes: OriginPoolOriginServersK8SServiceSnatPoolModelAttrTypes},
-	"vk8s_networks":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // OriginPoolOriginServersK8SServiceSiteLocatorModel represents site_locator block
@@ -261,7 +262,7 @@ var OriginPoolOriginServersK8SServiceSiteLocatorVirtualSiteModelAttrTypes = map[
 
 // OriginPoolOriginServersK8SServiceSnatPoolModel represents snat_pool block
 type OriginPoolOriginServersK8SServiceSnatPoolModel struct {
-	NoSnatPool *OriginPoolEmptyModel                                   `tfsdk:"no_snat_pool"`
+	NoSnatPool types.Object                                            `tfsdk:"no_snat_pool"`
 	SnatPool   *OriginPoolOriginServersK8SServiceSnatPoolSnatPoolModel `tfsdk:"snat_pool"`
 }
 
@@ -283,9 +284,9 @@ var OriginPoolOriginServersK8SServiceSnatPoolSnatPoolModelAttrTypes = map[string
 
 // OriginPoolOriginServersPrivateIPModel represents private_ip block
 type OriginPoolOriginServersPrivateIPModel struct {
+	InsideNetwork  types.Object                                      `tfsdk:"inside_network"`
 	IP             types.String                                      `tfsdk:"ip"`
-	InsideNetwork  *OriginPoolEmptyModel                             `tfsdk:"inside_network"`
-	OutsideNetwork *OriginPoolEmptyModel                             `tfsdk:"outside_network"`
+	OutsideNetwork types.Object                                      `tfsdk:"outside_network"`
 	Segment        *OriginPoolOriginServersPrivateIPSegmentModel     `tfsdk:"segment"`
 	SiteLocator    *OriginPoolOriginServersPrivateIPSiteLocatorModel `tfsdk:"site_locator"`
 	SnatPool       *OriginPoolOriginServersPrivateIPSnatPoolModel    `tfsdk:"snat_pool"`
@@ -293,8 +294,8 @@ type OriginPoolOriginServersPrivateIPModel struct {
 
 // OriginPoolOriginServersPrivateIPModelAttrTypes defines the attribute types for OriginPoolOriginServersPrivateIPModel
 var OriginPoolOriginServersPrivateIPModelAttrTypes = map[string]attr.Type{
-	"ip":              types.StringType,
 	"inside_network":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"ip":              types.StringType,
 	"outside_network": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"segment":         types.ObjectType{AttrTypes: OriginPoolOriginServersPrivateIPSegmentModelAttrTypes},
 	"site_locator":    types.ObjectType{AttrTypes: OriginPoolOriginServersPrivateIPSiteLocatorModelAttrTypes},
@@ -357,7 +358,7 @@ var OriginPoolOriginServersPrivateIPSiteLocatorVirtualSiteModelAttrTypes = map[s
 
 // OriginPoolOriginServersPrivateIPSnatPoolModel represents snat_pool block
 type OriginPoolOriginServersPrivateIPSnatPoolModel struct {
-	NoSnatPool *OriginPoolEmptyModel                                  `tfsdk:"no_snat_pool"`
+	NoSnatPool types.Object                                           `tfsdk:"no_snat_pool"`
 	SnatPool   *OriginPoolOriginServersPrivateIPSnatPoolSnatPoolModel `tfsdk:"snat_pool"`
 }
 
@@ -380,9 +381,9 @@ var OriginPoolOriginServersPrivateIPSnatPoolSnatPoolModelAttrTypes = map[string]
 // OriginPoolOriginServersPrivateNameModel represents private_name block
 type OriginPoolOriginServersPrivateNameModel struct {
 	DNSName         types.String                                        `tfsdk:"dns_name"`
+	InsideNetwork   types.Object                                        `tfsdk:"inside_network"`
+	OutsideNetwork  types.Object                                        `tfsdk:"outside_network"`
 	RefreshInterval types.Int64                                         `tfsdk:"refresh_interval"`
-	InsideNetwork   *OriginPoolEmptyModel                               `tfsdk:"inside_network"`
-	OutsideNetwork  *OriginPoolEmptyModel                               `tfsdk:"outside_network"`
 	Segment         *OriginPoolOriginServersPrivateNameSegmentModel     `tfsdk:"segment"`
 	SiteLocator     *OriginPoolOriginServersPrivateNameSiteLocatorModel `tfsdk:"site_locator"`
 	SnatPool        *OriginPoolOriginServersPrivateNameSnatPoolModel    `tfsdk:"snat_pool"`
@@ -391,9 +392,9 @@ type OriginPoolOriginServersPrivateNameModel struct {
 // OriginPoolOriginServersPrivateNameModelAttrTypes defines the attribute types for OriginPoolOriginServersPrivateNameModel
 var OriginPoolOriginServersPrivateNameModelAttrTypes = map[string]attr.Type{
 	"dns_name":         types.StringType,
-	"refresh_interval": types.Int64Type,
 	"inside_network":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"outside_network":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"refresh_interval": types.Int64Type,
 	"segment":          types.ObjectType{AttrTypes: OriginPoolOriginServersPrivateNameSegmentModelAttrTypes},
 	"site_locator":     types.ObjectType{AttrTypes: OriginPoolOriginServersPrivateNameSiteLocatorModelAttrTypes},
 	"snat_pool":        types.ObjectType{AttrTypes: OriginPoolOriginServersPrivateNameSnatPoolModelAttrTypes},
@@ -455,7 +456,7 @@ var OriginPoolOriginServersPrivateNameSiteLocatorVirtualSiteModelAttrTypes = map
 
 // OriginPoolOriginServersPrivateNameSnatPoolModel represents snat_pool block
 type OriginPoolOriginServersPrivateNameSnatPoolModel struct {
-	NoSnatPool *OriginPoolEmptyModel                                    `tfsdk:"no_snat_pool"`
+	NoSnatPool types.Object                                             `tfsdk:"no_snat_pool"`
 	SnatPool   *OriginPoolOriginServersPrivateNameSnatPoolSnatPoolModel `tfsdk:"snat_pool"`
 }
 
@@ -551,37 +552,33 @@ var OriginPoolOriginServersVnPrivateNamePrivateNetworkModelAttrTypes = map[strin
 
 // OriginPoolAdvancedOptionsModel represents advanced_options block
 type OriginPoolAdvancedOptionsModel struct {
+	AutoHTTPConfig               types.Object                                    `tfsdk:"auto_http_config"`
 	ConnectionTimeout            types.Int64                                     `tfsdk:"connection_timeout"`
+	DefaultCircuitBreaker        types.Object                                    `tfsdk:"default_circuit_breaker"`
+	DisableCircuitBreaker        types.Object                                    `tfsdk:"disable_circuit_breaker"`
+	DisableLBSourceIPPersistence types.Object                                    `tfsdk:"disable_lb_source_ip_persistence"`
+	DisableOutlierDetection      types.Object                                    `tfsdk:"disable_outlier_detection"`
+	DisableProxyProtocol         types.Object                                    `tfsdk:"disable_proxy_protocol"`
+	DisableSubsets               types.Object                                    `tfsdk:"disable_subsets"`
+	EnableLBSourceIPPersistence  types.Object                                    `tfsdk:"enable_lb_source_ip_persistence"`
 	HTTPIdleTimeout              types.Int64                                     `tfsdk:"http_idle_timeout"`
 	MaxRequestsPerConnection     types.Int64                                     `tfsdk:"max_requests_per_connection"`
+	NoPanicThreshold             types.Object                                    `tfsdk:"no_panic_threshold"`
+	NoRequestLimitPerConnection  types.Object                                    `tfsdk:"no_request_limit_per_connection"`
 	PanicThreshold               types.Int64                                     `tfsdk:"panic_threshold"`
-	AutoHTTPConfig               *OriginPoolEmptyModel                           `tfsdk:"auto_http_config"`
+	ProxyProtocolV1              types.Object                                    `tfsdk:"proxy_protocol_v1"`
+	ProxyProtocolV2              types.Object                                    `tfsdk:"proxy_protocol_v2"`
 	CircuitBreaker               *OriginPoolAdvancedOptionsCircuitBreakerModel   `tfsdk:"circuit_breaker"`
-	DefaultCircuitBreaker        *OriginPoolEmptyModel                           `tfsdk:"default_circuit_breaker"`
-	DisableCircuitBreaker        *OriginPoolEmptyModel                           `tfsdk:"disable_circuit_breaker"`
-	DisableLBSourceIPPersistence *OriginPoolEmptyModel                           `tfsdk:"disable_lb_source_ip_persistence"`
-	DisableOutlierDetection      *OriginPoolEmptyModel                           `tfsdk:"disable_outlier_detection"`
-	DisableProxyProtocol         *OriginPoolEmptyModel                           `tfsdk:"disable_proxy_protocol"`
-	DisableSubsets               *OriginPoolEmptyModel                           `tfsdk:"disable_subsets"`
-	EnableLBSourceIPPersistence  *OriginPoolEmptyModel                           `tfsdk:"enable_lb_source_ip_persistence"`
 	EnableSubsets                *OriginPoolAdvancedOptionsEnableSubsetsModel    `tfsdk:"enable_subsets"`
 	Http1Config                  *OriginPoolAdvancedOptionsHttp1ConfigModel      `tfsdk:"http1_config"`
 	Http2Options                 *OriginPoolAdvancedOptionsHttp2OptionsModel     `tfsdk:"http2_options"`
-	NoPanicThreshold             *OriginPoolEmptyModel                           `tfsdk:"no_panic_threshold"`
-	NoRequestLimitPerConnection  *OriginPoolEmptyModel                           `tfsdk:"no_request_limit_per_connection"`
 	OutlierDetection             *OriginPoolAdvancedOptionsOutlierDetectionModel `tfsdk:"outlier_detection"`
-	ProxyProtocolV1              *OriginPoolEmptyModel                           `tfsdk:"proxy_protocol_v1"`
-	ProxyProtocolV2              *OriginPoolEmptyModel                           `tfsdk:"proxy_protocol_v2"`
 }
 
 // OriginPoolAdvancedOptionsModelAttrTypes defines the attribute types for OriginPoolAdvancedOptionsModel
 var OriginPoolAdvancedOptionsModelAttrTypes = map[string]attr.Type{
-	"connection_timeout":               types.Int64Type,
-	"http_idle_timeout":                types.Int64Type,
-	"max_requests_per_connection":      types.Int64Type,
-	"panic_threshold":                  types.Int64Type,
 	"auto_http_config":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"circuit_breaker":                  types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsCircuitBreakerModelAttrTypes},
+	"connection_timeout":               types.Int64Type,
 	"default_circuit_breaker":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_circuit_breaker":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_lb_source_ip_persistence": types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -589,14 +586,18 @@ var OriginPoolAdvancedOptionsModelAttrTypes = map[string]attr.Type{
 	"disable_proxy_protocol":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_subsets":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_lb_source_ip_persistence":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"http_idle_timeout":                types.Int64Type,
+	"max_requests_per_connection":      types.Int64Type,
+	"no_panic_threshold":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_request_limit_per_connection":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"panic_threshold":                  types.Int64Type,
+	"proxy_protocol_v1":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"proxy_protocol_v2":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"circuit_breaker":                  types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsCircuitBreakerModelAttrTypes},
 	"enable_subsets":                   types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsModelAttrTypes},
 	"http1_config":                     types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsHttp1ConfigModelAttrTypes},
 	"http2_options":                    types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsHttp2OptionsModelAttrTypes},
-	"no_panic_threshold":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_request_limit_per_connection":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"outlier_detection":                types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsOutlierDetectionModelAttrTypes},
-	"proxy_protocol_v1":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"proxy_protocol_v2":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // OriginPoolAdvancedOptionsCircuitBreakerModel represents circuit_breaker block
@@ -619,18 +620,18 @@ var OriginPoolAdvancedOptionsCircuitBreakerModelAttrTypes = map[string]attr.Type
 
 // OriginPoolAdvancedOptionsEnableSubsetsModel represents enable_subsets block
 type OriginPoolAdvancedOptionsEnableSubsetsModel struct {
-	AnyEndpoint     *OriginPoolEmptyModel                                     `tfsdk:"any_endpoint"`
+	AnyEndpoint     types.Object                                              `tfsdk:"any_endpoint"`
+	FailRequest     types.Object                                              `tfsdk:"fail_request"`
 	DefaultSubset   *OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel `tfsdk:"default_subset"`
 	EndpointSubsets types.List                                                `tfsdk:"endpoint_subsets"`
-	FailRequest     *OriginPoolEmptyModel                                     `tfsdk:"fail_request"`
 }
 
 // OriginPoolAdvancedOptionsEnableSubsetsModelAttrTypes defines the attribute types for OriginPoolAdvancedOptionsEnableSubsetsModel
 var OriginPoolAdvancedOptionsEnableSubsetsModelAttrTypes = map[string]attr.Type{
 	"any_endpoint":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"fail_request":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"default_subset":   types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModelAttrTypes},
 	"endpoint_subsets": types.ListType{ElemType: types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModelAttrTypes}},
-	"fail_request":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel represents default_subset block
@@ -665,9 +666,9 @@ var OriginPoolAdvancedOptionsHttp1ConfigModelAttrTypes = map[string]attr.Type{
 
 // OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel represents header_transformation block
 type OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel struct {
-	DefaultHeaderTransformation      *OriginPoolEmptyModel `tfsdk:"default_header_transformation"`
-	PreserveCaseHeaderTransformation *OriginPoolEmptyModel `tfsdk:"preserve_case_header_transformation"`
-	ProperCaseHeaderTransformation   *OriginPoolEmptyModel `tfsdk:"proper_case_header_transformation"`
+	DefaultHeaderTransformation      types.Object `tfsdk:"default_header_transformation"`
+	PreserveCaseHeaderTransformation types.Object `tfsdk:"preserve_case_header_transformation"`
+	ProperCaseHeaderTransformation   types.Object `tfsdk:"proper_case_header_transformation"`
 }
 
 // OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModelAttrTypes defines the attribute types for OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel
@@ -707,8 +708,8 @@ var OriginPoolAdvancedOptionsOutlierDetectionModelAttrTypes = map[string]attr.Ty
 
 // OriginPoolUpstreamConnPoolReuseTypeModel represents upstream_conn_pool_reuse_type block
 type OriginPoolUpstreamConnPoolReuseTypeModel struct {
-	DisableConnPoolReuse *OriginPoolEmptyModel `tfsdk:"disable_conn_pool_reuse"`
-	EnableConnPoolReuse  *OriginPoolEmptyModel `tfsdk:"enable_conn_pool_reuse"`
+	DisableConnPoolReuse types.Object `tfsdk:"disable_conn_pool_reuse"`
+	EnableConnPoolReuse  types.Object `tfsdk:"enable_conn_pool_reuse"`
 }
 
 // OriginPoolUpstreamConnPoolReuseTypeModelAttrTypes defines the attribute types for OriginPoolUpstreamConnPoolReuseTypeModel
@@ -719,52 +720,52 @@ var OriginPoolUpstreamConnPoolReuseTypeModelAttrTypes = map[string]attr.Type{
 
 // OriginPoolUseTLSModel represents use_tls block
 type OriginPoolUseTLSModel struct {
+	DefaultSessionKeyCaching types.Object                                `tfsdk:"default_session_key_caching"`
+	DisableSessionKeyCaching types.Object                                `tfsdk:"disable_session_key_caching"`
+	DisableSni               types.Object                                `tfsdk:"disable_sni"`
 	MaxSessionKeys           types.Int64                                 `tfsdk:"max_session_keys"`
+	NoMtls                   types.Object                                `tfsdk:"no_mtls"`
+	SkipServerVerification   types.Object                                `tfsdk:"skip_server_verification"`
 	Sni                      types.String                                `tfsdk:"sni"`
-	DefaultSessionKeyCaching *OriginPoolEmptyModel                       `tfsdk:"default_session_key_caching"`
-	DisableSessionKeyCaching *OriginPoolEmptyModel                       `tfsdk:"disable_session_key_caching"`
-	DisableSni               *OriginPoolEmptyModel                       `tfsdk:"disable_sni"`
-	NoMtls                   *OriginPoolEmptyModel                       `tfsdk:"no_mtls"`
-	SkipServerVerification   *OriginPoolEmptyModel                       `tfsdk:"skip_server_verification"`
+	UseHostHeaderAsSni       types.Object                                `tfsdk:"use_host_header_as_sni"`
+	VolterraTrustedCA        types.Object                                `tfsdk:"volterra_trusted_ca"`
 	TLSConfig                *OriginPoolUseTLSTLSConfigModel             `tfsdk:"tls_config"`
-	UseHostHeaderAsSni       *OriginPoolEmptyModel                       `tfsdk:"use_host_header_as_sni"`
 	UseMtls                  *OriginPoolUseTLSUseMtlsModel               `tfsdk:"use_mtls"`
 	UseMtlsObj               *OriginPoolUseTLSUseMtlsObjModel            `tfsdk:"use_mtls_obj"`
 	UseServerVerification    *OriginPoolUseTLSUseServerVerificationModel `tfsdk:"use_server_verification"`
-	VolterraTrustedCA        *OriginPoolEmptyModel                       `tfsdk:"volterra_trusted_ca"`
 }
 
 // OriginPoolUseTLSModelAttrTypes defines the attribute types for OriginPoolUseTLSModel
 var OriginPoolUseTLSModelAttrTypes = map[string]attr.Type{
-	"max_session_keys":            types.Int64Type,
-	"sni":                         types.StringType,
 	"default_session_key_caching": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_session_key_caching": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_sni":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_session_keys":            types.Int64Type,
 	"no_mtls":                     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"skip_server_verification":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"tls_config":                  types.ObjectType{AttrTypes: OriginPoolUseTLSTLSConfigModelAttrTypes},
+	"sni":                         types.StringType,
 	"use_host_header_as_sni":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"volterra_trusted_ca":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"tls_config":                  types.ObjectType{AttrTypes: OriginPoolUseTLSTLSConfigModelAttrTypes},
 	"use_mtls":                    types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsModelAttrTypes},
 	"use_mtls_obj":                types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsObjModelAttrTypes},
 	"use_server_verification":     types.ObjectType{AttrTypes: OriginPoolUseTLSUseServerVerificationModelAttrTypes},
-	"volterra_trusted_ca":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // OriginPoolUseTLSTLSConfigModel represents tls_config block
 type OriginPoolUseTLSTLSConfigModel struct {
+	DefaultSecurity types.Object                                  `tfsdk:"default_security"`
+	LowSecurity     types.Object                                  `tfsdk:"low_security"`
+	MediumSecurity  types.Object                                  `tfsdk:"medium_security"`
 	CustomSecurity  *OriginPoolUseTLSTLSConfigCustomSecurityModel `tfsdk:"custom_security"`
-	DefaultSecurity *OriginPoolEmptyModel                         `tfsdk:"default_security"`
-	LowSecurity     *OriginPoolEmptyModel                         `tfsdk:"low_security"`
-	MediumSecurity  *OriginPoolEmptyModel                         `tfsdk:"medium_security"`
 }
 
 // OriginPoolUseTLSTLSConfigModelAttrTypes defines the attribute types for OriginPoolUseTLSTLSConfigModel
 var OriginPoolUseTLSTLSConfigModelAttrTypes = map[string]attr.Type{
-	"custom_security":  types.ObjectType{AttrTypes: OriginPoolUseTLSTLSConfigCustomSecurityModelAttrTypes},
 	"default_security": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"low_security":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"medium_security":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_security":  types.ObjectType{AttrTypes: OriginPoolUseTLSTLSConfigCustomSecurityModelAttrTypes},
 }
 
 // OriginPoolUseTLSTLSConfigCustomSecurityModel represents custom_security block
@@ -795,20 +796,20 @@ var OriginPoolUseTLSUseMtlsModelAttrTypes = map[string]attr.Type{
 type OriginPoolUseTLSUseMtlsTLSCertificatesModel struct {
 	CertificateURL       types.String                                                     `tfsdk:"certificate_url"`
 	DescriptionSpec      types.String                                                     `tfsdk:"description_spec"`
+	DisableOCSPStapling  types.Object                                                     `tfsdk:"disable_ocsp_stapling"`
+	UseSystemDefaults    types.Object                                                     `tfsdk:"use_system_defaults"`
 	CustomHashAlgorithms *OriginPoolUseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsModel `tfsdk:"custom_hash_algorithms"`
-	DisableOCSPStapling  *OriginPoolEmptyModel                                            `tfsdk:"disable_ocsp_stapling"`
 	PrivateKey           *OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel           `tfsdk:"private_key"`
-	UseSystemDefaults    *OriginPoolEmptyModel                                            `tfsdk:"use_system_defaults"`
 }
 
 // OriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes defines the attribute types for OriginPoolUseTLSUseMtlsTLSCertificatesModel
 var OriginPoolUseTLSUseMtlsTLSCertificatesModelAttrTypes = map[string]attr.Type{
 	"certificate_url":        types.StringType,
 	"description_spec":       types.StringType,
-	"custom_hash_algorithms": types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
 	"disable_ocsp_stapling":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"private_key":            types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModelAttrTypes},
 	"use_system_defaults":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_hash_algorithms": types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
+	"private_key":            types.ObjectType{AttrTypes: OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModelAttrTypes},
 }
 
 // OriginPoolUseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsModel represents custom_hash_algorithms block
@@ -917,24 +918,24 @@ type OriginPoolResourceModel struct {
 	Name                      types.String                              `tfsdk:"name"`
 	Namespace                 types.String                              `tfsdk:"namespace"`
 	Annotations               types.Map                                 `tfsdk:"annotations"`
+	AutomaticPort             types.Object                              `tfsdk:"automatic_port"`
 	Description               types.String                              `tfsdk:"description"`
 	Disable                   types.Bool                                `tfsdk:"disable"`
 	Labels                    types.Map                                 `tfsdk:"labels"`
+	LBPort                    types.Object                              `tfsdk:"lb_port"`
 	ID                        types.String                              `tfsdk:"id"`
 	EndpointSelection         types.String                              `tfsdk:"endpoint_selection"`
 	HealthCheckPort           types.Int64                               `tfsdk:"health_check_port"`
 	LoadBalancerAlgorithm     types.String                              `tfsdk:"loadbalancer_algorithm"`
+	NoTLS                     types.Object                              `tfsdk:"no_tls"`
 	Port                      types.Int64                               `tfsdk:"port"`
+	SameAsEndpointPort        types.Object                              `tfsdk:"same_as_endpoint_port"`
 	Timeouts                  timeouts.Value                            `tfsdk:"timeouts"`
 	OriginServers             types.List                                `tfsdk:"origin_servers"`
 	AdvancedOptions           *OriginPoolAdvancedOptionsModel           `tfsdk:"advanced_options"`
-	AutomaticPort             *OriginPoolEmptyModel                     `tfsdk:"automatic_port"`
-	LBPort                    *OriginPoolEmptyModel                     `tfsdk:"lb_port"`
 	UpstreamConnPoolReuseType *OriginPoolUpstreamConnPoolReuseTypeModel `tfsdk:"upstream_conn_pool_reuse_type"`
 	UseTLS                    *OriginPoolUseTLSModel                    `tfsdk:"use_tls"`
 	Healthcheck               types.List                                `tfsdk:"healthcheck"`
-	NoTLS                     *OriginPoolEmptyModel                     `tfsdk:"no_tls"`
-	SameAsEndpointPort        *OriginPoolEmptyModel                     `tfsdk:"same_as_endpoint_port"`
 }
 
 func (r *OriginPoolResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -970,6 +971,11 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"automatic_port": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: automatic_port, lb_port, port] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
@@ -982,6 +988,11 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"lb_port": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -1023,6 +1034,15 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 					stringvalidator.OneOf("ROUND_ROBIN", "LEAST_REQUEST", "RING_HASH", "RANDOM", "LB_OVERRIDE"),
 				},
 			},
+			"no_tls": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: no_tls, use_tls; Default: no_tls] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
 			"port": schema.Int64Attribute{
 				MarkdownDescription: "Exclusive with [automatic_port lb_port] Endpoint service is available on this port. Recommended: `443`.",
 				Optional:            true,
@@ -1032,6 +1052,15 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 				},
 				Validators: []validator.Int64{
 					int64validator.Between(1, 65535),
+				},
+			},
+			"same_as_endpoint_port": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
 		},
@@ -1069,18 +1098,22 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							MarkdownDescription: "Specify origin server with HashiCorp Consul service name and site information.",
 							Validators:          []validator.Object{validators.RequiredObjectAttributes("service_name"), validators.ConflictingObjectAttributes("inside_network", "outside_network")},
 							Attributes: map[string]schema.Attribute{
+								"inside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for inside network.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"outside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for outside network.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"service_name": schema.StringAttribute{
 									MarkdownDescription: "Consul service name of this origin server will be listed, including cluster-ID. The format is servicename:cluster-ID.",
 									Optional:            true,
 								},
 							},
 							Blocks: map[string]schema.Block{
-								"inside_network": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for inside network.",
-								},
-								"outside_network": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for outside network.",
-								},
 								"site_locator": schema.SingleNestedBlock{
 									MarkdownDescription: "Message defines a reference to a site or virtual site object.",
 									Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
@@ -1153,11 +1186,14 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								"snat_pool": schema.SingleNestedBlock{
 									MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
 									Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
-									Attributes:          map[string]schema.Attribute{},
-									Blocks: map[string]schema.Block{
-										"no_snat_pool": schema.SingleNestedBlock{
+									Attributes: map[string]schema.Attribute{
+										"no_snat_pool": schema.ObjectAttribute{
 											MarkdownDescription: "Configuration parameter for no snat pool.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
+									},
+									Blocks: map[string]schema.Block{
 										"snat_pool": schema.SingleNestedBlock{
 											MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
 											Attributes: map[string]schema.Attribute{
@@ -1216,6 +1252,16 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							MarkdownDescription: "Specify origin server with K8s service name and site information.",
 							Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside_network", "outside_network"), validators.ConflictingObjectAttributes("inside_network", "vk8s_networks"), validators.ConflictingObjectAttributes("outside_network", "vk8s_networks")},
 							Attributes: map[string]schema.Attribute{
+								"inside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for inside network.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"outside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for outside network.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"protocol": schema.StringAttribute{
 									MarkdownDescription: "[Enum: PROTOCOL_TCP|PROTOCOL_UDP] Type of protocol - PROTOCOL_TCP: TCP - PROTOCOL_UDP: UDP. Possible values are `PROTOCOL_TCP`, `PROTOCOL_UDP`. Defaults to `PROTOCOL_TCP`.",
 									Optional:            true,
@@ -1227,14 +1273,13 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									MarkdownDescription: "Exclusive with [] K8s service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:example-namespace'frontend', namespace is 'speedtest' and cluster-ID is 'prod', then you will enter..",
 									Optional:            true,
 								},
+								"vk8s_networks": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for vk8s networks.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 							},
 							Blocks: map[string]schema.Block{
-								"inside_network": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for inside network.",
-								},
-								"outside_network": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for outside network.",
-								},
 								"site_locator": schema.SingleNestedBlock{
 									MarkdownDescription: "Message defines a reference to a site or virtual site object.",
 									Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
@@ -1307,11 +1352,14 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								"snat_pool": schema.SingleNestedBlock{
 									MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
 									Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
-									Attributes:          map[string]schema.Attribute{},
-									Blocks: map[string]schema.Block{
-										"no_snat_pool": schema.SingleNestedBlock{
+									Attributes: map[string]schema.Attribute{
+										"no_snat_pool": schema.ObjectAttribute{
 											MarkdownDescription: "Configuration parameter for no snat pool.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
+									},
+									Blocks: map[string]schema.Block{
 										"snat_pool": schema.SingleNestedBlock{
 											MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
 											Attributes: map[string]schema.Attribute{
@@ -1327,15 +1375,17 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 									},
 								},
-								"vk8s_networks": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for vk8s networks.",
-								},
 							},
 						},
 						"private_ip": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with private or public IP address and site information.",
 							Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside_network", "outside_network"), validators.ConflictingObjectAttributes("inside_network", "segment"), validators.ConflictingObjectAttributes("outside_network", "segment")},
 							Attributes: map[string]schema.Attribute{
+								"inside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for inside network.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"ip": schema.StringAttribute{
 									MarkdownDescription: "IP. Exclusive with [] Private IPv4 address.",
 									Optional:            true,
@@ -1344,14 +1394,13 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 										validators.IPv4Validator(),
 									},
 								},
+								"outside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for outside network.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 							},
 							Blocks: map[string]schema.Block{
-								"inside_network": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for inside network.",
-								},
-								"outside_network": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for outside network.",
-								},
 								"segment": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -1455,11 +1504,14 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								"snat_pool": schema.SingleNestedBlock{
 									MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
 									Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
-									Attributes:          map[string]schema.Attribute{},
-									Blocks: map[string]schema.Block{
-										"no_snat_pool": schema.SingleNestedBlock{
+									Attributes: map[string]schema.Attribute{
+										"no_snat_pool": schema.ObjectAttribute{
 											MarkdownDescription: "Configuration parameter for no snat pool.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
+									},
+									Blocks: map[string]schema.Block{
 										"snat_pool": schema.SingleNestedBlock{
 											MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
 											Attributes: map[string]schema.Attribute{
@@ -1489,6 +1541,16 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 										stringvalidator.RegexMatches(regexp.MustCompile(`^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$`), ""),
 									},
 								},
+								"inside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for inside network.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"outside_network": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for outside network.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"refresh_interval": schema.Int64Attribute{
 									MarkdownDescription: "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.",
 									Optional:            true,
@@ -1501,12 +1563,6 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 							},
 							Blocks: map[string]schema.Block{
-								"inside_network": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for inside network.",
-								},
-								"outside_network": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for outside network.",
-								},
 								"segment": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 									Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -1610,11 +1666,14 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								"snat_pool": schema.SingleNestedBlock{
 									MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
 									Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
-									Attributes:          map[string]schema.Attribute{},
-									Blocks: map[string]schema.Block{
-										"no_snat_pool": schema.SingleNestedBlock{
+									Attributes: map[string]schema.Attribute{
+										"no_snat_pool": schema.ObjectAttribute{
 											MarkdownDescription: "Configuration parameter for no snat pool.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
+									},
+									Blocks: map[string]schema.Block{
 										"snat_pool": schema.SingleNestedBlock{
 											MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
 											Attributes: map[string]schema.Attribute{
@@ -1769,6 +1828,15 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_http_config", "http1_config"), validators.ConflictingObjectAttributes("auto_http_config", "http2_options"), validators.ConflictingObjectAttributes("circuit_breaker", "default_circuit_breaker"), validators.ConflictingObjectAttributes("circuit_breaker", "disable_circuit_breaker"), validators.ConflictingObjectAttributes("default_circuit_breaker", "disable_circuit_breaker"), validators.ConflictingObjectAttributes("disable_lb_source_ip_persistence", "enable_lb_source_ip_persistence"), validators.ConflictingObjectAttributes("disable_outlier_detection", "outlier_detection"), validators.ConflictingObjectAttributes("disable_proxy_protocol", "proxy_protocol_v1"), validators.ConflictingObjectAttributes("disable_proxy_protocol", "proxy_protocol_v2"), validators.ConflictingObjectAttributes("disable_subsets", "enable_subsets"), validators.ConflictingObjectAttributes("http1_config", "http2_options"), validators.ConflictingObjectAttributes("max_requests_per_connection", "no_request_limit_per_connection"), validators.ConflictingObjectAttributes("no_panic_threshold", "panic_threshold"), validators.ConflictingObjectAttributes("proxy_protocol_v1", "proxy_protocol_v2")},
 
 				Attributes: map[string]schema.Attribute{
+					"auto_http_config": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Object{
+							objectplanmodifier.UseStateForUnknown(),
+						},
+						AttributeTypes: map[string]attr.Type{},
+					},
 					"connection_timeout": schema.Int64Attribute{
 						MarkdownDescription: "The timeout for new network connections to endpoints in the cluster. This is specified in milliseconds. The default value is 2 seconds. Server applies default when omitted. Recommended: `2000`.",
 						Optional:            true,
@@ -1779,6 +1847,53 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Validators: []validator.Int64{
 							int64validator.AtMost(1800000),
 						},
+					},
+					"default_circuit_breaker": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default circuit breaker. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Object{
+							objectplanmodifier.UseStateForUnknown(),
+						},
+						AttributeTypes: map[string]attr.Type{},
+					},
+					"disable_circuit_breaker": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable circuit breaker.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_lb_source_ip_persistence": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_outlier_detection": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable outlier detection. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Object{
+							objectplanmodifier.UseStateForUnknown(),
+						},
+						AttributeTypes: map[string]attr.Type{},
+					},
+					"disable_proxy_protocol": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable proxy protocol.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_subsets": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable subsets. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Object{
+							objectplanmodifier.UseStateForUnknown(),
+						},
+						AttributeTypes: map[string]attr.Type{},
+					},
+					"enable_lb_source_ip_persistence": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 					"http_idle_timeout": schema.Int64Attribute{
 						MarkdownDescription: "The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed. Server applies default when omitted. Recommended: `300000`.",
@@ -1798,6 +1913,24 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							int64validator.AtLeast(1),
 						},
 					},
+					"no_panic_threshold": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no panic threshold. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Object{
+							objectplanmodifier.UseStateForUnknown(),
+						},
+						AttributeTypes: map[string]attr.Type{},
+					},
+					"no_request_limit_per_connection": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no request limit per connection. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Object{
+							objectplanmodifier.UseStateForUnknown(),
+						},
+						AttributeTypes: map[string]attr.Type{},
+					},
 					"panic_threshold": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [no_panic_threshold] Configure a threshold (percentage of unhealthy endpoints) below which all endpoints will be considered for load balancing ignoring its health status.",
 						Optional:            true,
@@ -1805,11 +1938,18 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							int64validator.AtMost(100),
 						},
 					},
+					"proxy_protocol_v1": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for proxy protocol v1.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"proxy_protocol_v2": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for proxy protocol v2.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 				},
 				Blocks: map[string]schema.Block{
-					"auto_http_config": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-					},
 					"circuit_breaker": schema.SingleNestedBlock{
 						MarkdownDescription: "CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly.",
 						Attributes: map[string]schema.Attribute{
@@ -1850,35 +1990,22 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"default_circuit_breaker": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for default circuit breaker. Defaults to `map[]`. Server applies default when omitted.",
-					},
-					"disable_circuit_breaker": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable circuit breaker.",
-					},
-					"disable_lb_source_ip_persistence": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"disable_outlier_detection": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable outlier detection. Defaults to `map[]`. Server applies default when omitted.",
-					},
-					"disable_proxy_protocol": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable proxy protocol.",
-					},
-					"disable_subsets": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable subsets. Defaults to `map[]`. Server applies default when omitted.",
-					},
-					"enable_lb_source_ip_persistence": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"enable_subsets": schema.SingleNestedBlock{
 						MarkdownDescription: "Configure subset OPTIONS for origin pool.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("endpoint_subsets"), validators.ConflictingObjectAttributes("any_endpoint", "default_subset"), validators.ConflictingObjectAttributes("any_endpoint", "fail_request"), validators.ConflictingObjectAttributes("default_subset", "fail_request")},
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"any_endpoint": schema.SingleNestedBlock{
+						Attributes: map[string]schema.Attribute{
+							"any_endpoint": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
+							"fail_request": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for fail request.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Blocks: map[string]schema.Block{
 							"default_subset": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for default subset.",
 								Attributes:          map[string]schema.Attribute{},
@@ -1904,9 +2031,6 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									},
 								},
 							},
-							"fail_request": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for fail request.",
-							},
 						},
 					},
 					"http1_config": schema.SingleNestedBlock{
@@ -1916,16 +2040,21 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							"header_transformation": schema.SingleNestedBlock{
 								MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
 								Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"default_header_transformation": schema.SingleNestedBlock{
+								Attributes: map[string]schema.Attribute{
+									"default_header_transformation": schema.ObjectAttribute{
 										MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"preserve_case_header_transformation": schema.SingleNestedBlock{
+									"preserve_case_header_transformation": schema.ObjectAttribute{
 										MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"proper_case_header_transformation": schema.SingleNestedBlock{
+									"proper_case_header_transformation": schema.ObjectAttribute{
 										MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
@@ -1939,12 +2068,6 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 								Optional:            true,
 							},
 						},
-					},
-					"no_panic_threshold": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no panic threshold. Defaults to `map[]`. Server applies default when omitted.",
-					},
-					"no_request_limit_per_connection": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no request limit per connection. Defaults to `map[]`. Server applies default when omitted.",
 					},
 					"outlier_detection": schema.SingleNestedBlock{
 						MarkdownDescription: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1.",
@@ -1986,31 +2109,22 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"proxy_protocol_v1": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for proxy protocol v1.",
-					},
-					"proxy_protocol_v2": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for proxy protocol v2.",
-					},
 				},
-			},
-			"automatic_port": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: automatic_port, lb_port, port] Enable this option",
-			},
-			"lb_port": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
 			},
 			"upstream_conn_pool_reuse_type": schema.SingleNestedBlock{
 				MarkdownDescription: "Select upstream connection pool reuse state for every downstream connection. This configuration choice is for HTTP(S) LB only.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_conn_pool_reuse", "enable_conn_pool_reuse")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_conn_pool_reuse": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_conn_pool_reuse": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for disable conn pool reuse.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"enable_conn_pool_reuse": schema.SingleNestedBlock{
+					"enable_conn_pool_reuse": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for enable conn pool reuse.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
@@ -2019,12 +2133,45 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_session_key_caching", "disable_session_key_caching"), validators.ConflictingObjectAttributes("default_session_key_caching", "max_session_keys"), validators.ConflictingObjectAttributes("disable_session_key_caching", "max_session_keys"), validators.ConflictingObjectAttributes("disable_sni", "sni"), validators.ConflictingObjectAttributes("disable_sni", "use_host_header_as_sni"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls_obj"), validators.ConflictingObjectAttributes("skip_server_verification", "use_server_verification"), validators.ConflictingObjectAttributes("skip_server_verification", "volterra_trusted_ca"), validators.ConflictingObjectAttributes("sni", "use_host_header_as_sni"), validators.ConflictingObjectAttributes("use_mtls", "use_mtls_obj"), validators.ConflictingObjectAttributes("use_server_verification", "volterra_trusted_ca")},
 
 				Attributes: map[string]schema.Attribute{
+					"default_session_key_caching": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default session key caching. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Object{
+							objectplanmodifier.UseStateForUnknown(),
+						},
+						AttributeTypes: map[string]attr.Type{},
+					},
+					"disable_session_key_caching": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable session key caching.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_sni": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable sni.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"max_session_keys": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [default_session_key_caching disable_session_key_caching] Number of session keys that are cached.",
 						Optional:            true,
 						Validators: []validator.Int64{
 							int64validator.Between(2, 64),
 						},
+					},
+					"no_mtls": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Object{
+							objectplanmodifier.UseStateForUnknown(),
+						},
+						AttributeTypes: map[string]attr.Type{},
+					},
+					"skip_server_verification": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 					"sni": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [disable_sni use_host_header_as_sni] SNI value to be used.",
@@ -2033,27 +2180,46 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							stringvalidator.LengthAtMost(256),
 						},
 					},
+					"use_host_header_as_sni": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Object{
+							objectplanmodifier.UseStateForUnknown(),
+						},
+						AttributeTypes: map[string]attr.Type{},
+					},
+					"volterra_trusted_ca": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for volterra trusted ca. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Object{
+							objectplanmodifier.UseStateForUnknown(),
+						},
+						AttributeTypes: map[string]attr.Type{},
+					},
 				},
 				Blocks: map[string]schema.Block{
-					"default_session_key_caching": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for default session key caching. Defaults to `map[]`. Server applies default when omitted.",
-					},
-					"disable_session_key_caching": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable session key caching.",
-					},
-					"disable_sni": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable sni.",
-					},
-					"no_mtls": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-					},
-					"skip_server_verification": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"tls_config": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
 						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
-						Attributes:          map[string]schema.Attribute{},
+						Attributes: map[string]schema.Attribute{
+							"default_security": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"low_security": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"medium_security": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"custom_security": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
@@ -2080,19 +2246,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									},
 								},
 							},
-							"default_security": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"low_security": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"medium_security": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 						},
-					},
-					"use_host_header_as_sni": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
 					},
 					"use_mtls": schema.SingleNestedBlock{
 						MarkdownDescription: "MTLS Certificate. MTLS Client Certificate.",
@@ -2115,6 +2269,16 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 											MarkdownDescription: "Description. Description for the certificate.",
 											Optional:            true,
 										},
+										"disable_ocsp_stapling": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"use_system_defaults": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for use system defaults.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 									},
 									Blocks: map[string]schema.Block{
 										"custom_hash_algorithms": schema.SingleNestedBlock{
@@ -2130,9 +2294,6 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 													},
 												},
 											},
-										},
-										"disable_ocsp_stapling": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
 										},
 										"private_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
@@ -2178,9 +2339,6 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 													},
 												},
 											},
-										},
-										"use_system_defaults": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for use system defaults.",
 										},
 									},
 								},
@@ -2264,9 +2422,6 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"volterra_trusted_ca": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for volterra trusted ca. Defaults to `map[]`. Server applies default when omitted.",
-					},
 				},
 			},
 			"healthcheck": schema.ListNestedBlock{
@@ -2303,12 +2458,6 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
-			"no_tls": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: no_tls, use_tls; Default: no_tls] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"same_as_endpoint_port": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
 		},
 	}
 }
@@ -2335,6 +2484,35 @@ func (r *OriginPoolResource) ValidateConfig(ctx context.Context, req resource.Va
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.AutomaticPort.IsNull() && !data.AutomaticPort.IsUnknown() && !data.LBPort.IsNull() && !data.LBPort.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("automatic_port"),
+			"Conflicting Configuration",
+			"automatic_port and lb_port are mutually exclusive.",
+		)
+	}
+	if !data.AutomaticPort.IsNull() && !data.AutomaticPort.IsUnknown() && !data.Port.IsNull() && !data.Port.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("automatic_port"),
+			"Conflicting Configuration",
+			"automatic_port and port are mutually exclusive.",
+		)
+	}
+	if !data.LBPort.IsNull() && !data.LBPort.IsUnknown() && !data.Port.IsNull() && !data.Port.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("lb_port"),
+			"Conflicting Configuration",
+			"lb_port and port are mutually exclusive.",
+		)
+	}
+	if !data.HealthCheckPort.IsNull() && !data.HealthCheckPort.IsUnknown() && !data.SameAsEndpointPort.IsNull() && !data.SameAsEndpointPort.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("health_check_port"),
+			"Conflicting Configuration",
+			"health_check_port and same_as_endpoint_port are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -2452,10 +2630,10 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if OriginServersItem.ConsulService != nil {
 					OriginServersConsulServiceMap := make(map[string]interface{})
-					if OriginServersItem.ConsulService.InsideNetwork != nil {
+					if !OriginServersItem.ConsulService.InsideNetwork.IsNull() && !OriginServersItem.ConsulService.InsideNetwork.IsUnknown() {
 						OriginServersConsulServiceMap["inside_network"] = map[string]interface{}{}
 					}
-					if OriginServersItem.ConsulService.OutsideNetwork != nil {
+					if !OriginServersItem.ConsulService.OutsideNetwork.IsNull() && !OriginServersItem.ConsulService.OutsideNetwork.IsUnknown() {
 						OriginServersConsulServiceMap["outside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.ConsulService.ServiceName.IsNull() && !OriginServersItem.ConsulService.ServiceName.IsUnknown() {
@@ -2487,7 +2665,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					if OriginServersItem.ConsulService.SnatPool != nil {
 						OriginServersConsulServiceSnatPoolMap := make(map[string]interface{})
-						if OriginServersItem.ConsulService.SnatPool.NoSnatPool != nil {
+						if !OriginServersItem.ConsulService.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.ConsulService.SnatPool.NoSnatPool.IsUnknown() {
 							OriginServersConsulServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.ConsulService.SnatPool.SnatPool != nil {
@@ -2522,10 +2700,10 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if OriginServersItem.K8SService != nil {
 					OriginServersK8SServiceMap := make(map[string]interface{})
-					if OriginServersItem.K8SService.InsideNetwork != nil {
+					if !OriginServersItem.K8SService.InsideNetwork.IsNull() && !OriginServersItem.K8SService.InsideNetwork.IsUnknown() {
 						OriginServersK8SServiceMap["inside_network"] = map[string]interface{}{}
 					}
-					if OriginServersItem.K8SService.OutsideNetwork != nil {
+					if !OriginServersItem.K8SService.OutsideNetwork.IsNull() && !OriginServersItem.K8SService.OutsideNetwork.IsUnknown() {
 						OriginServersK8SServiceMap["outside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
@@ -2560,7 +2738,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					if OriginServersItem.K8SService.SnatPool != nil {
 						OriginServersK8SServiceSnatPoolMap := make(map[string]interface{})
-						if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
+						if !OriginServersItem.K8SService.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.K8SService.SnatPool.NoSnatPool.IsUnknown() {
 							OriginServersK8SServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
@@ -2577,7 +2755,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						OriginServersK8SServiceMap["snat_pool"] = OriginServersK8SServiceSnatPoolMap
 					}
-					if OriginServersItem.K8SService.Vk8sNetworks != nil {
+					if !OriginServersItem.K8SService.Vk8sNetworks.IsNull() && !OriginServersItem.K8SService.Vk8sNetworks.IsUnknown() {
 						OriginServersK8SServiceMap["vk8s_networks"] = map[string]interface{}{}
 					}
 					OriginServersItemMap["k8s_service"] = OriginServersK8SServiceMap
@@ -2592,13 +2770,13 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if OriginServersItem.PrivateIP != nil {
 					OriginServersPrivateIPMap := make(map[string]interface{})
-					if OriginServersItem.PrivateIP.InsideNetwork != nil {
+					if !OriginServersItem.PrivateIP.InsideNetwork.IsNull() && !OriginServersItem.PrivateIP.InsideNetwork.IsUnknown() {
 						OriginServersPrivateIPMap["inside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.PrivateIP.IP.IsNull() && !OriginServersItem.PrivateIP.IP.IsUnknown() {
 						OriginServersPrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
 					}
-					if OriginServersItem.PrivateIP.OutsideNetwork != nil {
+					if !OriginServersItem.PrivateIP.OutsideNetwork.IsNull() && !OriginServersItem.PrivateIP.OutsideNetwork.IsUnknown() {
 						OriginServersPrivateIPMap["outside_network"] = map[string]interface{}{}
 					}
 					if OriginServersItem.PrivateIP.Segment != nil {
@@ -2637,7 +2815,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					if OriginServersItem.PrivateIP.SnatPool != nil {
 						OriginServersPrivateIPSnatPoolMap := make(map[string]interface{})
-						if OriginServersItem.PrivateIP.SnatPool.NoSnatPool != nil {
+						if !OriginServersItem.PrivateIP.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.PrivateIP.SnatPool.NoSnatPool.IsUnknown() {
 							OriginServersPrivateIPSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.PrivateIP.SnatPool.SnatPool != nil {
@@ -2661,10 +2839,10 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 					if !OriginServersItem.PrivateName.DNSName.IsNull() && !OriginServersItem.PrivateName.DNSName.IsUnknown() {
 						OriginServersPrivateNameMap["dns_name"] = OriginServersItem.PrivateName.DNSName.ValueString()
 					}
-					if OriginServersItem.PrivateName.InsideNetwork != nil {
+					if !OriginServersItem.PrivateName.InsideNetwork.IsNull() && !OriginServersItem.PrivateName.InsideNetwork.IsUnknown() {
 						OriginServersPrivateNameMap["inside_network"] = map[string]interface{}{}
 					}
-					if OriginServersItem.PrivateName.OutsideNetwork != nil {
+					if !OriginServersItem.PrivateName.OutsideNetwork.IsNull() && !OriginServersItem.PrivateName.OutsideNetwork.IsUnknown() {
 						OriginServersPrivateNameMap["outside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.PrivateName.RefreshInterval.IsNull() && !OriginServersItem.PrivateName.RefreshInterval.IsUnknown() {
@@ -2706,7 +2884,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					if OriginServersItem.PrivateName.SnatPool != nil {
 						OriginServersPrivateNameSnatPoolMap := make(map[string]interface{})
-						if OriginServersItem.PrivateName.SnatPool.NoSnatPool != nil {
+						if !OriginServersItem.PrivateName.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.PrivateName.SnatPool.NoSnatPool.IsUnknown() {
 							OriginServersPrivateNameSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.PrivateName.SnatPool.SnatPool != nil {
@@ -2783,7 +2961,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if data.AdvancedOptions != nil {
 		AdvancedOptionsMap := make(map[string]interface{})
-		if data.AdvancedOptions.AutoHTTPConfig != nil {
+		if !data.AdvancedOptions.AutoHTTPConfig.IsNull() && !data.AdvancedOptions.AutoHTTPConfig.IsUnknown() {
 			AdvancedOptionsMap["auto_http_config"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.CircuitBreaker != nil {
@@ -2808,30 +2986,30 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.AdvancedOptions.ConnectionTimeout.IsNull() && !data.AdvancedOptions.ConnectionTimeout.IsUnknown() {
 			AdvancedOptionsMap["connection_timeout"] = data.AdvancedOptions.ConnectionTimeout.ValueInt64()
 		}
-		if data.AdvancedOptions.DefaultCircuitBreaker != nil {
+		if !data.AdvancedOptions.DefaultCircuitBreaker.IsNull() && !data.AdvancedOptions.DefaultCircuitBreaker.IsUnknown() {
 			AdvancedOptionsMap["default_circuit_breaker"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.DisableCircuitBreaker != nil {
+		if !data.AdvancedOptions.DisableCircuitBreaker.IsNull() && !data.AdvancedOptions.DisableCircuitBreaker.IsUnknown() {
 			AdvancedOptionsMap["disable_circuit_breaker"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.DisableLBSourceIPPersistence != nil {
+		if !data.AdvancedOptions.DisableLBSourceIPPersistence.IsNull() && !data.AdvancedOptions.DisableLBSourceIPPersistence.IsUnknown() {
 			AdvancedOptionsMap["disable_lb_source_ip_persistance"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.DisableOutlierDetection != nil {
+		if !data.AdvancedOptions.DisableOutlierDetection.IsNull() && !data.AdvancedOptions.DisableOutlierDetection.IsUnknown() {
 			AdvancedOptionsMap["disable_outlier_detection"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.DisableProxyProtocol != nil {
+		if !data.AdvancedOptions.DisableProxyProtocol.IsNull() && !data.AdvancedOptions.DisableProxyProtocol.IsUnknown() {
 			AdvancedOptionsMap["disable_proxy_protocol"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.DisableSubsets != nil {
+		if !data.AdvancedOptions.DisableSubsets.IsNull() && !data.AdvancedOptions.DisableSubsets.IsUnknown() {
 			AdvancedOptionsMap["disable_subsets"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.EnableLBSourceIPPersistence != nil {
+		if !data.AdvancedOptions.EnableLBSourceIPPersistence.IsNull() && !data.AdvancedOptions.EnableLBSourceIPPersistence.IsUnknown() {
 			AdvancedOptionsMap["enable_lb_source_ip_persistance"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.EnableSubsets != nil {
 			AdvancedOptionsEnableSubsetsMap := make(map[string]interface{})
-			if data.AdvancedOptions.EnableSubsets.AnyEndpoint != nil {
+			if !data.AdvancedOptions.EnableSubsets.AnyEndpoint.IsNull() && !data.AdvancedOptions.EnableSubsets.AnyEndpoint.IsUnknown() {
 				AdvancedOptionsEnableSubsetsMap["any_endpoint"] = map[string]interface{}{}
 			}
 			if data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
@@ -2862,7 +3040,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 					AdvancedOptionsEnableSubsetsMap["endpoint_subsets"] = EndpointSubsetsList
 				}
 			}
-			if data.AdvancedOptions.EnableSubsets.FailRequest != nil {
+			if !data.AdvancedOptions.EnableSubsets.FailRequest.IsNull() && !data.AdvancedOptions.EnableSubsets.FailRequest.IsUnknown() {
 				AdvancedOptionsEnableSubsetsMap["fail_request"] = map[string]interface{}{}
 			}
 			AdvancedOptionsMap["enable_subsets"] = AdvancedOptionsEnableSubsetsMap
@@ -2871,13 +3049,13 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 			AdvancedOptionsHttp1ConfigMap := make(map[string]interface{})
 			if data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
 				AdvancedOptionsHttp1ConfigHeaderTransformationMap := make(map[string]interface{})
-				if data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
+				if !data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsNull() && !data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 					AdvancedOptionsHttp1ConfigHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 				}
-				if data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+				if !data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsNull() && !data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 					AdvancedOptionsHttp1ConfigHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 				}
-				if data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+				if !data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsNull() && !data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 					AdvancedOptionsHttp1ConfigHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 				}
 				AdvancedOptionsHttp1ConfigMap["header_transformation"] = AdvancedOptionsHttp1ConfigHeaderTransformationMap
@@ -2897,10 +3075,10 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.AdvancedOptions.MaxRequestsPerConnection.IsNull() && !data.AdvancedOptions.MaxRequestsPerConnection.IsUnknown() {
 			AdvancedOptionsMap["max_requests_per_connection"] = data.AdvancedOptions.MaxRequestsPerConnection.ValueInt64()
 		}
-		if data.AdvancedOptions.NoPanicThreshold != nil {
+		if !data.AdvancedOptions.NoPanicThreshold.IsNull() && !data.AdvancedOptions.NoPanicThreshold.IsUnknown() {
 			AdvancedOptionsMap["no_panic_threshold"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.NoRequestLimitPerConnection != nil {
+		if !data.AdvancedOptions.NoRequestLimitPerConnection.IsNull() && !data.AdvancedOptions.NoRequestLimitPerConnection.IsUnknown() {
 			AdvancedOptionsMap["no_request_limit_per_connection"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.OutlierDetection != nil {
@@ -2925,48 +3103,48 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 		if !data.AdvancedOptions.PanicThreshold.IsNull() && !data.AdvancedOptions.PanicThreshold.IsUnknown() {
 			AdvancedOptionsMap["panic_threshold"] = data.AdvancedOptions.PanicThreshold.ValueInt64()
 		}
-		if data.AdvancedOptions.ProxyProtocolV1 != nil {
+		if !data.AdvancedOptions.ProxyProtocolV1.IsNull() && !data.AdvancedOptions.ProxyProtocolV1.IsUnknown() {
 			AdvancedOptionsMap["proxy_protocol_v1"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.ProxyProtocolV2 != nil {
+		if !data.AdvancedOptions.ProxyProtocolV2.IsNull() && !data.AdvancedOptions.ProxyProtocolV2.IsUnknown() {
 			AdvancedOptionsMap["proxy_protocol_v2"] = map[string]interface{}{}
 		}
 		createReq.Spec["advanced_options"] = AdvancedOptionsMap
 	}
-	if data.AutomaticPort != nil {
+	if !data.AutomaticPort.IsNull() && !data.AutomaticPort.IsUnknown() {
 		createReq.Spec["automatic_port"] = map[string]interface{}{}
 	}
-	if data.LBPort != nil {
+	if !data.LBPort.IsNull() && !data.LBPort.IsUnknown() {
 		createReq.Spec["lb_port"] = map[string]interface{}{}
 	}
 	if data.UpstreamConnPoolReuseType != nil {
 		UpstreamConnPoolReuseTypeMap := make(map[string]interface{})
-		if data.UpstreamConnPoolReuseType.DisableConnPoolReuse != nil {
+		if !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsNull() && !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsUnknown() {
 			UpstreamConnPoolReuseTypeMap["disable_conn_pool_reuse"] = map[string]interface{}{}
 		}
-		if data.UpstreamConnPoolReuseType.EnableConnPoolReuse != nil {
+		if !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsNull() && !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsUnknown() {
 			UpstreamConnPoolReuseTypeMap["enable_conn_pool_reuse"] = map[string]interface{}{}
 		}
 		createReq.Spec["upstream_conn_pool_reuse_type"] = UpstreamConnPoolReuseTypeMap
 	}
 	if data.UseTLS != nil {
 		UseTLSMap := make(map[string]interface{})
-		if data.UseTLS.DefaultSessionKeyCaching != nil {
+		if !data.UseTLS.DefaultSessionKeyCaching.IsNull() && !data.UseTLS.DefaultSessionKeyCaching.IsUnknown() {
 			UseTLSMap["default_session_key_caching"] = map[string]interface{}{}
 		}
-		if data.UseTLS.DisableSessionKeyCaching != nil {
+		if !data.UseTLS.DisableSessionKeyCaching.IsNull() && !data.UseTLS.DisableSessionKeyCaching.IsUnknown() {
 			UseTLSMap["disable_session_key_caching"] = map[string]interface{}{}
 		}
-		if data.UseTLS.DisableSni != nil {
+		if !data.UseTLS.DisableSni.IsNull() && !data.UseTLS.DisableSni.IsUnknown() {
 			UseTLSMap["disable_sni"] = map[string]interface{}{}
 		}
 		if !data.UseTLS.MaxSessionKeys.IsNull() && !data.UseTLS.MaxSessionKeys.IsUnknown() {
 			UseTLSMap["max_session_keys"] = data.UseTLS.MaxSessionKeys.ValueInt64()
 		}
-		if data.UseTLS.NoMtls != nil {
+		if !data.UseTLS.NoMtls.IsNull() && !data.UseTLS.NoMtls.IsUnknown() {
 			UseTLSMap["no_mtls"] = map[string]interface{}{}
 		}
-		if data.UseTLS.SkipServerVerification != nil {
+		if !data.UseTLS.SkipServerVerification.IsNull() && !data.UseTLS.SkipServerVerification.IsUnknown() {
 			UseTLSMap["skip_server_verification"] = map[string]interface{}{}
 		}
 		if !data.UseTLS.Sni.IsNull() && !data.UseTLS.Sni.IsUnknown() {
@@ -2992,18 +3170,18 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				UseTLSTLSConfigMap["custom_security"] = UseTLSTLSConfigCustomSecurityMap
 			}
-			if data.UseTLS.TLSConfig.DefaultSecurity != nil {
+			if !data.UseTLS.TLSConfig.DefaultSecurity.IsNull() && !data.UseTLS.TLSConfig.DefaultSecurity.IsUnknown() {
 				UseTLSTLSConfigMap["default_security"] = map[string]interface{}{}
 			}
-			if data.UseTLS.TLSConfig.LowSecurity != nil {
+			if !data.UseTLS.TLSConfig.LowSecurity.IsNull() && !data.UseTLS.TLSConfig.LowSecurity.IsUnknown() {
 				UseTLSTLSConfigMap["low_security"] = map[string]interface{}{}
 			}
-			if data.UseTLS.TLSConfig.MediumSecurity != nil {
+			if !data.UseTLS.TLSConfig.MediumSecurity.IsNull() && !data.UseTLS.TLSConfig.MediumSecurity.IsUnknown() {
 				UseTLSTLSConfigMap["medium_security"] = map[string]interface{}{}
 			}
 			UseTLSMap["tls_config"] = UseTLSTLSConfigMap
 		}
-		if data.UseTLS.UseHostHeaderAsSni != nil {
+		if !data.UseTLS.UseHostHeaderAsSni.IsNull() && !data.UseTLS.UseHostHeaderAsSni.IsUnknown() {
 			UseTLSMap["use_host_header_as_sni"] = map[string]interface{}{}
 		}
 		if data.UseTLS.UseMtls != nil {
@@ -3034,7 +3212,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
+						if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
@@ -3064,7 +3242,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							TLSCertificatesItemMap["private_key"] = UseTLSUseMtlsTLSCertificatesPrivateKeyMap
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
+						if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -3101,7 +3279,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			UseTLSMap["use_server_verification"] = UseTLSUseServerVerificationMap
 		}
-		if data.UseTLS.VolterraTrustedCA != nil {
+		if !data.UseTLS.VolterraTrustedCA.IsNull() && !data.UseTLS.VolterraTrustedCA.IsUnknown() {
 			UseTLSMap["volterra_trusted_ca"] = map[string]interface{}{}
 		}
 		createReq.Spec["use_tls"] = UseTLSMap
@@ -3134,13 +3312,13 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 	if !data.LoadBalancerAlgorithm.IsNull() && !data.LoadBalancerAlgorithm.IsUnknown() {
 		createReq.Spec["loadbalancer_algorithm"] = data.LoadBalancerAlgorithm.ValueString()
 	}
-	if data.NoTLS != nil {
+	if !data.NoTLS.IsNull() && !data.NoTLS.IsUnknown() {
 		createReq.Spec["no_tls"] = map[string]interface{}{}
 	}
 	if !data.Port.IsNull() && !data.Port.IsUnknown() {
 		createReq.Spec["port"] = data.Port.ValueInt64()
 	}
-	if data.SameAsEndpointPort != nil {
+	if !data.SameAsEndpointPort.IsNull() && !data.SameAsEndpointPort.IsUnknown() {
 		createReq.Spec["same_as_endpoint_port"] = map[string]interface{}{}
 	}
 
@@ -3210,23 +3388,23 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 					ConsulService: func() *OriginPoolOriginServersConsulServiceModel {
 						if ConsulServiceData, ok := itemMap["consul_service"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersConsulServiceModel{
-								InsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil {
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && !existingOriginServersItems[listIdx].ConsulService.InsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].ConsulService.InsideNetwork
 									}
 									if _, ok := ConsulServiceData["inside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								OutsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil {
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && !existingOriginServersItems[listIdx].ConsulService.OutsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].ConsulService.OutsideNetwork
 									}
 									if _, ok := ConsulServiceData["outside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ServiceName: func() types.String {
 									if v, ok := ConsulServiceData["service_name"].(string); ok && v != "" {
@@ -3297,14 +3475,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									if SnatPoolData, ok := ConsulServiceData["snat_pool"].(map[string]interface{}); ok {
 										return &OriginPoolOriginServersConsulServiceSnatPoolModel{
-											NoSnatPool: func() *OriginPoolEmptyModel {
-												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && existingOriginServersItems[listIdx].ConsulService.SnatPool != nil {
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && existingOriginServersItems[listIdx].ConsulService.SnatPool != nil && !existingOriginServersItems[listIdx].ConsulService.SnatPool.NoSnatPool.IsUnknown() {
 													return existingOriginServersItems[listIdx].ConsulService.SnatPool.NoSnatPool
 												}
 												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SnatPool: func() *OriginPoolOriginServersConsulServiceSnatPoolSnatPoolModel {
 												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && existingOriginServersItems[listIdx].ConsulService.SnatPool != nil && existingOriginServersItems[listIdx].ConsulService.SnatPool.SnatPool != nil {
@@ -3373,23 +3551,23 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 					K8SService: func() *OriginPoolOriginServersK8SServiceModel {
 						if K8SServiceData, ok := itemMap["k8s_service"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersK8SServiceModel{
-								InsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil {
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && !existingOriginServersItems[listIdx].K8SService.InsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].K8SService.InsideNetwork
 									}
 									if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								OutsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil {
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && !existingOriginServersItems[listIdx].K8SService.OutsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].K8SService.OutsideNetwork
 									}
 									if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Protocol: func() types.String {
 									if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
@@ -3466,14 +3644,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
 										return &OriginPoolOriginServersK8SServiceSnatPoolModel{
-											NoSnatPool: func() *OriginPoolEmptyModel {
-												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && existingOriginServersItems[listIdx].K8SService.SnatPool != nil {
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && existingOriginServersItems[listIdx].K8SService.SnatPool != nil && !existingOriginServersItems[listIdx].K8SService.SnatPool.NoSnatPool.IsUnknown() {
 													return existingOriginServersItems[listIdx].K8SService.SnatPool.NoSnatPool
 												}
 												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SnatPool: func() *OriginPoolOriginServersK8SServiceSnatPoolSnatPoolModel {
 												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && existingOriginServersItems[listIdx].K8SService.SnatPool != nil && existingOriginServersItems[listIdx].K8SService.SnatPool.SnatPool != nil {
@@ -3503,14 +3681,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									return nil
 								}(),
-								Vk8sNetworks: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil {
+								Vk8sNetworks: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && !existingOriginServersItems[listIdx].K8SService.Vk8sNetworks.IsUnknown() {
 										return existingOriginServersItems[listIdx].K8SService.Vk8sNetworks
 									}
 									if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}
@@ -3525,14 +3703,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{
-								InsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil {
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && !existingOriginServersItems[listIdx].PrivateIP.InsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].PrivateIP.InsideNetwork
 									}
 									if _, ok := PrivateIPData["inside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								IP: func() types.String {
 									if v, ok := PrivateIPData["ip"].(string); ok && v != "" {
@@ -3540,14 +3718,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									return types.StringNull()
 								}(),
-								OutsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil {
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && !existingOriginServersItems[listIdx].PrivateIP.OutsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].PrivateIP.OutsideNetwork
 									}
 									if _, ok := PrivateIPData["outside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Segment: func() *OriginPoolOriginServersPrivateIPSegmentModel {
 									if SegmentData, ok := PrivateIPData["segment"].(map[string]interface{}); ok {
@@ -3637,14 +3815,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									if SnatPoolData, ok := PrivateIPData["snat_pool"].(map[string]interface{}); ok {
 										return &OriginPoolOriginServersPrivateIPSnatPoolModel{
-											NoSnatPool: func() *OriginPoolEmptyModel {
-												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && existingOriginServersItems[listIdx].PrivateIP.SnatPool != nil {
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && existingOriginServersItems[listIdx].PrivateIP.SnatPool != nil && !existingOriginServersItems[listIdx].PrivateIP.SnatPool.NoSnatPool.IsUnknown() {
 													return existingOriginServersItems[listIdx].PrivateIP.SnatPool.NoSnatPool
 												}
 												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SnatPool: func() *OriginPoolOriginServersPrivateIPSnatPoolSnatPoolModel {
 												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && existingOriginServersItems[listIdx].PrivateIP.SnatPool != nil && existingOriginServersItems[listIdx].PrivateIP.SnatPool.SnatPool != nil {
@@ -3687,23 +3865,23 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									return types.StringNull()
 								}(),
-								InsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil {
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && !existingOriginServersItems[listIdx].PrivateName.InsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].PrivateName.InsideNetwork
 									}
 									if _, ok := PrivateNameData["inside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								OutsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil {
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && !existingOriginServersItems[listIdx].PrivateName.OutsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].PrivateName.OutsideNetwork
 									}
 									if _, ok := PrivateNameData["outside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								RefreshInterval: func() types.Int64 {
 									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && !existingOriginServersItems[listIdx].PrivateName.RefreshInterval.IsUnknown() {
@@ -3802,14 +3980,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									if SnatPoolData, ok := PrivateNameData["snat_pool"].(map[string]interface{}); ok {
 										return &OriginPoolOriginServersPrivateNameSnatPoolModel{
-											NoSnatPool: func() *OriginPoolEmptyModel {
-												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && existingOriginServersItems[listIdx].PrivateName.SnatPool != nil {
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && existingOriginServersItems[listIdx].PrivateName.SnatPool != nil && !existingOriginServersItems[listIdx].PrivateName.SnatPool.NoSnatPool.IsUnknown() {
 													return existingOriginServersItems[listIdx].PrivateName.SnatPool.NoSnatPool
 												}
 												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SnatPool: func() *OriginPoolOriginServersPrivateNameSnatPoolSnatPoolModel {
 												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && existingOriginServersItems[listIdx].PrivateName.SnatPool != nil && existingOriginServersItems[listIdx].PrivateName.SnatPool.SnatPool != nil {
@@ -3967,16 +4145,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if blockData, ok := apiResource.Spec["advanced_options"].(map[string]interface{}); ok && (isImport || data.AdvancedOptions != nil) {
 		data.AdvancedOptions = &OriginPoolAdvancedOptionsModel{
-			AutoHTTPConfig: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			AutoHTTPConfig: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.AutoHTTPConfig.IsUnknown() {
 					return data.AdvancedOptions.AutoHTTPConfig
 				}
-				if !isImport {
-					if _, ok := blockData["auto_http_config"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["auto_http_config"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CircuitBreaker: func() *OriginPoolAdvancedOptionsCircuitBreakerModel {
 				if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.CircuitBreaker != nil {
@@ -4039,74 +4215,68 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.Int64Null()
 			}(),
-			DefaultCircuitBreaker: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DefaultCircuitBreaker: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DefaultCircuitBreaker.IsUnknown() {
 					return data.AdvancedOptions.DefaultCircuitBreaker
 				}
-				if !isImport {
-					if _, ok := blockData["default_circuit_breaker"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["default_circuit_breaker"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableCircuitBreaker: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableCircuitBreaker: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableCircuitBreaker.IsUnknown() {
 					return data.AdvancedOptions.DisableCircuitBreaker
 				}
 				if _, ok := blockData["disable_circuit_breaker"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableLBSourceIPPersistence: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableLBSourceIPPersistence: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableLBSourceIPPersistence.IsUnknown() {
 					return data.AdvancedOptions.DisableLBSourceIPPersistence
 				}
 				if _, ok := blockData["disable_lb_source_ip_persistance"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableOutlierDetection: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableOutlierDetection: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableOutlierDetection.IsUnknown() {
 					return data.AdvancedOptions.DisableOutlierDetection
 				}
-				if !isImport {
-					if _, ok := blockData["disable_outlier_detection"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["disable_outlier_detection"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableProxyProtocol: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableProxyProtocol: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableProxyProtocol.IsUnknown() {
 					return data.AdvancedOptions.DisableProxyProtocol
 				}
 				if _, ok := blockData["disable_proxy_protocol"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSubsets: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableSubsets: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableSubsets.IsUnknown() {
 					return data.AdvancedOptions.DisableSubsets
 				}
-				if !isImport {
-					if _, ok := blockData["disable_subsets"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["disable_subsets"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableLBSourceIPPersistence: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			EnableLBSourceIPPersistence: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.EnableLBSourceIPPersistence.IsUnknown() {
 					return data.AdvancedOptions.EnableLBSourceIPPersistence
 				}
 				if _, ok := blockData["enable_lb_source_ip_persistance"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableSubsets: func() *OriginPoolAdvancedOptionsEnableSubsetsModel {
 				if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil {
@@ -4114,14 +4284,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if EnableSubsetsData, ok := blockData["enable_subsets"].(map[string]interface{}); ok {
 					return &OriginPoolAdvancedOptionsEnableSubsetsModel{
-						AnyEndpoint: func() *OriginPoolEmptyModel {
-							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil {
+						AnyEndpoint: func() types.Object {
+							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && !data.AdvancedOptions.EnableSubsets.AnyEndpoint.IsUnknown() {
 								return data.AdvancedOptions.EnableSubsets.AnyEndpoint
 							}
 							if _, ok := EnableSubsetsData["any_endpoint"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DefaultSubset: func() *OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel {
 							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
@@ -4178,14 +4348,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModelAttrTypes})
 						}(),
-						FailRequest: func() *OriginPoolEmptyModel {
-							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil {
+						FailRequest: func() types.Object {
+							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && !data.AdvancedOptions.EnableSubsets.FailRequest.IsUnknown() {
 								return data.AdvancedOptions.EnableSubsets.FailRequest
 							}
 							if _, ok := EnableSubsetsData["fail_request"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -4203,32 +4373,32 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if HeaderTransformationData, ok := Http1ConfigData["header_transformation"].(map[string]interface{}); ok {
 								return &OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel{
-									DefaultHeaderTransformation: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
+									DefaultHeaderTransformation: func() types.Object {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil && !data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 											return data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									PreserveCaseHeaderTransformation: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
+									PreserveCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil && !data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 											return data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									ProperCaseHeaderTransformation: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
+									ProperCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil && !data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 											return data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -4275,27 +4445,23 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.Int64Null()
 			}(),
-			NoPanicThreshold: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			NoPanicThreshold: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.NoPanicThreshold.IsUnknown() {
 					return data.AdvancedOptions.NoPanicThreshold
 				}
-				if !isImport {
-					if _, ok := blockData["no_panic_threshold"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["no_panic_threshold"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoRequestLimitPerConnection: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			NoRequestLimitPerConnection: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.NoRequestLimitPerConnection.IsUnknown() {
 					return data.AdvancedOptions.NoRequestLimitPerConnection
 				}
-				if !isImport {
-					if _, ok := blockData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["no_request_limit_per_connection"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutlierDetection: func() *OriginPoolAdvancedOptionsOutlierDetectionModel {
 				if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.OutlierDetection != nil {
@@ -4361,82 +4527,90 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.Int64Null()
 			}(),
-			ProxyProtocolV1: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			ProxyProtocolV1: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.ProxyProtocolV1.IsUnknown() {
 					return data.AdvancedOptions.ProxyProtocolV1
 				}
 				if _, ok := blockData["proxy_protocol_v1"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ProxyProtocolV2: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			ProxyProtocolV2: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.ProxyProtocolV2.IsUnknown() {
 					return data.AdvancedOptions.ProxyProtocolV2
 				}
 				if _, ok := blockData["proxy_protocol_v2"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["automatic_port"].(map[string]interface{}); ok && isImport && data.AutomaticPort == nil {
-		data.AutomaticPort = &OriginPoolEmptyModel{}
+	if !isImport && !data.AutomaticPort.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["automatic_port"].(map[string]interface{}); ok {
+		data.AutomaticPort = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AutomaticPort = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["lb_port"].(map[string]interface{}); ok && isImport && data.LBPort == nil {
-		data.LBPort = &OriginPoolEmptyModel{}
+	if !isImport && !data.LBPort.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["lb_port"].(map[string]interface{}); ok {
+		data.LBPort = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LBPort = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && (isImport || data.UpstreamConnPoolReuseType != nil) {
 		data.UpstreamConnPoolReuseType = &OriginPoolUpstreamConnPoolReuseTypeModel{
-			DisableConnPoolReuse: func() *OriginPoolEmptyModel {
-				if !isImport && data.UpstreamConnPoolReuseType != nil {
+			DisableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsUnknown() {
 					return data.UpstreamConnPoolReuseType.DisableConnPoolReuse
 				}
 				if _, ok := blockData["disable_conn_pool_reuse"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableConnPoolReuse: func() *OriginPoolEmptyModel {
-				if !isImport && data.UpstreamConnPoolReuseType != nil {
+			EnableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsUnknown() {
 					return data.UpstreamConnPoolReuseType.EnableConnPoolReuse
 				}
 				if _, ok := blockData["enable_conn_pool_reuse"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["use_tls"].(map[string]interface{}); ok && (isImport || data.UseTLS != nil) {
 		data.UseTLS = &OriginPoolUseTLSModel{
-			DefaultSessionKeyCaching: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			DefaultSessionKeyCaching: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.DefaultSessionKeyCaching.IsUnknown() {
 					return data.UseTLS.DefaultSessionKeyCaching
 				}
 				if _, ok := blockData["default_session_key_caching"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSessionKeyCaching: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			DisableSessionKeyCaching: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.DisableSessionKeyCaching.IsUnknown() {
 					return data.UseTLS.DisableSessionKeyCaching
 				}
 				if _, ok := blockData["disable_session_key_caching"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSni: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			DisableSni: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.DisableSni.IsUnknown() {
 					return data.UseTLS.DisableSni
 				}
 				if _, ok := blockData["disable_sni"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			MaxSessionKeys: func() types.Int64 {
 				if !isImport && data.UseTLS != nil && !data.UseTLS.MaxSessionKeys.IsUnknown() {
@@ -4447,23 +4621,23 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.Int64Null()
 			}(),
-			NoMtls: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			NoMtls: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.NoMtls.IsUnknown() {
 					return data.UseTLS.NoMtls
 				}
 				if _, ok := blockData["no_mtls"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SkipServerVerification: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			SkipServerVerification: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.SkipServerVerification.IsUnknown() {
 					return data.UseTLS.SkipServerVerification
 				}
 				if _, ok := blockData["skip_server_verification"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Sni: func() types.String {
 				if v, ok := blockData["sni"].(string); ok && v != "" {
@@ -4513,45 +4687,45 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						DefaultSecurity: func() *OriginPoolEmptyModel {
-							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil {
+						DefaultSecurity: func() types.Object {
+							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil && !data.UseTLS.TLSConfig.DefaultSecurity.IsUnknown() {
 								return data.UseTLS.TLSConfig.DefaultSecurity
 							}
 							if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						LowSecurity: func() *OriginPoolEmptyModel {
-							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil {
+						LowSecurity: func() types.Object {
+							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil && !data.UseTLS.TLSConfig.LowSecurity.IsUnknown() {
 								return data.UseTLS.TLSConfig.LowSecurity
 							}
 							if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						MediumSecurity: func() *OriginPoolEmptyModel {
-							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil {
+						MediumSecurity: func() types.Object {
+							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil && !data.UseTLS.TLSConfig.MediumSecurity.IsUnknown() {
 								return data.UseTLS.TLSConfig.MediumSecurity
 							}
 							if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
 				return nil
 			}(),
-			UseHostHeaderAsSni: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			UseHostHeaderAsSni: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.UseHostHeaderAsSni.IsUnknown() {
 					return data.UseTLS.UseHostHeaderAsSni
 				}
 				if _, ok := blockData["use_host_header_as_sni"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			UseMtls: func() *OriginPoolUseTLSUseMtlsModel {
 				if !isImport && data.UseTLS != nil && data.UseTLS.UseMtls != nil {
@@ -4606,14 +4780,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *OriginPoolEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -4672,14 +4846,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *OriginPoolEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -4756,14 +4930,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			VolterraTrustedCA: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			VolterraTrustedCA: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.VolterraTrustedCA.IsUnknown() {
 					return data.UseTLS.VolterraTrustedCA
 				}
 				if _, ok := blockData["volterra_trusted_ca"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -4823,16 +4997,24 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 	} else {
 		data.LoadBalancerAlgorithm = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["no_tls"].(map[string]interface{}); ok && isImport && data.NoTLS == nil {
-		data.NoTLS = &OriginPoolEmptyModel{}
+	if !isImport && !data.NoTLS.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_tls"].(map[string]interface{}); ok {
+		data.NoTLS = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoTLS = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["port"].(float64); ok {
 		data.Port = types.Int64Value(int64(v))
 	} else {
 		data.Port = types.Int64Null()
 	}
-	if _, ok := apiResource.Spec["same_as_endpoint_port"].(map[string]interface{}); ok && isImport && data.SameAsEndpointPort == nil {
-		data.SameAsEndpointPort = &OriginPoolEmptyModel{}
+	if !isImport && !data.SameAsEndpointPort.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["same_as_endpoint_port"].(map[string]interface{}); ok {
+		data.SameAsEndpointPort = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SameAsEndpointPort = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	tflog.Trace(ctx, "created OriginPool resource")
@@ -4993,23 +5175,23 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 					ConsulService: func() *OriginPoolOriginServersConsulServiceModel {
 						if ConsulServiceData, ok := itemMap["consul_service"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersConsulServiceModel{
-								InsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil {
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && !existingOriginServersItems[listIdx].ConsulService.InsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].ConsulService.InsideNetwork
 									}
 									if _, ok := ConsulServiceData["inside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								OutsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil {
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && !existingOriginServersItems[listIdx].ConsulService.OutsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].ConsulService.OutsideNetwork
 									}
 									if _, ok := ConsulServiceData["outside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ServiceName: func() types.String {
 									if v, ok := ConsulServiceData["service_name"].(string); ok && v != "" {
@@ -5080,14 +5262,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 									}
 									if SnatPoolData, ok := ConsulServiceData["snat_pool"].(map[string]interface{}); ok {
 										return &OriginPoolOriginServersConsulServiceSnatPoolModel{
-											NoSnatPool: func() *OriginPoolEmptyModel {
-												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && existingOriginServersItems[listIdx].ConsulService.SnatPool != nil {
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && existingOriginServersItems[listIdx].ConsulService.SnatPool != nil && !existingOriginServersItems[listIdx].ConsulService.SnatPool.NoSnatPool.IsUnknown() {
 													return existingOriginServersItems[listIdx].ConsulService.SnatPool.NoSnatPool
 												}
 												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SnatPool: func() *OriginPoolOriginServersConsulServiceSnatPoolSnatPoolModel {
 												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && existingOriginServersItems[listIdx].ConsulService.SnatPool != nil && existingOriginServersItems[listIdx].ConsulService.SnatPool.SnatPool != nil {
@@ -5156,23 +5338,23 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 					K8SService: func() *OriginPoolOriginServersK8SServiceModel {
 						if K8SServiceData, ok := itemMap["k8s_service"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersK8SServiceModel{
-								InsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil {
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && !existingOriginServersItems[listIdx].K8SService.InsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].K8SService.InsideNetwork
 									}
 									if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								OutsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil {
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && !existingOriginServersItems[listIdx].K8SService.OutsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].K8SService.OutsideNetwork
 									}
 									if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Protocol: func() types.String {
 									if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
@@ -5249,14 +5431,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 									}
 									if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
 										return &OriginPoolOriginServersK8SServiceSnatPoolModel{
-											NoSnatPool: func() *OriginPoolEmptyModel {
-												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && existingOriginServersItems[listIdx].K8SService.SnatPool != nil {
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && existingOriginServersItems[listIdx].K8SService.SnatPool != nil && !existingOriginServersItems[listIdx].K8SService.SnatPool.NoSnatPool.IsUnknown() {
 													return existingOriginServersItems[listIdx].K8SService.SnatPool.NoSnatPool
 												}
 												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SnatPool: func() *OriginPoolOriginServersK8SServiceSnatPoolSnatPoolModel {
 												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && existingOriginServersItems[listIdx].K8SService.SnatPool != nil && existingOriginServersItems[listIdx].K8SService.SnatPool.SnatPool != nil {
@@ -5286,14 +5468,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 									}
 									return nil
 								}(),
-								Vk8sNetworks: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil {
+								Vk8sNetworks: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && !existingOriginServersItems[listIdx].K8SService.Vk8sNetworks.IsUnknown() {
 										return existingOriginServersItems[listIdx].K8SService.Vk8sNetworks
 									}
 									if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}
@@ -5308,14 +5490,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{
-								InsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil {
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && !existingOriginServersItems[listIdx].PrivateIP.InsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].PrivateIP.InsideNetwork
 									}
 									if _, ok := PrivateIPData["inside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								IP: func() types.String {
 									if v, ok := PrivateIPData["ip"].(string); ok && v != "" {
@@ -5323,14 +5505,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 									}
 									return types.StringNull()
 								}(),
-								OutsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil {
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && !existingOriginServersItems[listIdx].PrivateIP.OutsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].PrivateIP.OutsideNetwork
 									}
 									if _, ok := PrivateIPData["outside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Segment: func() *OriginPoolOriginServersPrivateIPSegmentModel {
 									if SegmentData, ok := PrivateIPData["segment"].(map[string]interface{}); ok {
@@ -5420,14 +5602,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 									}
 									if SnatPoolData, ok := PrivateIPData["snat_pool"].(map[string]interface{}); ok {
 										return &OriginPoolOriginServersPrivateIPSnatPoolModel{
-											NoSnatPool: func() *OriginPoolEmptyModel {
-												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && existingOriginServersItems[listIdx].PrivateIP.SnatPool != nil {
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && existingOriginServersItems[listIdx].PrivateIP.SnatPool != nil && !existingOriginServersItems[listIdx].PrivateIP.SnatPool.NoSnatPool.IsUnknown() {
 													return existingOriginServersItems[listIdx].PrivateIP.SnatPool.NoSnatPool
 												}
 												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SnatPool: func() *OriginPoolOriginServersPrivateIPSnatPoolSnatPoolModel {
 												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && existingOriginServersItems[listIdx].PrivateIP.SnatPool != nil && existingOriginServersItems[listIdx].PrivateIP.SnatPool.SnatPool != nil {
@@ -5470,23 +5652,23 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 									}
 									return types.StringNull()
 								}(),
-								InsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil {
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && !existingOriginServersItems[listIdx].PrivateName.InsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].PrivateName.InsideNetwork
 									}
 									if _, ok := PrivateNameData["inside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								OutsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil {
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && !existingOriginServersItems[listIdx].PrivateName.OutsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].PrivateName.OutsideNetwork
 									}
 									if _, ok := PrivateNameData["outside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								RefreshInterval: func() types.Int64 {
 									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && !existingOriginServersItems[listIdx].PrivateName.RefreshInterval.IsUnknown() {
@@ -5585,14 +5767,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 									}
 									if SnatPoolData, ok := PrivateNameData["snat_pool"].(map[string]interface{}); ok {
 										return &OriginPoolOriginServersPrivateNameSnatPoolModel{
-											NoSnatPool: func() *OriginPoolEmptyModel {
-												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && existingOriginServersItems[listIdx].PrivateName.SnatPool != nil {
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && existingOriginServersItems[listIdx].PrivateName.SnatPool != nil && !existingOriginServersItems[listIdx].PrivateName.SnatPool.NoSnatPool.IsUnknown() {
 													return existingOriginServersItems[listIdx].PrivateName.SnatPool.NoSnatPool
 												}
 												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SnatPool: func() *OriginPoolOriginServersPrivateNameSnatPoolSnatPoolModel {
 												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && existingOriginServersItems[listIdx].PrivateName.SnatPool != nil && existingOriginServersItems[listIdx].PrivateName.SnatPool.SnatPool != nil {
@@ -5750,16 +5932,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 	}
 	if blockData, ok := apiResource.Spec["advanced_options"].(map[string]interface{}); ok && (isImport || data.AdvancedOptions != nil) {
 		data.AdvancedOptions = &OriginPoolAdvancedOptionsModel{
-			AutoHTTPConfig: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			AutoHTTPConfig: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.AutoHTTPConfig.IsUnknown() {
 					return data.AdvancedOptions.AutoHTTPConfig
 				}
-				if !isImport {
-					if _, ok := blockData["auto_http_config"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["auto_http_config"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CircuitBreaker: func() *OriginPoolAdvancedOptionsCircuitBreakerModel {
 				if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.CircuitBreaker != nil {
@@ -5822,74 +6002,68 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.Int64Null()
 			}(),
-			DefaultCircuitBreaker: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DefaultCircuitBreaker: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DefaultCircuitBreaker.IsUnknown() {
 					return data.AdvancedOptions.DefaultCircuitBreaker
 				}
-				if !isImport {
-					if _, ok := blockData["default_circuit_breaker"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["default_circuit_breaker"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableCircuitBreaker: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableCircuitBreaker: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableCircuitBreaker.IsUnknown() {
 					return data.AdvancedOptions.DisableCircuitBreaker
 				}
 				if _, ok := blockData["disable_circuit_breaker"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableLBSourceIPPersistence: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableLBSourceIPPersistence: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableLBSourceIPPersistence.IsUnknown() {
 					return data.AdvancedOptions.DisableLBSourceIPPersistence
 				}
 				if _, ok := blockData["disable_lb_source_ip_persistance"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableOutlierDetection: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableOutlierDetection: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableOutlierDetection.IsUnknown() {
 					return data.AdvancedOptions.DisableOutlierDetection
 				}
-				if !isImport {
-					if _, ok := blockData["disable_outlier_detection"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["disable_outlier_detection"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableProxyProtocol: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableProxyProtocol: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableProxyProtocol.IsUnknown() {
 					return data.AdvancedOptions.DisableProxyProtocol
 				}
 				if _, ok := blockData["disable_proxy_protocol"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSubsets: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableSubsets: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableSubsets.IsUnknown() {
 					return data.AdvancedOptions.DisableSubsets
 				}
-				if !isImport {
-					if _, ok := blockData["disable_subsets"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["disable_subsets"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableLBSourceIPPersistence: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			EnableLBSourceIPPersistence: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.EnableLBSourceIPPersistence.IsUnknown() {
 					return data.AdvancedOptions.EnableLBSourceIPPersistence
 				}
 				if _, ok := blockData["enable_lb_source_ip_persistance"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableSubsets: func() *OriginPoolAdvancedOptionsEnableSubsetsModel {
 				if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil {
@@ -5897,14 +6071,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if EnableSubsetsData, ok := blockData["enable_subsets"].(map[string]interface{}); ok {
 					return &OriginPoolAdvancedOptionsEnableSubsetsModel{
-						AnyEndpoint: func() *OriginPoolEmptyModel {
-							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil {
+						AnyEndpoint: func() types.Object {
+							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && !data.AdvancedOptions.EnableSubsets.AnyEndpoint.IsUnknown() {
 								return data.AdvancedOptions.EnableSubsets.AnyEndpoint
 							}
 							if _, ok := EnableSubsetsData["any_endpoint"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DefaultSubset: func() *OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel {
 							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
@@ -5961,14 +6135,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModelAttrTypes})
 						}(),
-						FailRequest: func() *OriginPoolEmptyModel {
-							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil {
+						FailRequest: func() types.Object {
+							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && !data.AdvancedOptions.EnableSubsets.FailRequest.IsUnknown() {
 								return data.AdvancedOptions.EnableSubsets.FailRequest
 							}
 							if _, ok := EnableSubsetsData["fail_request"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -5986,32 +6160,32 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							if HeaderTransformationData, ok := Http1ConfigData["header_transformation"].(map[string]interface{}); ok {
 								return &OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel{
-									DefaultHeaderTransformation: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
+									DefaultHeaderTransformation: func() types.Object {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil && !data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 											return data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									PreserveCaseHeaderTransformation: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
+									PreserveCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil && !data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 											return data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									ProperCaseHeaderTransformation: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
+									ProperCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil && !data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 											return data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -6058,27 +6232,23 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.Int64Null()
 			}(),
-			NoPanicThreshold: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			NoPanicThreshold: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.NoPanicThreshold.IsUnknown() {
 					return data.AdvancedOptions.NoPanicThreshold
 				}
-				if !isImport {
-					if _, ok := blockData["no_panic_threshold"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["no_panic_threshold"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoRequestLimitPerConnection: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			NoRequestLimitPerConnection: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.NoRequestLimitPerConnection.IsUnknown() {
 					return data.AdvancedOptions.NoRequestLimitPerConnection
 				}
-				if !isImport {
-					if _, ok := blockData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["no_request_limit_per_connection"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutlierDetection: func() *OriginPoolAdvancedOptionsOutlierDetectionModel {
 				if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.OutlierDetection != nil {
@@ -6144,82 +6314,90 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.Int64Null()
 			}(),
-			ProxyProtocolV1: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			ProxyProtocolV1: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.ProxyProtocolV1.IsUnknown() {
 					return data.AdvancedOptions.ProxyProtocolV1
 				}
 				if _, ok := blockData["proxy_protocol_v1"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ProxyProtocolV2: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			ProxyProtocolV2: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.ProxyProtocolV2.IsUnknown() {
 					return data.AdvancedOptions.ProxyProtocolV2
 				}
 				if _, ok := blockData["proxy_protocol_v2"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["automatic_port"].(map[string]interface{}); ok && isImport && data.AutomaticPort == nil {
-		data.AutomaticPort = &OriginPoolEmptyModel{}
+	if !isImport && !data.AutomaticPort.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["automatic_port"].(map[string]interface{}); ok {
+		data.AutomaticPort = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AutomaticPort = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["lb_port"].(map[string]interface{}); ok && isImport && data.LBPort == nil {
-		data.LBPort = &OriginPoolEmptyModel{}
+	if !isImport && !data.LBPort.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["lb_port"].(map[string]interface{}); ok {
+		data.LBPort = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LBPort = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && (isImport || data.UpstreamConnPoolReuseType != nil) {
 		data.UpstreamConnPoolReuseType = &OriginPoolUpstreamConnPoolReuseTypeModel{
-			DisableConnPoolReuse: func() *OriginPoolEmptyModel {
-				if !isImport && data.UpstreamConnPoolReuseType != nil {
+			DisableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsUnknown() {
 					return data.UpstreamConnPoolReuseType.DisableConnPoolReuse
 				}
 				if _, ok := blockData["disable_conn_pool_reuse"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableConnPoolReuse: func() *OriginPoolEmptyModel {
-				if !isImport && data.UpstreamConnPoolReuseType != nil {
+			EnableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsUnknown() {
 					return data.UpstreamConnPoolReuseType.EnableConnPoolReuse
 				}
 				if _, ok := blockData["enable_conn_pool_reuse"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["use_tls"].(map[string]interface{}); ok && (isImport || data.UseTLS != nil) {
 		data.UseTLS = &OriginPoolUseTLSModel{
-			DefaultSessionKeyCaching: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			DefaultSessionKeyCaching: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.DefaultSessionKeyCaching.IsUnknown() {
 					return data.UseTLS.DefaultSessionKeyCaching
 				}
 				if _, ok := blockData["default_session_key_caching"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSessionKeyCaching: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			DisableSessionKeyCaching: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.DisableSessionKeyCaching.IsUnknown() {
 					return data.UseTLS.DisableSessionKeyCaching
 				}
 				if _, ok := blockData["disable_session_key_caching"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSni: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			DisableSni: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.DisableSni.IsUnknown() {
 					return data.UseTLS.DisableSni
 				}
 				if _, ok := blockData["disable_sni"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			MaxSessionKeys: func() types.Int64 {
 				if !isImport && data.UseTLS != nil && !data.UseTLS.MaxSessionKeys.IsUnknown() {
@@ -6230,23 +6408,23 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.Int64Null()
 			}(),
-			NoMtls: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			NoMtls: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.NoMtls.IsUnknown() {
 					return data.UseTLS.NoMtls
 				}
 				if _, ok := blockData["no_mtls"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SkipServerVerification: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			SkipServerVerification: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.SkipServerVerification.IsUnknown() {
 					return data.UseTLS.SkipServerVerification
 				}
 				if _, ok := blockData["skip_server_verification"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Sni: func() types.String {
 				if v, ok := blockData["sni"].(string); ok && v != "" {
@@ -6296,45 +6474,45 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						DefaultSecurity: func() *OriginPoolEmptyModel {
-							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil {
+						DefaultSecurity: func() types.Object {
+							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil && !data.UseTLS.TLSConfig.DefaultSecurity.IsUnknown() {
 								return data.UseTLS.TLSConfig.DefaultSecurity
 							}
 							if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						LowSecurity: func() *OriginPoolEmptyModel {
-							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil {
+						LowSecurity: func() types.Object {
+							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil && !data.UseTLS.TLSConfig.LowSecurity.IsUnknown() {
 								return data.UseTLS.TLSConfig.LowSecurity
 							}
 							if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						MediumSecurity: func() *OriginPoolEmptyModel {
-							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil {
+						MediumSecurity: func() types.Object {
+							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil && !data.UseTLS.TLSConfig.MediumSecurity.IsUnknown() {
 								return data.UseTLS.TLSConfig.MediumSecurity
 							}
 							if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
 				return nil
 			}(),
-			UseHostHeaderAsSni: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			UseHostHeaderAsSni: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.UseHostHeaderAsSni.IsUnknown() {
 					return data.UseTLS.UseHostHeaderAsSni
 				}
 				if _, ok := blockData["use_host_header_as_sni"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			UseMtls: func() *OriginPoolUseTLSUseMtlsModel {
 				if !isImport && data.UseTLS != nil && data.UseTLS.UseMtls != nil {
@@ -6389,14 +6567,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *OriginPoolEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -6455,14 +6633,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *OriginPoolEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -6539,14 +6717,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			VolterraTrustedCA: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			VolterraTrustedCA: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.VolterraTrustedCA.IsUnknown() {
 					return data.UseTLS.VolterraTrustedCA
 				}
 				if _, ok := blockData["volterra_trusted_ca"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -6606,16 +6784,24 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 	} else {
 		data.LoadBalancerAlgorithm = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["no_tls"].(map[string]interface{}); ok && isImport && data.NoTLS == nil {
-		data.NoTLS = &OriginPoolEmptyModel{}
+	if !isImport && !data.NoTLS.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_tls"].(map[string]interface{}); ok {
+		data.NoTLS = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoTLS = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["port"].(float64); ok {
 		data.Port = types.Int64Value(int64(v))
 	} else {
 		data.Port = types.Int64Null()
 	}
-	if _, ok := apiResource.Spec["same_as_endpoint_port"].(map[string]interface{}); ok && isImport && data.SameAsEndpointPort == nil {
-		data.SameAsEndpointPort = &OriginPoolEmptyModel{}
+	if !isImport && !data.SameAsEndpointPort.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["same_as_endpoint_port"].(map[string]interface{}); ok {
+		data.SameAsEndpointPort = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SameAsEndpointPort = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -6728,10 +6914,10 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if OriginServersItem.ConsulService != nil {
 					OriginServersConsulServiceMap := make(map[string]interface{})
-					if OriginServersItem.ConsulService.InsideNetwork != nil {
+					if !OriginServersItem.ConsulService.InsideNetwork.IsNull() && !OriginServersItem.ConsulService.InsideNetwork.IsUnknown() {
 						OriginServersConsulServiceMap["inside_network"] = map[string]interface{}{}
 					}
-					if OriginServersItem.ConsulService.OutsideNetwork != nil {
+					if !OriginServersItem.ConsulService.OutsideNetwork.IsNull() && !OriginServersItem.ConsulService.OutsideNetwork.IsUnknown() {
 						OriginServersConsulServiceMap["outside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.ConsulService.ServiceName.IsNull() && !OriginServersItem.ConsulService.ServiceName.IsUnknown() {
@@ -6763,7 +6949,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					if OriginServersItem.ConsulService.SnatPool != nil {
 						OriginServersConsulServiceSnatPoolMap := make(map[string]interface{})
-						if OriginServersItem.ConsulService.SnatPool.NoSnatPool != nil {
+						if !OriginServersItem.ConsulService.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.ConsulService.SnatPool.NoSnatPool.IsUnknown() {
 							OriginServersConsulServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.ConsulService.SnatPool.SnatPool != nil {
@@ -6798,10 +6984,10 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if OriginServersItem.K8SService != nil {
 					OriginServersK8SServiceMap := make(map[string]interface{})
-					if OriginServersItem.K8SService.InsideNetwork != nil {
+					if !OriginServersItem.K8SService.InsideNetwork.IsNull() && !OriginServersItem.K8SService.InsideNetwork.IsUnknown() {
 						OriginServersK8SServiceMap["inside_network"] = map[string]interface{}{}
 					}
-					if OriginServersItem.K8SService.OutsideNetwork != nil {
+					if !OriginServersItem.K8SService.OutsideNetwork.IsNull() && !OriginServersItem.K8SService.OutsideNetwork.IsUnknown() {
 						OriginServersK8SServiceMap["outside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
@@ -6836,7 +7022,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					if OriginServersItem.K8SService.SnatPool != nil {
 						OriginServersK8SServiceSnatPoolMap := make(map[string]interface{})
-						if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
+						if !OriginServersItem.K8SService.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.K8SService.SnatPool.NoSnatPool.IsUnknown() {
 							OriginServersK8SServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
@@ -6853,7 +7039,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						OriginServersK8SServiceMap["snat_pool"] = OriginServersK8SServiceSnatPoolMap
 					}
-					if OriginServersItem.K8SService.Vk8sNetworks != nil {
+					if !OriginServersItem.K8SService.Vk8sNetworks.IsNull() && !OriginServersItem.K8SService.Vk8sNetworks.IsUnknown() {
 						OriginServersK8SServiceMap["vk8s_networks"] = map[string]interface{}{}
 					}
 					OriginServersItemMap["k8s_service"] = OriginServersK8SServiceMap
@@ -6868,13 +7054,13 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if OriginServersItem.PrivateIP != nil {
 					OriginServersPrivateIPMap := make(map[string]interface{})
-					if OriginServersItem.PrivateIP.InsideNetwork != nil {
+					if !OriginServersItem.PrivateIP.InsideNetwork.IsNull() && !OriginServersItem.PrivateIP.InsideNetwork.IsUnknown() {
 						OriginServersPrivateIPMap["inside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.PrivateIP.IP.IsNull() && !OriginServersItem.PrivateIP.IP.IsUnknown() {
 						OriginServersPrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
 					}
-					if OriginServersItem.PrivateIP.OutsideNetwork != nil {
+					if !OriginServersItem.PrivateIP.OutsideNetwork.IsNull() && !OriginServersItem.PrivateIP.OutsideNetwork.IsUnknown() {
 						OriginServersPrivateIPMap["outside_network"] = map[string]interface{}{}
 					}
 					if OriginServersItem.PrivateIP.Segment != nil {
@@ -6913,7 +7099,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					if OriginServersItem.PrivateIP.SnatPool != nil {
 						OriginServersPrivateIPSnatPoolMap := make(map[string]interface{})
-						if OriginServersItem.PrivateIP.SnatPool.NoSnatPool != nil {
+						if !OriginServersItem.PrivateIP.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.PrivateIP.SnatPool.NoSnatPool.IsUnknown() {
 							OriginServersPrivateIPSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.PrivateIP.SnatPool.SnatPool != nil {
@@ -6937,10 +7123,10 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 					if !OriginServersItem.PrivateName.DNSName.IsNull() && !OriginServersItem.PrivateName.DNSName.IsUnknown() {
 						OriginServersPrivateNameMap["dns_name"] = OriginServersItem.PrivateName.DNSName.ValueString()
 					}
-					if OriginServersItem.PrivateName.InsideNetwork != nil {
+					if !OriginServersItem.PrivateName.InsideNetwork.IsNull() && !OriginServersItem.PrivateName.InsideNetwork.IsUnknown() {
 						OriginServersPrivateNameMap["inside_network"] = map[string]interface{}{}
 					}
-					if OriginServersItem.PrivateName.OutsideNetwork != nil {
+					if !OriginServersItem.PrivateName.OutsideNetwork.IsNull() && !OriginServersItem.PrivateName.OutsideNetwork.IsUnknown() {
 						OriginServersPrivateNameMap["outside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.PrivateName.RefreshInterval.IsNull() && !OriginServersItem.PrivateName.RefreshInterval.IsUnknown() {
@@ -6982,7 +7168,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					if OriginServersItem.PrivateName.SnatPool != nil {
 						OriginServersPrivateNameSnatPoolMap := make(map[string]interface{})
-						if OriginServersItem.PrivateName.SnatPool.NoSnatPool != nil {
+						if !OriginServersItem.PrivateName.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.PrivateName.SnatPool.NoSnatPool.IsUnknown() {
 							OriginServersPrivateNameSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.PrivateName.SnatPool.SnatPool != nil {
@@ -7059,7 +7245,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if data.AdvancedOptions != nil {
 		AdvancedOptionsMap := make(map[string]interface{})
-		if data.AdvancedOptions.AutoHTTPConfig != nil {
+		if !data.AdvancedOptions.AutoHTTPConfig.IsNull() && !data.AdvancedOptions.AutoHTTPConfig.IsUnknown() {
 			AdvancedOptionsMap["auto_http_config"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.CircuitBreaker != nil {
@@ -7084,30 +7270,30 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.AdvancedOptions.ConnectionTimeout.IsNull() && !data.AdvancedOptions.ConnectionTimeout.IsUnknown() {
 			AdvancedOptionsMap["connection_timeout"] = data.AdvancedOptions.ConnectionTimeout.ValueInt64()
 		}
-		if data.AdvancedOptions.DefaultCircuitBreaker != nil {
+		if !data.AdvancedOptions.DefaultCircuitBreaker.IsNull() && !data.AdvancedOptions.DefaultCircuitBreaker.IsUnknown() {
 			AdvancedOptionsMap["default_circuit_breaker"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.DisableCircuitBreaker != nil {
+		if !data.AdvancedOptions.DisableCircuitBreaker.IsNull() && !data.AdvancedOptions.DisableCircuitBreaker.IsUnknown() {
 			AdvancedOptionsMap["disable_circuit_breaker"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.DisableLBSourceIPPersistence != nil {
+		if !data.AdvancedOptions.DisableLBSourceIPPersistence.IsNull() && !data.AdvancedOptions.DisableLBSourceIPPersistence.IsUnknown() {
 			AdvancedOptionsMap["disable_lb_source_ip_persistance"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.DisableOutlierDetection != nil {
+		if !data.AdvancedOptions.DisableOutlierDetection.IsNull() && !data.AdvancedOptions.DisableOutlierDetection.IsUnknown() {
 			AdvancedOptionsMap["disable_outlier_detection"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.DisableProxyProtocol != nil {
+		if !data.AdvancedOptions.DisableProxyProtocol.IsNull() && !data.AdvancedOptions.DisableProxyProtocol.IsUnknown() {
 			AdvancedOptionsMap["disable_proxy_protocol"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.DisableSubsets != nil {
+		if !data.AdvancedOptions.DisableSubsets.IsNull() && !data.AdvancedOptions.DisableSubsets.IsUnknown() {
 			AdvancedOptionsMap["disable_subsets"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.EnableLBSourceIPPersistence != nil {
+		if !data.AdvancedOptions.EnableLBSourceIPPersistence.IsNull() && !data.AdvancedOptions.EnableLBSourceIPPersistence.IsUnknown() {
 			AdvancedOptionsMap["enable_lb_source_ip_persistance"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.EnableSubsets != nil {
 			AdvancedOptionsEnableSubsetsMap := make(map[string]interface{})
-			if data.AdvancedOptions.EnableSubsets.AnyEndpoint != nil {
+			if !data.AdvancedOptions.EnableSubsets.AnyEndpoint.IsNull() && !data.AdvancedOptions.EnableSubsets.AnyEndpoint.IsUnknown() {
 				AdvancedOptionsEnableSubsetsMap["any_endpoint"] = map[string]interface{}{}
 			}
 			if data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
@@ -7138,7 +7324,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 					AdvancedOptionsEnableSubsetsMap["endpoint_subsets"] = EndpointSubsetsList
 				}
 			}
-			if data.AdvancedOptions.EnableSubsets.FailRequest != nil {
+			if !data.AdvancedOptions.EnableSubsets.FailRequest.IsNull() && !data.AdvancedOptions.EnableSubsets.FailRequest.IsUnknown() {
 				AdvancedOptionsEnableSubsetsMap["fail_request"] = map[string]interface{}{}
 			}
 			AdvancedOptionsMap["enable_subsets"] = AdvancedOptionsEnableSubsetsMap
@@ -7147,13 +7333,13 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 			AdvancedOptionsHttp1ConfigMap := make(map[string]interface{})
 			if data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
 				AdvancedOptionsHttp1ConfigHeaderTransformationMap := make(map[string]interface{})
-				if data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
+				if !data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsNull() && !data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 					AdvancedOptionsHttp1ConfigHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 				}
-				if data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+				if !data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsNull() && !data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 					AdvancedOptionsHttp1ConfigHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 				}
-				if data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+				if !data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsNull() && !data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 					AdvancedOptionsHttp1ConfigHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 				}
 				AdvancedOptionsHttp1ConfigMap["header_transformation"] = AdvancedOptionsHttp1ConfigHeaderTransformationMap
@@ -7173,10 +7359,10 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.AdvancedOptions.MaxRequestsPerConnection.IsNull() && !data.AdvancedOptions.MaxRequestsPerConnection.IsUnknown() {
 			AdvancedOptionsMap["max_requests_per_connection"] = data.AdvancedOptions.MaxRequestsPerConnection.ValueInt64()
 		}
-		if data.AdvancedOptions.NoPanicThreshold != nil {
+		if !data.AdvancedOptions.NoPanicThreshold.IsNull() && !data.AdvancedOptions.NoPanicThreshold.IsUnknown() {
 			AdvancedOptionsMap["no_panic_threshold"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.NoRequestLimitPerConnection != nil {
+		if !data.AdvancedOptions.NoRequestLimitPerConnection.IsNull() && !data.AdvancedOptions.NoRequestLimitPerConnection.IsUnknown() {
 			AdvancedOptionsMap["no_request_limit_per_connection"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.OutlierDetection != nil {
@@ -7201,48 +7387,48 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 		if !data.AdvancedOptions.PanicThreshold.IsNull() && !data.AdvancedOptions.PanicThreshold.IsUnknown() {
 			AdvancedOptionsMap["panic_threshold"] = data.AdvancedOptions.PanicThreshold.ValueInt64()
 		}
-		if data.AdvancedOptions.ProxyProtocolV1 != nil {
+		if !data.AdvancedOptions.ProxyProtocolV1.IsNull() && !data.AdvancedOptions.ProxyProtocolV1.IsUnknown() {
 			AdvancedOptionsMap["proxy_protocol_v1"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.ProxyProtocolV2 != nil {
+		if !data.AdvancedOptions.ProxyProtocolV2.IsNull() && !data.AdvancedOptions.ProxyProtocolV2.IsUnknown() {
 			AdvancedOptionsMap["proxy_protocol_v2"] = map[string]interface{}{}
 		}
 		apiResource.Spec["advanced_options"] = AdvancedOptionsMap
 	}
-	if data.AutomaticPort != nil {
+	if !data.AutomaticPort.IsNull() && !data.AutomaticPort.IsUnknown() {
 		apiResource.Spec["automatic_port"] = map[string]interface{}{}
 	}
-	if data.LBPort != nil {
+	if !data.LBPort.IsNull() && !data.LBPort.IsUnknown() {
 		apiResource.Spec["lb_port"] = map[string]interface{}{}
 	}
 	if data.UpstreamConnPoolReuseType != nil {
 		UpstreamConnPoolReuseTypeMap := make(map[string]interface{})
-		if data.UpstreamConnPoolReuseType.DisableConnPoolReuse != nil {
+		if !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsNull() && !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsUnknown() {
 			UpstreamConnPoolReuseTypeMap["disable_conn_pool_reuse"] = map[string]interface{}{}
 		}
-		if data.UpstreamConnPoolReuseType.EnableConnPoolReuse != nil {
+		if !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsNull() && !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsUnknown() {
 			UpstreamConnPoolReuseTypeMap["enable_conn_pool_reuse"] = map[string]interface{}{}
 		}
 		apiResource.Spec["upstream_conn_pool_reuse_type"] = UpstreamConnPoolReuseTypeMap
 	}
 	if data.UseTLS != nil {
 		UseTLSMap := make(map[string]interface{})
-		if data.UseTLS.DefaultSessionKeyCaching != nil {
+		if !data.UseTLS.DefaultSessionKeyCaching.IsNull() && !data.UseTLS.DefaultSessionKeyCaching.IsUnknown() {
 			UseTLSMap["default_session_key_caching"] = map[string]interface{}{}
 		}
-		if data.UseTLS.DisableSessionKeyCaching != nil {
+		if !data.UseTLS.DisableSessionKeyCaching.IsNull() && !data.UseTLS.DisableSessionKeyCaching.IsUnknown() {
 			UseTLSMap["disable_session_key_caching"] = map[string]interface{}{}
 		}
-		if data.UseTLS.DisableSni != nil {
+		if !data.UseTLS.DisableSni.IsNull() && !data.UseTLS.DisableSni.IsUnknown() {
 			UseTLSMap["disable_sni"] = map[string]interface{}{}
 		}
 		if !data.UseTLS.MaxSessionKeys.IsNull() && !data.UseTLS.MaxSessionKeys.IsUnknown() {
 			UseTLSMap["max_session_keys"] = data.UseTLS.MaxSessionKeys.ValueInt64()
 		}
-		if data.UseTLS.NoMtls != nil {
+		if !data.UseTLS.NoMtls.IsNull() && !data.UseTLS.NoMtls.IsUnknown() {
 			UseTLSMap["no_mtls"] = map[string]interface{}{}
 		}
-		if data.UseTLS.SkipServerVerification != nil {
+		if !data.UseTLS.SkipServerVerification.IsNull() && !data.UseTLS.SkipServerVerification.IsUnknown() {
 			UseTLSMap["skip_server_verification"] = map[string]interface{}{}
 		}
 		if !data.UseTLS.Sni.IsNull() && !data.UseTLS.Sni.IsUnknown() {
@@ -7268,18 +7454,18 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				UseTLSTLSConfigMap["custom_security"] = UseTLSTLSConfigCustomSecurityMap
 			}
-			if data.UseTLS.TLSConfig.DefaultSecurity != nil {
+			if !data.UseTLS.TLSConfig.DefaultSecurity.IsNull() && !data.UseTLS.TLSConfig.DefaultSecurity.IsUnknown() {
 				UseTLSTLSConfigMap["default_security"] = map[string]interface{}{}
 			}
-			if data.UseTLS.TLSConfig.LowSecurity != nil {
+			if !data.UseTLS.TLSConfig.LowSecurity.IsNull() && !data.UseTLS.TLSConfig.LowSecurity.IsUnknown() {
 				UseTLSTLSConfigMap["low_security"] = map[string]interface{}{}
 			}
-			if data.UseTLS.TLSConfig.MediumSecurity != nil {
+			if !data.UseTLS.TLSConfig.MediumSecurity.IsNull() && !data.UseTLS.TLSConfig.MediumSecurity.IsUnknown() {
 				UseTLSTLSConfigMap["medium_security"] = map[string]interface{}{}
 			}
 			UseTLSMap["tls_config"] = UseTLSTLSConfigMap
 		}
-		if data.UseTLS.UseHostHeaderAsSni != nil {
+		if !data.UseTLS.UseHostHeaderAsSni.IsNull() && !data.UseTLS.UseHostHeaderAsSni.IsUnknown() {
 			UseTLSMap["use_host_header_as_sni"] = map[string]interface{}{}
 		}
 		if data.UseTLS.UseMtls != nil {
@@ -7310,7 +7496,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
+						if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
@@ -7340,7 +7526,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							TLSCertificatesItemMap["private_key"] = UseTLSUseMtlsTLSCertificatesPrivateKeyMap
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
+						if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -7377,7 +7563,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			UseTLSMap["use_server_verification"] = UseTLSUseServerVerificationMap
 		}
-		if data.UseTLS.VolterraTrustedCA != nil {
+		if !data.UseTLS.VolterraTrustedCA.IsNull() && !data.UseTLS.VolterraTrustedCA.IsUnknown() {
 			UseTLSMap["volterra_trusted_ca"] = map[string]interface{}{}
 		}
 		apiResource.Spec["use_tls"] = UseTLSMap
@@ -7410,13 +7596,13 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 	if !data.LoadBalancerAlgorithm.IsNull() && !data.LoadBalancerAlgorithm.IsUnknown() {
 		apiResource.Spec["loadbalancer_algorithm"] = data.LoadBalancerAlgorithm.ValueString()
 	}
-	if data.NoTLS != nil {
+	if !data.NoTLS.IsNull() && !data.NoTLS.IsUnknown() {
 		apiResource.Spec["no_tls"] = map[string]interface{}{}
 	}
 	if !data.Port.IsNull() && !data.Port.IsUnknown() {
 		apiResource.Spec["port"] = data.Port.ValueInt64()
 	}
-	if data.SameAsEndpointPort != nil {
+	if !data.SameAsEndpointPort.IsNull() && !data.SameAsEndpointPort.IsUnknown() {
 		apiResource.Spec["same_as_endpoint_port"] = map[string]interface{}{}
 	}
 
@@ -7534,23 +7720,23 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 					ConsulService: func() *OriginPoolOriginServersConsulServiceModel {
 						if ConsulServiceData, ok := itemMap["consul_service"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersConsulServiceModel{
-								InsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil {
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && !existingOriginServersItems[listIdx].ConsulService.InsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].ConsulService.InsideNetwork
 									}
 									if _, ok := ConsulServiceData["inside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								OutsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil {
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && !existingOriginServersItems[listIdx].ConsulService.OutsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].ConsulService.OutsideNetwork
 									}
 									if _, ok := ConsulServiceData["outside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ServiceName: func() types.String {
 									if v, ok := ConsulServiceData["service_name"].(string); ok && v != "" {
@@ -7621,14 +7807,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									if SnatPoolData, ok := ConsulServiceData["snat_pool"].(map[string]interface{}); ok {
 										return &OriginPoolOriginServersConsulServiceSnatPoolModel{
-											NoSnatPool: func() *OriginPoolEmptyModel {
-												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && existingOriginServersItems[listIdx].ConsulService.SnatPool != nil {
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && existingOriginServersItems[listIdx].ConsulService.SnatPool != nil && !existingOriginServersItems[listIdx].ConsulService.SnatPool.NoSnatPool.IsUnknown() {
 													return existingOriginServersItems[listIdx].ConsulService.SnatPool.NoSnatPool
 												}
 												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SnatPool: func() *OriginPoolOriginServersConsulServiceSnatPoolSnatPoolModel {
 												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].ConsulService != nil && existingOriginServersItems[listIdx].ConsulService.SnatPool != nil && existingOriginServersItems[listIdx].ConsulService.SnatPool.SnatPool != nil {
@@ -7697,23 +7883,23 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 					K8SService: func() *OriginPoolOriginServersK8SServiceModel {
 						if K8SServiceData, ok := itemMap["k8s_service"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersK8SServiceModel{
-								InsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil {
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && !existingOriginServersItems[listIdx].K8SService.InsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].K8SService.InsideNetwork
 									}
 									if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								OutsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil {
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && !existingOriginServersItems[listIdx].K8SService.OutsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].K8SService.OutsideNetwork
 									}
 									if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Protocol: func() types.String {
 									if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
@@ -7790,14 +7976,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
 										return &OriginPoolOriginServersK8SServiceSnatPoolModel{
-											NoSnatPool: func() *OriginPoolEmptyModel {
-												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && existingOriginServersItems[listIdx].K8SService.SnatPool != nil {
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && existingOriginServersItems[listIdx].K8SService.SnatPool != nil && !existingOriginServersItems[listIdx].K8SService.SnatPool.NoSnatPool.IsUnknown() {
 													return existingOriginServersItems[listIdx].K8SService.SnatPool.NoSnatPool
 												}
 												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SnatPool: func() *OriginPoolOriginServersK8SServiceSnatPoolSnatPoolModel {
 												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && existingOriginServersItems[listIdx].K8SService.SnatPool != nil && existingOriginServersItems[listIdx].K8SService.SnatPool.SnatPool != nil {
@@ -7827,14 +8013,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									return nil
 								}(),
-								Vk8sNetworks: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil {
+								Vk8sNetworks: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].K8SService != nil && !existingOriginServersItems[listIdx].K8SService.Vk8sNetworks.IsUnknown() {
 										return existingOriginServersItems[listIdx].K8SService.Vk8sNetworks
 									}
 									if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}
@@ -7849,14 +8035,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{
-								InsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil {
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && !existingOriginServersItems[listIdx].PrivateIP.InsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].PrivateIP.InsideNetwork
 									}
 									if _, ok := PrivateIPData["inside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								IP: func() types.String {
 									if v, ok := PrivateIPData["ip"].(string); ok && v != "" {
@@ -7864,14 +8050,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									return types.StringNull()
 								}(),
-								OutsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil {
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && !existingOriginServersItems[listIdx].PrivateIP.OutsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].PrivateIP.OutsideNetwork
 									}
 									if _, ok := PrivateIPData["outside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Segment: func() *OriginPoolOriginServersPrivateIPSegmentModel {
 									if SegmentData, ok := PrivateIPData["segment"].(map[string]interface{}); ok {
@@ -7961,14 +8147,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									if SnatPoolData, ok := PrivateIPData["snat_pool"].(map[string]interface{}); ok {
 										return &OriginPoolOriginServersPrivateIPSnatPoolModel{
-											NoSnatPool: func() *OriginPoolEmptyModel {
-												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && existingOriginServersItems[listIdx].PrivateIP.SnatPool != nil {
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && existingOriginServersItems[listIdx].PrivateIP.SnatPool != nil && !existingOriginServersItems[listIdx].PrivateIP.SnatPool.NoSnatPool.IsUnknown() {
 													return existingOriginServersItems[listIdx].PrivateIP.SnatPool.NoSnatPool
 												}
 												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SnatPool: func() *OriginPoolOriginServersPrivateIPSnatPoolSnatPoolModel {
 												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateIP != nil && existingOriginServersItems[listIdx].PrivateIP.SnatPool != nil && existingOriginServersItems[listIdx].PrivateIP.SnatPool.SnatPool != nil {
@@ -8011,23 +8197,23 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									return types.StringNull()
 								}(),
-								InsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil {
+								InsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && !existingOriginServersItems[listIdx].PrivateName.InsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].PrivateName.InsideNetwork
 									}
 									if _, ok := PrivateNameData["inside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								OutsideNetwork: func() *OriginPoolEmptyModel {
-									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil {
+								OutsideNetwork: func() types.Object {
+									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && !existingOriginServersItems[listIdx].PrivateName.OutsideNetwork.IsUnknown() {
 										return existingOriginServersItems[listIdx].PrivateName.OutsideNetwork
 									}
 									if _, ok := PrivateNameData["outside_network"].(map[string]interface{}); ok {
-										return &OriginPoolEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								RefreshInterval: func() types.Int64 {
 									if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && !existingOriginServersItems[listIdx].PrivateName.RefreshInterval.IsUnknown() {
@@ -8126,14 +8312,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									if SnatPoolData, ok := PrivateNameData["snat_pool"].(map[string]interface{}); ok {
 										return &OriginPoolOriginServersPrivateNameSnatPoolModel{
-											NoSnatPool: func() *OriginPoolEmptyModel {
-												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && existingOriginServersItems[listIdx].PrivateName.SnatPool != nil {
+											NoSnatPool: func() types.Object {
+												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && existingOriginServersItems[listIdx].PrivateName.SnatPool != nil && !existingOriginServersItems[listIdx].PrivateName.SnatPool.NoSnatPool.IsUnknown() {
 													return existingOriginServersItems[listIdx].PrivateName.SnatPool.NoSnatPool
 												}
 												if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SnatPool: func() *OriginPoolOriginServersPrivateNameSnatPoolSnatPoolModel {
 												if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].PrivateName != nil && existingOriginServersItems[listIdx].PrivateName.SnatPool != nil && existingOriginServersItems[listIdx].PrivateName.SnatPool.SnatPool != nil {
@@ -8291,16 +8477,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if blockData, ok := apiResource.Spec["advanced_options"].(map[string]interface{}); ok && (isImport || data.AdvancedOptions != nil) {
 		data.AdvancedOptions = &OriginPoolAdvancedOptionsModel{
-			AutoHTTPConfig: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			AutoHTTPConfig: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.AutoHTTPConfig.IsUnknown() {
 					return data.AdvancedOptions.AutoHTTPConfig
 				}
-				if !isImport {
-					if _, ok := blockData["auto_http_config"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["auto_http_config"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CircuitBreaker: func() *OriginPoolAdvancedOptionsCircuitBreakerModel {
 				if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.CircuitBreaker != nil {
@@ -8363,74 +8547,68 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.Int64Null()
 			}(),
-			DefaultCircuitBreaker: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DefaultCircuitBreaker: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DefaultCircuitBreaker.IsUnknown() {
 					return data.AdvancedOptions.DefaultCircuitBreaker
 				}
-				if !isImport {
-					if _, ok := blockData["default_circuit_breaker"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["default_circuit_breaker"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableCircuitBreaker: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableCircuitBreaker: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableCircuitBreaker.IsUnknown() {
 					return data.AdvancedOptions.DisableCircuitBreaker
 				}
 				if _, ok := blockData["disable_circuit_breaker"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableLBSourceIPPersistence: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableLBSourceIPPersistence: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableLBSourceIPPersistence.IsUnknown() {
 					return data.AdvancedOptions.DisableLBSourceIPPersistence
 				}
 				if _, ok := blockData["disable_lb_source_ip_persistance"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableOutlierDetection: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableOutlierDetection: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableOutlierDetection.IsUnknown() {
 					return data.AdvancedOptions.DisableOutlierDetection
 				}
-				if !isImport {
-					if _, ok := blockData["disable_outlier_detection"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["disable_outlier_detection"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableProxyProtocol: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableProxyProtocol: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableProxyProtocol.IsUnknown() {
 					return data.AdvancedOptions.DisableProxyProtocol
 				}
 				if _, ok := blockData["disable_proxy_protocol"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSubsets: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			DisableSubsets: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.DisableSubsets.IsUnknown() {
 					return data.AdvancedOptions.DisableSubsets
 				}
-				if !isImport {
-					if _, ok := blockData["disable_subsets"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["disable_subsets"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableLBSourceIPPersistence: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			EnableLBSourceIPPersistence: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.EnableLBSourceIPPersistence.IsUnknown() {
 					return data.AdvancedOptions.EnableLBSourceIPPersistence
 				}
 				if _, ok := blockData["enable_lb_source_ip_persistance"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableSubsets: func() *OriginPoolAdvancedOptionsEnableSubsetsModel {
 				if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil {
@@ -8438,14 +8616,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if EnableSubsetsData, ok := blockData["enable_subsets"].(map[string]interface{}); ok {
 					return &OriginPoolAdvancedOptionsEnableSubsetsModel{
-						AnyEndpoint: func() *OriginPoolEmptyModel {
-							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil {
+						AnyEndpoint: func() types.Object {
+							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && !data.AdvancedOptions.EnableSubsets.AnyEndpoint.IsUnknown() {
 								return data.AdvancedOptions.EnableSubsets.AnyEndpoint
 							}
 							if _, ok := EnableSubsetsData["any_endpoint"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DefaultSubset: func() *OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel {
 							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
@@ -8502,14 +8680,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModelAttrTypes})
 						}(),
-						FailRequest: func() *OriginPoolEmptyModel {
-							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil {
+						FailRequest: func() types.Object {
+							if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && !data.AdvancedOptions.EnableSubsets.FailRequest.IsUnknown() {
 								return data.AdvancedOptions.EnableSubsets.FailRequest
 							}
 							if _, ok := EnableSubsetsData["fail_request"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -8527,32 +8705,32 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if HeaderTransformationData, ok := Http1ConfigData["header_transformation"].(map[string]interface{}); ok {
 								return &OriginPoolAdvancedOptionsHttp1ConfigHeaderTransformationModel{
-									DefaultHeaderTransformation: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
+									DefaultHeaderTransformation: func() types.Object {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil && !data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 											return data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									PreserveCaseHeaderTransformation: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
+									PreserveCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil && !data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 											return data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									ProperCaseHeaderTransformation: func() *OriginPoolEmptyModel {
-										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
+									ProperCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.Http1Config != nil && data.AdvancedOptions.Http1Config.HeaderTransformation != nil && !data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 											return data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-											return &OriginPoolEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -8599,27 +8777,23 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.Int64Null()
 			}(),
-			NoPanicThreshold: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			NoPanicThreshold: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.NoPanicThreshold.IsUnknown() {
 					return data.AdvancedOptions.NoPanicThreshold
 				}
-				if !isImport {
-					if _, ok := blockData["no_panic_threshold"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["no_panic_threshold"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoRequestLimitPerConnection: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			NoRequestLimitPerConnection: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.NoRequestLimitPerConnection.IsUnknown() {
 					return data.AdvancedOptions.NoRequestLimitPerConnection
 				}
-				if !isImport {
-					if _, ok := blockData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-						return &OriginPoolEmptyModel{}
-					}
+				if _, ok := blockData["no_request_limit_per_connection"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutlierDetection: func() *OriginPoolAdvancedOptionsOutlierDetectionModel {
 				if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.OutlierDetection != nil {
@@ -8685,82 +8859,90 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.Int64Null()
 			}(),
-			ProxyProtocolV1: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			ProxyProtocolV1: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.ProxyProtocolV1.IsUnknown() {
 					return data.AdvancedOptions.ProxyProtocolV1
 				}
 				if _, ok := blockData["proxy_protocol_v1"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ProxyProtocolV2: func() *OriginPoolEmptyModel {
-				if !isImport && data.AdvancedOptions != nil {
+			ProxyProtocolV2: func() types.Object {
+				if !isImport && data.AdvancedOptions != nil && !data.AdvancedOptions.ProxyProtocolV2.IsUnknown() {
 					return data.AdvancedOptions.ProxyProtocolV2
 				}
 				if _, ok := blockData["proxy_protocol_v2"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["automatic_port"].(map[string]interface{}); ok && isImport && data.AutomaticPort == nil {
-		data.AutomaticPort = &OriginPoolEmptyModel{}
+	if !isImport && !data.AutomaticPort.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["automatic_port"].(map[string]interface{}); ok {
+		data.AutomaticPort = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AutomaticPort = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["lb_port"].(map[string]interface{}); ok && isImport && data.LBPort == nil {
-		data.LBPort = &OriginPoolEmptyModel{}
+	if !isImport && !data.LBPort.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["lb_port"].(map[string]interface{}); ok {
+		data.LBPort = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LBPort = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["upstream_conn_pool_reuse_type"].(map[string]interface{}); ok && (isImport || data.UpstreamConnPoolReuseType != nil) {
 		data.UpstreamConnPoolReuseType = &OriginPoolUpstreamConnPoolReuseTypeModel{
-			DisableConnPoolReuse: func() *OriginPoolEmptyModel {
-				if !isImport && data.UpstreamConnPoolReuseType != nil {
+			DisableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.DisableConnPoolReuse.IsUnknown() {
 					return data.UpstreamConnPoolReuseType.DisableConnPoolReuse
 				}
 				if _, ok := blockData["disable_conn_pool_reuse"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableConnPoolReuse: func() *OriginPoolEmptyModel {
-				if !isImport && data.UpstreamConnPoolReuseType != nil {
+			EnableConnPoolReuse: func() types.Object {
+				if !isImport && data.UpstreamConnPoolReuseType != nil && !data.UpstreamConnPoolReuseType.EnableConnPoolReuse.IsUnknown() {
 					return data.UpstreamConnPoolReuseType.EnableConnPoolReuse
 				}
 				if _, ok := blockData["enable_conn_pool_reuse"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["use_tls"].(map[string]interface{}); ok && (isImport || data.UseTLS != nil) {
 		data.UseTLS = &OriginPoolUseTLSModel{
-			DefaultSessionKeyCaching: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			DefaultSessionKeyCaching: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.DefaultSessionKeyCaching.IsUnknown() {
 					return data.UseTLS.DefaultSessionKeyCaching
 				}
 				if _, ok := blockData["default_session_key_caching"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSessionKeyCaching: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			DisableSessionKeyCaching: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.DisableSessionKeyCaching.IsUnknown() {
 					return data.UseTLS.DisableSessionKeyCaching
 				}
 				if _, ok := blockData["disable_session_key_caching"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSni: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			DisableSni: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.DisableSni.IsUnknown() {
 					return data.UseTLS.DisableSni
 				}
 				if _, ok := blockData["disable_sni"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			MaxSessionKeys: func() types.Int64 {
 				if !isImport && data.UseTLS != nil && !data.UseTLS.MaxSessionKeys.IsUnknown() {
@@ -8771,23 +8953,23 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.Int64Null()
 			}(),
-			NoMtls: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			NoMtls: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.NoMtls.IsUnknown() {
 					return data.UseTLS.NoMtls
 				}
 				if _, ok := blockData["no_mtls"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SkipServerVerification: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			SkipServerVerification: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.SkipServerVerification.IsUnknown() {
 					return data.UseTLS.SkipServerVerification
 				}
 				if _, ok := blockData["skip_server_verification"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Sni: func() types.String {
 				if v, ok := blockData["sni"].(string); ok && v != "" {
@@ -8837,45 +9019,45 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						DefaultSecurity: func() *OriginPoolEmptyModel {
-							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil {
+						DefaultSecurity: func() types.Object {
+							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil && !data.UseTLS.TLSConfig.DefaultSecurity.IsUnknown() {
 								return data.UseTLS.TLSConfig.DefaultSecurity
 							}
 							if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						LowSecurity: func() *OriginPoolEmptyModel {
-							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil {
+						LowSecurity: func() types.Object {
+							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil && !data.UseTLS.TLSConfig.LowSecurity.IsUnknown() {
 								return data.UseTLS.TLSConfig.LowSecurity
 							}
 							if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						MediumSecurity: func() *OriginPoolEmptyModel {
-							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil {
+						MediumSecurity: func() types.Object {
+							if !isImport && data.UseTLS != nil && data.UseTLS.TLSConfig != nil && !data.UseTLS.TLSConfig.MediumSecurity.IsUnknown() {
 								return data.UseTLS.TLSConfig.MediumSecurity
 							}
 							if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
 				return nil
 			}(),
-			UseHostHeaderAsSni: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			UseHostHeaderAsSni: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.UseHostHeaderAsSni.IsUnknown() {
 					return data.UseTLS.UseHostHeaderAsSni
 				}
 				if _, ok := blockData["use_host_header_as_sni"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			UseMtls: func() *OriginPoolUseTLSUseMtlsModel {
 				if !isImport && data.UseTLS != nil && data.UseTLS.UseMtls != nil {
@@ -8930,14 +9112,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *OriginPoolEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -8996,14 +9178,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *OriginPoolEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &OriginPoolEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -9080,14 +9262,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			VolterraTrustedCA: func() *OriginPoolEmptyModel {
-				if !isImport && data.UseTLS != nil {
+			VolterraTrustedCA: func() types.Object {
+				if !isImport && data.UseTLS != nil && !data.UseTLS.VolterraTrustedCA.IsUnknown() {
 					return data.UseTLS.VolterraTrustedCA
 				}
 				if _, ok := blockData["volterra_trusted_ca"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -9147,16 +9329,24 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 	} else {
 		data.LoadBalancerAlgorithm = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["no_tls"].(map[string]interface{}); ok && isImport && data.NoTLS == nil {
-		data.NoTLS = &OriginPoolEmptyModel{}
+	if !isImport && !data.NoTLS.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_tls"].(map[string]interface{}); ok {
+		data.NoTLS = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoTLS = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["port"].(float64); ok {
 		data.Port = types.Int64Value(int64(v))
 	} else {
 		data.Port = types.Int64Null()
 	}
-	if _, ok := apiResource.Spec["same_as_endpoint_port"].(map[string]interface{}); ok && isImport && data.SameAsEndpointPort == nil {
-		data.SameAsEndpointPort = &OriginPoolEmptyModel{}
+	if !isImport && !data.SameAsEndpointPort.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["same_as_endpoint_port"].(map[string]interface{}); ok {
+		data.SameAsEndpointPort = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SameAsEndpointPort = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
