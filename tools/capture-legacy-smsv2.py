@@ -90,9 +90,7 @@ def _legacy_config(
     }
 
 
-def _apply_scenario(
-    config: dict[str, Any], platform: str, scenario: str
-) -> None:
+def _apply_scenario(config: dict[str, Any], platform: str, scenario: str) -> None:
     """Apply one focused legacy serialization scenario."""
     resource = config["resource"]["volterra_securemesh_site_v2"]["fixture"]
     if scenario in ("logging", "logging-network"):
@@ -127,9 +125,7 @@ def _apply_scenario(
         return
     interface: dict[str, Any] = {
         "name": "parity-interface",
-        "ethernet_interface": [
-            {"device": "ens6", "mac": "02:00:00:00:00:06"}
-        ],
+        "ethernet_interface": [{"device": "ens6", "mac": "02:00:00:00:00:06"}],
         "no_ipv6_address": True,
         "network_option": [{"site_local_inside_network": True}],
     }
