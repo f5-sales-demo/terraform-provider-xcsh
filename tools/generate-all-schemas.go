@@ -467,7 +467,7 @@ func processV2ResponseOperation(spec *openapi.Spec, operation openapi.ResolvedRe
 }
 
 func generateSMSv2ParityMatrix(specDirectory string, attrs []openapi.TerraformAttribute) error {
-	legacy, err := parity.LoadLegacy("tools/legacy-smsv2-v0.11.49.json")
+	legacy, err := parity.LoadLegacy("tools/legacy-smsv2-v0.12.2.json")
 	if err != nil {
 		return err
 	}
@@ -483,20 +483,25 @@ func generateSMSv2ParityMatrix(specDirectory string, attrs []openapi.TerraformAt
 		return fmt.Errorf("SMSv2 generated example variants %v do not match provider choice contract %v",
 			codegen.SecuremeshSiteV2ProviderChoices, providerChoices)
 	}
-	matrix, err := parity.BuildSMSv2MatrixFromTerraform(legacy, current, attrs)
-	if err != nil {
-		return err
+	matrix, buildErr := parity.BuildSMSv2MatrixFromTerraform(legacy, current, attrs)
+	if matrix == nil {
+		return buildErr
+	}
+	if !dryRun {
+		data, err := json.MarshalIndent(matrix, "", "  ")
+		if err != nil {
+			return err
+		}
+		if err := os.WriteFile("tools/smsv2-parity-matrix.json", append(data, '\n'), 0o644); err != nil {
+			return err
+		}
+	}
+	if buildErr != nil {
+		return buildErr
 	}
 	fmt.Printf("📋 SMSv2 parity: %d legacy paths classified, %d current-only, %d generated gaps, zero unclassified\n",
 		matrix.ClassifiedLegacy, matrix.Classification["current_only"], matrix.Classification["generator_gap"])
-	if dryRun {
-		return nil
-	}
-	data, err := json.MarshalIndent(matrix, "", "  ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile("tools/smsv2-parity-matrix.json", append(data, '\n'), 0o644)
+	return nil
 }
 
 // processV2Resource processes a single resource from a v2 domain spec

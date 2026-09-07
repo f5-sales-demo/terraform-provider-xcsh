@@ -39,7 +39,7 @@ resource "xcsh_protocol_policer" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -97,13 +97,17 @@ A [`policer`](#protocol-policer-policer) block (within [`protocol_policer`](#pro
 
 A [`protocol`](#protocol-policer-protocol) block (within [`protocol_policer`](#protocol-policer)) supports the following:
 
-<a id="protocol-policer-protocol-dns"></a>&#x2022; [`dns`](#protocol-policer-protocol-dns) - Optional Block<br>Match all DNS packets including UDP and TCP
+<a id="protocol-policer-protocol-dns"></a>&#x2022; [`dns`](#protocol-policer-protocol-dns) - Optional Object<br>Match all DNS packets including UDP and TCP
 
 <a id="protocol-policer-protocol-icmp"></a>&#x2022; [`icmp`](#protocol-policer-protocol-icmp) - Optional Block<br>ICMP Packet Type. ICMP message type to match in packet<br>See [ICMP](#protocol-policer-protocol-icmp) below.
 
 <a id="protocol-policer-protocol-tcp"></a>&#x2022; [`tcp`](#protocol-policer-protocol-tcp) - Optional Block<br>Specification of TCP flag to be matched in a TCP packet<br>See [TCP](#protocol-policer-protocol-tcp) below.
 
-<a id="protocol-policer-protocol-udp"></a>&#x2022; [`udp`](#protocol-policer-protocol-udp) - Optional Block<br>UDP Packets. Match all UDP packets
+<a id="protocol-policer-protocol-udp"></a>&#x2022; [`udp`](#protocol-policer-protocol-udp) - Optional Object<br>UDP Packets. Match all UDP packets
+
+#### Protocol Policer Protocol DNS
+
+A [`dns`](#protocol-policer-protocol-dns) block (within [`protocol_policer.protocol`](#protocol-policer-protocol)) supports the following:
 
 #### Protocol Policer Protocol ICMP
 
@@ -116,6 +120,10 @@ An [`icmp`](#protocol-policer-protocol-icmp) block (within [`protocol_policer.pr
 A [`tcp`](#protocol-policer-protocol-tcp) block (within [`protocol_policer.protocol`](#protocol-policer-protocol)) supports the following:
 
 <a id="protocol-policer-protocol-tcp-flags"></a>&#x2022; [`flags`](#protocol-policer-protocol-tcp-flags) - Optional List  Defaults to `FIN`<br>Possible values are `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ALL_TCP_FLAGS`, `KEEPALIVE`<br>[Enum: FIN|SYN|RST|PSH|ACK|URG|ALL_TCP_FLAGS|KEEPALIVE] TCP flags. TCP flag to be matched in a TCP packet
+
+#### Protocol Policer Protocol UDP
+
+An [`udp`](#protocol-policer-protocol-udp) block (within [`protocol_policer.protocol`](#protocol-policer-protocol)) supports the following:
 
 #### Timeouts
 

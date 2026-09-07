@@ -7,6 +7,7 @@ package codegen
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -121,6 +122,8 @@ func GetGoClientType(attr openapi.TerraformAttribute) string {
 		return "[]interface{}"
 	case "map":
 		return "map[string]string"
+	case "object":
+		return "map[string]interface{}"
 	default:
 		return "interface{}"
 	}
@@ -142,7 +145,7 @@ func RenderSpecStructFields(attrs []openapi.TerraformAttribute, indent string) s
 		}
 		// For nested blocks, don't use omitempty - the API needs empty objects to be sent
 		// For primitive fields, use omitempty to avoid sending zero values
-		if attr.IsBlock {
+		if attr.IsBlock || attr.EmptyObjectMarker {
 			sb.WriteString(fmt.Sprintf("%s%s %s `json:\"%s\"`\n", indent, attr.GoName, goType, jsonTag))
 		} else {
 			sb.WriteString(fmt.Sprintf("%s%s %s `json:\"%s,omitempty\"`\n", indent, attr.GoName, goType, jsonTag))
@@ -212,6 +215,13 @@ func renderMarshalScalar(sb *strings.Builder, attr openapi.TerraformAttribute, s
 	case "bool":
 		sb.WriteString(fmt.Sprintf("%sif !%s.IsNull() && !%s.IsUnknown() {\n", indent, src, src))
 		sb.WriteString(fmt.Sprintf("%s\t%s[\"%s\"] = %s.ValueBool()\n", indent, dstMap, jsonName, src))
+		sb.WriteString(fmt.Sprintf("%s}\n", indent))
+	case "object":
+		if !attr.EmptyObjectMarker {
+			return fmt.Errorf("unsupported object attribute at field %s", attr.Name)
+		}
+		sb.WriteString(fmt.Sprintf("%sif !%s.IsNull() && !%s.IsUnknown() {\n", indent, src, src))
+		sb.WriteString(fmt.Sprintf("%s\t%s[\"%s\"] = map[string]interface{}{}\n", indent, dstMap, jsonName))
 		sb.WriteString(fmt.Sprintf("%s}\n", indent))
 	case "list":
 		elemGo := ""
@@ -463,7 +473,7 @@ func RenderSpecUnmarshalCode(attrs []openapi.TerraformAttribute, indent string, 
 			}
 			continue
 		}
-		if err := renderUnmarshalTopLevelScalar(&sb, attr, indent); err != nil {
+		if err := renderUnmarshalTopLevelScalar(&sb, resourceTitleCase, attr, indent); err != nil {
 			return "", fmt.Errorf("unmarshaling %s: field %q: %w", resourceTitleCase, attr.Name, err)
 		}
 	}
@@ -488,7 +498,7 @@ func nestedObjectTypeExpr(resourceTitleCase, childPath string, attr openapi.Terr
 }
 
 // renderUnmarshalTopLevelScalar assigns a primitive/list spec field directly to data.<Field>.
-func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAttribute, indent string) error {
+func renderUnmarshalTopLevelScalar(sb *strings.Builder, resourceTitleCase string, attr openapi.TerraformAttribute, indent string) error {
 	if attr.ConversionError != "" {
 		return fmt.Errorf("%s", attr.ConversionError)
 	}
@@ -529,6 +539,21 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 			sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.BoolNull()\n", indent, fieldName))
 			sb.WriteString(fmt.Sprintf("%s}\n", indent))
 		}
+	case "object":
+		if !attr.EmptyObjectMarker {
+			return fmt.Errorf("unsupported object attribute at field %s", attr.Name)
+		}
+		sb.WriteString(fmt.Sprintf("%sif !isImport && !data.%s.IsUnknown() {\n", indent, fieldName))
+		sb.WriteString(fmt.Sprintf("%s\t// Normal Read: preserve the configured marker presence.\n", indent))
+		sb.WriteString(fmt.Sprintf("%s} else if _, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok", indent, jsonName))
+		if isImportDefaultSuppressed(resourceTitleCase, jsonName) {
+			sb.WriteString(" && !isImport")
+		}
+		sb.WriteString(" {\n")
+		sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})\n", indent, fieldName))
+		sb.WriteString(fmt.Sprintf("%s} else {\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ObjectNull(map[string]attr.Type{})\n", indent, fieldName))
+		sb.WriteString(fmt.Sprintf("%s}\n", indent))
 	case "list":
 		var elemType, goElem, cast, conv string
 		switch attr.ElementType {
@@ -777,6 +802,25 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 		sb.WriteString(fmt.Sprintf("%s\t\treturn types.BoolValue(v)\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\treturn types.BoolNull()\n", indent))
+		sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
+	case "object":
+		if !attr.EmptyObjectMarker {
+			return fmt.Errorf("unsupported object attribute at field %s", attr.Name)
+		}
+		sb.WriteString(fmt.Sprintf("%s%s: func() types.Object {\n", indent, fieldName))
+		if stateBase != "" {
+			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		}
+		sb.WriteString(fmt.Sprintf("%s\tif _, ok := %s[\"%s\"].(map[string]interface{}); ok", indent, srcMap, jsonName))
+		if isImportDefaultSuppressed(rc, jsonName) {
+			sb.WriteString(" && !isImport")
+		}
+		sb.WriteString(" {\n")
+		sb.WriteString(fmt.Sprintf("%s\t\treturn types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		sb.WriteString(fmt.Sprintf("%s\treturn types.ObjectNull(map[string]attr.Type{})\n", indent))
 		sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
 	case "list":
 		var elemType, goElem, cast, conv string
@@ -1103,6 +1147,8 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 			attrType = "Map"
 		case "list":
 			attrType = "List"
+		case "object":
+			attrType = "Object"
 		}
 
 		// Escape backslashes and quotes in descriptions for Go string literals
@@ -1143,6 +1189,9 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 			case "map":
 				typeName = "Map"
 				pkgName = "mapplanmodifier"
+			case "object":
+				typeName = "Object"
+				pkgName = "objectplanmodifier"
 			}
 			sb.WriteString(fmt.Sprintf("%s\t\tPlanModifiers: []planmodifier.%s{\n", indent, typeName))
 			switch attr.PlanModifier {
@@ -1164,6 +1213,9 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 				elementTfType = "types.BoolType"
 			}
 			sb.WriteString(fmt.Sprintf("%s\t\tElementType: %s,\n", indent, elementTfType))
+		}
+		if attr.EmptyObjectMarker {
+			sb.WriteString(fmt.Sprintf("%s\t\tAttributeTypes: map[string]attr.Type{},\n", indent))
 		}
 
 		// Add string validators (LengthBetween/LengthAtMost/LengthAtLeast, RegexMatches, OneOf)
@@ -1347,6 +1399,8 @@ func RenderNestedModelTypes(resourceTitleCase string, attrs []openapi.TerraformA
 				goType = "Map"
 			case "list":
 				goType = "List"
+			case "object":
+				goType = "Object"
 			}
 			sb.WriteString(fmt.Sprintf("\t%s types.%s `tfsdk:\"%s\"`\n", attr.GoName, goType, attr.TfsdkTag))
 		}
@@ -1417,6 +1471,8 @@ func RenderNestedModelTypes(resourceTitleCase string, attrs []openapi.TerraformA
 					elemType = "types.BoolType"
 				}
 				attrType = fmt.Sprintf("types.ListType{ElemType: %s}", elemType)
+			case "object":
+				attrType = "types.ObjectType{AttrTypes: map[string]attr.Type{}}"
 			default:
 				attrType = "types.StringType"
 			}
@@ -1536,7 +1592,8 @@ func RenderNestedBlocks(attrs []openapi.TerraformAttribute, indent string) strin
 
 		sb.WriteString(fmt.Sprintf("%s\t\"%s\": schema.%s{\n", indent, attr.TfsdkTag, blockType))
 		sb.WriteString(fmt.Sprintf("%s\t\tMarkdownDescription: \"%s\",\n", indent, desc))
-		sb.WriteString(RenderConditionalRequiredValidators(attr, indent+"\t\t"))
+		sb.WriteString(RenderBlockValidators(attr, indent+"\t\t"))
+		sb.WriteString(RenderBlockPlanModifiers(attr, indent+"\t\t"))
 
 		if attr.NestedBlockType == "list" {
 			sb.WriteString(fmt.Sprintf("%s\t\tNestedObject: schema.NestedBlockObject{\n", indent))
@@ -1562,11 +1619,20 @@ func RenderNestedBlocks(attrs []openapi.TerraformAttribute, indent string) strin
 	return sb.String()
 }
 
-// RenderConditionalRequiredValidators emits a parent-block validator for
-// direct children carrying x-f5xc-required-for.create. Keeping those children
-// Optional in Terraform schema lets the parent block remain absent; the
-// validator enforces them only when the parent object/list element exists.
-func RenderConditionalRequiredValidators(attr openapi.TerraformAttribute, indent string) string {
+// RenderBlockPlanModifiers preserves immutable semantics at every block depth.
+func RenderBlockPlanModifiers(attr openapi.TerraformAttribute, indent string) string {
+	if attr.PlanModifier != "RequiresReplace" {
+		return ""
+	}
+	if attr.NestedBlockType == "list" {
+		return fmt.Sprintf("%sPlanModifiers: []planmodifier.List{listplanmodifier.RequiresReplace()},\n", indent)
+	}
+	return fmt.Sprintf("%sPlanModifiers: []planmodifier.Object{objectplanmodifier.RequiresReplace()},\n", indent)
+}
+
+// RenderBlockValidators enforces required children and sibling conflicts within
+// each configured parent object or list element. Absent parents remain optional.
+func RenderBlockValidators(attr openapi.TerraformAttribute, indent string) string {
 	required := make([]string, 0)
 	for _, child := range attr.NestedAttributes {
 		// app_firewall detection_settings.violations_view is labeled required by
@@ -1580,15 +1646,66 @@ func RenderConditionalRequiredValidators(attr openapi.TerraformAttribute, indent
 			required = append(required, child.TfsdkTag)
 		}
 	}
-	if len(required) == 0 {
+	kind, suffix := "Object", "ObjectAttributes"
+	if attr.NestedBlockType == "list" {
+		kind, suffix = "List", "ListObjectAttributes"
+	}
+	var checks []string
+	if len(required) > 0 {
+		quoted := make([]string, len(required))
+		for i, name := range required {
+			quoted[i] = fmt.Sprintf("%q", name)
+		}
+		checks = append(checks, fmt.Sprintf("validators.Required%s(%s)", suffix, strings.Join(quoted, ", ")))
+	}
+	for _, pair := range nestedConflictPairs(attr.NestedAttributes) {
+		checks = append(checks, fmt.Sprintf("validators.Conflicting%s(%q, %q)", suffix, pair[0], pair[1]))
+	}
+	if len(checks) == 0 {
 		return ""
 	}
-	quoted := make([]string, len(required))
-	for i, name := range required {
-		quoted[i] = fmt.Sprintf("%q", name)
+	return fmt.Sprintf("%sValidators: []validator.%s{%s},\n", indent, kind, strings.Join(checks, ", "))
+}
+
+// Resolve wire aliases to real sibling Terraform names, then sort and deduplicate
+// the undirected pairs. A reference to an absent field cannot be a sibling conflict.
+func nestedConflictPairs(children []openapi.TerraformAttribute) [][2]string {
+	names := make(map[string]string)
+	for _, child := range children {
+		if child.TfsdkTag == "" {
+			continue
+		}
+		names[child.TfsdkTag] = child.TfsdkTag
+		if child.JsonName != "" {
+			names[child.JsonName] = child.TfsdkTag
+		}
 	}
-	if attr.NestedBlockType == "list" {
-		return fmt.Sprintf("%sValidators: []validator.List{validators.RequiredListObjectAttributes(%s)},\n", indent, strings.Join(quoted, ", "))
+	seen := make(map[[2]string]bool)
+	var pairs [][2]string
+	for _, child := range children {
+		if child.TfsdkTag == "" {
+			continue
+		}
+		for _, target := range child.ConflictsWith {
+			right, exists := names[target]
+			if !exists || right == child.TfsdkTag {
+				continue
+			}
+			pair := [2]string{child.TfsdkTag, right}
+			if pair[0] > pair[1] {
+				pair[0], pair[1] = pair[1], pair[0]
+			}
+			if !seen[pair] {
+				seen[pair] = true
+				pairs = append(pairs, pair)
+			}
+		}
 	}
-	return fmt.Sprintf("%sValidators: []validator.Object{validators.RequiredObjectAttributes(%s)},\n", indent, strings.Join(quoted, ", "))
+	sort.Slice(pairs, func(i, j int) bool {
+		if pairs[i][0] == pairs[j][0] {
+			return pairs[i][1] < pairs[j][1]
+		}
+		return pairs[i][0] < pairs[j][0]
+	})
+	return pairs
 }

@@ -20,5 +20,5 @@ resource "xcsh_healthcheck" "test" {
   timeout             = 3
   interval            = 5
 
-  udp_icmp_health_check {}
+  udp_icmp_health_check = {}
 }

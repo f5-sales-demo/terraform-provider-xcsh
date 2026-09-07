@@ -59,6 +59,9 @@ func TestGenerateChecks_SingleConflictPair(t *testing.T) {
 	if !strings.Contains(result, "data.FieldB.IsNull()") {
 		t.Error("Expected data.FieldB.IsNull() in output")
 	}
+	if !strings.Contains(result, "data.FieldA.IsUnknown()") || !strings.Contains(result, "data.FieldB.IsUnknown()") {
+		t.Error("Expected unknown values to defer conflict validation")
+	}
 	if !strings.Contains(result, `path.Root("field_a")`) {
 		t.Error(`Expected path.Root("field_a") in output`)
 	}

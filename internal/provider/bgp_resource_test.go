@@ -88,10 +88,10 @@ resource "xcsh_bgp" "test" {
     external {
       asn     = 64512
       address = "192.168.1.1"
-      no_authentication {}
+      no_authentication = {}
     }
-    bfd_disabled {}
-    passive_mode_disabled {}
+    bfd_disabled = {}
+    passive_mode_disabled = {}
     disable {}
   }
 

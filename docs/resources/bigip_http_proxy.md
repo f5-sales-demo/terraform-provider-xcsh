@@ -39,7 +39,7 @@ resource "xcsh_bigip_http_proxy" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -87,17 +87,33 @@ In addition to all arguments above, the following attributes are exported:
 
 An [`advanced_profile`](#advanced-profile) block supports the following:
 
-<a id="advanced-profile-disable-spec"></a>&#x2022; [`disable_spec`](#advanced-profile-disable-spec) - Optional Block<br>Enable this option
+<a id="advanced-profile-disable-spec"></a>&#x2022; [`disable_spec`](#advanced-profile-disable-spec) - Optional Object<br>Enable this option
 
-<a id="advanced-profile-enable-default-profile"></a>&#x2022; [`enable_default_profile`](#advanced-profile-enable-default-profile) - Optional Block<br>Configuration parameter for enable default profile
+<a id="advanced-profile-enable-default-profile"></a>&#x2022; [`enable_default_profile`](#advanced-profile-enable-default-profile) - Optional Object<br>Configuration parameter for enable default profile
+
+#### Advanced Profile Disable Spec
+
+A [`disable_spec`](#advanced-profile-disable-spec) block (within [`advanced_profile`](#advanced-profile)) supports the following:
+
+#### Advanced Profile Enable Default Profile
+
+An [`enable_default_profile`](#advanced-profile-enable-default-profile) block (within [`advanced_profile`](#advanced-profile)) supports the following:
 
 #### DDOS Profile
 
 A [`ddos_profile`](#ddos-profile) block supports the following:
 
-<a id="ddos-profile-disable-ddos-mitigation"></a>&#x2022; [`disable_ddos_mitigation`](#ddos-profile-disable-ddos-mitigation) - Optional Block<br>Enable this option
+<a id="ddos-profile-disable-ddos-mitigation"></a>&#x2022; [`disable_ddos_mitigation`](#ddos-profile-disable-ddos-mitigation) - Optional Object<br>Enable this option
 
-<a id="ddos-profile-enable-ddos-mitigation"></a>&#x2022; [`enable_ddos_mitigation`](#ddos-profile-enable-ddos-mitigation) - Optional Block<br>Enable this option
+<a id="ddos-profile-enable-ddos-mitigation"></a>&#x2022; [`enable_ddos_mitigation`](#ddos-profile-enable-ddos-mitigation) - Optional Object<br>Enable this option
+
+#### DDOS Profile Disable DDOS Mitigation
+
+A [`disable_ddos_mitigation`](#ddos-profile-disable-ddos-mitigation) block (within [`ddos_profile`](#ddos-profile)) supports the following:
+
+#### DDOS Profile Enable DDOS Mitigation
+
+An [`enable_ddos_mitigation`](#ddos-profile-enable-ddos-mitigation) block (within [`ddos_profile`](#ddos-profile)) supports the following:
 
 #### Irules
 
@@ -143,15 +159,19 @@ A [`pools`](#origin-pools-pools) block (within [`origin_pools`](#origin-pools)) 
 
 An [`origin_servers`](#origin-pools-pools-origin-servers) block (within [`origin_pools.pools`](#origin-pools-pools)) supports the following:
 
-<a id="port-3a7789"></a>&#x2022; [`automatic_port`](#port-3a7789) - Optional Block<br>Enable this option
+<a id="port-3a7789"></a>&#x2022; [`automatic_port`](#port-3a7789) - Optional Object<br>Enable this option
 
 <a id="checks-fe786c"></a>&#x2022; [`health_checks`](#checks-fe786c) - Optional Block<br>Configuration parameter for health checks<br>See [Health Checks](#checks-fe786c) below.
 
-<a id="port-f4479e"></a>&#x2022; [`lb_port`](#port-f4479e) - Optional Block<br>Enable this option
+<a id="port-f4479e"></a>&#x2022; [`lb_port`](#port-f4479e) - Optional Object<br>Enable this option
 
 <a id="servers-9d7450"></a>&#x2022; [`origin_servers`](#servers-9d7450) - Optional Block<br>List of Origin Servers. List of origin servers for Proxy<br>See [Origin Servers](#servers-9d7450) below.
 
 <a id="origin-pools-pools-origin-servers-port"></a>&#x2022; [`port`](#origin-pools-pools-origin-servers-port) - Optional Number<br>Endpoint service is available on this port
+
+#### Origin Pools Pools Origin Servers Automatic Port
+
+An [`automatic_port`](#port-3a7789) block (within [`origin_pools.pools.origin_servers`](#origin-pools-pools-origin-servers)) supports the following:
 
 #### Origin Pools Pools Origin Servers Health Checks
 
@@ -171,9 +191,17 @@ A [`health_checks`](#checks-fe786c) block (within [`origin_pools.pools.origin_se
 
 <a id="deep-607b11"></a>Deeply nested **Check** block collapsed for readability.
 
+#### Origin Pools Pools Origin Servers Health Checks Health Check ICMP Health Check
+
+<a id="deep-897b11"></a>Deeply nested **Check** block collapsed for readability.
+
 #### Origin Pools Pools Origin Servers Health Checks Health Check TCP Health Check
 
 <a id="deep-4b637b"></a>Deeply nested **Check** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers LB Port
+
+A [`lb_port`](#port-f4479e) block (within [`origin_pools.pools.origin_servers`](#origin-pools-pools-origin-servers)) supports the following:
 
 #### Origin Pools Pools Origin Servers Origin Servers
 
@@ -191,6 +219,14 @@ An [`origin_servers`](#servers-9d7450) block (within [`origin_pools.pools.origin
 
 <a id="deep-16a53b"></a>Deeply nested **Service** block collapsed for readability.
 
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service Inside Network
+
+<a id="deep-24c649"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service Outside Network
+
+<a id="deep-4898d2"></a>Deeply nested **Network** block collapsed for readability.
+
 #### Origin Pools Pools Origin Servers Origin Servers K8S Service Site Locator
 
 <a id="deep-144dcf"></a>Deeply nested **Locator** block collapsed for readability.
@@ -207,13 +243,29 @@ An [`origin_servers`](#servers-9d7450) block (within [`origin_pools.pools.origin
 
 <a id="deep-136925"></a>Deeply nested **Pool** block collapsed for readability.
 
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service Snat Pool No Snat Pool
+
+<a id="deep-484673"></a>Deeply nested **Pool** block collapsed for readability.
+
 #### Origin Pools Pools Origin Servers Origin Servers K8S Service Snat Pool Snat Pool
 
 <a id="deep-df82be"></a>Deeply nested **Pool** block collapsed for readability.
 
+#### Origin Pools Pools Origin Servers Origin Servers K8S Service Vk8s Networks
+
+<a id="deep-9942fa"></a>Deeply nested **Networks** block collapsed for readability.
+
 #### Origin Pools Pools Origin Servers Origin Servers Private IP
 
 <a id="deep-3fc99e"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Private IP Inside Network
+
+<a id="deep-437f38"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Origin Pools Pools Origin Servers Origin Servers Private IP Outside Network
+
+<a id="deep-505c73"></a>Deeply nested **Network** block collapsed for readability.
 
 #### Origin Pools Pools Origin Servers Origin Servers Private IP Segment
 
@@ -235,6 +287,10 @@ An [`origin_servers`](#servers-9d7450) block (within [`origin_pools.pools.origin
 
 <a id="deep-d9808d"></a>Deeply nested **Pool** block collapsed for readability.
 
+#### Origin Pools Pools Origin Servers Origin Servers Private IP Snat Pool No Snat Pool
+
+<a id="deep-b4c28a"></a>Deeply nested **Pool** block collapsed for readability.
+
 #### Origin Pools Pools Origin Servers Origin Servers Private IP Snat Pool Snat Pool
 
 <a id="deep-3111fb"></a>Deeply nested **Pool** block collapsed for readability.
@@ -253,7 +309,7 @@ A [`proxy_advertisement`](#proxy-advertisement) block supports the following:
 
 <a id="proxy-advertisement-advertise-custom"></a>&#x2022; [`advertise_custom`](#proxy-advertisement-advertise-custom) - Optional Block<br>Defines a way to advertise a VIP on specific sites<br>See [Advertise Custom](#proxy-advertisement-advertise-custom) below.
 
-<a id="proxy-advertisement-do-not-advertise"></a>&#x2022; [`do_not_advertise`](#proxy-advertisement-do-not-advertise) - Optional Block<br>Configuration parameter for do not advertise
+<a id="proxy-advertisement-do-not-advertise"></a>&#x2022; [`do_not_advertise`](#proxy-advertisement-do-not-advertise) - Optional Object<br>Configuration parameter for do not advertise
 
 #### Proxy Advertisement Advertise Custom
 
@@ -273,7 +329,7 @@ An [`advertise_where`](#where-1b1a33) block (within [`proxy_advertisement.advert
 
 <a id="site-35864e"></a>&#x2022; [`site`](#site-35864e) - Optional Block<br>Defines a reference to a CE site along with network type and an optional IP address where a load balancer could be advertised<br>See [Site](#site-35864e) below.
 
-<a id="port-82cb10"></a>&#x2022; [`use_default_port`](#port-82cb10) - Optional Block<br>Enable this option
+<a id="port-82cb10"></a>&#x2022; [`use_default_port`](#port-82cb10) - Optional Object<br>Enable this option
 
 <a id="network-6b99fa"></a>&#x2022; [`virtual_network`](#network-6b99fa) - Optional Block<br>Parameters to advertise on a given virtual network<br>See [Virtual Network](#network-6b99fa) below.
 
@@ -306,9 +362,21 @@ SITE_NETWORK_INSIDE_AND_OUTSIDE|SITE_NETWORK_INSIDE|SITE_NETWORK_OUTSIDE|SITE_NE
 
 <a id="deep-9bd8ed"></a>Deeply nested **Site** block collapsed for readability.
 
+#### Proxy Advertisement Advertise Custom Advertise Where Use Default Port
+
+<a id="deep-4755f5"></a>Deeply nested **Port** block collapsed for readability.
+
 #### Proxy Advertisement Advertise Custom Advertise Where Virtual Network
 
 <a id="deep-7a2b81"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Virtual Network Default V6 VIP
+
+<a id="deep-7dccec"></a>Deeply nested **VIP** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Virtual Network Default VIP
+
+<a id="deep-3de75e"></a>Deeply nested **VIP** block collapsed for readability.
 
 #### Proxy Advertisement Advertise Custom Advertise Where Virtual Network Virtual Network
 
@@ -341,6 +409,10 @@ SITE_NETWORK_INSIDE_AND_OUTSIDE|SITE_NETWORK_INSIDE|SITE_NETWORK_OUTSIDE|SITE_NE
 #### Proxy Advertisement Advertise Custom Advertise Where Vk8s Service Virtual Site
 
 <a id="deep-f1fd9e"></a>Deeply nested **Site** block collapsed for readability.
+
+#### Proxy Advertisement Do Not Advertise
+
+A [`do_not_advertise`](#proxy-advertisement-do-not-advertise) block (within [`proxy_advertisement`](#proxy-advertisement)) supports the following:
 
 #### Proxy Config
 
@@ -376,21 +448,21 @@ A [`https`](#proxy-config-https) block (within [`proxy_config`](#proxy-config)) 
 
 <a id="timeout-3a7303"></a>&#x2022; [`connection_idle_timeout`](#timeout-3a7303) - Optional Number<br>The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
 
-<a id="proxy-config-https-default-header"></a>&#x2022; [`default_header`](#proxy-config-https-default-header) - Optional Block<br>Configuration parameter for default header
+<a id="proxy-config-https-default-header"></a>&#x2022; [`default_header`](#proxy-config-https-default-header) - Optional Object<br>Configuration parameter for default header
 
-<a id="proxy-config-https-default-loadbalancer"></a>&#x2022; [`default_loadbalancer`](#proxy-config-https-default-loadbalancer) - Optional Block<br>Configuration parameter for default loadbalancer
+<a id="proxy-config-https-default-loadbalancer"></a>&#x2022; [`default_loadbalancer`](#proxy-config-https-default-loadbalancer) - Optional Object<br>Configuration parameter for default loadbalancer
 
-<a id="normalize-314d06"></a>&#x2022; [`disable_path_normalize`](#normalize-314d06) - Optional Block<br>Enable this option
+<a id="normalize-314d06"></a>&#x2022; [`disable_path_normalize`](#normalize-314d06) - Optional Object<br>Enable this option
 
-<a id="normalize-808f03"></a>&#x2022; [`enable_path_normalize`](#normalize-808f03) - Optional Block<br>Enable this option
+<a id="normalize-808f03"></a>&#x2022; [`enable_path_normalize`](#normalize-808f03) - Optional Object<br>Enable this option
 
 <a id="options-23e4d3"></a>&#x2022; [`http_protocol_options`](#options-23e4d3) - Optional Block<br>HTTP protocol configuration OPTIONS for downstream connections<br>See [HTTP Protocol Options](#options-23e4d3) below.
 
 <a id="proxy-config-https-http-redirect"></a>&#x2022; [`http_redirect`](#proxy-config-https-http-redirect) - Optional Bool<br>HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS
 
-<a id="loadbalancer-76dab8"></a>&#x2022; [`non_default_loadbalancer`](#loadbalancer-76dab8) - Optional Block<br>Configuration parameter for non default loadbalancer
+<a id="loadbalancer-76dab8"></a>&#x2022; [`non_default_loadbalancer`](#loadbalancer-76dab8) - Optional Object<br>Configuration parameter for non default loadbalancer
 
-<a id="proxy-config-https-pass-through"></a>&#x2022; [`pass_through`](#proxy-config-https-pass-through) - Optional Block<br>Configuration parameter for pass through
+<a id="proxy-config-https-pass-through"></a>&#x2022; [`pass_through`](#proxy-config-https-pass-through) - Optional Object<br>Configuration parameter for pass through
 
 <a id="proxy-config-https-port"></a>&#x2022; [`port`](#proxy-config-https-port) - Optional Number<br>HTTPS port to Listen
 
@@ -406,9 +478,33 @@ A [`https`](#proxy-config-https) block (within [`proxy_config`](#proxy-config)) 
 
 A [`coalescing_options`](#proxy-config-https-coalescing-options) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
 
-<a id="coalescing-050aa1"></a>&#x2022; [`default_coalescing`](#coalescing-050aa1) - Optional Block<br>Configuration parameter for default coalescing
+<a id="coalescing-050aa1"></a>&#x2022; [`default_coalescing`](#coalescing-050aa1) - Optional Object<br>Configuration parameter for default coalescing
 
-<a id="coalescing-b737f4"></a>&#x2022; [`strict_coalescing`](#coalescing-b737f4) - Optional Block<br>Configuration parameter for strict coalescing
+<a id="coalescing-b737f4"></a>&#x2022; [`strict_coalescing`](#coalescing-b737f4) - Optional Object<br>Configuration parameter for strict coalescing
+
+#### Proxy Config HTTPS Coalescing Options Default Coalescing
+
+A [`default_coalescing`](#coalescing-050aa1) block (within [`proxy_config.https.coalescing_options`](#proxy-config-https-coalescing-options)) supports the following:
+
+#### Proxy Config HTTPS Coalescing Options Strict Coalescing
+
+A [`strict_coalescing`](#coalescing-b737f4) block (within [`proxy_config.https.coalescing_options`](#proxy-config-https-coalescing-options)) supports the following:
+
+#### Proxy Config HTTPS Default Header
+
+A [`default_header`](#proxy-config-https-default-header) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+#### Proxy Config HTTPS Default Loadbalancer
+
+A [`default_loadbalancer`](#proxy-config-https-default-loadbalancer) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+#### Proxy Config HTTPS Disable Path Normalize
+
+A [`disable_path_normalize`](#normalize-314d06) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+#### Proxy Config HTTPS Enable Path Normalize
+
+An [`enable_path_normalize`](#normalize-808f03) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
 
 #### Proxy Config HTTPS HTTP Protocol Options
 
@@ -416,9 +512,9 @@ A [`http_protocol_options`](#options-23e4d3) block (within [`proxy_config.https`
 
 <a id="only-3652e6"></a>&#x2022; [`http_protocol_enable_v1_only`](#only-3652e6) - Optional Block<br>HTTP/1.1 Protocol OPTIONS for downstream connections<br>See [HTTP Protocol Enable V1 Only](#only-3652e6) below.
 
-<a id="v1-v2-5aaafa"></a>&#x2022; [`http_protocol_enable_v1_v2`](#v1-v2-5aaafa) - Optional Block<br>Configuration parameter for HTTP protocol enable v1 v2
+<a id="v1-v2-5aaafa"></a>&#x2022; [`http_protocol_enable_v1_v2`](#v1-v2-5aaafa) - Optional Object<br>Configuration parameter for HTTP protocol enable v1 v2
 
-<a id="only-43cd3d"></a>&#x2022; [`http_protocol_enable_v2_only`](#only-43cd3d) - Optional Block<br>Configuration parameter for HTTP protocol enable v2 only
+<a id="only-43cd3d"></a>&#x2022; [`http_protocol_enable_v2_only`](#only-43cd3d) - Optional Object<br>Configuration parameter for HTTP protocol enable v2 only
 
 #### Proxy Config HTTPS HTTP Protocol Options HTTP Protocol Enable V1 Only
 
@@ -428,13 +524,41 @@ A [`http_protocol_options`](#options-23e4d3) block (within [`proxy_config.https`
 
 <a id="deep-bd5134"></a>Deeply nested **Transformation** block collapsed for readability.
 
+#### Proxy Config HTTPS HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Default Header Transformation
+
+<a id="deep-7cc9e7"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Preserve Case Header Transformation
+
+<a id="deep-a1ba5c"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Proper Case Header Transformation
+
+<a id="deep-446be2"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS HTTP Protocol Options HTTP Protocol Enable V1 V2
+
+<a id="deep-8acedd"></a>Deeply nested **V2** block collapsed for readability.
+
+#### Proxy Config HTTPS HTTP Protocol Options HTTP Protocol Enable V2 Only
+
+<a id="deep-832194"></a>Deeply nested **Only** block collapsed for readability.
+
+#### Proxy Config HTTPS Non Default Loadbalancer
+
+A [`non_default_loadbalancer`](#loadbalancer-76dab8) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
+#### Proxy Config HTTPS Pass Through
+
+A [`pass_through`](#proxy-config-https-pass-through) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
+
 #### Proxy Config HTTPS TLS Cert Params
 
 A [`tls_cert_params`](#proxy-config-https-tls-cert-params) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
 
 <a id="certificates-c7aafc"></a>&#x2022; [`certificates`](#certificates-c7aafc) - Optional Block<br>Select one or more certificates with any domain names<br>See [Certificates](#certificates-c7aafc) below.
 
-<a id="mtls-095ab6"></a>&#x2022; [`no_mtls`](#mtls-095ab6) - Optional Block<br>Enable this option
+<a id="mtls-095ab6"></a>&#x2022; [`no_mtls`](#mtls-095ab6) - Optional Object<br>Enable this option
 
 <a id="config-25978f"></a>&#x2022; [`tls_config`](#config-25978f) - Optional Block<br>Defines various OPTIONS to configure TLS configuration parameters<br>See [TLS Config](#config-25978f) below.
 
@@ -450,6 +574,10 @@ A [`certificates`](#certificates-c7aafc) block (within [`proxy_config.https.tls_
 
 <a id="tenant-dff1f4"></a>&#x2022; [`tenant`](#tenant-dff1f4) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Proxy Config HTTPS TLS Cert Params No mTLS
+
+<a id="deep-25df37"></a>Deeply nested **mTLS** block collapsed for readability.
+
 #### Proxy Config HTTPS TLS Cert Params TLS Config
 
 <a id="deep-ca16e2"></a>Deeply nested **Config** block collapsed for readability.
@@ -457,6 +585,18 @@ A [`certificates`](#certificates-c7aafc) block (within [`proxy_config.https.tls_
 #### Proxy Config HTTPS TLS Cert Params TLS Config Custom Security
 
 <a id="deep-fbb21c"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params TLS Config Default Security
+
+<a id="deep-d1d0d3"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params TLS Config Low Security
+
+<a id="deep-cab734"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params TLS Config Medium Security
+
+<a id="deep-78f287"></a>Deeply nested **Security** block collapsed for readability.
 
 #### Proxy Config HTTPS TLS Cert Params Use mTLS
 
@@ -466,9 +606,17 @@ A [`certificates`](#certificates-c7aafc) block (within [`proxy_config.https.tls_
 
 <a id="deep-34e2cf"></a>Deeply nested **CRL** block collapsed for readability.
 
+#### Proxy Config HTTPS TLS Cert Params Use mTLS No CRL
+
+<a id="deep-13893e"></a>Deeply nested **CRL** block collapsed for readability.
+
 #### Proxy Config HTTPS TLS Cert Params Use mTLS Trusted CA
 
 <a id="deep-538810"></a>Deeply nested **CA** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Cert Params Use mTLS Xfcc Disabled
+
+<a id="deep-78098f"></a>Deeply nested **Disabled** block collapsed for readability.
 
 #### Proxy Config HTTPS TLS Cert Params Use mTLS Xfcc Options
 
@@ -478,13 +626,17 @@ A [`certificates`](#certificates-c7aafc) block (within [`proxy_config.https.tls_
 
 A [`tls_parameters`](#proxy-config-https-tls-parameters) block (within [`proxy_config.https`](#proxy-config-https)) supports the following:
 
-<a id="mtls-28239e"></a>&#x2022; [`no_mtls`](#mtls-28239e) - Optional Block<br>Enable this option
+<a id="mtls-28239e"></a>&#x2022; [`no_mtls`](#mtls-28239e) - Optional Object<br>Enable this option
 
 <a id="certificates-1671d8"></a>&#x2022; [`tls_certificates`](#certificates-1671d8) - Optional Block<br>Users can add one or more certificates that share the same set of domains. For example, domain.com and \*.domain.com - but use different signature algorithms<br>See [TLS Certificates](#certificates-1671d8) below.
 
 <a id="config-9ee2a7"></a>&#x2022; [`tls_config`](#config-9ee2a7) - Optional Block<br>Defines various OPTIONS to configure TLS configuration parameters<br>See [TLS Config](#config-9ee2a7) below.
 
 <a id="mtls-44d3e6"></a>&#x2022; [`use_mtls`](#mtls-44d3e6) - Optional Block<br>Validation context for downstream client TLS connections<br>See [Use mTLS](#mtls-44d3e6) below.
+
+#### Proxy Config HTTPS TLS Parameters No mTLS
+
+A [`no_mtls`](#mtls-28239e) block (within [`proxy_config.https.tls_parameters`](#proxy-config-https-tls-parameters)) supports the following:
 
 #### Proxy Config HTTPS TLS Parameters TLS Certificates
 
@@ -496,15 +648,19 @@ A [`tls_certificates`](#certificates-1671d8) block (within [`proxy_config.https.
 
 <a id="spec-0aa8b8"></a>&#x2022; [`description_spec`](#spec-0aa8b8) - Optional String<br>Description. Description for the certificate
 
-<a id="stapling-ae36be"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-ae36be) - Optional Block<br>Configuration parameter for disable OCSP stapling
+<a id="stapling-ae36be"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-ae36be) - Optional Object<br>Configuration parameter for disable OCSP stapling
 
 <a id="key-1e1e33"></a>&#x2022; [`private_key`](#key-1e1e33) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Private Key](#key-1e1e33) below.
 
-<a id="defaults-a1747d"></a>&#x2022; [`use_system_defaults`](#defaults-a1747d) - Optional Block<br>Configuration parameter for use system defaults
+<a id="defaults-a1747d"></a>&#x2022; [`use_system_defaults`](#defaults-a1747d) - Optional Object<br>Configuration parameter for use system defaults
 
 #### Proxy Config HTTPS TLS Parameters TLS Certificates Custom Hash Algorithms
 
 <a id="deep-dd7756"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters TLS Certificates Disable OCSP Stapling
+
+<a id="deep-fd0924"></a>Deeply nested **Stapling** block collapsed for readability.
 
 #### Proxy Config HTTPS TLS Parameters TLS Certificates Private Key
 
@@ -518,21 +674,37 @@ A [`tls_certificates`](#certificates-1671d8) block (within [`proxy_config.https.
 
 <a id="deep-dd6e9a"></a>Deeply nested **Info** block collapsed for readability.
 
+#### Proxy Config HTTPS TLS Parameters TLS Certificates Use System Defaults
+
+<a id="deep-11306b"></a>Deeply nested **Defaults** block collapsed for readability.
+
 #### Proxy Config HTTPS TLS Parameters TLS Config
 
 A [`tls_config`](#config-9ee2a7) block (within [`proxy_config.https.tls_parameters`](#proxy-config-https-tls-parameters)) supports the following:
 
 <a id="security-cf8dc3"></a>&#x2022; [`custom_security`](#security-cf8dc3) - Optional Block<br>Defines TLS protocol config including min/max versions and allowed ciphers<br>See [Custom Security](#security-cf8dc3) below.
 
-<a id="security-7dcd75"></a>&#x2022; [`default_security`](#security-7dcd75) - Optional Block<br>Enable this option
+<a id="security-7dcd75"></a>&#x2022; [`default_security`](#security-7dcd75) - Optional Object<br>Enable this option
 
-<a id="security-0a55cf"></a>&#x2022; [`low_security`](#security-0a55cf) - Optional Block<br>Enable this option
+<a id="security-0a55cf"></a>&#x2022; [`low_security`](#security-0a55cf) - Optional Object<br>Enable this option
 
-<a id="security-30c82a"></a>&#x2022; [`medium_security`](#security-30c82a) - Optional Block<br>Enable this option
+<a id="security-30c82a"></a>&#x2022; [`medium_security`](#security-30c82a) - Optional Object<br>Enable this option
 
 #### Proxy Config HTTPS TLS Parameters TLS Config Custom Security
 
 <a id="deep-9667ef"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters TLS Config Default Security
+
+<a id="deep-4744c9"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters TLS Config Low Security
+
+<a id="deep-6d0fb3"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters TLS Config Medium Security
+
+<a id="deep-bf7465"></a>Deeply nested **Security** block collapsed for readability.
 
 #### Proxy Config HTTPS TLS Parameters Use mTLS
 
@@ -542,13 +714,13 @@ An [`use_mtls`](#mtls-44d3e6) block (within [`proxy_config.https.tls_parameters`
 
 <a id="crl-257561"></a>&#x2022; [`crl`](#crl-257561) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [CRL](#crl-257561) below.
 
-<a id="crl-16f548"></a>&#x2022; [`no_crl`](#crl-16f548) - Optional Block<br>Enable this option
+<a id="crl-16f548"></a>&#x2022; [`no_crl`](#crl-16f548) - Optional Object<br>Enable this option
 
 <a id="trusted-ca-9ee7c4"></a>&#x2022; [`trusted_ca`](#trusted-ca-9ee7c4) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Trusted CA](#trusted-ca-9ee7c4) below.
 
 <a id="url-c8117b"></a>&#x2022; [`trusted_ca_url`](#url-c8117b) - Optional String<br>Upload a Root CA Certificate specifically for this Load Balancer
 
-<a id="disabled-590996"></a>&#x2022; [`xfcc_disabled`](#disabled-590996) - Optional Block<br>Enable this option
+<a id="disabled-590996"></a>&#x2022; [`xfcc_disabled`](#disabled-590996) - Optional Object<br>Enable this option
 
 <a id="options-2f54ca"></a>&#x2022; [`xfcc_options`](#options-2f54ca) - Optional Block<br>X-Forwarded-Client-Cert header elements to be added to requests<br>See [Xfcc Options](#options-2f54ca) below.
 
@@ -556,9 +728,17 @@ An [`use_mtls`](#mtls-44d3e6) block (within [`proxy_config.https.tls_parameters`
 
 <a id="deep-e880ff"></a>Deeply nested **CRL** block collapsed for readability.
 
+#### Proxy Config HTTPS TLS Parameters Use mTLS No CRL
+
+<a id="deep-db8fdb"></a>Deeply nested **CRL** block collapsed for readability.
+
 #### Proxy Config HTTPS TLS Parameters Use mTLS Trusted CA
 
 <a id="deep-84c1bd"></a>Deeply nested **CA** block collapsed for readability.
+
+#### Proxy Config HTTPS TLS Parameters Use mTLS Xfcc Disabled
+
+<a id="deep-1ccb2c"></a>Deeply nested **Disabled** block collapsed for readability.
 
 #### Proxy Config HTTPS TLS Parameters Use mTLS Xfcc Options
 
@@ -576,23 +756,23 @@ A [`https_auto_cert`](#proxy-config-https-auto-cert) block (within [`proxy_confi
 
 <a id="timeout-089559"></a>&#x2022; [`connection_idle_timeout`](#timeout-089559) - Optional Number<br>The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed
 
-<a id="header-98f9d1"></a>&#x2022; [`default_header`](#header-98f9d1) - Optional Block<br>Configuration parameter for default header
+<a id="header-98f9d1"></a>&#x2022; [`default_header`](#header-98f9d1) - Optional Object<br>Configuration parameter for default header
 
-<a id="loadbalancer-fe7f28"></a>&#x2022; [`default_loadbalancer`](#loadbalancer-fe7f28) - Optional Block<br>Configuration parameter for default loadbalancer
+<a id="loadbalancer-fe7f28"></a>&#x2022; [`default_loadbalancer`](#loadbalancer-fe7f28) - Optional Object<br>Configuration parameter for default loadbalancer
 
-<a id="normalize-e570e3"></a>&#x2022; [`disable_path_normalize`](#normalize-e570e3) - Optional Block<br>Enable this option
+<a id="normalize-e570e3"></a>&#x2022; [`disable_path_normalize`](#normalize-e570e3) - Optional Object<br>Enable this option
 
-<a id="normalize-fbd085"></a>&#x2022; [`enable_path_normalize`](#normalize-fbd085) - Optional Block<br>Enable this option
+<a id="normalize-fbd085"></a>&#x2022; [`enable_path_normalize`](#normalize-fbd085) - Optional Object<br>Enable this option
 
 <a id="options-345621"></a>&#x2022; [`http_protocol_options`](#options-345621) - Optional Block<br>HTTP protocol configuration OPTIONS for downstream connections<br>See [HTTP Protocol Options](#options-345621) below.
 
 <a id="redirect-b1c71a"></a>&#x2022; [`http_redirect`](#redirect-b1c71a) - Optional Bool<br>HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS
 
-<a id="proxy-config-https-auto-cert-no-mtls"></a>&#x2022; [`no_mtls`](#proxy-config-https-auto-cert-no-mtls) - Optional Block<br>Enable this option
+<a id="proxy-config-https-auto-cert-no-mtls"></a>&#x2022; [`no_mtls`](#proxy-config-https-auto-cert-no-mtls) - Optional Object<br>Enable this option
 
-<a id="loadbalancer-93a1ec"></a>&#x2022; [`non_default_loadbalancer`](#loadbalancer-93a1ec) - Optional Block<br>Configuration parameter for non default loadbalancer
+<a id="loadbalancer-93a1ec"></a>&#x2022; [`non_default_loadbalancer`](#loadbalancer-93a1ec) - Optional Object<br>Configuration parameter for non default loadbalancer
 
-<a id="through-09c026"></a>&#x2022; [`pass_through`](#through-09c026) - Optional Block<br>Configuration parameter for pass through
+<a id="through-09c026"></a>&#x2022; [`pass_through`](#through-09c026) - Optional Object<br>Configuration parameter for pass through
 
 <a id="proxy-config-https-auto-cert-port"></a>&#x2022; [`port`](#proxy-config-https-auto-cert-port) - Optional Number<br>HTTPS port to Listen
 
@@ -608,9 +788,33 @@ A [`https_auto_cert`](#proxy-config-https-auto-cert) block (within [`proxy_confi
 
 A [`coalescing_options`](#options-fc5c1b) block (within [`proxy_config.https_auto_cert`](#proxy-config-https-auto-cert)) supports the following:
 
-<a id="coalescing-89331a"></a>&#x2022; [`default_coalescing`](#coalescing-89331a) - Optional Block<br>Configuration parameter for default coalescing
+<a id="coalescing-89331a"></a>&#x2022; [`default_coalescing`](#coalescing-89331a) - Optional Object<br>Configuration parameter for default coalescing
 
-<a id="coalescing-837c91"></a>&#x2022; [`strict_coalescing`](#coalescing-837c91) - Optional Block<br>Configuration parameter for strict coalescing
+<a id="coalescing-837c91"></a>&#x2022; [`strict_coalescing`](#coalescing-837c91) - Optional Object<br>Configuration parameter for strict coalescing
+
+#### Proxy Config HTTPS Auto Cert Coalescing Options Default Coalescing
+
+<a id="deep-146436"></a>Deeply nested **Coalescing** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Coalescing Options Strict Coalescing
+
+<a id="deep-c787cf"></a>Deeply nested **Coalescing** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Default Header
+
+A [`default_header`](#header-98f9d1) block (within [`proxy_config.https_auto_cert`](#proxy-config-https-auto-cert)) supports the following:
+
+#### Proxy Config HTTPS Auto Cert Default Loadbalancer
+
+A [`default_loadbalancer`](#loadbalancer-fe7f28) block (within [`proxy_config.https_auto_cert`](#proxy-config-https-auto-cert)) supports the following:
+
+#### Proxy Config HTTPS Auto Cert Disable Path Normalize
+
+<a id="deep-647165"></a>Deeply nested **Normalize** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Enable Path Normalize
+
+<a id="deep-af64c0"></a>Deeply nested **Normalize** block collapsed for readability.
 
 #### Proxy Config HTTPS Auto Cert HTTP Protocol Options
 
@@ -624,21 +828,65 @@ A [`coalescing_options`](#options-fc5c1b) block (within [`proxy_config.https_aut
 
 <a id="deep-1b9437"></a>Deeply nested **Transformation** block collapsed for readability.
 
+#### Proxy Config HTTPS Auto Cert HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Default Header Transformation
+
+<a id="deep-ec3d9b"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Preserve Case Header Transformation
+
+<a id="deep-5fad28"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert HTTP Protocol Options HTTP Protocol Enable V1 Only Header Transformation Proper Case Header Transformation
+
+<a id="deep-170fbe"></a>Deeply nested **Transformation** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert HTTP Protocol Options HTTP Protocol Enable V1 V2
+
+<a id="deep-5f4537"></a>Deeply nested **V2** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert HTTP Protocol Options HTTP Protocol Enable V2 Only
+
+<a id="deep-1eaf2d"></a>Deeply nested **Only** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert No mTLS
+
+A [`no_mtls`](#proxy-config-https-auto-cert-no-mtls) block (within [`proxy_config.https_auto_cert`](#proxy-config-https-auto-cert)) supports the following:
+
+#### Proxy Config HTTPS Auto Cert Non Default Loadbalancer
+
+<a id="deep-0fed4c"></a>Deeply nested **Loadbalancer** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Pass Through
+
+A [`pass_through`](#through-09c026) block (within [`proxy_config.https_auto_cert`](#proxy-config-https-auto-cert)) supports the following:
+
 #### Proxy Config HTTPS Auto Cert TLS Config
 
 A [`tls_config`](#proxy-config-https-auto-cert-tls-config) block (within [`proxy_config.https_auto_cert`](#proxy-config-https-auto-cert)) supports the following:
 
 <a id="security-2f5fbc"></a>&#x2022; [`custom_security`](#security-2f5fbc) - Optional Block<br>Defines TLS protocol config including min/max versions and allowed ciphers<br>See [Custom Security](#security-2f5fbc) below.
 
-<a id="security-423133"></a>&#x2022; [`default_security`](#security-423133) - Optional Block<br>Enable this option
+<a id="security-423133"></a>&#x2022; [`default_security`](#security-423133) - Optional Object<br>Enable this option
 
-<a id="security-bf1241"></a>&#x2022; [`low_security`](#security-bf1241) - Optional Block<br>Enable this option
+<a id="security-bf1241"></a>&#x2022; [`low_security`](#security-bf1241) - Optional Object<br>Enable this option
 
-<a id="security-009f50"></a>&#x2022; [`medium_security`](#security-009f50) - Optional Block<br>Enable this option
+<a id="security-009f50"></a>&#x2022; [`medium_security`](#security-009f50) - Optional Object<br>Enable this option
 
 #### Proxy Config HTTPS Auto Cert TLS Config Custom Security
 
 <a id="deep-12403b"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert TLS Config Default Security
+
+<a id="deep-c58f8f"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert TLS Config Low Security
+
+<a id="deep-fae605"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert TLS Config Medium Security
+
+<a id="deep-ea179a"></a>Deeply nested **Security** block collapsed for readability.
 
 #### Proxy Config HTTPS Auto Cert Use mTLS
 
@@ -648,13 +896,13 @@ An [`use_mtls`](#proxy-config-https-auto-cert-use-mtls) block (within [`proxy_co
 
 <a id="crl-c15557"></a>&#x2022; [`crl`](#crl-c15557) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [CRL](#crl-c15557) below.
 
-<a id="crl-66d7ea"></a>&#x2022; [`no_crl`](#crl-66d7ea) - Optional Block<br>Enable this option
+<a id="crl-66d7ea"></a>&#x2022; [`no_crl`](#crl-66d7ea) - Optional Object<br>Enable this option
 
 <a id="trusted-ca-3f29b8"></a>&#x2022; [`trusted_ca`](#trusted-ca-3f29b8) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Trusted CA](#trusted-ca-3f29b8) below.
 
 <a id="url-920d59"></a>&#x2022; [`trusted_ca_url`](#url-920d59) - Optional String<br>Upload a Root CA Certificate specifically for this Load Balancer
 
-<a id="disabled-e9978f"></a>&#x2022; [`xfcc_disabled`](#disabled-e9978f) - Optional Block<br>Enable this option
+<a id="disabled-e9978f"></a>&#x2022; [`xfcc_disabled`](#disabled-e9978f) - Optional Object<br>Enable this option
 
 <a id="options-6e1923"></a>&#x2022; [`xfcc_options`](#options-6e1923) - Optional Block<br>X-Forwarded-Client-Cert header elements to be added to requests<br>See [Xfcc Options](#options-6e1923) below.
 
@@ -662,9 +910,17 @@ An [`use_mtls`](#proxy-config-https-auto-cert-use-mtls) block (within [`proxy_co
 
 <a id="deep-f84d2a"></a>Deeply nested **CRL** block collapsed for readability.
 
+#### Proxy Config HTTPS Auto Cert Use mTLS No CRL
+
+<a id="deep-ff64e1"></a>Deeply nested **CRL** block collapsed for readability.
+
 #### Proxy Config HTTPS Auto Cert Use mTLS Trusted CA
 
 <a id="deep-ee900b"></a>Deeply nested **CA** block collapsed for readability.
+
+#### Proxy Config HTTPS Auto Cert Use mTLS Xfcc Disabled
+
+<a id="deep-7d5272"></a>Deeply nested **Disabled** block collapsed for readability.
 
 #### Proxy Config HTTPS Auto Cert Use mTLS Xfcc Options
 

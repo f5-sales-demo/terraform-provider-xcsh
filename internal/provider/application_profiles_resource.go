@@ -53,8 +53,8 @@ type ApplicationProfilesEmptyModel struct {
 
 // ApplicationProfilesAdvancedTCPProfileModel represents advanced_tcp_profile block
 type ApplicationProfilesAdvancedTCPProfileModel struct {
-	DisableTCPAdvancedProfile *ApplicationProfilesEmptyModel `tfsdk:"disable_tcp_advanced_profile"`
-	EnableTCPAdvancedProfile  *ApplicationProfilesEmptyModel `tfsdk:"enable_tcp_advanced_profile"`
+	DisableTCPAdvancedProfile types.Object `tfsdk:"disable_tcp_advanced_profile"`
+	EnableTCPAdvancedProfile  types.Object `tfsdk:"enable_tcp_advanced_profile"`
 }
 
 // ApplicationProfilesAdvancedTCPProfileModelAttrTypes defines the attribute types for ApplicationProfilesAdvancedTCPProfileModel
@@ -65,8 +65,8 @@ var ApplicationProfilesAdvancedTCPProfileModelAttrTypes = map[string]attr.Type{
 
 // ApplicationProfilesDDOSProfileModel represents ddos_profile block
 type ApplicationProfilesDDOSProfileModel struct {
-	DisableDDOSMitigation *ApplicationProfilesEmptyModel `tfsdk:"disable_ddos_mitigation"`
-	EnableDDOSMitigation  *ApplicationProfilesEmptyModel `tfsdk:"enable_ddos_mitigation"`
+	DisableDDOSMitigation types.Object `tfsdk:"disable_ddos_mitigation"`
+	EnableDDOSMitigation  types.Object `tfsdk:"enable_ddos_mitigation"`
 }
 
 // ApplicationProfilesDDOSProfileModelAttrTypes defines the attribute types for ApplicationProfilesDDOSProfileModel
@@ -153,8 +153,8 @@ var ApplicationProfilesVirtualServerModelAttrTypes = map[string]attr.Type{
 
 // ApplicationProfilesVirtualServerAddressTranslationModel represents address_translation block
 type ApplicationProfilesVirtualServerAddressTranslationModel struct {
-	AddressTranslationDisable *ApplicationProfilesEmptyModel `tfsdk:"address_translation_disable"`
-	AddressTranslationEnable  *ApplicationProfilesEmptyModel `tfsdk:"address_translation_enable"`
+	AddressTranslationDisable types.Object `tfsdk:"address_translation_disable"`
+	AddressTranslationEnable  types.Object `tfsdk:"address_translation_enable"`
 }
 
 // ApplicationProfilesVirtualServerAddressTranslationModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerAddressTranslationModel
@@ -165,9 +165,9 @@ var ApplicationProfilesVirtualServerAddressTranslationModelAttrTypes = map[strin
 
 // ApplicationProfilesVirtualServerAutoLastHopModel represents auto_last_hop block
 type ApplicationProfilesVirtualServerAutoLastHopModel struct {
-	AutoLastHopDefault *ApplicationProfilesEmptyModel `tfsdk:"auto_last_hop_default"`
-	AutoLastHopDisable *ApplicationProfilesEmptyModel `tfsdk:"auto_last_hop_disable"`
-	AutoLastHopEnable  *ApplicationProfilesEmptyModel `tfsdk:"auto_last_hop_enable"`
+	AutoLastHopDefault types.Object `tfsdk:"auto_last_hop_default"`
+	AutoLastHopDisable types.Object `tfsdk:"auto_last_hop_disable"`
+	AutoLastHopEnable  types.Object `tfsdk:"auto_last_hop_enable"`
 }
 
 // ApplicationProfilesVirtualServerAutoLastHopModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerAutoLastHopModel
@@ -215,10 +215,10 @@ var ApplicationProfilesVirtualServerClonePoolServerModelAttrTypes = map[string]a
 
 // ApplicationProfilesVirtualServerConnectionRateLimitModeModel represents connection_rate_limit_mode block
 type ApplicationProfilesVirtualServerConnectionRateLimitModeModel struct {
+	PerVirtualServer                         types.Object                                                                                          `tfsdk:"per_virtual_server"`
 	PerDestinationAddress                    *ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModel                    `tfsdk:"per_destination_address"`
 	PerSourceAddress                         *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModel                         `tfsdk:"per_source_address"`
 	PerSourceDestinationAddress              *ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModel              `tfsdk:"per_source_destination_address"`
-	PerVirtualServer                         *ApplicationProfilesEmptyModel                                                                        `tfsdk:"per_virtual_server"`
 	PerVirtualServerDestinationAddress       *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel       `tfsdk:"per_virtual_server_destination_address"`
 	PerVirtualServerSourceAddress            *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModel            `tfsdk:"per_virtual_server_source_address"`
 	PerVirtualServerSourceDestinationAddress *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModel `tfsdk:"per_virtual_server_source_destination_address"`
@@ -226,10 +226,10 @@ type ApplicationProfilesVirtualServerConnectionRateLimitModeModel struct {
 
 // ApplicationProfilesVirtualServerConnectionRateLimitModeModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerConnectionRateLimitModeModel
 var ApplicationProfilesVirtualServerConnectionRateLimitModeModelAttrTypes = map[string]attr.Type{
+	"per_virtual_server":                            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"per_destination_address":                       types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerConnectionRateLimitModePerDestinationAddressModelAttrTypes},
 	"per_source_address":                            types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceAddressModelAttrTypes},
 	"per_source_destination_address":                types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerConnectionRateLimitModePerSourceDestinationAddressModelAttrTypes},
-	"per_virtual_server":                            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"per_virtual_server_destination_address":        types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModelAttrTypes},
 	"per_virtual_server_source_address":             types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceAddressModelAttrTypes},
 	"per_virtual_server_source_destination_address": types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressModelAttrTypes},
@@ -1057,9 +1057,9 @@ var ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes = 
 
 // ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel represents immediate_action_on_service_down block
 type ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel struct {
-	ImmediateActionOnServiceDownDrop  *ApplicationProfilesEmptyModel `tfsdk:"immediate_action_on_service_down_drop"`
-	ImmediateActionOnServiceDownNone  *ApplicationProfilesEmptyModel `tfsdk:"immediate_action_on_service_down_none"`
-	ImmediateActionOnServiceDownReset *ApplicationProfilesEmptyModel `tfsdk:"immediate_action_on_service_down_reset"`
+	ImmediateActionOnServiceDownDrop  types.Object `tfsdk:"immediate_action_on_service_down_drop"`
+	ImmediateActionOnServiceDownNone  types.Object `tfsdk:"immediate_action_on_service_down_none"`
+	ImmediateActionOnServiceDownReset types.Object `tfsdk:"immediate_action_on_service_down_reset"`
 }
 
 // ApplicationProfilesVirtualServerImmediateActionOnServiceDownModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel
@@ -1089,8 +1089,8 @@ var ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes = map[string]attr.
 
 // ApplicationProfilesVirtualServerNat64Model represents nat64 block
 type ApplicationProfilesVirtualServerNat64Model struct {
-	Nat64Disable *ApplicationProfilesEmptyModel `tfsdk:"nat64_disable"`
-	Nat64Enable  *ApplicationProfilesEmptyModel `tfsdk:"nat64_enable"`
+	Nat64Disable types.Object `tfsdk:"nat64_disable"`
+	Nat64Enable  types.Object `tfsdk:"nat64_enable"`
 }
 
 // ApplicationProfilesVirtualServerNat64ModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerNat64Model
@@ -1101,8 +1101,8 @@ var ApplicationProfilesVirtualServerNat64ModelAttrTypes = map[string]attr.Type{
 
 // ApplicationProfilesVirtualServerPortTranslationModel represents port_translation block
 type ApplicationProfilesVirtualServerPortTranslationModel struct {
-	PortTranslationDisable *ApplicationProfilesEmptyModel `tfsdk:"port_translation_disable"`
-	PortTranslationEnable  *ApplicationProfilesEmptyModel `tfsdk:"port_translation_enable"`
+	PortTranslationDisable types.Object `tfsdk:"port_translation_disable"`
+	PortTranslationEnable  types.Object `tfsdk:"port_translation_enable"`
 }
 
 // ApplicationProfilesVirtualServerPortTranslationModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerPortTranslationModel
@@ -1131,9 +1131,9 @@ var ApplicationProfilesVirtualServerRequestLoggingProfileModelAttrTypes = map[st
 
 // ApplicationProfilesVirtualServerSourcePortModel represents source_port block
 type ApplicationProfilesVirtualServerSourcePortModel struct {
-	SourcePortChange         *ApplicationProfilesEmptyModel `tfsdk:"source_port_change"`
-	SourcePortPreserve       *ApplicationProfilesEmptyModel `tfsdk:"source_port_preserve"`
-	SourcePortPreserveStrict *ApplicationProfilesEmptyModel `tfsdk:"source_port_preserve_strict"`
+	SourcePortChange         types.Object `tfsdk:"source_port_change"`
+	SourcePortPreserve       types.Object `tfsdk:"source_port_preserve"`
+	SourcePortPreserveStrict types.Object `tfsdk:"source_port_preserve_strict"`
 }
 
 // ApplicationProfilesVirtualServerSourcePortModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerSourcePortModel
@@ -1359,8 +1359,8 @@ var ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes = map[stri
 
 // ApplicationProfilesVirtualServerVirtualServerStateModel represents virtual_server_state block
 type ApplicationProfilesVirtualServerVirtualServerStateModel struct {
-	StateDisabled *ApplicationProfilesEmptyModel `tfsdk:"state_disabled"`
-	StateEnabled  *ApplicationProfilesEmptyModel `tfsdk:"state_enabled"`
+	StateDisabled types.Object `tfsdk:"state_disabled"`
+	StateEnabled  types.Object `tfsdk:"state_enabled"`
 }
 
 // ApplicationProfilesVirtualServerVirtualServerStateModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerVirtualServerStateModel
@@ -1447,27 +1447,35 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 			}),
 			"advanced_tcp_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for advanced tcp profile.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_tcp_advanced_profile", "enable_tcp_advanced_profile")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_tcp_advanced_profile": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_tcp_advanced_profile": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for disable tcp advanced profile.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"enable_tcp_advanced_profile": schema.SingleNestedBlock{
+					"enable_tcp_advanced_profile": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for enable tcp advanced profile.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
 			"ddos_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for ddos profile.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_ddos_mitigation", "enable_ddos_mitigation")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_ddos_mitigation": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_ddos_mitigation": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"enable_ddos_mitigation": schema.SingleNestedBlock{
+					"enable_ddos_mitigation": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
@@ -1509,6 +1517,7 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 			},
 			"virtual_server": schema.SingleNestedBlock{
 				MarkdownDescription: "Specifies configuration related to virtual server.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("http", "http3"), validators.ConflictingObjectAttributes("http", "https"), validators.ConflictingObjectAttributes("http", "tcp"), validators.ConflictingObjectAttributes("http", "udp"), validators.ConflictingObjectAttributes("http3", "https"), validators.ConflictingObjectAttributes("http3", "tcp"), validators.ConflictingObjectAttributes("http3", "udp"), validators.ConflictingObjectAttributes("https", "tcp"), validators.ConflictingObjectAttributes("https", "udp"), validators.ConflictingObjectAttributes("tcp", "udp")},
 
 				Attributes: map[string]schema.Attribute{
 					"connection_limit": schema.Int64Attribute{
@@ -1536,28 +1545,38 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 				Blocks: map[string]schema.Block{
 					"address_translation": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies, when checked (enabled), that the system translates the address of the virtual server. When cleared (disabled), specifies that the system uses the address without translation. This option is useful when the system is load balancing devices that have the same IP address.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"address_translation_disable": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("address_translation_disable", "address_translation_enable")},
+						Attributes: map[string]schema.Attribute{
+							"address_translation_disable": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"address_translation_enable": schema.SingleNestedBlock{
+							"address_translation_enable": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
 					"auto_last_hop": schema.SingleNestedBlock{
 						MarkdownDescription: "When enabled, allows the system to send return traffic to the MAC address that transmitted the request, even if the routing table points to a different network or interface. As a result, the system can send return traffic to clients even when there is no matching route. For example, if the..",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"auto_last_hop_default": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_last_hop_default", "auto_last_hop_disable"), validators.ConflictingObjectAttributes("auto_last_hop_default", "auto_last_hop_enable"), validators.ConflictingObjectAttributes("auto_last_hop_disable", "auto_last_hop_enable")},
+						Attributes: map[string]schema.Attribute{
+							"auto_last_hop_default": schema.ObjectAttribute{
 								MarkdownDescription: "Configuration parameter for auto last hop default.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"auto_last_hop_disable": schema.SingleNestedBlock{
+							"auto_last_hop_disable": schema.ObjectAttribute{
 								MarkdownDescription: "Configuration parameter for auto last hop disable.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"auto_last_hop_enable": schema.SingleNestedBlock{
+							"auto_last_hop_enable": schema.ObjectAttribute{
 								MarkdownDescription: "Configuration parameter for auto last hop enable.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -1633,7 +1652,14 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					},
 					"connection_rate_limit_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for connection rate limit mode.",
-						Attributes:          map[string]schema.Attribute{},
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("per_destination_address", "per_source_address"), validators.ConflictingObjectAttributes("per_destination_address", "per_source_destination_address"), validators.ConflictingObjectAttributes("per_destination_address", "per_virtual_server"), validators.ConflictingObjectAttributes("per_destination_address", "per_virtual_server_destination_address"), validators.ConflictingObjectAttributes("per_destination_address", "per_virtual_server_source_address"), validators.ConflictingObjectAttributes("per_destination_address", "per_virtual_server_source_destination_address"), validators.ConflictingObjectAttributes("per_source_address", "per_source_destination_address"), validators.ConflictingObjectAttributes("per_source_address", "per_virtual_server"), validators.ConflictingObjectAttributes("per_source_address", "per_virtual_server_destination_address"), validators.ConflictingObjectAttributes("per_source_address", "per_virtual_server_source_address"), validators.ConflictingObjectAttributes("per_source_address", "per_virtual_server_source_destination_address"), validators.ConflictingObjectAttributes("per_source_destination_address", "per_virtual_server"), validators.ConflictingObjectAttributes("per_source_destination_address", "per_virtual_server_destination_address"), validators.ConflictingObjectAttributes("per_source_destination_address", "per_virtual_server_source_address"), validators.ConflictingObjectAttributes("per_source_destination_address", "per_virtual_server_source_destination_address"), validators.ConflictingObjectAttributes("per_virtual_server", "per_virtual_server_destination_address"), validators.ConflictingObjectAttributes("per_virtual_server", "per_virtual_server_source_address"), validators.ConflictingObjectAttributes("per_virtual_server", "per_virtual_server_source_destination_address"), validators.ConflictingObjectAttributes("per_virtual_server_destination_address", "per_virtual_server_source_address"), validators.ConflictingObjectAttributes("per_virtual_server_destination_address", "per_virtual_server_source_destination_address"), validators.ConflictingObjectAttributes("per_virtual_server_source_address", "per_virtual_server_source_destination_address")},
+						Attributes: map[string]schema.Attribute{
+							"per_virtual_server": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for per virtual server.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"per_destination_address": schema.SingleNestedBlock{
 								MarkdownDescription: "Destination Address Mask.",
@@ -1677,9 +1703,6 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 										},
 									},
 								},
-							},
-							"per_virtual_server": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for per virtual server.",
 							},
 							"per_virtual_server_destination_address": schema.SingleNestedBlock{
 								MarkdownDescription: "Destination Address Mask.",
@@ -3041,16 +3064,22 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					},
 					"immediate_action_on_service_down": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies the immediate action the BIG-IP system should respond with upon the receipt of the initial client's SYN packet, if the availability status of the virtual server is Offline or Unavailable. This is supported for the virtual server of Standard type and TCP protocol. The default is None.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"immediate_action_on_service_down_drop": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("immediate_action_on_service_down_drop", "immediate_action_on_service_down_none"), validators.ConflictingObjectAttributes("immediate_action_on_service_down_drop", "immediate_action_on_service_down_reset"), validators.ConflictingObjectAttributes("immediate_action_on_service_down_none", "immediate_action_on_service_down_reset")},
+						Attributes: map[string]schema.Attribute{
+							"immediate_action_on_service_down_drop": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"immediate_action_on_service_down_none": schema.SingleNestedBlock{
+							"immediate_action_on_service_down_none": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"immediate_action_on_service_down_reset": schema.SingleNestedBlock{
+							"immediate_action_on_service_down_reset": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -3091,25 +3120,33 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					},
 					"nat64": schema.SingleNestedBlock{
 						MarkdownDescription: "When enabled, allows the system to send return traffic to the MAC address that transmitted the request, even if the routing table points to a different network or interface. As a result, the system can send return traffic to clients even when there is no matching route. For example, if the..",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"nat64_disable": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("nat64_disable", "nat64_enable")},
+						Attributes: map[string]schema.Attribute{
+							"nat64_disable": schema.ObjectAttribute{
 								MarkdownDescription: "Configuration parameter for nat64 disable.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"nat64_enable": schema.SingleNestedBlock{
+							"nat64_enable": schema.ObjectAttribute{
 								MarkdownDescription: "Configuration parameter for nat64 enable.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
 					"port_translation": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies, when checked (enabled), that the system translates the port of the virtual server. When cleared (disabled), specifies that the system uses the port without translation. Turning off port translation for a virtual server is useful if you want to use the virtual server to load balance..",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"port_translation_disable": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("port_translation_disable", "port_translation_enable")},
+						Attributes: map[string]schema.Attribute{
+							"port_translation_disable": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"port_translation_enable": schema.SingleNestedBlock{
+							"port_translation_enable": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -3150,16 +3187,22 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					},
 					"source_port": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies whether the system preserves the source port of the connection. The default is Preserve.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"source_port_change": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("source_port_change", "source_port_preserve"), validators.ConflictingObjectAttributes("source_port_change", "source_port_preserve_strict"), validators.ConflictingObjectAttributes("source_port_preserve", "source_port_preserve_strict")},
+						Attributes: map[string]schema.Attribute{
+							"source_port_change": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"source_port_preserve": schema.SingleNestedBlock{
+							"source_port_preserve": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"source_port_preserve_strict": schema.SingleNestedBlock{
+							"source_port_preserve_strict": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -3527,13 +3570,17 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					},
 					"virtual_server_state": schema.SingleNestedBlock{
 						MarkdownDescription: "Displays the current state on the object.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"state_disabled": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("state_disabled", "state_enabled")},
+						Attributes: map[string]schema.Attribute{
+							"state_disabled": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"state_enabled": schema.SingleNestedBlock{
+							"state_enabled": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -3667,20 +3714,20 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 	// Marshal spec fields from Terraform state to API struct
 	if data.AdvancedTCPProfile != nil {
 		AdvancedTCPProfileMap := make(map[string]interface{})
-		if data.AdvancedTCPProfile.DisableTCPAdvancedProfile != nil {
+		if !data.AdvancedTCPProfile.DisableTCPAdvancedProfile.IsNull() && !data.AdvancedTCPProfile.DisableTCPAdvancedProfile.IsUnknown() {
 			AdvancedTCPProfileMap["disable_tcp_advanced_profile"] = map[string]interface{}{}
 		}
-		if data.AdvancedTCPProfile.EnableTCPAdvancedProfile != nil {
+		if !data.AdvancedTCPProfile.EnableTCPAdvancedProfile.IsNull() && !data.AdvancedTCPProfile.EnableTCPAdvancedProfile.IsUnknown() {
 			AdvancedTCPProfileMap["enable_tcp_advanced_profile"] = map[string]interface{}{}
 		}
 		createReq.Spec["advanced_tcp_profile"] = AdvancedTCPProfileMap
 	}
 	if data.DDOSProfile != nil {
 		DDOSProfileMap := make(map[string]interface{})
-		if data.DDOSProfile.DisableDDOSMitigation != nil {
+		if !data.DDOSProfile.DisableDDOSMitigation.IsNull() && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 			DDOSProfileMap["disable_ddos_mitigation"] = map[string]interface{}{}
 		}
-		if data.DDOSProfile.EnableDDOSMitigation != nil {
+		if !data.DDOSProfile.EnableDDOSMitigation.IsNull() && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 			DDOSProfileMap["enable_ddos_mitigation"] = map[string]interface{}{}
 		}
 		createReq.Spec["ddos_profile"] = DDOSProfileMap
@@ -3708,23 +3755,23 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 		VirtualServerMap := make(map[string]interface{})
 		if data.VirtualServer.AddressTranslation != nil {
 			VirtualServerAddressTranslationMap := make(map[string]interface{})
-			if data.VirtualServer.AddressTranslation.AddressTranslationDisable != nil {
+			if !data.VirtualServer.AddressTranslation.AddressTranslationDisable.IsNull() && !data.VirtualServer.AddressTranslation.AddressTranslationDisable.IsUnknown() {
 				VirtualServerAddressTranslationMap["address_translation_disable"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.AddressTranslation.AddressTranslationEnable != nil {
+			if !data.VirtualServer.AddressTranslation.AddressTranslationEnable.IsNull() && !data.VirtualServer.AddressTranslation.AddressTranslationEnable.IsUnknown() {
 				VirtualServerAddressTranslationMap["address_translation_enable"] = map[string]interface{}{}
 			}
 			VirtualServerMap["address_translation"] = VirtualServerAddressTranslationMap
 		}
 		if data.VirtualServer.AutoLastHop != nil {
 			VirtualServerAutoLastHopMap := make(map[string]interface{})
-			if data.VirtualServer.AutoLastHop.AutoLastHopDefault != nil {
+			if !data.VirtualServer.AutoLastHop.AutoLastHopDefault.IsNull() && !data.VirtualServer.AutoLastHop.AutoLastHopDefault.IsUnknown() {
 				VirtualServerAutoLastHopMap["auto_last_hop_default"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.AutoLastHop.AutoLastHopDisable != nil {
+			if !data.VirtualServer.AutoLastHop.AutoLastHopDisable.IsNull() && !data.VirtualServer.AutoLastHop.AutoLastHopDisable.IsUnknown() {
 				VirtualServerAutoLastHopMap["auto_last_hop_disable"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.AutoLastHop.AutoLastHopEnable != nil {
+			if !data.VirtualServer.AutoLastHop.AutoLastHopEnable.IsNull() && !data.VirtualServer.AutoLastHop.AutoLastHopEnable.IsUnknown() {
 				VirtualServerAutoLastHopMap["auto_last_hop_enable"] = map[string]interface{}{}
 			}
 			VirtualServerMap["auto_last_hop"] = VirtualServerAutoLastHopMap
@@ -3799,7 +3846,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				}
 				VirtualServerConnectionRateLimitModeMap["per_source_destination_address"] = VirtualServerConnectionRateLimitModePerSourceDestinationAddressMap
 			}
-			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer != nil {
+			if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer.IsUnknown() {
 				VirtualServerConnectionRateLimitModeMap["per_virtual_server"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil {
@@ -4545,13 +4592,13 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 		}
 		if data.VirtualServer.ImmediateActionOnServiceDown != nil {
 			VirtualServerImmediateActionOnServiceDownMap := make(map[string]interface{})
-			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop != nil {
+			if !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop.IsNull() && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop.IsUnknown() {
 				VirtualServerImmediateActionOnServiceDownMap["immediate_action_on_service_down_drop"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone != nil {
+			if !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone.IsNull() && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone.IsUnknown() {
 				VirtualServerImmediateActionOnServiceDownMap["immediate_action_on_service_down_none"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset != nil {
+			if !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset.IsNull() && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset.IsUnknown() {
 				VirtualServerImmediateActionOnServiceDownMap["immediate_action_on_service_down_reset"] = map[string]interface{}{}
 			}
 			VirtualServerMap["immediate_action_on_service_down"] = VirtualServerImmediateActionOnServiceDownMap
@@ -4577,20 +4624,20 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 		}
 		if data.VirtualServer.Nat64 != nil {
 			VirtualServerNat64Map := make(map[string]interface{})
-			if data.VirtualServer.Nat64.Nat64Disable != nil {
+			if !data.VirtualServer.Nat64.Nat64Disable.IsNull() && !data.VirtualServer.Nat64.Nat64Disable.IsUnknown() {
 				VirtualServerNat64Map["nat64_disable"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.Nat64.Nat64Enable != nil {
+			if !data.VirtualServer.Nat64.Nat64Enable.IsNull() && !data.VirtualServer.Nat64.Nat64Enable.IsUnknown() {
 				VirtualServerNat64Map["nat64_enable"] = map[string]interface{}{}
 			}
 			VirtualServerMap["nat64"] = VirtualServerNat64Map
 		}
 		if data.VirtualServer.PortTranslation != nil {
 			VirtualServerPortTranslationMap := make(map[string]interface{})
-			if data.VirtualServer.PortTranslation.PortTranslationDisable != nil {
+			if !data.VirtualServer.PortTranslation.PortTranslationDisable.IsNull() && !data.VirtualServer.PortTranslation.PortTranslationDisable.IsUnknown() {
 				VirtualServerPortTranslationMap["port_translation_disable"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.PortTranslation.PortTranslationEnable != nil {
+			if !data.VirtualServer.PortTranslation.PortTranslationEnable.IsNull() && !data.VirtualServer.PortTranslation.PortTranslationEnable.IsUnknown() {
 				VirtualServerPortTranslationMap["port_translation_enable"] = map[string]interface{}{}
 			}
 			VirtualServerMap["port_translation"] = VirtualServerPortTranslationMap
@@ -4616,13 +4663,13 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 		}
 		if data.VirtualServer.SourcePort != nil {
 			VirtualServerSourcePortMap := make(map[string]interface{})
-			if data.VirtualServer.SourcePort.SourcePortChange != nil {
+			if !data.VirtualServer.SourcePort.SourcePortChange.IsNull() && !data.VirtualServer.SourcePort.SourcePortChange.IsUnknown() {
 				VirtualServerSourcePortMap["source_port_change"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.SourcePort.SourcePortPreserve != nil {
+			if !data.VirtualServer.SourcePort.SourcePortPreserve.IsNull() && !data.VirtualServer.SourcePort.SourcePortPreserve.IsUnknown() {
 				VirtualServerSourcePortMap["source_port_preserve"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.SourcePort.SourcePortPreserveStrict != nil {
+			if !data.VirtualServer.SourcePort.SourcePortPreserveStrict.IsNull() && !data.VirtualServer.SourcePort.SourcePortPreserveStrict.IsUnknown() {
 				VirtualServerSourcePortMap["source_port_preserve_strict"] = map[string]interface{}{}
 			}
 			VirtualServerMap["source_port"] = VirtualServerSourcePortMap
@@ -4827,10 +4874,10 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 		}
 		if data.VirtualServer.VirtualServerState != nil {
 			VirtualServerVirtualServerStateMap := make(map[string]interface{})
-			if data.VirtualServer.VirtualServerState.StateDisabled != nil {
+			if !data.VirtualServer.VirtualServerState.StateDisabled.IsNull() && !data.VirtualServer.VirtualServerState.StateDisabled.IsUnknown() {
 				VirtualServerVirtualServerStateMap["state_disabled"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.VirtualServerState.StateEnabled != nil {
+			if !data.VirtualServer.VirtualServerState.StateEnabled.IsNull() && !data.VirtualServer.VirtualServerState.StateEnabled.IsUnknown() {
 				VirtualServerVirtualServerStateMap["state_enabled"] = map[string]interface{}{}
 			}
 			VirtualServerMap["virtual_server_state"] = VirtualServerVirtualServerStateMap
@@ -4881,45 +4928,45 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["advanced_tcp_profile"].(map[string]interface{}); ok && (isImport || data.AdvancedTCPProfile != nil) {
 		data.AdvancedTCPProfile = &ApplicationProfilesAdvancedTCPProfileModel{
-			DisableTCPAdvancedProfile: func() *ApplicationProfilesEmptyModel {
-				if !isImport && data.AdvancedTCPProfile != nil {
+			DisableTCPAdvancedProfile: func() types.Object {
+				if !isImport && data.AdvancedTCPProfile != nil && !data.AdvancedTCPProfile.DisableTCPAdvancedProfile.IsUnknown() {
 					return data.AdvancedTCPProfile.DisableTCPAdvancedProfile
 				}
 				if _, ok := blockData["disable_tcp_advanced_profile"].(map[string]interface{}); ok {
-					return &ApplicationProfilesEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableTCPAdvancedProfile: func() *ApplicationProfilesEmptyModel {
-				if !isImport && data.AdvancedTCPProfile != nil {
+			EnableTCPAdvancedProfile: func() types.Object {
+				if !isImport && data.AdvancedTCPProfile != nil && !data.AdvancedTCPProfile.EnableTCPAdvancedProfile.IsUnknown() {
 					return data.AdvancedTCPProfile.EnableTCPAdvancedProfile
 				}
 				if _, ok := blockData["enable_tcp_advanced_profile"].(map[string]interface{}); ok {
-					return &ApplicationProfilesEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
 		data.DDOSProfile = &ApplicationProfilesDDOSProfileModel{
-			DisableDDOSMitigation: func() *ApplicationProfilesEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			DisableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.DisableDDOSMitigation
 				}
 				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &ApplicationProfilesEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableDDOSMitigation: func() *ApplicationProfilesEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			EnableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.EnableDDOSMitigation
 				}
 				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &ApplicationProfilesEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -4984,23 +5031,23 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				}
 				if AddressTranslationData, ok := blockData["address_translation"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerAddressTranslationModel{
-						AddressTranslationDisable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
+						AddressTranslationDisable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil && !data.VirtualServer.AddressTranslation.AddressTranslationDisable.IsUnknown() {
 								return data.VirtualServer.AddressTranslation.AddressTranslationDisable
 							}
 							if _, ok := AddressTranslationData["address_translation_disable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						AddressTranslationEnable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
+						AddressTranslationEnable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil && !data.VirtualServer.AddressTranslation.AddressTranslationEnable.IsUnknown() {
 								return data.VirtualServer.AddressTranslation.AddressTranslationEnable
 							}
 							if _, ok := AddressTranslationData["address_translation_enable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -5012,32 +5059,32 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				}
 				if AutoLastHopData, ok := blockData["auto_last_hop"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerAutoLastHopModel{
-						AutoLastHopDefault: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+						AutoLastHopDefault: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil && !data.VirtualServer.AutoLastHop.AutoLastHopDefault.IsUnknown() {
 								return data.VirtualServer.AutoLastHop.AutoLastHopDefault
 							}
 							if _, ok := AutoLastHopData["auto_last_hop_default"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						AutoLastHopDisable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+						AutoLastHopDisable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil && !data.VirtualServer.AutoLastHop.AutoLastHopDisable.IsUnknown() {
 								return data.VirtualServer.AutoLastHop.AutoLastHopDisable
 							}
 							if _, ok := AutoLastHopData["auto_last_hop_disable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						AutoLastHopEnable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+						AutoLastHopEnable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil && !data.VirtualServer.AutoLastHop.AutoLastHopEnable.IsUnknown() {
 								return data.VirtualServer.AutoLastHop.AutoLastHopEnable
 							}
 							if _, ok := AutoLastHopData["auto_last_hop_enable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -5237,14 +5284,14 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 							}
 							return nil
 						}(),
-						PerVirtualServer: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil {
+						PerVirtualServer: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer.IsUnknown() {
 								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer
 							}
 							if _, ok := ConnectionRateLimitModeData["per_virtual_server"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						PerVirtualServerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil {
@@ -7267,32 +7314,32 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				}
 				if ImmediateActionOnServiceDownData, ok := blockData["immediate_action_on_service_down"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel{
-						ImmediateActionOnServiceDownDrop: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+						ImmediateActionOnServiceDownDrop: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop.IsUnknown() {
 								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop
 							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_drop"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						ImmediateActionOnServiceDownNone: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+						ImmediateActionOnServiceDownNone: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone.IsUnknown() {
 								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone
 							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_none"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						ImmediateActionOnServiceDownReset: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+						ImmediateActionOnServiceDownReset: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset.IsUnknown() {
 								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset
 							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_reset"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -7356,23 +7403,23 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				}
 				if Nat64Data, ok := blockData["nat64"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerNat64Model{
-						Nat64Disable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
+						Nat64Disable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil && !data.VirtualServer.Nat64.Nat64Disable.IsUnknown() {
 								return data.VirtualServer.Nat64.Nat64Disable
 							}
 							if _, ok := Nat64Data["nat64_disable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Nat64Enable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
+						Nat64Enable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil && !data.VirtualServer.Nat64.Nat64Enable.IsUnknown() {
 								return data.VirtualServer.Nat64.Nat64Enable
 							}
 							if _, ok := Nat64Data["nat64_enable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -7384,23 +7431,23 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				}
 				if PortTranslationData, ok := blockData["port_translation"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerPortTranslationModel{
-						PortTranslationDisable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
+						PortTranslationDisable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil && !data.VirtualServer.PortTranslation.PortTranslationDisable.IsUnknown() {
 								return data.VirtualServer.PortTranslation.PortTranslationDisable
 							}
 							if _, ok := PortTranslationData["port_translation_disable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						PortTranslationEnable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
+						PortTranslationEnable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil && !data.VirtualServer.PortTranslation.PortTranslationEnable.IsUnknown() {
 								return data.VirtualServer.PortTranslation.PortTranslationEnable
 							}
 							if _, ok := PortTranslationData["port_translation_enable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -7464,32 +7511,32 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				}
 				if SourcePortData, ok := blockData["source_port"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerSourcePortModel{
-						SourcePortChange: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+						SourcePortChange: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil && !data.VirtualServer.SourcePort.SourcePortChange.IsUnknown() {
 								return data.VirtualServer.SourcePort.SourcePortChange
 							}
 							if _, ok := SourcePortData["source_port_change"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						SourcePortPreserve: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+						SourcePortPreserve: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil && !data.VirtualServer.SourcePort.SourcePortPreserve.IsUnknown() {
 								return data.VirtualServer.SourcePort.SourcePortPreserve
 							}
 							if _, ok := SourcePortData["source_port_preserve"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						SourcePortPreserveStrict: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+						SourcePortPreserveStrict: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil && !data.VirtualServer.SourcePort.SourcePortPreserveStrict.IsUnknown() {
 								return data.VirtualServer.SourcePort.SourcePortPreserveStrict
 							}
 							if _, ok := SourcePortData["source_port_preserve_strict"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -8035,23 +8082,23 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				}
 				if VirtualServerStateData, ok := blockData["virtual_server_state"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerVirtualServerStateModel{
-						StateDisabled: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
+						StateDisabled: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil && !data.VirtualServer.VirtualServerState.StateDisabled.IsUnknown() {
 								return data.VirtualServer.VirtualServerState.StateDisabled
 							}
 							if _, ok := VirtualServerStateData["state_disabled"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						StateEnabled: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
+						StateEnabled: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil && !data.VirtualServer.VirtualServerState.StateEnabled.IsUnknown() {
 								return data.VirtualServer.VirtualServerState.StateEnabled
 							}
 							if _, ok := VirtualServerStateData["state_enabled"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -8201,45 +8248,45 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["advanced_tcp_profile"].(map[string]interface{}); ok && (isImport || data.AdvancedTCPProfile != nil) {
 		data.AdvancedTCPProfile = &ApplicationProfilesAdvancedTCPProfileModel{
-			DisableTCPAdvancedProfile: func() *ApplicationProfilesEmptyModel {
-				if !isImport && data.AdvancedTCPProfile != nil {
+			DisableTCPAdvancedProfile: func() types.Object {
+				if !isImport && data.AdvancedTCPProfile != nil && !data.AdvancedTCPProfile.DisableTCPAdvancedProfile.IsUnknown() {
 					return data.AdvancedTCPProfile.DisableTCPAdvancedProfile
 				}
 				if _, ok := blockData["disable_tcp_advanced_profile"].(map[string]interface{}); ok {
-					return &ApplicationProfilesEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableTCPAdvancedProfile: func() *ApplicationProfilesEmptyModel {
-				if !isImport && data.AdvancedTCPProfile != nil {
+			EnableTCPAdvancedProfile: func() types.Object {
+				if !isImport && data.AdvancedTCPProfile != nil && !data.AdvancedTCPProfile.EnableTCPAdvancedProfile.IsUnknown() {
 					return data.AdvancedTCPProfile.EnableTCPAdvancedProfile
 				}
 				if _, ok := blockData["enable_tcp_advanced_profile"].(map[string]interface{}); ok {
-					return &ApplicationProfilesEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
 		data.DDOSProfile = &ApplicationProfilesDDOSProfileModel{
-			DisableDDOSMitigation: func() *ApplicationProfilesEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			DisableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.DisableDDOSMitigation
 				}
 				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &ApplicationProfilesEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableDDOSMitigation: func() *ApplicationProfilesEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			EnableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.EnableDDOSMitigation
 				}
 				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &ApplicationProfilesEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -8304,23 +8351,23 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				}
 				if AddressTranslationData, ok := blockData["address_translation"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerAddressTranslationModel{
-						AddressTranslationDisable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
+						AddressTranslationDisable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil && !data.VirtualServer.AddressTranslation.AddressTranslationDisable.IsUnknown() {
 								return data.VirtualServer.AddressTranslation.AddressTranslationDisable
 							}
 							if _, ok := AddressTranslationData["address_translation_disable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						AddressTranslationEnable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
+						AddressTranslationEnable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil && !data.VirtualServer.AddressTranslation.AddressTranslationEnable.IsUnknown() {
 								return data.VirtualServer.AddressTranslation.AddressTranslationEnable
 							}
 							if _, ok := AddressTranslationData["address_translation_enable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -8332,32 +8379,32 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				}
 				if AutoLastHopData, ok := blockData["auto_last_hop"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerAutoLastHopModel{
-						AutoLastHopDefault: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+						AutoLastHopDefault: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil && !data.VirtualServer.AutoLastHop.AutoLastHopDefault.IsUnknown() {
 								return data.VirtualServer.AutoLastHop.AutoLastHopDefault
 							}
 							if _, ok := AutoLastHopData["auto_last_hop_default"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						AutoLastHopDisable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+						AutoLastHopDisable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil && !data.VirtualServer.AutoLastHop.AutoLastHopDisable.IsUnknown() {
 								return data.VirtualServer.AutoLastHop.AutoLastHopDisable
 							}
 							if _, ok := AutoLastHopData["auto_last_hop_disable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						AutoLastHopEnable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+						AutoLastHopEnable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil && !data.VirtualServer.AutoLastHop.AutoLastHopEnable.IsUnknown() {
 								return data.VirtualServer.AutoLastHop.AutoLastHopEnable
 							}
 							if _, ok := AutoLastHopData["auto_last_hop_enable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -8557,14 +8604,14 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 							}
 							return nil
 						}(),
-						PerVirtualServer: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil {
+						PerVirtualServer: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer.IsUnknown() {
 								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer
 							}
 							if _, ok := ConnectionRateLimitModeData["per_virtual_server"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						PerVirtualServerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil {
@@ -10587,32 +10634,32 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				}
 				if ImmediateActionOnServiceDownData, ok := blockData["immediate_action_on_service_down"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel{
-						ImmediateActionOnServiceDownDrop: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+						ImmediateActionOnServiceDownDrop: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop.IsUnknown() {
 								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop
 							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_drop"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						ImmediateActionOnServiceDownNone: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+						ImmediateActionOnServiceDownNone: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone.IsUnknown() {
 								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone
 							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_none"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						ImmediateActionOnServiceDownReset: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+						ImmediateActionOnServiceDownReset: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset.IsUnknown() {
 								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset
 							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_reset"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -10676,23 +10723,23 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				}
 				if Nat64Data, ok := blockData["nat64"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerNat64Model{
-						Nat64Disable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
+						Nat64Disable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil && !data.VirtualServer.Nat64.Nat64Disable.IsUnknown() {
 								return data.VirtualServer.Nat64.Nat64Disable
 							}
 							if _, ok := Nat64Data["nat64_disable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Nat64Enable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
+						Nat64Enable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil && !data.VirtualServer.Nat64.Nat64Enable.IsUnknown() {
 								return data.VirtualServer.Nat64.Nat64Enable
 							}
 							if _, ok := Nat64Data["nat64_enable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -10704,23 +10751,23 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				}
 				if PortTranslationData, ok := blockData["port_translation"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerPortTranslationModel{
-						PortTranslationDisable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
+						PortTranslationDisable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil && !data.VirtualServer.PortTranslation.PortTranslationDisable.IsUnknown() {
 								return data.VirtualServer.PortTranslation.PortTranslationDisable
 							}
 							if _, ok := PortTranslationData["port_translation_disable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						PortTranslationEnable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
+						PortTranslationEnable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil && !data.VirtualServer.PortTranslation.PortTranslationEnable.IsUnknown() {
 								return data.VirtualServer.PortTranslation.PortTranslationEnable
 							}
 							if _, ok := PortTranslationData["port_translation_enable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -10784,32 +10831,32 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				}
 				if SourcePortData, ok := blockData["source_port"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerSourcePortModel{
-						SourcePortChange: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+						SourcePortChange: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil && !data.VirtualServer.SourcePort.SourcePortChange.IsUnknown() {
 								return data.VirtualServer.SourcePort.SourcePortChange
 							}
 							if _, ok := SourcePortData["source_port_change"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						SourcePortPreserve: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+						SourcePortPreserve: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil && !data.VirtualServer.SourcePort.SourcePortPreserve.IsUnknown() {
 								return data.VirtualServer.SourcePort.SourcePortPreserve
 							}
 							if _, ok := SourcePortData["source_port_preserve"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						SourcePortPreserveStrict: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+						SourcePortPreserveStrict: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil && !data.VirtualServer.SourcePort.SourcePortPreserveStrict.IsUnknown() {
 								return data.VirtualServer.SourcePort.SourcePortPreserveStrict
 							}
 							if _, ok := SourcePortData["source_port_preserve_strict"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -11355,23 +11402,23 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				}
 				if VirtualServerStateData, ok := blockData["virtual_server_state"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerVirtualServerStateModel{
-						StateDisabled: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
+						StateDisabled: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil && !data.VirtualServer.VirtualServerState.StateDisabled.IsUnknown() {
 								return data.VirtualServer.VirtualServerState.StateDisabled
 							}
 							if _, ok := VirtualServerStateData["state_disabled"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						StateEnabled: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
+						StateEnabled: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil && !data.VirtualServer.VirtualServerState.StateEnabled.IsUnknown() {
 								return data.VirtualServer.VirtualServerState.StateEnabled
 							}
 							if _, ok := VirtualServerStateData["state_enabled"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -11484,20 +11531,20 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 	// Marshal spec fields from Terraform state to API struct
 	if data.AdvancedTCPProfile != nil {
 		AdvancedTCPProfileMap := make(map[string]interface{})
-		if data.AdvancedTCPProfile.DisableTCPAdvancedProfile != nil {
+		if !data.AdvancedTCPProfile.DisableTCPAdvancedProfile.IsNull() && !data.AdvancedTCPProfile.DisableTCPAdvancedProfile.IsUnknown() {
 			AdvancedTCPProfileMap["disable_tcp_advanced_profile"] = map[string]interface{}{}
 		}
-		if data.AdvancedTCPProfile.EnableTCPAdvancedProfile != nil {
+		if !data.AdvancedTCPProfile.EnableTCPAdvancedProfile.IsNull() && !data.AdvancedTCPProfile.EnableTCPAdvancedProfile.IsUnknown() {
 			AdvancedTCPProfileMap["enable_tcp_advanced_profile"] = map[string]interface{}{}
 		}
 		apiResource.Spec["advanced_tcp_profile"] = AdvancedTCPProfileMap
 	}
 	if data.DDOSProfile != nil {
 		DDOSProfileMap := make(map[string]interface{})
-		if data.DDOSProfile.DisableDDOSMitigation != nil {
+		if !data.DDOSProfile.DisableDDOSMitigation.IsNull() && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 			DDOSProfileMap["disable_ddos_mitigation"] = map[string]interface{}{}
 		}
-		if data.DDOSProfile.EnableDDOSMitigation != nil {
+		if !data.DDOSProfile.EnableDDOSMitigation.IsNull() && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 			DDOSProfileMap["enable_ddos_mitigation"] = map[string]interface{}{}
 		}
 		apiResource.Spec["ddos_profile"] = DDOSProfileMap
@@ -11525,23 +11572,23 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 		VirtualServerMap := make(map[string]interface{})
 		if data.VirtualServer.AddressTranslation != nil {
 			VirtualServerAddressTranslationMap := make(map[string]interface{})
-			if data.VirtualServer.AddressTranslation.AddressTranslationDisable != nil {
+			if !data.VirtualServer.AddressTranslation.AddressTranslationDisable.IsNull() && !data.VirtualServer.AddressTranslation.AddressTranslationDisable.IsUnknown() {
 				VirtualServerAddressTranslationMap["address_translation_disable"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.AddressTranslation.AddressTranslationEnable != nil {
+			if !data.VirtualServer.AddressTranslation.AddressTranslationEnable.IsNull() && !data.VirtualServer.AddressTranslation.AddressTranslationEnable.IsUnknown() {
 				VirtualServerAddressTranslationMap["address_translation_enable"] = map[string]interface{}{}
 			}
 			VirtualServerMap["address_translation"] = VirtualServerAddressTranslationMap
 		}
 		if data.VirtualServer.AutoLastHop != nil {
 			VirtualServerAutoLastHopMap := make(map[string]interface{})
-			if data.VirtualServer.AutoLastHop.AutoLastHopDefault != nil {
+			if !data.VirtualServer.AutoLastHop.AutoLastHopDefault.IsNull() && !data.VirtualServer.AutoLastHop.AutoLastHopDefault.IsUnknown() {
 				VirtualServerAutoLastHopMap["auto_last_hop_default"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.AutoLastHop.AutoLastHopDisable != nil {
+			if !data.VirtualServer.AutoLastHop.AutoLastHopDisable.IsNull() && !data.VirtualServer.AutoLastHop.AutoLastHopDisable.IsUnknown() {
 				VirtualServerAutoLastHopMap["auto_last_hop_disable"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.AutoLastHop.AutoLastHopEnable != nil {
+			if !data.VirtualServer.AutoLastHop.AutoLastHopEnable.IsNull() && !data.VirtualServer.AutoLastHop.AutoLastHopEnable.IsUnknown() {
 				VirtualServerAutoLastHopMap["auto_last_hop_enable"] = map[string]interface{}{}
 			}
 			VirtualServerMap["auto_last_hop"] = VirtualServerAutoLastHopMap
@@ -11616,7 +11663,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				}
 				VirtualServerConnectionRateLimitModeMap["per_source_destination_address"] = VirtualServerConnectionRateLimitModePerSourceDestinationAddressMap
 			}
-			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer != nil {
+			if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer.IsUnknown() {
 				VirtualServerConnectionRateLimitModeMap["per_virtual_server"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil {
@@ -12362,13 +12409,13 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 		}
 		if data.VirtualServer.ImmediateActionOnServiceDown != nil {
 			VirtualServerImmediateActionOnServiceDownMap := make(map[string]interface{})
-			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop != nil {
+			if !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop.IsNull() && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop.IsUnknown() {
 				VirtualServerImmediateActionOnServiceDownMap["immediate_action_on_service_down_drop"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone != nil {
+			if !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone.IsNull() && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone.IsUnknown() {
 				VirtualServerImmediateActionOnServiceDownMap["immediate_action_on_service_down_none"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset != nil {
+			if !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset.IsNull() && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset.IsUnknown() {
 				VirtualServerImmediateActionOnServiceDownMap["immediate_action_on_service_down_reset"] = map[string]interface{}{}
 			}
 			VirtualServerMap["immediate_action_on_service_down"] = VirtualServerImmediateActionOnServiceDownMap
@@ -12394,20 +12441,20 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 		}
 		if data.VirtualServer.Nat64 != nil {
 			VirtualServerNat64Map := make(map[string]interface{})
-			if data.VirtualServer.Nat64.Nat64Disable != nil {
+			if !data.VirtualServer.Nat64.Nat64Disable.IsNull() && !data.VirtualServer.Nat64.Nat64Disable.IsUnknown() {
 				VirtualServerNat64Map["nat64_disable"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.Nat64.Nat64Enable != nil {
+			if !data.VirtualServer.Nat64.Nat64Enable.IsNull() && !data.VirtualServer.Nat64.Nat64Enable.IsUnknown() {
 				VirtualServerNat64Map["nat64_enable"] = map[string]interface{}{}
 			}
 			VirtualServerMap["nat64"] = VirtualServerNat64Map
 		}
 		if data.VirtualServer.PortTranslation != nil {
 			VirtualServerPortTranslationMap := make(map[string]interface{})
-			if data.VirtualServer.PortTranslation.PortTranslationDisable != nil {
+			if !data.VirtualServer.PortTranslation.PortTranslationDisable.IsNull() && !data.VirtualServer.PortTranslation.PortTranslationDisable.IsUnknown() {
 				VirtualServerPortTranslationMap["port_translation_disable"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.PortTranslation.PortTranslationEnable != nil {
+			if !data.VirtualServer.PortTranslation.PortTranslationEnable.IsNull() && !data.VirtualServer.PortTranslation.PortTranslationEnable.IsUnknown() {
 				VirtualServerPortTranslationMap["port_translation_enable"] = map[string]interface{}{}
 			}
 			VirtualServerMap["port_translation"] = VirtualServerPortTranslationMap
@@ -12433,13 +12480,13 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 		}
 		if data.VirtualServer.SourcePort != nil {
 			VirtualServerSourcePortMap := make(map[string]interface{})
-			if data.VirtualServer.SourcePort.SourcePortChange != nil {
+			if !data.VirtualServer.SourcePort.SourcePortChange.IsNull() && !data.VirtualServer.SourcePort.SourcePortChange.IsUnknown() {
 				VirtualServerSourcePortMap["source_port_change"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.SourcePort.SourcePortPreserve != nil {
+			if !data.VirtualServer.SourcePort.SourcePortPreserve.IsNull() && !data.VirtualServer.SourcePort.SourcePortPreserve.IsUnknown() {
 				VirtualServerSourcePortMap["source_port_preserve"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.SourcePort.SourcePortPreserveStrict != nil {
+			if !data.VirtualServer.SourcePort.SourcePortPreserveStrict.IsNull() && !data.VirtualServer.SourcePort.SourcePortPreserveStrict.IsUnknown() {
 				VirtualServerSourcePortMap["source_port_preserve_strict"] = map[string]interface{}{}
 			}
 			VirtualServerMap["source_port"] = VirtualServerSourcePortMap
@@ -12644,10 +12691,10 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 		}
 		if data.VirtualServer.VirtualServerState != nil {
 			VirtualServerVirtualServerStateMap := make(map[string]interface{})
-			if data.VirtualServer.VirtualServerState.StateDisabled != nil {
+			if !data.VirtualServer.VirtualServerState.StateDisabled.IsNull() && !data.VirtualServer.VirtualServerState.StateDisabled.IsUnknown() {
 				VirtualServerVirtualServerStateMap["state_disabled"] = map[string]interface{}{}
 			}
-			if data.VirtualServer.VirtualServerState.StateEnabled != nil {
+			if !data.VirtualServer.VirtualServerState.StateEnabled.IsNull() && !data.VirtualServer.VirtualServerState.StateEnabled.IsUnknown() {
 				VirtualServerVirtualServerStateMap["state_enabled"] = map[string]interface{}{}
 			}
 			VirtualServerMap["virtual_server_state"] = VirtualServerVirtualServerStateMap
@@ -12718,45 +12765,45 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["advanced_tcp_profile"].(map[string]interface{}); ok && (isImport || data.AdvancedTCPProfile != nil) {
 		data.AdvancedTCPProfile = &ApplicationProfilesAdvancedTCPProfileModel{
-			DisableTCPAdvancedProfile: func() *ApplicationProfilesEmptyModel {
-				if !isImport && data.AdvancedTCPProfile != nil {
+			DisableTCPAdvancedProfile: func() types.Object {
+				if !isImport && data.AdvancedTCPProfile != nil && !data.AdvancedTCPProfile.DisableTCPAdvancedProfile.IsUnknown() {
 					return data.AdvancedTCPProfile.DisableTCPAdvancedProfile
 				}
 				if _, ok := blockData["disable_tcp_advanced_profile"].(map[string]interface{}); ok {
-					return &ApplicationProfilesEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableTCPAdvancedProfile: func() *ApplicationProfilesEmptyModel {
-				if !isImport && data.AdvancedTCPProfile != nil {
+			EnableTCPAdvancedProfile: func() types.Object {
+				if !isImport && data.AdvancedTCPProfile != nil && !data.AdvancedTCPProfile.EnableTCPAdvancedProfile.IsUnknown() {
 					return data.AdvancedTCPProfile.EnableTCPAdvancedProfile
 				}
 				if _, ok := blockData["enable_tcp_advanced_profile"].(map[string]interface{}); ok {
-					return &ApplicationProfilesEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
 		data.DDOSProfile = &ApplicationProfilesDDOSProfileModel{
-			DisableDDOSMitigation: func() *ApplicationProfilesEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			DisableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.DisableDDOSMitigation
 				}
 				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &ApplicationProfilesEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableDDOSMitigation: func() *ApplicationProfilesEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			EnableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.EnableDDOSMitigation
 				}
 				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &ApplicationProfilesEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -12821,23 +12868,23 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				}
 				if AddressTranslationData, ok := blockData["address_translation"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerAddressTranslationModel{
-						AddressTranslationDisable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
+						AddressTranslationDisable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil && !data.VirtualServer.AddressTranslation.AddressTranslationDisable.IsUnknown() {
 								return data.VirtualServer.AddressTranslation.AddressTranslationDisable
 							}
 							if _, ok := AddressTranslationData["address_translation_disable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						AddressTranslationEnable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil {
+						AddressTranslationEnable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AddressTranslation != nil && !data.VirtualServer.AddressTranslation.AddressTranslationEnable.IsUnknown() {
 								return data.VirtualServer.AddressTranslation.AddressTranslationEnable
 							}
 							if _, ok := AddressTranslationData["address_translation_enable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -12849,32 +12896,32 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				}
 				if AutoLastHopData, ok := blockData["auto_last_hop"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerAutoLastHopModel{
-						AutoLastHopDefault: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+						AutoLastHopDefault: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil && !data.VirtualServer.AutoLastHop.AutoLastHopDefault.IsUnknown() {
 								return data.VirtualServer.AutoLastHop.AutoLastHopDefault
 							}
 							if _, ok := AutoLastHopData["auto_last_hop_default"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						AutoLastHopDisable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+						AutoLastHopDisable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil && !data.VirtualServer.AutoLastHop.AutoLastHopDisable.IsUnknown() {
 								return data.VirtualServer.AutoLastHop.AutoLastHopDisable
 							}
 							if _, ok := AutoLastHopData["auto_last_hop_disable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						AutoLastHopEnable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil {
+						AutoLastHopEnable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.AutoLastHop != nil && !data.VirtualServer.AutoLastHop.AutoLastHopEnable.IsUnknown() {
 								return data.VirtualServer.AutoLastHop.AutoLastHopEnable
 							}
 							if _, ok := AutoLastHopData["auto_last_hop_enable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -13074,14 +13121,14 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 							}
 							return nil
 						}(),
-						PerVirtualServer: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil {
+						PerVirtualServer: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer.IsUnknown() {
 								return data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer
 							}
 							if _, ok := ConnectionRateLimitModeData["per_virtual_server"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						PerVirtualServerDestinationAddress: func() *ApplicationProfilesVirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressModel {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.ConnectionRateLimitMode != nil && data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil {
@@ -15104,32 +15151,32 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				}
 				if ImmediateActionOnServiceDownData, ok := blockData["immediate_action_on_service_down"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel{
-						ImmediateActionOnServiceDownDrop: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+						ImmediateActionOnServiceDownDrop: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop.IsUnknown() {
 								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop
 							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_drop"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						ImmediateActionOnServiceDownNone: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+						ImmediateActionOnServiceDownNone: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone.IsUnknown() {
 								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone
 							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_none"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						ImmediateActionOnServiceDownReset: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil {
+						ImmediateActionOnServiceDownReset: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.ImmediateActionOnServiceDown != nil && !data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset.IsUnknown() {
 								return data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset
 							}
 							if _, ok := ImmediateActionOnServiceDownData["immediate_action_on_service_down_reset"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -15193,23 +15240,23 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				}
 				if Nat64Data, ok := blockData["nat64"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerNat64Model{
-						Nat64Disable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
+						Nat64Disable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil && !data.VirtualServer.Nat64.Nat64Disable.IsUnknown() {
 								return data.VirtualServer.Nat64.Nat64Disable
 							}
 							if _, ok := Nat64Data["nat64_disable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Nat64Enable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil {
+						Nat64Enable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Nat64 != nil && !data.VirtualServer.Nat64.Nat64Enable.IsUnknown() {
 								return data.VirtualServer.Nat64.Nat64Enable
 							}
 							if _, ok := Nat64Data["nat64_enable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -15221,23 +15268,23 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				}
 				if PortTranslationData, ok := blockData["port_translation"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerPortTranslationModel{
-						PortTranslationDisable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
+						PortTranslationDisable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil && !data.VirtualServer.PortTranslation.PortTranslationDisable.IsUnknown() {
 								return data.VirtualServer.PortTranslation.PortTranslationDisable
 							}
 							if _, ok := PortTranslationData["port_translation_disable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						PortTranslationEnable: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil {
+						PortTranslationEnable: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.PortTranslation != nil && !data.VirtualServer.PortTranslation.PortTranslationEnable.IsUnknown() {
 								return data.VirtualServer.PortTranslation.PortTranslationEnable
 							}
 							if _, ok := PortTranslationData["port_translation_enable"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -15301,32 +15348,32 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				}
 				if SourcePortData, ok := blockData["source_port"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerSourcePortModel{
-						SourcePortChange: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+						SourcePortChange: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil && !data.VirtualServer.SourcePort.SourcePortChange.IsUnknown() {
 								return data.VirtualServer.SourcePort.SourcePortChange
 							}
 							if _, ok := SourcePortData["source_port_change"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						SourcePortPreserve: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+						SourcePortPreserve: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil && !data.VirtualServer.SourcePort.SourcePortPreserve.IsUnknown() {
 								return data.VirtualServer.SourcePort.SourcePortPreserve
 							}
 							if _, ok := SourcePortData["source_port_preserve"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						SourcePortPreserveStrict: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil {
+						SourcePortPreserveStrict: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.SourcePort != nil && !data.VirtualServer.SourcePort.SourcePortPreserveStrict.IsUnknown() {
 								return data.VirtualServer.SourcePort.SourcePortPreserveStrict
 							}
 							if _, ok := SourcePortData["source_port_preserve_strict"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -15872,23 +15919,23 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				}
 				if VirtualServerStateData, ok := blockData["virtual_server_state"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerVirtualServerStateModel{
-						StateDisabled: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
+						StateDisabled: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil && !data.VirtualServer.VirtualServerState.StateDisabled.IsUnknown() {
 								return data.VirtualServer.VirtualServerState.StateDisabled
 							}
 							if _, ok := VirtualServerStateData["state_disabled"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						StateEnabled: func() *ApplicationProfilesEmptyModel {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil {
+						StateEnabled: func() types.Object {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.VirtualServerState != nil && !data.VirtualServer.VirtualServerState.StateEnabled.IsUnknown() {
 								return data.VirtualServer.VirtualServerState.StateEnabled
 							}
 							if _, ok := VirtualServerStateData["state_enabled"].(map[string]interface{}); ok {
-								return &ApplicationProfilesEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}

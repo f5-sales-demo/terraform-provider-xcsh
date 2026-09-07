@@ -20,6 +20,6 @@ resource "xcsh_rate_limiter" "test" {
     unit             = "MINUTE"
     burst_multiplier = 2
 
-    leaky_bucket {}
+    leaky_bucket = {}
   }
 }

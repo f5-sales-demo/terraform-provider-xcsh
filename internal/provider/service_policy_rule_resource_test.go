@@ -347,7 +347,7 @@ resource "xcsh_service_policy_rule" "test" {
   namespace = "system"
 
   waf_action {
-    none {}
+    none = {}
   }
 }
 `, name))
@@ -365,7 +365,7 @@ resource "xcsh_service_policy_rule" "test" {
   description = %[2]q
 
   waf_action {
-    none {}
+    none = {}
   }
 
   labels = {
@@ -393,7 +393,7 @@ resource "xcsh_service_policy_rule" "test" {
   action    = %[2]q
 
   waf_action {
-    none {}
+    none = {}
   }
 }
 `, name, action))
@@ -411,7 +411,7 @@ resource "xcsh_service_policy_rule" "test" {
   description = %[2]q
 
   waf_action {
-    none {}
+    none = {}
   }
 }
 `, name, description))
@@ -428,7 +428,7 @@ resource "xcsh_service_policy_rule" "test" {
   namespace = "system"
 
   waf_action {
-    none {}
+    none = {}
   }
 
   labels = {

@@ -572,11 +572,11 @@ resource "xcsh_waf_exclusion_policy" "test" {
       description_spec = "Exclude WAF for API endpoints"
     }
 
-    any_domain {}
+    any_domain = {}
 
     path_prefix = "/api"
 
-    waf_skip_processing {}
+    waf_skip_processing = {}
   }
 
   waf_exclusion_rules {
@@ -587,9 +587,9 @@ resource "xcsh_waf_exclusion_policy" "test" {
 
     exact_value = "app.example.com"
 
-    any_path {}
+    any_path = {}
 
-    waf_skip_processing {}
+    waf_skip_processing = {}
   }
 }
 `, name))

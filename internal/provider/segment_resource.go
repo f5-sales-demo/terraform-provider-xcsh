@@ -12,6 +12,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
@@ -45,20 +46,16 @@ type SegmentResource struct {
 	client *client.Client
 }
 
-// SegmentEmptyModel represents empty nested blocks
-type SegmentEmptyModel struct {
-}
-
 type SegmentResourceModel struct {
-	Name        types.String       `tfsdk:"name"`
-	Namespace   types.String       `tfsdk:"namespace"`
-	Annotations types.Map          `tfsdk:"annotations"`
-	Description types.String       `tfsdk:"description"`
-	Labels      types.Map          `tfsdk:"labels"`
-	ID          types.String       `tfsdk:"id"`
-	Timeouts    timeouts.Value     `tfsdk:"timeouts"`
-	DisableSpec *SegmentEmptyModel `tfsdk:"disable_spec"`
-	Enable      *SegmentEmptyModel `tfsdk:"enable"`
+	Name        types.String   `tfsdk:"name"`
+	Namespace   types.String   `tfsdk:"namespace"`
+	Annotations types.Map      `tfsdk:"annotations"`
+	Description types.String   `tfsdk:"description"`
+	DisableSpec types.Object   `tfsdk:"disable_spec"`
+	Enable      types.Object   `tfsdk:"enable"`
+	Labels      types.Map      `tfsdk:"labels"`
+	ID          types.String   `tfsdk:"id"`
+	Timeouts    timeouts.Value `tfsdk:"timeouts"`
 }
 
 func (r *SegmentResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -101,6 +98,16 @@ func (r *SegmentResource) Schema(ctx context.Context, req resource.SchemaRequest
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
 			},
+			"disable_spec": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable, enable] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"enable": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
@@ -121,12 +128,6 @@ func (r *SegmentResource) Schema(ctx context.Context, req resource.SchemaRequest
 				Update: true,
 				Delete: true,
 			}),
-			"disable_spec": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disable, enable] Enable this option",
-			},
-			"enable": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
 		},
 	}
 }
@@ -153,6 +154,14 @@ func (r *SegmentResource) ValidateConfig(ctx context.Context, req resource.Valid
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.DisableSpec.IsNull() && !data.DisableSpec.IsUnknown() && !data.Enable.IsNull() && !data.Enable.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_spec"),
+			"Conflicting Configuration",
+			"disable_spec and enable are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -253,10 +262,10 @@ func (r *SegmentResource) Create(ctx context.Context, req resource.CreateRequest
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.DisableSpec != nil {
+	if !data.DisableSpec.IsNull() && !data.DisableSpec.IsUnknown() {
 		createReq.Spec["disable"] = map[string]interface{}{}
 	}
-	if data.Enable != nil {
+	if !data.Enable.IsNull() && !data.Enable.IsUnknown() {
 		createReq.Spec["enable"] = map[string]interface{}{}
 	}
 
@@ -298,11 +307,19 @@ func (r *SegmentResource) Create(ctx context.Context, req resource.CreateRequest
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["disable"].(map[string]interface{}); ok && isImport && data.DisableSpec == nil {
-		data.DisableSpec = &SegmentEmptyModel{}
+	if !isImport && !data.DisableSpec.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable"].(map[string]interface{}); ok {
+		data.DisableSpec = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableSpec = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["enable"].(map[string]interface{}); ok && isImport && data.Enable == nil {
-		data.Enable = &SegmentEmptyModel{}
+	if !isImport && !data.Enable.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable"].(map[string]interface{}); ok {
+		data.Enable = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Enable = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	tflog.Trace(ctx, "created Segment resource")
@@ -435,11 +452,19 @@ func (r *SegmentResource) Read(ctx context.Context, req resource.ReadRequest, re
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["disable"].(map[string]interface{}); ok && isImport && data.DisableSpec == nil {
-		data.DisableSpec = &SegmentEmptyModel{}
+	if !isImport && !data.DisableSpec.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable"].(map[string]interface{}); ok {
+		data.DisableSpec = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableSpec = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["enable"].(map[string]interface{}); ok && isImport && data.Enable == nil {
-		data.Enable = &SegmentEmptyModel{}
+	if !isImport && !data.Enable.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable"].(map[string]interface{}); ok {
+		data.Enable = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Enable = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -535,10 +560,10 @@ func (r *SegmentResource) Update(ctx context.Context, req resource.UpdateRequest
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.DisableSpec != nil {
+	if !data.DisableSpec.IsNull() && !data.DisableSpec.IsUnknown() {
 		apiResource.Spec["disable"] = map[string]interface{}{}
 	}
-	if data.Enable != nil {
+	if !data.Enable.IsNull() && !data.Enable.IsUnknown() {
 		apiResource.Spec["enable"] = map[string]interface{}{}
 	}
 
@@ -600,11 +625,19 @@ func (r *SegmentResource) Update(ctx context.Context, req resource.UpdateRequest
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["disable"].(map[string]interface{}); ok && isImport && data.DisableSpec == nil {
-		data.DisableSpec = &SegmentEmptyModel{}
+	if !isImport && !data.DisableSpec.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable"].(map[string]interface{}); ok {
+		data.DisableSpec = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableSpec = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["enable"].(map[string]interface{}); ok && isImport && data.Enable == nil {
-		data.Enable = &SegmentEmptyModel{}
+	if !isImport && !data.Enable.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable"].(map[string]interface{}); ok {
+		data.Enable = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Enable = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

@@ -71,13 +71,13 @@ resource "xcsh_network_interface" "test" {
     device   = "eth0"
     mtu      = 0
     priority = 0
-    cluster {}
-    untagged {}
-    dhcp_client {}
-    site_local_inside_network {}
-    monitor_disabled {}
-    not_primary {}
-    no_ipv6_address {}
+    cluster = {}
+    untagged = {}
+    dhcp_client = {}
+    site_local_inside_network = {}
+    monitor_disabled = {}
+    not_primary = {}
+    no_ipv6_address = {}
   }
 }
 `, name))

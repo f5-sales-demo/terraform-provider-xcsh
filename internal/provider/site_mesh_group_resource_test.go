@@ -655,7 +655,7 @@ resource "xcsh_site_mesh_group" "test" {
   namespace  = xcsh_namespace.test.name
 
   full_mesh {
-    control_and_data_plane_mesh {}
+    control_and_data_plane_mesh = {}
   }
 }
 `, nsName, name))
@@ -691,7 +691,7 @@ resource "xcsh_site_mesh_group" "test" {
   }
 
   full_mesh {
-    control_and_data_plane_mesh {}
+    control_and_data_plane_mesh = {}
   }
 }
 `, nsName, name, description))
@@ -721,7 +721,7 @@ resource "xcsh_site_mesh_group" "test" {
   }
 
   full_mesh {
-    control_and_data_plane_mesh {}
+    control_and_data_plane_mesh = {}
   }
 }
 `, nsName, name, environment, managedBy))
@@ -747,7 +747,7 @@ resource "xcsh_site_mesh_group" "test" {
   description = %[3]q
 
   full_mesh {
-    control_and_data_plane_mesh {}
+    control_and_data_plane_mesh = {}
   }
 }
 `, nsName, name, description))
@@ -777,7 +777,7 @@ resource "xcsh_site_mesh_group" "test" {
   }
 
   full_mesh {
-    control_and_data_plane_mesh {}
+    control_and_data_plane_mesh = {}
   }
 }
 `, nsName, name, value1, value2))

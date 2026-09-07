@@ -22,20 +22,20 @@ resource "xcsh_app_firewall" "test" {
   }
 
   # Use default detection settings
-  default_detection_settings {}
+  default_detection_settings = {}
 
   # Allow all response codes
-  allow_all_response_codes {}
+  allow_all_response_codes = {}
 
   # Blocking mode
-  blocking {}
+  blocking = {}
 
   # Use default blocking page
-  use_default_blocking_page {}
+  use_default_blocking_page = {}
 
   # Use default bot settings
-  default_bot_setting {}
+  default_bot_setting = {}
 
   # Use default anonymization
-  default_anonymization {}
+  default_anonymization = {}
 }

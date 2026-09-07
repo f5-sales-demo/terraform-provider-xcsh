@@ -22,6 +22,6 @@ resource "xcsh_rate_limiter" "test" {
     burst_multiplier  = 2
     period_multiplier = 1
 
-    leaky_bucket {}
+    leaky_bucket = {}
   }
 }

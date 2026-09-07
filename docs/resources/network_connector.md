@@ -39,7 +39,7 @@ resource "xcsh_network_connector" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -62,7 +62,7 @@ resource "xcsh_network_connector" "example" {
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="disable-forward-proxy"></a>[`disable_forward_proxy`](#disable-forward-proxy) - Optional Block<br>Configuration parameter for disable forward proxy
+&#x2022; <a id="disable-forward-proxy"></a>[`disable_forward_proxy`](#disable-forward-proxy) - Optional Object<br>Configuration parameter for disable forward proxy
 
 <a id="enable-forward-proxy"></a>&#x2022; [`enable_forward_proxy`](#enable-forward-proxy) - Optional Block<br>Fine tune forward proxy behavior Few configurations allowed are White listed ports and IP prefixes: Forward proxy does application protocol detection and server name(SNI) detection by peeking into the traffic on the incoming downstream connection. Few protocols doesn't have client sending
 the<br>See [Enable Forward Proxy](#enable-forward-proxy) below for details.
@@ -90,7 +90,7 @@ An [`enable_forward_proxy`](#enable-forward-proxy) block supports the following:
 
 <a id="attempts-e04850"></a>&#x2022; [`max_connect_attempts`](#attempts-e04850) - Optional Number  Defaults to `1`<br>Specifies the allowed number of retries on connect failure to upstream server
 
-<a id="enable-forward-proxy-no-interception"></a>&#x2022; [`no_interception`](#enable-forward-proxy-no-interception) - Optional Block<br>Configuration parameter for no interception
+<a id="enable-forward-proxy-no-interception"></a>&#x2022; [`no_interception`](#enable-forward-proxy-no-interception) - Optional Object<br>Configuration parameter for no interception
 
 <a id="enable-forward-proxy-tls-intercept"></a>&#x2022; [`tls_intercept`](#enable-forward-proxy-tls-intercept) - Optional Block<br>Configuration to enable TLS interception<br>See [TLS Intercept](#enable-forward-proxy-tls-intercept) below.
 
@@ -98,21 +98,25 @@ An [`enable_forward_proxy`](#enable-forward-proxy) block supports the following:
 
 <a id="prefixes-f83493"></a>&#x2022; [`white_listed_prefixes`](#prefixes-f83493) - Optional List<br>Traffic to these destination IP prefixes is not subjected to protocol parsing Example 'tmate' server IP
 
+#### Enable Forward Proxy No Interception
+
+A [`no_interception`](#enable-forward-proxy-no-interception) block (within [`enable_forward_proxy`](#enable-forward-proxy)) supports the following:
+
 #### Enable Forward Proxy TLS Intercept
 
 A [`tls_intercept`](#enable-forward-proxy-tls-intercept) block (within [`enable_forward_proxy`](#enable-forward-proxy)) supports the following:
 
 <a id="certificate-1f025c"></a>&#x2022; [`custom_certificate`](#certificate-1f025c) - Optional Block<br>Configuration parameter for custom certificate<br>See [Custom Certificate](#certificate-1f025c) below.
 
-<a id="domains-448895"></a>&#x2022; [`enable_for_all_domains`](#domains-448895) - Optional Block<br>Configuration parameter for enable for all domains
+<a id="domains-448895"></a>&#x2022; [`enable_for_all_domains`](#domains-448895) - Optional Object<br>Configuration parameter for enable for all domains
 
 <a id="policy-3a19ff"></a>&#x2022; [`policy`](#policy-3a19ff) - Optional Block<br>Policy to enable or disable TLS interception<br>See [Policy](#policy-3a19ff) below.
 
 <a id="url-498586"></a>&#x2022; [`trusted_ca_url`](#url-498586) - Optional String<br>Custom Root CA Certificate for validating upstream server certificate
 
-<a id="certificate-028e29"></a>&#x2022; [`volterra_certificate`](#certificate-028e29) - Optional Block<br>Configuration parameter for volterra certificate
+<a id="certificate-028e29"></a>&#x2022; [`volterra_certificate`](#certificate-028e29) - Optional Object<br>Configuration parameter for volterra certificate
 
-<a id="trusted-ca-89cb15"></a>&#x2022; [`volterra_trusted_ca`](#trusted-ca-89cb15) - Optional Block<br>Configuration parameter for volterra trusted CA
+<a id="trusted-ca-89cb15"></a>&#x2022; [`volterra_trusted_ca`](#trusted-ca-89cb15) - Optional Object<br>Configuration parameter for volterra trusted CA
 
 #### Enable Forward Proxy TLS Intercept Custom Certificate
 
@@ -124,15 +128,19 @@ A [`custom_certificate`](#certificate-1f025c) block (within [`enable_forward_pro
 
 <a id="spec-00ecd4"></a>&#x2022; [`description_spec`](#spec-00ecd4) - Optional String<br>Description. Description for the certificate
 
-<a id="stapling-c941e6"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-c941e6) - Optional Block<br>Configuration parameter for disable OCSP stapling
+<a id="stapling-c941e6"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-c941e6) - Optional Object<br>Configuration parameter for disable OCSP stapling
 
 <a id="key-363f83"></a>&#x2022; [`private_key`](#key-363f83) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Private Key](#key-363f83) below.
 
-<a id="defaults-cf3fd3"></a>&#x2022; [`use_system_defaults`](#defaults-cf3fd3) - Optional Block<br>Configuration parameter for use system defaults
+<a id="defaults-cf3fd3"></a>&#x2022; [`use_system_defaults`](#defaults-cf3fd3) - Optional Object<br>Configuration parameter for use system defaults
 
 #### Enable Forward Proxy TLS Intercept Custom Certificate Custom Hash Algorithms
 
 <a id="deep-6c6e2f"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### Enable Forward Proxy TLS Intercept Custom Certificate Disable OCSP Stapling
+
+<a id="deep-2e22e0"></a>Deeply nested **Stapling** block collapsed for readability.
 
 #### Enable Forward Proxy TLS Intercept Custom Certificate Private Key
 
@@ -146,6 +154,14 @@ A [`custom_certificate`](#certificate-1f025c) block (within [`enable_forward_pro
 
 <a id="deep-221ddd"></a>Deeply nested **Info** block collapsed for readability.
 
+#### Enable Forward Proxy TLS Intercept Custom Certificate Use System Defaults
+
+<a id="deep-939513"></a>Deeply nested **Defaults** block collapsed for readability.
+
+#### Enable Forward Proxy TLS Intercept Enable For All Domains
+
+<a id="deep-76eed3"></a>Deeply nested **Domains** block collapsed for readability.
+
 #### Enable Forward Proxy TLS Intercept Policy
 
 A [`policy`](#policy-3a19ff) block (within [`enable_forward_proxy.tls_intercept`](#enable-forward-proxy-tls-intercept)) supports the following:
@@ -156,9 +172,25 @@ A [`policy`](#policy-3a19ff) block (within [`enable_forward_proxy.tls_intercept`
 
 <a id="deep-a7a09a"></a>Deeply nested **Rules** block collapsed for readability.
 
+#### Enable Forward Proxy TLS Intercept Policy Interception Rules Disable Interception
+
+<a id="deep-36d1f5"></a>Deeply nested **Interception** block collapsed for readability.
+
 #### Enable Forward Proxy TLS Intercept Policy Interception Rules Domain Match
 
 <a id="deep-bd11da"></a>Deeply nested **Match** block collapsed for readability.
+
+#### Enable Forward Proxy TLS Intercept Policy Interception Rules Enable Interception
+
+<a id="deep-07cddd"></a>Deeply nested **Interception** block collapsed for readability.
+
+#### Enable Forward Proxy TLS Intercept Volterra Certificate
+
+A [`volterra_certificate`](#certificate-028e29) block (within [`enable_forward_proxy.tls_intercept`](#enable-forward-proxy-tls-intercept)) supports the following:
+
+#### Enable Forward Proxy TLS Intercept Volterra Trusted CA
+
+<a id="deep-13cd91"></a>Deeply nested **CA** block collapsed for readability.
 
 #### SLI To Global DR
 

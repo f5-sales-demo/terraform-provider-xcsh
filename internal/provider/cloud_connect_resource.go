@@ -114,20 +114,20 @@ var CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModelAttrTypes = map[string]a
 
 // CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel represents vpc_list block
 type CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel struct {
+	ManualRouting types.Object                                                              `tfsdk:"manual_routing"`
 	VPCID         types.String                                                              `tfsdk:"vpc_id"`
 	CustomRouting *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel `tfsdk:"custom_routing"`
 	DefaultRoute  *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel  `tfsdk:"default_route"`
 	Labels        *CloudConnectEmptyModel                                                   `tfsdk:"labels"`
-	ManualRouting *CloudConnectEmptyModel                                                   `tfsdk:"manual_routing"`
 }
 
 // CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes defines the attribute types for CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel
 var CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes = map[string]attr.Type{
+	"manual_routing": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"vpc_id":         types.StringType,
 	"custom_routing": types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModelAttrTypes},
 	"default_route":  types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModelAttrTypes},
 	"labels":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"manual_routing": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel represents custom_routing block
@@ -154,7 +154,7 @@ var CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTabl
 
 // CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel represents default_route block
 type CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel struct {
-	AllRouteTables       *CloudConnectEmptyModel                                                                      `tfsdk:"all_route_tables"`
+	AllRouteTables       types.Object                                                                                 `tfsdk:"all_route_tables"`
 	SelectiveRouteTables *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel `tfsdk:"selective_route_tables"`
 }
 
@@ -212,22 +212,22 @@ var CloudConnectAzureVNETSiteVNETAttachmentsModelAttrTypes = map[string]attr.Typ
 
 // CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel represents vnet_list block
 type CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel struct {
+	ManualRouting  types.Object                                                        `tfsdk:"manual_routing"`
 	SubscriptionID types.String                                                        `tfsdk:"subscription_id"`
 	VNETID         types.String                                                        `tfsdk:"vnet_id"`
 	CustomRouting  *CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel `tfsdk:"custom_routing"`
 	DefaultRoute   *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel  `tfsdk:"default_route"`
 	Labels         *CloudConnectEmptyModel                                             `tfsdk:"labels"`
-	ManualRouting  *CloudConnectEmptyModel                                             `tfsdk:"manual_routing"`
 }
 
 // CloudConnectAzureVNETSiteVNETAttachmentsVNETListModelAttrTypes defines the attribute types for CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel
 var CloudConnectAzureVNETSiteVNETAttachmentsVNETListModelAttrTypes = map[string]attr.Type{
+	"manual_routing":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"subscription_id": types.StringType,
 	"vnet_id":         types.StringType,
 	"custom_routing":  types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModelAttrTypes},
 	"default_route":   types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModelAttrTypes},
 	"labels":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"manual_routing":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel represents custom_routing block
@@ -254,7 +254,7 @@ var CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesMode
 
 // CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel represents default_route block
 type CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel struct {
-	AllRouteTables       *CloudConnectEmptyModel                                                                `tfsdk:"all_route_tables"`
+	AllRouteTables       types.Object                                                                           `tfsdk:"all_route_tables"`
 	SelectiveRouteTables *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesModel `tfsdk:"selective_route_tables"`
 }
 
@@ -440,9 +440,14 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 								Blocks: map[string]schema.Block{
 									"vpc_list": schema.ListNestedBlock{
 										MarkdownDescription: "VPC List. Collection of items or values",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("vpc_id")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("vpc_id"), validators.ConflictingListObjectAttributes("custom_routing", "default_route"), validators.ConflictingListObjectAttributes("custom_routing", "manual_routing"), validators.ConflictingListObjectAttributes("default_route", "manual_routing")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
+												"manual_routing": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"vpc_id": schema.StringAttribute{
 													MarkdownDescription: "Enter the VPC ID of the VPC to be attached.",
 													Optional:            true,
@@ -484,11 +489,15 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 												},
 												"default_route": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for default route.",
-													Attributes:          map[string]schema.Attribute{},
-													Blocks: map[string]schema.Block{
-														"all_route_tables": schema.SingleNestedBlock{
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_route_tables", "selective_route_tables")},
+													Attributes: map[string]schema.Attribute{
+														"all_route_tables": schema.ObjectAttribute{
 															MarkdownDescription: "Configuration parameter for all route tables.",
+															Optional:            true,
+															AttributeTypes:      map[string]attr.Type{},
 														},
+													},
+													Blocks: map[string]schema.Block{
 														"selective_route_tables": schema.SingleNestedBlock{
 															MarkdownDescription: "Configuration parameter for selective route tables.",
 															Attributes: map[string]schema.Attribute{
@@ -503,9 +512,6 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 												},
 												"labels": schema.SingleNestedBlock{
 													MarkdownDescription: "Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall.",
-												},
-												"manual_routing": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
 												},
 											},
 										},
@@ -558,9 +564,14 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 						Blocks: map[string]schema.Block{
 							"vnet_list": schema.ListNestedBlock{
 								MarkdownDescription: "VNet List. Collection of items or values",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("subscription_id", "vnet_id")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("subscription_id", "vnet_id"), validators.ConflictingListObjectAttributes("custom_routing", "default_route"), validators.ConflictingListObjectAttributes("custom_routing", "manual_routing"), validators.ConflictingListObjectAttributes("default_route", "manual_routing")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
+										"manual_routing": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"subscription_id": schema.StringAttribute{
 											MarkdownDescription: "Enter the Subscription ID of the VNet to be attached.",
 											Optional:            true,
@@ -609,11 +620,15 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 										},
 										"default_route": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for default route.",
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"all_route_tables": schema.SingleNestedBlock{
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_route_tables", "selective_route_tables")},
+											Attributes: map[string]schema.Attribute{
+												"all_route_tables": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for all route tables.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
+											},
+											Blocks: map[string]schema.Block{
 												"selective_route_tables": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for selective route tables.",
 													Attributes: map[string]schema.Attribute{
@@ -628,9 +643,6 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 										},
 										"labels": schema.SingleNestedBlock{
 											MarkdownDescription: "Add labels for the VNet attachments. These labels can then be used in policies such as enhanced firewall policies.",
-										},
-										"manual_routing": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
 										},
 									},
 								},
@@ -861,7 +873,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 							}
 							if VPCListItem.DefaultRoute != nil {
 								AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap := make(map[string]interface{})
-								if VPCListItem.DefaultRoute.AllRouteTables != nil {
+								if !VPCListItem.DefaultRoute.AllRouteTables.IsNull() && !VPCListItem.DefaultRoute.AllRouteTables.IsUnknown() {
 									AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap["all_route_tables"] = map[string]interface{}{}
 								}
 								if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
@@ -881,7 +893,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 							if VPCListItem.Labels != nil {
 								VPCListItemMap["labels"] = map[string]interface{}{}
 							}
-							if VPCListItem.ManualRouting != nil {
+							if !VPCListItem.ManualRouting.IsNull() && !VPCListItem.ManualRouting.IsUnknown() {
 								VPCListItemMap["manual_routing"] = map[string]interface{}{}
 							}
 							if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
@@ -950,7 +962,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 						}
 						if VNETListItem.DefaultRoute != nil {
 							AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap := make(map[string]interface{})
-							if VNETListItem.DefaultRoute.AllRouteTables != nil {
+							if !VNETListItem.DefaultRoute.AllRouteTables.IsNull() && !VNETListItem.DefaultRoute.AllRouteTables.IsUnknown() {
 								AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap["all_route_tables"] = map[string]interface{}{}
 							}
 							if VNETListItem.DefaultRoute.SelectiveRouteTables != nil {
@@ -970,7 +982,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 						if VNETListItem.Labels != nil {
 							VNETListItemMap["labels"] = map[string]interface{}{}
 						}
-						if VNETListItem.ManualRouting != nil {
+						if !VNETListItem.ManualRouting.IsNull() && !VNETListItem.ManualRouting.IsUnknown() {
 							VNETListItemMap["manual_routing"] = map[string]interface{}{}
 						}
 						if !VNETListItem.SubscriptionID.IsNull() && !VNETListItem.SubscriptionID.IsUnknown() {
@@ -1164,14 +1176,14 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 														DefaultRoute: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel {
 															if DefaultRouteData, ok := VPCListItemMap["default_route"].(map[string]interface{}); ok {
 																return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel{
-																	AllRouteTables: func() *CloudConnectEmptyModel {
-																		if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].DefaultRoute != nil {
+																	AllRouteTables: func() types.Object {
+																		if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].DefaultRoute != nil && !VPCListExisting[VPCListIdx].DefaultRoute.AllRouteTables.IsUnknown() {
 																			return VPCListExisting[VPCListIdx].DefaultRoute.AllRouteTables
 																		}
 																		if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
-																			return &CloudConnectEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
 																	SelectiveRouteTables: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel {
 																		if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].DefaultRoute != nil && VPCListExisting[VPCListIdx].DefaultRoute.SelectiveRouteTables != nil {
@@ -1210,14 +1222,14 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 															}
 															return nil
 														}(),
-														ManualRouting: func() *CloudConnectEmptyModel {
-															if !isImport && len(VPCListExisting) > VPCListIdx {
+														ManualRouting: func() types.Object {
+															if !isImport && len(VPCListExisting) > VPCListIdx && !VPCListExisting[VPCListIdx].ManualRouting.IsUnknown() {
 																return VPCListExisting[VPCListIdx].ManualRouting
 															}
 															if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
-																return &CloudConnectEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														VPCID: func() types.String {
 															if v, ok := VPCListItemMap["vpc_id"].(string); ok && v != "" {
@@ -1342,14 +1354,14 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 											DefaultRoute: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel {
 												if DefaultRouteData, ok := VNETListItemMap["default_route"].(map[string]interface{}); ok {
 													return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel{
-														AllRouteTables: func() *CloudConnectEmptyModel {
-															if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].DefaultRoute != nil {
+														AllRouteTables: func() types.Object {
+															if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].DefaultRoute != nil && !VNETListExisting[VNETListIdx].DefaultRoute.AllRouteTables.IsUnknown() {
 																return VNETListExisting[VNETListIdx].DefaultRoute.AllRouteTables
 															}
 															if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
-																return &CloudConnectEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SelectiveRouteTables: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesModel {
 															if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].DefaultRoute != nil && VNETListExisting[VNETListIdx].DefaultRoute.SelectiveRouteTables != nil {
@@ -1388,14 +1400,14 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 												}
 												return nil
 											}(),
-											ManualRouting: func() *CloudConnectEmptyModel {
-												if !isImport && len(VNETListExisting) > VNETListIdx {
+											ManualRouting: func() types.Object {
+												if !isImport && len(VNETListExisting) > VNETListIdx && !VNETListExisting[VNETListIdx].ManualRouting.IsUnknown() {
 													return VNETListExisting[VNETListIdx].ManualRouting
 												}
 												if _, ok := VNETListItemMap["manual_routing"].(map[string]interface{}); ok {
-													return &CloudConnectEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SubscriptionID: func() types.String {
 												if v, ok := VNETListItemMap["subscription_id"].(string); ok && v != "" {
@@ -1703,14 +1715,14 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 														DefaultRoute: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel {
 															if DefaultRouteData, ok := VPCListItemMap["default_route"].(map[string]interface{}); ok {
 																return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel{
-																	AllRouteTables: func() *CloudConnectEmptyModel {
-																		if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].DefaultRoute != nil {
+																	AllRouteTables: func() types.Object {
+																		if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].DefaultRoute != nil && !VPCListExisting[VPCListIdx].DefaultRoute.AllRouteTables.IsUnknown() {
 																			return VPCListExisting[VPCListIdx].DefaultRoute.AllRouteTables
 																		}
 																		if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
-																			return &CloudConnectEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
 																	SelectiveRouteTables: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel {
 																		if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].DefaultRoute != nil && VPCListExisting[VPCListIdx].DefaultRoute.SelectiveRouteTables != nil {
@@ -1749,14 +1761,14 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 															}
 															return nil
 														}(),
-														ManualRouting: func() *CloudConnectEmptyModel {
-															if !isImport && len(VPCListExisting) > VPCListIdx {
+														ManualRouting: func() types.Object {
+															if !isImport && len(VPCListExisting) > VPCListIdx && !VPCListExisting[VPCListIdx].ManualRouting.IsUnknown() {
 																return VPCListExisting[VPCListIdx].ManualRouting
 															}
 															if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
-																return &CloudConnectEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														VPCID: func() types.String {
 															if v, ok := VPCListItemMap["vpc_id"].(string); ok && v != "" {
@@ -1881,14 +1893,14 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 											DefaultRoute: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel {
 												if DefaultRouteData, ok := VNETListItemMap["default_route"].(map[string]interface{}); ok {
 													return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel{
-														AllRouteTables: func() *CloudConnectEmptyModel {
-															if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].DefaultRoute != nil {
+														AllRouteTables: func() types.Object {
+															if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].DefaultRoute != nil && !VNETListExisting[VNETListIdx].DefaultRoute.AllRouteTables.IsUnknown() {
 																return VNETListExisting[VNETListIdx].DefaultRoute.AllRouteTables
 															}
 															if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
-																return &CloudConnectEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SelectiveRouteTables: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesModel {
 															if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].DefaultRoute != nil && VNETListExisting[VNETListIdx].DefaultRoute.SelectiveRouteTables != nil {
@@ -1927,14 +1939,14 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 												}
 												return nil
 											}(),
-											ManualRouting: func() *CloudConnectEmptyModel {
-												if !isImport && len(VNETListExisting) > VNETListIdx {
+											ManualRouting: func() types.Object {
+												if !isImport && len(VNETListExisting) > VNETListIdx && !VNETListExisting[VNETListIdx].ManualRouting.IsUnknown() {
 													return VNETListExisting[VNETListIdx].ManualRouting
 												}
 												if _, ok := VNETListItemMap["manual_routing"].(map[string]interface{}); ok {
-													return &CloudConnectEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SubscriptionID: func() types.String {
 												if v, ok := VNETListItemMap["subscription_id"].(string); ok && v != "" {
@@ -2142,7 +2154,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 							}
 							if VPCListItem.DefaultRoute != nil {
 								AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap := make(map[string]interface{})
-								if VPCListItem.DefaultRoute.AllRouteTables != nil {
+								if !VPCListItem.DefaultRoute.AllRouteTables.IsNull() && !VPCListItem.DefaultRoute.AllRouteTables.IsUnknown() {
 									AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap["all_route_tables"] = map[string]interface{}{}
 								}
 								if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
@@ -2162,7 +2174,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 							if VPCListItem.Labels != nil {
 								VPCListItemMap["labels"] = map[string]interface{}{}
 							}
-							if VPCListItem.ManualRouting != nil {
+							if !VPCListItem.ManualRouting.IsNull() && !VPCListItem.ManualRouting.IsUnknown() {
 								VPCListItemMap["manual_routing"] = map[string]interface{}{}
 							}
 							if !VPCListItem.VPCID.IsNull() && !VPCListItem.VPCID.IsUnknown() {
@@ -2231,7 +2243,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 						}
 						if VNETListItem.DefaultRoute != nil {
 							AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap := make(map[string]interface{})
-							if VNETListItem.DefaultRoute.AllRouteTables != nil {
+							if !VNETListItem.DefaultRoute.AllRouteTables.IsNull() && !VNETListItem.DefaultRoute.AllRouteTables.IsUnknown() {
 								AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap["all_route_tables"] = map[string]interface{}{}
 							}
 							if VNETListItem.DefaultRoute.SelectiveRouteTables != nil {
@@ -2251,7 +2263,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 						if VNETListItem.Labels != nil {
 							VNETListItemMap["labels"] = map[string]interface{}{}
 						}
-						if VNETListItem.ManualRouting != nil {
+						if !VNETListItem.ManualRouting.IsNull() && !VNETListItem.ManualRouting.IsUnknown() {
 							VNETListItemMap["manual_routing"] = map[string]interface{}{}
 						}
 						if !VNETListItem.SubscriptionID.IsNull() && !VNETListItem.SubscriptionID.IsUnknown() {
@@ -2465,14 +2477,14 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 														DefaultRoute: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel {
 															if DefaultRouteData, ok := VPCListItemMap["default_route"].(map[string]interface{}); ok {
 																return &CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel{
-																	AllRouteTables: func() *CloudConnectEmptyModel {
-																		if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].DefaultRoute != nil {
+																	AllRouteTables: func() types.Object {
+																		if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].DefaultRoute != nil && !VPCListExisting[VPCListIdx].DefaultRoute.AllRouteTables.IsUnknown() {
 																			return VPCListExisting[VPCListIdx].DefaultRoute.AllRouteTables
 																		}
 																		if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
-																			return &CloudConnectEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
 																	SelectiveRouteTables: func() *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesModel {
 																		if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].DefaultRoute != nil && VPCListExisting[VPCListIdx].DefaultRoute.SelectiveRouteTables != nil {
@@ -2511,14 +2523,14 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 															}
 															return nil
 														}(),
-														ManualRouting: func() *CloudConnectEmptyModel {
-															if !isImport && len(VPCListExisting) > VPCListIdx {
+														ManualRouting: func() types.Object {
+															if !isImport && len(VPCListExisting) > VPCListIdx && !VPCListExisting[VPCListIdx].ManualRouting.IsUnknown() {
 																return VPCListExisting[VPCListIdx].ManualRouting
 															}
 															if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
-																return &CloudConnectEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														VPCID: func() types.String {
 															if v, ok := VPCListItemMap["vpc_id"].(string); ok && v != "" {
@@ -2643,14 +2655,14 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 											DefaultRoute: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel {
 												if DefaultRouteData, ok := VNETListItemMap["default_route"].(map[string]interface{}); ok {
 													return &CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel{
-														AllRouteTables: func() *CloudConnectEmptyModel {
-															if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].DefaultRoute != nil {
+														AllRouteTables: func() types.Object {
+															if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].DefaultRoute != nil && !VNETListExisting[VNETListIdx].DefaultRoute.AllRouteTables.IsUnknown() {
 																return VNETListExisting[VNETListIdx].DefaultRoute.AllRouteTables
 															}
 															if _, ok := DefaultRouteData["all_route_tables"].(map[string]interface{}); ok {
-																return &CloudConnectEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SelectiveRouteTables: func() *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesModel {
 															if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].DefaultRoute != nil && VNETListExisting[VNETListIdx].DefaultRoute.SelectiveRouteTables != nil {
@@ -2689,14 +2701,14 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 												}
 												return nil
 											}(),
-											ManualRouting: func() *CloudConnectEmptyModel {
-												if !isImport && len(VNETListExisting) > VNETListIdx {
+											ManualRouting: func() types.Object {
+												if !isImport && len(VNETListExisting) > VNETListIdx && !VNETListExisting[VNETListIdx].ManualRouting.IsUnknown() {
 													return VNETListExisting[VNETListIdx].ManualRouting
 												}
 												if _, ok := VNETListItemMap["manual_routing"].(map[string]interface{}); ok {
-													return &CloudConnectEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											SubscriptionID: func() types.String {
 												if v, ok := VNETListItemMap["subscription_id"].(string); ok && v != "" {

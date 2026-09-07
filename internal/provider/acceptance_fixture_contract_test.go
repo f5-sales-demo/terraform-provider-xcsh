@@ -40,12 +40,12 @@ func TestLiveAcceptanceFixtureSchemaContracts(t *testing.T) {
 			"fixture-cert",
 			&acctest.TestCertificates{ServerCertBase64: "Y2VydA==", ServerKeyBase64: "a2V5"},
 		), "xcsh_certificate")
-		fixtureRequiresAttributes(t, body, "name", "namespace", "certificate_url")
+		fixtureRequiresAttributes(t, body, "name", "namespace", "certificate_url", "disable_ocsp_stapling")
 		privateKey := fixtureRequiresBlock(t, body, "private_key")
 		clearSecret := fixtureRequiresBlock(t, privateKey, "clear_secret_info")
 		fixtureRequiresAttributes(t, clearSecret, "url")
-		fixtureRequiresBlock(t, body, "disable_ocsp_stapling")
-		fixtureForbidsAttributes(t, body, "private_key", "disable_ocsp_stapling")
+		fixtureForbidsAttributes(t, body, "private_key")
+		fixtureForbidsBlock(t, body, "disable_ocsp_stapling")
 	})
 
 	t.Run("fast acl rule nested blocks", func(t *testing.T) {
@@ -91,8 +91,8 @@ func TestLiveAcceptanceFixtureSchemaContracts(t *testing.T) {
 
 	t.Run("udp load balancer uses a tenant-neutral advertisement fixture", func(t *testing.T) {
 		body := fixtureResourceBody(t, testAccUDPLoadBalancerConfig_basicSystem("fixture-udp"), "xcsh_udp_loadbalancer")
-		fixtureRequiresAttributes(t, body, "name", "namespace", "dns_volterra_managed", "idle_timeout", "domains", "listen_port")
-		fixtureRequiresBlock(t, body, "do_not_advertise")
+		fixtureRequiresAttributes(t, body, "name", "namespace", "dns_volterra_managed", "idle_timeout", "domains", "listen_port", "do_not_advertise")
+		fixtureForbidsBlock(t, body, "do_not_advertise")
 		fixtureForbidsBlock(t, body, "advertise_on_public_default_vip")
 		fixtureForbidsBlock(t, body, "udp")
 	})

@@ -93,11 +93,11 @@ resource "xcsh_securemesh_site_v2" "test" {
   baremetal {
     not_managed {}
   }
-  disable_ha {}
-  no_network_policy {}
-  no_forward_proxy {}
-  logs_streaming_disabled {}
-  block_all_services {}
+  disable_ha              = {}
+  no_network_policy       = {}
+  no_forward_proxy        = {}
+  logs_streaming_disabled = {}
+  block_all_services      = {}
 }
 `
 	missingNestedRequired := `
@@ -108,11 +108,11 @@ resource "xcsh_securemesh_site_v2" "test" {
   baremetal {
     not_managed {}
   }
-  disable_ha {}
-  no_network_policy {}
-  no_forward_proxy {}
-  logs_streaming_disabled {}
-  block_all_services {}
+  disable_ha              = {}
+  no_network_policy       = {}
+  no_forward_proxy        = {}
+  logs_streaming_disabled = {}
+  block_all_services      = {}
 
   upgrade_settings {
     kubernetes_upgrade_drain {
@@ -199,11 +199,11 @@ resource "xcsh_securemesh_site_v2" "test" {
     not_managed {}
   }
 
-  disable_ha {}
-  no_network_policy {}
-  no_forward_proxy {}
-  logs_streaming_disabled {}
-  block_all_services {}
+  disable_ha              = {}
+  no_network_policy       = {}
+  no_forward_proxy        = {}
+  logs_streaming_disabled = {}
+  block_all_services      = {}
 }
 `, name, description, topLabelsStr.String()))
 }
@@ -220,11 +220,11 @@ resource "xcsh_securemesh_site_v2" "test" {
     not_managed {}
   }
 
-  disable_ha {}
-  no_network_policy {}
-  no_forward_proxy {}
-  logs_streaming_disabled {}
-  block_all_services {}
+  disable_ha              = {}
+  no_network_policy       = {}
+  no_forward_proxy        = {}
+  logs_streaming_disabled = {}
+  block_all_services      = {}
 
   segment_vrf {
     segment_network {

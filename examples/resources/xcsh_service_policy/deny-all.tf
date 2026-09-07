@@ -16,8 +16,8 @@ resource "xcsh_service_policy" "test" {
   namespace = "system"
 
   # Deny all requests
-  deny_all_requests {}
+  deny_all_requests = {}
 
   # Apply to any server
-  any_server {}
+  any_server = {}
 }

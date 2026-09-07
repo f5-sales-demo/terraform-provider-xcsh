@@ -41,7 +41,7 @@ resource "xcsh_registration" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -386,9 +386,9 @@ A [`passport`](#passport) block supports the following:
 
 <a id="passport-cluster-type"></a>&#x2022; [`cluster_type`](#passport-cluster-type) - Optional String<br>Cluster Type. Cluster or grouping configuration
 
-<a id="passport-default-os-version"></a>&#x2022; [`default_os_version`](#passport-default-os-version) - Optional Block<br>Enable this option
+<a id="passport-default-os-version"></a>&#x2022; [`default_os_version`](#passport-default-os-version) - Optional Object<br>Enable this option
 
-<a id="passport-default-sw-version"></a>&#x2022; [`default_sw_version`](#passport-default-sw-version) - Optional Block<br>Enable this option
+<a id="passport-default-sw-version"></a>&#x2022; [`default_sw_version`](#passport-default-sw-version) - Optional Object<br>Enable this option
 
 <a id="passport-latitude"></a>&#x2022; [`latitude`](#passport-latitude) - Optional Number<br>Latitude. Geographic location of this site
 
@@ -399,6 +399,14 @@ A [`passport`](#passport) block supports the following:
 <a id="passport-private-network-name"></a>&#x2022; [`private_network_name`](#passport-private-network-name) - Optional String<br>Private Network name for private access connectivity to F5XC ADN. It is used for PrivateLink, CloudLink and L3VPN
 
 <a id="passport-volterra-software-version"></a>&#x2022; [`volterra_software_version`](#passport-volterra-software-version) - Optional String<br>F5XC Software Version is optional parameter, which allows to specify target SW version for particular site e.g. Crt-20210329-1002
+
+#### Passport Default OS Version
+
+A [`default_os_version`](#passport-default-os-version) block (within [`passport`](#passport)) supports the following:
+
+#### Passport Default Sw Version
+
+A [`default_sw_version`](#passport-default-sw-version) block (within [`passport`](#passport)) supports the following:
 
 #### Timeouts
 

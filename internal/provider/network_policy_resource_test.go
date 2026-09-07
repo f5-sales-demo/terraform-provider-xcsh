@@ -79,14 +79,14 @@ resource "xcsh_network_policy" "test" {
   namespace  = xcsh_namespace.test.name
 
   endpoint {
-    any {}
+    any = {}
   }
 
   rules {
     ingress_rules {
       action = "ALLOW"
-      any {}
-      all_traffic {}
+      any = {}
+      all_traffic = {}
       metadata {
         name = "allow-all"
       }

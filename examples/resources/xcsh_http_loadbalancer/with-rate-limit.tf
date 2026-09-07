@@ -26,8 +26,8 @@ resource "xcsh_http_loadbalancer" "test" {
       unit             = "MINUTE"
       burst_multiplier = 10
     }
-    no_ip_allowed_list {}
+    no_ip_allowed_list = {}
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }

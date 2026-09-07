@@ -32,6 +32,9 @@ import (
 {{- if .UsesInt64PlanModifier}}
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 {{- end}}
+{{- if .UsesObjectPlanModifier}}
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
+{{- end}}
 {{- if .UsesListPlanModifier}}
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/listplanmodifier"
 {{- end}}
@@ -90,7 +93,7 @@ type {{.TitleCase}}Resource struct {
 {{renderNestedModelTypes .TitleCase .Attributes}}type {{.TitleCase}}ResourceModel struct {
 {{- range .Attributes}}
 {{- if not .IsBlock}}
-	{{.GoName}} types.{{if eq .Type "string"}}String{{else if eq .Type "int64"}}Int64{{else if eq .Type "bool"}}Bool{{else if eq .Type "map"}}Map{{else if eq .Type "list"}}List{{else}}String{{end}} ` + "`" + `tfsdk:"{{.TfsdkTag}}"` + "`" + `
+	{{.GoName}} types.{{if eq .Type "string"}}String{{else if eq .Type "int64"}}Int64{{else if eq .Type "bool"}}Bool{{else if eq .Type "map"}}Map{{else if eq .Type "list"}}List{{else if eq .Type "object"}}Object{{else}}String{{end}} ` + "`" + `tfsdk:"{{.TfsdkTag}}"` + "`" + `
 {{- end}}
 {{- end}}
 	Timeouts timeouts.Value ` + "`" + `tfsdk:"timeouts"` + "`" + `
@@ -106,7 +109,7 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 		Attributes: map[string]schema.Attribute{
 {{- range .Attributes}}
 {{- if not .IsBlock}}
-			"{{.TfsdkTag}}": schema.{{if eq .Type "string"}}String{{else if eq .Type "int64"}}Int64{{else if eq .Type "bool"}}Bool{{else if eq .Type "map"}}Map{{else if eq .Type "list"}}List{{else}}String{{end}}Attribute{
+			"{{.TfsdkTag}}": schema.{{if eq .Type "string"}}String{{else if eq .Type "int64"}}Int64{{else if eq .Type "bool"}}Bool{{else if eq .Type "map"}}Map{{else if eq .Type "list"}}List{{else if eq .Type "object"}}Object{{else}}String{{end}}Attribute{
 				MarkdownDescription: "{{.Description}}",
 {{- if .DeprecationMessage}}
 				DeprecationMessage: "{{.DeprecationMessage}}",
@@ -132,12 +135,15 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- if eq .Type "list"}}
 				ElementType: {{if eq .ElementType "int64"}}types.Int64Type{{else if eq .ElementType "bool"}}types.BoolType{{else}}types.StringType{{end}},
 {{- end}}
+{{- if .EmptyObjectMarker}}
+				AttributeTypes: map[string]attr.Type{},
+{{- end}}
 {{- if .PlanModifier}}
-				PlanModifiers: []planmodifier.{{if eq .Type "string"}}String{{else if eq .Type "bool"}}Bool{{else if eq .Type "int64"}}Int64{{else if eq .Type "list"}}List{{else if eq .Type "map"}}Map{{else}}String{{end}}{
+				PlanModifiers: []planmodifier.{{if eq .Type "string"}}String{{else if eq .Type "bool"}}Bool{{else if eq .Type "int64"}}Int64{{else if eq .Type "list"}}List{{else if eq .Type "map"}}Map{{else if eq .Type "object"}}Object{{else}}String{{end}}{
 {{- if eq .PlanModifier "RequiresReplace"}}
-					{{if eq .Type "string"}}stringplanmodifier{{else if eq .Type "bool"}}boolplanmodifier{{else if eq .Type "int64"}}int64planmodifier{{else if eq .Type "list"}}listplanmodifier{{else if eq .Type "map"}}mapplanmodifier{{else}}stringplanmodifier{{end}}.RequiresReplace(),
+					{{if eq .Type "string"}}stringplanmodifier{{else if eq .Type "bool"}}boolplanmodifier{{else if eq .Type "int64"}}int64planmodifier{{else if eq .Type "list"}}listplanmodifier{{else if eq .Type "map"}}mapplanmodifier{{else if eq .Type "object"}}objectplanmodifier{{else}}stringplanmodifier{{end}}.RequiresReplace(),
 {{- else if eq .PlanModifier "UseStateForUnknown"}}
-					{{if eq .Type "string"}}stringplanmodifier{{else if eq .Type "bool"}}boolplanmodifier{{else if eq .Type "int64"}}int64planmodifier{{else if eq .Type "list"}}listplanmodifier{{else if eq .Type "map"}}mapplanmodifier{{else}}stringplanmodifier{{end}}.UseStateForUnknown(),
+					{{if eq .Type "string"}}stringplanmodifier{{else if eq .Type "bool"}}boolplanmodifier{{else if eq .Type "int64"}}int64planmodifier{{else if eq .Type "list"}}listplanmodifier{{else if eq .Type "map"}}mapplanmodifier{{else if eq .Type "object"}}objectplanmodifier{{else}}stringplanmodifier{{end}}.UseStateForUnknown(),
 {{- end}}
 				},
 {{- end}}
@@ -230,7 +236,7 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- if .IsBlock}}
 			"{{.TfsdkTag}}": schema.{{if eq .NestedBlockType "single"}}SingleNestedBlock{{else if eq .NestedBlockType "list"}}ListNestedBlock{{else}}SingleNestedBlock{{end}}{
 				MarkdownDescription: "{{.Description}}{{if and (eq $.Name "securemesh_site_v2") (eq .TfsdkTag "software_settings")}} This block is a create-only, write-only input; changing it replaces the resource, and refresh preserves the configured value without claiming XC observed it.{{end}}",
-{{renderConditionalRequired . "\t\t\t\t"}}
+{{renderBlockValidators . "\t\t\t\t"}}{{renderBlockPlanModifiers . "\t\t\t\t"}}
 {{- if eq .NestedBlockType "list"}}
 				NestedObject: schema.NestedBlockObject{
 {{- if .NestedAttributes}}
@@ -360,10 +366,9 @@ func (r *{{.TitleCase}}Resource) ModifyPlan(ctx context.Context, req resource.Mo
 		if !reflect.DeepEqual(plan.SoftwareSettings, state.SoftwareSettings) {
 			resp.RequiresReplace = append(resp.RequiresReplace, path.Root("software_settings"))
 		}
-		// The live API rejects replacement-style PUT updates for HA sites. AWS
-		// topology is therefore create-only: make the destroy/create lifecycle
-		// explicit in Terraform whenever its configured shape changes.
-		if plan.AWS != nil && state.AWS != nil && !reflect.DeepEqual(plan.AWS, state.AWS) {
+		// Preserve replacement for unverified AWS topology edits. The API
+		// supports device-only edits on explicitly non-HA, single-node sites.
+		if plan.AWS != nil && state.AWS != nil && !sameSMSv2AWSInputs(ctx, plan.AWS, state.AWS) && !canUpdateSMSv2AWSDevices(ctx, plan, state) {
 			resp.RequiresReplace = append(resp.RequiresReplace, path.Root("aws"))
 		}
 	}

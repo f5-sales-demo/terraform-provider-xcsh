@@ -51,17 +51,17 @@ type SubnetEmptyModel struct {
 
 // SubnetSiteSubnetParamsModel represents site_subnet_params block
 type SubnetSiteSubnetParamsModel struct {
-	DHCP                   *SubnetEmptyModel                                  `tfsdk:"dhcp"`
+	DHCP                   types.Object                                       `tfsdk:"dhcp"`
+	StaticIP               types.Object                                       `tfsdk:"static_ip"`
 	Site                   *SubnetSiteSubnetParamsSiteModel                   `tfsdk:"site"`
-	StaticIP               *SubnetEmptyModel                                  `tfsdk:"static_ip"`
 	SubnetDHCPServerParams *SubnetSiteSubnetParamsSubnetDHCPServerParamsModel `tfsdk:"subnet_dhcp_server_params"`
 }
 
 // SubnetSiteSubnetParamsModelAttrTypes defines the attribute types for SubnetSiteSubnetParamsModel
 var SubnetSiteSubnetParamsModelAttrTypes = map[string]attr.Type{
 	"dhcp":                      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"site":                      types.ObjectType{AttrTypes: SubnetSiteSubnetParamsSiteModelAttrTypes},
 	"static_ip":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"site":                      types.ObjectType{AttrTypes: SubnetSiteSubnetParamsSiteModelAttrTypes},
 	"subnet_dhcp_server_params": types.ObjectType{AttrTypes: SubnetSiteSubnetParamsSubnetDHCPServerParamsModelAttrTypes},
 }
 
@@ -127,15 +127,15 @@ type SubnetResourceModel struct {
 	Name             types.String                `tfsdk:"name"`
 	Namespace        types.String                `tfsdk:"namespace"`
 	Annotations      types.Map                   `tfsdk:"annotations"`
+	ConnectToSlo     types.Object                `tfsdk:"connect_to_slo"`
 	Description      types.String                `tfsdk:"description"`
 	Disable          types.Bool                  `tfsdk:"disable"`
+	IsolatedNw       types.Object                `tfsdk:"isolated_nw"`
 	Labels           types.Map                   `tfsdk:"labels"`
 	ID               types.String                `tfsdk:"id"`
 	Timeouts         timeouts.Value              `tfsdk:"timeouts"`
 	SiteSubnetParams types.List                  `tfsdk:"site_subnet_params"`
 	ConnectToLayer2  *SubnetConnectToLayer2Model `tfsdk:"connect_to_layer2"`
-	ConnectToSlo     *SubnetEmptyModel           `tfsdk:"connect_to_slo"`
-	IsolatedNw       *SubnetEmptyModel           `tfsdk:"isolated_nw"`
 }
 
 func (r *SubnetResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -171,6 +171,11 @@ func (r *SubnetResource) Schema(ctx context.Context, req resource.SchemaRequest,
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"connect_to_slo": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for connect to slo.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
@@ -178,6 +183,11 @@ func (r *SubnetResource) Schema(ctx context.Context, req resource.SchemaRequest,
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
+			},
+			"isolated_nw": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for isolated nw.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
@@ -201,13 +211,22 @@ func (r *SubnetResource) Schema(ctx context.Context, req resource.SchemaRequest,
 			}),
 			"site_subnet_params": schema.ListNestedBlock{
 				MarkdownDescription: "Site Subnet Parameters. Configure subnet parameters per site.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("dhcp", "static_ip")},
 
 				NestedObject: schema.NestedBlockObject{
-					Attributes: map[string]schema.Attribute{},
-					Blocks: map[string]schema.Block{
-						"dhcp": schema.SingleNestedBlock{
+					Attributes: map[string]schema.Attribute{
+						"dhcp": schema.ObjectAttribute{
 							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
 						},
+						"static_ip": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+					},
+					Blocks: map[string]schema.Block{
 						"site": schema.SingleNestedBlock{
 							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 							Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -238,9 +257,6 @@ func (r *SubnetResource) Schema(ctx context.Context, req resource.SchemaRequest,
 									},
 								},
 							},
-						},
-						"static_ip": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
 						},
 						"subnet_dhcp_server_params": schema.SingleNestedBlock{
 							MarkdownDescription: "Subnet DHCP parameters will be a subset of network_interface.dhcpserverparameterstype as all features in network_interface.dhcpserverparameterstype may not be supported in a subnet.",
@@ -300,12 +316,6 @@ func (r *SubnetResource) Schema(ctx context.Context, req resource.SchemaRequest,
 					},
 				},
 			},
-			"connect_to_slo": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for connect to slo.",
-			},
-			"isolated_nw": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for isolated nw.",
-			},
 		},
 	}
 }
@@ -332,6 +342,14 @@ func (r *SubnetResource) ValidateConfig(ctx context.Context, req resource.Valida
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.ConnectToSlo.IsNull() && !data.ConnectToSlo.IsUnknown() && !data.IsolatedNw.IsNull() && !data.IsolatedNw.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("connect_to_slo"),
+			"Conflicting Configuration",
+			"connect_to_slo and isolated_nw are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -440,7 +458,7 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 			var SiteSubnetParamsList []map[string]interface{}
 			for _, SiteSubnetParamsItem := range SiteSubnetParamsElems {
 				SiteSubnetParamsItemMap := make(map[string]interface{})
-				if SiteSubnetParamsItem.DHCP != nil {
+				if !SiteSubnetParamsItem.DHCP.IsNull() && !SiteSubnetParamsItem.DHCP.IsUnknown() {
 					SiteSubnetParamsItemMap["dhcp"] = map[string]interface{}{}
 				}
 				if SiteSubnetParamsItem.Site != nil {
@@ -453,7 +471,7 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 					}
 					SiteSubnetParamsItemMap["site"] = SiteSubnetParamsSiteMap
 				}
-				if SiteSubnetParamsItem.StaticIP != nil {
+				if !SiteSubnetParamsItem.StaticIP.IsNull() && !SiteSubnetParamsItem.StaticIP.IsUnknown() {
 					SiteSubnetParamsItemMap["static_ip"] = map[string]interface{}{}
 				}
 				if SiteSubnetParamsItem.SubnetDHCPServerParams != nil {
@@ -495,10 +513,10 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 		}
 		createReq.Spec["connect_to_layer2"] = ConnectToLayer2Map
 	}
-	if data.ConnectToSlo != nil {
+	if !data.ConnectToSlo.IsNull() && !data.ConnectToSlo.IsUnknown() {
 		createReq.Spec["connect_to_slo"] = map[string]interface{}{}
 	}
-	if data.IsolatedNw != nil {
+	if !data.IsolatedNw.IsNull() && !data.IsolatedNw.IsUnknown() {
 		createReq.Spec["isolated_nw"] = map[string]interface{}{}
 	}
 
@@ -552,14 +570,14 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				SiteSubnetParamsList = append(SiteSubnetParamsList, SubnetSiteSubnetParamsModel{
-					DHCP: func() *SubnetEmptyModel {
-						if !isImport && len(existingSiteSubnetParamsItems) > listIdx {
+					DHCP: func() types.Object {
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && !existingSiteSubnetParamsItems[listIdx].DHCP.IsUnknown() {
 							return existingSiteSubnetParamsItems[listIdx].DHCP
 						}
 						if _, ok := itemMap["dhcp"].(map[string]interface{}); ok {
-							return &SubnetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Site: func() *SubnetSiteSubnetParamsSiteModel {
 						if SiteData, ok := itemMap["site"].(map[string]interface{}); ok {
@@ -586,14 +604,14 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 						}
 						return nil
 					}(),
-					StaticIP: func() *SubnetEmptyModel {
-						if !isImport && len(existingSiteSubnetParamsItems) > listIdx {
+					StaticIP: func() types.Object {
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && !existingSiteSubnetParamsItems[listIdx].StaticIP.IsUnknown() {
 							return existingSiteSubnetParamsItems[listIdx].StaticIP
 						}
 						if _, ok := itemMap["static_ip"].(map[string]interface{}); ok {
-							return &SubnetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					SubnetDHCPServerParams: func() *SubnetSiteSubnetParamsSubnetDHCPServerParamsModel {
 						if SubnetDHCPServerParamsData, ok := itemMap["subnet_dhcp_server_params"].(map[string]interface{}); ok {
@@ -670,11 +688,19 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["connect_to_slo"].(map[string]interface{}); ok && isImport && data.ConnectToSlo == nil {
-		data.ConnectToSlo = &SubnetEmptyModel{}
+	if !isImport && !data.ConnectToSlo.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["connect_to_slo"].(map[string]interface{}); ok {
+		data.ConnectToSlo = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ConnectToSlo = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["isolated_nw"].(map[string]interface{}); ok && isImport && data.IsolatedNw == nil {
-		data.IsolatedNw = &SubnetEmptyModel{}
+	if !isImport && !data.IsolatedNw.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["isolated_nw"].(map[string]interface{}); ok {
+		data.IsolatedNw = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.IsolatedNw = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	tflog.Trace(ctx, "created Subnet resource")
@@ -819,14 +845,14 @@ func (r *SubnetResource) Read(ctx context.Context, req resource.ReadRequest, res
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				SiteSubnetParamsList = append(SiteSubnetParamsList, SubnetSiteSubnetParamsModel{
-					DHCP: func() *SubnetEmptyModel {
-						if !isImport && len(existingSiteSubnetParamsItems) > listIdx {
+					DHCP: func() types.Object {
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && !existingSiteSubnetParamsItems[listIdx].DHCP.IsUnknown() {
 							return existingSiteSubnetParamsItems[listIdx].DHCP
 						}
 						if _, ok := itemMap["dhcp"].(map[string]interface{}); ok {
-							return &SubnetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Site: func() *SubnetSiteSubnetParamsSiteModel {
 						if SiteData, ok := itemMap["site"].(map[string]interface{}); ok {
@@ -853,14 +879,14 @@ func (r *SubnetResource) Read(ctx context.Context, req resource.ReadRequest, res
 						}
 						return nil
 					}(),
-					StaticIP: func() *SubnetEmptyModel {
-						if !isImport && len(existingSiteSubnetParamsItems) > listIdx {
+					StaticIP: func() types.Object {
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && !existingSiteSubnetParamsItems[listIdx].StaticIP.IsUnknown() {
 							return existingSiteSubnetParamsItems[listIdx].StaticIP
 						}
 						if _, ok := itemMap["static_ip"].(map[string]interface{}); ok {
-							return &SubnetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					SubnetDHCPServerParams: func() *SubnetSiteSubnetParamsSubnetDHCPServerParamsModel {
 						if SubnetDHCPServerParamsData, ok := itemMap["subnet_dhcp_server_params"].(map[string]interface{}); ok {
@@ -937,11 +963,19 @@ func (r *SubnetResource) Read(ctx context.Context, req resource.ReadRequest, res
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["connect_to_slo"].(map[string]interface{}); ok && isImport && data.ConnectToSlo == nil {
-		data.ConnectToSlo = &SubnetEmptyModel{}
+	if !isImport && !data.ConnectToSlo.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["connect_to_slo"].(map[string]interface{}); ok {
+		data.ConnectToSlo = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ConnectToSlo = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["isolated_nw"].(map[string]interface{}); ok && isImport && data.IsolatedNw == nil {
-		data.IsolatedNw = &SubnetEmptyModel{}
+	if !isImport && !data.IsolatedNw.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["isolated_nw"].(map[string]interface{}); ok {
+		data.IsolatedNw = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.IsolatedNw = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -1045,7 +1079,7 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 			var SiteSubnetParamsList []map[string]interface{}
 			for _, SiteSubnetParamsItem := range SiteSubnetParamsElems {
 				SiteSubnetParamsItemMap := make(map[string]interface{})
-				if SiteSubnetParamsItem.DHCP != nil {
+				if !SiteSubnetParamsItem.DHCP.IsNull() && !SiteSubnetParamsItem.DHCP.IsUnknown() {
 					SiteSubnetParamsItemMap["dhcp"] = map[string]interface{}{}
 				}
 				if SiteSubnetParamsItem.Site != nil {
@@ -1058,7 +1092,7 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 					}
 					SiteSubnetParamsItemMap["site"] = SiteSubnetParamsSiteMap
 				}
-				if SiteSubnetParamsItem.StaticIP != nil {
+				if !SiteSubnetParamsItem.StaticIP.IsNull() && !SiteSubnetParamsItem.StaticIP.IsUnknown() {
 					SiteSubnetParamsItemMap["static_ip"] = map[string]interface{}{}
 				}
 				if SiteSubnetParamsItem.SubnetDHCPServerParams != nil {
@@ -1100,10 +1134,10 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 		}
 		apiResource.Spec["connect_to_layer2"] = ConnectToLayer2Map
 	}
-	if data.ConnectToSlo != nil {
+	if !data.ConnectToSlo.IsNull() && !data.ConnectToSlo.IsUnknown() {
 		apiResource.Spec["connect_to_slo"] = map[string]interface{}{}
 	}
-	if data.IsolatedNw != nil {
+	if !data.IsolatedNw.IsNull() && !data.IsolatedNw.IsUnknown() {
 		apiResource.Spec["isolated_nw"] = map[string]interface{}{}
 	}
 
@@ -1177,14 +1211,14 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				SiteSubnetParamsList = append(SiteSubnetParamsList, SubnetSiteSubnetParamsModel{
-					DHCP: func() *SubnetEmptyModel {
-						if !isImport && len(existingSiteSubnetParamsItems) > listIdx {
+					DHCP: func() types.Object {
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && !existingSiteSubnetParamsItems[listIdx].DHCP.IsUnknown() {
 							return existingSiteSubnetParamsItems[listIdx].DHCP
 						}
 						if _, ok := itemMap["dhcp"].(map[string]interface{}); ok {
-							return &SubnetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Site: func() *SubnetSiteSubnetParamsSiteModel {
 						if SiteData, ok := itemMap["site"].(map[string]interface{}); ok {
@@ -1211,14 +1245,14 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 						}
 						return nil
 					}(),
-					StaticIP: func() *SubnetEmptyModel {
-						if !isImport && len(existingSiteSubnetParamsItems) > listIdx {
+					StaticIP: func() types.Object {
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && !existingSiteSubnetParamsItems[listIdx].StaticIP.IsUnknown() {
 							return existingSiteSubnetParamsItems[listIdx].StaticIP
 						}
 						if _, ok := itemMap["static_ip"].(map[string]interface{}); ok {
-							return &SubnetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					SubnetDHCPServerParams: func() *SubnetSiteSubnetParamsSubnetDHCPServerParamsModel {
 						if SubnetDHCPServerParamsData, ok := itemMap["subnet_dhcp_server_params"].(map[string]interface{}); ok {
@@ -1295,11 +1329,19 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["connect_to_slo"].(map[string]interface{}); ok && isImport && data.ConnectToSlo == nil {
-		data.ConnectToSlo = &SubnetEmptyModel{}
+	if !isImport && !data.ConnectToSlo.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["connect_to_slo"].(map[string]interface{}); ok {
+		data.ConnectToSlo = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.ConnectToSlo = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["isolated_nw"].(map[string]interface{}); ok && isImport && data.IsolatedNw == nil {
-		data.IsolatedNw = &SubnetEmptyModel{}
+	if !isImport && !data.IsolatedNw.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["isolated_nw"].(map[string]interface{}); ok {
+		data.IsolatedNw = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.IsolatedNw = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

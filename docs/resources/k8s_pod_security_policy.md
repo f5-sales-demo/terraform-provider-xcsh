@@ -39,7 +39,7 @@ resource "xcsh_k8s_pod_security_policy" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -109,23 +109,23 @@ A [`psp_spec`](#psp-spec) block supports the following:
 
 <a id="psp-spec-host-port-ranges"></a>&#x2022; [`host_port_ranges`](#psp-spec-host-port-ranges) - Optional String<br>Host port ranges determines which ports ranges are allowed to be exposed
 
-<a id="psp-spec-no-allowed-capabilities"></a>&#x2022; [`no_allowed_capabilities`](#psp-spec-no-allowed-capabilities) - Optional Block<br>Configuration parameter for no allowed capabilities
+<a id="psp-spec-no-allowed-capabilities"></a>&#x2022; [`no_allowed_capabilities`](#psp-spec-no-allowed-capabilities) - Optional Object<br>Configuration parameter for no allowed capabilities
 
-<a id="psp-spec-no-default-capabilities"></a>&#x2022; [`no_default_capabilities`](#psp-spec-no-default-capabilities) - Optional Block<br>Configuration parameter for no default capabilities
+<a id="psp-spec-no-default-capabilities"></a>&#x2022; [`no_default_capabilities`](#psp-spec-no-default-capabilities) - Optional Object<br>Configuration parameter for no default capabilities
 
-<a id="psp-spec-no-drop-capabilities"></a>&#x2022; [`no_drop_capabilities`](#psp-spec-no-drop-capabilities) - Optional Block<br>Configuration parameter for no drop capabilities
+<a id="psp-spec-no-drop-capabilities"></a>&#x2022; [`no_drop_capabilities`](#psp-spec-no-drop-capabilities) - Optional Object<br>Configuration parameter for no drop capabilities
 
-<a id="psp-spec-no-fs-groups"></a>&#x2022; [`no_fs_groups`](#psp-spec-no-fs-groups) - Optional Block<br>Enable this option
+<a id="psp-spec-no-fs-groups"></a>&#x2022; [`no_fs_groups`](#psp-spec-no-fs-groups) - Optional Object<br>Enable this option
 
-<a id="psp-spec-no-run-as-group"></a>&#x2022; [`no_run_as_group`](#psp-spec-no-run-as-group) - Optional Block<br>Configuration parameter for no run as group
+<a id="psp-spec-no-run-as-group"></a>&#x2022; [`no_run_as_group`](#psp-spec-no-run-as-group) - Optional Object<br>Configuration parameter for no run as group
 
-<a id="psp-spec-no-run-as-user"></a>&#x2022; [`no_run_as_user`](#psp-spec-no-run-as-user) - Optional Block<br>Configuration parameter for no run as user
+<a id="psp-spec-no-run-as-user"></a>&#x2022; [`no_run_as_user`](#psp-spec-no-run-as-user) - Optional Object<br>Configuration parameter for no run as user
 
 <a id="psp-spec-no-runtime-class"></a>&#x2022; [`no_runtime_class`](#psp-spec-no-runtime-class) - Optional Block<br>Configuration parameter for no runtime class
 
 <a id="psp-spec-no-se-linux-options"></a>&#x2022; [`no_se_linux_options`](#psp-spec-no-se-linux-options) - Optional Block<br>Configuration parameter for no se linux options
 
-<a id="psp-spec-no-supplemental-groups"></a>&#x2022; [`no_supplemental_groups`](#psp-spec-no-supplemental-groups) - Optional Block<br>Enable this option
+<a id="psp-spec-no-supplemental-groups"></a>&#x2022; [`no_supplemental_groups`](#psp-spec-no-supplemental-groups) - Optional Object<br>Enable this option
 
 <a id="psp-spec-privileged"></a>&#x2022; [`privileged`](#psp-spec-privileged) - Optional Bool<br>Privileged determines if a pod can request to be run as privileged
 
@@ -176,6 +176,30 @@ A [`fs_group_strategy_options`](#psp-spec-fs-group-strategy-options) block (with
 #### Psp Spec Fs Group Strategy Options ID Ranges
 
 <a id="deep-9e04ba"></a>Deeply nested **Ranges** block collapsed for readability.
+
+#### Psp Spec No Allowed Capabilities
+
+A [`no_allowed_capabilities`](#psp-spec-no-allowed-capabilities) block (within [`psp_spec`](#psp-spec)) supports the following:
+
+#### Psp Spec No Default Capabilities
+
+A [`no_default_capabilities`](#psp-spec-no-default-capabilities) block (within [`psp_spec`](#psp-spec)) supports the following:
+
+#### Psp Spec No Drop Capabilities
+
+A [`no_drop_capabilities`](#psp-spec-no-drop-capabilities) block (within [`psp_spec`](#psp-spec)) supports the following:
+
+#### Psp Spec No Fs Groups
+
+A [`no_fs_groups`](#psp-spec-no-fs-groups) block (within [`psp_spec`](#psp-spec)) supports the following:
+
+#### Psp Spec No Run As Group
+
+A [`no_run_as_group`](#psp-spec-no-run-as-group) block (within [`psp_spec`](#psp-spec)) supports the following:
+
+#### Psp Spec No Run As User
+
+A [`no_run_as_user`](#psp-spec-no-run-as-user) block (within [`psp_spec`](#psp-spec)) supports the following:
 
 #### Psp Spec Run As Group
 

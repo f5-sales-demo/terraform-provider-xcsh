@@ -192,8 +192,8 @@ var DiscoveryDiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoM
 
 // DiscoveryDiscoveryConsulPublishInfoModel represents publish_info block
 type DiscoveryDiscoveryConsulPublishInfoModel struct {
-	DisableSpec *DiscoveryEmptyModel `tfsdk:"disable_spec"`
-	Publish     *DiscoveryEmptyModel `tfsdk:"publish"`
+	DisableSpec types.Object `tfsdk:"disable_spec"`
+	Publish     types.Object `tfsdk:"publish"`
 }
 
 // DiscoveryDiscoveryConsulPublishInfoModelAttrTypes defines the attribute types for DiscoveryDiscoveryConsulPublishInfoModel
@@ -204,34 +204,34 @@ var DiscoveryDiscoveryConsulPublishInfoModelAttrTypes = map[string]attr.Type{
 
 // DiscoveryDiscoveryK8SModel represents discovery_k8s block
 type DiscoveryDiscoveryK8SModel struct {
+	DefaultAll       types.Object                                `tfsdk:"default_all"`
 	AccessInfo       *DiscoveryDiscoveryK8SAccessInfoModel       `tfsdk:"access_info"`
-	DefaultAll       *DiscoveryEmptyModel                        `tfsdk:"default_all"`
 	NamespaceMapping *DiscoveryDiscoveryK8SNamespaceMappingModel `tfsdk:"namespace_mapping"`
 	PublishInfo      *DiscoveryDiscoveryK8SPublishInfoModel      `tfsdk:"publish_info"`
 }
 
 // DiscoveryDiscoveryK8SModelAttrTypes defines the attribute types for DiscoveryDiscoveryK8SModel
 var DiscoveryDiscoveryK8SModelAttrTypes = map[string]attr.Type{
-	"access_info":       types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SAccessInfoModelAttrTypes},
 	"default_all":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"access_info":       types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SAccessInfoModelAttrTypes},
 	"namespace_mapping": types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SNamespaceMappingModelAttrTypes},
 	"publish_info":      types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SPublishInfoModelAttrTypes},
 }
 
 // DiscoveryDiscoveryK8SAccessInfoModel represents access_info block
 type DiscoveryDiscoveryK8SAccessInfoModel struct {
+	Isolated       types.Object                                        `tfsdk:"isolated"`
+	Reachable      types.Object                                        `tfsdk:"reachable"`
 	ConnectionInfo *DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel `tfsdk:"connection_info"`
-	Isolated       *DiscoveryEmptyModel                                `tfsdk:"isolated"`
 	KubeconfigURL  *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel  `tfsdk:"kubeconfig_url"`
-	Reachable      *DiscoveryEmptyModel                                `tfsdk:"reachable"`
 }
 
 // DiscoveryDiscoveryK8SAccessInfoModelAttrTypes defines the attribute types for DiscoveryDiscoveryK8SAccessInfoModel
 var DiscoveryDiscoveryK8SAccessInfoModelAttrTypes = map[string]attr.Type{
-	"connection_info": types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SAccessInfoConnectionInfoModelAttrTypes},
 	"isolated":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"kubeconfig_url":  types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModelAttrTypes},
 	"reachable":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"connection_info": types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SAccessInfoConnectionInfoModelAttrTypes},
+	"kubeconfig_url":  types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModelAttrTypes},
 }
 
 // DiscoveryDiscoveryK8SAccessInfoConnectionInfoModel represents connection_info block
@@ -362,18 +362,18 @@ var DiscoveryDiscoveryK8SNamespaceMappingItemsModelAttrTypes = map[string]attr.T
 
 // DiscoveryDiscoveryK8SPublishInfoModel represents publish_info block
 type DiscoveryDiscoveryK8SPublishInfoModel struct {
-	DisableSpec   *DiscoveryEmptyModel                                `tfsdk:"disable_spec"`
+	DisableSpec   types.Object                                        `tfsdk:"disable_spec"`
+	PublishFqdns  types.Object                                        `tfsdk:"publish_fqdns"`
 	DNSDelegation *DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel `tfsdk:"dns_delegation"`
 	Publish       *DiscoveryDiscoveryK8SPublishInfoPublishModel       `tfsdk:"publish"`
-	PublishFqdns  *DiscoveryEmptyModel                                `tfsdk:"publish_fqdns"`
 }
 
 // DiscoveryDiscoveryK8SPublishInfoModelAttrTypes defines the attribute types for DiscoveryDiscoveryK8SPublishInfoModel
 var DiscoveryDiscoveryK8SPublishInfoModelAttrTypes = map[string]attr.Type{
 	"disable_spec":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"publish_fqdns":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"dns_delegation": types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SPublishInfoDNSDelegationModelAttrTypes},
 	"publish":        types.ObjectType{AttrTypes: DiscoveryDiscoveryK8SPublishInfoPublishModelAttrTypes},
-	"publish_fqdns":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel represents dns_delegation block
@@ -414,17 +414,17 @@ var DiscoveryWhereModelAttrTypes = map[string]attr.Type{
 
 // DiscoveryWhereSiteModel represents site block
 type DiscoveryWhereSiteModel struct {
-	NetworkType        types.String         `tfsdk:"network_type"`
-	DisableInternetVIP *DiscoveryEmptyModel `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *DiscoveryEmptyModel `tfsdk:"enable_internet_vip"`
-	Ref                types.List           `tfsdk:"ref"`
+	DisableInternetVIP types.Object `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  types.Object `tfsdk:"enable_internet_vip"`
+	NetworkType        types.String `tfsdk:"network_type"`
+	Ref                types.List   `tfsdk:"ref"`
 }
 
 // DiscoveryWhereSiteModelAttrTypes defines the attribute types for DiscoveryWhereSiteModel
 var DiscoveryWhereSiteModelAttrTypes = map[string]attr.Type{
-	"network_type":         types.StringType,
 	"disable_internet_vip": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_internet_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"network_type":         types.StringType,
 	"ref":                  types.ListType{ElemType: types.ObjectType{AttrTypes: DiscoveryWhereSiteRefModelAttrTypes}},
 }
 
@@ -476,17 +476,17 @@ var DiscoveryWhereVirtualNetworkRefModelAttrTypes = map[string]attr.Type{
 
 // DiscoveryWhereVirtualSiteModel represents virtual_site block
 type DiscoveryWhereVirtualSiteModel struct {
-	NetworkType        types.String         `tfsdk:"network_type"`
-	DisableInternetVIP *DiscoveryEmptyModel `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *DiscoveryEmptyModel `tfsdk:"enable_internet_vip"`
-	Ref                types.List           `tfsdk:"ref"`
+	DisableInternetVIP types.Object `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  types.Object `tfsdk:"enable_internet_vip"`
+	NetworkType        types.String `tfsdk:"network_type"`
+	Ref                types.List   `tfsdk:"ref"`
 }
 
 // DiscoveryWhereVirtualSiteModelAttrTypes defines the attribute types for DiscoveryWhereVirtualSiteModel
 var DiscoveryWhereVirtualSiteModelAttrTypes = map[string]attr.Type{
-	"network_type":         types.StringType,
 	"disable_internet_vip": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_internet_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"network_type":         types.StringType,
 	"ref":                  types.ListType{ElemType: types.ObjectType{AttrTypes: DiscoveryWhereVirtualSiteRefModelAttrTypes}},
 }
 
@@ -515,12 +515,12 @@ type DiscoveryResourceModel struct {
 	Description     types.String                   `tfsdk:"description"`
 	Disable         types.Bool                     `tfsdk:"disable"`
 	Labels          types.Map                      `tfsdk:"labels"`
+	NoClusterID     types.Object                   `tfsdk:"no_cluster_id"`
 	ID              types.String                   `tfsdk:"id"`
 	ClusterID       types.String                   `tfsdk:"cluster_id"`
 	Timeouts        timeouts.Value                 `tfsdk:"timeouts"`
 	DiscoveryConsul *DiscoveryDiscoveryConsulModel `tfsdk:"discovery_consul"`
 	DiscoveryK8S    *DiscoveryDiscoveryK8SModel    `tfsdk:"discovery_k8s"`
-	NoClusterID     *DiscoveryEmptyModel           `tfsdk:"no_cluster_id"`
 	Where           *DiscoveryWhereModel           `tfsdk:"where"`
 }
 
@@ -569,6 +569,11 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"no_cluster_id": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -646,6 +651,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 										Blocks: map[string]schema.Block{
 											"key_url": schema.SingleNestedBlock{
 												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
@@ -706,6 +712,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 								Blocks: map[string]schema.Block{
 									"passwd_url": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -754,13 +761,17 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"publish_info": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for publish info.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"disable_spec": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "publish")},
+						Attributes: map[string]schema.Attribute{
+							"disable_spec": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"publish": schema.SingleNestedBlock{
+							"publish": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -768,12 +779,31 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"discovery_k8s": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for discovery k8s.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_all", "namespace_mapping")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"default_all": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default all.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
 					"access_info": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for access info.",
-						Attributes:          map[string]schema.Attribute{},
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("connection_info", "kubeconfig_url"), validators.ConflictingObjectAttributes("isolated", "reachable")},
+						Attributes: map[string]schema.Attribute{
+							"isolated": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"reachable": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"connection_info": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration details to access discovery service REST API.",
@@ -816,6 +846,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 										Blocks: map[string]schema.Block{
 											"key_url": schema.SingleNestedBlock{
 												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
@@ -862,11 +893,9 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 									},
 								},
 							},
-							"isolated": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"kubeconfig_url": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -909,13 +938,7 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 									},
 								},
 							},
-							"reachable": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 						},
-					},
-					"default_all": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for default all.",
 					},
 					"namespace_mapping": schema.SingleNestedBlock{
 						MarkdownDescription: "Select the mapping between K8s namespaces from which services will be discovered and App Namespace to which the discovered services will be shared.",
@@ -952,11 +975,20 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"publish_info": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for publish info.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"disable_spec": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "dns_delegation"), validators.ConflictingObjectAttributes("disable_spec", "publish"), validators.ConflictingObjectAttributes("disable_spec", "publish_fqdns"), validators.ConflictingObjectAttributes("dns_delegation", "publish"), validators.ConflictingObjectAttributes("dns_delegation", "publish_fqdns"), validators.ConflictingObjectAttributes("publish", "publish_fqdns")},
+						Attributes: map[string]schema.Attribute{
+							"disable_spec": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
+							"publish_fqdns": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for publish fqdns.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
+						Blocks: map[string]schema.Block{
 							"dns_delegation": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for dns delegation.",
 								Validators:          []validator.Object{validators.RequiredObjectAttributes("subdomain")},
@@ -994,25 +1026,30 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 									},
 								},
 							},
-							"publish_fqdns": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for publish fqdns.",
-							},
 						},
 					},
 				},
 			},
-			"no_cluster_id": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
 			"where": schema.SingleNestedBlock{
 				MarkdownDescription: "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_network"), validators.ConflictingObjectAttributes("site", "virtual_site"), validators.ConflictingObjectAttributes("virtual_network", "virtual_site")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"site": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies a direct reference to a site configuration object.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
+							"disable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
 								Optional:            true,
@@ -1022,12 +1059,6 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 							},
 						},
 						Blocks: map[string]schema.Block{
-							"disable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"enable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"ref": schema.ListNestedBlock{
 								MarkdownDescription: "Reference. A site direct reference.",
 								NestedObject: schema.NestedBlockObject{
@@ -1109,8 +1140,18 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 					"virtual_site": schema.SingleNestedBlock{
 						MarkdownDescription: "Virtual Site. A reference to virtual_site object.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
+							"disable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
 								Optional:            true,
@@ -1120,12 +1161,6 @@ func (r *DiscoveryResource) Schema(ctx context.Context, req resource.SchemaReque
 							},
 						},
 						Blocks: map[string]schema.Block{
-							"disable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"enable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"ref": schema.ListNestedBlock{
 								MarkdownDescription: "Reference. A virtual_site direct reference.",
 								NestedObject: schema.NestedBlockObject{
@@ -1191,6 +1226,14 @@ func (r *DiscoveryResource) ValidateConfig(ctx context.Context, req resource.Val
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.NoClusterID.IsNull() && !data.NoClusterID.IsUnknown() && !data.ClusterID.IsNull() && !data.ClusterID.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_cluster_id"),
+			"Conflicting Configuration",
+			"no_cluster_id and cluster_id are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -1380,10 +1423,10 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 		}
 		if data.DiscoveryConsul.PublishInfo != nil {
 			DiscoveryConsulPublishInfoMap := make(map[string]interface{})
-			if data.DiscoveryConsul.PublishInfo.DisableSpec != nil {
+			if !data.DiscoveryConsul.PublishInfo.DisableSpec.IsNull() && !data.DiscoveryConsul.PublishInfo.DisableSpec.IsUnknown() {
 				DiscoveryConsulPublishInfoMap["disable"] = map[string]interface{}{}
 			}
-			if data.DiscoveryConsul.PublishInfo.Publish != nil {
+			if !data.DiscoveryConsul.PublishInfo.Publish.IsNull() && !data.DiscoveryConsul.PublishInfo.Publish.IsUnknown() {
 				DiscoveryConsulPublishInfoMap["publish"] = map[string]interface{}{}
 			}
 			DiscoveryConsulMap["publish_info"] = DiscoveryConsulPublishInfoMap
@@ -1441,7 +1484,7 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				}
 				DiscoveryK8SAccessInfoMap["connection_info"] = DiscoveryK8SAccessInfoConnectionInfoMap
 			}
-			if data.DiscoveryK8S.AccessInfo.Isolated != nil {
+			if !data.DiscoveryK8S.AccessInfo.Isolated.IsNull() && !data.DiscoveryK8S.AccessInfo.Isolated.IsUnknown() {
 				DiscoveryK8SAccessInfoMap["isolated"] = map[string]interface{}{}
 			}
 			if data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil {
@@ -1471,12 +1514,12 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				}
 				DiscoveryK8SAccessInfoMap["kubeconfig_url"] = DiscoveryK8SAccessInfoKubeconfigURLMap
 			}
-			if data.DiscoveryK8S.AccessInfo.Reachable != nil {
+			if !data.DiscoveryK8S.AccessInfo.Reachable.IsNull() && !data.DiscoveryK8S.AccessInfo.Reachable.IsUnknown() {
 				DiscoveryK8SAccessInfoMap["reachable"] = map[string]interface{}{}
 			}
 			DiscoveryK8SMap["access_info"] = DiscoveryK8SAccessInfoMap
 		}
-		if data.DiscoveryK8S.DefaultAll != nil {
+		if !data.DiscoveryK8S.DefaultAll.IsNull() && !data.DiscoveryK8S.DefaultAll.IsUnknown() {
 			DiscoveryK8SMap["default_all"] = map[string]interface{}{}
 		}
 		if data.DiscoveryK8S.NamespaceMapping != nil {
@@ -1504,7 +1547,7 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 		}
 		if data.DiscoveryK8S.PublishInfo != nil {
 			DiscoveryK8SPublishInfoMap := make(map[string]interface{})
-			if data.DiscoveryK8S.PublishInfo.DisableSpec != nil {
+			if !data.DiscoveryK8S.PublishInfo.DisableSpec.IsNull() && !data.DiscoveryK8S.PublishInfo.DisableSpec.IsUnknown() {
 				DiscoveryK8SPublishInfoMap["disable"] = map[string]interface{}{}
 			}
 			if data.DiscoveryK8S.PublishInfo.DNSDelegation != nil {
@@ -1524,24 +1567,24 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				}
 				DiscoveryK8SPublishInfoMap["publish"] = DiscoveryK8SPublishInfoPublishMap
 			}
-			if data.DiscoveryK8S.PublishInfo.PublishFqdns != nil {
+			if !data.DiscoveryK8S.PublishInfo.PublishFqdns.IsNull() && !data.DiscoveryK8S.PublishInfo.PublishFqdns.IsUnknown() {
 				DiscoveryK8SPublishInfoMap["publish_fqdns"] = map[string]interface{}{}
 			}
 			DiscoveryK8SMap["publish_info"] = DiscoveryK8SPublishInfoMap
 		}
 		createReq.Spec["discovery_k8s"] = DiscoveryK8SMap
 	}
-	if data.NoClusterID != nil {
+	if !data.NoClusterID.IsNull() && !data.NoClusterID.IsUnknown() {
 		createReq.Spec["no_cluster_id"] = map[string]interface{}{}
 	}
 	if data.Where != nil {
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
 			WhereSiteMap := make(map[string]interface{})
-			if data.Where.Site.DisableInternetVIP != nil {
+			if !data.Where.Site.DisableInternetVIP.IsNull() && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.Site.EnableInternetVIP != nil {
+			if !data.Where.Site.EnableInternetVIP.IsNull() && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
@@ -1593,10 +1636,10 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 		}
 		if data.Where.VirtualSite != nil {
 			WhereVirtualSiteMap := make(map[string]interface{})
-			if data.Where.VirtualSite.DisableInternetVIP != nil {
+			if !data.Where.VirtualSite.DisableInternetVIP.IsNull() && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.VirtualSite.EnableInternetVIP != nil {
+			if !data.Where.VirtualSite.EnableInternetVIP.IsNull() && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
@@ -1865,23 +1908,23 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 				}
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryConsulPublishInfoModel{
-						DisableSpec: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil && !data.DiscoveryConsul.PublishInfo.DisableSpec.IsUnknown() {
 								return data.DiscoveryConsul.PublishInfo.DisableSpec
 							}
 							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Publish: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+						Publish: func() types.Object {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil && !data.DiscoveryConsul.PublishInfo.Publish.IsUnknown() {
 								return data.DiscoveryConsul.PublishInfo.Publish
 							}
 							if _, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -2001,14 +2044,14 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 							}
 							return nil
 						}(),
-						Isolated: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+						Isolated: func() types.Object {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && !data.DiscoveryK8S.AccessInfo.Isolated.IsUnknown() {
 								return data.DiscoveryK8S.AccessInfo.Isolated
 							}
 							if _, ok := AccessInfoData["isolated"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						KubeconfigURL: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel {
 							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil {
@@ -2070,27 +2113,27 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 							}
 							return nil
 						}(),
-						Reachable: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+						Reachable: func() types.Object {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && !data.DiscoveryK8S.AccessInfo.Reachable.IsUnknown() {
 								return data.DiscoveryK8S.AccessInfo.Reachable
 							}
 							if _, ok := AccessInfoData["reachable"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
 				return nil
 			}(),
-			DefaultAll: func() *DiscoveryEmptyModel {
-				if !isImport && data.DiscoveryK8S != nil {
+			DefaultAll: func() types.Object {
+				if !isImport && data.DiscoveryK8S != nil && !data.DiscoveryK8S.DefaultAll.IsUnknown() {
 					return data.DiscoveryK8S.DefaultAll
 				}
 				if _, ok := blockData["default_all"].(map[string]interface{}); ok {
-					return &DiscoveryEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NamespaceMapping: func() *DiscoveryDiscoveryK8SNamespaceMappingModel {
 				if NamespaceMappingData, ok := blockData["namespace_mapping"].(map[string]interface{}); ok {
@@ -2136,14 +2179,14 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 			PublishInfo: func() *DiscoveryDiscoveryK8SPublishInfoModel {
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SPublishInfoModel{
-						DisableSpec: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && !data.DiscoveryK8S.PublishInfo.DisableSpec.IsUnknown() {
 								return data.DiscoveryK8S.PublishInfo.DisableSpec
 							}
 							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DNSDelegation: func() *DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel {
 							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && data.DiscoveryK8S.PublishInfo.DNSDelegation != nil {
@@ -2180,14 +2223,14 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 							}
 							return nil
 						}(),
-						PublishFqdns: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+						PublishFqdns: func() types.Object {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && !data.DiscoveryK8S.PublishInfo.PublishFqdns.IsUnknown() {
 								return data.DiscoveryK8S.PublishInfo.PublishFqdns
 							}
 							if _, ok := PublishInfoData["publish_fqdns"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -2195,31 +2238,35 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["no_cluster_id"].(map[string]interface{}); ok && isImport && data.NoClusterID == nil {
-		data.NoClusterID = &DiscoveryEmptyModel{}
+	if !isImport && !data.NoClusterID.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_cluster_id"].(map[string]interface{}); ok {
+		data.NoClusterID = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoClusterID = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &DiscoveryWhereModel{
 			Site: func() *DiscoveryWhereSiteModel {
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &DiscoveryWhereSiteModel{
-						DisableInternetVIP: func() *DiscoveryEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 								return data.Where.Site.DisableInternetVIP
 							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *DiscoveryEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 								return data.Where.Site.EnableInternetVIP
 							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := SiteData["network_type"].(string); ok && v != "" {
@@ -2345,23 +2392,23 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 			VirtualSite: func() *DiscoveryWhereVirtualSiteModel {
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &DiscoveryWhereVirtualSiteModel{
-						DisableInternetVIP: func() *DiscoveryEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.DisableInternetVIP
 							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *DiscoveryEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.EnableInternetVIP
 							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
@@ -2761,23 +2808,23 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 				}
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryConsulPublishInfoModel{
-						DisableSpec: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil && !data.DiscoveryConsul.PublishInfo.DisableSpec.IsUnknown() {
 								return data.DiscoveryConsul.PublishInfo.DisableSpec
 							}
 							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Publish: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+						Publish: func() types.Object {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil && !data.DiscoveryConsul.PublishInfo.Publish.IsUnknown() {
 								return data.DiscoveryConsul.PublishInfo.Publish
 							}
 							if _, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -2897,14 +2944,14 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 							}
 							return nil
 						}(),
-						Isolated: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+						Isolated: func() types.Object {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && !data.DiscoveryK8S.AccessInfo.Isolated.IsUnknown() {
 								return data.DiscoveryK8S.AccessInfo.Isolated
 							}
 							if _, ok := AccessInfoData["isolated"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						KubeconfigURL: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel {
 							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil {
@@ -2966,27 +3013,27 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 							}
 							return nil
 						}(),
-						Reachable: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+						Reachable: func() types.Object {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && !data.DiscoveryK8S.AccessInfo.Reachable.IsUnknown() {
 								return data.DiscoveryK8S.AccessInfo.Reachable
 							}
 							if _, ok := AccessInfoData["reachable"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
 				return nil
 			}(),
-			DefaultAll: func() *DiscoveryEmptyModel {
-				if !isImport && data.DiscoveryK8S != nil {
+			DefaultAll: func() types.Object {
+				if !isImport && data.DiscoveryK8S != nil && !data.DiscoveryK8S.DefaultAll.IsUnknown() {
 					return data.DiscoveryK8S.DefaultAll
 				}
 				if _, ok := blockData["default_all"].(map[string]interface{}); ok {
-					return &DiscoveryEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NamespaceMapping: func() *DiscoveryDiscoveryK8SNamespaceMappingModel {
 				if NamespaceMappingData, ok := blockData["namespace_mapping"].(map[string]interface{}); ok {
@@ -3032,14 +3079,14 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 			PublishInfo: func() *DiscoveryDiscoveryK8SPublishInfoModel {
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SPublishInfoModel{
-						DisableSpec: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && !data.DiscoveryK8S.PublishInfo.DisableSpec.IsUnknown() {
 								return data.DiscoveryK8S.PublishInfo.DisableSpec
 							}
 							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DNSDelegation: func() *DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel {
 							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && data.DiscoveryK8S.PublishInfo.DNSDelegation != nil {
@@ -3076,14 +3123,14 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 							}
 							return nil
 						}(),
-						PublishFqdns: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+						PublishFqdns: func() types.Object {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && !data.DiscoveryK8S.PublishInfo.PublishFqdns.IsUnknown() {
 								return data.DiscoveryK8S.PublishInfo.PublishFqdns
 							}
 							if _, ok := PublishInfoData["publish_fqdns"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -3091,31 +3138,35 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["no_cluster_id"].(map[string]interface{}); ok && isImport && data.NoClusterID == nil {
-		data.NoClusterID = &DiscoveryEmptyModel{}
+	if !isImport && !data.NoClusterID.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_cluster_id"].(map[string]interface{}); ok {
+		data.NoClusterID = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoClusterID = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &DiscoveryWhereModel{
 			Site: func() *DiscoveryWhereSiteModel {
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &DiscoveryWhereSiteModel{
-						DisableInternetVIP: func() *DiscoveryEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 								return data.Where.Site.DisableInternetVIP
 							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *DiscoveryEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 								return data.Where.Site.EnableInternetVIP
 							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := SiteData["network_type"].(string); ok && v != "" {
@@ -3241,23 +3292,23 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 			VirtualSite: func() *DiscoveryWhereVirtualSiteModel {
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &DiscoveryWhereVirtualSiteModel{
-						DisableInternetVIP: func() *DiscoveryEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.DisableInternetVIP
 							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *DiscoveryEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.EnableInternetVIP
 							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
@@ -3511,10 +3562,10 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 		}
 		if data.DiscoveryConsul.PublishInfo != nil {
 			DiscoveryConsulPublishInfoMap := make(map[string]interface{})
-			if data.DiscoveryConsul.PublishInfo.DisableSpec != nil {
+			if !data.DiscoveryConsul.PublishInfo.DisableSpec.IsNull() && !data.DiscoveryConsul.PublishInfo.DisableSpec.IsUnknown() {
 				DiscoveryConsulPublishInfoMap["disable"] = map[string]interface{}{}
 			}
-			if data.DiscoveryConsul.PublishInfo.Publish != nil {
+			if !data.DiscoveryConsul.PublishInfo.Publish.IsNull() && !data.DiscoveryConsul.PublishInfo.Publish.IsUnknown() {
 				DiscoveryConsulPublishInfoMap["publish"] = map[string]interface{}{}
 			}
 			DiscoveryConsulMap["publish_info"] = DiscoveryConsulPublishInfoMap
@@ -3572,7 +3623,7 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				}
 				DiscoveryK8SAccessInfoMap["connection_info"] = DiscoveryK8SAccessInfoConnectionInfoMap
 			}
-			if data.DiscoveryK8S.AccessInfo.Isolated != nil {
+			if !data.DiscoveryK8S.AccessInfo.Isolated.IsNull() && !data.DiscoveryK8S.AccessInfo.Isolated.IsUnknown() {
 				DiscoveryK8SAccessInfoMap["isolated"] = map[string]interface{}{}
 			}
 			if data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil {
@@ -3602,12 +3653,12 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				}
 				DiscoveryK8SAccessInfoMap["kubeconfig_url"] = DiscoveryK8SAccessInfoKubeconfigURLMap
 			}
-			if data.DiscoveryK8S.AccessInfo.Reachable != nil {
+			if !data.DiscoveryK8S.AccessInfo.Reachable.IsNull() && !data.DiscoveryK8S.AccessInfo.Reachable.IsUnknown() {
 				DiscoveryK8SAccessInfoMap["reachable"] = map[string]interface{}{}
 			}
 			DiscoveryK8SMap["access_info"] = DiscoveryK8SAccessInfoMap
 		}
-		if data.DiscoveryK8S.DefaultAll != nil {
+		if !data.DiscoveryK8S.DefaultAll.IsNull() && !data.DiscoveryK8S.DefaultAll.IsUnknown() {
 			DiscoveryK8SMap["default_all"] = map[string]interface{}{}
 		}
 		if data.DiscoveryK8S.NamespaceMapping != nil {
@@ -3635,7 +3686,7 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 		}
 		if data.DiscoveryK8S.PublishInfo != nil {
 			DiscoveryK8SPublishInfoMap := make(map[string]interface{})
-			if data.DiscoveryK8S.PublishInfo.DisableSpec != nil {
+			if !data.DiscoveryK8S.PublishInfo.DisableSpec.IsNull() && !data.DiscoveryK8S.PublishInfo.DisableSpec.IsUnknown() {
 				DiscoveryK8SPublishInfoMap["disable"] = map[string]interface{}{}
 			}
 			if data.DiscoveryK8S.PublishInfo.DNSDelegation != nil {
@@ -3655,24 +3706,24 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				}
 				DiscoveryK8SPublishInfoMap["publish"] = DiscoveryK8SPublishInfoPublishMap
 			}
-			if data.DiscoveryK8S.PublishInfo.PublishFqdns != nil {
+			if !data.DiscoveryK8S.PublishInfo.PublishFqdns.IsNull() && !data.DiscoveryK8S.PublishInfo.PublishFqdns.IsUnknown() {
 				DiscoveryK8SPublishInfoMap["publish_fqdns"] = map[string]interface{}{}
 			}
 			DiscoveryK8SMap["publish_info"] = DiscoveryK8SPublishInfoMap
 		}
 		apiResource.Spec["discovery_k8s"] = DiscoveryK8SMap
 	}
-	if data.NoClusterID != nil {
+	if !data.NoClusterID.IsNull() && !data.NoClusterID.IsUnknown() {
 		apiResource.Spec["no_cluster_id"] = map[string]interface{}{}
 	}
 	if data.Where != nil {
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
 			WhereSiteMap := make(map[string]interface{})
-			if data.Where.Site.DisableInternetVIP != nil {
+			if !data.Where.Site.DisableInternetVIP.IsNull() && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.Site.EnableInternetVIP != nil {
+			if !data.Where.Site.EnableInternetVIP.IsNull() && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
@@ -3724,10 +3775,10 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 		}
 		if data.Where.VirtualSite != nil {
 			WhereVirtualSiteMap := make(map[string]interface{})
-			if data.Where.VirtualSite.DisableInternetVIP != nil {
+			if !data.Where.VirtualSite.DisableInternetVIP.IsNull() && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.VirtualSite.EnableInternetVIP != nil {
+			if !data.Where.VirtualSite.EnableInternetVIP.IsNull() && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
@@ -4023,23 +4074,23 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 				}
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryConsulPublishInfoModel{
-						DisableSpec: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil && !data.DiscoveryConsul.PublishInfo.DisableSpec.IsUnknown() {
 								return data.DiscoveryConsul.PublishInfo.DisableSpec
 							}
 							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Publish: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil {
+						Publish: func() types.Object {
+							if !isImport && data.DiscoveryConsul != nil && data.DiscoveryConsul.PublishInfo != nil && !data.DiscoveryConsul.PublishInfo.Publish.IsUnknown() {
 								return data.DiscoveryConsul.PublishInfo.Publish
 							}
 							if _, ok := PublishInfoData["publish"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -4159,14 +4210,14 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 							}
 							return nil
 						}(),
-						Isolated: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+						Isolated: func() types.Object {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && !data.DiscoveryK8S.AccessInfo.Isolated.IsUnknown() {
 								return data.DiscoveryK8S.AccessInfo.Isolated
 							}
 							if _, ok := AccessInfoData["isolated"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						KubeconfigURL: func() *DiscoveryDiscoveryK8SAccessInfoKubeconfigURLModel {
 							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil {
@@ -4228,27 +4279,27 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 							}
 							return nil
 						}(),
-						Reachable: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil {
+						Reachable: func() types.Object {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.AccessInfo != nil && !data.DiscoveryK8S.AccessInfo.Reachable.IsUnknown() {
 								return data.DiscoveryK8S.AccessInfo.Reachable
 							}
 							if _, ok := AccessInfoData["reachable"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
 				return nil
 			}(),
-			DefaultAll: func() *DiscoveryEmptyModel {
-				if !isImport && data.DiscoveryK8S != nil {
+			DefaultAll: func() types.Object {
+				if !isImport && data.DiscoveryK8S != nil && !data.DiscoveryK8S.DefaultAll.IsUnknown() {
 					return data.DiscoveryK8S.DefaultAll
 				}
 				if _, ok := blockData["default_all"].(map[string]interface{}); ok {
-					return &DiscoveryEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NamespaceMapping: func() *DiscoveryDiscoveryK8SNamespaceMappingModel {
 				if NamespaceMappingData, ok := blockData["namespace_mapping"].(map[string]interface{}); ok {
@@ -4294,14 +4345,14 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 			PublishInfo: func() *DiscoveryDiscoveryK8SPublishInfoModel {
 				if PublishInfoData, ok := blockData["publish_info"].(map[string]interface{}); ok {
 					return &DiscoveryDiscoveryK8SPublishInfoModel{
-						DisableSpec: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && !data.DiscoveryK8S.PublishInfo.DisableSpec.IsUnknown() {
 								return data.DiscoveryK8S.PublishInfo.DisableSpec
 							}
 							if _, ok := PublishInfoData["disable"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DNSDelegation: func() *DiscoveryDiscoveryK8SPublishInfoDNSDelegationModel {
 							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && data.DiscoveryK8S.PublishInfo.DNSDelegation != nil {
@@ -4338,14 +4389,14 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 							}
 							return nil
 						}(),
-						PublishFqdns: func() *DiscoveryEmptyModel {
-							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil {
+						PublishFqdns: func() types.Object {
+							if !isImport && data.DiscoveryK8S != nil && data.DiscoveryK8S.PublishInfo != nil && !data.DiscoveryK8S.PublishInfo.PublishFqdns.IsUnknown() {
 								return data.DiscoveryK8S.PublishInfo.PublishFqdns
 							}
 							if _, ok := PublishInfoData["publish_fqdns"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -4353,31 +4404,35 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["no_cluster_id"].(map[string]interface{}); ok && isImport && data.NoClusterID == nil {
-		data.NoClusterID = &DiscoveryEmptyModel{}
+	if !isImport && !data.NoClusterID.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_cluster_id"].(map[string]interface{}); ok {
+		data.NoClusterID = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoClusterID = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["where"].(map[string]interface{}); ok && (isImport || data.Where != nil) {
 		data.Where = &DiscoveryWhereModel{
 			Site: func() *DiscoveryWhereSiteModel {
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &DiscoveryWhereSiteModel{
-						DisableInternetVIP: func() *DiscoveryEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 								return data.Where.Site.DisableInternetVIP
 							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *DiscoveryEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 								return data.Where.Site.EnableInternetVIP
 							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := SiteData["network_type"].(string); ok && v != "" {
@@ -4503,23 +4558,23 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 			VirtualSite: func() *DiscoveryWhereVirtualSiteModel {
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &DiscoveryWhereVirtualSiteModel{
-						DisableInternetVIP: func() *DiscoveryEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.DisableInternetVIP
 							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *DiscoveryEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.EnableInternetVIP
 							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &DiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {

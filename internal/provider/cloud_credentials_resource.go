@@ -52,24 +52,24 @@ type CloudCredentialsEmptyModel struct {
 
 // CloudCredentialsAWSAssumeRoleModel represents aws_assume_role block
 type CloudCredentialsAWSAssumeRoleModel struct {
-	CustomExternalID     types.String                `tfsdk:"custom_external_id"`
-	DurationSeconds      types.Int64                 `tfsdk:"duration_seconds"`
-	RoleArn              types.String                `tfsdk:"role_arn"`
-	SessionName          types.String                `tfsdk:"session_name"`
-	SessionTags          types.Map                   `tfsdk:"session_tags"`
-	ExternalIDIsOptional *CloudCredentialsEmptyModel `tfsdk:"external_id_is_optional"`
-	ExternalIDIsTenantID *CloudCredentialsEmptyModel `tfsdk:"external_id_is_tenant_id"`
+	CustomExternalID     types.String `tfsdk:"custom_external_id"`
+	DurationSeconds      types.Int64  `tfsdk:"duration_seconds"`
+	ExternalIDIsOptional types.Object `tfsdk:"external_id_is_optional"`
+	ExternalIDIsTenantID types.Object `tfsdk:"external_id_is_tenant_id"`
+	RoleArn              types.String `tfsdk:"role_arn"`
+	SessionName          types.String `tfsdk:"session_name"`
+	SessionTags          types.Map    `tfsdk:"session_tags"`
 }
 
 // CloudCredentialsAWSAssumeRoleModelAttrTypes defines the attribute types for CloudCredentialsAWSAssumeRoleModel
 var CloudCredentialsAWSAssumeRoleModelAttrTypes = map[string]attr.Type{
 	"custom_external_id":       types.StringType,
 	"duration_seconds":         types.Int64Type,
+	"external_id_is_optional":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"external_id_is_tenant_id": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"role_arn":                 types.StringType,
 	"session_name":             types.StringType,
 	"session_tags":             types.MapType{ElemType: types.StringType},
-	"external_id_is_optional":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"external_id_is_tenant_id": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // CloudCredentialsAWSSecretKeyModel represents aws_secret_key block
@@ -359,7 +359,7 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 			}),
 			"aws_assume_role": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: aws_assume_role, aws_secret_key, azure_client_secret, azure_pfx_certificate, gcp_cred_file] AWS Assume Role to Handle Delegated Access.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("duration_seconds", "role_arn", "session_name")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("duration_seconds", "role_arn", "session_name"), validators.ConflictingObjectAttributes("custom_external_id", "external_id_is_optional"), validators.ConflictingObjectAttributes("custom_external_id", "external_id_is_tenant_id"), validators.ConflictingObjectAttributes("external_id_is_optional", "external_id_is_tenant_id")},
 
 				Attributes: map[string]schema.Attribute{
 					"custom_external_id": schema.StringAttribute{
@@ -375,6 +375,16 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 						Validators: []validator.Int64{
 							int64validator.Between(3600, 43200),
 						},
+					},
+					"external_id_is_optional": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for external id is optional.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"external_id_is_tenant_id": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 					"role_arn": schema.StringAttribute{
 						MarkdownDescription: "IAM Role ARN. IAM Role ARN to assume the role.",
@@ -396,14 +406,6 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 						ElementType:         types.StringType,
 					},
 				},
-				Blocks: map[string]schema.Block{
-					"external_id_is_optional": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for external id is optional.",
-					},
-					"external_id_is_tenant_id": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-				},
 			},
 			"aws_secret_key": schema.SingleNestedBlock{
 				MarkdownDescription: "AWS Programmatic Access Credentials type.",
@@ -421,6 +423,7 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 				Blocks: map[string]schema.Block{
 					"secret_key": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -495,6 +498,7 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 				Blocks: map[string]schema.Block{
 					"client_secret": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -576,6 +580,7 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 				Blocks: map[string]schema.Block{
 					"password": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -627,6 +632,7 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 				Blocks: map[string]schema.Block{
 					"credential_file": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -805,10 +811,10 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 		if !data.AWSAssumeRole.DurationSeconds.IsNull() && !data.AWSAssumeRole.DurationSeconds.IsUnknown() {
 			AWSAssumeRoleMap["duration_seconds"] = data.AWSAssumeRole.DurationSeconds.ValueInt64()
 		}
-		if data.AWSAssumeRole.ExternalIDIsOptional != nil {
+		if !data.AWSAssumeRole.ExternalIDIsOptional.IsNull() && !data.AWSAssumeRole.ExternalIDIsOptional.IsUnknown() {
 			AWSAssumeRoleMap["external_id_is_optional"] = map[string]interface{}{}
 		}
-		if data.AWSAssumeRole.ExternalIDIsTenantID != nil {
+		if !data.AWSAssumeRole.ExternalIDIsTenantID.IsNull() && !data.AWSAssumeRole.ExternalIDIsTenantID.IsUnknown() {
 			AWSAssumeRoleMap["external_id_is_tenant_id"] = map[string]interface{}{}
 		}
 		if !data.AWSAssumeRole.RoleArn.IsNull() && !data.AWSAssumeRole.RoleArn.IsUnknown() {
@@ -1031,23 +1037,23 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 				}
 				return types.Int64Null()
 			}(),
-			ExternalIDIsOptional: func() *CloudCredentialsEmptyModel {
-				if !isImport && data.AWSAssumeRole != nil {
+			ExternalIDIsOptional: func() types.Object {
+				if !isImport && data.AWSAssumeRole != nil && !data.AWSAssumeRole.ExternalIDIsOptional.IsUnknown() {
 					return data.AWSAssumeRole.ExternalIDIsOptional
 				}
 				if _, ok := blockData["external_id_is_optional"].(map[string]interface{}); ok {
-					return &CloudCredentialsEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ExternalIDIsTenantID: func() *CloudCredentialsEmptyModel {
-				if !isImport && data.AWSAssumeRole != nil {
+			ExternalIDIsTenantID: func() types.Object {
+				if !isImport && data.AWSAssumeRole != nil && !data.AWSAssumeRole.ExternalIDIsTenantID.IsUnknown() {
 					return data.AWSAssumeRole.ExternalIDIsTenantID
 				}
 				if _, ok := blockData["external_id_is_tenant_id"].(map[string]interface{}); ok {
-					return &CloudCredentialsEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			RoleArn: func() types.String {
 				if v, ok := blockData["role_arn"].(string); ok && v != "" {
@@ -1521,23 +1527,23 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 				}
 				return types.Int64Null()
 			}(),
-			ExternalIDIsOptional: func() *CloudCredentialsEmptyModel {
-				if !isImport && data.AWSAssumeRole != nil {
+			ExternalIDIsOptional: func() types.Object {
+				if !isImport && data.AWSAssumeRole != nil && !data.AWSAssumeRole.ExternalIDIsOptional.IsUnknown() {
 					return data.AWSAssumeRole.ExternalIDIsOptional
 				}
 				if _, ok := blockData["external_id_is_optional"].(map[string]interface{}); ok {
-					return &CloudCredentialsEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ExternalIDIsTenantID: func() *CloudCredentialsEmptyModel {
-				if !isImport && data.AWSAssumeRole != nil {
+			ExternalIDIsTenantID: func() types.Object {
+				if !isImport && data.AWSAssumeRole != nil && !data.AWSAssumeRole.ExternalIDIsTenantID.IsUnknown() {
 					return data.AWSAssumeRole.ExternalIDIsTenantID
 				}
 				if _, ok := blockData["external_id_is_tenant_id"].(map[string]interface{}); ok {
-					return &CloudCredentialsEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			RoleArn: func() types.String {
 				if v, ok := blockData["role_arn"].(string); ok && v != "" {
@@ -1965,10 +1971,10 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 		if !data.AWSAssumeRole.DurationSeconds.IsNull() && !data.AWSAssumeRole.DurationSeconds.IsUnknown() {
 			AWSAssumeRoleMap["duration_seconds"] = data.AWSAssumeRole.DurationSeconds.ValueInt64()
 		}
-		if data.AWSAssumeRole.ExternalIDIsOptional != nil {
+		if !data.AWSAssumeRole.ExternalIDIsOptional.IsNull() && !data.AWSAssumeRole.ExternalIDIsOptional.IsUnknown() {
 			AWSAssumeRoleMap["external_id_is_optional"] = map[string]interface{}{}
 		}
-		if data.AWSAssumeRole.ExternalIDIsTenantID != nil {
+		if !data.AWSAssumeRole.ExternalIDIsTenantID.IsNull() && !data.AWSAssumeRole.ExternalIDIsTenantID.IsUnknown() {
 			AWSAssumeRoleMap["external_id_is_tenant_id"] = map[string]interface{}{}
 		}
 		if !data.AWSAssumeRole.RoleArn.IsNull() && !data.AWSAssumeRole.RoleArn.IsUnknown() {
@@ -2211,23 +2217,23 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 				}
 				return types.Int64Null()
 			}(),
-			ExternalIDIsOptional: func() *CloudCredentialsEmptyModel {
-				if !isImport && data.AWSAssumeRole != nil {
+			ExternalIDIsOptional: func() types.Object {
+				if !isImport && data.AWSAssumeRole != nil && !data.AWSAssumeRole.ExternalIDIsOptional.IsUnknown() {
 					return data.AWSAssumeRole.ExternalIDIsOptional
 				}
 				if _, ok := blockData["external_id_is_optional"].(map[string]interface{}); ok {
-					return &CloudCredentialsEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ExternalIDIsTenantID: func() *CloudCredentialsEmptyModel {
-				if !isImport && data.AWSAssumeRole != nil {
+			ExternalIDIsTenantID: func() types.Object {
+				if !isImport && data.AWSAssumeRole != nil && !data.AWSAssumeRole.ExternalIDIsTenantID.IsUnknown() {
 					return data.AWSAssumeRole.ExternalIDIsTenantID
 				}
 				if _, ok := blockData["external_id_is_tenant_id"].(map[string]interface{}); ok {
-					return &CloudCredentialsEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			RoleArn: func() types.String {
 				if v, ok := blockData["role_arn"].(string); ok && v != "" {

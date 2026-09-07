@@ -20,6 +20,6 @@ resource "xcsh_rate_limiter" "test" {
     unit             = "SECOND"
     burst_multiplier = 5
 
-    token_bucket {}
+    token_bucket = {}
   }
 }

@@ -39,7 +39,7 @@ resource "xcsh_external_connector" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -99,9 +99,9 @@ A [`gre_parameters`](#gre-gre-parameters) block (within [`gre`](#gre)) supports 
 
 <a id="gre-gre-parameters-segment"></a>&#x2022; [`segment`](#gre-gre-parameters-segment) - Optional Block<br>Segment Reference Type. Reference to Segment Object<br>See [Segment](#gre-gre-parameters-segment) below.
 
-<a id="network-6ed79c"></a>&#x2022; [`site_local_inside_network`](#network-6ed79c) - Optional Block<br>Enable this option
+<a id="network-6ed79c"></a>&#x2022; [`site_local_inside_network`](#network-6ed79c) - Optional Object<br>Enable this option
 
-<a id="gre-gre-parameters-site-local-network"></a>&#x2022; [`site_local_network`](#gre-gre-parameters-site-local-network) - Optional Block<br>Enable this option
+<a id="gre-gre-parameters-site-local-network"></a>&#x2022; [`site_local_network`](#gre-gre-parameters-site-local-network) - Optional Object<br>Enable this option
 
 <a id="gre-gre-parameters-tunnel-eps"></a>&#x2022; [`tunnel_eps`](#gre-gre-parameters-tunnel-eps) - Optional Block<br>Configure tunnel parameters, source, destination, IP addresses<br>See [Tunnel Eps](#gre-gre-parameters-tunnel-eps) below.
 
@@ -133,6 +133,14 @@ A [`refs`](#gre-gre-parameters-segment-refs) block (within [`gre.gre_parameters.
 
 <a id="gre-gre-parameters-segment-refs-uid"></a>&#x2022; [`uid`](#gre-gre-parameters-segment-refs-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
+#### Gre Gre Parameters Site Local Inside Network
+
+A [`site_local_inside_network`](#network-6ed79c) block (within [`gre.gre_parameters`](#gre-gre-parameters)) supports the following:
+
+#### Gre Gre Parameters Site Local Network
+
+A [`site_local_network`](#gre-gre-parameters-site-local-network) block (within [`gre.gre_parameters`](#gre-gre-parameters)) supports the following:
+
 #### Gre Gre Parameters Tunnel Eps
 
 A [`tunnel_eps`](#gre-gre-parameters-tunnel-eps) block (within [`gre.gre_parameters`](#gre-gre-parameters)) supports the following:
@@ -157,7 +165,7 @@ An [`ipsec`](#ipsec) block supports the following:
 
 An [`ike_parameters`](#ipsec-ike-parameters) block (within [`ipsec`](#ipsec)) supports the following:
 
-<a id="ipsec-ike-parameters-dpd-disabled"></a>&#x2022; [`dpd_disabled`](#ipsec-ike-parameters-dpd-disabled) - Optional Block<br>Enable this option
+<a id="ipsec-ike-parameters-dpd-disabled"></a>&#x2022; [`dpd_disabled`](#ipsec-ike-parameters-dpd-disabled) - Optional Object<br>Enable this option
 
 <a id="timer-0d12ec"></a>&#x2022; [`dpd_keep_alive_timer`](#timer-0d12ec) - Optional Block<br>Configuration parameter for dpd keep alive timer<br>See [Dpd Keep Alive Timer](#timer-0d12ec) below.
 
@@ -165,9 +173,9 @@ An [`ike_parameters`](#ipsec-ike-parameters) block (within [`ipsec`](#ipsec)) su
 
 <a id="ipsec-ike-parameters-ike-phase2-profile"></a>&#x2022; [`ike_phase2_profile`](#ipsec-ike-parameters-ike-phase2-profile) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [IKE Phase2 Profile](#ipsec-ike-parameters-ike-phase2-profile) below.
 
-<a id="ipsec-ike-parameters-initiator"></a>&#x2022; [`initiator`](#ipsec-ike-parameters-initiator) - Optional Block<br>Enable this option
+<a id="ipsec-ike-parameters-initiator"></a>&#x2022; [`initiator`](#ipsec-ike-parameters-initiator) - Optional Object<br>Enable this option
 
-<a id="ipsec-ike-parameters-responder"></a>&#x2022; [`responder`](#ipsec-ike-parameters-responder) - Optional Block<br>Enable this option
+<a id="ipsec-ike-parameters-responder"></a>&#x2022; [`responder`](#ipsec-ike-parameters-responder) - Optional Object<br>Enable this option
 
 <a id="ipsec-ike-parameters-rm-hostname"></a>&#x2022; [`rm_hostname`](#ipsec-ike-parameters-rm-hostname) - Optional String<br>Configure an hostname Remote IKE ID
 
@@ -175,7 +183,11 @@ An [`ike_parameters`](#ipsec-ike-parameters) block (within [`ipsec`](#ipsec)) su
 
 <a id="ike-id-adcccf"></a>&#x2022; [`use_default_local_ike_id`](#ike-id-adcccf) - Optional Block<br>Enable this option
 
-<a id="ike-id-5fac9c"></a>&#x2022; [`use_default_remote_ike_id`](#ike-id-5fac9c) - Optional Block<br>Enable this option
+<a id="ike-id-5fac9c"></a>&#x2022; [`use_default_remote_ike_id`](#ike-id-5fac9c) - Optional Object<br>Enable this option
+
+#### Ipsec IKE Parameters Dpd Disabled
+
+A [`dpd_disabled`](#ipsec-ike-parameters-dpd-disabled) block (within [`ipsec.ike_parameters`](#ipsec-ike-parameters)) supports the following:
 
 #### Ipsec IKE Parameters Dpd Keep Alive Timer
 
@@ -202,6 +214,14 @@ An [`ike_phase2_profile`](#ipsec-ike-parameters-ike-phase2-profile) block (withi
 <a id="namespace-2427e8"></a>&#x2022; [`namespace`](#namespace-2427e8) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="tenant-58d877"></a>&#x2022; [`tenant`](#tenant-58d877) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Ipsec IKE Parameters Initiator
+
+An [`initiator`](#ipsec-ike-parameters-initiator) block (within [`ipsec.ike_parameters`](#ipsec-ike-parameters)) supports the following:
+
+#### Ipsec IKE Parameters Responder
+
+A [`responder`](#ipsec-ike-parameters-responder) block (within [`ipsec.ike_parameters`](#ipsec-ike-parameters)) supports the following:
 
 #### Ipsec IKE Parameters Rm IP Address
 
@@ -233,9 +253,9 @@ An [`ipsec_tunnel_parameters`](#ipsec-ipsec-tunnel-parameters) block (within [`i
 
 <a id="ipsec-ipsec-tunnel-parameters-segment"></a>&#x2022; [`segment`](#ipsec-ipsec-tunnel-parameters-segment) - Optional Block<br>Segment Reference Type. Reference to Segment Object<br>See [Segment](#ipsec-ipsec-tunnel-parameters-segment) below.
 
-<a id="network-44cee5"></a>&#x2022; [`site_local_inside_network`](#network-44cee5) - Optional Block<br>Enable this option
+<a id="network-44cee5"></a>&#x2022; [`site_local_inside_network`](#network-44cee5) - Optional Object<br>Enable this option
 
-<a id="network-f96b8b"></a>&#x2022; [`site_local_network`](#network-f96b8b) - Optional Block<br>Enable this option
+<a id="network-f96b8b"></a>&#x2022; [`site_local_network`](#network-f96b8b) - Optional Object<br>Enable this option
 
 <a id="eps-33e1fb"></a>&#x2022; [`tunnel_eps`](#eps-33e1fb) - Optional Block<br>Configure tunnel parameters, local and remote IP addresses<br>See [Tunnel Eps](#eps-33e1fb) below.
 
@@ -266,6 +286,14 @@ A [`refs`](#refs-349f3e) block (within [`ipsec.ipsec_tunnel_parameters.segment`]
 <a id="tenant-f2a3ef"></a>&#x2022; [`tenant`](#tenant-f2a3ef) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 <a id="uid-c4bbc4"></a>&#x2022; [`uid`](#uid-c4bbc4) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Ipsec Ipsec Tunnel Parameters Site Local Inside Network
+
+<a id="deep-efcf61"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Ipsec Ipsec Tunnel Parameters Site Local Network
+
+A [`site_local_network`](#network-f96b8b) block (within [`ipsec.ipsec_tunnel_parameters`](#ipsec-ipsec-tunnel-parameters)) supports the following:
 
 #### Ipsec Ipsec Tunnel Parameters Tunnel Eps
 

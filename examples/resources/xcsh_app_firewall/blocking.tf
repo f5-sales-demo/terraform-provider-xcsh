@@ -16,10 +16,10 @@ resource "xcsh_app_firewall" "test" {
   namespace = "system"
 
   # Use default detection settings
-  default_detection_settings {}
+  default_detection_settings = {}
 
   # Blocking mode - actively block malicious requests
-  blocking {}
+  blocking = {}
 
   # allow_all_response_codes / use_default_blocking_page / default_bot_setting /
   # default_anonymization are server-default oneof markers the provider import-suppresses.

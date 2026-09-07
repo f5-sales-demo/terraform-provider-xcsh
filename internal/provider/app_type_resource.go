@@ -52,16 +52,16 @@ type AppTypeEmptyModel struct {
 
 // AppTypeBusinessLogicMarkupSettingModel represents business_logic_markup_setting block
 type AppTypeBusinessLogicMarkupSettingModel struct {
-	DisableSpec           *AppTypeEmptyModel                                           `tfsdk:"disable_spec"`
+	DisableSpec           types.Object                                                 `tfsdk:"disable_spec"`
+	Enable                types.Object                                                 `tfsdk:"enable"`
 	DiscoveredAPISettings *AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel `tfsdk:"discovered_api_settings"`
-	Enable                *AppTypeEmptyModel                                           `tfsdk:"enable"`
 }
 
 // AppTypeBusinessLogicMarkupSettingModelAttrTypes defines the attribute types for AppTypeBusinessLogicMarkupSettingModel
 var AppTypeBusinessLogicMarkupSettingModelAttrTypes = map[string]attr.Type{
 	"disable_spec":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"discovered_api_settings": types.ObjectType{AttrTypes: AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModelAttrTypes},
 	"enable":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"discovered_api_settings": types.ObjectType{AttrTypes: AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModelAttrTypes},
 }
 
 // AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel represents discovered_api_settings block
@@ -160,12 +160,21 @@ func (r *AppTypeResource) Schema(ctx context.Context, req resource.SchemaRequest
 			}),
 			"business_logic_markup_setting": schema.SingleNestedBlock{
 				MarkdownDescription: "Settings specifying how API Discovery will be performed.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_spec": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_spec": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+					"enable": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Blocks: map[string]schema.Block{
 					"discovered_api_settings": schema.SingleNestedBlock{
 						MarkdownDescription: "Discovered API Settings. Configure Discovered API Settings.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("purge_duration_for_inactive_discovered_apis")},
@@ -178,9 +187,6 @@ func (r *AppTypeResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 							},
 						},
-					},
-					"enable": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 				},
 			},
@@ -327,7 +333,7 @@ func (r *AppTypeResource) Create(ctx context.Context, req resource.CreateRequest
 	// Marshal spec fields from Terraform state to API struct
 	if data.BusinessLogicMarkupSetting != nil {
 		BusinessLogicMarkupSettingMap := make(map[string]interface{})
-		if data.BusinessLogicMarkupSetting.DisableSpec != nil {
+		if !data.BusinessLogicMarkupSetting.DisableSpec.IsNull() && !data.BusinessLogicMarkupSetting.DisableSpec.IsUnknown() {
 			BusinessLogicMarkupSettingMap["disable"] = map[string]interface{}{}
 		}
 		if data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil {
@@ -337,7 +343,7 @@ func (r *AppTypeResource) Create(ctx context.Context, req resource.CreateRequest
 			}
 			BusinessLogicMarkupSettingMap["discovered_api_settings"] = BusinessLogicMarkupSettingDiscoveredAPISettingsMap
 		}
-		if data.BusinessLogicMarkupSetting.Enable != nil {
+		if !data.BusinessLogicMarkupSetting.Enable.IsNull() && !data.BusinessLogicMarkupSetting.Enable.IsUnknown() {
 			BusinessLogicMarkupSettingMap["enable"] = map[string]interface{}{}
 		}
 		createReq.Spec["business_logic_markup_setting"] = BusinessLogicMarkupSettingMap
@@ -399,14 +405,14 @@ func (r *AppTypeResource) Create(ctx context.Context, req resource.CreateRequest
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["business_logic_markup_setting"].(map[string]interface{}); ok && (isImport || data.BusinessLogicMarkupSetting != nil) {
 		data.BusinessLogicMarkupSetting = &AppTypeBusinessLogicMarkupSettingModel{
-			DisableSpec: func() *AppTypeEmptyModel {
-				if !isImport && data.BusinessLogicMarkupSetting != nil {
+			DisableSpec: func() types.Object {
+				if !isImport && data.BusinessLogicMarkupSetting != nil && !data.BusinessLogicMarkupSetting.DisableSpec.IsUnknown() {
 					return data.BusinessLogicMarkupSetting.DisableSpec
 				}
 				if _, ok := blockData["disable"].(map[string]interface{}); ok {
-					return &AppTypeEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DiscoveredAPISettings: func() *AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel {
 				if !isImport && data.BusinessLogicMarkupSetting != nil && data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil {
@@ -427,14 +433,14 @@ func (r *AppTypeResource) Create(ctx context.Context, req resource.CreateRequest
 				}
 				return nil
 			}(),
-			Enable: func() *AppTypeEmptyModel {
-				if !isImport && data.BusinessLogicMarkupSetting != nil {
+			Enable: func() types.Object {
+				if !isImport && data.BusinessLogicMarkupSetting != nil && !data.BusinessLogicMarkupSetting.Enable.IsUnknown() {
 					return data.BusinessLogicMarkupSetting.Enable
 				}
 				if _, ok := blockData["enable"].(map[string]interface{}); ok {
-					return &AppTypeEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -600,14 +606,14 @@ func (r *AppTypeResource) Read(ctx context.Context, req resource.ReadRequest, re
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["business_logic_markup_setting"].(map[string]interface{}); ok && (isImport || data.BusinessLogicMarkupSetting != nil) {
 		data.BusinessLogicMarkupSetting = &AppTypeBusinessLogicMarkupSettingModel{
-			DisableSpec: func() *AppTypeEmptyModel {
-				if !isImport && data.BusinessLogicMarkupSetting != nil {
+			DisableSpec: func() types.Object {
+				if !isImport && data.BusinessLogicMarkupSetting != nil && !data.BusinessLogicMarkupSetting.DisableSpec.IsUnknown() {
 					return data.BusinessLogicMarkupSetting.DisableSpec
 				}
 				if _, ok := blockData["disable"].(map[string]interface{}); ok {
-					return &AppTypeEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DiscoveredAPISettings: func() *AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel {
 				if !isImport && data.BusinessLogicMarkupSetting != nil && data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil {
@@ -628,14 +634,14 @@ func (r *AppTypeResource) Read(ctx context.Context, req resource.ReadRequest, re
 				}
 				return nil
 			}(),
-			Enable: func() *AppTypeEmptyModel {
-				if !isImport && data.BusinessLogicMarkupSetting != nil {
+			Enable: func() types.Object {
+				if !isImport && data.BusinessLogicMarkupSetting != nil && !data.BusinessLogicMarkupSetting.Enable.IsUnknown() {
 					return data.BusinessLogicMarkupSetting.Enable
 				}
 				if _, ok := blockData["enable"].(map[string]interface{}); ok {
-					return &AppTypeEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -764,7 +770,7 @@ func (r *AppTypeResource) Update(ctx context.Context, req resource.UpdateRequest
 	// Marshal spec fields from Terraform state to API struct
 	if data.BusinessLogicMarkupSetting != nil {
 		BusinessLogicMarkupSettingMap := make(map[string]interface{})
-		if data.BusinessLogicMarkupSetting.DisableSpec != nil {
+		if !data.BusinessLogicMarkupSetting.DisableSpec.IsNull() && !data.BusinessLogicMarkupSetting.DisableSpec.IsUnknown() {
 			BusinessLogicMarkupSettingMap["disable"] = map[string]interface{}{}
 		}
 		if data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil {
@@ -774,7 +780,7 @@ func (r *AppTypeResource) Update(ctx context.Context, req resource.UpdateRequest
 			}
 			BusinessLogicMarkupSettingMap["discovered_api_settings"] = BusinessLogicMarkupSettingDiscoveredAPISettingsMap
 		}
-		if data.BusinessLogicMarkupSetting.Enable != nil {
+		if !data.BusinessLogicMarkupSetting.Enable.IsNull() && !data.BusinessLogicMarkupSetting.Enable.IsUnknown() {
 			BusinessLogicMarkupSettingMap["enable"] = map[string]interface{}{}
 		}
 		apiResource.Spec["business_logic_markup_setting"] = BusinessLogicMarkupSettingMap
@@ -856,14 +862,14 @@ func (r *AppTypeResource) Update(ctx context.Context, req resource.UpdateRequest
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["business_logic_markup_setting"].(map[string]interface{}); ok && (isImport || data.BusinessLogicMarkupSetting != nil) {
 		data.BusinessLogicMarkupSetting = &AppTypeBusinessLogicMarkupSettingModel{
-			DisableSpec: func() *AppTypeEmptyModel {
-				if !isImport && data.BusinessLogicMarkupSetting != nil {
+			DisableSpec: func() types.Object {
+				if !isImport && data.BusinessLogicMarkupSetting != nil && !data.BusinessLogicMarkupSetting.DisableSpec.IsUnknown() {
 					return data.BusinessLogicMarkupSetting.DisableSpec
 				}
 				if _, ok := blockData["disable"].(map[string]interface{}); ok {
-					return &AppTypeEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DiscoveredAPISettings: func() *AppTypeBusinessLogicMarkupSettingDiscoveredAPISettingsModel {
 				if !isImport && data.BusinessLogicMarkupSetting != nil && data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil {
@@ -884,14 +890,14 @@ func (r *AppTypeResource) Update(ctx context.Context, req resource.UpdateRequest
 				}
 				return nil
 			}(),
-			Enable: func() *AppTypeEmptyModel {
-				if !isImport && data.BusinessLogicMarkupSetting != nil {
+			Enable: func() types.Object {
+				if !isImport && data.BusinessLogicMarkupSetting != nil && !data.BusinessLogicMarkupSetting.Enable.IsUnknown() {
 					return data.BusinessLogicMarkupSetting.Enable
 				}
 				if _, ok := blockData["enable"].(map[string]interface{}); ok {
-					return &AppTypeEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

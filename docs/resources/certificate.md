@@ -41,7 +41,7 @@ resource "xcsh_certificate" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -93,13 +93,13 @@ spec:
 
 -> **One of the following:**
 &#x2022; <a id="custom-hash-algorithms"></a>[`custom_hash_algorithms`](#custom-hash-algorithms) - Optional Block<br>Specifies the hash algorithms to be used<br>See [Custom Hash Algorithms](#custom-hash-algorithms) below for details.
-<br><br>&#x2022; <a id="disable-ocsp-stapling"></a>[`disable_ocsp_stapling`](#disable-ocsp-stapling) - Optional Block<br>Configuration parameter for disable OCSP stapling
+<br><br>&#x2022; <a id="disable-ocsp-stapling"></a>[`disable_ocsp_stapling`](#disable-ocsp-stapling) - Optional Object<br>Configuration parameter for disable OCSP stapling
 
 <a id="private-key"></a>&#x2022; [`private_key`](#private-key) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Private Key](#private-key) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="use-system-defaults"></a>&#x2022; [`use_system_defaults`](#use-system-defaults) - Optional Block<br>Configuration parameter for use system defaults
+<a id="use-system-defaults"></a>&#x2022; [`use_system_defaults`](#use-system-defaults) - Optional Object<br>Configuration parameter for use system defaults
 
 ### Attributes Reference
 
@@ -124,6 +124,10 @@ A [`certificate_chain`](#certificate-chain) block supports the following:
 A [`custom_hash_algorithms`](#custom-hash-algorithms) block supports the following:
 
 <a id="custom-hash-algorithms-hash-algorithms"></a>&#x2022; [`hash_algorithms`](#custom-hash-algorithms-hash-algorithms) - Optional List  Defaults to `INVALID_HASH_ALGORITHM`<br>Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`<br>[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used
+
+#### Disable OCSP Stapling
+
+A [`disable_ocsp_stapling`](#disable-ocsp-stapling) block supports the following:
 
 #### Private Key
 
@@ -162,6 +166,10 @@ A [`timeouts`](#timeouts) block supports the following:
 <a id="timeouts-read"></a>&#x2022; [`read`](#timeouts-read) - Optional String (Defaults to `5 minutes`)<br>Used when retrieving the resource
 
 <a id="timeouts-update"></a>&#x2022; [`update`](#timeouts-update) - Optional String (Defaults to `10 minutes`)<br>Used when updating the resource
+
+#### Use System Defaults
+
+An [`use_system_defaults`](#use-system-defaults) block supports the following:
 
 ---
 

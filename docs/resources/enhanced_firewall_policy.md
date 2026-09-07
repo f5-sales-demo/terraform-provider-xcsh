@@ -39,7 +39,7 @@ resource "xcsh_enhanced_firewall_policy" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -77,12 +77,12 @@ spec: {}
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="allow-all"></a>[`allow_all`](#allow-all) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+&#x2022; <a id="allow-all"></a>[`allow_all`](#allow-all) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 <br><br>&#x2022; <a id="allowed-destinations"></a>[`allowed_destinations`](#allowed-destinations) - Optional Block<br>List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes<br>See [Allowed Destinations](#allowed-destinations) below for details.
 <br><br>&#x2022; <a id="allowed-sources"></a>[`allowed_sources`](#allowed-sources) - Optional Block<br>List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes<br>See [Allowed Sources](#allowed-sources) below for details.
 <br><br>&#x2022; <a id="denied-destinations"></a>[`denied_destinations`](#denied-destinations) - Optional Block<br>List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes<br>See [Denied Destinations](#denied-destinations) below for details.
 <br><br>&#x2022; <a id="denied-sources"></a>[`denied_sources`](#denied-sources) - Optional Block<br>List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes<br>See [Denied Sources](#denied-sources) below for details.
-<br><br>&#x2022; <a id="deny-all"></a>[`deny_all`](#deny-all) - Optional Block<br>Enable this option
+<br><br>&#x2022; <a id="deny-all"></a>[`deny_all`](#deny-all) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="rule-list"></a>[`rule_list`](#rule-list) - Optional Block<br>Custom Enhanced Firewall Policy Rules. Custom Enhanced Firewall Policy Rules<br>See [Rule List](#rule-list) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
@@ -119,6 +119,10 @@ A [`denied_sources`](#denied-sources) block supports the following:
 
 <a id="denied-sources-prefix"></a>&#x2022; [`prefix`](#denied-sources-prefix) - Optional List<br>IP Address prefix in string format. String must contain both prefix and prefix-length
 
+#### Deny All
+
+A [`deny_all`](#deny-all) block supports the following:
+
 #### Rule List
 
 A [`rule_list`](#rule-list) block supports the following:
@@ -131,25 +135,25 @@ A [`rules`](#rule-list-rules) block (within [`rule_list`](#rule-list)) supports 
 
 <a id="rule-list-rules-advanced-action"></a>&#x2022; [`advanced_action`](#rule-list-rules-advanced-action) - Optional Block<br>Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction<br>See [Advanced Action](#rule-list-rules-advanced-action) below.
 
-<a id="rule-list-rules-all-destinations"></a>&#x2022; [`all_destinations`](#rule-list-rules-all-destinations) - Optional Block<br>Configuration parameter for all destinations
+<a id="rule-list-rules-all-destinations"></a>&#x2022; [`all_destinations`](#rule-list-rules-all-destinations) - Optional Object<br>Configuration parameter for all destinations
 
-<a id="rule-list-rules-all-sli-vips"></a>&#x2022; [`all_sli_vips`](#rule-list-rules-all-sli-vips) - Optional Block<br>Enable this option
+<a id="rule-list-rules-all-sli-vips"></a>&#x2022; [`all_sli_vips`](#rule-list-rules-all-sli-vips) - Optional Object<br>Enable this option
 
-<a id="rule-list-rules-all-slo-vips"></a>&#x2022; [`all_slo_vips`](#rule-list-rules-all-slo-vips) - Optional Block<br>Enable this option
+<a id="rule-list-rules-all-slo-vips"></a>&#x2022; [`all_slo_vips`](#rule-list-rules-all-slo-vips) - Optional Object<br>Enable this option
 
-<a id="rule-list-rules-all-sources"></a>&#x2022; [`all_sources`](#rule-list-rules-all-sources) - Optional Block<br>Configuration parameter for all sources
+<a id="rule-list-rules-all-sources"></a>&#x2022; [`all_sources`](#rule-list-rules-all-sources) - Optional Object<br>Configuration parameter for all sources
 
-<a id="rule-list-rules-all-tcp-traffic"></a>&#x2022; [`all_tcp_traffic`](#rule-list-rules-all-tcp-traffic) - Optional Block<br>Configuration parameter for all TCP traffic
+<a id="rule-list-rules-all-tcp-traffic"></a>&#x2022; [`all_tcp_traffic`](#rule-list-rules-all-tcp-traffic) - Optional Object<br>Configuration parameter for all TCP traffic
 
-<a id="rule-list-rules-all-traffic"></a>&#x2022; [`all_traffic`](#rule-list-rules-all-traffic) - Optional Block<br>Configuration parameter for all traffic
+<a id="rule-list-rules-all-traffic"></a>&#x2022; [`all_traffic`](#rule-list-rules-all-traffic) - Optional Object<br>Configuration parameter for all traffic
 
-<a id="rule-list-rules-all-udp-traffic"></a>&#x2022; [`all_udp_traffic`](#rule-list-rules-all-udp-traffic) - Optional Block<br>Configuration parameter for all UDP traffic
+<a id="rule-list-rules-all-udp-traffic"></a>&#x2022; [`all_udp_traffic`](#rule-list-rules-all-udp-traffic) - Optional Object<br>Configuration parameter for all UDP traffic
 
-<a id="rule-list-rules-allow"></a>&#x2022; [`allow`](#rule-list-rules-allow) - Optional Block<br>Enable this option
+<a id="rule-list-rules-allow"></a>&#x2022; [`allow`](#rule-list-rules-allow) - Optional Object<br>Enable this option
 
 <a id="rule-list-rules-applications"></a>&#x2022; [`applications`](#rule-list-rules-applications) - Optional Block<br>Configuration parameter for applications<br>See [Applications](#rule-list-rules-applications) below.
 
-<a id="rule-list-rules-deny"></a>&#x2022; [`deny`](#rule-list-rules-deny) - Optional Block<br>Enable this option
+<a id="rule-list-rules-deny"></a>&#x2022; [`deny`](#rule-list-rules-deny) - Optional Object<br>Enable this option
 
 <a id="rule-list-rules-destination-aws-vpc-ids"></a>&#x2022; [`destination_aws_vpc_ids`](#rule-list-rules-destination-aws-vpc-ids) - Optional Block<br>Configuration parameter for destination AWS VPC ids<br>See [Destination AWS VPC Ids](#rule-list-rules-destination-aws-vpc-ids) below.
 
@@ -162,9 +166,9 @@ Selector](#selector-f5569f) below.
 
 <a id="rule-list-rules-insert-service"></a>&#x2022; [`insert_service`](#rule-list-rules-insert-service) - Optional Block<br>Action to forward traffic to external service<br>See [Insert Service](#rule-list-rules-insert-service) below.
 
-<a id="rule-list-rules-inside-destinations"></a>&#x2022; [`inside_destinations`](#rule-list-rules-inside-destinations) - Optional Block<br>Configuration parameter for inside destinations
+<a id="rule-list-rules-inside-destinations"></a>&#x2022; [`inside_destinations`](#rule-list-rules-inside-destinations) - Optional Object<br>Configuration parameter for inside destinations
 
-<a id="rule-list-rules-inside-sources"></a>&#x2022; [`inside_sources`](#rule-list-rules-inside-sources) - Optional Block<br>Configuration parameter for inside sources
+<a id="rule-list-rules-inside-sources"></a>&#x2022; [`inside_sources`](#rule-list-rules-inside-sources) - Optional Object<br>Configuration parameter for inside sources
 
 <a id="rule-list-rules-label-matcher"></a>&#x2022; [`label_matcher`](#rule-list-rules-label-matcher) - Optional Block<br>Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name<br>See [Label
 Matcher](#rule-list-rules-label-matcher) below.
@@ -172,9 +176,9 @@ Matcher](#rule-list-rules-label-matcher) below.
 <a id="rule-list-rules-metadata"></a>&#x2022; [`metadata`](#rule-list-rules-metadata) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during
 create<br>See [Metadata](#rule-list-rules-metadata) below.
 
-<a id="rule-list-rules-outside-destinations"></a>&#x2022; [`outside_destinations`](#rule-list-rules-outside-destinations) - Optional Block<br>Configuration parameter for outside destinations
+<a id="rule-list-rules-outside-destinations"></a>&#x2022; [`outside_destinations`](#rule-list-rules-outside-destinations) - Optional Object<br>Configuration parameter for outside destinations
 
-<a id="rule-list-rules-outside-sources"></a>&#x2022; [`outside_sources`](#rule-list-rules-outside-sources) - Optional Block<br>Configuration parameter for outside sources
+<a id="rule-list-rules-outside-sources"></a>&#x2022; [`outside_sources`](#rule-list-rules-outside-sources) - Optional Object<br>Configuration parameter for outside sources
 
 <a id="rule-list-rules-protocol-port-range"></a>&#x2022; [`protocol_port_range`](#rule-list-rules-protocol-port-range) - Optional Block<br>Protocol and Port. Protocol and Port ranges<br>See [Protocol Port Range](#rule-list-rules-protocol-port-range) below.
 
@@ -193,11 +197,47 @@ An [`advanced_action`](#rule-list-rules-advanced-action) block (within [`rule_li
 
 <a id="rule-list-rules-advanced-action-action"></a>&#x2022; [`action`](#rule-list-rules-advanced-action-action) - Optional String  Defaults to `NOLOG`<br>Possible values are `NOLOG`, `LOG`<br>[Enum: NOLOG|LOG] Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-
 
+#### Rule List Rules All Destinations
+
+An [`all_destinations`](#rule-list-rules-all-destinations) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
+
+#### Rule List Rules All SLI Vips
+
+An [`all_sli_vips`](#rule-list-rules-all-sli-vips) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
+
+#### Rule List Rules All Slo Vips
+
+An [`all_slo_vips`](#rule-list-rules-all-slo-vips) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
+
+#### Rule List Rules All Sources
+
+An [`all_sources`](#rule-list-rules-all-sources) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
+
+#### Rule List Rules All TCP Traffic
+
+An [`all_tcp_traffic`](#rule-list-rules-all-tcp-traffic) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
+
+#### Rule List Rules All Traffic
+
+An [`all_traffic`](#rule-list-rules-all-traffic) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
+
+#### Rule List Rules All UDP Traffic
+
+An [`all_udp_traffic`](#rule-list-rules-all-udp-traffic) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
+
+#### Rule List Rules Allow
+
+An [`allow`](#rule-list-rules-allow) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
+
 #### Rule List Rules Applications
 
 An [`applications`](#rule-list-rules-applications) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
 
 <a id="applications-87f275"></a>&#x2022; [`applications`](#applications-87f275) - Optional List  Defaults to `APPLICATION_HTTP`<br>Possible values are `APPLICATION_HTTP`, `APPLICATION_HTTPS`, `APPLICATION_SNMP`, `APPLICATION_DNS`<br>[Enum: APPLICATION_HTTP|APPLICATION_HTTPS|APPLICATION_SNMP|APPLICATION_DNS] Application Protocols. Application protocols like HTTP, SNMP
+
+#### Rule List Rules Deny
+
+A [`deny`](#rule-list-rules-deny) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
 
 #### Rule List Rules Destination AWS VPC Ids
 
@@ -243,6 +283,14 @@ A [`nfv_service`](#service-b8915d) block (within [`rule_list.rules.insert_servic
 
 <a id="tenant-0d7aca"></a>&#x2022; [`tenant`](#tenant-0d7aca) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Rule List Rules Inside Destinations
+
+An [`inside_destinations`](#rule-list-rules-inside-destinations) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
+
+#### Rule List Rules Inside Sources
+
+An [`inside_sources`](#rule-list-rules-inside-sources) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
+
 #### Rule List Rules Label Matcher
 
 A [`label_matcher`](#rule-list-rules-label-matcher) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
@@ -256,6 +304,14 @@ A [`metadata`](#rule-list-rules-metadata) block (within [`rule_list.rules`](#rul
 <a id="spec-118a99"></a>&#x2022; [`description_spec`](#spec-118a99) - Optional String<br>Description. Human readable description
 
 <a id="rule-list-rules-metadata-name"></a>&#x2022; [`name`](#rule-list-rules-metadata-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Rule List Rules Outside Destinations
+
+An [`outside_destinations`](#rule-list-rules-outside-destinations) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
+
+#### Rule List Rules Outside Sources
+
+An [`outside_sources`](#rule-list-rules-outside-sources) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
 
 #### Rule List Rules Protocol Port Range
 

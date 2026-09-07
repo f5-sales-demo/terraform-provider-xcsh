@@ -52,12 +52,12 @@ type K8SPodSecurityAdmissionEmptyModel struct {
 
 // K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel represents pod_security_admission_specs block
 type K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel struct {
-	Audit      *K8SPodSecurityAdmissionEmptyModel `tfsdk:"audit"`
-	Baseline   *K8SPodSecurityAdmissionEmptyModel `tfsdk:"baseline"`
-	Enforce    *K8SPodSecurityAdmissionEmptyModel `tfsdk:"enforce"`
-	Privileged *K8SPodSecurityAdmissionEmptyModel `tfsdk:"privileged"`
-	Restricted *K8SPodSecurityAdmissionEmptyModel `tfsdk:"restricted"`
-	Warn       *K8SPodSecurityAdmissionEmptyModel `tfsdk:"warn"`
+	Audit      types.Object `tfsdk:"audit"`
+	Baseline   types.Object `tfsdk:"baseline"`
+	Enforce    types.Object `tfsdk:"enforce"`
+	Privileged types.Object `tfsdk:"privileged"`
+	Restricted types.Object `tfsdk:"restricted"`
+	Warn       types.Object `tfsdk:"warn"`
 }
 
 // K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModelAttrTypes defines the attribute types for K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel
@@ -148,27 +148,39 @@ func (r *K8SPodSecurityAdmissionResource) Schema(ctx context.Context, req resour
 			}),
 			"pod_security_admission_specs": schema.ListNestedBlock{
 				MarkdownDescription: "K8s Pod Security Admission. Uniform Resource Identifier",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("audit", "enforce"), validators.ConflictingListObjectAttributes("audit", "warn"), validators.ConflictingListObjectAttributes("baseline", "privileged"), validators.ConflictingListObjectAttributes("baseline", "restricted"), validators.ConflictingListObjectAttributes("enforce", "warn"), validators.ConflictingListObjectAttributes("privileged", "restricted")},
 
 				NestedObject: schema.NestedBlockObject{
-					Attributes: map[string]schema.Attribute{},
-					Blocks: map[string]schema.Block{
-						"audit": schema.SingleNestedBlock{
+					Attributes: map[string]schema.Attribute{
+						"audit": schema.ObjectAttribute{
 							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
 						},
-						"baseline": schema.SingleNestedBlock{
+						"baseline": schema.ObjectAttribute{
 							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
 						},
-						"enforce": schema.SingleNestedBlock{
+						"enforce": schema.ObjectAttribute{
 							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
 						},
-						"privileged": schema.SingleNestedBlock{
+						"privileged": schema.ObjectAttribute{
 							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
 						},
-						"restricted": schema.SingleNestedBlock{
+						"restricted": schema.ObjectAttribute{
 							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
 						},
-						"warn": schema.SingleNestedBlock{
+						"warn": schema.ObjectAttribute{
 							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
 						},
 					},
 				},
@@ -307,22 +319,22 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 			var PodSecurityAdmissionSpecsList []map[string]interface{}
 			for _, PodSecurityAdmissionSpecsItem := range PodSecurityAdmissionSpecsElems {
 				PodSecurityAdmissionSpecsItemMap := make(map[string]interface{})
-				if PodSecurityAdmissionSpecsItem.Audit != nil {
+				if !PodSecurityAdmissionSpecsItem.Audit.IsNull() && !PodSecurityAdmissionSpecsItem.Audit.IsUnknown() {
 					PodSecurityAdmissionSpecsItemMap["audit"] = map[string]interface{}{}
 				}
-				if PodSecurityAdmissionSpecsItem.Baseline != nil {
+				if !PodSecurityAdmissionSpecsItem.Baseline.IsNull() && !PodSecurityAdmissionSpecsItem.Baseline.IsUnknown() {
 					PodSecurityAdmissionSpecsItemMap["baseline"] = map[string]interface{}{}
 				}
-				if PodSecurityAdmissionSpecsItem.Enforce != nil {
+				if !PodSecurityAdmissionSpecsItem.Enforce.IsNull() && !PodSecurityAdmissionSpecsItem.Enforce.IsUnknown() {
 					PodSecurityAdmissionSpecsItemMap["enforce"] = map[string]interface{}{}
 				}
-				if PodSecurityAdmissionSpecsItem.Privileged != nil {
+				if !PodSecurityAdmissionSpecsItem.Privileged.IsNull() && !PodSecurityAdmissionSpecsItem.Privileged.IsUnknown() {
 					PodSecurityAdmissionSpecsItemMap["privileged"] = map[string]interface{}{}
 				}
-				if PodSecurityAdmissionSpecsItem.Restricted != nil {
+				if !PodSecurityAdmissionSpecsItem.Restricted.IsNull() && !PodSecurityAdmissionSpecsItem.Restricted.IsUnknown() {
 					PodSecurityAdmissionSpecsItemMap["restricted"] = map[string]interface{}{}
 				}
-				if PodSecurityAdmissionSpecsItem.Warn != nil {
+				if !PodSecurityAdmissionSpecsItem.Warn.IsNull() && !PodSecurityAdmissionSpecsItem.Warn.IsUnknown() {
 					PodSecurityAdmissionSpecsItemMap["warn"] = map[string]interface{}{}
 				}
 				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, PodSecurityAdmissionSpecsItemMap)
@@ -381,59 +393,59 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel{
-					Audit: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Audit: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Audit.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Audit
 						}
 						if _, ok := itemMap["audit"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Baseline: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Baseline: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Baseline.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Baseline
 						}
 						if _, ok := itemMap["baseline"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Enforce: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Enforce: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Enforce.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Enforce
 						}
 						if _, ok := itemMap["enforce"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Privileged: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Privileged: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Privileged.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Privileged
 						}
 						if _, ok := itemMap["privileged"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Restricted: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Restricted: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Restricted.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Restricted
 						}
 						if _, ok := itemMap["restricted"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Warn: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Warn: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Warn.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Warn
 						}
 						if _, ok := itemMap["warn"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 				})
 			}
@@ -589,59 +601,59 @@ func (r *K8SPodSecurityAdmissionResource) Read(ctx context.Context, req resource
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel{
-					Audit: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Audit: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Audit.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Audit
 						}
 						if _, ok := itemMap["audit"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Baseline: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Baseline: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Baseline.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Baseline
 						}
 						if _, ok := itemMap["baseline"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Enforce: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Enforce: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Enforce.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Enforce
 						}
 						if _, ok := itemMap["enforce"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Privileged: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Privileged: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Privileged.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Privileged
 						}
 						if _, ok := itemMap["privileged"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Restricted: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Restricted: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Restricted.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Restricted
 						}
 						if _, ok := itemMap["restricted"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Warn: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Warn: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Warn.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Warn
 						}
 						if _, ok := itemMap["warn"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 				})
 			}
@@ -756,22 +768,22 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 			var PodSecurityAdmissionSpecsList []map[string]interface{}
 			for _, PodSecurityAdmissionSpecsItem := range PodSecurityAdmissionSpecsElems {
 				PodSecurityAdmissionSpecsItemMap := make(map[string]interface{})
-				if PodSecurityAdmissionSpecsItem.Audit != nil {
+				if !PodSecurityAdmissionSpecsItem.Audit.IsNull() && !PodSecurityAdmissionSpecsItem.Audit.IsUnknown() {
 					PodSecurityAdmissionSpecsItemMap["audit"] = map[string]interface{}{}
 				}
-				if PodSecurityAdmissionSpecsItem.Baseline != nil {
+				if !PodSecurityAdmissionSpecsItem.Baseline.IsNull() && !PodSecurityAdmissionSpecsItem.Baseline.IsUnknown() {
 					PodSecurityAdmissionSpecsItemMap["baseline"] = map[string]interface{}{}
 				}
-				if PodSecurityAdmissionSpecsItem.Enforce != nil {
+				if !PodSecurityAdmissionSpecsItem.Enforce.IsNull() && !PodSecurityAdmissionSpecsItem.Enforce.IsUnknown() {
 					PodSecurityAdmissionSpecsItemMap["enforce"] = map[string]interface{}{}
 				}
-				if PodSecurityAdmissionSpecsItem.Privileged != nil {
+				if !PodSecurityAdmissionSpecsItem.Privileged.IsNull() && !PodSecurityAdmissionSpecsItem.Privileged.IsUnknown() {
 					PodSecurityAdmissionSpecsItemMap["privileged"] = map[string]interface{}{}
 				}
-				if PodSecurityAdmissionSpecsItem.Restricted != nil {
+				if !PodSecurityAdmissionSpecsItem.Restricted.IsNull() && !PodSecurityAdmissionSpecsItem.Restricted.IsUnknown() {
 					PodSecurityAdmissionSpecsItemMap["restricted"] = map[string]interface{}{}
 				}
-				if PodSecurityAdmissionSpecsItem.Warn != nil {
+				if !PodSecurityAdmissionSpecsItem.Warn.IsNull() && !PodSecurityAdmissionSpecsItem.Warn.IsUnknown() {
 					PodSecurityAdmissionSpecsItemMap["warn"] = map[string]interface{}{}
 				}
 				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, PodSecurityAdmissionSpecsItemMap)
@@ -850,59 +862,59 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel{
-					Audit: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Audit: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Audit.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Audit
 						}
 						if _, ok := itemMap["audit"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Baseline: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Baseline: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Baseline.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Baseline
 						}
 						if _, ok := itemMap["baseline"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Enforce: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Enforce: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Enforce.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Enforce
 						}
 						if _, ok := itemMap["enforce"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Privileged: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Privileged: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Privileged.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Privileged
 						}
 						if _, ok := itemMap["privileged"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Restricted: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Restricted: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Restricted.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Restricted
 						}
 						if _, ok := itemMap["restricted"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					Warn: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+					Warn: func() types.Object {
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && !existingPodSecurityAdmissionSpecsItems[listIdx].Warn.IsUnknown() {
 							return existingPodSecurityAdmissionSpecsItems[listIdx].Warn
 						}
 						if _, ok := itemMap["warn"].(map[string]interface{}); ok {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 				})
 			}

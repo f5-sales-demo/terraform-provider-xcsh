@@ -165,6 +165,7 @@ func (r *K8SClusterRoleBindingResource) Schema(ctx context.Context, req resource
 			}),
 			"subjects": schema.ListNestedBlock{
 				MarkdownDescription: "List of subjects (user, group or service account) to which this role is bound.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("group", "service_account"), validators.ConflictingListObjectAttributes("group", "user"), validators.ConflictingListObjectAttributes("service_account", "user")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{

@@ -275,12 +275,14 @@ func (r *DataTypeResource) Schema(ctx context.Context, req resource.SchemaReques
 			}),
 			"rules": schema.ListNestedBlock{
 				MarkdownDescription: "Configure key/value or regex match rules to enable the platform to detect this custom data type in the API request or response.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("key_pattern", "key_value_pattern"), validators.ConflictingListObjectAttributes("key_pattern", "value_pattern"), validators.ConflictingListObjectAttributes("key_value_pattern", "value_pattern")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{},
 					Blocks: map[string]schema.Block{
 						"key_pattern": schema.SingleNestedBlock{
 							MarkdownDescription: "Configuration parameter for key pattern.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_values", "regex_value"), validators.ConflictingObjectAttributes("exact_values", "substring_value"), validators.ConflictingObjectAttributes("regex_value", "substring_value")},
 							Attributes: map[string]schema.Attribute{
 								"regex_value": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [exact_values substring_value] Search for values matching this regular expression.",
@@ -317,6 +319,7 @@ func (r *DataTypeResource) Schema(ctx context.Context, req resource.SchemaReques
 							Blocks: map[string]schema.Block{
 								"key_pattern": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for key pattern.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_values", "regex_value"), validators.ConflictingObjectAttributes("exact_values", "substring_value"), validators.ConflictingObjectAttributes("regex_value", "substring_value")},
 									Attributes: map[string]schema.Attribute{
 										"regex_value": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [exact_values substring_value] Search for values matching this regular expression.",
@@ -349,6 +352,7 @@ func (r *DataTypeResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 								"value_pattern": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for value pattern.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_values", "regex_value"), validators.ConflictingObjectAttributes("exact_values", "substring_value"), validators.ConflictingObjectAttributes("regex_value", "substring_value")},
 									Attributes: map[string]schema.Attribute{
 										"regex_value": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [exact_values substring_value] Search for values matching this regular expression.",
@@ -383,6 +387,7 @@ func (r *DataTypeResource) Schema(ctx context.Context, req resource.SchemaReques
 						},
 						"value_pattern": schema.SingleNestedBlock{
 							MarkdownDescription: "Configuration parameter for value pattern.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_values", "regex_value"), validators.ConflictingObjectAttributes("exact_values", "substring_value"), validators.ConflictingObjectAttributes("regex_value", "substring_value")},
 							Attributes: map[string]schema.Attribute{
 								"regex_value": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [exact_values substring_value] Search for values matching this regular expression.",

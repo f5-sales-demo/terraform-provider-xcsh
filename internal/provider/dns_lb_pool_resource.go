@@ -54,16 +54,16 @@ type DNSLBPoolEmptyModel struct {
 
 // DNSLBPoolAPoolModel represents a_pool block
 type DNSLBPoolAPoolModel struct {
+	DisableHealthCheck types.Object                    `tfsdk:"disable_health_check"`
 	MaxAnswers         types.Int64                     `tfsdk:"max_answers"`
-	DisableHealthCheck *DNSLBPoolEmptyModel            `tfsdk:"disable_health_check"`
 	HealthCheck        *DNSLBPoolAPoolHealthCheckModel `tfsdk:"health_check"`
 	Members            types.List                      `tfsdk:"members"`
 }
 
 // DNSLBPoolAPoolModelAttrTypes defines the attribute types for DNSLBPoolAPoolModel
 var DNSLBPoolAPoolModelAttrTypes = map[string]attr.Type{
-	"max_answers":          types.Int64Type,
 	"disable_health_check": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_answers":          types.Int64Type,
 	"health_check":         types.ObjectType{AttrTypes: DNSLBPoolAPoolHealthCheckModelAttrTypes},
 	"members":              types.ListType{ElemType: types.ObjectType{AttrTypes: DNSLBPoolAPoolMembersModelAttrTypes}},
 }
@@ -132,7 +132,7 @@ var DNSLBPoolAaaaPoolMembersModelAttrTypes = map[string]attr.Type{
 
 // DNSLBPoolCnamePoolModel represents cname_pool block
 type DNSLBPoolCnamePoolModel struct {
-	DisableHealthCheck *DNSLBPoolEmptyModel                `tfsdk:"disable_health_check"`
+	DisableHealthCheck types.Object                        `tfsdk:"disable_health_check"`
 	HealthCheck        *DNSLBPoolCnamePoolHealthCheckModel `tfsdk:"health_check"`
 	Members            types.List                          `tfsdk:"members"`
 }
@@ -245,6 +245,7 @@ type DNSLBPoolResourceModel struct {
 	Description       types.String             `tfsdk:"description"`
 	Disable           types.Bool               `tfsdk:"disable"`
 	Labels            types.Map                `tfsdk:"labels"`
+	UseRrsetTTL       types.Object             `tfsdk:"use_rrset_ttl"`
 	ID                types.String             `tfsdk:"id"`
 	LoadBalancingMode types.String             `tfsdk:"load_balancing_mode"`
 	TTL               types.Int64              `tfsdk:"ttl"`
@@ -254,7 +255,6 @@ type DNSLBPoolResourceModel struct {
 	CnamePool         *DNSLBPoolCnamePoolModel `tfsdk:"cname_pool"`
 	MxPool            *DNSLBPoolMxPoolModel    `tfsdk:"mx_pool"`
 	SrvPool           *DNSLBPoolSrvPoolModel   `tfsdk:"srv_pool"`
-	UseRrsetTTL       *DNSLBPoolEmptyModel     `tfsdk:"use_rrset_ttl"`
 }
 
 func (r *DNSLBPoolResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -306,6 +306,11 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"use_rrset_ttl": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for use rrset ttl.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
 				Computed:            true,
@@ -345,9 +350,14 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 			}),
 			"a_pool": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: a_pool, aaaa_pool, cname_pool, mx_pool, srv_pool] Pool for A Record.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("max_answers", "members")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("max_answers", "members"), validators.ConflictingObjectAttributes("disable_health_check", "health_check")},
 
 				Attributes: map[string]schema.Attribute{
+					"disable_health_check": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable health check.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"max_answers": schema.Int64Attribute{
 						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query.",
 						Optional:            true,
@@ -357,9 +367,6 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 				},
 				Blocks: map[string]schema.Block{
-					"disable_health_check": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable health check.",
-					},
 					"health_check": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -493,13 +500,16 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 			},
 			"cname_pool": schema.SingleNestedBlock{
 				MarkdownDescription: "Pool for CNAME Record.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("members")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("members"), validators.ConflictingObjectAttributes("disable_health_check", "health_check")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_health_check": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_health_check": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for disable health check.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+				},
+				Blocks: map[string]schema.Block{
 					"health_check": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -695,9 +705,6 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 					},
 				},
 			},
-			"use_rrset_ttl": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for use rrset ttl.",
-			},
 		},
 	}
 }
@@ -724,6 +731,14 @@ func (r *DNSLBPoolResource) ValidateConfig(ctx context.Context, req resource.Val
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.UseRrsetTTL.IsNull() && !data.UseRrsetTTL.IsUnknown() && !data.TTL.IsNull() && !data.TTL.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("use_rrset_ttl"),
+			"Conflicting Configuration",
+			"use_rrset_ttl and ttl are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -826,7 +841,7 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 	// Marshal spec fields from Terraform state to API struct
 	if data.APool != nil {
 		APoolMap := make(map[string]interface{})
-		if data.APool.DisableHealthCheck != nil {
+		if !data.APool.DisableHealthCheck.IsNull() && !data.APool.DisableHealthCheck.IsUnknown() {
 			APoolMap["disable_health_check"] = map[string]interface{}{}
 		}
 		if data.APool.HealthCheck != nil {
@@ -909,7 +924,7 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 	}
 	if data.CnamePool != nil {
 		CnamePoolMap := make(map[string]interface{})
-		if data.CnamePool.DisableHealthCheck != nil {
+		if !data.CnamePool.DisableHealthCheck.IsNull() && !data.CnamePool.DisableHealthCheck.IsUnknown() {
 			CnamePoolMap["disable_health_check"] = map[string]interface{}{}
 		}
 		if data.CnamePool.HealthCheck != nil {
@@ -1025,7 +1040,7 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 		}
 		createReq.Spec["srv_pool"] = SrvPoolMap
 	}
-	if data.UseRrsetTTL != nil {
+	if !data.UseRrsetTTL.IsNull() && !data.UseRrsetTTL.IsUnknown() {
 		createReq.Spec["use_rrset_ttl"] = map[string]interface{}{}
 	}
 	if !data.LoadBalancingMode.IsNull() && !data.LoadBalancingMode.IsUnknown() {
@@ -1075,14 +1090,14 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["a_pool"].(map[string]interface{}); ok && (isImport || data.APool != nil) {
 		data.APool = &DNSLBPoolAPoolModel{
-			DisableHealthCheck: func() *DNSLBPoolEmptyModel {
-				if !isImport && data.APool != nil {
+			DisableHealthCheck: func() types.Object {
+				if !isImport && data.APool != nil && !data.APool.DisableHealthCheck.IsUnknown() {
 					return data.APool.DisableHealthCheck
 				}
 				if _, ok := blockData["disable_health_check"].(map[string]interface{}); ok {
-					return &DNSLBPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HealthCheck: func() *DNSLBPoolAPoolHealthCheckModel {
 				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
@@ -1239,14 +1254,14 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 	}
 	if blockData, ok := apiResource.Spec["cname_pool"].(map[string]interface{}); ok && (isImport || data.CnamePool != nil) {
 		data.CnamePool = &DNSLBPoolCnamePoolModel{
-			DisableHealthCheck: func() *DNSLBPoolEmptyModel {
-				if !isImport && data.CnamePool != nil {
+			DisableHealthCheck: func() types.Object {
+				if !isImport && data.CnamePool != nil && !data.CnamePool.DisableHealthCheck.IsUnknown() {
 					return data.CnamePool.DisableHealthCheck
 				}
 				if _, ok := blockData["disable_health_check"].(map[string]interface{}); ok {
-					return &DNSLBPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HealthCheck: func() *DNSLBPoolCnamePoolHealthCheckModel {
 				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
@@ -1463,8 +1478,12 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_rrset_ttl"].(map[string]interface{}); ok && isImport && data.UseRrsetTTL == nil {
-		data.UseRrsetTTL = &DNSLBPoolEmptyModel{}
+	if !isImport && !data.UseRrsetTTL.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_rrset_ttl"].(map[string]interface{}); ok {
+		data.UseRrsetTTL = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseRrsetTTL = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["load_balancing_mode"].(string); ok && v != "" {
 		data.LoadBalancingMode = types.StringValue(v)
@@ -1609,14 +1628,14 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["a_pool"].(map[string]interface{}); ok && (isImport || data.APool != nil) {
 		data.APool = &DNSLBPoolAPoolModel{
-			DisableHealthCheck: func() *DNSLBPoolEmptyModel {
-				if !isImport && data.APool != nil {
+			DisableHealthCheck: func() types.Object {
+				if !isImport && data.APool != nil && !data.APool.DisableHealthCheck.IsUnknown() {
 					return data.APool.DisableHealthCheck
 				}
 				if _, ok := blockData["disable_health_check"].(map[string]interface{}); ok {
-					return &DNSLBPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HealthCheck: func() *DNSLBPoolAPoolHealthCheckModel {
 				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
@@ -1773,14 +1792,14 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 	}
 	if blockData, ok := apiResource.Spec["cname_pool"].(map[string]interface{}); ok && (isImport || data.CnamePool != nil) {
 		data.CnamePool = &DNSLBPoolCnamePoolModel{
-			DisableHealthCheck: func() *DNSLBPoolEmptyModel {
-				if !isImport && data.CnamePool != nil {
+			DisableHealthCheck: func() types.Object {
+				if !isImport && data.CnamePool != nil && !data.CnamePool.DisableHealthCheck.IsUnknown() {
 					return data.CnamePool.DisableHealthCheck
 				}
 				if _, ok := blockData["disable_health_check"].(map[string]interface{}); ok {
-					return &DNSLBPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HealthCheck: func() *DNSLBPoolCnamePoolHealthCheckModel {
 				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
@@ -1997,8 +2016,12 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_rrset_ttl"].(map[string]interface{}); ok && isImport && data.UseRrsetTTL == nil {
-		data.UseRrsetTTL = &DNSLBPoolEmptyModel{}
+	if !isImport && !data.UseRrsetTTL.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_rrset_ttl"].(map[string]interface{}); ok {
+		data.UseRrsetTTL = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseRrsetTTL = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["load_balancing_mode"].(string); ok && v != "" {
 		data.LoadBalancingMode = types.StringValue(v)
@@ -2106,7 +2129,7 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 	// Marshal spec fields from Terraform state to API struct
 	if data.APool != nil {
 		APoolMap := make(map[string]interface{})
-		if data.APool.DisableHealthCheck != nil {
+		if !data.APool.DisableHealthCheck.IsNull() && !data.APool.DisableHealthCheck.IsUnknown() {
 			APoolMap["disable_health_check"] = map[string]interface{}{}
 		}
 		if data.APool.HealthCheck != nil {
@@ -2189,7 +2212,7 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 	}
 	if data.CnamePool != nil {
 		CnamePoolMap := make(map[string]interface{})
-		if data.CnamePool.DisableHealthCheck != nil {
+		if !data.CnamePool.DisableHealthCheck.IsNull() && !data.CnamePool.DisableHealthCheck.IsUnknown() {
 			CnamePoolMap["disable_health_check"] = map[string]interface{}{}
 		}
 		if data.CnamePool.HealthCheck != nil {
@@ -2305,7 +2328,7 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 		}
 		apiResource.Spec["srv_pool"] = SrvPoolMap
 	}
-	if data.UseRrsetTTL != nil {
+	if !data.UseRrsetTTL.IsNull() && !data.UseRrsetTTL.IsUnknown() {
 		apiResource.Spec["use_rrset_ttl"] = map[string]interface{}{}
 	}
 	if !data.LoadBalancingMode.IsNull() && !data.LoadBalancingMode.IsUnknown() {
@@ -2389,14 +2412,14 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["a_pool"].(map[string]interface{}); ok && (isImport || data.APool != nil) {
 		data.APool = &DNSLBPoolAPoolModel{
-			DisableHealthCheck: func() *DNSLBPoolEmptyModel {
-				if !isImport && data.APool != nil {
+			DisableHealthCheck: func() types.Object {
+				if !isImport && data.APool != nil && !data.APool.DisableHealthCheck.IsUnknown() {
 					return data.APool.DisableHealthCheck
 				}
 				if _, ok := blockData["disable_health_check"].(map[string]interface{}); ok {
-					return &DNSLBPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HealthCheck: func() *DNSLBPoolAPoolHealthCheckModel {
 				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
@@ -2553,14 +2576,14 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 	}
 	if blockData, ok := apiResource.Spec["cname_pool"].(map[string]interface{}); ok && (isImport || data.CnamePool != nil) {
 		data.CnamePool = &DNSLBPoolCnamePoolModel{
-			DisableHealthCheck: func() *DNSLBPoolEmptyModel {
-				if !isImport && data.CnamePool != nil {
+			DisableHealthCheck: func() types.Object {
+				if !isImport && data.CnamePool != nil && !data.CnamePool.DisableHealthCheck.IsUnknown() {
 					return data.CnamePool.DisableHealthCheck
 				}
 				if _, ok := blockData["disable_health_check"].(map[string]interface{}); ok {
-					return &DNSLBPoolEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HealthCheck: func() *DNSLBPoolCnamePoolHealthCheckModel {
 				if HealthCheckData, ok := blockData["health_check"].(map[string]interface{}); ok {
@@ -2777,8 +2800,12 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["use_rrset_ttl"].(map[string]interface{}); ok && isImport && data.UseRrsetTTL == nil {
-		data.UseRrsetTTL = &DNSLBPoolEmptyModel{}
+	if !isImport && !data.UseRrsetTTL.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_rrset_ttl"].(map[string]interface{}); ok {
+		data.UseRrsetTTL = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseRrsetTTL = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["load_balancing_mode"].(string); ok && v != "" {
 		data.LoadBalancingMode = types.StringValue(v)

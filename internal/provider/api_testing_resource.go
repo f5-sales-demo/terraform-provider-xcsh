@@ -65,24 +65,24 @@ var APITestingDomainsModelAttrTypes = map[string]attr.Type{
 
 // APITestingDomainsCredentialsModel represents credentials block
 type APITestingDomainsCredentialsModel struct {
+	Admin          types.Object                                    `tfsdk:"admin"`
 	CredentialName types.String                                    `tfsdk:"credential_name"`
-	Admin          *APITestingEmptyModel                           `tfsdk:"admin"`
+	Standard       types.Object                                    `tfsdk:"standard"`
 	APIKey         *APITestingDomainsCredentialsAPIKeyModel        `tfsdk:"api_key"`
 	BasicAuth      *APITestingDomainsCredentialsBasicAuthModel     `tfsdk:"basic_auth"`
 	BearerToken    *APITestingDomainsCredentialsBearerTokenModel   `tfsdk:"bearer_token"`
 	LoginEndpoint  *APITestingDomainsCredentialsLoginEndpointModel `tfsdk:"login_endpoint"`
-	Standard       *APITestingEmptyModel                           `tfsdk:"standard"`
 }
 
 // APITestingDomainsCredentialsModelAttrTypes defines the attribute types for APITestingDomainsCredentialsModel
 var APITestingDomainsCredentialsModelAttrTypes = map[string]attr.Type{
-	"credential_name": types.StringType,
 	"admin":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"credential_name": types.StringType,
+	"standard":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"api_key":         types.ObjectType{AttrTypes: APITestingDomainsCredentialsAPIKeyModelAttrTypes},
 	"basic_auth":      types.ObjectType{AttrTypes: APITestingDomainsCredentialsBasicAuthModelAttrTypes},
 	"bearer_token":    types.ObjectType{AttrTypes: APITestingDomainsCredentialsBearerTokenModelAttrTypes},
 	"login_endpoint":  types.ObjectType{AttrTypes: APITestingDomainsCredentialsLoginEndpointModelAttrTypes},
-	"standard":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // APITestingDomainsCredentialsAPIKeyModel represents api_key block
@@ -288,19 +288,19 @@ var APITestingDomainsCredentialsLoginEndpointJSONPayloadClearSecretInfoModelAttr
 }
 
 type APITestingResourceModel struct {
-	Name              types.String          `tfsdk:"name"`
-	Namespace         types.String          `tfsdk:"namespace"`
-	Annotations       types.Map             `tfsdk:"annotations"`
-	Description       types.String          `tfsdk:"description"`
-	Disable           types.Bool            `tfsdk:"disable"`
-	Labels            types.Map             `tfsdk:"labels"`
-	ID                types.String          `tfsdk:"id"`
-	CustomHeaderValue types.String          `tfsdk:"custom_header_value"`
-	Timeouts          timeouts.Value        `tfsdk:"timeouts"`
-	Domains           types.List            `tfsdk:"domains"`
-	EveryDay          *APITestingEmptyModel `tfsdk:"every_day"`
-	EveryMonth        *APITestingEmptyModel `tfsdk:"every_month"`
-	EveryWeek         *APITestingEmptyModel `tfsdk:"every_week"`
+	Name              types.String   `tfsdk:"name"`
+	Namespace         types.String   `tfsdk:"namespace"`
+	Annotations       types.Map      `tfsdk:"annotations"`
+	Description       types.String   `tfsdk:"description"`
+	Disable           types.Bool     `tfsdk:"disable"`
+	EveryDay          types.Object   `tfsdk:"every_day"`
+	EveryMonth        types.Object   `tfsdk:"every_month"`
+	EveryWeek         types.Object   `tfsdk:"every_week"`
+	Labels            types.Map      `tfsdk:"labels"`
+	ID                types.String   `tfsdk:"id"`
+	CustomHeaderValue types.String   `tfsdk:"custom_header_value"`
+	Timeouts          timeouts.Value `tfsdk:"timeouts"`
+	Domains           types.List     `tfsdk:"domains"`
 }
 
 func (r *APITestingResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -343,6 +343,21 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
+			},
+			"every_day": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: every_day, every_month, every_week] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"every_month": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for every month.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"every_week": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
@@ -396,9 +411,14 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 					Blocks: map[string]schema.Block{
 						"credentials": schema.ListNestedBlock{
 							MarkdownDescription: "Add credentials for API testing to use in the selected environment.",
-							Validators:          []validator.List{validators.RequiredListObjectAttributes("credential_name")},
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("credential_name"), validators.ConflictingListObjectAttributes("admin", "standard"), validators.ConflictingListObjectAttributes("api_key", "basic_auth"), validators.ConflictingListObjectAttributes("api_key", "bearer_token"), validators.ConflictingListObjectAttributes("api_key", "login_endpoint"), validators.ConflictingListObjectAttributes("basic_auth", "bearer_token"), validators.ConflictingListObjectAttributes("basic_auth", "login_endpoint"), validators.ConflictingListObjectAttributes("bearer_token", "login_endpoint")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
+									"admin": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
 									"credential_name": schema.StringAttribute{
 										MarkdownDescription: "Enter a unique name for the credentials used in API testing.",
 										Optional:            true,
@@ -406,11 +426,13 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 											stringvalidator.LengthAtMost(64),
 										},
 									},
+									"standard": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
 								},
 								Blocks: map[string]schema.Block{
-									"admin": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 									"api_key": schema.SingleNestedBlock{
 										MarkdownDescription: "API Key",
 										Validators:          []validator.Object{validators.RequiredObjectAttributes("key")},
@@ -426,6 +448,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										Blocks: map[string]schema.Block{
 											"value": schema.SingleNestedBlock{
 												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
@@ -485,6 +508,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										Blocks: map[string]schema.Block{
 											"password": schema.SingleNestedBlock{
 												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
@@ -535,6 +559,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										Blocks: map[string]schema.Block{
 											"token": schema.SingleNestedBlock{
 												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
@@ -605,6 +630,7 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										Blocks: map[string]schema.Block{
 											"json_payload": schema.SingleNestedBlock{
 												MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 												Attributes:          map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"blindfold_secret_info": schema.SingleNestedBlock{
@@ -649,23 +675,11 @@ func (r *APITestingResource) Schema(ctx context.Context, req resource.SchemaRequ
 											},
 										},
 									},
-									"standard": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 								},
 							},
 						},
 					},
 				},
-			},
-			"every_day": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: every_day, every_month, every_week] Enable this option",
-			},
-			"every_month": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for every month.",
-			},
-			"every_week": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
 			},
 		},
 	}
@@ -693,6 +707,28 @@ func (r *APITestingResource) ValidateConfig(ctx context.Context, req resource.Va
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.EveryDay.IsNull() && !data.EveryDay.IsUnknown() && !data.EveryMonth.IsNull() && !data.EveryMonth.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("every_day"),
+			"Conflicting Configuration",
+			"every_day and every_month are mutually exclusive.",
+		)
+	}
+	if !data.EveryDay.IsNull() && !data.EveryDay.IsUnknown() && !data.EveryWeek.IsNull() && !data.EveryWeek.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("every_day"),
+			"Conflicting Configuration",
+			"every_day and every_week are mutually exclusive.",
+		)
+	}
+	if !data.EveryMonth.IsNull() && !data.EveryMonth.IsUnknown() && !data.EveryWeek.IsNull() && !data.EveryWeek.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("every_month"),
+			"Conflicting Configuration",
+			"every_month and every_week are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -812,7 +848,7 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 						var CredentialsList []map[string]interface{}
 						for _, CredentialsItem := range CredentialsElems {
 							CredentialsItemMap := make(map[string]interface{})
-							if CredentialsItem.Admin != nil {
+							if !CredentialsItem.Admin.IsNull() && !CredentialsItem.Admin.IsUnknown() {
 								CredentialsItemMap["admin"] = map[string]interface{}{}
 							}
 							if CredentialsItem.APIKey != nil {
@@ -957,7 +993,7 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								CredentialsItemMap["login_endpoint"] = DomainsCredentialsLoginEndpointMap
 							}
-							if CredentialsItem.Standard != nil {
+							if !CredentialsItem.Standard.IsNull() && !CredentialsItem.Standard.IsUnknown() {
 								CredentialsItemMap["standard"] = map[string]interface{}{}
 							}
 							CredentialsList = append(CredentialsList, CredentialsItemMap)
@@ -973,13 +1009,13 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 			createReq.Spec["domains"] = DomainsList
 		}
 	}
-	if data.EveryDay != nil {
+	if !data.EveryDay.IsNull() && !data.EveryDay.IsUnknown() {
 		createReq.Spec["every_day"] = map[string]interface{}{}
 	}
-	if data.EveryMonth != nil {
+	if !data.EveryMonth.IsNull() && !data.EveryMonth.IsUnknown() {
 		createReq.Spec["every_month"] = map[string]interface{}{}
 	}
-	if data.EveryWeek != nil {
+	if !data.EveryWeek.IsNull() && !data.EveryWeek.IsUnknown() {
 		createReq.Spec["every_week"] = map[string]interface{}{}
 	}
 	if !data.CustomHeaderValue.IsNull() && !data.CustomHeaderValue.IsUnknown() {
@@ -1056,14 +1092,14 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 								_ = CredentialsIdx
 								if CredentialsItemMap, ok := CredentialsItem.(map[string]interface{}); ok {
 									CredentialsResult = append(CredentialsResult, APITestingDomainsCredentialsModel{
-										Admin: func() *APITestingEmptyModel {
-											if !isImport && len(CredentialsExisting) > CredentialsIdx {
+										Admin: func() types.Object {
+											if !isImport && len(CredentialsExisting) > CredentialsIdx && !CredentialsExisting[CredentialsIdx].Admin.IsUnknown() {
 												return CredentialsExisting[CredentialsIdx].Admin
 											}
 											if _, ok := CredentialsItemMap["admin"].(map[string]interface{}); ok {
-												return &APITestingEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 										APIKey: func() *APITestingDomainsCredentialsAPIKeyModel {
 											if APIKeyData, ok := CredentialsItemMap["api_key"].(map[string]interface{}); ok {
@@ -1369,16 +1405,14 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 											}
 											return nil
 										}(),
-										Standard: func() *APITestingEmptyModel {
-											if !isImport && len(CredentialsExisting) > CredentialsIdx {
+										Standard: func() types.Object {
+											if !isImport && len(CredentialsExisting) > CredentialsIdx && !CredentialsExisting[CredentialsIdx].Standard.IsUnknown() {
 												return CredentialsExisting[CredentialsIdx].Standard
 											}
-											if !isImport {
-												if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok {
-													return &APITestingEmptyModel{}
-												}
+											if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok && !isImport {
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 									})
 								}
@@ -1405,11 +1439,26 @@ func (r *APITestingResource) Create(ctx context.Context, req resource.CreateRequ
 	} else if isImport {
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["every_day"].(map[string]interface{}); ok && isImport && data.EveryDay == nil {
-		data.EveryDay = &APITestingEmptyModel{}
+	if !isImport && !data.EveryDay.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["every_day"].(map[string]interface{}); ok {
+		data.EveryDay = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EveryDay = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["every_month"].(map[string]interface{}); ok && isImport && data.EveryMonth == nil {
-		data.EveryMonth = &APITestingEmptyModel{}
+	if !isImport && !data.EveryMonth.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["every_month"].(map[string]interface{}); ok {
+		data.EveryMonth = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EveryMonth = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.EveryWeek.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["every_week"].(map[string]interface{}); ok && !isImport {
+		data.EveryWeek = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EveryWeek = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["custom_header_value"].(string); ok && v != "" {
 		data.CustomHeaderValue = types.StringValue(v)
@@ -1579,14 +1628,14 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 								_ = CredentialsIdx
 								if CredentialsItemMap, ok := CredentialsItem.(map[string]interface{}); ok {
 									CredentialsResult = append(CredentialsResult, APITestingDomainsCredentialsModel{
-										Admin: func() *APITestingEmptyModel {
-											if !isImport && len(CredentialsExisting) > CredentialsIdx {
+										Admin: func() types.Object {
+											if !isImport && len(CredentialsExisting) > CredentialsIdx && !CredentialsExisting[CredentialsIdx].Admin.IsUnknown() {
 												return CredentialsExisting[CredentialsIdx].Admin
 											}
 											if _, ok := CredentialsItemMap["admin"].(map[string]interface{}); ok {
-												return &APITestingEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 										APIKey: func() *APITestingDomainsCredentialsAPIKeyModel {
 											if APIKeyData, ok := CredentialsItemMap["api_key"].(map[string]interface{}); ok {
@@ -1892,16 +1941,14 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 											}
 											return nil
 										}(),
-										Standard: func() *APITestingEmptyModel {
-											if !isImport && len(CredentialsExisting) > CredentialsIdx {
+										Standard: func() types.Object {
+											if !isImport && len(CredentialsExisting) > CredentialsIdx && !CredentialsExisting[CredentialsIdx].Standard.IsUnknown() {
 												return CredentialsExisting[CredentialsIdx].Standard
 											}
-											if !isImport {
-												if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok {
-													return &APITestingEmptyModel{}
-												}
+											if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok && !isImport {
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 									})
 								}
@@ -1928,11 +1975,26 @@ func (r *APITestingResource) Read(ctx context.Context, req resource.ReadRequest,
 	} else if isImport {
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["every_day"].(map[string]interface{}); ok && isImport && data.EveryDay == nil {
-		data.EveryDay = &APITestingEmptyModel{}
+	if !isImport && !data.EveryDay.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["every_day"].(map[string]interface{}); ok {
+		data.EveryDay = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EveryDay = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["every_month"].(map[string]interface{}); ok && isImport && data.EveryMonth == nil {
-		data.EveryMonth = &APITestingEmptyModel{}
+	if !isImport && !data.EveryMonth.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["every_month"].(map[string]interface{}); ok {
+		data.EveryMonth = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EveryMonth = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.EveryWeek.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["every_week"].(map[string]interface{}); ok && !isImport {
+		data.EveryWeek = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EveryWeek = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["custom_header_value"].(string); ok && v != "" {
 		data.CustomHeaderValue = types.StringValue(v)
@@ -2052,7 +2114,7 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 						var CredentialsList []map[string]interface{}
 						for _, CredentialsItem := range CredentialsElems {
 							CredentialsItemMap := make(map[string]interface{})
-							if CredentialsItem.Admin != nil {
+							if !CredentialsItem.Admin.IsNull() && !CredentialsItem.Admin.IsUnknown() {
 								CredentialsItemMap["admin"] = map[string]interface{}{}
 							}
 							if CredentialsItem.APIKey != nil {
@@ -2197,7 +2259,7 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								CredentialsItemMap["login_endpoint"] = DomainsCredentialsLoginEndpointMap
 							}
-							if CredentialsItem.Standard != nil {
+							if !CredentialsItem.Standard.IsNull() && !CredentialsItem.Standard.IsUnknown() {
 								CredentialsItemMap["standard"] = map[string]interface{}{}
 							}
 							CredentialsList = append(CredentialsList, CredentialsItemMap)
@@ -2213,13 +2275,13 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 			apiResource.Spec["domains"] = DomainsList
 		}
 	}
-	if data.EveryDay != nil {
+	if !data.EveryDay.IsNull() && !data.EveryDay.IsUnknown() {
 		apiResource.Spec["every_day"] = map[string]interface{}{}
 	}
-	if data.EveryMonth != nil {
+	if !data.EveryMonth.IsNull() && !data.EveryMonth.IsUnknown() {
 		apiResource.Spec["every_month"] = map[string]interface{}{}
 	}
-	if data.EveryWeek != nil {
+	if !data.EveryWeek.IsNull() && !data.EveryWeek.IsUnknown() {
 		apiResource.Spec["every_week"] = map[string]interface{}{}
 	}
 	if !data.CustomHeaderValue.IsNull() && !data.CustomHeaderValue.IsUnknown() {
@@ -2323,14 +2385,14 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 								_ = CredentialsIdx
 								if CredentialsItemMap, ok := CredentialsItem.(map[string]interface{}); ok {
 									CredentialsResult = append(CredentialsResult, APITestingDomainsCredentialsModel{
-										Admin: func() *APITestingEmptyModel {
-											if !isImport && len(CredentialsExisting) > CredentialsIdx {
+										Admin: func() types.Object {
+											if !isImport && len(CredentialsExisting) > CredentialsIdx && !CredentialsExisting[CredentialsIdx].Admin.IsUnknown() {
 												return CredentialsExisting[CredentialsIdx].Admin
 											}
 											if _, ok := CredentialsItemMap["admin"].(map[string]interface{}); ok {
-												return &APITestingEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 										APIKey: func() *APITestingDomainsCredentialsAPIKeyModel {
 											if APIKeyData, ok := CredentialsItemMap["api_key"].(map[string]interface{}); ok {
@@ -2636,16 +2698,14 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 											}
 											return nil
 										}(),
-										Standard: func() *APITestingEmptyModel {
-											if !isImport && len(CredentialsExisting) > CredentialsIdx {
+										Standard: func() types.Object {
+											if !isImport && len(CredentialsExisting) > CredentialsIdx && !CredentialsExisting[CredentialsIdx].Standard.IsUnknown() {
 												return CredentialsExisting[CredentialsIdx].Standard
 											}
-											if !isImport {
-												if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok {
-													return &APITestingEmptyModel{}
-												}
+											if _, ok := CredentialsItemMap["standard"].(map[string]interface{}); ok && !isImport {
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 									})
 								}
@@ -2672,11 +2732,26 @@ func (r *APITestingResource) Update(ctx context.Context, req resource.UpdateRequ
 	} else if isImport {
 		data.Domains = types.ListNull(types.ObjectType{AttrTypes: APITestingDomainsModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["every_day"].(map[string]interface{}); ok && isImport && data.EveryDay == nil {
-		data.EveryDay = &APITestingEmptyModel{}
+	if !isImport && !data.EveryDay.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["every_day"].(map[string]interface{}); ok {
+		data.EveryDay = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EveryDay = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["every_month"].(map[string]interface{}); ok && isImport && data.EveryMonth == nil {
-		data.EveryMonth = &APITestingEmptyModel{}
+	if !isImport && !data.EveryMonth.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["every_month"].(map[string]interface{}); ok {
+		data.EveryMonth = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EveryMonth = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.EveryWeek.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["every_week"].(map[string]interface{}); ok && !isImport {
+		data.EveryWeek = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EveryWeek = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["custom_header_value"].(string); ok && v != "" {
 		data.CustomHeaderValue = types.StringValue(v)

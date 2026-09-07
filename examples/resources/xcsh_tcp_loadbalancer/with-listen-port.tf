@@ -22,8 +22,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls                = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_tcp_loadbalancer" "test" {
@@ -38,8 +38,8 @@ resource "xcsh_tcp_loadbalancer" "test" {
   domains     = ["example.example.com"]
   listen_port = 443
 
-  tcp {}
-  sni {}
+  tcp = {}
+  sni = {}
 
   origin_pools_weights {
     pool {
@@ -49,5 +49,5 @@ resource "xcsh_tcp_loadbalancer" "test" {
     weight = 1
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }

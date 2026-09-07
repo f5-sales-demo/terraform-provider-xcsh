@@ -63,12 +63,12 @@ resource "xcsh_global_log_receiver" "test" {
   # Required: select one receiver
   http_receiver {
     uri = "https://logs.example.com/receiver"
-    auth_none {}
-    no_tls {}
+    auth_none = {}
+    no_tls = {}
   }
 
   # Required: select one filter
-  ns_current {}
+  ns_current = {}
 }
 
 data "xcsh_global_log_receiver" "test" {

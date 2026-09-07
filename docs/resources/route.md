@@ -39,7 +39,7 @@ resource "xcsh_route" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -79,9 +79,9 @@ A [`routes`](#routes) block supports the following:
 
 <a id="routes-disable-location-add"></a>&#x2022; [`disable_location_add`](#routes-disable-location-add) - Optional Bool<br>Disables append of x-F5 Distributed Cloud-location = `<RE-site-name>` at route level, if it is configured at virtual-host level. This configuration is ignored on CE sites
 
-<a id="injection-7542e9"></a>&#x2022; [`inherited_bot_defense_javascript_injection`](#injection-7542e9) - Optional Block<br>Enable this option
+<a id="injection-7542e9"></a>&#x2022; [`inherited_bot_defense_javascript_injection`](#injection-7542e9) - Optional Object<br>Enable this option
 
-<a id="routes-inherited-waf-exclusion"></a>&#x2022; [`inherited_waf_exclusion`](#routes-inherited-waf-exclusion) - Optional Block<br>Configuration parameter for inherited WAF exclusion
+<a id="routes-inherited-waf-exclusion"></a>&#x2022; [`inherited_waf_exclusion`](#routes-inherited-waf-exclusion) - Optional Object<br>Configuration parameter for inherited WAF exclusion
 
 <a id="routes-match"></a>&#x2022; [`match`](#routes-match) - Optional Block<br>Match. Route match condition<br>See [Match](#routes-match) below.
 
@@ -133,6 +133,14 @@ A [`javascript_tags`](#tags-adf213) block (within [`routes.bot_defense_javascrip
 
 <a id="deep-002bb4"></a>Deeply nested **Attributes** block collapsed for readability.
 
+#### Routes Inherited Bot Defense JavaScript Injection
+
+An [`inherited_bot_defense_javascript_injection`](#injection-7542e9) block (within [`routes`](#routes)) supports the following:
+
+#### Routes Inherited WAF Exclusion
+
+An [`inherited_waf_exclusion`](#routes-inherited-waf-exclusion) block (within [`routes`](#routes)) supports the following:
+
 #### Routes Match
 
 A [`match`](#routes-match) block (within [`routes`](#routes)) supports the following:
@@ -165,11 +173,15 @@ A [`headers`](#routes-match-headers) block (within [`routes.match`](#routes-matc
 
 An [`incoming_port`](#routes-match-incoming-port) block (within [`routes.match`](#routes-match)) supports the following:
 
-<a id="match-1d4edd"></a>&#x2022; [`no_port_match`](#match-1d4edd) - Optional Block<br>Enable this option
+<a id="match-1d4edd"></a>&#x2022; [`no_port_match`](#match-1d4edd) - Optional Object<br>Enable this option
 
 <a id="routes-match-incoming-port-port"></a>&#x2022; [`port`](#routes-match-incoming-port-port) - Optional Number<br>Exact Port to match
 
 <a id="routes-match-incoming-port-port-ranges"></a>&#x2022; [`port_ranges`](#routes-match-incoming-port-port-ranges) - Optional String<br>Port range to match
+
+#### Routes Match Incoming Port No Port Match
+
+A [`no_port_match`](#match-1d4edd) block (within [`routes.match.incoming_port`](#routes-match-incoming-port)) supports the following:
 
 #### Routes Match Path
 
@@ -255,31 +267,31 @@ A [`response_cookies_to_add`](#routes-response-cookies-to-add) block (within [`r
 
 <a id="expiry-62b700"></a>&#x2022; [`add_expiry`](#expiry-62b700) - Optional String<br>Add expiry attribute
 
-<a id="httponly-c2890d"></a>&#x2022; [`add_httponly`](#httponly-c2890d) - Optional Block<br>Configuration parameter for add httponly
+<a id="httponly-c2890d"></a>&#x2022; [`add_httponly`](#httponly-c2890d) - Optional Object<br>Configuration parameter for add httponly
 
-<a id="partitioned-aa1f08"></a>&#x2022; [`add_partitioned`](#partitioned-aa1f08) - Optional Block<br>Configuration parameter for add partitioned
+<a id="partitioned-aa1f08"></a>&#x2022; [`add_partitioned`](#partitioned-aa1f08) - Optional Object<br>Configuration parameter for add partitioned
 
 <a id="routes-response-cookies-to-add-add-path"></a>&#x2022; [`add_path`](#routes-response-cookies-to-add-add-path) - Optional String<br>Add path attribute
 
-<a id="secure-9cd35a"></a>&#x2022; [`add_secure`](#secure-9cd35a) - Optional Block<br>Enable this option
+<a id="secure-9cd35a"></a>&#x2022; [`add_secure`](#secure-9cd35a) - Optional Object<br>Enable this option
 
-<a id="domain-c754cb"></a>&#x2022; [`ignore_domain`](#domain-c754cb) - Optional Block<br>Configuration parameter for ignore domain
+<a id="domain-c754cb"></a>&#x2022; [`ignore_domain`](#domain-c754cb) - Optional Object<br>Configuration parameter for ignore domain
 
-<a id="expiry-44cdc8"></a>&#x2022; [`ignore_expiry`](#expiry-44cdc8) - Optional Block<br>Configuration parameter for ignore expiry
+<a id="expiry-44cdc8"></a>&#x2022; [`ignore_expiry`](#expiry-44cdc8) - Optional Object<br>Configuration parameter for ignore expiry
 
-<a id="httponly-99def6"></a>&#x2022; [`ignore_httponly`](#httponly-99def6) - Optional Block<br>Configuration parameter for ignore httponly
+<a id="httponly-99def6"></a>&#x2022; [`ignore_httponly`](#httponly-99def6) - Optional Object<br>Configuration parameter for ignore httponly
 
-<a id="age-478fc0"></a>&#x2022; [`ignore_max_age`](#age-478fc0) - Optional Block<br>Configuration parameter for ignore max age
+<a id="age-478fc0"></a>&#x2022; [`ignore_max_age`](#age-478fc0) - Optional Object<br>Configuration parameter for ignore max age
 
-<a id="partitioned-7a224c"></a>&#x2022; [`ignore_partitioned`](#partitioned-7a224c) - Optional Block<br>Configuration parameter for ignore partitioned
+<a id="partitioned-7a224c"></a>&#x2022; [`ignore_partitioned`](#partitioned-7a224c) - Optional Object<br>Configuration parameter for ignore partitioned
 
-<a id="path-3677c1"></a>&#x2022; [`ignore_path`](#path-3677c1) - Optional Block<br>Enable this option
+<a id="path-3677c1"></a>&#x2022; [`ignore_path`](#path-3677c1) - Optional Object<br>Enable this option
 
-<a id="samesite-0d04a2"></a>&#x2022; [`ignore_samesite`](#samesite-0d04a2) - Optional Block<br>Enable this option
+<a id="samesite-0d04a2"></a>&#x2022; [`ignore_samesite`](#samesite-0d04a2) - Optional Object<br>Enable this option
 
-<a id="secure-effaa1"></a>&#x2022; [`ignore_secure`](#secure-effaa1) - Optional Block<br>Enable this option
+<a id="secure-effaa1"></a>&#x2022; [`ignore_secure`](#secure-effaa1) - Optional Object<br>Enable this option
 
-<a id="value-0e603e"></a>&#x2022; [`ignore_value`](#value-0e603e) - Optional Block<br>Configuration parameter for ignore value
+<a id="value-0e603e"></a>&#x2022; [`ignore_value`](#value-0e603e) - Optional Object<br>Configuration parameter for ignore value
 
 <a id="value-e8b96e"></a>&#x2022; [`max_age_value`](#value-e8b96e) - Optional Number<br>Add max age attribute
 
@@ -287,15 +299,75 @@ A [`response_cookies_to_add`](#routes-response-cookies-to-add) block (within [`r
 
 <a id="overwrite-25fb1c"></a>&#x2022; [`overwrite`](#overwrite-25fb1c) - Optional Bool  Defaults to `do`<br>Should the value be overwritten? If true, the value is overwritten to existing values. not overwrite
 
-<a id="lax-3799dd"></a>&#x2022; [`samesite_lax`](#lax-3799dd) - Optional Block<br>Enable this option
+<a id="lax-3799dd"></a>&#x2022; [`samesite_lax`](#lax-3799dd) - Optional Object<br>Enable this option
 
-<a id="none-d063b8"></a>&#x2022; [`samesite_none`](#none-d063b8) - Optional Block<br>Enable this option
+<a id="none-d063b8"></a>&#x2022; [`samesite_none`](#none-d063b8) - Optional Object<br>Enable this option
 
-<a id="strict-b3db69"></a>&#x2022; [`samesite_strict`](#strict-b3db69) - Optional Block<br>Enable this option
+<a id="strict-b3db69"></a>&#x2022; [`samesite_strict`](#strict-b3db69) - Optional Object<br>Enable this option
 
 <a id="value-172895"></a>&#x2022; [`secret_value`](#value-172895) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Secret Value](#value-172895) below.
 
 <a id="routes-response-cookies-to-add-value"></a>&#x2022; [`value`](#routes-response-cookies-to-add-value) - Optional String<br>Value of the Cookie header
+
+#### Routes Response Cookies To Add Add Httponly
+
+An [`add_httponly`](#httponly-c2890d) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Add Partitioned
+
+An [`add_partitioned`](#partitioned-aa1f08) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Add Secure
+
+An [`add_secure`](#secure-9cd35a) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Domain
+
+An [`ignore_domain`](#domain-c754cb) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Expiry
+
+An [`ignore_expiry`](#expiry-44cdc8) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Httponly
+
+An [`ignore_httponly`](#httponly-99def6) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Max Age
+
+<a id="deep-25443a"></a>Deeply nested **Age** block collapsed for readability.
+
+#### Routes Response Cookies To Add Ignore Partitioned
+
+An [`ignore_partitioned`](#partitioned-7a224c) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Path
+
+An [`ignore_path`](#path-3677c1) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Samesite
+
+An [`ignore_samesite`](#samesite-0d04a2) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Secure
+
+An [`ignore_secure`](#secure-effaa1) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Ignore Value
+
+An [`ignore_value`](#value-0e603e) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Samesite Lax
+
+A [`samesite_lax`](#lax-3799dd) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Samesite None
+
+A [`samesite_none`](#none-d063b8) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
+
+#### Routes Response Cookies To Add Samesite Strict
+
+A [`samesite_strict`](#strict-b3db69) block (within [`routes.response_cookies_to_add`](#routes-response-cookies-to-add)) supports the following:
 
 #### Routes Response Cookies To Add Secret Value
 
@@ -359,7 +431,7 @@ that caused the user agent<br>See [CSRF Policy](#routes-route-destination-csrf-p
 <a id="routes-route-destination-destinations"></a>&#x2022; [`destinations`](#routes-route-destination-destinations) - Optional Block<br>When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured<br>See
 [Destinations](#routes-route-destination-destinations) below.
 
-<a id="cluster-098c21"></a>&#x2022; [`do_not_retract_cluster`](#cluster-098c21) - Optional Block<br>Enable this option
+<a id="cluster-098c21"></a>&#x2022; [`do_not_retract_cluster`](#cluster-098c21) - Optional Object<br>Enable this option
 
 <a id="subsets-17b178"></a>&#x2022; [`endpoint_subsets`](#subsets-17b178) - Optional Block<br>Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset
 
@@ -380,7 +452,7 @@ based on selected priority
 
 <a id="routes-route-destination-regex-rewrite"></a>&#x2022; [`regex_rewrite`](#routes-route-destination-regex-rewrite) - Optional Block<br>RegexMatchRewrite describes how to match a string and then produce a new string using a regular expression and a substitution string<br>See [Regex Rewrite](#routes-route-destination-regex-rewrite) below.
 
-<a id="cluster-96a194"></a>&#x2022; [`retract_cluster`](#cluster-96a194) - Optional Block<br>Enable this option
+<a id="cluster-96a194"></a>&#x2022; [`retract_cluster`](#cluster-96a194) - Optional Object<br>Enable this option
 
 <a id="routes-route-destination-retry-policy"></a>&#x2022; [`retry_policy`](#routes-route-destination-retry-policy) - Optional Block<br>Retry policy configuration for route destination<br>See [Retry Policy](#routes-route-destination-retry-policy) below.
 
@@ -424,15 +496,23 @@ A [`cors_policy`](#routes-route-destination-cors-policy) block (within [`routes.
 
 A [`csrf_policy`](#routes-route-destination-csrf-policy) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
 
-<a id="domains-a58e7f"></a>&#x2022; [`all_load_balancer_domains`](#domains-a58e7f) - Optional Block<br>Configuration parameter for all load balancer domains
+<a id="domains-a58e7f"></a>&#x2022; [`all_load_balancer_domains`](#domains-a58e7f) - Optional Object<br>Configuration parameter for all load balancer domains
 
 <a id="list-904516"></a>&#x2022; [`custom_domain_list`](#list-904516) - Optional Block<br>List of domain names used for Host header matching<br>See [Custom Domain List](#list-904516) below.
 
-<a id="disabled-8b18cb"></a>&#x2022; [`disabled`](#disabled-8b18cb) - Optional Block<br>Enable this option
+<a id="disabled-8b18cb"></a>&#x2022; [`disabled`](#disabled-8b18cb) - Optional Object<br>Enable this option
+
+#### Routes Route Destination CSRF Policy All Load Balancer Domains
+
+<a id="deep-1f93f1"></a>Deeply nested **Domains** block collapsed for readability.
 
 #### Routes Route Destination CSRF Policy Custom Domain List
 
 <a id="deep-6e8132"></a>Deeply nested **List** block collapsed for readability.
+
+#### Routes Route Destination CSRF Policy Disabled
+
+A [`disabled`](#disabled-8b18cb) block (within [`routes.route_destination.csrf_policy`](#routes-route-destination-csrf-policy)) supports the following:
 
 #### Routes Route Destination Destinations
 
@@ -477,27 +557,59 @@ A [`hash_policy`](#routes-route-destination-hash-policy) block (within [`routes.
 
 A [`cookie`](#cookie-fa8e38) block (within [`routes.route_destination.hash_policy`](#routes-route-destination-hash-policy)) supports the following:
 
-<a id="httponly-c187b0"></a>&#x2022; [`add_httponly`](#httponly-c187b0) - Optional Block<br>Configuration parameter for add httponly
+<a id="httponly-c187b0"></a>&#x2022; [`add_httponly`](#httponly-c187b0) - Optional Object<br>Configuration parameter for add httponly
 
-<a id="secure-141faf"></a>&#x2022; [`add_secure`](#secure-141faf) - Optional Block<br>Enable this option
+<a id="secure-141faf"></a>&#x2022; [`add_secure`](#secure-141faf) - Optional Object<br>Enable this option
 
-<a id="httponly-d1eb99"></a>&#x2022; [`ignore_httponly`](#httponly-d1eb99) - Optional Block<br>Configuration parameter for ignore httponly
+<a id="httponly-d1eb99"></a>&#x2022; [`ignore_httponly`](#httponly-d1eb99) - Optional Object<br>Configuration parameter for ignore httponly
 
-<a id="samesite-dc4309"></a>&#x2022; [`ignore_samesite`](#samesite-dc4309) - Optional Block<br>Enable this option
+<a id="samesite-dc4309"></a>&#x2022; [`ignore_samesite`](#samesite-dc4309) - Optional Object<br>Enable this option
 
-<a id="secure-9eb9ca"></a>&#x2022; [`ignore_secure`](#secure-9eb9ca) - Optional Block<br>Enable this option
+<a id="secure-9eb9ca"></a>&#x2022; [`ignore_secure`](#secure-9eb9ca) - Optional Object<br>Enable this option
 
 <a id="name-a648a7"></a>&#x2022; [`name`](#name-a648a7) - Optional String<br>The name of the cookie that will be used to obtain the hash key. If the cookie is not present and TTL below is not set, no hash will be produced
 
 <a id="path-b96c24"></a>&#x2022; [`path`](#path-b96c24) - Optional String<br>The name of the path for the cookie. If no path is specified here, no path will be set for the cookie
 
-<a id="lax-fbe3d9"></a>&#x2022; [`samesite_lax`](#lax-fbe3d9) - Optional Block<br>Enable this option
+<a id="lax-fbe3d9"></a>&#x2022; [`samesite_lax`](#lax-fbe3d9) - Optional Object<br>Enable this option
 
-<a id="none-087d30"></a>&#x2022; [`samesite_none`](#none-087d30) - Optional Block<br>Enable this option
+<a id="none-087d30"></a>&#x2022; [`samesite_none`](#none-087d30) - Optional Object<br>Enable this option
 
-<a id="strict-3e3555"></a>&#x2022; [`samesite_strict`](#strict-3e3555) - Optional Block<br>Enable this option
+<a id="strict-3e3555"></a>&#x2022; [`samesite_strict`](#strict-3e3555) - Optional Object<br>Enable this option
 
 <a id="ttl-e740ae"></a>&#x2022; [`ttl`](#ttl-e740ae) - Optional Number<br>If specified, a cookie with the TTL will be generated if the cookie is not present. If the TTL is present and zero, the generated cookie will be a session cookie. TTL value is in milliseconds
+
+#### Routes Route Destination Hash Policy Cookie Add Httponly
+
+<a id="deep-a4e15d"></a>Deeply nested **Httponly** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Add Secure
+
+<a id="deep-7ea189"></a>Deeply nested **Secure** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Ignore Httponly
+
+<a id="deep-2cc4e8"></a>Deeply nested **Httponly** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Ignore Samesite
+
+<a id="deep-8e2813"></a>Deeply nested **Samesite** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Ignore Secure
+
+<a id="deep-fa71b0"></a>Deeply nested **Secure** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Samesite Lax
+
+<a id="deep-5a0a84"></a>Deeply nested **Lax** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Samesite None
+
+<a id="deep-a3be15"></a>Deeply nested **None** block collapsed for readability.
+
+#### Routes Route Destination Hash Policy Cookie Samesite Strict
+
+<a id="deep-c0179e"></a>Deeply nested **Strict** block collapsed for readability.
 
 #### Routes Route Destination Mirror Policy
 
@@ -533,11 +645,19 @@ A [`percent`](#percent-e76235) block (within [`routes.route_destination.mirror_p
 
 A [`query_params`](#routes-route-destination-query-params) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
 
-<a id="params-29da85"></a>&#x2022; [`remove_all_params`](#params-29da85) - Optional Block<br>Configuration parameter for remove all params
+<a id="params-29da85"></a>&#x2022; [`remove_all_params`](#params-29da85) - Optional Object<br>Configuration parameter for remove all params
 
 <a id="params-cfccb5"></a>&#x2022; [`replace_params`](#params-cfccb5) - Optional String
 
-<a id="params-7e3845"></a>&#x2022; [`retain_all_params`](#params-7e3845) - Optional Block<br>Configuration parameter for retain all params
+<a id="params-7e3845"></a>&#x2022; [`retain_all_params`](#params-7e3845) - Optional Object<br>Configuration parameter for retain all params
+
+#### Routes Route Destination Query Params Remove All Params
+
+<a id="deep-1c4fe3"></a>Deeply nested **Params** block collapsed for readability.
+
+#### Routes Route Destination Query Params Retain All Params
+
+<a id="deep-1310f2"></a>Deeply nested **Params** block collapsed for readability.
 
 #### Routes Route Destination Regex Rewrite
 
@@ -546,6 +666,10 @@ A [`regex_rewrite`](#routes-route-destination-regex-rewrite) block (within [`rou
 <a id="pattern-a0e73b"></a>&#x2022; [`pattern`](#pattern-a0e73b) - Optional String<br>The regular expression used to find portions of a string that should be replaced
 
 <a id="substitution-90a61f"></a>&#x2022; [`substitution`](#substitution-90a61f) - Optional String<br>The string that should be substituted into matching portions of the subject string during a substitution operation to produce a new string
+
+#### Routes Route Destination Retract Cluster
+
+A [`retract_cluster`](#cluster-96a194) block (within [`routes.route_destination`](#routes-route-destination)) supports the following:
 
 #### Routes Route Destination Retry Policy
 
@@ -602,13 +726,21 @@ A [`route_redirect`](#routes-route-redirect) block (within [`routes`](#routes)) 
 <a id="routes-route-redirect-proto-redirect"></a>&#x2022; [`proto_redirect`](#routes-route-redirect-proto-redirect) - Optional String<br>Possible values are `incoming-proto`, `HTTP`, `HTTPS`<br>[Enum: incoming-proto|HTTP|HTTPS] Swap protocol part of incoming URL in redirect URL The protocol can be swapped with either HTTP or HTTPS When incoming-proto option is specified, swapping of protocol is
 not done
 
-<a id="routes-route-redirect-remove-all-params"></a>&#x2022; [`remove_all_params`](#routes-route-redirect-remove-all-params) - Optional Block<br>Configuration parameter for remove all params
+<a id="routes-route-redirect-remove-all-params"></a>&#x2022; [`remove_all_params`](#routes-route-redirect-remove-all-params) - Optional Object<br>Configuration parameter for remove all params
 
 <a id="routes-route-redirect-replace-params"></a>&#x2022; [`replace_params`](#routes-route-redirect-replace-params) - Optional String
 
 <a id="routes-route-redirect-response-code"></a>&#x2022; [`response_code`](#routes-route-redirect-response-code) - Optional Number<br>The HTTP status code to use in the redirect response
 
-<a id="routes-route-redirect-retain-all-params"></a>&#x2022; [`retain_all_params`](#routes-route-redirect-retain-all-params) - Optional Block<br>Configuration parameter for retain all params
+<a id="routes-route-redirect-retain-all-params"></a>&#x2022; [`retain_all_params`](#routes-route-redirect-retain-all-params) - Optional Object<br>Configuration parameter for retain all params
+
+#### Routes Route Redirect Remove All Params
+
+A [`remove_all_params`](#routes-route-redirect-remove-all-params) block (within [`routes.route_redirect`](#routes-route-redirect)) supports the following:
+
+#### Routes Route Redirect Retain All Params
+
+A [`retain_all_params`](#routes-route-redirect-retain-all-params) block (within [`routes.route_redirect`](#routes-route-redirect)) supports the following:
 
 #### Routes Service Policy
 
@@ -632,9 +764,9 @@ A [`waf_type`](#routes-waf-type) block (within [`routes`](#routes)) supports the
 
 <a id="routes-waf-type-app-firewall"></a>&#x2022; [`app_firewall`](#routes-waf-type-app-firewall) - Optional Block<br>List of references to the app_firewall configuration objects<br>See [App Firewall](#routes-waf-type-app-firewall) below.
 
-<a id="routes-waf-type-disable-waf"></a>&#x2022; [`disable_waf`](#routes-waf-type-disable-waf) - Optional Block<br>Configuration parameter for disable WAF
+<a id="routes-waf-type-disable-waf"></a>&#x2022; [`disable_waf`](#routes-waf-type-disable-waf) - Optional Object<br>Configuration parameter for disable WAF
 
-<a id="routes-waf-type-inherit-waf"></a>&#x2022; [`inherit_waf`](#routes-waf-type-inherit-waf) - Optional Block<br>Configuration parameter for inherit WAF
+<a id="routes-waf-type-inherit-waf"></a>&#x2022; [`inherit_waf`](#routes-waf-type-inherit-waf) - Optional Object<br>Configuration parameter for inherit WAF
 
 #### Routes WAF Type App Firewall
 
@@ -655,6 +787,14 @@ An [`app_firewall`](#firewall-9775b3) block (within [`routes.waf_type.app_firewa
 <a id="tenant-853650"></a>&#x2022; [`tenant`](#tenant-853650) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 <a id="uid-f378e6"></a>&#x2022; [`uid`](#uid-f378e6) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Routes WAF Type Disable WAF
+
+A [`disable_waf`](#routes-waf-type-disable-waf) block (within [`routes.waf_type`](#routes-waf-type)) supports the following:
+
+#### Routes WAF Type Inherit WAF
+
+An [`inherit_waf`](#routes-waf-type-inherit-waf) block (within [`routes.waf_type`](#routes-waf-type)) supports the following:
 
 #### Timeouts
 

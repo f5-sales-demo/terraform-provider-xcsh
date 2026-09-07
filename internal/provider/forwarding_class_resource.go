@@ -83,16 +83,16 @@ type ForwardingClassResourceModel struct {
 	Annotations    types.Map                    `tfsdk:"annotations"`
 	Description    types.String                 `tfsdk:"description"`
 	Disable        types.Bool                   `tfsdk:"disable"`
+	DscpBasedQueue types.Object                 `tfsdk:"dscp_based_queue"`
 	Labels         types.Map                    `tfsdk:"labels"`
+	NoMarking      types.Object                 `tfsdk:"no_marking"`
+	NoPolicer      types.Object                 `tfsdk:"no_policer"`
 	ID             types.String                 `tfsdk:"id"`
 	InterfaceGroup types.String                 `tfsdk:"interface_group"`
 	QueueIDToUse   types.String                 `tfsdk:"queue_id_to_use"`
 	TosValue       types.Int64                  `tfsdk:"tos_value"`
 	Timeouts       timeouts.Value               `tfsdk:"timeouts"`
 	Dscp           *ForwardingClassDscpModel    `tfsdk:"dscp"`
-	DscpBasedQueue *ForwardingClassEmptyModel   `tfsdk:"dscp_based_queue"`
-	NoMarking      *ForwardingClassEmptyModel   `tfsdk:"no_marking"`
-	NoPolicer      *ForwardingClassEmptyModel   `tfsdk:"no_policer"`
 	Policer        *ForwardingClassPolicerModel `tfsdk:"policer"`
 }
 
@@ -137,10 +137,25 @@ func (r *ForwardingClassResource) Schema(ctx context.Context, req resource.Schem
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"dscp_based_queue": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: dscp_based_queue, queue_id_to_use] Configuration parameter for dscp based queue.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"no_marking": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_policer": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: no_policer, policer; Default: no_policer] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -210,15 +225,6 @@ func (r *ForwardingClassResource) Schema(ctx context.Context, req resource.Schem
 					},
 				},
 			},
-			"dscp_based_queue": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: dscp_based_queue, queue_id_to_use] Configuration parameter for dscp based queue.",
-			},
-			"no_marking": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"no_policer": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: no_policer, policer; Default: no_policer] Enable this option",
-			},
 			"policer": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -277,6 +283,21 @@ func (r *ForwardingClassResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.DscpBasedQueue.IsNull() && !data.DscpBasedQueue.IsUnknown() && !data.QueueIDToUse.IsNull() && !data.QueueIDToUse.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("dscp_based_queue"),
+			"Conflicting Configuration",
+			"dscp_based_queue and queue_id_to_use are mutually exclusive.",
+		)
+	}
+	if !data.NoMarking.IsNull() && !data.NoMarking.IsUnknown() && !data.TosValue.IsNull() && !data.TosValue.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_marking"),
+			"Conflicting Configuration",
+			"no_marking and tos_value are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -387,13 +408,13 @@ func (r *ForwardingClassResource) Create(ctx context.Context, req resource.Creat
 		}
 		createReq.Spec["dscp"] = DscpMap
 	}
-	if data.DscpBasedQueue != nil {
+	if !data.DscpBasedQueue.IsNull() && !data.DscpBasedQueue.IsUnknown() {
 		createReq.Spec["dscp_based_queue"] = map[string]interface{}{}
 	}
-	if data.NoMarking != nil {
+	if !data.NoMarking.IsNull() && !data.NoMarking.IsUnknown() {
 		createReq.Spec["no_marking"] = map[string]interface{}{}
 	}
-	if data.NoPolicer != nil {
+	if !data.NoPolicer.IsNull() && !data.NoPolicer.IsUnknown() {
 		createReq.Spec["no_policer"] = map[string]interface{}{}
 	}
 	if data.Policer != nil {
@@ -470,14 +491,26 @@ func (r *ForwardingClassResource) Create(ctx context.Context, req resource.Creat
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["dscp_based_queue"].(map[string]interface{}); ok && isImport && data.DscpBasedQueue == nil {
-		data.DscpBasedQueue = &ForwardingClassEmptyModel{}
+	if !isImport && !data.DscpBasedQueue.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["dscp_based_queue"].(map[string]interface{}); ok {
+		data.DscpBasedQueue = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DscpBasedQueue = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_marking"].(map[string]interface{}); ok && isImport && data.NoMarking == nil {
-		data.NoMarking = &ForwardingClassEmptyModel{}
+	if !isImport && !data.NoMarking.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_marking"].(map[string]interface{}); ok {
+		data.NoMarking = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoMarking = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_policer"].(map[string]interface{}); ok && isImport && data.NoPolicer == nil {
-		data.NoPolicer = &ForwardingClassEmptyModel{}
+	if !isImport && !data.NoPolicer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_policer"].(map[string]interface{}); ok {
+		data.NoPolicer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoPolicer = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["policer"].(map[string]interface{}); ok && (isImport || data.Policer != nil) {
 		data.Policer = &ForwardingClassPolicerModel{
@@ -663,14 +696,26 @@ func (r *ForwardingClassResource) Read(ctx context.Context, req resource.ReadReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["dscp_based_queue"].(map[string]interface{}); ok && isImport && data.DscpBasedQueue == nil {
-		data.DscpBasedQueue = &ForwardingClassEmptyModel{}
+	if !isImport && !data.DscpBasedQueue.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["dscp_based_queue"].(map[string]interface{}); ok {
+		data.DscpBasedQueue = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DscpBasedQueue = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_marking"].(map[string]interface{}); ok && isImport && data.NoMarking == nil {
-		data.NoMarking = &ForwardingClassEmptyModel{}
+	if !isImport && !data.NoMarking.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_marking"].(map[string]interface{}); ok {
+		data.NoMarking = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoMarking = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_policer"].(map[string]interface{}); ok && isImport && data.NoPolicer == nil {
-		data.NoPolicer = &ForwardingClassEmptyModel{}
+	if !isImport && !data.NoPolicer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_policer"].(map[string]interface{}); ok {
+		data.NoPolicer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoPolicer = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["policer"].(map[string]interface{}); ok && (isImport || data.Policer != nil) {
 		data.Policer = &ForwardingClassPolicerModel{
@@ -813,13 +858,13 @@ func (r *ForwardingClassResource) Update(ctx context.Context, req resource.Updat
 		}
 		apiResource.Spec["dscp"] = DscpMap
 	}
-	if data.DscpBasedQueue != nil {
+	if !data.DscpBasedQueue.IsNull() && !data.DscpBasedQueue.IsUnknown() {
 		apiResource.Spec["dscp_based_queue"] = map[string]interface{}{}
 	}
-	if data.NoMarking != nil {
+	if !data.NoMarking.IsNull() && !data.NoMarking.IsUnknown() {
 		apiResource.Spec["no_marking"] = map[string]interface{}{}
 	}
-	if data.NoPolicer != nil {
+	if !data.NoPolicer.IsNull() && !data.NoPolicer.IsUnknown() {
 		apiResource.Spec["no_policer"] = map[string]interface{}{}
 	}
 	if data.Policer != nil {
@@ -937,14 +982,26 @@ func (r *ForwardingClassResource) Update(ctx context.Context, req resource.Updat
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["dscp_based_queue"].(map[string]interface{}); ok && isImport && data.DscpBasedQueue == nil {
-		data.DscpBasedQueue = &ForwardingClassEmptyModel{}
+	if !isImport && !data.DscpBasedQueue.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["dscp_based_queue"].(map[string]interface{}); ok {
+		data.DscpBasedQueue = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DscpBasedQueue = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_marking"].(map[string]interface{}); ok && isImport && data.NoMarking == nil {
-		data.NoMarking = &ForwardingClassEmptyModel{}
+	if !isImport && !data.NoMarking.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_marking"].(map[string]interface{}); ok {
+		data.NoMarking = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoMarking = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_policer"].(map[string]interface{}); ok && isImport && data.NoPolicer == nil {
-		data.NoPolicer = &ForwardingClassEmptyModel{}
+	if !isImport && !data.NoPolicer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_policer"].(map[string]interface{}); ok {
+		data.NoPolicer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoPolicer = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["policer"].(map[string]interface{}); ok && (isImport || data.Policer != nil) {
 		data.Policer = &ForwardingClassPolicerModel{

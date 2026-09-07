@@ -83,18 +83,18 @@ var ProtocolPolicerProtocolPolicerPolicerModelAttrTypes = map[string]attr.Type{
 
 // ProtocolPolicerProtocolPolicerProtocolModel represents protocol block
 type ProtocolPolicerProtocolPolicerProtocolModel struct {
-	DNS  *ProtocolPolicerEmptyModel                       `tfsdk:"dns"`
+	DNS  types.Object                                     `tfsdk:"dns"`
+	UDP  types.Object                                     `tfsdk:"udp"`
 	ICMP *ProtocolPolicerProtocolPolicerProtocolICMPModel `tfsdk:"icmp"`
 	TCP  *ProtocolPolicerProtocolPolicerProtocolTCPModel  `tfsdk:"tcp"`
-	UDP  *ProtocolPolicerEmptyModel                       `tfsdk:"udp"`
 }
 
 // ProtocolPolicerProtocolPolicerProtocolModelAttrTypes defines the attribute types for ProtocolPolicerProtocolPolicerProtocolModel
 var ProtocolPolicerProtocolPolicerProtocolModelAttrTypes = map[string]attr.Type{
 	"dns":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"udp":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"icmp": types.ObjectType{AttrTypes: ProtocolPolicerProtocolPolicerProtocolICMPModelAttrTypes},
 	"tcp":  types.ObjectType{AttrTypes: ProtocolPolicerProtocolPolicerProtocolTCPModelAttrTypes},
-	"udp":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // ProtocolPolicerProtocolPolicerProtocolICMPModel represents icmp block
@@ -237,11 +237,20 @@ func (r *ProtocolPolicerResource) Schema(ctx context.Context, req resource.Schem
 						},
 						"protocol": schema.SingleNestedBlock{
 							MarkdownDescription: "Protocol and protocol specific flags to be matched in packet.",
-							Attributes:          map[string]schema.Attribute{},
-							Blocks: map[string]schema.Block{
-								"dns": schema.SingleNestedBlock{
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("dns", "icmp"), validators.ConflictingObjectAttributes("dns", "tcp"), validators.ConflictingObjectAttributes("dns", "udp"), validators.ConflictingObjectAttributes("icmp", "tcp"), validators.ConflictingObjectAttributes("icmp", "udp"), validators.ConflictingObjectAttributes("tcp", "udp")},
+							Attributes: map[string]schema.Attribute{
+								"dns": schema.ObjectAttribute{
 									MarkdownDescription: "Match all DNS packets including UDP and TCP.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
+								"udp": schema.ObjectAttribute{
+									MarkdownDescription: "UDP Packets. Match all UDP packets.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+							},
+							Blocks: map[string]schema.Block{
 								"icmp": schema.SingleNestedBlock{
 									MarkdownDescription: "ICMP Packet Type. ICMP message type to match in packet.",
 									Attributes: map[string]schema.Attribute{
@@ -261,9 +270,6 @@ func (r *ProtocolPolicerResource) Schema(ctx context.Context, req resource.Schem
 											ElementType:         types.StringType,
 										},
 									},
-								},
-								"udp": schema.SingleNestedBlock{
-									MarkdownDescription: "UDP Packets. Match all UDP packets.",
 								},
 							},
 						},
@@ -425,7 +431,7 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 				}
 				if ProtocolPolicerItem.Protocol != nil {
 					ProtocolPolicerProtocolMap := make(map[string]interface{})
-					if ProtocolPolicerItem.Protocol.DNS != nil {
+					if !ProtocolPolicerItem.Protocol.DNS.IsNull() && !ProtocolPolicerItem.Protocol.DNS.IsUnknown() {
 						ProtocolPolicerProtocolMap["dns"] = map[string]interface{}{}
 					}
 					if ProtocolPolicerItem.Protocol.ICMP != nil {
@@ -452,7 +458,7 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 						}
 						ProtocolPolicerProtocolMap["tcp"] = ProtocolPolicerProtocolTCPMap
 					}
-					if ProtocolPolicerItem.Protocol.UDP != nil {
+					if !ProtocolPolicerItem.Protocol.UDP.IsNull() && !ProtocolPolicerItem.Protocol.UDP.IsUnknown() {
 						ProtocolPolicerProtocolMap["udp"] = map[string]interface{}{}
 					}
 					ProtocolPolicerItemMap["protocol"] = ProtocolPolicerProtocolMap
@@ -568,14 +574,14 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 					Protocol: func() *ProtocolPolicerProtocolPolicerProtocolModel {
 						if ProtocolData, ok := itemMap["protocol"].(map[string]interface{}); ok {
 							return &ProtocolPolicerProtocolPolicerProtocolModel{
-								DNS: func() *ProtocolPolicerEmptyModel {
-									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil {
+								DNS: func() types.Object {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && !existingProtocolPolicerItems[listIdx].Protocol.DNS.IsUnknown() {
 										return existingProtocolPolicerItems[listIdx].Protocol.DNS
 									}
 									if _, ok := ProtocolData["dns"].(map[string]interface{}); ok {
-										return &ProtocolPolicerEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ICMP: func() *ProtocolPolicerProtocolPolicerProtocolICMPModel {
 									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && existingProtocolPolicerItems[listIdx].Protocol.ICMP != nil {
@@ -625,14 +631,14 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 									}
 									return nil
 								}(),
-								UDP: func() *ProtocolPolicerEmptyModel {
-									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil {
+								UDP: func() types.Object {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && !existingProtocolPolicerItems[listIdx].Protocol.UDP.IsUnknown() {
 										return existingProtocolPolicerItems[listIdx].Protocol.UDP
 									}
 									if _, ok := ProtocolData["udp"].(map[string]interface{}); ok {
-										return &ProtocolPolicerEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}
@@ -847,14 +853,14 @@ func (r *ProtocolPolicerResource) Read(ctx context.Context, req resource.ReadReq
 					Protocol: func() *ProtocolPolicerProtocolPolicerProtocolModel {
 						if ProtocolData, ok := itemMap["protocol"].(map[string]interface{}); ok {
 							return &ProtocolPolicerProtocolPolicerProtocolModel{
-								DNS: func() *ProtocolPolicerEmptyModel {
-									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil {
+								DNS: func() types.Object {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && !existingProtocolPolicerItems[listIdx].Protocol.DNS.IsUnknown() {
 										return existingProtocolPolicerItems[listIdx].Protocol.DNS
 									}
 									if _, ok := ProtocolData["dns"].(map[string]interface{}); ok {
-										return &ProtocolPolicerEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ICMP: func() *ProtocolPolicerProtocolPolicerProtocolICMPModel {
 									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && existingProtocolPolicerItems[listIdx].Protocol.ICMP != nil {
@@ -904,14 +910,14 @@ func (r *ProtocolPolicerResource) Read(ctx context.Context, req resource.ReadReq
 									}
 									return nil
 								}(),
-								UDP: func() *ProtocolPolicerEmptyModel {
-									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil {
+								UDP: func() types.Object {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && !existingProtocolPolicerItems[listIdx].Protocol.UDP.IsUnknown() {
 										return existingProtocolPolicerItems[listIdx].Protocol.UDP
 									}
 									if _, ok := ProtocolData["udp"].(map[string]interface{}); ok {
-										return &ProtocolPolicerEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}
@@ -1051,7 +1057,7 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 				}
 				if ProtocolPolicerItem.Protocol != nil {
 					ProtocolPolicerProtocolMap := make(map[string]interface{})
-					if ProtocolPolicerItem.Protocol.DNS != nil {
+					if !ProtocolPolicerItem.Protocol.DNS.IsNull() && !ProtocolPolicerItem.Protocol.DNS.IsUnknown() {
 						ProtocolPolicerProtocolMap["dns"] = map[string]interface{}{}
 					}
 					if ProtocolPolicerItem.Protocol.ICMP != nil {
@@ -1078,7 +1084,7 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 						}
 						ProtocolPolicerProtocolMap["tcp"] = ProtocolPolicerProtocolTCPMap
 					}
-					if ProtocolPolicerItem.Protocol.UDP != nil {
+					if !ProtocolPolicerItem.Protocol.UDP.IsNull() && !ProtocolPolicerItem.Protocol.UDP.IsUnknown() {
 						ProtocolPolicerProtocolMap["udp"] = map[string]interface{}{}
 					}
 					ProtocolPolicerItemMap["protocol"] = ProtocolPolicerProtocolMap
@@ -1214,14 +1220,14 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 					Protocol: func() *ProtocolPolicerProtocolPolicerProtocolModel {
 						if ProtocolData, ok := itemMap["protocol"].(map[string]interface{}); ok {
 							return &ProtocolPolicerProtocolPolicerProtocolModel{
-								DNS: func() *ProtocolPolicerEmptyModel {
-									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil {
+								DNS: func() types.Object {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && !existingProtocolPolicerItems[listIdx].Protocol.DNS.IsUnknown() {
 										return existingProtocolPolicerItems[listIdx].Protocol.DNS
 									}
 									if _, ok := ProtocolData["dns"].(map[string]interface{}); ok {
-										return &ProtocolPolicerEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ICMP: func() *ProtocolPolicerProtocolPolicerProtocolICMPModel {
 									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && existingProtocolPolicerItems[listIdx].Protocol.ICMP != nil {
@@ -1271,14 +1277,14 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 									}
 									return nil
 								}(),
-								UDP: func() *ProtocolPolicerEmptyModel {
-									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil {
+								UDP: func() types.Object {
+									if !isImport && len(existingProtocolPolicerItems) > listIdx && existingProtocolPolicerItems[listIdx].Protocol != nil && !existingProtocolPolicerItems[listIdx].Protocol.UDP.IsUnknown() {
 										return existingProtocolPolicerItems[listIdx].Protocol.UDP
 									}
 									if _, ok := ProtocolData["udp"].(map[string]interface{}); ok {
-										return &ProtocolPolicerEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}

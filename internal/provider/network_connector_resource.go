@@ -55,9 +55,9 @@ type NetworkConnectorEmptyModel struct {
 type NetworkConnectorEnableForwardProxyModel struct {
 	ConnectionTimeout   types.Int64                                          `tfsdk:"connection_timeout"`
 	MaxConnectAttempts  types.Int64                                          `tfsdk:"max_connect_attempts"`
+	NoInterception      types.Object                                         `tfsdk:"no_interception"`
 	WhiteListedPorts    types.List                                           `tfsdk:"white_listed_ports"`
 	WhiteListedPrefixes types.List                                           `tfsdk:"white_listed_prefixes"`
-	NoInterception      *NetworkConnectorEmptyModel                          `tfsdk:"no_interception"`
 	TLSIntercept        *NetworkConnectorEnableForwardProxyTLSInterceptModel `tfsdk:"tls_intercept"`
 }
 
@@ -65,50 +65,50 @@ type NetworkConnectorEnableForwardProxyModel struct {
 var NetworkConnectorEnableForwardProxyModelAttrTypes = map[string]attr.Type{
 	"connection_timeout":    types.Int64Type,
 	"max_connect_attempts":  types.Int64Type,
+	"no_interception":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"white_listed_ports":    types.ListType{ElemType: types.Int64Type},
 	"white_listed_prefixes": types.ListType{ElemType: types.StringType},
-	"no_interception":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"tls_intercept":         types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptModelAttrTypes},
 }
 
 // NetworkConnectorEnableForwardProxyTLSInterceptModel represents tls_intercept block
 type NetworkConnectorEnableForwardProxyTLSInterceptModel struct {
+	EnableForAllDomains types.Object                                                          `tfsdk:"enable_for_all_domains"`
 	TrustedCAURL        types.String                                                          `tfsdk:"trusted_ca_url"`
+	VolterraCertificate types.Object                                                          `tfsdk:"volterra_certificate"`
+	VolterraTrustedCA   types.Object                                                          `tfsdk:"volterra_trusted_ca"`
 	CustomCertificate   *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel `tfsdk:"custom_certificate"`
-	EnableForAllDomains *NetworkConnectorEmptyModel                                           `tfsdk:"enable_for_all_domains"`
 	Policy              *NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel            `tfsdk:"policy"`
-	VolterraCertificate *NetworkConnectorEmptyModel                                           `tfsdk:"volterra_certificate"`
-	VolterraTrustedCA   *NetworkConnectorEmptyModel                                           `tfsdk:"volterra_trusted_ca"`
 }
 
 // NetworkConnectorEnableForwardProxyTLSInterceptModelAttrTypes defines the attribute types for NetworkConnectorEnableForwardProxyTLSInterceptModel
 var NetworkConnectorEnableForwardProxyTLSInterceptModelAttrTypes = map[string]attr.Type{
-	"trusted_ca_url":         types.StringType,
-	"custom_certificate":     types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModelAttrTypes},
 	"enable_for_all_domains": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"policy":                 types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptPolicyModelAttrTypes},
+	"trusted_ca_url":         types.StringType,
 	"volterra_certificate":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"volterra_trusted_ca":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_certificate":     types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModelAttrTypes},
+	"policy":                 types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptPolicyModelAttrTypes},
 }
 
 // NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel represents custom_certificate block
 type NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel struct {
 	CertificateURL       types.String                                                                              `tfsdk:"certificate_url"`
 	DescriptionSpec      types.String                                                                              `tfsdk:"description_spec"`
+	DisableOCSPStapling  types.Object                                                                              `tfsdk:"disable_ocsp_stapling"`
+	UseSystemDefaults    types.Object                                                                              `tfsdk:"use_system_defaults"`
 	CustomHashAlgorithms *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel `tfsdk:"custom_hash_algorithms"`
-	DisableOCSPStapling  *NetworkConnectorEmptyModel                                                               `tfsdk:"disable_ocsp_stapling"`
 	PrivateKey           *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel           `tfsdk:"private_key"`
-	UseSystemDefaults    *NetworkConnectorEmptyModel                                                               `tfsdk:"use_system_defaults"`
 }
 
 // NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModelAttrTypes defines the attribute types for NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModel
 var NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateModelAttrTypes = map[string]attr.Type{
 	"certificate_url":        types.StringType,
 	"description_spec":       types.StringType,
-	"custom_hash_algorithms": types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModelAttrTypes},
 	"disable_ocsp_stapling":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"private_key":            types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModelAttrTypes},
 	"use_system_defaults":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_hash_algorithms": types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModelAttrTypes},
+	"private_key":            types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModelAttrTypes},
 }
 
 // NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsModel represents custom_hash_algorithms block
@@ -171,16 +171,16 @@ var NetworkConnectorEnableForwardProxyTLSInterceptPolicyModelAttrTypes = map[str
 
 // NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel represents interception_rules block
 type NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel struct {
-	DisableInterception *NetworkConnectorEmptyModel                                                            `tfsdk:"disable_interception"`
+	DisableInterception types.Object                                                                           `tfsdk:"disable_interception"`
+	EnableInterception  types.Object                                                                           `tfsdk:"enable_interception"`
 	DomainMatch         *NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel `tfsdk:"domain_match"`
-	EnableInterception  *NetworkConnectorEmptyModel                                                            `tfsdk:"enable_interception"`
 }
 
 // NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes defines the attribute types for NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
 var NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModelAttrTypes = map[string]attr.Type{
 	"disable_interception": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"domain_match":         types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchModelAttrTypes},
 	"enable_interception":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"domain_match":         types.ObjectType{AttrTypes: NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchModelAttrTypes},
 }
 
 // NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel represents domain_match block
@@ -263,10 +263,10 @@ type NetworkConnectorResourceModel struct {
 	Annotations         types.Map                                `tfsdk:"annotations"`
 	Description         types.String                             `tfsdk:"description"`
 	Disable             types.Bool                               `tfsdk:"disable"`
+	DisableForwardProxy types.Object                             `tfsdk:"disable_forward_proxy"`
 	Labels              types.Map                                `tfsdk:"labels"`
 	ID                  types.String                             `tfsdk:"id"`
 	Timeouts            timeouts.Value                           `tfsdk:"timeouts"`
-	DisableForwardProxy *NetworkConnectorEmptyModel              `tfsdk:"disable_forward_proxy"`
 	EnableForwardProxy  *NetworkConnectorEnableForwardProxyModel `tfsdk:"enable_forward_proxy"`
 	SLIToGlobalDR       *NetworkConnectorSLIToGlobalDRModel      `tfsdk:"sli_to_global_dr"`
 	SLIToSloSnat        *NetworkConnectorSLIToSloSnatModel       `tfsdk:"sli_to_slo_snat"`
@@ -314,6 +314,11 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"disable_forward_proxy": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable_forward_proxy, enable_forward_proxy; Default: disable_forward_proxy] Configuration parameter for disable forward proxy.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
@@ -334,11 +339,9 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 				Update: true,
 				Delete: true,
 			}),
-			"disable_forward_proxy": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disable_forward_proxy, enable_forward_proxy; Default: disable_forward_proxy] Configuration parameter for disable forward proxy.",
-			},
 			"enable_forward_proxy": schema.SingleNestedBlock{
 				MarkdownDescription: "Fine tune forward proxy behavior Few configurations allowed are White listed ports and IP prefixes: Forward proxy does application protocol detection and server name(SNI) detection by peeking into the traffic on the incoming downstream connection. Few protocols doesn't have client sending the..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_interception", "tls_intercept")},
 
 				Attributes: map[string]schema.Attribute{
 					"connection_timeout": schema.Int64Attribute{
@@ -354,6 +357,11 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 						Validators: []validator.Int64{
 							int64validator.AtMost(8),
 						},
+					},
+					"no_interception": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no interception.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 					"white_listed_ports": schema.ListAttribute{
 						MarkdownDescription: "Traffic to these destination TCP ports is not subjected to protocol parsing Example 'tmate' server port.",
@@ -373,12 +381,15 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 					},
 				},
 				Blocks: map[string]schema.Block{
-					"no_interception": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no interception.",
-					},
 					"tls_intercept": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration to enable TLS interception.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_certificate", "volterra_certificate"), validators.ConflictingObjectAttributes("enable_for_all_domains", "policy"), validators.ConflictingObjectAttributes("trusted_ca_url", "volterra_trusted_ca")},
 						Attributes: map[string]schema.Attribute{
+							"enable_for_all_domains": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for enable for all domains.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"trusted_ca_url": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [volterra_trusted_ca] Custom Root CA Certificate for validating upstream server certificate.",
 								Optional:            true,
@@ -386,11 +397,21 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 									stringvalidator.LengthAtMost(131072),
 								},
 							},
+							"volterra_certificate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for volterra certificate.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"volterra_trusted_ca": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for volterra trusted ca.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 						},
 						Blocks: map[string]schema.Block{
 							"custom_certificate": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for custom certificate.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("certificate_url")},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("certificate_url"), validators.ConflictingObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 								Attributes: map[string]schema.Attribute{
 									"certificate_url": schema.StringAttribute{
 										MarkdownDescription: "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
@@ -402,6 +423,16 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 									"description_spec": schema.StringAttribute{
 										MarkdownDescription: "Description. Description for the certificate.",
 										Optional:            true,
+									},
+									"disable_ocsp_stapling": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"use_system_defaults": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for use system defaults.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 								Blocks: map[string]schema.Block{
@@ -419,11 +450,9 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 									},
-									"disable_ocsp_stapling": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
-									},
 									"private_key": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -466,13 +495,7 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 									},
-									"use_system_defaults": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for use system defaults.",
-									},
 								},
-							},
-							"enable_for_all_domains": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for enable for all domains.",
 							},
 							"policy": schema.SingleNestedBlock{
 								MarkdownDescription: "Policy to enable or disable TLS interception.",
@@ -481,14 +504,24 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 								Blocks: map[string]schema.Block{
 									"interception_rules": schema.ListNestedBlock{
 										MarkdownDescription: "List of ordered rules to enable or disable for TLS interception.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("disable_interception", "enable_interception")},
 										NestedObject: schema.NestedBlockObject{
-											Attributes: map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"disable_interception": schema.SingleNestedBlock{
+											Attributes: map[string]schema.Attribute{
+												"disable_interception": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for disable interception.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
+												"enable_interception": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for enable interception.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+											},
+											Blocks: map[string]schema.Block{
 												"domain_match": schema.SingleNestedBlock{
 													MarkdownDescription: "Configuration parameter for domain match.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_value", "regex_value"), validators.ConflictingObjectAttributes("exact_value", "suffix_value"), validators.ConflictingObjectAttributes("regex_value", "suffix_value")},
 													Attributes: map[string]schema.Attribute{
 														"exact_value": schema.StringAttribute{
 															MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
@@ -513,19 +546,10 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 														},
 													},
 												},
-												"enable_interception": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for enable interception.",
-												},
 											},
 										},
 									},
 								},
-							},
-							"volterra_certificate": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for volterra certificate.",
-							},
-							"volterra_trusted_ca": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for volterra trusted ca.",
 							},
 						},
 					},
@@ -746,7 +770,7 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.DisableForwardProxy != nil {
+	if !data.DisableForwardProxy.IsNull() && !data.DisableForwardProxy.IsUnknown() {
 		createReq.Spec["disable_forward_proxy"] = map[string]interface{}{}
 	}
 	if data.EnableForwardProxy != nil {
@@ -757,7 +781,7 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 		if !data.EnableForwardProxy.MaxConnectAttempts.IsNull() && !data.EnableForwardProxy.MaxConnectAttempts.IsUnknown() {
 			EnableForwardProxyMap["max_connect_attempts"] = data.EnableForwardProxy.MaxConnectAttempts.ValueInt64()
 		}
-		if data.EnableForwardProxy.NoInterception != nil {
+		if !data.EnableForwardProxy.NoInterception.IsNull() && !data.EnableForwardProxy.NoInterception.IsUnknown() {
 			EnableForwardProxyMap["no_interception"] = map[string]interface{}{}
 		}
 		if data.EnableForwardProxy.TLSIntercept != nil {
@@ -782,7 +806,7 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.IsUnknown() {
 					EnableForwardProxyTLSInterceptCustomCertificateMap["description"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
 				}
-				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling != nil {
+				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsUnknown() {
 					EnableForwardProxyTLSInterceptCustomCertificateMap["disable_ocsp_stapling"] = map[string]interface{}{}
 				}
 				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
@@ -812,12 +836,12 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 					}
 					EnableForwardProxyTLSInterceptCustomCertificateMap["private_key"] = EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyMap
 				}
-				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults != nil {
+				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults.IsUnknown() {
 					EnableForwardProxyTLSInterceptCustomCertificateMap["use_system_defaults"] = map[string]interface{}{}
 				}
 				EnableForwardProxyTLSInterceptMap["custom_certificate"] = EnableForwardProxyTLSInterceptCustomCertificateMap
 			}
-			if data.EnableForwardProxy.TLSIntercept.EnableForAllDomains != nil {
+			if !data.EnableForwardProxy.TLSIntercept.EnableForAllDomains.IsNull() && !data.EnableForwardProxy.TLSIntercept.EnableForAllDomains.IsUnknown() {
 				EnableForwardProxyTLSInterceptMap["enable_for_all_domains"] = map[string]interface{}{}
 			}
 			if data.EnableForwardProxy.TLSIntercept.Policy != nil {
@@ -830,7 +854,7 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 						var InterceptionRulesList []map[string]interface{}
 						for _, InterceptionRulesItem := range InterceptionRulesElems {
 							InterceptionRulesItemMap := make(map[string]interface{})
-							if InterceptionRulesItem.DisableInterception != nil {
+							if !InterceptionRulesItem.DisableInterception.IsNull() && !InterceptionRulesItem.DisableInterception.IsUnknown() {
 								InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
 							}
 							if InterceptionRulesItem.DomainMatch != nil {
@@ -846,7 +870,7 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 								}
 								InterceptionRulesItemMap["domain_match"] = EnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchMap
 							}
-							if InterceptionRulesItem.EnableInterception != nil {
+							if !InterceptionRulesItem.EnableInterception.IsNull() && !InterceptionRulesItem.EnableInterception.IsUnknown() {
 								InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
 							}
 							InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
@@ -859,10 +883,10 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 			if !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsNull() && !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsUnknown() {
 				EnableForwardProxyTLSInterceptMap["trusted_ca_url"] = data.EnableForwardProxy.TLSIntercept.TrustedCAURL.ValueString()
 			}
-			if data.EnableForwardProxy.TLSIntercept.VolterraCertificate != nil {
+			if !data.EnableForwardProxy.TLSIntercept.VolterraCertificate.IsNull() && !data.EnableForwardProxy.TLSIntercept.VolterraCertificate.IsUnknown() {
 				EnableForwardProxyTLSInterceptMap["volterra_certificate"] = map[string]interface{}{}
 			}
-			if data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA != nil {
+			if !data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA.IsNull() && !data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA.IsUnknown() {
 				EnableForwardProxyTLSInterceptMap["volterra_trusted_ca"] = map[string]interface{}{}
 			}
 			EnableForwardProxyMap["tls_intercept"] = EnableForwardProxyTLSInterceptMap
@@ -962,8 +986,12 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["disable_forward_proxy"].(map[string]interface{}); ok && isImport && data.DisableForwardProxy == nil {
-		data.DisableForwardProxy = &NetworkConnectorEmptyModel{}
+	if !isImport && !data.DisableForwardProxy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_forward_proxy"].(map[string]interface{}); ok {
+		data.DisableForwardProxy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableForwardProxy = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_forward_proxy"].(map[string]interface{}); ok && (isImport || data.EnableForwardProxy != nil) {
 		data.EnableForwardProxy = &NetworkConnectorEnableForwardProxyModel{
@@ -985,14 +1013,14 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 				}
 				return types.Int64Null()
 			}(),
-			NoInterception: func() *NetworkConnectorEmptyModel {
-				if !isImport && data.EnableForwardProxy != nil {
+			NoInterception: func() types.Object {
+				if !isImport && data.EnableForwardProxy != nil && !data.EnableForwardProxy.NoInterception.IsUnknown() {
 					return data.EnableForwardProxy.NoInterception
 				}
 				if _, ok := blockData["no_interception"].(map[string]interface{}); ok {
-					return &NetworkConnectorEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			TLSIntercept: func() *NetworkConnectorEnableForwardProxyTLSInterceptModel {
 				if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
@@ -1042,14 +1070,14 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 										}
 										return types.StringNull()
 									}(),
-									DisableOCSPStapling: func() *NetworkConnectorEmptyModel {
-										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+									DisableOCSPStapling: func() types.Object {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsUnknown() {
 											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling
 										}
 										if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
-											return &NetworkConnectorEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									PrivateKey: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel {
 										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
@@ -1111,27 +1139,27 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 										}
 										return nil
 									}(),
-									UseSystemDefaults: func() *NetworkConnectorEmptyModel {
-										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+									UseSystemDefaults: func() types.Object {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults.IsUnknown() {
 											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults
 										}
 										if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
-											return &NetworkConnectorEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
 							return nil
 						}(),
-						EnableForAllDomains: func() *NetworkConnectorEmptyModel {
-							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+						EnableForAllDomains: func() types.Object {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && !data.EnableForwardProxy.TLSIntercept.EnableForAllDomains.IsUnknown() {
 								return data.EnableForwardProxy.TLSIntercept.EnableForAllDomains
 							}
 							if _, ok := TLSInterceptData["enable_for_all_domains"].(map[string]interface{}); ok {
-								return &NetworkConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						Policy: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel {
 							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.Policy != nil {
@@ -1153,14 +1181,14 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 												_ = InterceptionRulesIdx
 												if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 													InterceptionRulesResult = append(InterceptionRulesResult, NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel{
-														DisableInterception: func() *NetworkConnectorEmptyModel {
-															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+														DisableInterception: func() types.Object {
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && !InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception.IsUnknown() {
 																return InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception
 															}
 															if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
-																return &NetworkConnectorEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														DomainMatch: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel {
 															if DomainMatchData, ok := InterceptionRulesItemMap["domain_match"].(map[string]interface{}); ok {
@@ -1187,14 +1215,14 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 															}
 															return nil
 														}(),
-														EnableInterception: func() *NetworkConnectorEmptyModel {
-															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+														EnableInterception: func() types.Object {
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && !InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception.IsUnknown() {
 																return InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception
 															}
 															if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
-																return &NetworkConnectorEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													})
 												}
@@ -1214,23 +1242,23 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 							}
 							return types.StringNull()
 						}(),
-						VolterraCertificate: func() *NetworkConnectorEmptyModel {
-							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+						VolterraCertificate: func() types.Object {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && !data.EnableForwardProxy.TLSIntercept.VolterraCertificate.IsUnknown() {
 								return data.EnableForwardProxy.TLSIntercept.VolterraCertificate
 							}
 							if _, ok := TLSInterceptData["volterra_certificate"].(map[string]interface{}); ok {
-								return &NetworkConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						VolterraTrustedCA: func() *NetworkConnectorEmptyModel {
-							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+						VolterraTrustedCA: func() types.Object {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && !data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA.IsUnknown() {
 								return data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA
 							}
 							if _, ok := TLSInterceptData["volterra_trusted_ca"].(map[string]interface{}); ok {
-								return &NetworkConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -1477,8 +1505,12 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["disable_forward_proxy"].(map[string]interface{}); ok && isImport && data.DisableForwardProxy == nil {
-		data.DisableForwardProxy = &NetworkConnectorEmptyModel{}
+	if !isImport && !data.DisableForwardProxy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_forward_proxy"].(map[string]interface{}); ok {
+		data.DisableForwardProxy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableForwardProxy = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_forward_proxy"].(map[string]interface{}); ok && (isImport || data.EnableForwardProxy != nil) {
 		data.EnableForwardProxy = &NetworkConnectorEnableForwardProxyModel{
@@ -1500,14 +1532,14 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 				}
 				return types.Int64Null()
 			}(),
-			NoInterception: func() *NetworkConnectorEmptyModel {
-				if !isImport && data.EnableForwardProxy != nil {
+			NoInterception: func() types.Object {
+				if !isImport && data.EnableForwardProxy != nil && !data.EnableForwardProxy.NoInterception.IsUnknown() {
 					return data.EnableForwardProxy.NoInterception
 				}
 				if _, ok := blockData["no_interception"].(map[string]interface{}); ok {
-					return &NetworkConnectorEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			TLSIntercept: func() *NetworkConnectorEnableForwardProxyTLSInterceptModel {
 				if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
@@ -1557,14 +1589,14 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 										}
 										return types.StringNull()
 									}(),
-									DisableOCSPStapling: func() *NetworkConnectorEmptyModel {
-										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+									DisableOCSPStapling: func() types.Object {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsUnknown() {
 											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling
 										}
 										if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
-											return &NetworkConnectorEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									PrivateKey: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel {
 										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
@@ -1626,27 +1658,27 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 										}
 										return nil
 									}(),
-									UseSystemDefaults: func() *NetworkConnectorEmptyModel {
-										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+									UseSystemDefaults: func() types.Object {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults.IsUnknown() {
 											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults
 										}
 										if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
-											return &NetworkConnectorEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
 							return nil
 						}(),
-						EnableForAllDomains: func() *NetworkConnectorEmptyModel {
-							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+						EnableForAllDomains: func() types.Object {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && !data.EnableForwardProxy.TLSIntercept.EnableForAllDomains.IsUnknown() {
 								return data.EnableForwardProxy.TLSIntercept.EnableForAllDomains
 							}
 							if _, ok := TLSInterceptData["enable_for_all_domains"].(map[string]interface{}); ok {
-								return &NetworkConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						Policy: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel {
 							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.Policy != nil {
@@ -1668,14 +1700,14 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 												_ = InterceptionRulesIdx
 												if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 													InterceptionRulesResult = append(InterceptionRulesResult, NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel{
-														DisableInterception: func() *NetworkConnectorEmptyModel {
-															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+														DisableInterception: func() types.Object {
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && !InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception.IsUnknown() {
 																return InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception
 															}
 															if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
-																return &NetworkConnectorEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														DomainMatch: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel {
 															if DomainMatchData, ok := InterceptionRulesItemMap["domain_match"].(map[string]interface{}); ok {
@@ -1702,14 +1734,14 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 															}
 															return nil
 														}(),
-														EnableInterception: func() *NetworkConnectorEmptyModel {
-															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+														EnableInterception: func() types.Object {
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && !InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception.IsUnknown() {
 																return InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception
 															}
 															if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
-																return &NetworkConnectorEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													})
 												}
@@ -1729,23 +1761,23 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 							}
 							return types.StringNull()
 						}(),
-						VolterraCertificate: func() *NetworkConnectorEmptyModel {
-							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+						VolterraCertificate: func() types.Object {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && !data.EnableForwardProxy.TLSIntercept.VolterraCertificate.IsUnknown() {
 								return data.EnableForwardProxy.TLSIntercept.VolterraCertificate
 							}
 							if _, ok := TLSInterceptData["volterra_certificate"].(map[string]interface{}); ok {
-								return &NetworkConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						VolterraTrustedCA: func() *NetworkConnectorEmptyModel {
-							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+						VolterraTrustedCA: func() types.Object {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && !data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA.IsUnknown() {
 								return data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA
 							}
 							if _, ok := TLSInterceptData["volterra_trusted_ca"].(map[string]interface{}); ok {
-								return &NetworkConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -1955,7 +1987,7 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.DisableForwardProxy != nil {
+	if !data.DisableForwardProxy.IsNull() && !data.DisableForwardProxy.IsUnknown() {
 		apiResource.Spec["disable_forward_proxy"] = map[string]interface{}{}
 	}
 	if data.EnableForwardProxy != nil {
@@ -1966,7 +1998,7 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 		if !data.EnableForwardProxy.MaxConnectAttempts.IsNull() && !data.EnableForwardProxy.MaxConnectAttempts.IsUnknown() {
 			EnableForwardProxyMap["max_connect_attempts"] = data.EnableForwardProxy.MaxConnectAttempts.ValueInt64()
 		}
-		if data.EnableForwardProxy.NoInterception != nil {
+		if !data.EnableForwardProxy.NoInterception.IsNull() && !data.EnableForwardProxy.NoInterception.IsUnknown() {
 			EnableForwardProxyMap["no_interception"] = map[string]interface{}{}
 		}
 		if data.EnableForwardProxy.TLSIntercept != nil {
@@ -1991,7 +2023,7 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.IsUnknown() {
 					EnableForwardProxyTLSInterceptCustomCertificateMap["description"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
 				}
-				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling != nil {
+				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsUnknown() {
 					EnableForwardProxyTLSInterceptCustomCertificateMap["disable_ocsp_stapling"] = map[string]interface{}{}
 				}
 				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
@@ -2021,12 +2053,12 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 					}
 					EnableForwardProxyTLSInterceptCustomCertificateMap["private_key"] = EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyMap
 				}
-				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults != nil {
+				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults.IsUnknown() {
 					EnableForwardProxyTLSInterceptCustomCertificateMap["use_system_defaults"] = map[string]interface{}{}
 				}
 				EnableForwardProxyTLSInterceptMap["custom_certificate"] = EnableForwardProxyTLSInterceptCustomCertificateMap
 			}
-			if data.EnableForwardProxy.TLSIntercept.EnableForAllDomains != nil {
+			if !data.EnableForwardProxy.TLSIntercept.EnableForAllDomains.IsNull() && !data.EnableForwardProxy.TLSIntercept.EnableForAllDomains.IsUnknown() {
 				EnableForwardProxyTLSInterceptMap["enable_for_all_domains"] = map[string]interface{}{}
 			}
 			if data.EnableForwardProxy.TLSIntercept.Policy != nil {
@@ -2039,7 +2071,7 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 						var InterceptionRulesList []map[string]interface{}
 						for _, InterceptionRulesItem := range InterceptionRulesElems {
 							InterceptionRulesItemMap := make(map[string]interface{})
-							if InterceptionRulesItem.DisableInterception != nil {
+							if !InterceptionRulesItem.DisableInterception.IsNull() && !InterceptionRulesItem.DisableInterception.IsUnknown() {
 								InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
 							}
 							if InterceptionRulesItem.DomainMatch != nil {
@@ -2055,7 +2087,7 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 								}
 								InterceptionRulesItemMap["domain_match"] = EnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchMap
 							}
-							if InterceptionRulesItem.EnableInterception != nil {
+							if !InterceptionRulesItem.EnableInterception.IsNull() && !InterceptionRulesItem.EnableInterception.IsUnknown() {
 								InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
 							}
 							InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
@@ -2068,10 +2100,10 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 			if !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsNull() && !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsUnknown() {
 				EnableForwardProxyTLSInterceptMap["trusted_ca_url"] = data.EnableForwardProxy.TLSIntercept.TrustedCAURL.ValueString()
 			}
-			if data.EnableForwardProxy.TLSIntercept.VolterraCertificate != nil {
+			if !data.EnableForwardProxy.TLSIntercept.VolterraCertificate.IsNull() && !data.EnableForwardProxy.TLSIntercept.VolterraCertificate.IsUnknown() {
 				EnableForwardProxyTLSInterceptMap["volterra_certificate"] = map[string]interface{}{}
 			}
-			if data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA != nil {
+			if !data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA.IsNull() && !data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA.IsUnknown() {
 				EnableForwardProxyTLSInterceptMap["volterra_trusted_ca"] = map[string]interface{}{}
 			}
 			EnableForwardProxyMap["tls_intercept"] = EnableForwardProxyTLSInterceptMap
@@ -2191,8 +2223,12 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["disable_forward_proxy"].(map[string]interface{}); ok && isImport && data.DisableForwardProxy == nil {
-		data.DisableForwardProxy = &NetworkConnectorEmptyModel{}
+	if !isImport && !data.DisableForwardProxy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_forward_proxy"].(map[string]interface{}); ok {
+		data.DisableForwardProxy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableForwardProxy = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_forward_proxy"].(map[string]interface{}); ok && (isImport || data.EnableForwardProxy != nil) {
 		data.EnableForwardProxy = &NetworkConnectorEnableForwardProxyModel{
@@ -2214,14 +2250,14 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 				}
 				return types.Int64Null()
 			}(),
-			NoInterception: func() *NetworkConnectorEmptyModel {
-				if !isImport && data.EnableForwardProxy != nil {
+			NoInterception: func() types.Object {
+				if !isImport && data.EnableForwardProxy != nil && !data.EnableForwardProxy.NoInterception.IsUnknown() {
 					return data.EnableForwardProxy.NoInterception
 				}
 				if _, ok := blockData["no_interception"].(map[string]interface{}); ok {
-					return &NetworkConnectorEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			TLSIntercept: func() *NetworkConnectorEnableForwardProxyTLSInterceptModel {
 				if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
@@ -2271,14 +2307,14 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 										}
 										return types.StringNull()
 									}(),
-									DisableOCSPStapling: func() *NetworkConnectorEmptyModel {
-										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+									DisableOCSPStapling: func() types.Object {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling.IsUnknown() {
 											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling
 										}
 										if _, ok := CustomCertificateData["disable_ocsp_stapling"].(map[string]interface{}); ok {
-											return &NetworkConnectorEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									PrivateKey: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel {
 										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
@@ -2340,27 +2376,27 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 										}
 										return nil
 									}(),
-									UseSystemDefaults: func() *NetworkConnectorEmptyModel {
-										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
+									UseSystemDefaults: func() types.Object {
+										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults.IsUnknown() {
 											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults
 										}
 										if _, ok := CustomCertificateData["use_system_defaults"].(map[string]interface{}); ok {
-											return &NetworkConnectorEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
 							return nil
 						}(),
-						EnableForAllDomains: func() *NetworkConnectorEmptyModel {
-							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+						EnableForAllDomains: func() types.Object {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && !data.EnableForwardProxy.TLSIntercept.EnableForAllDomains.IsUnknown() {
 								return data.EnableForwardProxy.TLSIntercept.EnableForAllDomains
 							}
 							if _, ok := TLSInterceptData["enable_for_all_domains"].(map[string]interface{}); ok {
-								return &NetworkConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						Policy: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyModel {
 							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.Policy != nil {
@@ -2382,14 +2418,14 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 												_ = InterceptionRulesIdx
 												if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 													InterceptionRulesResult = append(InterceptionRulesResult, NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel{
-														DisableInterception: func() *NetworkConnectorEmptyModel {
-															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+														DisableInterception: func() types.Object {
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && !InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception.IsUnknown() {
 																return InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception
 															}
 															if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
-																return &NetworkConnectorEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														DomainMatch: func() *NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchModel {
 															if DomainMatchData, ok := InterceptionRulesItemMap["domain_match"].(map[string]interface{}); ok {
@@ -2416,14 +2452,14 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 															}
 															return nil
 														}(),
-														EnableInterception: func() *NetworkConnectorEmptyModel {
-															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+														EnableInterception: func() types.Object {
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && !InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception.IsUnknown() {
 																return InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception
 															}
 															if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
-																return &NetworkConnectorEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													})
 												}
@@ -2443,23 +2479,23 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 							}
 							return types.StringNull()
 						}(),
-						VolterraCertificate: func() *NetworkConnectorEmptyModel {
-							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+						VolterraCertificate: func() types.Object {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && !data.EnableForwardProxy.TLSIntercept.VolterraCertificate.IsUnknown() {
 								return data.EnableForwardProxy.TLSIntercept.VolterraCertificate
 							}
 							if _, ok := TLSInterceptData["volterra_certificate"].(map[string]interface{}); ok {
-								return &NetworkConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						VolterraTrustedCA: func() *NetworkConnectorEmptyModel {
-							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil {
+						VolterraTrustedCA: func() types.Object {
+							if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && !data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA.IsUnknown() {
 								return data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA
 							}
 							if _, ok := TLSInterceptData["volterra_trusted_ca"].(map[string]interface{}); ok {
-								return &NetworkConnectorEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}

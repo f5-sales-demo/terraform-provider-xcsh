@@ -39,7 +39,7 @@ resource "xcsh_geo_location_set" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -62,7 +62,7 @@ resource "xcsh_geo_location_set" "example" {
 -> **One of the following:**
 &#x2022; <a id="custom-geo-location-selector"></a>[`custom_geo_location_selector`](#custom-geo-location-selector) - Optional Block<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all
 objects<br>See [Custom Geo Location Selector](#custom-geo-location-selector) below for details.
-<br><br>&#x2022; <a id="global"></a>[`global`](#global) - Optional Block<br>Enable this option
+<br><br>&#x2022; <a id="global"></a>[`global`](#global) - Optional Object<br>Enable this option
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 

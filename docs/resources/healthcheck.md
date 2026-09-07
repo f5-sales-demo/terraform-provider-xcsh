@@ -189,8 +189,8 @@ resource "xcsh_healthcheck" "test" {
   interval            = 5
 
   http_health_check {
-    path = "example-value"
-    use_origin_server_name {}
+    path                   = "example-value"
+    use_origin_server_name = {}
   }
 }
 ```
@@ -298,7 +298,7 @@ resource "xcsh_healthcheck" "test" {
   timeout             = 3
   interval            = 5
 
-  udp_icmp_health_check {}
+  udp_icmp_health_check = {}
 }
 ```
 
@@ -416,7 +416,7 @@ resource "xcsh_healthcheck" "test" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -472,7 +472,7 @@ spec:
 -> **One of the following:**
 &#x2022; <a id="http-health-check"></a>[`http_health_check`](#http-health-check) - Optional Block<br>Healthy if 'GET' method on URL 'HTTP(s)://`<host>`/`<path>`' with optional '`<header>`' returns success. 'host' is not used for DNS resolution. It is used as HTTP Header in the request<br>See [HTTP Health Check](#http-health-check) below for details.
 <br><br>&#x2022; <a id="tcp-health-check"></a>[`tcp_health_check`](#tcp-health-check) - Optional Block<br>Healthy if TCP connection is successful and response payload matches `<expected_response>`<br>See [TCP Health Check](#tcp-health-check) below for details.
-<br><br>&#x2022; <a id="udp-icmp-health-check"></a>[`udp_icmp_health_check`](#udp-icmp-health-check) - Optional Block<br>Configuration parameter for UDP ICMP health check
+<br><br>&#x2022; <a id="udp-icmp-health-check"></a>[`udp_icmp_health_check`](#udp-icmp-health-check) - Optional Object<br>Configuration parameter for UDP ICMP health check
 
 <a id="interval"></a>&#x2022; [`interval`](#interval) - Required Number<br>Time interval in seconds between two healthcheck requests. Recommended: `15`
 
@@ -512,7 +512,11 @@ a range with start and end values separated by '-'.  Server applies default when
 
 <a id="http-health-check-use-http2"></a>&#x2022; [`use_http2`](#http-health-check-use-http2) - Optional Bool  Defaults to `false`<br>If set, health checks will be made using HTTP/2.   Recommended: `false` ⚙️ **Server Default**
 
-<a id="name-c19d47"></a>&#x2022; [`use_origin_server_name`](#name-c19d47) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<a id="name-c19d47"></a>&#x2022; [`use_origin_server_name`](#name-c19d47) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+#### HTTP Health Check Use Origin Server Name
+
+An [`use_origin_server_name`](#name-c19d47) block (within [`http_health_check`](#http-health-check)) supports the following:
 
 #### TCP Health Check
 
@@ -533,6 +537,10 @@ A [`timeouts`](#timeouts) block supports the following:
 <a id="timeouts-read"></a>&#x2022; [`read`](#timeouts-read) - Optional String (Defaults to `5 minutes`)<br>Used when retrieving the resource
 
 <a id="timeouts-update"></a>&#x2022; [`update`](#timeouts-update) - Optional String (Defaults to `10 minutes`)<br>Used when updating the resource
+
+#### UDP ICMP Health Check
+
+An [`udp_icmp_health_check`](#udp-icmp-health-check) block supports the following:
 
 ---
 

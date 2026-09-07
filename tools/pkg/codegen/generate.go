@@ -116,7 +116,8 @@ func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) 
 	funcMap := template.FuncMap{
 		"renderNestedAttrs":               RenderNestedAttributes,
 		"renderNestedBlocks":              RenderNestedBlocks,
-		"renderConditionalRequired":       RenderConditionalRequiredValidators,
+		"renderBlockPlanModifiers":        RenderBlockPlanModifiers,
+		"renderBlockValidators":           RenderBlockValidators,
 		"renderNestedModelTypes":          RenderNestedModelTypes,
 		"renderBlockFields":               RenderBlockFields,
 		"renderSpecStructFields":          RenderSpecStructFields,

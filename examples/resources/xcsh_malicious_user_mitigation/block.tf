@@ -18,10 +18,10 @@ resource "xcsh_malicious_user_mitigation" "test" {
   mitigation_type {
     rules {
       threat_level {
-        high {}
+        high = {}
       }
       mitigation_action {
-        block_temporarily {}
+        block_temporarily = {}
       }
     }
   }

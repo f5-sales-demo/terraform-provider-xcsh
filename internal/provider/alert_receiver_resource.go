@@ -236,11 +236,11 @@ var AlertReceiverWebhookModelAttrTypes = map[string]attr.Type{
 type AlertReceiverWebhookHTTPConfigModel struct {
 	EnableHttp2     types.Bool                                        `tfsdk:"enable_http2"`
 	FollowRedirects types.Bool                                        `tfsdk:"follow_redirects"`
+	NoAuthorization types.Object                                      `tfsdk:"no_authorization"`
+	NoTLS           types.Object                                      `tfsdk:"no_tls"`
 	AuthToken       *AlertReceiverWebhookHTTPConfigAuthTokenModel     `tfsdk:"auth_token"`
 	BasicAuth       *AlertReceiverWebhookHTTPConfigBasicAuthModel     `tfsdk:"basic_auth"`
 	ClientCertObj   *AlertReceiverWebhookHTTPConfigClientCertObjModel `tfsdk:"client_cert_obj"`
-	NoAuthorization *AlertReceiverEmptyModel                          `tfsdk:"no_authorization"`
-	NoTLS           *AlertReceiverEmptyModel                          `tfsdk:"no_tls"`
 	UseTLS          *AlertReceiverWebhookHTTPConfigUseTLSModel        `tfsdk:"use_tls"`
 }
 
@@ -248,11 +248,11 @@ type AlertReceiverWebhookHTTPConfigModel struct {
 var AlertReceiverWebhookHTTPConfigModelAttrTypes = map[string]attr.Type{
 	"enable_http2":     types.BoolType,
 	"follow_redirects": types.BoolType,
+	"no_authorization": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_tls":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"auth_token":       types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigAuthTokenModelAttrTypes},
 	"basic_auth":       types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigBasicAuthModelAttrTypes},
 	"client_cert_obj":  types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigClientCertObjModelAttrTypes},
-	"no_authorization": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_tls":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_tls":          types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigUseTLSModelAttrTypes},
 }
 
@@ -384,22 +384,22 @@ var AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModelAttrTypes = map[str
 
 // AlertReceiverWebhookHTTPConfigUseTLSModel represents use_tls block
 type AlertReceiverWebhookHTTPConfigUseTLSModel struct {
+	DisableSni            types.Object                                                    `tfsdk:"disable_sni"`
 	MaxVersion            types.String                                                    `tfsdk:"max_version"`
 	MinVersion            types.String                                                    `tfsdk:"min_version"`
 	Sni                   types.String                                                    `tfsdk:"sni"`
-	DisableSni            *AlertReceiverEmptyModel                                        `tfsdk:"disable_sni"`
+	VolterraTrustedCA     types.Object                                                    `tfsdk:"volterra_trusted_ca"`
 	UseServerVerification *AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationModel `tfsdk:"use_server_verification"`
-	VolterraTrustedCA     *AlertReceiverEmptyModel                                        `tfsdk:"volterra_trusted_ca"`
 }
 
 // AlertReceiverWebhookHTTPConfigUseTLSModelAttrTypes defines the attribute types for AlertReceiverWebhookHTTPConfigUseTLSModel
 var AlertReceiverWebhookHTTPConfigUseTLSModelAttrTypes = map[string]attr.Type{
+	"disable_sni":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"max_version":             types.StringType,
 	"min_version":             types.StringType,
 	"sni":                     types.StringType,
-	"disable_sni":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"use_server_verification": types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationModelAttrTypes},
 	"volterra_trusted_ca":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"use_server_verification": types.ObjectType{AttrTypes: AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationModelAttrTypes},
 }
 
 // AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationModel represents use_server_verification block
@@ -585,6 +585,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"api_key": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -645,6 +646,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"routing_key": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -705,6 +707,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"url": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -766,6 +769,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"http_config": schema.SingleNestedBlock{
 						MarkdownDescription: "HTTP Configuration. Configuration for HTTP endpoint.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("auth_token", "basic_auth"), validators.ConflictingObjectAttributes("auth_token", "client_cert_obj"), validators.ConflictingObjectAttributes("auth_token", "no_authorization"), validators.ConflictingObjectAttributes("basic_auth", "client_cert_obj"), validators.ConflictingObjectAttributes("basic_auth", "no_authorization"), validators.ConflictingObjectAttributes("client_cert_obj", "no_authorization"), validators.ConflictingObjectAttributes("no_tls", "use_tls")},
 						Attributes: map[string]schema.Attribute{
 							"enable_http2": schema.BoolAttribute{
 								MarkdownDescription: "Enable HTTP2. Configure to use HTTP2 protocol.",
@@ -775,6 +779,16 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 								MarkdownDescription: "Configure whether HTTP requests follow HTTP 3xx redirects.",
 								Optional:            true,
 							},
+							"no_authorization": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for no authorization.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"no_tls": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 						},
 						Blocks: map[string]schema.Block{
 							"auth_token": schema.SingleNestedBlock{
@@ -783,6 +797,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 								Blocks: map[string]schema.Block{
 									"token": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -842,6 +857,7 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 								Blocks: map[string]schema.Block{
 									"password": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -927,15 +943,15 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 									},
 								},
 							},
-							"no_authorization": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for no authorization.",
-							},
-							"no_tls": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"use_tls": schema.SingleNestedBlock{
 								MarkdownDescription: "Configures the token request's TLS settings.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_sni", "sni"), validators.ConflictingObjectAttributes("use_server_verification", "volterra_trusted_ca")},
 								Attributes: map[string]schema.Attribute{
+									"disable_sni": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for disable sni.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
 									"max_version": schema.StringAttribute{
 										MarkdownDescription: "[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`. Defaults to `TLS_AUTO`.",
 										Optional:            true,
@@ -957,11 +973,13 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 											stringvalidator.LengthAtMost(256),
 										},
 									},
+									"volterra_trusted_ca": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for volterra trusted ca.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
 								},
 								Blocks: map[string]schema.Block{
-									"disable_sni": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for disable sni.",
-									},
 									"use_server_verification": schema.SingleNestedBlock{
 										MarkdownDescription: "Configuration parameter for use server verification.",
 										Attributes:          map[string]schema.Attribute{},
@@ -1009,15 +1027,13 @@ func (r *AlertReceiverResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 										},
 									},
-									"volterra_trusted_ca": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for volterra trusted ca.",
-									},
 								},
 							},
 						},
 					},
 					"url": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1402,15 +1418,15 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 			if !data.Webhook.HTTPConfig.FollowRedirects.IsNull() && !data.Webhook.HTTPConfig.FollowRedirects.IsUnknown() {
 				WebhookHTTPConfigMap["follow_redirects"] = data.Webhook.HTTPConfig.FollowRedirects.ValueBool()
 			}
-			if data.Webhook.HTTPConfig.NoAuthorization != nil {
+			if !data.Webhook.HTTPConfig.NoAuthorization.IsNull() && !data.Webhook.HTTPConfig.NoAuthorization.IsUnknown() {
 				WebhookHTTPConfigMap["no_authorization"] = map[string]interface{}{}
 			}
-			if data.Webhook.HTTPConfig.NoTLS != nil {
+			if !data.Webhook.HTTPConfig.NoTLS.IsNull() && !data.Webhook.HTTPConfig.NoTLS.IsUnknown() {
 				WebhookHTTPConfigMap["no_tls"] = map[string]interface{}{}
 			}
 			if data.Webhook.HTTPConfig.UseTLS != nil {
 				WebhookHTTPConfigUseTLSMap := make(map[string]interface{})
-				if data.Webhook.HTTPConfig.UseTLS.DisableSni != nil {
+				if !data.Webhook.HTTPConfig.UseTLS.DisableSni.IsNull() && !data.Webhook.HTTPConfig.UseTLS.DisableSni.IsUnknown() {
 					WebhookHTTPConfigUseTLSMap["disable_sni"] = map[string]interface{}{}
 				}
 				if !data.Webhook.HTTPConfig.UseTLS.MaxVersion.IsNull() && !data.Webhook.HTTPConfig.UseTLS.MaxVersion.IsUnknown() {
@@ -1449,7 +1465,7 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 					}
 					WebhookHTTPConfigUseTLSMap["use_server_verification"] = WebhookHTTPConfigUseTLSUseServerVerificationMap
 				}
-				if data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA != nil {
+				if !data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA.IsNull() && !data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA.IsUnknown() {
 					WebhookHTTPConfigUseTLSMap["volterra_trusted_ca"] = map[string]interface{}{}
 				}
 				WebhookHTTPConfigMap["use_tls"] = WebhookHTTPConfigUseTLSMap
@@ -1982,35 +1998,35 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 							}
 							return types.BoolNull()
 						}(),
-						NoAuthorization: func() *AlertReceiverEmptyModel {
-							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+						NoAuthorization: func() types.Object {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && !data.Webhook.HTTPConfig.NoAuthorization.IsUnknown() {
 								return data.Webhook.HTTPConfig.NoAuthorization
 							}
 							if _, ok := HTTPConfigData["no_authorization"].(map[string]interface{}); ok {
-								return &AlertReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						NoTLS: func() *AlertReceiverEmptyModel {
-							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+						NoTLS: func() types.Object {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && !data.Webhook.HTTPConfig.NoTLS.IsUnknown() {
 								return data.Webhook.HTTPConfig.NoTLS
 							}
 							if _, ok := HTTPConfigData["no_tls"].(map[string]interface{}); ok {
-								return &AlertReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						UseTLS: func() *AlertReceiverWebhookHTTPConfigUseTLSModel {
 							if UseTLSData, ok := HTTPConfigData["use_tls"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigUseTLSModel{
-									DisableSni: func() *AlertReceiverEmptyModel {
-										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil {
+									DisableSni: func() types.Object {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil && !data.Webhook.HTTPConfig.UseTLS.DisableSni.IsUnknown() {
 											return data.Webhook.HTTPConfig.UseTLS.DisableSni
 										}
 										if _, ok := UseTLSData["disable_sni"].(map[string]interface{}); ok {
-											return &AlertReceiverEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									MaxVersion: func() types.String {
 										if v, ok := UseTLSData["max_version"].(string); ok && v != "" {
@@ -2096,14 +2112,14 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 										}
 										return nil
 									}(),
-									VolterraTrustedCA: func() *AlertReceiverEmptyModel {
-										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil {
+									VolterraTrustedCA: func() types.Object {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil && !data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA.IsUnknown() {
 											return data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA
 										}
 										if _, ok := UseTLSData["volterra_trusted_ca"].(map[string]interface{}); ok {
-											return &AlertReceiverEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -2764,35 +2780,35 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							return types.BoolNull()
 						}(),
-						NoAuthorization: func() *AlertReceiverEmptyModel {
-							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+						NoAuthorization: func() types.Object {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && !data.Webhook.HTTPConfig.NoAuthorization.IsUnknown() {
 								return data.Webhook.HTTPConfig.NoAuthorization
 							}
 							if _, ok := HTTPConfigData["no_authorization"].(map[string]interface{}); ok {
-								return &AlertReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						NoTLS: func() *AlertReceiverEmptyModel {
-							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+						NoTLS: func() types.Object {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && !data.Webhook.HTTPConfig.NoTLS.IsUnknown() {
 								return data.Webhook.HTTPConfig.NoTLS
 							}
 							if _, ok := HTTPConfigData["no_tls"].(map[string]interface{}); ok {
-								return &AlertReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						UseTLS: func() *AlertReceiverWebhookHTTPConfigUseTLSModel {
 							if UseTLSData, ok := HTTPConfigData["use_tls"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigUseTLSModel{
-									DisableSni: func() *AlertReceiverEmptyModel {
-										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil {
+									DisableSni: func() types.Object {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil && !data.Webhook.HTTPConfig.UseTLS.DisableSni.IsUnknown() {
 											return data.Webhook.HTTPConfig.UseTLS.DisableSni
 										}
 										if _, ok := UseTLSData["disable_sni"].(map[string]interface{}); ok {
-											return &AlertReceiverEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									MaxVersion: func() types.String {
 										if v, ok := UseTLSData["max_version"].(string); ok && v != "" {
@@ -2878,14 +2894,14 @@ func (r *AlertReceiverResource) Read(ctx context.Context, req resource.ReadReque
 										}
 										return nil
 									}(),
-									VolterraTrustedCA: func() *AlertReceiverEmptyModel {
-										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil {
+									VolterraTrustedCA: func() types.Object {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil && !data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA.IsUnknown() {
 											return data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA
 										}
 										if _, ok := UseTLSData["volterra_trusted_ca"].(map[string]interface{}); ok {
-											return &AlertReceiverEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -3265,15 +3281,15 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 			if !data.Webhook.HTTPConfig.FollowRedirects.IsNull() && !data.Webhook.HTTPConfig.FollowRedirects.IsUnknown() {
 				WebhookHTTPConfigMap["follow_redirects"] = data.Webhook.HTTPConfig.FollowRedirects.ValueBool()
 			}
-			if data.Webhook.HTTPConfig.NoAuthorization != nil {
+			if !data.Webhook.HTTPConfig.NoAuthorization.IsNull() && !data.Webhook.HTTPConfig.NoAuthorization.IsUnknown() {
 				WebhookHTTPConfigMap["no_authorization"] = map[string]interface{}{}
 			}
-			if data.Webhook.HTTPConfig.NoTLS != nil {
+			if !data.Webhook.HTTPConfig.NoTLS.IsNull() && !data.Webhook.HTTPConfig.NoTLS.IsUnknown() {
 				WebhookHTTPConfigMap["no_tls"] = map[string]interface{}{}
 			}
 			if data.Webhook.HTTPConfig.UseTLS != nil {
 				WebhookHTTPConfigUseTLSMap := make(map[string]interface{})
-				if data.Webhook.HTTPConfig.UseTLS.DisableSni != nil {
+				if !data.Webhook.HTTPConfig.UseTLS.DisableSni.IsNull() && !data.Webhook.HTTPConfig.UseTLS.DisableSni.IsUnknown() {
 					WebhookHTTPConfigUseTLSMap["disable_sni"] = map[string]interface{}{}
 				}
 				if !data.Webhook.HTTPConfig.UseTLS.MaxVersion.IsNull() && !data.Webhook.HTTPConfig.UseTLS.MaxVersion.IsUnknown() {
@@ -3312,7 +3328,7 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 					}
 					WebhookHTTPConfigUseTLSMap["use_server_verification"] = WebhookHTTPConfigUseTLSUseServerVerificationMap
 				}
-				if data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA != nil {
+				if !data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA.IsNull() && !data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA.IsUnknown() {
 					WebhookHTTPConfigUseTLSMap["volterra_trusted_ca"] = map[string]interface{}{}
 				}
 				WebhookHTTPConfigMap["use_tls"] = WebhookHTTPConfigUseTLSMap
@@ -3865,35 +3881,35 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							return types.BoolNull()
 						}(),
-						NoAuthorization: func() *AlertReceiverEmptyModel {
-							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+						NoAuthorization: func() types.Object {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && !data.Webhook.HTTPConfig.NoAuthorization.IsUnknown() {
 								return data.Webhook.HTTPConfig.NoAuthorization
 							}
 							if _, ok := HTTPConfigData["no_authorization"].(map[string]interface{}); ok {
-								return &AlertReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						NoTLS: func() *AlertReceiverEmptyModel {
-							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil {
+						NoTLS: func() types.Object {
+							if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && !data.Webhook.HTTPConfig.NoTLS.IsUnknown() {
 								return data.Webhook.HTTPConfig.NoTLS
 							}
 							if _, ok := HTTPConfigData["no_tls"].(map[string]interface{}); ok {
-								return &AlertReceiverEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						UseTLS: func() *AlertReceiverWebhookHTTPConfigUseTLSModel {
 							if UseTLSData, ok := HTTPConfigData["use_tls"].(map[string]interface{}); ok {
 								return &AlertReceiverWebhookHTTPConfigUseTLSModel{
-									DisableSni: func() *AlertReceiverEmptyModel {
-										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil {
+									DisableSni: func() types.Object {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil && !data.Webhook.HTTPConfig.UseTLS.DisableSni.IsUnknown() {
 											return data.Webhook.HTTPConfig.UseTLS.DisableSni
 										}
 										if _, ok := UseTLSData["disable_sni"].(map[string]interface{}); ok {
-											return &AlertReceiverEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									MaxVersion: func() types.String {
 										if v, ok := UseTLSData["max_version"].(string); ok && v != "" {
@@ -3979,14 +3995,14 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										return nil
 									}(),
-									VolterraTrustedCA: func() *AlertReceiverEmptyModel {
-										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil {
+									VolterraTrustedCA: func() types.Object {
+										if !isImport && data.Webhook != nil && data.Webhook.HTTPConfig != nil && data.Webhook.HTTPConfig.UseTLS != nil && !data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA.IsUnknown() {
 											return data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA
 										}
 										if _, ok := UseTLSData["volterra_trusted_ca"].(map[string]interface{}); ok {
-											return &AlertReceiverEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}

@@ -55,13 +55,13 @@ type RouteEmptyModel struct {
 // RouteRoutesModel represents routes block
 type RouteRoutesModel struct {
 	DisableLocationAdd                     types.Bool                                     `tfsdk:"disable_location_add"`
+	InheritedBotDefenseJavascriptInjection types.Object                                   `tfsdk:"inherited_bot_defense_javascript_injection"`
+	InheritedWAFExclusion                  types.Object                                   `tfsdk:"inherited_waf_exclusion"`
 	RequestCookiesToRemove                 types.List                                     `tfsdk:"request_cookies_to_remove"`
 	RequestHeadersToRemove                 types.List                                     `tfsdk:"request_headers_to_remove"`
 	ResponseCookiesToRemove                types.List                                     `tfsdk:"response_cookies_to_remove"`
 	ResponseHeadersToRemove                types.List                                     `tfsdk:"response_headers_to_remove"`
 	BotDefenseJavascriptInjection          *RouteRoutesBotDefenseJavascriptInjectionModel `tfsdk:"bot_defense_javascript_injection"`
-	InheritedBotDefenseJavascriptInjection *RouteEmptyModel                               `tfsdk:"inherited_bot_defense_javascript_injection"`
-	InheritedWAFExclusion                  *RouteEmptyModel                               `tfsdk:"inherited_waf_exclusion"`
 	Match                                  types.List                                     `tfsdk:"match"`
 	RequestCookiesToAdd                    types.List                                     `tfsdk:"request_cookies_to_add"`
 	RequestHeadersToAdd                    types.List                                     `tfsdk:"request_headers_to_add"`
@@ -78,13 +78,13 @@ type RouteRoutesModel struct {
 // RouteRoutesModelAttrTypes defines the attribute types for RouteRoutesModel
 var RouteRoutesModelAttrTypes = map[string]attr.Type{
 	"disable_location_add":                       types.BoolType,
+	"inherited_bot_defense_javascript_injection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"inherited_waf_exclusion":                    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"request_cookies_to_remove":                  types.ListType{ElemType: types.StringType},
 	"request_headers_to_remove":                  types.ListType{ElemType: types.StringType},
 	"response_cookies_to_remove":                 types.ListType{ElemType: types.StringType},
 	"response_headers_to_remove":                 types.ListType{ElemType: types.StringType},
 	"bot_defense_javascript_injection":           types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionModelAttrTypes},
-	"inherited_bot_defense_javascript_injection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"inherited_waf_exclusion":                    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"match":                                      types.ListType{ElemType: types.ObjectType{AttrTypes: RouteRoutesMatchModelAttrTypes}},
 	"request_cookies_to_add":                     types.ListType{ElemType: types.ObjectType{AttrTypes: RouteRoutesRequestCookiesToAddModelAttrTypes}},
 	"request_headers_to_add":                     types.ListType{ElemType: types.ObjectType{AttrTypes: RouteRoutesRequestHeadersToAddModelAttrTypes}},
@@ -172,16 +172,16 @@ var RouteRoutesMatchHeadersModelAttrTypes = map[string]attr.Type{
 
 // RouteRoutesMatchIncomingPortModel represents incoming_port block
 type RouteRoutesMatchIncomingPortModel struct {
-	Port        types.Int64      `tfsdk:"port"`
-	PortRanges  types.String     `tfsdk:"port_ranges"`
-	NoPortMatch *RouteEmptyModel `tfsdk:"no_port_match"`
+	NoPortMatch types.Object `tfsdk:"no_port_match"`
+	Port        types.Int64  `tfsdk:"port"`
+	PortRanges  types.String `tfsdk:"port_ranges"`
 }
 
 // RouteRoutesMatchIncomingPortModelAttrTypes defines the attribute types for RouteRoutesMatchIncomingPortModel
 var RouteRoutesMatchIncomingPortModelAttrTypes = map[string]attr.Type{
+	"no_port_match": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port":          types.Int64Type,
 	"port_ranges":   types.StringType,
-	"no_port_match": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // RouteRoutesMatchPathModel represents path block
@@ -324,26 +324,26 @@ var RouteRoutesRequestHeadersToAddSecretValueClearSecretInfoModelAttrTypes = map
 type RouteRoutesResponseCookiesToAddModel struct {
 	AddDomain         types.String                                     `tfsdk:"add_domain"`
 	AddExpiry         types.String                                     `tfsdk:"add_expiry"`
+	AddHttponly       types.Object                                     `tfsdk:"add_httponly"`
+	AddPartitioned    types.Object                                     `tfsdk:"add_partitioned"`
 	AddPath           types.String                                     `tfsdk:"add_path"`
+	AddSecure         types.Object                                     `tfsdk:"add_secure"`
+	IgnoreDomain      types.Object                                     `tfsdk:"ignore_domain"`
+	IgnoreExpiry      types.Object                                     `tfsdk:"ignore_expiry"`
+	IgnoreHttponly    types.Object                                     `tfsdk:"ignore_httponly"`
+	IgnoreMaxAge      types.Object                                     `tfsdk:"ignore_max_age"`
+	IgnorePartitioned types.Object                                     `tfsdk:"ignore_partitioned"`
+	IgnorePath        types.Object                                     `tfsdk:"ignore_path"`
+	IgnoreSamesite    types.Object                                     `tfsdk:"ignore_samesite"`
+	IgnoreSecure      types.Object                                     `tfsdk:"ignore_secure"`
+	IgnoreValue       types.Object                                     `tfsdk:"ignore_value"`
 	MaxAgeValue       types.Int64                                      `tfsdk:"max_age_value"`
 	Name              types.String                                     `tfsdk:"name"`
 	Overwrite         types.Bool                                       `tfsdk:"overwrite"`
+	SamesiteLax       types.Object                                     `tfsdk:"samesite_lax"`
+	SamesiteNone      types.Object                                     `tfsdk:"samesite_none"`
+	SamesiteStrict    types.Object                                     `tfsdk:"samesite_strict"`
 	Value             types.String                                     `tfsdk:"value"`
-	AddHttponly       *RouteEmptyModel                                 `tfsdk:"add_httponly"`
-	AddPartitioned    *RouteEmptyModel                                 `tfsdk:"add_partitioned"`
-	AddSecure         *RouteEmptyModel                                 `tfsdk:"add_secure"`
-	IgnoreDomain      *RouteEmptyModel                                 `tfsdk:"ignore_domain"`
-	IgnoreExpiry      *RouteEmptyModel                                 `tfsdk:"ignore_expiry"`
-	IgnoreHttponly    *RouteEmptyModel                                 `tfsdk:"ignore_httponly"`
-	IgnoreMaxAge      *RouteEmptyModel                                 `tfsdk:"ignore_max_age"`
-	IgnorePartitioned *RouteEmptyModel                                 `tfsdk:"ignore_partitioned"`
-	IgnorePath        *RouteEmptyModel                                 `tfsdk:"ignore_path"`
-	IgnoreSamesite    *RouteEmptyModel                                 `tfsdk:"ignore_samesite"`
-	IgnoreSecure      *RouteEmptyModel                                 `tfsdk:"ignore_secure"`
-	IgnoreValue       *RouteEmptyModel                                 `tfsdk:"ignore_value"`
-	SamesiteLax       *RouteEmptyModel                                 `tfsdk:"samesite_lax"`
-	SamesiteNone      *RouteEmptyModel                                 `tfsdk:"samesite_none"`
-	SamesiteStrict    *RouteEmptyModel                                 `tfsdk:"samesite_strict"`
 	SecretValue       *RouteRoutesResponseCookiesToAddSecretValueModel `tfsdk:"secret_value"`
 }
 
@@ -351,13 +351,9 @@ type RouteRoutesResponseCookiesToAddModel struct {
 var RouteRoutesResponseCookiesToAddModelAttrTypes = map[string]attr.Type{
 	"add_domain":         types.StringType,
 	"add_expiry":         types.StringType,
-	"add_path":           types.StringType,
-	"max_age_value":      types.Int64Type,
-	"name":               types.StringType,
-	"overwrite":          types.BoolType,
-	"value":              types.StringType,
 	"add_httponly":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"add_partitioned":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"add_path":           types.StringType,
 	"add_secure":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_domain":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_expiry":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -368,9 +364,13 @@ var RouteRoutesResponseCookiesToAddModelAttrTypes = map[string]attr.Type{
 	"ignore_samesite":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_secure":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_value":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_age_value":      types.Int64Type,
+	"name":               types.StringType,
+	"overwrite":          types.BoolType,
 	"samesite_lax":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"samesite_none":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"samesite_strict":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"value":              types.StringType,
 	"secret_value":       types.ObjectType{AttrTypes: RouteRoutesResponseCookiesToAddSecretValueModelAttrTypes},
 }
 
@@ -469,21 +469,21 @@ var RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModelAttrTypes = ma
 // RouteRoutesRouteDestinationModel represents route_destination block
 type RouteRoutesRouteDestinationModel struct {
 	AutoHostRewrite     types.Bool                                       `tfsdk:"auto_host_rewrite"`
+	DoNotRetractCluster types.Object                                     `tfsdk:"do_not_retract_cluster"`
 	HostRewrite         types.String                                     `tfsdk:"host_rewrite"`
 	PrefixRewrite       types.String                                     `tfsdk:"prefix_rewrite"`
 	Priority            types.String                                     `tfsdk:"priority"`
+	RetractCluster      types.Object                                     `tfsdk:"retract_cluster"`
 	Timeout             types.Int64                                      `tfsdk:"timeout"`
 	BufferPolicy        *RouteRoutesRouteDestinationBufferPolicyModel    `tfsdk:"buffer_policy"`
 	CORSPolicy          *RouteRoutesRouteDestinationCORSPolicyModel      `tfsdk:"cors_policy"`
 	CSRFPolicy          *RouteRoutesRouteDestinationCSRFPolicyModel      `tfsdk:"csrf_policy"`
 	Destinations        types.List                                       `tfsdk:"destinations"`
-	DoNotRetractCluster *RouteEmptyModel                                 `tfsdk:"do_not_retract_cluster"`
 	EndpointSubsets     *RouteEmptyModel                                 `tfsdk:"endpoint_subsets"`
 	HashPolicy          types.List                                       `tfsdk:"hash_policy"`
 	MirrorPolicy        *RouteRoutesRouteDestinationMirrorPolicyModel    `tfsdk:"mirror_policy"`
 	QueryParams         *RouteRoutesRouteDestinationQueryParamsModel     `tfsdk:"query_params"`
 	RegexRewrite        *RouteRoutesRouteDestinationRegexRewriteModel    `tfsdk:"regex_rewrite"`
-	RetractCluster      *RouteEmptyModel                                 `tfsdk:"retract_cluster"`
 	RetryPolicy         *RouteRoutesRouteDestinationRetryPolicyModel     `tfsdk:"retry_policy"`
 	SpdyConfig          *RouteRoutesRouteDestinationSpdyConfigModel      `tfsdk:"spdy_config"`
 	WebSocketConfig     *RouteRoutesRouteDestinationWebSocketConfigModel `tfsdk:"web_socket_config"`
@@ -492,21 +492,21 @@ type RouteRoutesRouteDestinationModel struct {
 // RouteRoutesRouteDestinationModelAttrTypes defines the attribute types for RouteRoutesRouteDestinationModel
 var RouteRoutesRouteDestinationModelAttrTypes = map[string]attr.Type{
 	"auto_host_rewrite":      types.BoolType,
+	"do_not_retract_cluster": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"host_rewrite":           types.StringType,
 	"prefix_rewrite":         types.StringType,
 	"priority":               types.StringType,
+	"retract_cluster":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"timeout":                types.Int64Type,
 	"buffer_policy":          types.ObjectType{AttrTypes: RouteRoutesRouteDestinationBufferPolicyModelAttrTypes},
 	"cors_policy":            types.ObjectType{AttrTypes: RouteRoutesRouteDestinationCORSPolicyModelAttrTypes},
 	"csrf_policy":            types.ObjectType{AttrTypes: RouteRoutesRouteDestinationCSRFPolicyModelAttrTypes},
 	"destinations":           types.ListType{ElemType: types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes}},
-	"do_not_retract_cluster": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"endpoint_subsets":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"hash_policy":            types.ListType{ElemType: types.ObjectType{AttrTypes: RouteRoutesRouteDestinationHashPolicyModelAttrTypes}},
 	"mirror_policy":          types.ObjectType{AttrTypes: RouteRoutesRouteDestinationMirrorPolicyModelAttrTypes},
 	"query_params":           types.ObjectType{AttrTypes: RouteRoutesRouteDestinationQueryParamsModelAttrTypes},
 	"regex_rewrite":          types.ObjectType{AttrTypes: RouteRoutesRouteDestinationRegexRewriteModelAttrTypes},
-	"retract_cluster":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"retry_policy":           types.ObjectType{AttrTypes: RouteRoutesRouteDestinationRetryPolicyModelAttrTypes},
 	"spdy_config":            types.ObjectType{AttrTypes: RouteRoutesRouteDestinationSpdyConfigModelAttrTypes},
 	"web_socket_config":      types.ObjectType{AttrTypes: RouteRoutesRouteDestinationWebSocketConfigModelAttrTypes},
@@ -550,16 +550,16 @@ var RouteRoutesRouteDestinationCORSPolicyModelAttrTypes = map[string]attr.Type{
 
 // RouteRoutesRouteDestinationCSRFPolicyModel represents csrf_policy block
 type RouteRoutesRouteDestinationCSRFPolicyModel struct {
-	AllLoadBalancerDomains *RouteEmptyModel                                            `tfsdk:"all_load_balancer_domains"`
+	AllLoadBalancerDomains types.Object                                                `tfsdk:"all_load_balancer_domains"`
+	Disabled               types.Object                                                `tfsdk:"disabled"`
 	CustomDomainList       *RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel `tfsdk:"custom_domain_list"`
-	Disabled               *RouteEmptyModel                                            `tfsdk:"disabled"`
 }
 
 // RouteRoutesRouteDestinationCSRFPolicyModelAttrTypes defines the attribute types for RouteRoutesRouteDestinationCSRFPolicyModel
 var RouteRoutesRouteDestinationCSRFPolicyModelAttrTypes = map[string]attr.Type{
 	"all_load_balancer_domains": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"custom_domain_list":        types.ObjectType{AttrTypes: RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModelAttrTypes},
 	"disabled":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_domain_list":        types.ObjectType{AttrTypes: RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModelAttrTypes},
 }
 
 // RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel represents custom_domain_list block
@@ -624,32 +624,32 @@ var RouteRoutesRouteDestinationHashPolicyModelAttrTypes = map[string]attr.Type{
 
 // RouteRoutesRouteDestinationHashPolicyCookieModel represents cookie block
 type RouteRoutesRouteDestinationHashPolicyCookieModel struct {
-	Name           types.String     `tfsdk:"name"`
-	Path           types.String     `tfsdk:"path"`
-	TTL            types.Int64      `tfsdk:"ttl"`
-	AddHttponly    *RouteEmptyModel `tfsdk:"add_httponly"`
-	AddSecure      *RouteEmptyModel `tfsdk:"add_secure"`
-	IgnoreHttponly *RouteEmptyModel `tfsdk:"ignore_httponly"`
-	IgnoreSamesite *RouteEmptyModel `tfsdk:"ignore_samesite"`
-	IgnoreSecure   *RouteEmptyModel `tfsdk:"ignore_secure"`
-	SamesiteLax    *RouteEmptyModel `tfsdk:"samesite_lax"`
-	SamesiteNone   *RouteEmptyModel `tfsdk:"samesite_none"`
-	SamesiteStrict *RouteEmptyModel `tfsdk:"samesite_strict"`
+	AddHttponly    types.Object `tfsdk:"add_httponly"`
+	AddSecure      types.Object `tfsdk:"add_secure"`
+	IgnoreHttponly types.Object `tfsdk:"ignore_httponly"`
+	IgnoreSamesite types.Object `tfsdk:"ignore_samesite"`
+	IgnoreSecure   types.Object `tfsdk:"ignore_secure"`
+	Name           types.String `tfsdk:"name"`
+	Path           types.String `tfsdk:"path"`
+	SamesiteLax    types.Object `tfsdk:"samesite_lax"`
+	SamesiteNone   types.Object `tfsdk:"samesite_none"`
+	SamesiteStrict types.Object `tfsdk:"samesite_strict"`
+	TTL            types.Int64  `tfsdk:"ttl"`
 }
 
 // RouteRoutesRouteDestinationHashPolicyCookieModelAttrTypes defines the attribute types for RouteRoutesRouteDestinationHashPolicyCookieModel
 var RouteRoutesRouteDestinationHashPolicyCookieModelAttrTypes = map[string]attr.Type{
-	"name":            types.StringType,
-	"path":            types.StringType,
-	"ttl":             types.Int64Type,
 	"add_httponly":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"add_secure":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_httponly": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_samesite": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_secure":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"name":            types.StringType,
+	"path":            types.StringType,
 	"samesite_lax":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"samesite_none":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"samesite_strict": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"ttl":             types.Int64Type,
 }
 
 // RouteRoutesRouteDestinationMirrorPolicyModel represents mirror_policy block
@@ -696,15 +696,15 @@ var RouteRoutesRouteDestinationMirrorPolicyPercentModelAttrTypes = map[string]at
 
 // RouteRoutesRouteDestinationQueryParamsModel represents query_params block
 type RouteRoutesRouteDestinationQueryParamsModel struct {
-	ReplaceParams   types.String     `tfsdk:"replace_params"`
-	RemoveAllParams *RouteEmptyModel `tfsdk:"remove_all_params"`
-	RetainAllParams *RouteEmptyModel `tfsdk:"retain_all_params"`
+	RemoveAllParams types.Object `tfsdk:"remove_all_params"`
+	ReplaceParams   types.String `tfsdk:"replace_params"`
+	RetainAllParams types.Object `tfsdk:"retain_all_params"`
 }
 
 // RouteRoutesRouteDestinationQueryParamsModelAttrTypes defines the attribute types for RouteRoutesRouteDestinationQueryParamsModel
 var RouteRoutesRouteDestinationQueryParamsModelAttrTypes = map[string]attr.Type{
-	"replace_params":    types.StringType,
 	"remove_all_params": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"replace_params":    types.StringType,
 	"retain_all_params": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
@@ -784,14 +784,14 @@ var RouteRoutesRouteDirectResponseModelAttrTypes = map[string]attr.Type{
 
 // RouteRoutesRouteRedirectModel represents route_redirect block
 type RouteRoutesRouteRedirectModel struct {
-	HostRedirect    types.String     `tfsdk:"host_redirect"`
-	PathRedirect    types.String     `tfsdk:"path_redirect"`
-	PrefixRewrite   types.String     `tfsdk:"prefix_rewrite"`
-	ProtoRedirect   types.String     `tfsdk:"proto_redirect"`
-	ReplaceParams   types.String     `tfsdk:"replace_params"`
-	ResponseCode    types.Int64      `tfsdk:"response_code"`
-	RemoveAllParams *RouteEmptyModel `tfsdk:"remove_all_params"`
-	RetainAllParams *RouteEmptyModel `tfsdk:"retain_all_params"`
+	HostRedirect    types.String `tfsdk:"host_redirect"`
+	PathRedirect    types.String `tfsdk:"path_redirect"`
+	PrefixRewrite   types.String `tfsdk:"prefix_rewrite"`
+	ProtoRedirect   types.String `tfsdk:"proto_redirect"`
+	RemoveAllParams types.Object `tfsdk:"remove_all_params"`
+	ReplaceParams   types.String `tfsdk:"replace_params"`
+	ResponseCode    types.Int64  `tfsdk:"response_code"`
+	RetainAllParams types.Object `tfsdk:"retain_all_params"`
 }
 
 // RouteRoutesRouteRedirectModelAttrTypes defines the attribute types for RouteRoutesRouteRedirectModel
@@ -800,9 +800,9 @@ var RouteRoutesRouteRedirectModelAttrTypes = map[string]attr.Type{
 	"path_redirect":     types.StringType,
 	"prefix_rewrite":    types.StringType,
 	"proto_redirect":    types.StringType,
+	"remove_all_params": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"replace_params":    types.StringType,
 	"response_code":     types.Int64Type,
-	"remove_all_params": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"retain_all_params": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
@@ -832,16 +832,16 @@ var RouteRoutesWAFExclusionPolicyModelAttrTypes = map[string]attr.Type{
 
 // RouteRoutesWAFTypeModel represents waf_type block
 type RouteRoutesWAFTypeModel struct {
+	DisableWAF  types.Object                        `tfsdk:"disable_waf"`
+	InheritWAF  types.Object                        `tfsdk:"inherit_waf"`
 	AppFirewall *RouteRoutesWAFTypeAppFirewallModel `tfsdk:"app_firewall"`
-	DisableWAF  *RouteEmptyModel                    `tfsdk:"disable_waf"`
-	InheritWAF  *RouteEmptyModel                    `tfsdk:"inherit_waf"`
 }
 
 // RouteRoutesWAFTypeModelAttrTypes defines the attribute types for RouteRoutesWAFTypeModel
 var RouteRoutesWAFTypeModelAttrTypes = map[string]attr.Type{
-	"app_firewall": types.ObjectType{AttrTypes: RouteRoutesWAFTypeAppFirewallModelAttrTypes},
 	"disable_waf":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"inherit_waf":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"app_firewall": types.ObjectType{AttrTypes: RouteRoutesWAFTypeAppFirewallModelAttrTypes},
 }
 
 // RouteRoutesWAFTypeAppFirewallModel represents app_firewall block
@@ -947,12 +947,23 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			}),
 			"routes": schema.ListNestedBlock{
 				MarkdownDescription: "List of routes to match for incoming request.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("bot_defense_javascript_injection", "inherited_bot_defense_javascript_injection"), validators.ConflictingListObjectAttributes("inherited_waf_exclusion", "waf_exclusion_policy"), validators.ConflictingListObjectAttributes("route_destination", "route_direct_response"), validators.ConflictingListObjectAttributes("route_destination", "route_redirect"), validators.ConflictingListObjectAttributes("route_direct_response", "route_redirect")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"disable_location_add": schema.BoolAttribute{
 							MarkdownDescription: "Disables append of x-F5 Distributed Cloud-location = <RE-site-name> at route level, if it is configured at virtual-host level. This configuration is ignored on CE sites.",
 							Optional:            true,
+						},
+						"inherited_bot_defense_javascript_injection": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"inherited_waf_exclusion": schema.ObjectAttribute{
+							MarkdownDescription: "Configuration parameter for inherited waf exclusion.",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
 						},
 						"request_cookies_to_remove": schema.ListAttribute{
 							MarkdownDescription: "List of keys of Cookies to be removed from the HTTP request being sent towards upstream.",
@@ -1041,12 +1052,6 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 							},
 						},
-						"inherited_bot_defense_javascript_injection": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
-						"inherited_waf_exclusion": schema.SingleNestedBlock{
-							MarkdownDescription: "Configuration parameter for inherited waf exclusion.",
-						},
 						"match": schema.ListNestedBlock{
 							MarkdownDescription: "Match. Route match condition.",
 							NestedObject: schema.NestedBlockObject{
@@ -1062,7 +1067,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								Blocks: map[string]schema.Block{
 									"headers": schema.ListNestedBlock{
 										MarkdownDescription: "Headers. List of (key, value) headers.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("exact", "presence"), validators.ConflictingListObjectAttributes("exact", "regex"), validators.ConflictingListObjectAttributes("presence", "regex")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"exact": schema.StringAttribute{
@@ -1099,7 +1104,13 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"incoming_port": schema.SingleNestedBlock{
 										MarkdownDescription: "Port match of the request can be a range or a specific port.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_port_match", "port"), validators.ConflictingObjectAttributes("no_port_match", "port_ranges"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 										Attributes: map[string]schema.Attribute{
+											"no_port_match": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
 											"port": schema.Int64Attribute{
 												MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
 												Optional:            true,
@@ -1115,14 +1126,10 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 											},
 										},
-										Blocks: map[string]schema.Block{
-											"no_port_match": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
-										},
 									},
 									"path": schema.SingleNestedBlock{
 										MarkdownDescription: "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("path", "prefix"), validators.ConflictingObjectAttributes("path", "regex"), validators.ConflictingObjectAttributes("prefix", "regex")},
 										Attributes: map[string]schema.Attribute{
 											"path": schema.StringAttribute{
 												MarkdownDescription: "Exclusive with [prefix regex] Exact path value to match.",
@@ -1149,7 +1156,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 									"query_params": schema.ListNestedBlock{
 										MarkdownDescription: "Query Parameters. List of (key, value) query parameters.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("key")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("key"), validators.ConflictingListObjectAttributes("exact", "regex")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"exact": schema.StringAttribute{
@@ -1178,7 +1185,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"request_cookies_to_add": schema.ListNestedBlock{
 							MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream.",
-							Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"name": schema.StringAttribute{
@@ -1203,6 +1210,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								Blocks: map[string]schema.Block{
 									"secret_value": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1250,7 +1258,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"request_headers_to_add": schema.ListNestedBlock{
 							MarkdownDescription: "Headers are key-value pairs to be added to HTTP requests being sent towards upstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level.",
-							Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"append": schema.BoolAttribute{
@@ -1275,6 +1283,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								Blocks: map[string]schema.Block{
 									"secret_value": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1322,7 +1331,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"response_cookies_to_add": schema.ListNestedBlock{
 							MarkdownDescription: "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream.",
-							Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("add_domain", "ignore_domain"), validators.ConflictingListObjectAttributes("add_expiry", "ignore_expiry"), validators.ConflictingListObjectAttributes("add_httponly", "ignore_httponly"), validators.ConflictingListObjectAttributes("add_partitioned", "ignore_partitioned"), validators.ConflictingListObjectAttributes("add_path", "ignore_path"), validators.ConflictingListObjectAttributes("add_secure", "ignore_secure"), validators.ConflictingListObjectAttributes("ignore_max_age", "max_age_value"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_lax"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_none"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_strict"), validators.ConflictingListObjectAttributes("ignore_value", "secret_value"), validators.ConflictingListObjectAttributes("ignore_value", "value"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_none"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_strict"), validators.ConflictingListObjectAttributes("samesite_none", "samesite_strict"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"add_domain": schema.StringAttribute{
@@ -1339,12 +1348,72 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											stringvalidator.LengthAtMost(256),
 										},
 									},
+									"add_httponly": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for add httponly.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"add_partitioned": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for add partitioned.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
 									"add_path": schema.StringAttribute{
 										MarkdownDescription: "Exclusive with [ignore_path] Add path attribute.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(256),
 										},
+									},
+									"add_secure": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"ignore_domain": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for ignore domain.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"ignore_expiry": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for ignore expiry.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"ignore_httponly": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for ignore httponly.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"ignore_max_age": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for ignore max age.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"ignore_partitioned": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for ignore partitioned.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"ignore_path": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"ignore_samesite": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"ignore_secure": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"ignore_value": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for ignore value.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 									"max_age_value": schema.Int64Attribute{
 										MarkdownDescription: "Exclusive with [ignore_max_age] Add max age attribute.",
@@ -1364,6 +1433,21 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										MarkdownDescription: "Should the value be overwritten? If true, the value is overwritten to existing values.  not overwrite. Defaults to `do`.",
 										Optional:            true,
 									},
+									"samesite_lax": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"samesite_none": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"samesite_strict": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
 									"value": schema.StringAttribute{
 										MarkdownDescription: "Exclusive with [ignore_value secret_value] Value of the Cookie header.",
 										Optional:            true,
@@ -1373,53 +1457,9 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 								},
 								Blocks: map[string]schema.Block{
-									"add_httponly": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for add httponly.",
-									},
-									"add_partitioned": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for add partitioned.",
-									},
-									"add_secure": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"ignore_domain": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for ignore domain.",
-									},
-									"ignore_expiry": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for ignore expiry.",
-									},
-									"ignore_httponly": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for ignore httponly.",
-									},
-									"ignore_max_age": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for ignore max age.",
-									},
-									"ignore_partitioned": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for ignore partitioned.",
-									},
-									"ignore_path": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"ignore_samesite": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"ignore_secure": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"ignore_value": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for ignore value.",
-									},
-									"samesite_lax": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"samesite_none": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"samesite_strict": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 									"secret_value": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1467,7 +1507,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"response_headers_to_add": schema.ListNestedBlock{
 							MarkdownDescription: "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level.",
-							Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+							Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 							NestedObject: schema.NestedBlockObject{
 								Attributes: map[string]schema.Attribute{
 									"append": schema.BoolAttribute{
@@ -1492,6 +1532,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								Blocks: map[string]schema.Block{
 									"secret_value": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1539,11 +1580,16 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"route_destination": schema.SingleNestedBlock{
 							MarkdownDescription: "List of destination to choose if the route is match.",
-							Validators:          []validator.Object{validators.RequiredObjectAttributes("destinations")},
+							Validators:          []validator.Object{validators.RequiredObjectAttributes("destinations"), validators.ConflictingObjectAttributes("auto_host_rewrite", "host_rewrite"), validators.ConflictingObjectAttributes("do_not_retract_cluster", "retract_cluster"), validators.ConflictingObjectAttributes("prefix_rewrite", "regex_rewrite")},
 							Attributes: map[string]schema.Attribute{
 								"auto_host_rewrite": schema.BoolAttribute{
 									MarkdownDescription: "Exclusive with [host_rewrite] Indicates that during forwarding, the host header will be swapped with the hostname of the upstream host chosen by the cluster.",
 									Optional:            true,
+								},
+								"do_not_retract_cluster": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
 								"host_rewrite": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [auto_host_rewrite] Indicates that during forwarding, the host header will be swapped with this value.",
@@ -1565,6 +1611,11 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									Validators: []validator.String{
 										stringvalidator.OneOf("DEFAULT", "HIGH"),
 									},
+								},
+								"retract_cluster": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
 								"timeout": schema.Int64Attribute{
 									MarkdownDescription: "Specifies the timeout for the route in milliseconds. This timeout includes all retries. For server side streaming, configure this field with higher value or leave it un-configured for infinite timeout.",
@@ -1641,11 +1692,20 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"csrf_policy": schema.SingleNestedBlock{
 									MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent..",
-									Attributes:          map[string]schema.Attribute{},
-									Blocks: map[string]schema.Block{
-										"all_load_balancer_domains": schema.SingleNestedBlock{
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_load_balancer_domains", "custom_domain_list"), validators.ConflictingObjectAttributes("all_load_balancer_domains", "disabled"), validators.ConflictingObjectAttributes("custom_domain_list", "disabled")},
+									Attributes: map[string]schema.Attribute{
+										"all_load_balancer_domains": schema.ObjectAttribute{
 											MarkdownDescription: "Configuration parameter for all load balancer domains.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
+										"disabled": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+									},
+									Blocks: map[string]schema.Block{
 										"custom_domain_list": schema.SingleNestedBlock{
 											MarkdownDescription: "List of domain names used for Host header matching.",
 											Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
@@ -1659,9 +1719,6 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													},
 												},
 											},
-										},
-										"disabled": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
 										},
 									},
 								},
@@ -1727,14 +1784,12 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 									},
 								},
-								"do_not_retract_cluster": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
 								"endpoint_subsets": schema.SingleNestedBlock{
 									MarkdownDescription: "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset..",
 								},
 								"hash_policy": schema.ListNestedBlock{
 									MarkdownDescription: "Specifies a list of hash policies to use for ring hash load balancing. Each hash policy is evaluated individually and the combined result is used to route the request.",
+									Validators:          []validator.List{validators.ConflictingListObjectAttributes("cookie", "header_name"), validators.ConflictingListObjectAttributes("cookie", "source_ip"), validators.ConflictingListObjectAttributes("header_name", "source_ip")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"header_name": schema.StringAttribute{
@@ -1756,8 +1811,33 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										Blocks: map[string]schema.Block{
 											"cookie": schema.SingleNestedBlock{
 												MarkdownDescription: "Two types of cookie affinity: 1. Passive. Takes a cookie that's present in the cookies header and hashes on its value. 2. Generated. Generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets..",
-												Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
+												Validators:          []validator.Object{validators.RequiredObjectAttributes("name"), validators.ConflictingObjectAttributes("add_httponly", "ignore_httponly"), validators.ConflictingObjectAttributes("add_secure", "ignore_secure"), validators.ConflictingObjectAttributes("ignore_samesite", "samesite_lax"), validators.ConflictingObjectAttributes("ignore_samesite", "samesite_none"), validators.ConflictingObjectAttributes("ignore_samesite", "samesite_strict"), validators.ConflictingObjectAttributes("samesite_lax", "samesite_none"), validators.ConflictingObjectAttributes("samesite_lax", "samesite_strict"), validators.ConflictingObjectAttributes("samesite_none", "samesite_strict")},
 												Attributes: map[string]schema.Attribute{
+													"add_httponly": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for add httponly.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"add_secure": schema.ObjectAttribute{
+														MarkdownDescription: "Enable this option",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"ignore_httponly": schema.ObjectAttribute{
+														MarkdownDescription: "Configuration parameter for ignore httponly.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"ignore_samesite": schema.ObjectAttribute{
+														MarkdownDescription: "Enable this option",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"ignore_secure": schema.ObjectAttribute{
+														MarkdownDescription: "Enable this option",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
 													"name": schema.StringAttribute{
 														MarkdownDescription: "The name of the cookie that will be used to obtain the hash key. If the cookie is not present and TTL below is not set, no hash will be produced.",
 														Optional:            true,
@@ -1769,35 +1849,24 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														MarkdownDescription: "The name of the path for the cookie. If no path is specified here, no path will be set for the cookie.",
 														Optional:            true,
 													},
+													"samesite_lax": schema.ObjectAttribute{
+														MarkdownDescription: "Enable this option",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"samesite_none": schema.ObjectAttribute{
+														MarkdownDescription: "Enable this option",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
+													"samesite_strict": schema.ObjectAttribute{
+														MarkdownDescription: "Enable this option",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
 													"ttl": schema.Int64Attribute{
 														MarkdownDescription: "If specified, a cookie with the TTL will be generated if the cookie is not present. If the TTL is present and zero, the generated cookie will be a session cookie. TTL value is in milliseconds.",
 														Optional:            true,
-													},
-												},
-												Blocks: map[string]schema.Block{
-													"add_httponly": schema.SingleNestedBlock{
-														MarkdownDescription: "Configuration parameter for add httponly.",
-													},
-													"add_secure": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
-													},
-													"ignore_httponly": schema.SingleNestedBlock{
-														MarkdownDescription: "Configuration parameter for ignore httponly.",
-													},
-													"ignore_samesite": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
-													},
-													"ignore_secure": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
-													},
-													"samesite_lax": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
-													},
-													"samesite_none": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
-													},
-													"samesite_strict": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
 													},
 												},
 											},
@@ -1865,7 +1934,13 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"query_params": schema.SingleNestedBlock{
 									MarkdownDescription: "Handling of incoming query parameters in simple route.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("remove_all_params", "replace_params"), validators.ConflictingObjectAttributes("remove_all_params", "retain_all_params"), validators.ConflictingObjectAttributes("replace_params", "retain_all_params")},
 									Attributes: map[string]schema.Attribute{
+										"remove_all_params": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for remove all params.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"replace_params": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [remove_all_params retain_all_params].",
 											Optional:            true,
@@ -1873,13 +1948,10 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												stringvalidator.LengthBetween(1, 256),
 											},
 										},
-									},
-									Blocks: map[string]schema.Block{
-										"remove_all_params": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for remove all params.",
-										},
-										"retain_all_params": schema.SingleNestedBlock{
+										"retain_all_params": schema.ObjectAttribute{
 											MarkdownDescription: "Configuration parameter for retain all params.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
 									},
 								},
@@ -1901,9 +1973,6 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											},
 										},
 									},
-								},
-								"retract_cluster": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
 								},
 								"retry_policy": schema.SingleNestedBlock{
 									MarkdownDescription: "Retry policy configuration for route destination.",
@@ -2001,6 +2070,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"route_redirect": schema.SingleNestedBlock{
 							MarkdownDescription: "Route redirect parameters when match action is redirect.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("path_redirect", "prefix_rewrite"), validators.ConflictingObjectAttributes("remove_all_params", "replace_params"), validators.ConflictingObjectAttributes("remove_all_params", "retain_all_params"), validators.ConflictingObjectAttributes("replace_params", "retain_all_params")},
 							Attributes: map[string]schema.Attribute{
 								"host_redirect": schema.StringAttribute{
 									MarkdownDescription: "Swap host part of incoming URL in redirect URL.",
@@ -2027,6 +2097,11 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										stringvalidator.OneOf("incoming-proto", "http", "https"),
 									},
 								},
+								"remove_all_params": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for remove all params.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"replace_params": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [remove_all_params retain_all_params].",
 									Optional:            true,
@@ -2041,13 +2116,10 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										int64validator.AtMost(599),
 									},
 								},
-							},
-							Blocks: map[string]schema.Block{
-								"remove_all_params": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for remove all params.",
-								},
-								"retain_all_params": schema.SingleNestedBlock{
+								"retain_all_params": schema.ObjectAttribute{
 									MarkdownDescription: "Configuration parameter for retain all params.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
 							},
 						},
@@ -2093,7 +2165,19 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 						"waf_type": schema.SingleNestedBlock{
 							MarkdownDescription: "WAF instance will be pointing to an app_firewall object.",
-							Attributes:          map[string]schema.Attribute{},
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("app_firewall", "disable_waf"), validators.ConflictingObjectAttributes("app_firewall", "inherit_waf"), validators.ConflictingObjectAttributes("disable_waf", "inherit_waf")},
+							Attributes: map[string]schema.Attribute{
+								"disable_waf": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for disable waf.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"inherit_waf": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for inherit waf.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+							},
 							Blocks: map[string]schema.Block{
 								"app_firewall": schema.SingleNestedBlock{
 									MarkdownDescription: "List of references to the app_firewall configuration objects.",
@@ -2136,12 +2220,6 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											},
 										},
 									},
-								},
-								"disable_waf": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for disable waf.",
-								},
-								"inherit_waf": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for inherit waf.",
 								},
 							},
 						},
@@ -2327,10 +2405,10 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 				if !RoutesItem.DisableLocationAdd.IsNull() && !RoutesItem.DisableLocationAdd.IsUnknown() {
 					RoutesItemMap["disable_location_add"] = RoutesItem.DisableLocationAdd.ValueBool()
 				}
-				if RoutesItem.InheritedBotDefenseJavascriptInjection != nil {
+				if !RoutesItem.InheritedBotDefenseJavascriptInjection.IsNull() && !RoutesItem.InheritedBotDefenseJavascriptInjection.IsUnknown() {
 					RoutesItemMap["inherited_bot_defense_javascript_injection"] = map[string]interface{}{}
 				}
-				if RoutesItem.InheritedWAFExclusion != nil {
+				if !RoutesItem.InheritedWAFExclusion.IsNull() && !RoutesItem.InheritedWAFExclusion.IsUnknown() {
 					RoutesItemMap["inherited_waf_exclusion"] = map[string]interface{}{}
 				}
 				if !RoutesItem.Match.IsNull() && !RoutesItem.Match.IsUnknown() {
@@ -2374,7 +2452,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 							}
 							if MatchItem.IncomingPort != nil {
 								RoutesMatchIncomingPortMap := make(map[string]interface{})
-								if MatchItem.IncomingPort.NoPortMatch != nil {
+								if !MatchItem.IncomingPort.NoPortMatch.IsNull() && !MatchItem.IncomingPort.NoPortMatch.IsUnknown() {
 									RoutesMatchIncomingPortMap["no_port_match"] = map[string]interface{}{}
 								}
 								if !MatchItem.IncomingPort.Port.IsNull() && !MatchItem.IncomingPort.Port.IsUnknown() {
@@ -2553,43 +2631,43 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
 							}
-							if ResponseCookiesToAddItem.AddHttponly != nil {
+							if !ResponseCookiesToAddItem.AddHttponly.IsNull() && !ResponseCookiesToAddItem.AddHttponly.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.AddPartitioned != nil {
+							if !ResponseCookiesToAddItem.AddPartitioned.IsNull() && !ResponseCookiesToAddItem.AddPartitioned.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
 							}
 							if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
 							}
-							if ResponseCookiesToAddItem.AddSecure != nil {
+							if !ResponseCookiesToAddItem.AddSecure.IsNull() && !ResponseCookiesToAddItem.AddSecure.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreDomain != nil {
+							if !ResponseCookiesToAddItem.IgnoreDomain.IsNull() && !ResponseCookiesToAddItem.IgnoreDomain.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+							if !ResponseCookiesToAddItem.IgnoreExpiry.IsNull() && !ResponseCookiesToAddItem.IgnoreExpiry.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+							if !ResponseCookiesToAddItem.IgnoreHttponly.IsNull() && !ResponseCookiesToAddItem.IgnoreHttponly.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+							if !ResponseCookiesToAddItem.IgnoreMaxAge.IsNull() && !ResponseCookiesToAddItem.IgnoreMaxAge.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+							if !ResponseCookiesToAddItem.IgnorePartitioned.IsNull() && !ResponseCookiesToAddItem.IgnorePartitioned.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnorePath != nil {
+							if !ResponseCookiesToAddItem.IgnorePath.IsNull() && !ResponseCookiesToAddItem.IgnorePath.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+							if !ResponseCookiesToAddItem.IgnoreSamesite.IsNull() && !ResponseCookiesToAddItem.IgnoreSamesite.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreSecure != nil {
+							if !ResponseCookiesToAddItem.IgnoreSecure.IsNull() && !ResponseCookiesToAddItem.IgnoreSecure.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreValue != nil {
+							if !ResponseCookiesToAddItem.IgnoreValue.IsNull() && !ResponseCookiesToAddItem.IgnoreValue.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
 							}
 							if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
@@ -2601,13 +2679,13 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
 								ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
 							}
-							if ResponseCookiesToAddItem.SamesiteLax != nil {
+							if !ResponseCookiesToAddItem.SamesiteLax.IsNull() && !ResponseCookiesToAddItem.SamesiteLax.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.SamesiteNone != nil {
+							if !ResponseCookiesToAddItem.SamesiteNone.IsNull() && !ResponseCookiesToAddItem.SamesiteNone.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.SamesiteStrict != nil {
+							if !ResponseCookiesToAddItem.SamesiteStrict.IsNull() && !ResponseCookiesToAddItem.SamesiteStrict.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
 							}
 							if ResponseCookiesToAddItem.SecretValue != nil {
@@ -2765,7 +2843,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 					}
 					if RoutesItem.RouteDestination.CSRFPolicy != nil {
 						RoutesRouteDestinationCSRFPolicyMap := make(map[string]interface{})
-						if RoutesItem.RouteDestination.CSRFPolicy.AllLoadBalancerDomains != nil {
+						if !RoutesItem.RouteDestination.CSRFPolicy.AllLoadBalancerDomains.IsNull() && !RoutesItem.RouteDestination.CSRFPolicy.AllLoadBalancerDomains.IsUnknown() {
 							RoutesRouteDestinationCSRFPolicyMap["all_load_balancer_domains"] = map[string]interface{}{}
 						}
 						if RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList != nil {
@@ -2780,7 +2858,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 							}
 							RoutesRouteDestinationCSRFPolicyMap["custom_domain_list"] = RoutesRouteDestinationCSRFPolicyCustomDomainListMap
 						}
-						if RoutesItem.RouteDestination.CSRFPolicy.Disabled != nil {
+						if !RoutesItem.RouteDestination.CSRFPolicy.Disabled.IsNull() && !RoutesItem.RouteDestination.CSRFPolicy.Disabled.IsUnknown() {
 							RoutesRouteDestinationCSRFPolicyMap["disabled"] = map[string]interface{}{}
 						}
 						RoutesRouteDestinationMap["csrf_policy"] = RoutesRouteDestinationCSRFPolicyMap
@@ -2826,7 +2904,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 							RoutesRouteDestinationMap["destinations"] = DestinationsList
 						}
 					}
-					if RoutesItem.RouteDestination.DoNotRetractCluster != nil {
+					if !RoutesItem.RouteDestination.DoNotRetractCluster.IsNull() && !RoutesItem.RouteDestination.DoNotRetractCluster.IsUnknown() {
 						RoutesRouteDestinationMap["do_not_retract_cluster"] = map[string]interface{}{}
 					}
 					if RoutesItem.RouteDestination.EndpointSubsets != nil {
@@ -2842,19 +2920,19 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 								HashPolicyItemMap := make(map[string]interface{})
 								if HashPolicyItem.Cookie != nil {
 									RoutesRouteDestinationHashPolicyCookieMap := make(map[string]interface{})
-									if HashPolicyItem.Cookie.AddHttponly != nil {
+									if !HashPolicyItem.Cookie.AddHttponly.IsNull() && !HashPolicyItem.Cookie.AddHttponly.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["add_httponly"] = map[string]interface{}{}
 									}
-									if HashPolicyItem.Cookie.AddSecure != nil {
+									if !HashPolicyItem.Cookie.AddSecure.IsNull() && !HashPolicyItem.Cookie.AddSecure.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["add_secure"] = map[string]interface{}{}
 									}
-									if HashPolicyItem.Cookie.IgnoreHttponly != nil {
+									if !HashPolicyItem.Cookie.IgnoreHttponly.IsNull() && !HashPolicyItem.Cookie.IgnoreHttponly.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["ignore_httponly"] = map[string]interface{}{}
 									}
-									if HashPolicyItem.Cookie.IgnoreSamesite != nil {
+									if !HashPolicyItem.Cookie.IgnoreSamesite.IsNull() && !HashPolicyItem.Cookie.IgnoreSamesite.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["ignore_samesite"] = map[string]interface{}{}
 									}
-									if HashPolicyItem.Cookie.IgnoreSecure != nil {
+									if !HashPolicyItem.Cookie.IgnoreSecure.IsNull() && !HashPolicyItem.Cookie.IgnoreSecure.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["ignore_secure"] = map[string]interface{}{}
 									}
 									if !HashPolicyItem.Cookie.Name.IsNull() && !HashPolicyItem.Cookie.Name.IsUnknown() {
@@ -2863,13 +2941,13 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									if !HashPolicyItem.Cookie.Path.IsNull() && !HashPolicyItem.Cookie.Path.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["path"] = HashPolicyItem.Cookie.Path.ValueString()
 									}
-									if HashPolicyItem.Cookie.SamesiteLax != nil {
+									if !HashPolicyItem.Cookie.SamesiteLax.IsNull() && !HashPolicyItem.Cookie.SamesiteLax.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["samesite_lax"] = map[string]interface{}{}
 									}
-									if HashPolicyItem.Cookie.SamesiteNone != nil {
+									if !HashPolicyItem.Cookie.SamesiteNone.IsNull() && !HashPolicyItem.Cookie.SamesiteNone.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["samesite_none"] = map[string]interface{}{}
 									}
-									if HashPolicyItem.Cookie.SamesiteStrict != nil {
+									if !HashPolicyItem.Cookie.SamesiteStrict.IsNull() && !HashPolicyItem.Cookie.SamesiteStrict.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["samesite_strict"] = map[string]interface{}{}
 									}
 									if !HashPolicyItem.Cookie.TTL.IsNull() && !HashPolicyItem.Cookie.TTL.IsUnknown() {
@@ -2935,13 +3013,13 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 					}
 					if RoutesItem.RouteDestination.QueryParams != nil {
 						RoutesRouteDestinationQueryParamsMap := make(map[string]interface{})
-						if RoutesItem.RouteDestination.QueryParams.RemoveAllParams != nil {
+						if !RoutesItem.RouteDestination.QueryParams.RemoveAllParams.IsNull() && !RoutesItem.RouteDestination.QueryParams.RemoveAllParams.IsUnknown() {
 							RoutesRouteDestinationQueryParamsMap["remove_all_params"] = map[string]interface{}{}
 						}
 						if !RoutesItem.RouteDestination.QueryParams.ReplaceParams.IsNull() && !RoutesItem.RouteDestination.QueryParams.ReplaceParams.IsUnknown() {
 							RoutesRouteDestinationQueryParamsMap["replace_params"] = RoutesItem.RouteDestination.QueryParams.ReplaceParams.ValueString()
 						}
-						if RoutesItem.RouteDestination.QueryParams.RetainAllParams != nil {
+						if !RoutesItem.RouteDestination.QueryParams.RetainAllParams.IsNull() && !RoutesItem.RouteDestination.QueryParams.RetainAllParams.IsUnknown() {
 							RoutesRouteDestinationQueryParamsMap["retain_all_params"] = map[string]interface{}{}
 						}
 						RoutesRouteDestinationMap["query_params"] = RoutesRouteDestinationQueryParamsMap
@@ -2956,7 +3034,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						RoutesRouteDestinationMap["regex_rewrite"] = RoutesRouteDestinationRegexRewriteMap
 					}
-					if RoutesItem.RouteDestination.RetractCluster != nil {
+					if !RoutesItem.RouteDestination.RetractCluster.IsNull() && !RoutesItem.RouteDestination.RetractCluster.IsUnknown() {
 						RoutesRouteDestinationMap["retract_cluster"] = map[string]interface{}{}
 					}
 					if RoutesItem.RouteDestination.RetryPolicy != nil {
@@ -3038,7 +3116,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 					if !RoutesItem.RouteRedirect.ProtoRedirect.IsNull() && !RoutesItem.RouteRedirect.ProtoRedirect.IsUnknown() {
 						RoutesRouteRedirectMap["proto_redirect"] = RoutesItem.RouteRedirect.ProtoRedirect.ValueString()
 					}
-					if RoutesItem.RouteRedirect.RemoveAllParams != nil {
+					if !RoutesItem.RouteRedirect.RemoveAllParams.IsNull() && !RoutesItem.RouteRedirect.RemoveAllParams.IsUnknown() {
 						RoutesRouteRedirectMap["remove_all_params"] = map[string]interface{}{}
 					}
 					if !RoutesItem.RouteRedirect.ReplaceParams.IsNull() && !RoutesItem.RouteRedirect.ReplaceParams.IsUnknown() {
@@ -3047,7 +3125,7 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 					if !RoutesItem.RouteRedirect.ResponseCode.IsNull() && !RoutesItem.RouteRedirect.ResponseCode.IsUnknown() {
 						RoutesRouteRedirectMap["response_code"] = RoutesItem.RouteRedirect.ResponseCode.ValueInt64()
 					}
-					if RoutesItem.RouteRedirect.RetainAllParams != nil {
+					if !RoutesItem.RouteRedirect.RetainAllParams.IsNull() && !RoutesItem.RouteRedirect.RetainAllParams.IsUnknown() {
 						RoutesRouteRedirectMap["retain_all_params"] = map[string]interface{}{}
 					}
 					RoutesItemMap["route_redirect"] = RoutesRouteRedirectMap
@@ -3094,10 +3172,10 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						RoutesWAFTypeMap["app_firewall"] = RoutesWAFTypeAppFirewallMap
 					}
-					if RoutesItem.WAFType.DisableWAF != nil {
+					if !RoutesItem.WAFType.DisableWAF.IsNull() && !RoutesItem.WAFType.DisableWAF.IsUnknown() {
 						RoutesWAFTypeMap["disable_waf"] = map[string]interface{}{}
 					}
-					if RoutesItem.WAFType.InheritWAF != nil {
+					if !RoutesItem.WAFType.InheritWAF.IsNull() && !RoutesItem.WAFType.InheritWAF.IsUnknown() {
 						RoutesWAFTypeMap["inherit_waf"] = map[string]interface{}{}
 					}
 					RoutesItemMap["waf_type"] = RoutesWAFTypeMap
@@ -3239,23 +3317,23 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						return types.BoolNull()
 					}(),
-					InheritedBotDefenseJavascriptInjection: func() *RouteEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					InheritedBotDefenseJavascriptInjection: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection.IsUnknown() {
 							return existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection
 						}
 						if _, ok := itemMap["inherited_bot_defense_javascript_injection"].(map[string]interface{}); ok {
-							return &RouteEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					InheritedWAFExclusion: func() *RouteEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					InheritedWAFExclusion: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].InheritedWAFExclusion.IsUnknown() {
 							return existingRoutesItems[listIdx].InheritedWAFExclusion
 						}
 						if _, ok := itemMap["inherited_waf_exclusion"].(map[string]interface{}); ok {
-							return &RouteEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Match: func() types.List {
 						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].Match.IsNull() || len(existingRoutesItems[listIdx].Match.Elements()) == 0) {
@@ -3332,14 +3410,14 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 										IncomingPort: func() *RouteRoutesMatchIncomingPortModel {
 											if IncomingPortData, ok := MatchItemMap["incoming_port"].(map[string]interface{}); ok {
 												return &RouteRoutesMatchIncomingPortModel{
-													NoPortMatch: func() *RouteEmptyModel {
-														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil {
+													NoPortMatch: func() types.Object {
+														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil && !MatchExisting[MatchIdx].IncomingPort.NoPortMatch.IsUnknown() {
 															return MatchExisting[MatchIdx].IncomingPort.NoPortMatch
 														}
 														if _, ok := IncomingPortData["no_port_match"].(map[string]interface{}); ok {
-															return &RouteEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
 													Port: func() types.Int64 {
 														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil && !MatchExisting[MatchIdx].IncomingPort.Port.IsUnknown() {
@@ -3681,23 +3759,23 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											}
 											return types.StringNull()
 										}(),
-										AddHttponly: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										AddHttponly: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 											}
 											if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										AddPartitioned: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										AddPartitioned: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 											}
 											if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 										AddPath: func() types.String {
 											if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
@@ -3705,95 +3783,95 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											}
 											return types.StringNull()
 										}(),
-										AddSecure: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										AddSecure: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 											}
 											if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreDomain: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreDomain: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreExpiry: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreExpiry: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreHttponly: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreHttponly: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreMaxAge: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreMaxAge: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnorePartitioned: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnorePartitioned: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnorePath: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnorePath: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreSamesite: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreSamesite: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreSecure: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreSecure: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreValue: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreValue: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 										MaxAgeValue: func() types.Int64 {
 											if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
@@ -3813,32 +3891,32 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											}
 											return types.BoolNull()
 										}(),
-										SamesiteLax: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										SamesiteLax: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										SamesiteNone: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										SamesiteNone: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										SamesiteStrict: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										SamesiteStrict: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 										SecretValue: func() *RouteRoutesResponseCookiesToAddSecretValueModel {
 											if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
@@ -4165,14 +4243,14 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									if CSRFPolicyData, ok := RouteDestinationData["csrf_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationCSRFPolicyModel{
-											AllLoadBalancerDomains: func() *RouteEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+											AllLoadBalancerDomains: func() types.Object {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.AllLoadBalancerDomains.IsUnknown() {
 													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.AllLoadBalancerDomains
 												}
 												if _, ok := CSRFPolicyData["all_load_balancer_domains"].(map[string]interface{}); ok {
-													return &RouteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											CustomDomainList: func() *RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel {
 												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.CustomDomainList != nil {
@@ -4198,14 +4276,14 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 												}
 												return nil
 											}(),
-											Disabled: func() *RouteEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+											Disabled: func() types.Object {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.Disabled.IsUnknown() {
 													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.Disabled
 												}
 												if _, ok := CSRFPolicyData["disabled"].(map[string]interface{}); ok {
-													return &RouteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										}
 									}
@@ -4306,14 +4384,14 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes})
 								}(),
-								DoNotRetractCluster: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+								DoNotRetractCluster: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.DoNotRetractCluster.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteDestination.DoNotRetractCluster
 									}
 									if _, ok := RouteDestinationData["do_not_retract_cluster"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								EndpointSubsets: func() *RouteEmptyModel {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
@@ -4341,50 +4419,50 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 													Cookie: func() *RouteRoutesRouteDestinationHashPolicyCookieModel {
 														if CookieData, ok := HashPolicyItemMap["cookie"].(map[string]interface{}); ok {
 															return &RouteRoutesRouteDestinationHashPolicyCookieModel{
-																AddHttponly: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																AddHttponly: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.AddHttponly.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.AddHttponly
 																	}
 																	if _, ok := CookieData["add_httponly"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																AddSecure: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																AddSecure: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.AddSecure.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.AddSecure
 																	}
 																	if _, ok := CookieData["add_secure"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																IgnoreHttponly: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																IgnoreHttponly: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreHttponly.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreHttponly
 																	}
 																	if _, ok := CookieData["ignore_httponly"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																IgnoreSamesite: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																IgnoreSamesite: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSamesite.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSamesite
 																	}
 																	if _, ok := CookieData["ignore_samesite"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																IgnoreSecure: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																IgnoreSecure: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSecure.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSecure
 																	}
 																	if _, ok := CookieData["ignore_secure"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Name: func() types.String {
 																	if v, ok := CookieData["name"].(string); ok && v != "" {
@@ -4398,32 +4476,32 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 																	}
 																	return types.StringNull()
 																}(),
-																SamesiteLax: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																SamesiteLax: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteLax.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteLax
 																	}
 																	if _, ok := CookieData["samesite_lax"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																SamesiteNone: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																SamesiteNone: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteNone.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteNone
 																	}
 																	if _, ok := CookieData["samesite_none"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																SamesiteStrict: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																SamesiteStrict: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteStrict.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteStrict
 																	}
 																	if _, ok := CookieData["samesite_strict"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																TTL: func() types.Int64 {
 																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.TTL.IsUnknown() {
@@ -4572,14 +4650,14 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									if QueryParamsData, ok := RouteDestinationData["query_params"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationQueryParamsModel{
-											RemoveAllParams: func() *RouteEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+											RemoveAllParams: func() types.Object {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil && !existingRoutesItems[listIdx].RouteDestination.QueryParams.RemoveAllParams.IsUnknown() {
 													return existingRoutesItems[listIdx].RouteDestination.QueryParams.RemoveAllParams
 												}
 												if _, ok := QueryParamsData["remove_all_params"].(map[string]interface{}); ok {
-													return &RouteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											ReplaceParams: func() types.String {
 												if v, ok := QueryParamsData["replace_params"].(string); ok && v != "" {
@@ -4587,14 +4665,14 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 												}
 												return types.StringNull()
 											}(),
-											RetainAllParams: func() *RouteEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+											RetainAllParams: func() types.Object {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil && !existingRoutesItems[listIdx].RouteDestination.QueryParams.RetainAllParams.IsUnknown() {
 													return existingRoutesItems[listIdx].RouteDestination.QueryParams.RetainAllParams
 												}
 												if _, ok := QueryParamsData["retain_all_params"].(map[string]interface{}); ok {
-													return &RouteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										}
 									}
@@ -4622,14 +4700,14 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return nil
 								}(),
-								RetractCluster: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+								RetractCluster: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.RetractCluster.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteDestination.RetractCluster
 									}
 									if _, ok := RouteDestinationData["retract_cluster"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								RetryPolicy: func() *RouteRoutesRouteDestinationRetryPolicyModel {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil {
@@ -4815,14 +4893,14 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return types.StringNull()
 								}(),
-								RemoveAllParams: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil {
+								RemoveAllParams: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && !existingRoutesItems[listIdx].RouteRedirect.RemoveAllParams.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteRedirect.RemoveAllParams
 									}
 									if _, ok := RouteRedirectData["remove_all_params"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ReplaceParams: func() types.String {
 									if v, ok := RouteRedirectData["replace_params"].(string); ok && v != "" {
@@ -4839,14 +4917,14 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return types.Int64Null()
 								}(),
-								RetainAllParams: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil {
+								RetainAllParams: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && !existingRoutesItems[listIdx].RouteRedirect.RetainAllParams.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteRedirect.RetainAllParams
 									}
 									if _, ok := RouteRedirectData["retain_all_params"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}
@@ -4955,23 +5033,23 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return nil
 								}(),
-								DisableWAF: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil {
+								DisableWAF: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && !existingRoutesItems[listIdx].WAFType.DisableWAF.IsUnknown() {
 										return existingRoutesItems[listIdx].WAFType.DisableWAF
 									}
 									if _, ok := WAFTypeData["disable_waf"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								InheritWAF: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil {
+								InheritWAF: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && !existingRoutesItems[listIdx].WAFType.InheritWAF.IsUnknown() {
 										return existingRoutesItems[listIdx].WAFType.InheritWAF
 									}
 									if _, ok := WAFTypeData["inherit_waf"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}
@@ -5212,23 +5290,23 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						}
 						return types.BoolNull()
 					}(),
-					InheritedBotDefenseJavascriptInjection: func() *RouteEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					InheritedBotDefenseJavascriptInjection: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection.IsUnknown() {
 							return existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection
 						}
 						if _, ok := itemMap["inherited_bot_defense_javascript_injection"].(map[string]interface{}); ok {
-							return &RouteEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					InheritedWAFExclusion: func() *RouteEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					InheritedWAFExclusion: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].InheritedWAFExclusion.IsUnknown() {
 							return existingRoutesItems[listIdx].InheritedWAFExclusion
 						}
 						if _, ok := itemMap["inherited_waf_exclusion"].(map[string]interface{}); ok {
-							return &RouteEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Match: func() types.List {
 						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].Match.IsNull() || len(existingRoutesItems[listIdx].Match.Elements()) == 0) {
@@ -5305,14 +5383,14 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										IncomingPort: func() *RouteRoutesMatchIncomingPortModel {
 											if IncomingPortData, ok := MatchItemMap["incoming_port"].(map[string]interface{}); ok {
 												return &RouteRoutesMatchIncomingPortModel{
-													NoPortMatch: func() *RouteEmptyModel {
-														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil {
+													NoPortMatch: func() types.Object {
+														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil && !MatchExisting[MatchIdx].IncomingPort.NoPortMatch.IsUnknown() {
 															return MatchExisting[MatchIdx].IncomingPort.NoPortMatch
 														}
 														if _, ok := IncomingPortData["no_port_match"].(map[string]interface{}); ok {
-															return &RouteEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
 													Port: func() types.Int64 {
 														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil && !MatchExisting[MatchIdx].IncomingPort.Port.IsUnknown() {
@@ -5654,23 +5732,23 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											}
 											return types.StringNull()
 										}(),
-										AddHttponly: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										AddHttponly: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 											}
 											if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										AddPartitioned: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										AddPartitioned: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 											}
 											if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 										AddPath: func() types.String {
 											if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
@@ -5678,95 +5756,95 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											}
 											return types.StringNull()
 										}(),
-										AddSecure: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										AddSecure: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 											}
 											if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreDomain: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreDomain: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreExpiry: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreExpiry: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreHttponly: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreHttponly: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreMaxAge: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreMaxAge: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnorePartitioned: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnorePartitioned: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnorePath: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnorePath: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreSamesite: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreSamesite: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreSecure: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreSecure: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreValue: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreValue: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 										MaxAgeValue: func() types.Int64 {
 											if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
@@ -5786,32 +5864,32 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											}
 											return types.BoolNull()
 										}(),
-										SamesiteLax: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										SamesiteLax: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										SamesiteNone: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										SamesiteNone: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										SamesiteStrict: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										SamesiteStrict: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 										SecretValue: func() *RouteRoutesResponseCookiesToAddSecretValueModel {
 											if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
@@ -6138,14 +6216,14 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									if CSRFPolicyData, ok := RouteDestinationData["csrf_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationCSRFPolicyModel{
-											AllLoadBalancerDomains: func() *RouteEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+											AllLoadBalancerDomains: func() types.Object {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.AllLoadBalancerDomains.IsUnknown() {
 													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.AllLoadBalancerDomains
 												}
 												if _, ok := CSRFPolicyData["all_load_balancer_domains"].(map[string]interface{}); ok {
-													return &RouteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											CustomDomainList: func() *RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel {
 												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.CustomDomainList != nil {
@@ -6171,14 +6249,14 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												}
 												return nil
 											}(),
-											Disabled: func() *RouteEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+											Disabled: func() types.Object {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.Disabled.IsUnknown() {
 													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.Disabled
 												}
 												if _, ok := CSRFPolicyData["disabled"].(map[string]interface{}); ok {
-													return &RouteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										}
 									}
@@ -6279,14 +6357,14 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes})
 								}(),
-								DoNotRetractCluster: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+								DoNotRetractCluster: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.DoNotRetractCluster.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteDestination.DoNotRetractCluster
 									}
 									if _, ok := RouteDestinationData["do_not_retract_cluster"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								EndpointSubsets: func() *RouteEmptyModel {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
@@ -6314,50 +6392,50 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 													Cookie: func() *RouteRoutesRouteDestinationHashPolicyCookieModel {
 														if CookieData, ok := HashPolicyItemMap["cookie"].(map[string]interface{}); ok {
 															return &RouteRoutesRouteDestinationHashPolicyCookieModel{
-																AddHttponly: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																AddHttponly: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.AddHttponly.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.AddHttponly
 																	}
 																	if _, ok := CookieData["add_httponly"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																AddSecure: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																AddSecure: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.AddSecure.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.AddSecure
 																	}
 																	if _, ok := CookieData["add_secure"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																IgnoreHttponly: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																IgnoreHttponly: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreHttponly.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreHttponly
 																	}
 																	if _, ok := CookieData["ignore_httponly"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																IgnoreSamesite: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																IgnoreSamesite: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSamesite.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSamesite
 																	}
 																	if _, ok := CookieData["ignore_samesite"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																IgnoreSecure: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																IgnoreSecure: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSecure.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSecure
 																	}
 																	if _, ok := CookieData["ignore_secure"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Name: func() types.String {
 																	if v, ok := CookieData["name"].(string); ok && v != "" {
@@ -6371,32 +6449,32 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																	}
 																	return types.StringNull()
 																}(),
-																SamesiteLax: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																SamesiteLax: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteLax.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteLax
 																	}
 																	if _, ok := CookieData["samesite_lax"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																SamesiteNone: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																SamesiteNone: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteNone.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteNone
 																	}
 																	if _, ok := CookieData["samesite_none"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																SamesiteStrict: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																SamesiteStrict: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteStrict.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteStrict
 																	}
 																	if _, ok := CookieData["samesite_strict"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																TTL: func() types.Int64 {
 																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.TTL.IsUnknown() {
@@ -6545,14 +6623,14 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									if QueryParamsData, ok := RouteDestinationData["query_params"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationQueryParamsModel{
-											RemoveAllParams: func() *RouteEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+											RemoveAllParams: func() types.Object {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil && !existingRoutesItems[listIdx].RouteDestination.QueryParams.RemoveAllParams.IsUnknown() {
 													return existingRoutesItems[listIdx].RouteDestination.QueryParams.RemoveAllParams
 												}
 												if _, ok := QueryParamsData["remove_all_params"].(map[string]interface{}); ok {
-													return &RouteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											ReplaceParams: func() types.String {
 												if v, ok := QueryParamsData["replace_params"].(string); ok && v != "" {
@@ -6560,14 +6638,14 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												}
 												return types.StringNull()
 											}(),
-											RetainAllParams: func() *RouteEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+											RetainAllParams: func() types.Object {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil && !existingRoutesItems[listIdx].RouteDestination.QueryParams.RetainAllParams.IsUnknown() {
 													return existingRoutesItems[listIdx].RouteDestination.QueryParams.RetainAllParams
 												}
 												if _, ok := QueryParamsData["retain_all_params"].(map[string]interface{}); ok {
-													return &RouteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										}
 									}
@@ -6595,14 +6673,14 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return nil
 								}(),
-								RetractCluster: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+								RetractCluster: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.RetractCluster.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteDestination.RetractCluster
 									}
 									if _, ok := RouteDestinationData["retract_cluster"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								RetryPolicy: func() *RouteRoutesRouteDestinationRetryPolicyModel {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil {
@@ -6788,14 +6866,14 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return types.StringNull()
 								}(),
-								RemoveAllParams: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil {
+								RemoveAllParams: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && !existingRoutesItems[listIdx].RouteRedirect.RemoveAllParams.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteRedirect.RemoveAllParams
 									}
 									if _, ok := RouteRedirectData["remove_all_params"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ReplaceParams: func() types.String {
 									if v, ok := RouteRedirectData["replace_params"].(string); ok && v != "" {
@@ -6812,14 +6890,14 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return types.Int64Null()
 								}(),
-								RetainAllParams: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil {
+								RetainAllParams: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && !existingRoutesItems[listIdx].RouteRedirect.RetainAllParams.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteRedirect.RetainAllParams
 									}
 									if _, ok := RouteRedirectData["retain_all_params"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}
@@ -6928,23 +7006,23 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return nil
 								}(),
-								DisableWAF: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil {
+								DisableWAF: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && !existingRoutesItems[listIdx].WAFType.DisableWAF.IsUnknown() {
 										return existingRoutesItems[listIdx].WAFType.DisableWAF
 									}
 									if _, ok := WAFTypeData["disable_waf"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								InheritWAF: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil {
+								InheritWAF: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && !existingRoutesItems[listIdx].WAFType.InheritWAF.IsUnknown() {
 										return existingRoutesItems[listIdx].WAFType.InheritWAF
 									}
 									if _, ok := WAFTypeData["inherit_waf"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}
@@ -7108,10 +7186,10 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				if !RoutesItem.DisableLocationAdd.IsNull() && !RoutesItem.DisableLocationAdd.IsUnknown() {
 					RoutesItemMap["disable_location_add"] = RoutesItem.DisableLocationAdd.ValueBool()
 				}
-				if RoutesItem.InheritedBotDefenseJavascriptInjection != nil {
+				if !RoutesItem.InheritedBotDefenseJavascriptInjection.IsNull() && !RoutesItem.InheritedBotDefenseJavascriptInjection.IsUnknown() {
 					RoutesItemMap["inherited_bot_defense_javascript_injection"] = map[string]interface{}{}
 				}
-				if RoutesItem.InheritedWAFExclusion != nil {
+				if !RoutesItem.InheritedWAFExclusion.IsNull() && !RoutesItem.InheritedWAFExclusion.IsUnknown() {
 					RoutesItemMap["inherited_waf_exclusion"] = map[string]interface{}{}
 				}
 				if !RoutesItem.Match.IsNull() && !RoutesItem.Match.IsUnknown() {
@@ -7155,7 +7233,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							}
 							if MatchItem.IncomingPort != nil {
 								RoutesMatchIncomingPortMap := make(map[string]interface{})
-								if MatchItem.IncomingPort.NoPortMatch != nil {
+								if !MatchItem.IncomingPort.NoPortMatch.IsNull() && !MatchItem.IncomingPort.NoPortMatch.IsUnknown() {
 									RoutesMatchIncomingPortMap["no_port_match"] = map[string]interface{}{}
 								}
 								if !MatchItem.IncomingPort.Port.IsNull() && !MatchItem.IncomingPort.Port.IsUnknown() {
@@ -7334,43 +7412,43 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
 							}
-							if ResponseCookiesToAddItem.AddHttponly != nil {
+							if !ResponseCookiesToAddItem.AddHttponly.IsNull() && !ResponseCookiesToAddItem.AddHttponly.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.AddPartitioned != nil {
+							if !ResponseCookiesToAddItem.AddPartitioned.IsNull() && !ResponseCookiesToAddItem.AddPartitioned.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
 							}
 							if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
 							}
-							if ResponseCookiesToAddItem.AddSecure != nil {
+							if !ResponseCookiesToAddItem.AddSecure.IsNull() && !ResponseCookiesToAddItem.AddSecure.IsUnknown() {
 								ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreDomain != nil {
+							if !ResponseCookiesToAddItem.IgnoreDomain.IsNull() && !ResponseCookiesToAddItem.IgnoreDomain.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+							if !ResponseCookiesToAddItem.IgnoreExpiry.IsNull() && !ResponseCookiesToAddItem.IgnoreExpiry.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+							if !ResponseCookiesToAddItem.IgnoreHttponly.IsNull() && !ResponseCookiesToAddItem.IgnoreHttponly.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+							if !ResponseCookiesToAddItem.IgnoreMaxAge.IsNull() && !ResponseCookiesToAddItem.IgnoreMaxAge.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+							if !ResponseCookiesToAddItem.IgnorePartitioned.IsNull() && !ResponseCookiesToAddItem.IgnorePartitioned.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnorePath != nil {
+							if !ResponseCookiesToAddItem.IgnorePath.IsNull() && !ResponseCookiesToAddItem.IgnorePath.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+							if !ResponseCookiesToAddItem.IgnoreSamesite.IsNull() && !ResponseCookiesToAddItem.IgnoreSamesite.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreSecure != nil {
+							if !ResponseCookiesToAddItem.IgnoreSecure.IsNull() && !ResponseCookiesToAddItem.IgnoreSecure.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.IgnoreValue != nil {
+							if !ResponseCookiesToAddItem.IgnoreValue.IsNull() && !ResponseCookiesToAddItem.IgnoreValue.IsUnknown() {
 								ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
 							}
 							if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
@@ -7382,13 +7460,13 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
 								ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
 							}
-							if ResponseCookiesToAddItem.SamesiteLax != nil {
+							if !ResponseCookiesToAddItem.SamesiteLax.IsNull() && !ResponseCookiesToAddItem.SamesiteLax.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.SamesiteNone != nil {
+							if !ResponseCookiesToAddItem.SamesiteNone.IsNull() && !ResponseCookiesToAddItem.SamesiteNone.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
 							}
-							if ResponseCookiesToAddItem.SamesiteStrict != nil {
+							if !ResponseCookiesToAddItem.SamesiteStrict.IsNull() && !ResponseCookiesToAddItem.SamesiteStrict.IsUnknown() {
 								ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
 							}
 							if ResponseCookiesToAddItem.SecretValue != nil {
@@ -7546,7 +7624,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					}
 					if RoutesItem.RouteDestination.CSRFPolicy != nil {
 						RoutesRouteDestinationCSRFPolicyMap := make(map[string]interface{})
-						if RoutesItem.RouteDestination.CSRFPolicy.AllLoadBalancerDomains != nil {
+						if !RoutesItem.RouteDestination.CSRFPolicy.AllLoadBalancerDomains.IsNull() && !RoutesItem.RouteDestination.CSRFPolicy.AllLoadBalancerDomains.IsUnknown() {
 							RoutesRouteDestinationCSRFPolicyMap["all_load_balancer_domains"] = map[string]interface{}{}
 						}
 						if RoutesItem.RouteDestination.CSRFPolicy.CustomDomainList != nil {
@@ -7561,7 +7639,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							}
 							RoutesRouteDestinationCSRFPolicyMap["custom_domain_list"] = RoutesRouteDestinationCSRFPolicyCustomDomainListMap
 						}
-						if RoutesItem.RouteDestination.CSRFPolicy.Disabled != nil {
+						if !RoutesItem.RouteDestination.CSRFPolicy.Disabled.IsNull() && !RoutesItem.RouteDestination.CSRFPolicy.Disabled.IsUnknown() {
 							RoutesRouteDestinationCSRFPolicyMap["disabled"] = map[string]interface{}{}
 						}
 						RoutesRouteDestinationMap["csrf_policy"] = RoutesRouteDestinationCSRFPolicyMap
@@ -7607,7 +7685,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							RoutesRouteDestinationMap["destinations"] = DestinationsList
 						}
 					}
-					if RoutesItem.RouteDestination.DoNotRetractCluster != nil {
+					if !RoutesItem.RouteDestination.DoNotRetractCluster.IsNull() && !RoutesItem.RouteDestination.DoNotRetractCluster.IsUnknown() {
 						RoutesRouteDestinationMap["do_not_retract_cluster"] = map[string]interface{}{}
 					}
 					if RoutesItem.RouteDestination.EndpointSubsets != nil {
@@ -7623,19 +7701,19 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 								HashPolicyItemMap := make(map[string]interface{})
 								if HashPolicyItem.Cookie != nil {
 									RoutesRouteDestinationHashPolicyCookieMap := make(map[string]interface{})
-									if HashPolicyItem.Cookie.AddHttponly != nil {
+									if !HashPolicyItem.Cookie.AddHttponly.IsNull() && !HashPolicyItem.Cookie.AddHttponly.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["add_httponly"] = map[string]interface{}{}
 									}
-									if HashPolicyItem.Cookie.AddSecure != nil {
+									if !HashPolicyItem.Cookie.AddSecure.IsNull() && !HashPolicyItem.Cookie.AddSecure.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["add_secure"] = map[string]interface{}{}
 									}
-									if HashPolicyItem.Cookie.IgnoreHttponly != nil {
+									if !HashPolicyItem.Cookie.IgnoreHttponly.IsNull() && !HashPolicyItem.Cookie.IgnoreHttponly.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["ignore_httponly"] = map[string]interface{}{}
 									}
-									if HashPolicyItem.Cookie.IgnoreSamesite != nil {
+									if !HashPolicyItem.Cookie.IgnoreSamesite.IsNull() && !HashPolicyItem.Cookie.IgnoreSamesite.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["ignore_samesite"] = map[string]interface{}{}
 									}
-									if HashPolicyItem.Cookie.IgnoreSecure != nil {
+									if !HashPolicyItem.Cookie.IgnoreSecure.IsNull() && !HashPolicyItem.Cookie.IgnoreSecure.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["ignore_secure"] = map[string]interface{}{}
 									}
 									if !HashPolicyItem.Cookie.Name.IsNull() && !HashPolicyItem.Cookie.Name.IsUnknown() {
@@ -7644,13 +7722,13 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									if !HashPolicyItem.Cookie.Path.IsNull() && !HashPolicyItem.Cookie.Path.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["path"] = HashPolicyItem.Cookie.Path.ValueString()
 									}
-									if HashPolicyItem.Cookie.SamesiteLax != nil {
+									if !HashPolicyItem.Cookie.SamesiteLax.IsNull() && !HashPolicyItem.Cookie.SamesiteLax.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["samesite_lax"] = map[string]interface{}{}
 									}
-									if HashPolicyItem.Cookie.SamesiteNone != nil {
+									if !HashPolicyItem.Cookie.SamesiteNone.IsNull() && !HashPolicyItem.Cookie.SamesiteNone.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["samesite_none"] = map[string]interface{}{}
 									}
-									if HashPolicyItem.Cookie.SamesiteStrict != nil {
+									if !HashPolicyItem.Cookie.SamesiteStrict.IsNull() && !HashPolicyItem.Cookie.SamesiteStrict.IsUnknown() {
 										RoutesRouteDestinationHashPolicyCookieMap["samesite_strict"] = map[string]interface{}{}
 									}
 									if !HashPolicyItem.Cookie.TTL.IsNull() && !HashPolicyItem.Cookie.TTL.IsUnknown() {
@@ -7716,13 +7794,13 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					}
 					if RoutesItem.RouteDestination.QueryParams != nil {
 						RoutesRouteDestinationQueryParamsMap := make(map[string]interface{})
-						if RoutesItem.RouteDestination.QueryParams.RemoveAllParams != nil {
+						if !RoutesItem.RouteDestination.QueryParams.RemoveAllParams.IsNull() && !RoutesItem.RouteDestination.QueryParams.RemoveAllParams.IsUnknown() {
 							RoutesRouteDestinationQueryParamsMap["remove_all_params"] = map[string]interface{}{}
 						}
 						if !RoutesItem.RouteDestination.QueryParams.ReplaceParams.IsNull() && !RoutesItem.RouteDestination.QueryParams.ReplaceParams.IsUnknown() {
 							RoutesRouteDestinationQueryParamsMap["replace_params"] = RoutesItem.RouteDestination.QueryParams.ReplaceParams.ValueString()
 						}
-						if RoutesItem.RouteDestination.QueryParams.RetainAllParams != nil {
+						if !RoutesItem.RouteDestination.QueryParams.RetainAllParams.IsNull() && !RoutesItem.RouteDestination.QueryParams.RetainAllParams.IsUnknown() {
 							RoutesRouteDestinationQueryParamsMap["retain_all_params"] = map[string]interface{}{}
 						}
 						RoutesRouteDestinationMap["query_params"] = RoutesRouteDestinationQueryParamsMap
@@ -7737,7 +7815,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						RoutesRouteDestinationMap["regex_rewrite"] = RoutesRouteDestinationRegexRewriteMap
 					}
-					if RoutesItem.RouteDestination.RetractCluster != nil {
+					if !RoutesItem.RouteDestination.RetractCluster.IsNull() && !RoutesItem.RouteDestination.RetractCluster.IsUnknown() {
 						RoutesRouteDestinationMap["retract_cluster"] = map[string]interface{}{}
 					}
 					if RoutesItem.RouteDestination.RetryPolicy != nil {
@@ -7819,7 +7897,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					if !RoutesItem.RouteRedirect.ProtoRedirect.IsNull() && !RoutesItem.RouteRedirect.ProtoRedirect.IsUnknown() {
 						RoutesRouteRedirectMap["proto_redirect"] = RoutesItem.RouteRedirect.ProtoRedirect.ValueString()
 					}
-					if RoutesItem.RouteRedirect.RemoveAllParams != nil {
+					if !RoutesItem.RouteRedirect.RemoveAllParams.IsNull() && !RoutesItem.RouteRedirect.RemoveAllParams.IsUnknown() {
 						RoutesRouteRedirectMap["remove_all_params"] = map[string]interface{}{}
 					}
 					if !RoutesItem.RouteRedirect.ReplaceParams.IsNull() && !RoutesItem.RouteRedirect.ReplaceParams.IsUnknown() {
@@ -7828,7 +7906,7 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 					if !RoutesItem.RouteRedirect.ResponseCode.IsNull() && !RoutesItem.RouteRedirect.ResponseCode.IsUnknown() {
 						RoutesRouteRedirectMap["response_code"] = RoutesItem.RouteRedirect.ResponseCode.ValueInt64()
 					}
-					if RoutesItem.RouteRedirect.RetainAllParams != nil {
+					if !RoutesItem.RouteRedirect.RetainAllParams.IsNull() && !RoutesItem.RouteRedirect.RetainAllParams.IsUnknown() {
 						RoutesRouteRedirectMap["retain_all_params"] = map[string]interface{}{}
 					}
 					RoutesItemMap["route_redirect"] = RoutesRouteRedirectMap
@@ -7875,10 +7953,10 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						RoutesWAFTypeMap["app_firewall"] = RoutesWAFTypeAppFirewallMap
 					}
-					if RoutesItem.WAFType.DisableWAF != nil {
+					if !RoutesItem.WAFType.DisableWAF.IsNull() && !RoutesItem.WAFType.DisableWAF.IsUnknown() {
 						RoutesWAFTypeMap["disable_waf"] = map[string]interface{}{}
 					}
-					if RoutesItem.WAFType.InheritWAF != nil {
+					if !RoutesItem.WAFType.InheritWAF.IsNull() && !RoutesItem.WAFType.InheritWAF.IsUnknown() {
 						RoutesWAFTypeMap["inherit_waf"] = map[string]interface{}{}
 					}
 					RoutesItemMap["waf_type"] = RoutesWAFTypeMap
@@ -8040,23 +8118,23 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						return types.BoolNull()
 					}(),
-					InheritedBotDefenseJavascriptInjection: func() *RouteEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					InheritedBotDefenseJavascriptInjection: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection.IsUnknown() {
 							return existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection
 						}
 						if _, ok := itemMap["inherited_bot_defense_javascript_injection"].(map[string]interface{}); ok {
-							return &RouteEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					InheritedWAFExclusion: func() *RouteEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					InheritedWAFExclusion: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].InheritedWAFExclusion.IsUnknown() {
 							return existingRoutesItems[listIdx].InheritedWAFExclusion
 						}
 						if _, ok := itemMap["inherited_waf_exclusion"].(map[string]interface{}); ok {
-							return &RouteEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Match: func() types.List {
 						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].Match.IsNull() || len(existingRoutesItems[listIdx].Match.Elements()) == 0) {
@@ -8133,14 +8211,14 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										IncomingPort: func() *RouteRoutesMatchIncomingPortModel {
 											if IncomingPortData, ok := MatchItemMap["incoming_port"].(map[string]interface{}); ok {
 												return &RouteRoutesMatchIncomingPortModel{
-													NoPortMatch: func() *RouteEmptyModel {
-														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil {
+													NoPortMatch: func() types.Object {
+														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil && !MatchExisting[MatchIdx].IncomingPort.NoPortMatch.IsUnknown() {
 															return MatchExisting[MatchIdx].IncomingPort.NoPortMatch
 														}
 														if _, ok := IncomingPortData["no_port_match"].(map[string]interface{}); ok {
-															return &RouteEmptyModel{}
+															return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 														}
-														return nil
+														return types.ObjectNull(map[string]attr.Type{})
 													}(),
 													Port: func() types.Int64 {
 														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil && !MatchExisting[MatchIdx].IncomingPort.Port.IsUnknown() {
@@ -8482,23 +8560,23 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											}
 											return types.StringNull()
 										}(),
-										AddHttponly: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										AddHttponly: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 											}
 											if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										AddPartitioned: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										AddPartitioned: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 											}
 											if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 										AddPath: func() types.String {
 											if v, ok := ResponseCookiesToAddItemMap["add_path"].(string); ok && v != "" {
@@ -8506,95 +8584,95 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											}
 											return types.StringNull()
 										}(),
-										AddSecure: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										AddSecure: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 											}
 											if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreDomain: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreDomain: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreExpiry: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreExpiry: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreHttponly: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreHttponly: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreMaxAge: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreMaxAge: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnorePartitioned: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnorePartitioned: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnorePath: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnorePath: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreSamesite: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreSamesite: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreSecure: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreSecure: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										IgnoreValue: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										IgnoreValue: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 										MaxAgeValue: func() types.Int64 {
 											if v, ok := ResponseCookiesToAddItemMap["max_age_value"].(float64); ok && v != 0 {
@@ -8614,32 +8692,32 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											}
 											return types.BoolNull()
 										}(),
-										SamesiteLax: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										SamesiteLax: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										SamesiteNone: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										SamesiteNone: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
-										SamesiteStrict: func() *RouteEmptyModel {
-											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+										SamesiteStrict: func() types.Object {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && !ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict.IsUnknown() {
 												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
-												return &RouteEmptyModel{}
+												return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 											}
-											return nil
+											return types.ObjectNull(map[string]attr.Type{})
 										}(),
 										SecretValue: func() *RouteRoutesResponseCookiesToAddSecretValueModel {
 											if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
@@ -8966,14 +9044,14 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									if CSRFPolicyData, ok := RouteDestinationData["csrf_policy"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationCSRFPolicyModel{
-											AllLoadBalancerDomains: func() *RouteEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+											AllLoadBalancerDomains: func() types.Object {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.AllLoadBalancerDomains.IsUnknown() {
 													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.AllLoadBalancerDomains
 												}
 												if _, ok := CSRFPolicyData["all_load_balancer_domains"].(map[string]interface{}); ok {
-													return &RouteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											CustomDomainList: func() *RouteRoutesRouteDestinationCSRFPolicyCustomDomainListModel {
 												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.CustomDomainList != nil {
@@ -8999,14 +9077,14 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												}
 												return nil
 											}(),
-											Disabled: func() *RouteEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil {
+											Disabled: func() types.Object {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.CSRFPolicy != nil && !existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.Disabled.IsUnknown() {
 													return existingRoutesItems[listIdx].RouteDestination.CSRFPolicy.Disabled
 												}
 												if _, ok := CSRFPolicyData["disabled"].(map[string]interface{}); ok {
-													return &RouteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										}
 									}
@@ -9107,14 +9185,14 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsModelAttrTypes})
 								}(),
-								DoNotRetractCluster: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+								DoNotRetractCluster: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.DoNotRetractCluster.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteDestination.DoNotRetractCluster
 									}
 									if _, ok := RouteDestinationData["do_not_retract_cluster"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								EndpointSubsets: func() *RouteEmptyModel {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
@@ -9142,50 +9220,50 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 													Cookie: func() *RouteRoutesRouteDestinationHashPolicyCookieModel {
 														if CookieData, ok := HashPolicyItemMap["cookie"].(map[string]interface{}); ok {
 															return &RouteRoutesRouteDestinationHashPolicyCookieModel{
-																AddHttponly: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																AddHttponly: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.AddHttponly.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.AddHttponly
 																	}
 																	if _, ok := CookieData["add_httponly"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																AddSecure: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																AddSecure: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.AddSecure.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.AddSecure
 																	}
 																	if _, ok := CookieData["add_secure"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																IgnoreHttponly: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																IgnoreHttponly: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreHttponly.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreHttponly
 																	}
 																	if _, ok := CookieData["ignore_httponly"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																IgnoreSamesite: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																IgnoreSamesite: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSamesite.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSamesite
 																	}
 																	if _, ok := CookieData["ignore_samesite"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																IgnoreSecure: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																IgnoreSecure: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSecure.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.IgnoreSecure
 																	}
 																	if _, ok := CookieData["ignore_secure"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Name: func() types.String {
 																	if v, ok := CookieData["name"].(string); ok && v != "" {
@@ -9199,32 +9277,32 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																	}
 																	return types.StringNull()
 																}(),
-																SamesiteLax: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																SamesiteLax: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteLax.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteLax
 																	}
 																	if _, ok := CookieData["samesite_lax"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																SamesiteNone: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																SamesiteNone: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteNone.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteNone
 																	}
 																	if _, ok := CookieData["samesite_none"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
-																SamesiteStrict: func() *RouteEmptyModel {
-																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil {
+																SamesiteStrict: func() types.Object {
+																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteStrict.IsUnknown() {
 																		return HashPolicyExisting[HashPolicyIdx].Cookie.SamesiteStrict
 																	}
 																	if _, ok := CookieData["samesite_strict"].(map[string]interface{}); ok {
-																		return &RouteEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																TTL: func() types.Int64 {
 																	if !isImport && len(HashPolicyExisting) > HashPolicyIdx && HashPolicyExisting[HashPolicyIdx].Cookie != nil && !HashPolicyExisting[HashPolicyIdx].Cookie.TTL.IsUnknown() {
@@ -9373,14 +9451,14 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									if QueryParamsData, ok := RouteDestinationData["query_params"].(map[string]interface{}); ok {
 										return &RouteRoutesRouteDestinationQueryParamsModel{
-											RemoveAllParams: func() *RouteEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+											RemoveAllParams: func() types.Object {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil && !existingRoutesItems[listIdx].RouteDestination.QueryParams.RemoveAllParams.IsUnknown() {
 													return existingRoutesItems[listIdx].RouteDestination.QueryParams.RemoveAllParams
 												}
 												if _, ok := QueryParamsData["remove_all_params"].(map[string]interface{}); ok {
-													return &RouteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											ReplaceParams: func() types.String {
 												if v, ok := QueryParamsData["replace_params"].(string); ok && v != "" {
@@ -9388,14 +9466,14 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												}
 												return types.StringNull()
 											}(),
-											RetainAllParams: func() *RouteEmptyModel {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil {
+											RetainAllParams: func() types.Object {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.QueryParams != nil && !existingRoutesItems[listIdx].RouteDestination.QueryParams.RetainAllParams.IsUnknown() {
 													return existingRoutesItems[listIdx].RouteDestination.QueryParams.RetainAllParams
 												}
 												if _, ok := QueryParamsData["retain_all_params"].(map[string]interface{}); ok {
-													return &RouteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										}
 									}
@@ -9423,14 +9501,14 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return nil
 								}(),
-								RetractCluster: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil {
+								RetractCluster: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && !existingRoutesItems[listIdx].RouteDestination.RetractCluster.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteDestination.RetractCluster
 									}
 									if _, ok := RouteDestinationData["retract_cluster"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								RetryPolicy: func() *RouteRoutesRouteDestinationRetryPolicyModel {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteDestination != nil && existingRoutesItems[listIdx].RouteDestination.RetryPolicy != nil {
@@ -9616,14 +9694,14 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return types.StringNull()
 								}(),
-								RemoveAllParams: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil {
+								RemoveAllParams: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && !existingRoutesItems[listIdx].RouteRedirect.RemoveAllParams.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteRedirect.RemoveAllParams
 									}
 									if _, ok := RouteRedirectData["remove_all_params"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ReplaceParams: func() types.String {
 									if v, ok := RouteRedirectData["replace_params"].(string); ok && v != "" {
@@ -9640,14 +9718,14 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return types.Int64Null()
 								}(),
-								RetainAllParams: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil {
+								RetainAllParams: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].RouteRedirect != nil && !existingRoutesItems[listIdx].RouteRedirect.RetainAllParams.IsUnknown() {
 										return existingRoutesItems[listIdx].RouteRedirect.RetainAllParams
 									}
 									if _, ok := RouteRedirectData["retain_all_params"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}
@@ -9756,23 +9834,23 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return nil
 								}(),
-								DisableWAF: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil {
+								DisableWAF: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && !existingRoutesItems[listIdx].WAFType.DisableWAF.IsUnknown() {
 										return existingRoutesItems[listIdx].WAFType.DisableWAF
 									}
 									if _, ok := WAFTypeData["disable_waf"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								InheritWAF: func() *RouteEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil {
+								InheritWAF: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].WAFType != nil && !existingRoutesItems[listIdx].WAFType.InheritWAF.IsUnknown() {
 										return existingRoutesItems[listIdx].WAFType.InheritWAF
 									}
 									if _, ok := WAFTypeData["inherit_waf"].(map[string]interface{}); ok {
-										return &RouteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}

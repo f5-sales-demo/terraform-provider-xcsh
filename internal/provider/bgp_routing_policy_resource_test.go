@@ -75,7 +75,7 @@ resource "xcsh_bgp_routing_policy" "test" {
       as_path = ".*"
     }
     action {
-      allow {}
+      allow = {}
     }
   }
 }

@@ -44,9 +44,9 @@ resource "xcsh_network_firewall" "test" {
   name      = %[1]q
   namespace = "system"
 
-  disable_network_policy {}
-  disable_fast_acl {}
-  disable_forward_proxy_policy {}
+  disable_network_policy = {}
+  disable_fast_acl = {}
+  disable_forward_proxy_policy = {}
 }
 
 data "xcsh_network_firewall" "test" {

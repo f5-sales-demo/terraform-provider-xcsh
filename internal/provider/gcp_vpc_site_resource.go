@@ -103,16 +103,16 @@ var GCPVPCSiteBlockedServicesModelAttrTypes = map[string]attr.Type{
 
 // GCPVPCSiteBlockedServicesBlockedServiceModel represents blocked_service block
 type GCPVPCSiteBlockedServicesBlockedServiceModel struct {
-	NetworkType      types.String          `tfsdk:"network_type"`
-	DNS              *GCPVPCSiteEmptyModel `tfsdk:"dns"`
-	SSH              *GCPVPCSiteEmptyModel `tfsdk:"ssh"`
-	WebUserInterface *GCPVPCSiteEmptyModel `tfsdk:"web_user_interface"`
+	DNS              types.Object `tfsdk:"dns"`
+	NetworkType      types.String `tfsdk:"network_type"`
+	SSH              types.Object `tfsdk:"ssh"`
+	WebUserInterface types.Object `tfsdk:"web_user_interface"`
 }
 
 // GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes defines the attribute types for GCPVPCSiteBlockedServicesBlockedServiceModel
 var GCPVPCSiteBlockedServicesBlockedServiceModelAttrTypes = map[string]attr.Type{
-	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"network_type":       types.StringType,
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"web_user_interface": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -169,60 +169,60 @@ var GCPVPCSiteEnableEncryptionModelAttrTypes = map[string]attr.Type{
 
 // GCPVPCSiteIngressEgressGwModel represents ingress_egress_gw block
 type GCPVPCSiteIngressEgressGwModel struct {
+	ForwardProxyAllowAll           types.Object                                                  `tfsdk:"forward_proxy_allow_all"`
 	GCPCertifiedHw                 types.String                                                  `tfsdk:"gcp_certified_hw"`
 	GCPZoneNames                   types.List                                                    `tfsdk:"gcp_zone_names"`
+	NoDcClusterGroup               types.Object                                                  `tfsdk:"no_dc_cluster_group"`
+	NoForwardProxy                 types.Object                                                  `tfsdk:"no_forward_proxy"`
+	NoGlobalNetwork                types.Object                                                  `tfsdk:"no_global_network"`
+	NoInsideStaticRoutes           types.Object                                                  `tfsdk:"no_inside_static_routes"`
+	NoNetworkPolicy                types.Object                                                  `tfsdk:"no_network_policy"`
+	NoOutsideStaticRoutes          types.Object                                                  `tfsdk:"no_outside_static_routes"`
 	NodeNumber                     types.Int64                                                   `tfsdk:"node_number"`
+	SmConnectionPublicIP           types.Object                                                  `tfsdk:"sm_connection_public_ip"`
+	SmConnectionPvtIP              types.Object                                                  `tfsdk:"sm_connection_pvt_ip"`
 	ActiveEnhancedFirewallPolicies *GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel `tfsdk:"active_enhanced_firewall_policies"`
 	ActiveForwardProxyPolicies     *GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesModel     `tfsdk:"active_forward_proxy_policies"`
 	ActiveNetworkPolicies          *GCPVPCSiteIngressEgressGwActiveNetworkPoliciesModel          `tfsdk:"active_network_policies"`
 	DcClusterGroupInsideVn         *GCPVPCSiteIngressEgressGwDcClusterGroupInsideVnModel         `tfsdk:"dc_cluster_group_inside_vn"`
 	DcClusterGroupOutsideVn        *GCPVPCSiteIngressEgressGwDcClusterGroupOutsideVnModel        `tfsdk:"dc_cluster_group_outside_vn"`
-	ForwardProxyAllowAll           *GCPVPCSiteEmptyModel                                         `tfsdk:"forward_proxy_allow_all"`
 	GlobalNetworkList              *GCPVPCSiteIngressEgressGwGlobalNetworkListModel              `tfsdk:"global_network_list"`
 	InsideNetwork                  *GCPVPCSiteIngressEgressGwInsideNetworkModel                  `tfsdk:"inside_network"`
 	InsideStaticRoutes             *GCPVPCSiteIngressEgressGwInsideStaticRoutesModel             `tfsdk:"inside_static_routes"`
 	InsideSubnet                   *GCPVPCSiteIngressEgressGwInsideSubnetModel                   `tfsdk:"inside_subnet"`
-	NoDcClusterGroup               *GCPVPCSiteEmptyModel                                         `tfsdk:"no_dc_cluster_group"`
-	NoForwardProxy                 *GCPVPCSiteEmptyModel                                         `tfsdk:"no_forward_proxy"`
-	NoGlobalNetwork                *GCPVPCSiteEmptyModel                                         `tfsdk:"no_global_network"`
-	NoInsideStaticRoutes           *GCPVPCSiteEmptyModel                                         `tfsdk:"no_inside_static_routes"`
-	NoNetworkPolicy                *GCPVPCSiteEmptyModel                                         `tfsdk:"no_network_policy"`
-	NoOutsideStaticRoutes          *GCPVPCSiteEmptyModel                                         `tfsdk:"no_outside_static_routes"`
 	OutsideNetwork                 *GCPVPCSiteIngressEgressGwOutsideNetworkModel                 `tfsdk:"outside_network"`
 	OutsideStaticRoutes            *GCPVPCSiteIngressEgressGwOutsideStaticRoutesModel            `tfsdk:"outside_static_routes"`
 	OutsideSubnet                  *GCPVPCSiteIngressEgressGwOutsideSubnetModel                  `tfsdk:"outside_subnet"`
 	PerformanceEnhancementMode     *GCPVPCSiteIngressEgressGwPerformanceEnhancementModeModel     `tfsdk:"performance_enhancement_mode"`
-	SmConnectionPublicIP           *GCPVPCSiteEmptyModel                                         `tfsdk:"sm_connection_public_ip"`
-	SmConnectionPvtIP              *GCPVPCSiteEmptyModel                                         `tfsdk:"sm_connection_pvt_ip"`
 }
 
 // GCPVPCSiteIngressEgressGwModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwModel
 var GCPVPCSiteIngressEgressGwModelAttrTypes = map[string]attr.Type{
+	"forward_proxy_allow_all":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"gcp_certified_hw":                  types.StringType,
 	"gcp_zone_names":                    types.ListType{ElemType: types.StringType},
-	"node_number":                       types.Int64Type,
-	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModelAttrTypes},
-	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesModelAttrTypes},
-	"active_network_policies":           types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveNetworkPoliciesModelAttrTypes},
-	"dc_cluster_group_inside_vn":        types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwDcClusterGroupInsideVnModelAttrTypes},
-	"dc_cluster_group_outside_vn":       types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwDcClusterGroupOutsideVnModelAttrTypes},
-	"forward_proxy_allow_all":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"global_network_list":               types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwGlobalNetworkListModelAttrTypes},
-	"inside_network":                    types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideNetworkModelAttrTypes},
-	"inside_static_routes":              types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesModelAttrTypes},
-	"inside_subnet":                     types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideSubnetModelAttrTypes},
 	"no_dc_cluster_group":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_forward_proxy":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_global_network":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_inside_static_routes":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_network_policy":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_outside_static_routes":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"node_number":                       types.Int64Type,
+	"sm_connection_public_ip":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"sm_connection_pvt_ip":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModelAttrTypes},
+	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesModelAttrTypes},
+	"active_network_policies":           types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwActiveNetworkPoliciesModelAttrTypes},
+	"dc_cluster_group_inside_vn":        types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwDcClusterGroupInsideVnModelAttrTypes},
+	"dc_cluster_group_outside_vn":       types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwDcClusterGroupOutsideVnModelAttrTypes},
+	"global_network_list":               types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwGlobalNetworkListModelAttrTypes},
+	"inside_network":                    types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideNetworkModelAttrTypes},
+	"inside_static_routes":              types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideStaticRoutesModelAttrTypes},
+	"inside_subnet":                     types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideSubnetModelAttrTypes},
 	"outside_network":                   types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideNetworkModelAttrTypes},
 	"outside_static_routes":             types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideStaticRoutesModelAttrTypes},
 	"outside_subnet":                    types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideSubnetModelAttrTypes},
 	"performance_enhancement_mode":      types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwPerformanceEnhancementModeModelAttrTypes},
-	"sm_connection_public_ip":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"sm_connection_pvt_ip":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel represents active_enhanced_firewall_policies block
@@ -397,16 +397,16 @@ var GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGloba
 
 // GCPVPCSiteIngressEgressGwInsideNetworkModel represents inside_network block
 type GCPVPCSiteIngressEgressGwInsideNetworkModel struct {
+	NewNetworkAutogenerate types.Object                                                `tfsdk:"new_network_autogenerate"`
 	ExistingNetwork        *GCPVPCSiteIngressEgressGwInsideNetworkExistingNetworkModel `tfsdk:"existing_network"`
 	NewNetwork             *GCPVPCSiteIngressEgressGwInsideNetworkNewNetworkModel      `tfsdk:"new_network"`
-	NewNetworkAutogenerate *GCPVPCSiteEmptyModel                                       `tfsdk:"new_network_autogenerate"`
 }
 
 // GCPVPCSiteIngressEgressGwInsideNetworkModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwInsideNetworkModel
 var GCPVPCSiteIngressEgressGwInsideNetworkModelAttrTypes = map[string]attr.Type{
+	"new_network_autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"existing_network":         types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideNetworkExistingNetworkModelAttrTypes},
 	"new_network":              types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwInsideNetworkNewNetworkModelAttrTypes},
-	"new_network_autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // GCPVPCSiteIngressEgressGwInsideNetworkExistingNetworkModel represents existing_network block
@@ -603,16 +603,16 @@ var GCPVPCSiteIngressEgressGwInsideSubnetNewSubnetModelAttrTypes = map[string]at
 
 // GCPVPCSiteIngressEgressGwOutsideNetworkModel represents outside_network block
 type GCPVPCSiteIngressEgressGwOutsideNetworkModel struct {
+	NewNetworkAutogenerate types.Object                                                 `tfsdk:"new_network_autogenerate"`
 	ExistingNetwork        *GCPVPCSiteIngressEgressGwOutsideNetworkExistingNetworkModel `tfsdk:"existing_network"`
 	NewNetwork             *GCPVPCSiteIngressEgressGwOutsideNetworkNewNetworkModel      `tfsdk:"new_network"`
-	NewNetworkAutogenerate *GCPVPCSiteEmptyModel                                        `tfsdk:"new_network_autogenerate"`
 }
 
 // GCPVPCSiteIngressEgressGwOutsideNetworkModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwOutsideNetworkModel
 var GCPVPCSiteIngressEgressGwOutsideNetworkModelAttrTypes = map[string]attr.Type{
+	"new_network_autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"existing_network":         types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideNetworkExistingNetworkModelAttrTypes},
 	"new_network":              types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwOutsideNetworkNewNetworkModelAttrTypes},
-	"new_network_autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // GCPVPCSiteIngressEgressGwOutsideNetworkExistingNetworkModel represents existing_network block
@@ -821,8 +821,8 @@ var GCPVPCSiteIngressEgressGwPerformanceEnhancementModeModelAttrTypes = map[stri
 
 // GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
 type GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *GCPVPCSiteEmptyModel `tfsdk:"jumbo"`
-	NoJumbo *GCPVPCSiteEmptyModel `tfsdk:"no_jumbo"`
+	Jumbo   types.Object `tfsdk:"jumbo"`
+	NoJumbo types.Object `tfsdk:"no_jumbo"`
 }
 
 // GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel
@@ -833,8 +833,8 @@ var GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModelAt
 
 // GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
 type GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *GCPVPCSiteEmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *GCPVPCSiteEmptyModel `tfsdk:"jumbo_enabled"`
+	JumboDisabled types.Object `tfsdk:"jumbo_disabled"`
+	JumboEnabled  types.Object `tfsdk:"jumbo_enabled"`
 }
 
 // GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel
@@ -865,16 +865,16 @@ var GCPVPCSiteIngressGwModelAttrTypes = map[string]attr.Type{
 
 // GCPVPCSiteIngressGwLocalNetworkModel represents local_network block
 type GCPVPCSiteIngressGwLocalNetworkModel struct {
+	NewNetworkAutogenerate types.Object                                         `tfsdk:"new_network_autogenerate"`
 	ExistingNetwork        *GCPVPCSiteIngressGwLocalNetworkExistingNetworkModel `tfsdk:"existing_network"`
 	NewNetwork             *GCPVPCSiteIngressGwLocalNetworkNewNetworkModel      `tfsdk:"new_network"`
-	NewNetworkAutogenerate *GCPVPCSiteEmptyModel                                `tfsdk:"new_network_autogenerate"`
 }
 
 // GCPVPCSiteIngressGwLocalNetworkModelAttrTypes defines the attribute types for GCPVPCSiteIngressGwLocalNetworkModel
 var GCPVPCSiteIngressGwLocalNetworkModelAttrTypes = map[string]attr.Type{
+	"new_network_autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"existing_network":         types.ObjectType{AttrTypes: GCPVPCSiteIngressGwLocalNetworkExistingNetworkModelAttrTypes},
 	"new_network":              types.ObjectType{AttrTypes: GCPVPCSiteIngressGwLocalNetworkNewNetworkModelAttrTypes},
-	"new_network_autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // GCPVPCSiteIngressGwLocalNetworkExistingNetworkModel represents existing_network block
@@ -945,8 +945,8 @@ var GCPVPCSiteIngressGwPerformanceEnhancementModeModelAttrTypes = map[string]att
 
 // GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
 type GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *GCPVPCSiteEmptyModel `tfsdk:"jumbo"`
-	NoJumbo *GCPVPCSiteEmptyModel `tfsdk:"no_jumbo"`
+	Jumbo   types.Object `tfsdk:"jumbo"`
+	NoJumbo types.Object `tfsdk:"no_jumbo"`
 }
 
 // GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel
@@ -957,8 +957,8 @@ var GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrType
 
 // GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
 type GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *GCPVPCSiteEmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *GCPVPCSiteEmptyModel `tfsdk:"jumbo_enabled"`
+	JumboDisabled types.Object `tfsdk:"jumbo_disabled"`
+	JumboEnabled  types.Object `tfsdk:"jumbo_enabled"`
 }
 
 // GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel
@@ -969,7 +969,7 @@ var GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrType
 
 // GCPVPCSiteKubernetesUpgradeDrainModel represents kubernetes_upgrade_drain block
 type GCPVPCSiteKubernetesUpgradeDrainModel struct {
-	DisableUpgradeDrain *GCPVPCSiteEmptyModel                                    `tfsdk:"disable_upgrade_drain"`
+	DisableUpgradeDrain types.Object                                             `tfsdk:"disable_upgrade_drain"`
 	EnableUpgradeDrain  *GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel `tfsdk:"enable_upgrade_drain"`
 }
 
@@ -981,18 +981,20 @@ var GCPVPCSiteKubernetesUpgradeDrainModelAttrTypes = map[string]attr.Type{
 
 // GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel represents enable_upgrade_drain block
 type GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel struct {
-	DrainMaxUnavailableNodeCount types.Int64           `tfsdk:"drain_max_unavailable_node_count"`
-	DrainNodeTimeout             types.Int64           `tfsdk:"drain_node_timeout"`
-	DisableVegaUpgradeMode       *GCPVPCSiteEmptyModel `tfsdk:"disable_vega_upgrade_mode"`
-	EnableVegaUpgradeMode        *GCPVPCSiteEmptyModel `tfsdk:"enable_vega_upgrade_mode"`
+	DisableVegaUpgradeMode            types.Object `tfsdk:"disable_vega_upgrade_mode"`
+	DrainMaxUnavailableNodeCount      types.Int64  `tfsdk:"drain_max_unavailable_node_count"`
+	DrainMaxUnavailableNodePercentage types.Int64  `tfsdk:"drain_max_unavailable_node_percentage"`
+	DrainNodeTimeout                  types.Int64  `tfsdk:"drain_node_timeout"`
+	EnableVegaUpgradeMode             types.Object `tfsdk:"enable_vega_upgrade_mode"`
 }
 
 // GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes defines the attribute types for GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel
 var GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes = map[string]attr.Type{
-	"drain_max_unavailable_node_count": types.Int64Type,
-	"drain_node_timeout":               types.Int64Type,
-	"disable_vega_upgrade_mode":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable_vega_upgrade_mode":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disable_vega_upgrade_mode":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"drain_max_unavailable_node_count":      types.Int64Type,
+	"drain_max_unavailable_node_percentage": types.Int64Type,
+	"drain_node_timeout":                    types.Int64Type,
+	"enable_vega_upgrade_mode":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // GCPVPCSiteLogReceiverModel represents log_receiver block
@@ -1011,8 +1013,8 @@ var GCPVPCSiteLogReceiverModelAttrTypes = map[string]attr.Type{
 
 // GCPVPCSiteOfflineSurvivabilityModeModel represents offline_survivability_mode block
 type GCPVPCSiteOfflineSurvivabilityModeModel struct {
-	EnableOfflineSurvivabilityMode *GCPVPCSiteEmptyModel `tfsdk:"enable_offline_survivability_mode"`
-	NoOfflineSurvivabilityMode     *GCPVPCSiteEmptyModel `tfsdk:"no_offline_survivability_mode"`
+	EnableOfflineSurvivabilityMode types.Object `tfsdk:"enable_offline_survivability_mode"`
+	NoOfflineSurvivabilityMode     types.Object `tfsdk:"no_offline_survivability_mode"`
 }
 
 // GCPVPCSiteOfflineSurvivabilityModeModelAttrTypes defines the attribute types for GCPVPCSiteOfflineSurvivabilityModeModel
@@ -1023,28 +1025,28 @@ var GCPVPCSiteOfflineSurvivabilityModeModelAttrTypes = map[string]attr.Type{
 
 // GCPVPCSiteOSModel represents os block
 type GCPVPCSiteOSModel struct {
-	OperatingSystemVersion types.String          `tfsdk:"operating_system_version"`
-	DefaultOSVersion       *GCPVPCSiteEmptyModel `tfsdk:"default_os_version"`
+	DefaultOSVersion       types.Object `tfsdk:"default_os_version"`
+	OperatingSystemVersion types.String `tfsdk:"operating_system_version"`
 }
 
 // GCPVPCSiteOSModelAttrTypes defines the attribute types for GCPVPCSiteOSModel
 var GCPVPCSiteOSModelAttrTypes = map[string]attr.Type{
-	"operating_system_version": types.StringType,
 	"default_os_version":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"operating_system_version": types.StringType,
 }
 
 // GCPVPCSitePrivateConnectivityModel represents private_connectivity block
 type GCPVPCSitePrivateConnectivityModel struct {
+	Inside    types.Object                                 `tfsdk:"inside"`
+	Outside   types.Object                                 `tfsdk:"outside"`
 	CloudLink *GCPVPCSitePrivateConnectivityCloudLinkModel `tfsdk:"cloud_link"`
-	Inside    *GCPVPCSiteEmptyModel                        `tfsdk:"inside"`
-	Outside   *GCPVPCSiteEmptyModel                        `tfsdk:"outside"`
 }
 
 // GCPVPCSitePrivateConnectivityModelAttrTypes defines the attribute types for GCPVPCSitePrivateConnectivityModel
 var GCPVPCSitePrivateConnectivityModelAttrTypes = map[string]attr.Type{
-	"cloud_link": types.ObjectType{AttrTypes: GCPVPCSitePrivateConnectivityCloudLinkModelAttrTypes},
 	"inside":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"outside":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"cloud_link": types.ObjectType{AttrTypes: GCPVPCSitePrivateConnectivityCloudLinkModelAttrTypes},
 }
 
 // GCPVPCSitePrivateConnectivityCloudLinkModel represents cloud_link block
@@ -1063,67 +1065,67 @@ var GCPVPCSitePrivateConnectivityCloudLinkModelAttrTypes = map[string]attr.Type{
 
 // GCPVPCSiteSwModel represents sw block
 type GCPVPCSiteSwModel struct {
-	VolterraSoftwareVersion types.String          `tfsdk:"volterra_software_version"`
-	DefaultSwVersion        *GCPVPCSiteEmptyModel `tfsdk:"default_sw_version"`
+	DefaultSwVersion        types.Object `tfsdk:"default_sw_version"`
+	VolterraSoftwareVersion types.String `tfsdk:"volterra_software_version"`
 }
 
 // GCPVPCSiteSwModelAttrTypes defines the attribute types for GCPVPCSiteSwModel
 var GCPVPCSiteSwModelAttrTypes = map[string]attr.Type{
-	"volterra_software_version": types.StringType,
 	"default_sw_version":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"volterra_software_version": types.StringType,
 }
 
 // GCPVPCSiteVoltstackClusterModel represents voltstack_cluster block
 type GCPVPCSiteVoltstackClusterModel struct {
+	DefaultStorage                 types.Object                                                   `tfsdk:"default_storage"`
+	ForwardProxyAllowAll           types.Object                                                   `tfsdk:"forward_proxy_allow_all"`
 	GCPCertifiedHw                 types.String                                                   `tfsdk:"gcp_certified_hw"`
 	GCPZoneNames                   types.List                                                     `tfsdk:"gcp_zone_names"`
+	NoDcClusterGroup               types.Object                                                   `tfsdk:"no_dc_cluster_group"`
+	NoForwardProxy                 types.Object                                                   `tfsdk:"no_forward_proxy"`
+	NoGlobalNetwork                types.Object                                                   `tfsdk:"no_global_network"`
+	NoK8SCluster                   types.Object                                                   `tfsdk:"no_k8s_cluster"`
+	NoNetworkPolicy                types.Object                                                   `tfsdk:"no_network_policy"`
+	NoOutsideStaticRoutes          types.Object                                                   `tfsdk:"no_outside_static_routes"`
 	NodeNumber                     types.Int64                                                    `tfsdk:"node_number"`
+	SmConnectionPublicIP           types.Object                                                   `tfsdk:"sm_connection_public_ip"`
+	SmConnectionPvtIP              types.Object                                                   `tfsdk:"sm_connection_pvt_ip"`
 	ActiveEnhancedFirewallPolicies *GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel `tfsdk:"active_enhanced_firewall_policies"`
 	ActiveForwardProxyPolicies     *GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesModel     `tfsdk:"active_forward_proxy_policies"`
 	ActiveNetworkPolicies          *GCPVPCSiteVoltstackClusterActiveNetworkPoliciesModel          `tfsdk:"active_network_policies"`
 	DcClusterGroup                 *GCPVPCSiteVoltstackClusterDcClusterGroupModel                 `tfsdk:"dc_cluster_group"`
-	DefaultStorage                 *GCPVPCSiteEmptyModel                                          `tfsdk:"default_storage"`
-	ForwardProxyAllowAll           *GCPVPCSiteEmptyModel                                          `tfsdk:"forward_proxy_allow_all"`
 	GlobalNetworkList              *GCPVPCSiteVoltstackClusterGlobalNetworkListModel              `tfsdk:"global_network_list"`
 	K8SCluster                     *GCPVPCSiteVoltstackClusterK8SClusterModel                     `tfsdk:"k8s_cluster"`
-	NoDcClusterGroup               *GCPVPCSiteEmptyModel                                          `tfsdk:"no_dc_cluster_group"`
-	NoForwardProxy                 *GCPVPCSiteEmptyModel                                          `tfsdk:"no_forward_proxy"`
-	NoGlobalNetwork                *GCPVPCSiteEmptyModel                                          `tfsdk:"no_global_network"`
-	NoK8SCluster                   *GCPVPCSiteEmptyModel                                          `tfsdk:"no_k8s_cluster"`
-	NoNetworkPolicy                *GCPVPCSiteEmptyModel                                          `tfsdk:"no_network_policy"`
-	NoOutsideStaticRoutes          *GCPVPCSiteEmptyModel                                          `tfsdk:"no_outside_static_routes"`
 	OutsideStaticRoutes            *GCPVPCSiteVoltstackClusterOutsideStaticRoutesModel            `tfsdk:"outside_static_routes"`
 	SiteLocalNetwork               *GCPVPCSiteVoltstackClusterSiteLocalNetworkModel               `tfsdk:"site_local_network"`
 	SiteLocalSubnet                *GCPVPCSiteVoltstackClusterSiteLocalSubnetModel                `tfsdk:"site_local_subnet"`
-	SmConnectionPublicIP           *GCPVPCSiteEmptyModel                                          `tfsdk:"sm_connection_public_ip"`
-	SmConnectionPvtIP              *GCPVPCSiteEmptyModel                                          `tfsdk:"sm_connection_pvt_ip"`
 	StorageClassList               *GCPVPCSiteVoltstackClusterStorageClassListModel               `tfsdk:"storage_class_list"`
 }
 
 // GCPVPCSiteVoltstackClusterModelAttrTypes defines the attribute types for GCPVPCSiteVoltstackClusterModel
 var GCPVPCSiteVoltstackClusterModelAttrTypes = map[string]attr.Type{
-	"gcp_certified_hw":                  types.StringType,
-	"gcp_zone_names":                    types.ListType{ElemType: types.StringType},
-	"node_number":                       types.Int64Type,
-	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModelAttrTypes},
-	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesModelAttrTypes},
-	"active_network_policies":           types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveNetworkPoliciesModelAttrTypes},
-	"dc_cluster_group":                  types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterDcClusterGroupModelAttrTypes},
 	"default_storage":                   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"forward_proxy_allow_all":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"global_network_list":               types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterGlobalNetworkListModelAttrTypes},
-	"k8s_cluster":                       types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterK8SClusterModelAttrTypes},
+	"gcp_certified_hw":                  types.StringType,
+	"gcp_zone_names":                    types.ListType{ElemType: types.StringType},
 	"no_dc_cluster_group":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_forward_proxy":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_global_network":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_k8s_cluster":                    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_network_policy":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_outside_static_routes":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"node_number":                       types.Int64Type,
+	"sm_connection_public_ip":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"sm_connection_pvt_ip":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesModelAttrTypes},
+	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesModelAttrTypes},
+	"active_network_policies":           types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterActiveNetworkPoliciesModelAttrTypes},
+	"dc_cluster_group":                  types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterDcClusterGroupModelAttrTypes},
+	"global_network_list":               types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterGlobalNetworkListModelAttrTypes},
+	"k8s_cluster":                       types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterK8SClusterModelAttrTypes},
 	"outside_static_routes":             types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterOutsideStaticRoutesModelAttrTypes},
 	"site_local_network":                types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterSiteLocalNetworkModelAttrTypes},
 	"site_local_subnet":                 types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterSiteLocalSubnetModelAttrTypes},
-	"sm_connection_public_ip":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"sm_connection_pvt_ip":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"storage_class_list":                types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterStorageClassListModelAttrTypes},
 }
 
@@ -1437,16 +1439,16 @@ var GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRout
 
 // GCPVPCSiteVoltstackClusterSiteLocalNetworkModel represents site_local_network block
 type GCPVPCSiteVoltstackClusterSiteLocalNetworkModel struct {
+	NewNetworkAutogenerate types.Object                                                    `tfsdk:"new_network_autogenerate"`
 	ExistingNetwork        *GCPVPCSiteVoltstackClusterSiteLocalNetworkExistingNetworkModel `tfsdk:"existing_network"`
 	NewNetwork             *GCPVPCSiteVoltstackClusterSiteLocalNetworkNewNetworkModel      `tfsdk:"new_network"`
-	NewNetworkAutogenerate *GCPVPCSiteEmptyModel                                           `tfsdk:"new_network_autogenerate"`
 }
 
 // GCPVPCSiteVoltstackClusterSiteLocalNetworkModelAttrTypes defines the attribute types for GCPVPCSiteVoltstackClusterSiteLocalNetworkModel
 var GCPVPCSiteVoltstackClusterSiteLocalNetworkModelAttrTypes = map[string]attr.Type{
+	"new_network_autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"existing_network":         types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterSiteLocalNetworkExistingNetworkModelAttrTypes},
 	"new_network":              types.ObjectType{AttrTypes: GCPVPCSiteVoltstackClusterSiteLocalNetworkNewNetworkModelAttrTypes},
-	"new_network_autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // GCPVPCSiteVoltstackClusterSiteLocalNetworkExistingNetworkModel represents existing_network block
@@ -1532,31 +1534,31 @@ type GCPVPCSiteResourceModel struct {
 	InstanceType             types.String                             `tfsdk:"instance_type"`
 	SSHKey                   types.String                             `tfsdk:"ssh_key"`
 	Annotations              types.Map                                `tfsdk:"annotations"`
+	BlockAllServices         types.Object                             `tfsdk:"block_all_services"`
+	DefaultBlockedServices   types.Object                             `tfsdk:"default_blocked_services"`
 	Description              types.String                             `tfsdk:"description"`
 	Disable                  types.Bool                               `tfsdk:"disable"`
+	DisableEncryption        types.Object                             `tfsdk:"disable_encryption"`
 	GCPLabels                types.Map                                `tfsdk:"gcp_labels"`
 	Labels                   types.Map                                `tfsdk:"labels"`
+	LogsStreamingDisabled    types.Object                             `tfsdk:"logs_streaming_disabled"`
+	PrivateConnectDisabled   types.Object                             `tfsdk:"private_connect_disabled"`
 	ID                       types.String                             `tfsdk:"id"`
 	Address                  types.String                             `tfsdk:"address"`
 	DiskSize                 types.Int64                              `tfsdk:"disk_size"`
 	Timeouts                 timeouts.Value                           `tfsdk:"timeouts"`
 	AdminPassword            *GCPVPCSiteAdminPasswordModel            `tfsdk:"admin_password"`
-	BlockAllServices         *GCPVPCSiteEmptyModel                    `tfsdk:"block_all_services"`
 	BlockedServices          *GCPVPCSiteBlockedServicesModel          `tfsdk:"blocked_services"`
 	CloudCredentials         *GCPVPCSiteCloudCredentialsModel         `tfsdk:"cloud_credentials"`
 	Coordinates              *GCPVPCSiteCoordinatesModel              `tfsdk:"coordinates"`
 	CustomDNS                *GCPVPCSiteCustomDNSModel                `tfsdk:"custom_dns"`
-	DefaultBlockedServices   *GCPVPCSiteEmptyModel                    `tfsdk:"default_blocked_services"`
-	DisableEncryption        *GCPVPCSiteEmptyModel                    `tfsdk:"disable_encryption"`
 	EnableEncryption         *GCPVPCSiteEnableEncryptionModel         `tfsdk:"enable_encryption"`
 	IngressEgressGw          *GCPVPCSiteIngressEgressGwModel          `tfsdk:"ingress_egress_gw"`
 	IngressGw                *GCPVPCSiteIngressGwModel                `tfsdk:"ingress_gw"`
 	KubernetesUpgradeDrain   *GCPVPCSiteKubernetesUpgradeDrainModel   `tfsdk:"kubernetes_upgrade_drain"`
 	LogReceiver              *GCPVPCSiteLogReceiverModel              `tfsdk:"log_receiver"`
-	LogsStreamingDisabled    *GCPVPCSiteEmptyModel                    `tfsdk:"logs_streaming_disabled"`
 	OfflineSurvivabilityMode *GCPVPCSiteOfflineSurvivabilityModeModel `tfsdk:"offline_survivability_mode"`
 	OS                       *GCPVPCSiteOSModel                       `tfsdk:"os"`
-	PrivateConnectDisabled   *GCPVPCSiteEmptyModel                    `tfsdk:"private_connect_disabled"`
 	PrivateConnectivity      *GCPVPCSitePrivateConnectivityModel      `tfsdk:"private_connectivity"`
 	Sw                       *GCPVPCSiteSwModel                       `tfsdk:"sw"`
 	VoltstackCluster         *GCPVPCSiteVoltstackClusterModel         `tfsdk:"voltstack_cluster"`
@@ -1616,6 +1618,16 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"block_all_services": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: block_all_services, blocked_services, default_blocked_services; Default: default_blocked_services] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"default_blocked_services": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
@@ -1623,6 +1635,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
+			},
+			"disable_encryption": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable_encryption, enable_encryption; Default: disable_encryption] Configuration parameter for disable encryption.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"gcp_labels": schema.MapAttribute{
 				MarkdownDescription: "GCP Label is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in GCP console.",
@@ -1633,6 +1650,16 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"logs_streaming_disabled": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"private_connect_disabled": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: private_connect_disabled, private_connectivity] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -1673,6 +1700,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			}),
 			"admin_password": schema.SingleNestedBlock{
 				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -1716,9 +1744,6 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
-			"block_all_services": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: block_all_services, blocked_services, default_blocked_services; Default: default_blocked_services] Enable this option",
-			},
 			"blocked_services": schema.SingleNestedBlock{
 				MarkdownDescription: "Disable node local services on this site.",
 
@@ -1726,8 +1751,14 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Blocks: map[string]schema.Block{
 					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("dns", "ssh"), validators.ConflictingListObjectAttributes("dns", "web_user_interface"), validators.ConflictingListObjectAttributes("ssh", "web_user_interface")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
+								"dns": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"network_type": schema.StringAttribute{
 									MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
 									Optional:            true,
@@ -1735,16 +1766,15 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										stringvalidator.OneOf("VIRTUAL_NETWORK_SITE_LOCAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE", "VIRTUAL_NETWORK_PER_SITE", "VIRTUAL_NETWORK_PUBLIC", "VIRTUAL_NETWORK_GLOBAL", "VIRTUAL_NETWORK_SITE_SERVICE", "VIRTUAL_NETWORK_VER_INTERNAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE", "VIRTUAL_NETWORK_IP_AUTO", "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK", "VIRTUAL_NETWORK_SRV6_NETWORK", "VIRTUAL_NETWORK_IP_FABRIC", "VIRTUAL_NETWORK_SEGMENT", "VIRTUAL_NETWORK_MANAGEMENT"),
 									},
 								},
-							},
-							Blocks: map[string]schema.Block{
-								"dns": schema.SingleNestedBlock{
+								"ssh": schema.ObjectAttribute{
 									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
-								"ssh": schema.SingleNestedBlock{
+								"web_user_interface": schema.ObjectAttribute{
 									MarkdownDescription: "Enable this option",
-								},
-								"web_user_interface": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
 							},
 						},
@@ -1819,12 +1849,6 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
-			"default_blocked_services": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"disable_encryption": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disable_encryption, enable_encryption; Default: disable_encryption] Configuration parameter for disable encryption.",
-			},
 			"enable_encryption": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for enable encryption.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("kms_key_resource_id", "kms_key_ring_id")},
@@ -1842,9 +1866,14 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"ingress_egress_gw": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: ingress_egress_gw, ingress_gw, voltstack_cluster] Configuration parameter for ingress egress gw.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("gcp_certified_hw", "gcp_zone_names")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("gcp_certified_hw", "gcp_zone_names"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "dc_cluster_group_outside_vn"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("dc_cluster_group_outside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("inside_static_routes", "no_inside_static_routes"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{
+					"forward_proxy_allow_all": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"gcp_certified_hw": schema.StringAttribute{
 						MarkdownDescription: "[Enum: gcp-byol-multi-nic-voltmesh] GCP Certified Hardware. Name for GCP certified hardware. The only possible value is `gcp-byol-multi-nic-voltmesh`.",
 						Optional:            true,
@@ -1861,9 +1890,49 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							listvalidator.SizeAtMost(3),
 						},
 					},
+					"no_dc_cluster_group": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_forward_proxy": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no forward proxy.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_global_network": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no global network.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_inside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no inside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_network_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_outside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no outside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"node_number": schema.Int64Attribute{
 						MarkdownDescription: "Number of main nodes to create, either 1 or 3.",
 						Optional:            true,
+					},
+					"sm_connection_public_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_pvt_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -2049,9 +2118,6 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"forward_proxy_allow_all": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
-					},
 					"global_network_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Global Network Connection List. List of global network connections.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("global_network_connections")},
@@ -2059,6 +2125,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -2143,7 +2210,14 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"inside_network": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
-						Attributes:          map[string]schema.Attribute{},
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_network", "new_network"), validators.ConflictingObjectAttributes("existing_network", "new_network_autogenerate"), validators.ConflictingObjectAttributes("new_network", "new_network_autogenerate")},
+						Attributes: map[string]schema.Attribute{
+							"new_network_autogenerate": schema.ObjectAttribute{
+								MarkdownDescription: "Create a new GCP VPC Network with autogenerated name.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"existing_network": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for existing network.",
@@ -2171,9 +2245,6 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									},
 								},
 							},
-							"new_network_autogenerate": schema.SingleNestedBlock{
-								MarkdownDescription: "Create a new GCP VPC Network with autogenerated name.",
-							},
 						},
 					},
 					"inside_static_routes": schema.SingleNestedBlock{
@@ -2183,6 +2254,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -2257,6 +2329,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -2291,6 +2364,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -2346,6 +2420,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"inside_subnet": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet", "new_subnet")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"existing_subnet": schema.SingleNestedBlock{
@@ -2380,27 +2455,16 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"no_dc_cluster_group": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_forward_proxy": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no forward proxy.",
-					},
-					"no_global_network": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no global network.",
-					},
-					"no_inside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no inside static routes.",
-					},
-					"no_network_policy": schema.SingleNestedBlock{
-						MarkdownDescription: "Policy configuration for this feature.",
-					},
-					"no_outside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no outside static routes.",
-					},
 					"outside_network": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
-						Attributes:          map[string]schema.Attribute{},
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_network", "new_network"), validators.ConflictingObjectAttributes("existing_network", "new_network_autogenerate"), validators.ConflictingObjectAttributes("new_network", "new_network_autogenerate")},
+						Attributes: map[string]schema.Attribute{
+							"new_network_autogenerate": schema.ObjectAttribute{
+								MarkdownDescription: "Create a new GCP VPC Network with autogenerated name.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"existing_network": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for existing network.",
@@ -2428,9 +2492,6 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									},
 								},
 							},
-							"new_network_autogenerate": schema.SingleNestedBlock{
-								MarkdownDescription: "Create a new GCP VPC Network with autogenerated name.",
-							},
 						},
 					},
 					"outside_static_routes": schema.SingleNestedBlock{
@@ -2440,6 +2501,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -2514,6 +2576,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -2548,6 +2611,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -2603,6 +2667,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"outside_subnet": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet", "new_subnet")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"existing_subnet": schema.SingleNestedBlock{
@@ -2639,39 +2704,42 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"performance_enhancement_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
+								Attributes: map[string]schema.Attribute{
+									"jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"no_jumbo": schema.SingleNestedBlock{
+									"no_jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo_disabled": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
+								Attributes: map[string]schema.Attribute{
+									"jumbo_disabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"jumbo_enabled": schema.SingleNestedBlock{
+									"jumbo_enabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
 						},
-					},
-					"sm_connection_public_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"sm_connection_pvt_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 				},
 			},
@@ -2704,7 +2772,14 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Blocks: map[string]schema.Block{
 					"local_network": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
-						Attributes:          map[string]schema.Attribute{},
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_network", "new_network"), validators.ConflictingObjectAttributes("existing_network", "new_network_autogenerate"), validators.ConflictingObjectAttributes("new_network", "new_network_autogenerate")},
+						Attributes: map[string]schema.Attribute{
+							"new_network_autogenerate": schema.ObjectAttribute{
+								MarkdownDescription: "Create a new GCP VPC Network with autogenerated name.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"existing_network": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for existing network.",
@@ -2732,13 +2807,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									},
 								},
 							},
-							"new_network_autogenerate": schema.SingleNestedBlock{
-								MarkdownDescription: "Create a new GCP VPC Network with autogenerated name.",
-							},
 						},
 					},
 					"local_subnet": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet", "new_subnet")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"existing_subnet": schema.SingleNestedBlock{
@@ -2775,29 +2848,38 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"performance_enhancement_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
+								Attributes: map[string]schema.Attribute{
+									"jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"no_jumbo": schema.SingleNestedBlock{
+									"no_jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo_disabled": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
+								Attributes: map[string]schema.Attribute{
+									"jumbo_disabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"jumbo_enabled": schema.SingleNestedBlock{
+									"jumbo_enabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
@@ -2807,22 +2889,35 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_upgrade_drain", "enable_upgrade_drain")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_upgrade_drain": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_upgrade_drain": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for disable upgrade drain.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+				},
+				Blocks: map[string]schema.Block{
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout"), validators.ConflictingObjectAttributes("disable_vega_upgrade_mode", "enable_vega_upgrade_mode"), validators.ConflictingObjectAttributes("drain_max_unavailable_node_count", "drain_max_unavailable_node_percentage")},
 						Attributes: map[string]schema.Attribute{
+							"disable_vega_upgrade_mode": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable vega upgrade mode.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
 								Optional:            true,
 								Validators: []validator.Int64{
 									int64validator.Between(1, 5000),
 								},
+							},
+							"drain_max_unavailable_node_percentage": schema.Int64Attribute{
+								MarkdownDescription: "Maximum percentage of nodes unavailable during upgrade draining.",
+								Optional:            true,
 							},
 							"drain_node_timeout": schema.Int64Attribute{
 								MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
@@ -2831,13 +2926,10 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									int64validator.Between(0, 900),
 								},
 							},
-						},
-						Blocks: map[string]schema.Block{
-							"disable_vega_upgrade_mode": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for disable vega upgrade mode.",
-							},
-							"enable_vega_upgrade_mode": schema.SingleNestedBlock{
+							"enable_vega_upgrade_mode": schema.ObjectAttribute{
 								MarkdownDescription: "Configuration parameter for enable vega upgrade mode.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -2875,26 +2967,33 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
-			"logs_streaming_disabled": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
 			"offline_survivability_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing configuration for upto 7..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("enable_offline_survivability_mode", "no_offline_survivability_mode")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"enable_offline_survivability_mode": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"enable_offline_survivability_mode": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for enable offline survivability mode.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"no_offline_survivability_mode": schema.SingleNestedBlock{
+					"no_offline_survivability_mode": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for no offline survivability mode.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
 			"os": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_os_version", "operating_system_version")},
 
 				Attributes: map[string]schema.Attribute{
+					"default_os_version": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"operating_system_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_os_version] Specify a OS version to be used e.g. 9.2024.6.",
 						Optional:            true,
@@ -2903,19 +3002,23 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 					},
 				},
-				Blocks: map[string]schema.Block{
-					"default_os_version": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-				},
-			},
-			"private_connect_disabled": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: private_connect_disabled, private_connectivity] Enable this option",
 			},
 			"private_connectivity": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for private connectivity.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside", "outside")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"inside": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"outside": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
 					"cloud_link": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
@@ -2948,18 +3051,18 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"inside": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"outside": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 				},
 			},
 			"sw": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_sw_version", "volterra_software_version")},
 
 				Attributes: map[string]schema.Attribute{
+					"default_sw_version": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"volterra_software_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_sw_version] Specify a F5XC Software Version to be used e.g. Crt-20210329-1002.",
 						Optional:            true,
@@ -2968,17 +3071,22 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 					},
 				},
-				Blocks: map[string]schema.Block{
-					"default_sw_version": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-				},
 			},
 			"voltstack_cluster": schema.SingleNestedBlock{
 				MarkdownDescription: "App Stack cluster of single interface GCP site.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("gcp_certified_hw", "gcp_zone_names")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("gcp_certified_hw", "gcp_zone_names"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("dc_cluster_group", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("default_storage", "storage_class_list"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("k8s_cluster", "no_k8s_cluster"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{
+					"default_storage": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default storage.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"forward_proxy_allow_all": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"gcp_certified_hw": schema.StringAttribute{
 						MarkdownDescription: "[Enum: gcp-byol-voltstack-combo] GCP Certified Hardware. Name for GCP certified hardware. The only possible value is `gcp-byol-voltstack-combo`.",
 						Optional:            true,
@@ -2995,9 +3103,49 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							listvalidator.SizeAtMost(3),
 						},
 					},
+					"no_dc_cluster_group": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_forward_proxy": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no forward proxy.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_global_network": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no global network.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_k8s_cluster": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_network_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_outside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no outside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"node_number": schema.Int64Attribute{
 						MarkdownDescription: "Number of main nodes to create, either 1 or 3.",
 						Optional:            true,
+					},
+					"sm_connection_public_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_pvt_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -3152,12 +3300,6 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"default_storage": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for default storage.",
-					},
-					"forward_proxy_allow_all": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
-					},
 					"global_network_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Global Network Connection List. List of global network connections.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("global_network_connections")},
@@ -3165,6 +3307,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -3278,24 +3421,6 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"no_dc_cluster_group": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_forward_proxy": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no forward proxy.",
-					},
-					"no_global_network": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no global network.",
-					},
-					"no_k8s_cluster": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_network_policy": schema.SingleNestedBlock{
-						MarkdownDescription: "Policy configuration for this feature.",
-					},
-					"no_outside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no outside static routes.",
-					},
 					"outside_static_routes": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for outside static routes.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("static_route_list")},
@@ -3303,6 +3428,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -3377,6 +3503,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -3411,6 +3538,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -3466,7 +3594,14 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"site_local_network": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
-						Attributes:          map[string]schema.Attribute{},
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_network", "new_network"), validators.ConflictingObjectAttributes("existing_network", "new_network_autogenerate"), validators.ConflictingObjectAttributes("new_network", "new_network_autogenerate")},
+						Attributes: map[string]schema.Attribute{
+							"new_network_autogenerate": schema.ObjectAttribute{
+								MarkdownDescription: "Create a new GCP VPC Network with autogenerated name.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"existing_network": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for existing network.",
@@ -3494,13 +3629,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									},
 								},
 							},
-							"new_network_autogenerate": schema.SingleNestedBlock{
-								MarkdownDescription: "Create a new GCP VPC Network with autogenerated name.",
-							},
 						},
 					},
 					"site_local_subnet": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines choice about GCP VPC network for a view.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet", "new_subnet")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"existing_subnet": schema.SingleNestedBlock{
@@ -3534,12 +3667,6 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 							},
 						},
-					},
-					"sm_connection_public_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"sm_connection_pvt_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 					"storage_class_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Add additional custom storage classes in Kubernetes for this site.",
@@ -3593,6 +3720,13 @@ func (r *GCPVPCSiteResource) ValidateConfig(ctx context.Context, req resource.Va
 	resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
 		return
+	}
+	if !data.BlockAllServices.IsNull() && !data.BlockAllServices.IsUnknown() && !data.DefaultBlockedServices.IsNull() && !data.DefaultBlockedServices.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("block_all_services"),
+			"Conflicting Configuration",
+			"block_all_services and default_blocked_services are mutually exclusive.",
+		)
 	}
 
 	// #1391: F5 XC authors these six labels on this object itself, and the Read filters
@@ -3767,7 +3901,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["admin_password"] = AdminPasswordMap
 	}
-	if data.BlockAllServices != nil {
+	if !data.BlockAllServices.IsNull() && !data.BlockAllServices.IsUnknown() {
 		createReq.Spec["block_all_services"] = map[string]interface{}{}
 	}
 	if data.BlockedServices != nil {
@@ -3780,16 +3914,16 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				var BlockedServiceList []map[string]interface{}
 				for _, BlockedServiceItem := range BlockedServiceElems {
 					BlockedServiceItemMap := make(map[string]interface{})
-					if BlockedServiceItem.DNS != nil {
+					if !BlockedServiceItem.DNS.IsNull() && !BlockedServiceItem.DNS.IsUnknown() {
 						BlockedServiceItemMap["dns"] = map[string]interface{}{}
 					}
 					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
 						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
 					}
-					if BlockedServiceItem.SSH != nil {
+					if !BlockedServiceItem.SSH.IsNull() && !BlockedServiceItem.SSH.IsUnknown() {
 						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
 					}
-					if BlockedServiceItem.WebUserInterface != nil {
+					if !BlockedServiceItem.WebUserInterface.IsNull() && !BlockedServiceItem.WebUserInterface.IsUnknown() {
 						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
@@ -3829,10 +3963,10 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["custom_dns"] = CustomDNSMap
 	}
-	if data.DefaultBlockedServices != nil {
+	if !data.DefaultBlockedServices.IsNull() && !data.DefaultBlockedServices.IsUnknown() {
 		createReq.Spec["default_blocked_services"] = map[string]interface{}{}
 	}
-	if data.DisableEncryption != nil {
+	if !data.DisableEncryption.IsNull() && !data.DisableEncryption.IsUnknown() {
 		createReq.Spec["disable_encryption"] = map[string]interface{}{}
 	}
 	if data.EnableEncryption != nil {
@@ -3944,7 +4078,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
-		if data.IngressEgressGw.ForwardProxyAllowAll != nil {
+		if !data.IngressEgressGw.ForwardProxyAllowAll.IsNull() && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 			IngressEgressGwMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if !data.IngressEgressGw.GCPCertifiedHw.IsNull() && !data.IngressEgressGw.GCPCertifiedHw.IsUnknown() {
@@ -4019,7 +4153,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				IngressEgressGwInsideNetworkMap["new_network"] = IngressEgressGwInsideNetworkNewNetworkMap
 			}
-			if data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate != nil {
+			if !data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate.IsNull() && !data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate.IsUnknown() {
 				IngressEgressGwInsideNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
 			IngressEgressGwMap["inside_network"] = IngressEgressGwInsideNetworkMap
@@ -4157,22 +4291,22 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			IngressEgressGwMap["inside_subnet"] = IngressEgressGwInsideSubnetMap
 		}
-		if data.IngressEgressGw.NoDcClusterGroup != nil {
+		if !data.IngressEgressGw.NoDcClusterGroup.IsNull() && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 			IngressEgressGwMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoForwardProxy != nil {
+		if !data.IngressEgressGw.NoForwardProxy.IsNull() && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 			IngressEgressGwMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoGlobalNetwork != nil {
+		if !data.IngressEgressGw.NoGlobalNetwork.IsNull() && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 			IngressEgressGwMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoInsideStaticRoutes != nil {
+		if !data.IngressEgressGw.NoInsideStaticRoutes.IsNull() && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 			IngressEgressGwMap["no_inside_static_routes"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoNetworkPolicy != nil {
+		if !data.IngressEgressGw.NoNetworkPolicy.IsNull() && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 			IngressEgressGwMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoOutsideStaticRoutes != nil {
+		if !data.IngressEgressGw.NoOutsideStaticRoutes.IsNull() && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 			IngressEgressGwMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if !data.IngressEgressGw.NodeNumber.IsNull() && !data.IngressEgressGw.NodeNumber.IsUnknown() {
@@ -4194,7 +4328,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				IngressEgressGwOutsideNetworkMap["new_network"] = IngressEgressGwOutsideNetworkNewNetworkMap
 			}
-			if data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate != nil {
+			if !data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate.IsNull() && !data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate.IsUnknown() {
 				IngressEgressGwOutsideNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
 			IngressEgressGwMap["outside_network"] = IngressEgressGwOutsideNetworkMap
@@ -4336,30 +4470,30 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			IngressEgressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
-		if data.IngressEgressGw.SmConnectionPublicIP != nil {
+		if !data.IngressEgressGw.SmConnectionPublicIP.IsNull() && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 			IngressEgressGwMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.SmConnectionPvtIP != nil {
+		if !data.IngressEgressGw.SmConnectionPvtIP.IsNull() && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 			IngressEgressGwMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		createReq.Spec["ingress_egress_gw"] = IngressEgressGwMap
@@ -4393,7 +4527,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				IngressGwLocalNetworkMap["new_network"] = IngressGwLocalNetworkNewNetworkMap
 			}
-			if data.IngressGw.LocalNetwork.NewNetworkAutogenerate != nil {
+			if !data.IngressGw.LocalNetwork.NewNetworkAutogenerate.IsNull() && !data.IngressGw.LocalNetwork.NewNetworkAutogenerate.IsUnknown() {
 				IngressGwLocalNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
 			IngressGwMap["local_network"] = IngressGwLocalNetworkMap
@@ -4426,20 +4560,20 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			IngressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap
@@ -4450,21 +4584,24 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if data.KubernetesUpgradeDrain != nil {
 		KubernetesUpgradeDrainMap := make(map[string]interface{})
-		if data.KubernetesUpgradeDrain.DisableUpgradeDrain != nil {
+		if !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsNull() && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
 			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
+			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
@@ -4481,22 +4618,22 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["log_receiver"] = LogReceiverMap
 	}
-	if data.LogsStreamingDisabled != nil {
+	if !data.LogsStreamingDisabled.IsNull() && !data.LogsStreamingDisabled.IsUnknown() {
 		createReq.Spec["logs_streaming_disabled"] = map[string]interface{}{}
 	}
 	if data.OfflineSurvivabilityMode != nil {
 		OfflineSurvivabilityModeMap := make(map[string]interface{})
-		if data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["enable_offline_survivability_mode"] = map[string]interface{}{}
 		}
-		if data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["no_offline_survivability_mode"] = map[string]interface{}{}
 		}
 		createReq.Spec["offline_survivability_mode"] = OfflineSurvivabilityModeMap
 	}
 	if data.OS != nil {
 		OSMap := make(map[string]interface{})
-		if data.OS.DefaultOSVersion != nil {
+		if !data.OS.DefaultOSVersion.IsNull() && !data.OS.DefaultOSVersion.IsUnknown() {
 			OSMap["default_os_version"] = map[string]interface{}{}
 		}
 		if !data.OS.OperatingSystemVersion.IsNull() && !data.OS.OperatingSystemVersion.IsUnknown() {
@@ -4504,7 +4641,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["os"] = OSMap
 	}
-	if data.PrivateConnectDisabled != nil {
+	if !data.PrivateConnectDisabled.IsNull() && !data.PrivateConnectDisabled.IsUnknown() {
 		createReq.Spec["private_connect_disabled"] = map[string]interface{}{}
 	}
 	if data.PrivateConnectivity != nil {
@@ -4519,17 +4656,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			PrivateConnectivityMap["cloud_link"] = PrivateConnectivityCloudLinkMap
 		}
-		if data.PrivateConnectivity.Inside != nil {
+		if !data.PrivateConnectivity.Inside.IsNull() && !data.PrivateConnectivity.Inside.IsUnknown() {
 			PrivateConnectivityMap["inside"] = map[string]interface{}{}
 		}
-		if data.PrivateConnectivity.Outside != nil {
+		if !data.PrivateConnectivity.Outside.IsNull() && !data.PrivateConnectivity.Outside.IsUnknown() {
 			PrivateConnectivityMap["outside"] = map[string]interface{}{}
 		}
 		createReq.Spec["private_connectivity"] = PrivateConnectivityMap
 	}
 	if data.Sw != nil {
 		SwMap := make(map[string]interface{})
-		if data.Sw.DefaultSwVersion != nil {
+		if !data.Sw.DefaultSwVersion.IsNull() && !data.Sw.DefaultSwVersion.IsUnknown() {
 			SwMap["default_sw_version"] = map[string]interface{}{}
 		}
 		if !data.Sw.VolterraSoftwareVersion.IsNull() && !data.Sw.VolterraSoftwareVersion.IsUnknown() {
@@ -4618,10 +4755,10 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
-		if data.VoltstackCluster.DefaultStorage != nil {
+		if !data.VoltstackCluster.DefaultStorage.IsNull() && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 			VoltstackClusterMap["default_storage"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.ForwardProxyAllowAll != nil {
+		if !data.VoltstackCluster.ForwardProxyAllowAll.IsNull() && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 			VoltstackClusterMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if !data.VoltstackCluster.GCPCertifiedHw.IsNull() && !data.VoltstackCluster.GCPCertifiedHw.IsUnknown() {
@@ -4690,22 +4827,22 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
-		if data.VoltstackCluster.NoDcClusterGroup != nil {
+		if !data.VoltstackCluster.NoDcClusterGroup.IsNull() && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 			VoltstackClusterMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoForwardProxy != nil {
+		if !data.VoltstackCluster.NoForwardProxy.IsNull() && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 			VoltstackClusterMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoGlobalNetwork != nil {
+		if !data.VoltstackCluster.NoGlobalNetwork.IsNull() && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 			VoltstackClusterMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoK8SCluster != nil {
+		if !data.VoltstackCluster.NoK8SCluster.IsNull() && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 			VoltstackClusterMap["no_k8s_cluster"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoNetworkPolicy != nil {
+		if !data.VoltstackCluster.NoNetworkPolicy.IsNull() && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 			VoltstackClusterMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoOutsideStaticRoutes != nil {
+		if !data.VoltstackCluster.NoOutsideStaticRoutes.IsNull() && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 			VoltstackClusterMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if !data.VoltstackCluster.NodeNumber.IsNull() && !data.VoltstackCluster.NodeNumber.IsUnknown() {
@@ -4839,7 +4976,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				VoltstackClusterSiteLocalNetworkMap["new_network"] = VoltstackClusterSiteLocalNetworkNewNetworkMap
 			}
-			if data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate != nil {
+			if !data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate.IsNull() && !data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate.IsUnknown() {
 				VoltstackClusterSiteLocalNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
 			VoltstackClusterMap["site_local_network"] = VoltstackClusterSiteLocalNetworkMap
@@ -4865,10 +5002,10 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			VoltstackClusterMap["site_local_subnet"] = VoltstackClusterSiteLocalSubnetMap
 		}
-		if data.VoltstackCluster.SmConnectionPublicIP != nil {
+		if !data.VoltstackCluster.SmConnectionPublicIP.IsNull() && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 			VoltstackClusterMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.SmConnectionPvtIP != nil {
+		if !data.VoltstackCluster.SmConnectionPvtIP.IsNull() && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 			VoltstackClusterMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
@@ -5010,8 +5147,12 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok && isImport && data.BlockAllServices == nil {
-		data.BlockAllServices = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.BlockAllServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok {
+		data.BlockAllServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BlockAllServices = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &GCPVPCSiteBlockedServicesModel{
@@ -5029,14 +5170,14 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, GCPVPCSiteBlockedServicesBlockedServiceModel{
-								DNS: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								DNS: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].DNS.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
-										return &GCPVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								NetworkType: func() types.String {
 									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
@@ -5044,23 +5185,23 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									return types.StringNull()
 								}(),
-								SSH: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								SSH: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].SSH.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
-										return &GCPVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								WebUserInterface: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								WebUserInterface: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].WebUserInterface.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
-										return &GCPVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -5132,11 +5273,19 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok && isImport && data.DefaultBlockedServices == nil {
-		data.DefaultBlockedServices = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.DefaultBlockedServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok {
+		data.DefaultBlockedServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBlockedServices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok && isImport && data.DisableEncryption == nil {
-		data.DisableEncryption = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.DisableEncryption.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok {
+		data.DisableEncryption = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableEncryption = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_encryption"].(map[string]interface{}); ok && (isImport || data.EnableEncryption != nil) {
 		data.EnableEncryption = &GCPVPCSiteEnableEncryptionModel{
@@ -5348,14 +5497,14 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			ForwardProxyAllowAll: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 					return data.IngressEgressGw.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GCPCertifiedHw: func() types.String {
 				if v, ok := blockData["gcp_certified_hw"].(string); ok && v != "" {
@@ -5508,14 +5657,14 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil {
+						NewNetworkAutogenerate: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil && !data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate.IsUnknown() {
 								return data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate
 							}
 							if _, ok := InsideNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -5807,59 +5956,59 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 					return data.IngressEgressGw.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 					return data.IngressEgressGw.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 					return data.IngressEgressGw.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 					return data.IngressEgressGw.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NodeNumber: func() types.Int64 {
 				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NodeNumber.IsUnknown() {
@@ -5908,14 +6057,14 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil {
+						NewNetworkAutogenerate: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil && !data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate.IsUnknown() {
 								return data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate
 							}
 							if _, ok := OutsideNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -6219,23 +6368,23 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -6247,23 +6396,23 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -6273,23 +6422,23 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -6353,14 +6502,14 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil {
+						NewNetworkAutogenerate: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil && !data.IngressGw.LocalNetwork.NewNetworkAutogenerate.IsUnknown() {
 								return data.IngressGw.LocalNetwork.NewNetworkAutogenerate
 							}
 							if _, ok := LocalNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -6435,23 +6584,23 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -6463,23 +6612,23 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -6493,14 +6642,14 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &GCPVPCSiteKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -6508,20 +6657,29 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -6535,14 +6693,14 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -6572,41 +6730,45 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["offline_survivability_mode"].(map[string]interface{}); ok && (isImport || data.OfflineSurvivabilityMode != nil) {
 		data.OfflineSurvivabilityMode = &GCPVPCSiteOfflineSurvivabilityModeModel{
-			EnableOfflineSurvivabilityMode: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			EnableOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["enable_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOfflineSurvivabilityMode: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			NoOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["no_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["os"].(map[string]interface{}); ok && (isImport || data.OS != nil) {
 		data.OS = &GCPVPCSiteOSModel{
-			DefaultOSVersion: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.OS != nil {
+			DefaultOSVersion: func() types.Object {
+				if !isImport && data.OS != nil && !data.OS.DefaultOSVersion.IsUnknown() {
 					return data.OS.DefaultOSVersion
 				}
 				if _, ok := blockData["default_os_version"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OperatingSystemVersion: func() types.String {
 				if v, ok := blockData["operating_system_version"].(string); ok && v != "" {
@@ -6616,8 +6778,12 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["private_connect_disabled"].(map[string]interface{}); ok && isImport && data.PrivateConnectDisabled == nil {
-		data.PrivateConnectDisabled = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.PrivateConnectDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["private_connect_disabled"].(map[string]interface{}); ok {
+		data.PrivateConnectDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.PrivateConnectDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["private_connectivity"].(map[string]interface{}); ok && (isImport || data.PrivateConnectivity != nil) {
 		data.PrivateConnectivity = &GCPVPCSitePrivateConnectivityModel{
@@ -6646,36 +6812,36 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			Inside: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Inside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Inside.IsUnknown() {
 					return data.PrivateConnectivity.Inside
 				}
 				if _, ok := blockData["inside"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			Outside: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Outside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Outside.IsUnknown() {
 					return data.PrivateConnectivity.Outside
 				}
 				if _, ok := blockData["outside"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &GCPVPCSiteSwModel{
-			DefaultSwVersion: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.Sw != nil {
+			DefaultSwVersion: func() types.Object {
+				if !isImport && data.Sw != nil && !data.Sw.DefaultSwVersion.IsUnknown() {
 					return data.Sw.DefaultSwVersion
 				}
 				if _, ok := blockData["default_sw_version"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			VolterraSoftwareVersion: func() types.String {
 				if v, ok := blockData["volterra_software_version"].(string); ok && v != "" {
@@ -6853,23 +7019,23 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			DefaultStorage: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			DefaultStorage: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 					return data.VoltstackCluster.DefaultStorage
 				}
 				if _, ok := blockData["default_storage"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 					return data.VoltstackCluster.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GCPCertifiedHw: func() types.String {
 				if v, ok := blockData["gcp_certified_hw"].(string); ok && v != "" {
@@ -7009,59 +7175,59 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 					return data.VoltstackCluster.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 					return data.VoltstackCluster.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 					return data.VoltstackCluster.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoK8SCluster: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoK8SCluster: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 					return data.VoltstackCluster.NoK8SCluster
 				}
 				if _, ok := blockData["no_k8s_cluster"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 					return data.VoltstackCluster.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VoltstackCluster.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NodeNumber: func() types.Int64 {
 				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NodeNumber.IsUnknown() {
@@ -7348,14 +7514,14 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil {
+						NewNetworkAutogenerate: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil && !data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate.IsUnknown() {
 								return data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate
 							}
 							if _, ok := SiteLocalNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -7409,23 +7575,23 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			StorageClassList: func() *GCPVPCSiteVoltstackClusterStorageClassListModel {
 				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil {
@@ -7683,8 +7849,12 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok && isImport && data.BlockAllServices == nil {
-		data.BlockAllServices = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.BlockAllServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok {
+		data.BlockAllServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BlockAllServices = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &GCPVPCSiteBlockedServicesModel{
@@ -7702,14 +7872,14 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, GCPVPCSiteBlockedServicesBlockedServiceModel{
-								DNS: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								DNS: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].DNS.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
-										return &GCPVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								NetworkType: func() types.String {
 									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
@@ -7717,23 +7887,23 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									}
 									return types.StringNull()
 								}(),
-								SSH: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								SSH: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].SSH.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
-										return &GCPVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								WebUserInterface: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								WebUserInterface: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].WebUserInterface.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
-										return &GCPVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -7805,11 +7975,19 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok && isImport && data.DefaultBlockedServices == nil {
-		data.DefaultBlockedServices = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.DefaultBlockedServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok {
+		data.DefaultBlockedServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBlockedServices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok && isImport && data.DisableEncryption == nil {
-		data.DisableEncryption = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.DisableEncryption.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok {
+		data.DisableEncryption = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableEncryption = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_encryption"].(map[string]interface{}); ok && (isImport || data.EnableEncryption != nil) {
 		data.EnableEncryption = &GCPVPCSiteEnableEncryptionModel{
@@ -8021,14 +8199,14 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			ForwardProxyAllowAll: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 					return data.IngressEgressGw.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GCPCertifiedHw: func() types.String {
 				if v, ok := blockData["gcp_certified_hw"].(string); ok && v != "" {
@@ -8181,14 +8359,14 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil {
+						NewNetworkAutogenerate: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil && !data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate.IsUnknown() {
 								return data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate
 							}
 							if _, ok := InsideNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -8480,59 +8658,59 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 					return data.IngressEgressGw.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 					return data.IngressEgressGw.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 					return data.IngressEgressGw.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 					return data.IngressEgressGw.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NodeNumber: func() types.Int64 {
 				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NodeNumber.IsUnknown() {
@@ -8581,14 +8759,14 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil {
+						NewNetworkAutogenerate: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil && !data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate.IsUnknown() {
 								return data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate
 							}
 							if _, ok := OutsideNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -8892,23 +9070,23 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -8920,23 +9098,23 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -8946,23 +9124,23 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -9026,14 +9204,14 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil {
+						NewNetworkAutogenerate: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil && !data.IngressGw.LocalNetwork.NewNetworkAutogenerate.IsUnknown() {
 								return data.IngressGw.LocalNetwork.NewNetworkAutogenerate
 							}
 							if _, ok := LocalNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -9108,23 +9286,23 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -9136,23 +9314,23 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -9166,14 +9344,14 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &GCPVPCSiteKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -9181,20 +9359,29 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -9208,14 +9395,14 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -9245,41 +9432,45 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["offline_survivability_mode"].(map[string]interface{}); ok && (isImport || data.OfflineSurvivabilityMode != nil) {
 		data.OfflineSurvivabilityMode = &GCPVPCSiteOfflineSurvivabilityModeModel{
-			EnableOfflineSurvivabilityMode: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			EnableOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["enable_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOfflineSurvivabilityMode: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			NoOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["no_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["os"].(map[string]interface{}); ok && (isImport || data.OS != nil) {
 		data.OS = &GCPVPCSiteOSModel{
-			DefaultOSVersion: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.OS != nil {
+			DefaultOSVersion: func() types.Object {
+				if !isImport && data.OS != nil && !data.OS.DefaultOSVersion.IsUnknown() {
 					return data.OS.DefaultOSVersion
 				}
 				if _, ok := blockData["default_os_version"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OperatingSystemVersion: func() types.String {
 				if v, ok := blockData["operating_system_version"].(string); ok && v != "" {
@@ -9289,8 +9480,12 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["private_connect_disabled"].(map[string]interface{}); ok && isImport && data.PrivateConnectDisabled == nil {
-		data.PrivateConnectDisabled = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.PrivateConnectDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["private_connect_disabled"].(map[string]interface{}); ok {
+		data.PrivateConnectDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.PrivateConnectDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["private_connectivity"].(map[string]interface{}); ok && (isImport || data.PrivateConnectivity != nil) {
 		data.PrivateConnectivity = &GCPVPCSitePrivateConnectivityModel{
@@ -9319,36 +9514,36 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			Inside: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Inside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Inside.IsUnknown() {
 					return data.PrivateConnectivity.Inside
 				}
 				if _, ok := blockData["inside"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			Outside: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Outside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Outside.IsUnknown() {
 					return data.PrivateConnectivity.Outside
 				}
 				if _, ok := blockData["outside"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &GCPVPCSiteSwModel{
-			DefaultSwVersion: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.Sw != nil {
+			DefaultSwVersion: func() types.Object {
+				if !isImport && data.Sw != nil && !data.Sw.DefaultSwVersion.IsUnknown() {
 					return data.Sw.DefaultSwVersion
 				}
 				if _, ok := blockData["default_sw_version"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			VolterraSoftwareVersion: func() types.String {
 				if v, ok := blockData["volterra_software_version"].(string); ok && v != "" {
@@ -9526,23 +9721,23 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			DefaultStorage: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			DefaultStorage: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 					return data.VoltstackCluster.DefaultStorage
 				}
 				if _, ok := blockData["default_storage"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 					return data.VoltstackCluster.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GCPCertifiedHw: func() types.String {
 				if v, ok := blockData["gcp_certified_hw"].(string); ok && v != "" {
@@ -9682,59 +9877,59 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 					return data.VoltstackCluster.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 					return data.VoltstackCluster.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 					return data.VoltstackCluster.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoK8SCluster: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoK8SCluster: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 					return data.VoltstackCluster.NoK8SCluster
 				}
 				if _, ok := blockData["no_k8s_cluster"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 					return data.VoltstackCluster.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VoltstackCluster.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NodeNumber: func() types.Int64 {
 				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NodeNumber.IsUnknown() {
@@ -10021,14 +10216,14 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil {
+						NewNetworkAutogenerate: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil && !data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate.IsUnknown() {
 								return data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate
 							}
 							if _, ok := SiteLocalNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -10082,23 +10277,23 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			StorageClassList: func() *GCPVPCSiteVoltstackClusterStorageClassListModel {
 				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil {
@@ -10323,7 +10518,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["admin_password"] = AdminPasswordMap
 	}
-	if data.BlockAllServices != nil {
+	if !data.BlockAllServices.IsNull() && !data.BlockAllServices.IsUnknown() {
 		apiResource.Spec["block_all_services"] = map[string]interface{}{}
 	}
 	if data.BlockedServices != nil {
@@ -10336,16 +10531,16 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				var BlockedServiceList []map[string]interface{}
 				for _, BlockedServiceItem := range BlockedServiceElems {
 					BlockedServiceItemMap := make(map[string]interface{})
-					if BlockedServiceItem.DNS != nil {
+					if !BlockedServiceItem.DNS.IsNull() && !BlockedServiceItem.DNS.IsUnknown() {
 						BlockedServiceItemMap["dns"] = map[string]interface{}{}
 					}
 					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
 						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
 					}
-					if BlockedServiceItem.SSH != nil {
+					if !BlockedServiceItem.SSH.IsNull() && !BlockedServiceItem.SSH.IsUnknown() {
 						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
 					}
-					if BlockedServiceItem.WebUserInterface != nil {
+					if !BlockedServiceItem.WebUserInterface.IsNull() && !BlockedServiceItem.WebUserInterface.IsUnknown() {
 						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
@@ -10385,10 +10580,10 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["custom_dns"] = CustomDNSMap
 	}
-	if data.DefaultBlockedServices != nil {
+	if !data.DefaultBlockedServices.IsNull() && !data.DefaultBlockedServices.IsUnknown() {
 		apiResource.Spec["default_blocked_services"] = map[string]interface{}{}
 	}
-	if data.DisableEncryption != nil {
+	if !data.DisableEncryption.IsNull() && !data.DisableEncryption.IsUnknown() {
 		apiResource.Spec["disable_encryption"] = map[string]interface{}{}
 	}
 	if data.EnableEncryption != nil {
@@ -10500,7 +10695,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
-		if data.IngressEgressGw.ForwardProxyAllowAll != nil {
+		if !data.IngressEgressGw.ForwardProxyAllowAll.IsNull() && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 			IngressEgressGwMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if !data.IngressEgressGw.GCPCertifiedHw.IsNull() && !data.IngressEgressGw.GCPCertifiedHw.IsUnknown() {
@@ -10575,7 +10770,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				IngressEgressGwInsideNetworkMap["new_network"] = IngressEgressGwInsideNetworkNewNetworkMap
 			}
-			if data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate != nil {
+			if !data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate.IsNull() && !data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate.IsUnknown() {
 				IngressEgressGwInsideNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
 			IngressEgressGwMap["inside_network"] = IngressEgressGwInsideNetworkMap
@@ -10713,22 +10908,22 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			IngressEgressGwMap["inside_subnet"] = IngressEgressGwInsideSubnetMap
 		}
-		if data.IngressEgressGw.NoDcClusterGroup != nil {
+		if !data.IngressEgressGw.NoDcClusterGroup.IsNull() && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 			IngressEgressGwMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoForwardProxy != nil {
+		if !data.IngressEgressGw.NoForwardProxy.IsNull() && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 			IngressEgressGwMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoGlobalNetwork != nil {
+		if !data.IngressEgressGw.NoGlobalNetwork.IsNull() && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 			IngressEgressGwMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoInsideStaticRoutes != nil {
+		if !data.IngressEgressGw.NoInsideStaticRoutes.IsNull() && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 			IngressEgressGwMap["no_inside_static_routes"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoNetworkPolicy != nil {
+		if !data.IngressEgressGw.NoNetworkPolicy.IsNull() && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 			IngressEgressGwMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoOutsideStaticRoutes != nil {
+		if !data.IngressEgressGw.NoOutsideStaticRoutes.IsNull() && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 			IngressEgressGwMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if !data.IngressEgressGw.NodeNumber.IsNull() && !data.IngressEgressGw.NodeNumber.IsUnknown() {
@@ -10750,7 +10945,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				IngressEgressGwOutsideNetworkMap["new_network"] = IngressEgressGwOutsideNetworkNewNetworkMap
 			}
-			if data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate != nil {
+			if !data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate.IsNull() && !data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate.IsUnknown() {
 				IngressEgressGwOutsideNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
 			IngressEgressGwMap["outside_network"] = IngressEgressGwOutsideNetworkMap
@@ -10892,30 +11087,30 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			IngressEgressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
-		if data.IngressEgressGw.SmConnectionPublicIP != nil {
+		if !data.IngressEgressGw.SmConnectionPublicIP.IsNull() && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 			IngressEgressGwMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.SmConnectionPvtIP != nil {
+		if !data.IngressEgressGw.SmConnectionPvtIP.IsNull() && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 			IngressEgressGwMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		apiResource.Spec["ingress_egress_gw"] = IngressEgressGwMap
@@ -10949,7 +11144,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				IngressGwLocalNetworkMap["new_network"] = IngressGwLocalNetworkNewNetworkMap
 			}
-			if data.IngressGw.LocalNetwork.NewNetworkAutogenerate != nil {
+			if !data.IngressGw.LocalNetwork.NewNetworkAutogenerate.IsNull() && !data.IngressGw.LocalNetwork.NewNetworkAutogenerate.IsUnknown() {
 				IngressGwLocalNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
 			IngressGwMap["local_network"] = IngressGwLocalNetworkMap
@@ -10982,20 +11177,20 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			IngressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap
@@ -11006,21 +11201,24 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if data.KubernetesUpgradeDrain != nil {
 		KubernetesUpgradeDrainMap := make(map[string]interface{})
-		if data.KubernetesUpgradeDrain.DisableUpgradeDrain != nil {
+		if !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsNull() && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
 			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
+			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
@@ -11037,22 +11235,22 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["log_receiver"] = LogReceiverMap
 	}
-	if data.LogsStreamingDisabled != nil {
+	if !data.LogsStreamingDisabled.IsNull() && !data.LogsStreamingDisabled.IsUnknown() {
 		apiResource.Spec["logs_streaming_disabled"] = map[string]interface{}{}
 	}
 	if data.OfflineSurvivabilityMode != nil {
 		OfflineSurvivabilityModeMap := make(map[string]interface{})
-		if data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["enable_offline_survivability_mode"] = map[string]interface{}{}
 		}
-		if data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["no_offline_survivability_mode"] = map[string]interface{}{}
 		}
 		apiResource.Spec["offline_survivability_mode"] = OfflineSurvivabilityModeMap
 	}
 	if data.OS != nil {
 		OSMap := make(map[string]interface{})
-		if data.OS.DefaultOSVersion != nil {
+		if !data.OS.DefaultOSVersion.IsNull() && !data.OS.DefaultOSVersion.IsUnknown() {
 			OSMap["default_os_version"] = map[string]interface{}{}
 		}
 		if !data.OS.OperatingSystemVersion.IsNull() && !data.OS.OperatingSystemVersion.IsUnknown() {
@@ -11060,7 +11258,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["os"] = OSMap
 	}
-	if data.PrivateConnectDisabled != nil {
+	if !data.PrivateConnectDisabled.IsNull() && !data.PrivateConnectDisabled.IsUnknown() {
 		apiResource.Spec["private_connect_disabled"] = map[string]interface{}{}
 	}
 	if data.PrivateConnectivity != nil {
@@ -11075,17 +11273,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			PrivateConnectivityMap["cloud_link"] = PrivateConnectivityCloudLinkMap
 		}
-		if data.PrivateConnectivity.Inside != nil {
+		if !data.PrivateConnectivity.Inside.IsNull() && !data.PrivateConnectivity.Inside.IsUnknown() {
 			PrivateConnectivityMap["inside"] = map[string]interface{}{}
 		}
-		if data.PrivateConnectivity.Outside != nil {
+		if !data.PrivateConnectivity.Outside.IsNull() && !data.PrivateConnectivity.Outside.IsUnknown() {
 			PrivateConnectivityMap["outside"] = map[string]interface{}{}
 		}
 		apiResource.Spec["private_connectivity"] = PrivateConnectivityMap
 	}
 	if data.Sw != nil {
 		SwMap := make(map[string]interface{})
-		if data.Sw.DefaultSwVersion != nil {
+		if !data.Sw.DefaultSwVersion.IsNull() && !data.Sw.DefaultSwVersion.IsUnknown() {
 			SwMap["default_sw_version"] = map[string]interface{}{}
 		}
 		if !data.Sw.VolterraSoftwareVersion.IsNull() && !data.Sw.VolterraSoftwareVersion.IsUnknown() {
@@ -11174,10 +11372,10 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
-		if data.VoltstackCluster.DefaultStorage != nil {
+		if !data.VoltstackCluster.DefaultStorage.IsNull() && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 			VoltstackClusterMap["default_storage"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.ForwardProxyAllowAll != nil {
+		if !data.VoltstackCluster.ForwardProxyAllowAll.IsNull() && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 			VoltstackClusterMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if !data.VoltstackCluster.GCPCertifiedHw.IsNull() && !data.VoltstackCluster.GCPCertifiedHw.IsUnknown() {
@@ -11246,22 +11444,22 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
-		if data.VoltstackCluster.NoDcClusterGroup != nil {
+		if !data.VoltstackCluster.NoDcClusterGroup.IsNull() && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 			VoltstackClusterMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoForwardProxy != nil {
+		if !data.VoltstackCluster.NoForwardProxy.IsNull() && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 			VoltstackClusterMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoGlobalNetwork != nil {
+		if !data.VoltstackCluster.NoGlobalNetwork.IsNull() && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 			VoltstackClusterMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoK8SCluster != nil {
+		if !data.VoltstackCluster.NoK8SCluster.IsNull() && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 			VoltstackClusterMap["no_k8s_cluster"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoNetworkPolicy != nil {
+		if !data.VoltstackCluster.NoNetworkPolicy.IsNull() && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 			VoltstackClusterMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoOutsideStaticRoutes != nil {
+		if !data.VoltstackCluster.NoOutsideStaticRoutes.IsNull() && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 			VoltstackClusterMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if !data.VoltstackCluster.NodeNumber.IsNull() && !data.VoltstackCluster.NodeNumber.IsUnknown() {
@@ -11395,7 +11593,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				VoltstackClusterSiteLocalNetworkMap["new_network"] = VoltstackClusterSiteLocalNetworkNewNetworkMap
 			}
-			if data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate != nil {
+			if !data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate.IsNull() && !data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate.IsUnknown() {
 				VoltstackClusterSiteLocalNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
 			VoltstackClusterMap["site_local_network"] = VoltstackClusterSiteLocalNetworkMap
@@ -11421,10 +11619,10 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			VoltstackClusterMap["site_local_subnet"] = VoltstackClusterSiteLocalSubnetMap
 		}
-		if data.VoltstackCluster.SmConnectionPublicIP != nil {
+		if !data.VoltstackCluster.SmConnectionPublicIP.IsNull() && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 			VoltstackClusterMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.SmConnectionPvtIP != nil {
+		if !data.VoltstackCluster.SmConnectionPvtIP.IsNull() && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 			VoltstackClusterMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
@@ -11600,8 +11798,12 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok && isImport && data.BlockAllServices == nil {
-		data.BlockAllServices = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.BlockAllServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok {
+		data.BlockAllServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BlockAllServices = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &GCPVPCSiteBlockedServicesModel{
@@ -11619,14 +11821,14 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, GCPVPCSiteBlockedServicesBlockedServiceModel{
-								DNS: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								DNS: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].DNS.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
-										return &GCPVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								NetworkType: func() types.String {
 									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
@@ -11634,23 +11836,23 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									return types.StringNull()
 								}(),
-								SSH: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								SSH: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].SSH.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
-										return &GCPVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								WebUserInterface: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								WebUserInterface: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].WebUserInterface.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
-										return &GCPVPCSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -11722,11 +11924,19 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok && isImport && data.DefaultBlockedServices == nil {
-		data.DefaultBlockedServices = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.DefaultBlockedServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok {
+		data.DefaultBlockedServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBlockedServices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok && isImport && data.DisableEncryption == nil {
-		data.DisableEncryption = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.DisableEncryption.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok {
+		data.DisableEncryption = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableEncryption = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_encryption"].(map[string]interface{}); ok && (isImport || data.EnableEncryption != nil) {
 		data.EnableEncryption = &GCPVPCSiteEnableEncryptionModel{
@@ -11938,14 +12148,14 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			ForwardProxyAllowAll: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 					return data.IngressEgressGw.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GCPCertifiedHw: func() types.String {
 				if v, ok := blockData["gcp_certified_hw"].(string); ok && v != "" {
@@ -12098,14 +12308,14 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil {
+						NewNetworkAutogenerate: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.InsideNetwork != nil && !data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate.IsUnknown() {
 								return data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate
 							}
 							if _, ok := InsideNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -12397,59 +12607,59 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 					return data.IngressEgressGw.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 					return data.IngressEgressGw.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 					return data.IngressEgressGw.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 					return data.IngressEgressGw.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NodeNumber: func() types.Int64 {
 				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NodeNumber.IsUnknown() {
@@ -12498,14 +12708,14 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil {
+						NewNetworkAutogenerate: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.OutsideNetwork != nil && !data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate.IsUnknown() {
 								return data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate
 							}
 							if _, ok := OutsideNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -12809,23 +13019,23 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -12837,23 +13047,23 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -12863,23 +13073,23 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -12943,14 +13153,14 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil {
+						NewNetworkAutogenerate: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.LocalNetwork != nil && !data.IngressGw.LocalNetwork.NewNetworkAutogenerate.IsUnknown() {
 								return data.IngressGw.LocalNetwork.NewNetworkAutogenerate
 							}
 							if _, ok := LocalNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -13025,23 +13235,23 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -13053,23 +13263,23 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *GCPVPCSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &GCPVPCSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -13083,14 +13293,14 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &GCPVPCSiteKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -13098,20 +13308,29 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &GCPVPCSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -13125,14 +13344,14 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -13162,41 +13381,45 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["offline_survivability_mode"].(map[string]interface{}); ok && (isImport || data.OfflineSurvivabilityMode != nil) {
 		data.OfflineSurvivabilityMode = &GCPVPCSiteOfflineSurvivabilityModeModel{
-			EnableOfflineSurvivabilityMode: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			EnableOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["enable_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOfflineSurvivabilityMode: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			NoOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["no_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["os"].(map[string]interface{}); ok && (isImport || data.OS != nil) {
 		data.OS = &GCPVPCSiteOSModel{
-			DefaultOSVersion: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.OS != nil {
+			DefaultOSVersion: func() types.Object {
+				if !isImport && data.OS != nil && !data.OS.DefaultOSVersion.IsUnknown() {
 					return data.OS.DefaultOSVersion
 				}
 				if _, ok := blockData["default_os_version"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OperatingSystemVersion: func() types.String {
 				if v, ok := blockData["operating_system_version"].(string); ok && v != "" {
@@ -13206,8 +13429,12 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["private_connect_disabled"].(map[string]interface{}); ok && isImport && data.PrivateConnectDisabled == nil {
-		data.PrivateConnectDisabled = &GCPVPCSiteEmptyModel{}
+	if !isImport && !data.PrivateConnectDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["private_connect_disabled"].(map[string]interface{}); ok {
+		data.PrivateConnectDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.PrivateConnectDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["private_connectivity"].(map[string]interface{}); ok && (isImport || data.PrivateConnectivity != nil) {
 		data.PrivateConnectivity = &GCPVPCSitePrivateConnectivityModel{
@@ -13236,36 +13463,36 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			Inside: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Inside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Inside.IsUnknown() {
 					return data.PrivateConnectivity.Inside
 				}
 				if _, ok := blockData["inside"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			Outside: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Outside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Outside.IsUnknown() {
 					return data.PrivateConnectivity.Outside
 				}
 				if _, ok := blockData["outside"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &GCPVPCSiteSwModel{
-			DefaultSwVersion: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.Sw != nil {
+			DefaultSwVersion: func() types.Object {
+				if !isImport && data.Sw != nil && !data.Sw.DefaultSwVersion.IsUnknown() {
 					return data.Sw.DefaultSwVersion
 				}
 				if _, ok := blockData["default_sw_version"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			VolterraSoftwareVersion: func() types.String {
 				if v, ok := blockData["volterra_software_version"].(string); ok && v != "" {
@@ -13443,23 +13670,23 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			DefaultStorage: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			DefaultStorage: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 					return data.VoltstackCluster.DefaultStorage
 				}
 				if _, ok := blockData["default_storage"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 					return data.VoltstackCluster.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GCPCertifiedHw: func() types.String {
 				if v, ok := blockData["gcp_certified_hw"].(string); ok && v != "" {
@@ -13599,59 +13826,59 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 					return data.VoltstackCluster.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 					return data.VoltstackCluster.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 					return data.VoltstackCluster.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoK8SCluster: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoK8SCluster: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 					return data.VoltstackCluster.NoK8SCluster
 				}
 				if _, ok := blockData["no_k8s_cluster"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 					return data.VoltstackCluster.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VoltstackCluster.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NodeNumber: func() types.Int64 {
 				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NodeNumber.IsUnknown() {
@@ -13938,14 +14165,14 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						NewNetworkAutogenerate: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil {
+						NewNetworkAutogenerate: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.SiteLocalNetwork != nil && !data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate.IsUnknown() {
 								return data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate
 							}
 							if _, ok := SiteLocalNetworkData["new_network_autogenerate"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -13999,23 +14226,23 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *GCPVPCSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &GCPVPCSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			StorageClassList: func() *GCPVPCSiteVoltstackClusterStorageClassListModel {
 				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil {

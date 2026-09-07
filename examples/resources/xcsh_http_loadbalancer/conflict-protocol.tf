@@ -21,12 +21,12 @@ resource "xcsh_http_loadbalancer" "test" {
   }
 
   https_auto_cert {
-    add_hsts = false
-    no_mtls {}
-    default_header {}
-    enable_path_normalize {}
-    non_default_loadbalancer {}
+    add_hsts                 = false
+    no_mtls                  = {}
+    default_header           = {}
+    enable_path_normalize    = {}
+    non_default_loadbalancer = {}
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }

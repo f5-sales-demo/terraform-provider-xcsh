@@ -16,6 +16,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -51,16 +52,16 @@ type APIDiscoveryEmptyModel struct {
 
 // APIDiscoveryUserDefinedAPIDiscoveryPolicyModel represents user_defined_api_discovery_policy block
 type APIDiscoveryUserDefinedAPIDiscoveryPolicyModel struct {
+	Inclusive      types.Object                                             `tfsdk:"inclusive"`
 	DiscoveryRules types.List                                               `tfsdk:"discovery_rules"`
 	Exclusive      *APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel `tfsdk:"exclusive"`
-	Inclusive      *APIDiscoveryEmptyModel                                  `tfsdk:"inclusive"`
 }
 
 // APIDiscoveryUserDefinedAPIDiscoveryPolicyModelAttrTypes defines the attribute types for APIDiscoveryUserDefinedAPIDiscoveryPolicyModel
 var APIDiscoveryUserDefinedAPIDiscoveryPolicyModelAttrTypes = map[string]attr.Type{
+	"inclusive":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"discovery_rules": types.ListType{ElemType: types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes}},
 	"exclusive":       types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModelAttrTypes},
-	"inclusive":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel represents discovery_rules block
@@ -91,24 +92,24 @@ var APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModelAttrType
 
 // APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel represents rule_properties block
 type APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel struct {
+	Inclusion          types.Object                                                                                  `tfsdk:"inclusion"`
 	Pattern            types.String                                                                                  `tfsdk:"pattern"`
 	Exclusion          *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel          `tfsdk:"exclusion"`
 	HTTPHeaderCriteria *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModel `tfsdk:"http_header_criteria"`
-	Inclusion          *APIDiscoveryEmptyModel                                                                       `tfsdk:"inclusion"`
 }
 
 // APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModelAttrTypes defines the attribute types for APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel
 var APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModelAttrTypes = map[string]attr.Type{
+	"inclusion":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"pattern":              types.StringType,
 	"exclusion":            types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModelAttrTypes},
 	"http_header_criteria": types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModelAttrTypes},
-	"inclusion":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel represents exclusion block
 type APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel struct {
-	Archive *APIDiscoveryEmptyModel `tfsdk:"archive"`
-	Ignore  *APIDiscoveryEmptyModel `tfsdk:"ignore"`
+	Archive types.Object `tfsdk:"archive"`
+	Ignore  types.Object `tfsdk:"ignore"`
 }
 
 // APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModelAttrTypes defines the attribute types for APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel
@@ -135,8 +136,8 @@ var APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHea
 
 // APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel represents exclusive block
 type APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel struct {
-	Archive *APIDiscoveryEmptyModel `tfsdk:"archive"`
-	Ignore  *APIDiscoveryEmptyModel `tfsdk:"ignore"`
+	Archive types.Object `tfsdk:"archive"`
+	Ignore  types.Object `tfsdk:"ignore"`
 }
 
 // APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModelAttrTypes defines the attribute types for APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel
@@ -233,8 +234,19 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 			}),
 			"user_defined_api_discovery_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "Rules are evaluated sequentially, top to bottom. If no rules are added, all traffic will be discovered or ignored based on the selection in the 'Default Behaviour of the Rule Set' field.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("exclusive", "inclusive")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"inclusive": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Object{
+							objectplanmodifier.UseStateForUnknown(),
+						},
+						AttributeTypes: map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
 					"discovery_rules": schema.ListNestedBlock{
 						MarkdownDescription: "Define rules to include or exclude endpoints by path, domain, or header. Rules run top to bottom; unmatched endpoints follow the default action. Defaults to `[]`. Server applies default when omitted.",
@@ -266,7 +278,13 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 								},
 								"rule_properties": schema.SingleNestedBlock{
 									MarkdownDescription: "Determines whether matching endpoints are included in API Discovery or excluded.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exclusion", "inclusion"), validators.ConflictingObjectAttributes("http_header_criteria", "pattern")},
 									Attributes: map[string]schema.Attribute{
+										"inclusion": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"pattern": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [http_header_criteria] Patterns are matched against the request path to identify endpoints by path structure, file extension, or version prefix. Endpoints that match this pattern are affected by the rule.",
 											Optional:            true,
@@ -278,13 +296,17 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 									Blocks: map[string]schema.Block{
 										"exclusion": schema.SingleNestedBlock{
 											MarkdownDescription: "Exclusion Configuration. Configuration for exclusion action.",
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"archive": schema.SingleNestedBlock{
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("archive", "ignore")},
+											Attributes: map[string]schema.Attribute{
+												"archive": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
-												"ignore": schema.SingleNestedBlock{
+												"ignore": schema.ObjectAttribute{
 													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -322,9 +344,6 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 												},
 											},
 										},
-										"inclusion": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 									},
 								},
 							},
@@ -332,18 +351,19 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 					},
 					"exclusive": schema.SingleNestedBlock{
 						MarkdownDescription: "Exclusion Configuration. Configuration for exclusion action.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"archive": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("archive", "ignore")},
+						Attributes: map[string]schema.Attribute{
+							"archive": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"ignore": schema.SingleNestedBlock{
+							"ignore": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
-					},
-					"inclusive": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
 					},
 				},
 			},
@@ -523,10 +543,10 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 						UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap := make(map[string]interface{})
 						if DiscoveryRulesItem.RuleProperties.Exclusion != nil {
 							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap := make(map[string]interface{})
-							if DiscoveryRulesItem.RuleProperties.Exclusion.Archive != nil {
+							if !DiscoveryRulesItem.RuleProperties.Exclusion.Archive.IsNull() && !DiscoveryRulesItem.RuleProperties.Exclusion.Archive.IsUnknown() {
 								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap["archive"] = map[string]interface{}{}
 							}
-							if DiscoveryRulesItem.RuleProperties.Exclusion.Ignore != nil {
+							if !DiscoveryRulesItem.RuleProperties.Exclusion.Ignore.IsNull() && !DiscoveryRulesItem.RuleProperties.Exclusion.Ignore.IsUnknown() {
 								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap["ignore"] = map[string]interface{}{}
 							}
 							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["exclusion"] = UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap
@@ -547,7 +567,7 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 							}
 							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["http_header_criteria"] = UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap
 						}
-						if DiscoveryRulesItem.RuleProperties.Inclusion != nil {
+						if !DiscoveryRulesItem.RuleProperties.Inclusion.IsNull() && !DiscoveryRulesItem.RuleProperties.Inclusion.IsUnknown() {
 							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["inclusion"] = map[string]interface{}{}
 						}
 						if !DiscoveryRulesItem.RuleProperties.Pattern.IsNull() && !DiscoveryRulesItem.RuleProperties.Pattern.IsUnknown() {
@@ -562,15 +582,15 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 		}
 		if data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
 			UserDefinedAPIDiscoveryPolicyExclusiveMap := make(map[string]interface{})
-			if data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive != nil {
+			if !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive.IsNull() && !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive.IsUnknown() {
 				UserDefinedAPIDiscoveryPolicyExclusiveMap["archive"] = map[string]interface{}{}
 			}
-			if data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore != nil {
+			if !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore.IsNull() && !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore.IsUnknown() {
 				UserDefinedAPIDiscoveryPolicyExclusiveMap["ignore"] = map[string]interface{}{}
 			}
 			UserDefinedAPIDiscoveryPolicyMap["exclusive"] = UserDefinedAPIDiscoveryPolicyExclusiveMap
 		}
-		if data.UserDefinedAPIDiscoveryPolicy.Inclusive != nil {
+		if !data.UserDefinedAPIDiscoveryPolicy.Inclusive.IsNull() && !data.UserDefinedAPIDiscoveryPolicy.Inclusive.IsUnknown() {
 			UserDefinedAPIDiscoveryPolicyMap["inclusive"] = map[string]interface{}{}
 		}
 		createReq.Spec["user_defined_api_discovery_policy"] = UserDefinedAPIDiscoveryPolicyMap
@@ -686,23 +706,23 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 												}
 												if ExclusionData, ok := RulePropertiesData["exclusion"].(map[string]interface{}); ok {
 													return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel{
-														Archive: func() *APIDiscoveryEmptyModel {
-															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+														Archive: func() types.Object {
+															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil && !DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Archive.IsUnknown() {
 																return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Archive
 															}
 															if _, ok := ExclusionData["archive"].(map[string]interface{}); ok {
-																return &APIDiscoveryEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														Ignore: func() *APIDiscoveryEmptyModel {
-															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+														Ignore: func() types.Object {
+															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil && !DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Ignore.IsUnknown() {
 																return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Ignore
 															}
 															if _, ok := ExclusionData["ignore"].(map[string]interface{}); ok {
-																return &APIDiscoveryEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -742,14 +762,14 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 												}
 												return nil
 											}(),
-											Inclusion: func() *APIDiscoveryEmptyModel {
-												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil {
+											Inclusion: func() types.Object {
+												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && !DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Inclusion.IsUnknown() {
 													return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Inclusion
 												}
 												if _, ok := RulePropertiesData["inclusion"].(map[string]interface{}); ok {
-													return &APIDiscoveryEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Pattern: func() types.String {
 												if v, ok := RulePropertiesData["pattern"].(string); ok && v != "" {
@@ -775,36 +795,36 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 				}
 				if ExclusiveData, ok := blockData["exclusive"].(map[string]interface{}); ok {
 					return &APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel{
-						Archive: func() *APIDiscoveryEmptyModel {
-							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+						Archive: func() types.Object {
+							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil && !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive.IsUnknown() {
 								return data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive
 							}
 							if _, ok := ExclusiveData["archive"].(map[string]interface{}); ok {
-								return &APIDiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Ignore: func() *APIDiscoveryEmptyModel {
-							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+						Ignore: func() types.Object {
+							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil && !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore.IsUnknown() {
 								return data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore
 							}
 							if _, ok := ExclusiveData["ignore"].(map[string]interface{}); ok {
-								return &APIDiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
 				return nil
 			}(),
-			Inclusive: func() *APIDiscoveryEmptyModel {
-				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil {
+			Inclusive: func() types.Object {
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && !data.UserDefinedAPIDiscoveryPolicy.Inclusive.IsUnknown() {
 					return data.UserDefinedAPIDiscoveryPolicy.Inclusive
 				}
 				if _, ok := blockData["inclusive"].(map[string]interface{}); ok {
-					return &APIDiscoveryEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -1027,23 +1047,23 @@ func (r *APIDiscoveryResource) Read(ctx context.Context, req resource.ReadReques
 												}
 												if ExclusionData, ok := RulePropertiesData["exclusion"].(map[string]interface{}); ok {
 													return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel{
-														Archive: func() *APIDiscoveryEmptyModel {
-															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+														Archive: func() types.Object {
+															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil && !DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Archive.IsUnknown() {
 																return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Archive
 															}
 															if _, ok := ExclusionData["archive"].(map[string]interface{}); ok {
-																return &APIDiscoveryEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														Ignore: func() *APIDiscoveryEmptyModel {
-															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+														Ignore: func() types.Object {
+															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil && !DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Ignore.IsUnknown() {
 																return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Ignore
 															}
 															if _, ok := ExclusionData["ignore"].(map[string]interface{}); ok {
-																return &APIDiscoveryEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -1083,14 +1103,14 @@ func (r *APIDiscoveryResource) Read(ctx context.Context, req resource.ReadReques
 												}
 												return nil
 											}(),
-											Inclusion: func() *APIDiscoveryEmptyModel {
-												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil {
+											Inclusion: func() types.Object {
+												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && !DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Inclusion.IsUnknown() {
 													return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Inclusion
 												}
 												if _, ok := RulePropertiesData["inclusion"].(map[string]interface{}); ok {
-													return &APIDiscoveryEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Pattern: func() types.String {
 												if v, ok := RulePropertiesData["pattern"].(string); ok && v != "" {
@@ -1116,36 +1136,36 @@ func (r *APIDiscoveryResource) Read(ctx context.Context, req resource.ReadReques
 				}
 				if ExclusiveData, ok := blockData["exclusive"].(map[string]interface{}); ok {
 					return &APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel{
-						Archive: func() *APIDiscoveryEmptyModel {
-							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+						Archive: func() types.Object {
+							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil && !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive.IsUnknown() {
 								return data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive
 							}
 							if _, ok := ExclusiveData["archive"].(map[string]interface{}); ok {
-								return &APIDiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Ignore: func() *APIDiscoveryEmptyModel {
-							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+						Ignore: func() types.Object {
+							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil && !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore.IsUnknown() {
 								return data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore
 							}
 							if _, ok := ExclusiveData["ignore"].(map[string]interface{}); ok {
-								return &APIDiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
 				return nil
 			}(),
-			Inclusive: func() *APIDiscoveryEmptyModel {
-				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil {
+			Inclusive: func() types.Object {
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && !data.UserDefinedAPIDiscoveryPolicy.Inclusive.IsUnknown() {
 					return data.UserDefinedAPIDiscoveryPolicy.Inclusive
 				}
 				if _, ok := blockData["inclusive"].(map[string]interface{}); ok {
-					return &APIDiscoveryEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -1305,10 +1325,10 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 						UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap := make(map[string]interface{})
 						if DiscoveryRulesItem.RuleProperties.Exclusion != nil {
 							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap := make(map[string]interface{})
-							if DiscoveryRulesItem.RuleProperties.Exclusion.Archive != nil {
+							if !DiscoveryRulesItem.RuleProperties.Exclusion.Archive.IsNull() && !DiscoveryRulesItem.RuleProperties.Exclusion.Archive.IsUnknown() {
 								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap["archive"] = map[string]interface{}{}
 							}
-							if DiscoveryRulesItem.RuleProperties.Exclusion.Ignore != nil {
+							if !DiscoveryRulesItem.RuleProperties.Exclusion.Ignore.IsNull() && !DiscoveryRulesItem.RuleProperties.Exclusion.Ignore.IsUnknown() {
 								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap["ignore"] = map[string]interface{}{}
 							}
 							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["exclusion"] = UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap
@@ -1329,7 +1349,7 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 							}
 							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["http_header_criteria"] = UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap
 						}
-						if DiscoveryRulesItem.RuleProperties.Inclusion != nil {
+						if !DiscoveryRulesItem.RuleProperties.Inclusion.IsNull() && !DiscoveryRulesItem.RuleProperties.Inclusion.IsUnknown() {
 							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["inclusion"] = map[string]interface{}{}
 						}
 						if !DiscoveryRulesItem.RuleProperties.Pattern.IsNull() && !DiscoveryRulesItem.RuleProperties.Pattern.IsUnknown() {
@@ -1344,15 +1364,15 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 		}
 		if data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
 			UserDefinedAPIDiscoveryPolicyExclusiveMap := make(map[string]interface{})
-			if data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive != nil {
+			if !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive.IsNull() && !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive.IsUnknown() {
 				UserDefinedAPIDiscoveryPolicyExclusiveMap["archive"] = map[string]interface{}{}
 			}
-			if data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore != nil {
+			if !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore.IsNull() && !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore.IsUnknown() {
 				UserDefinedAPIDiscoveryPolicyExclusiveMap["ignore"] = map[string]interface{}{}
 			}
 			UserDefinedAPIDiscoveryPolicyMap["exclusive"] = UserDefinedAPIDiscoveryPolicyExclusiveMap
 		}
-		if data.UserDefinedAPIDiscoveryPolicy.Inclusive != nil {
+		if !data.UserDefinedAPIDiscoveryPolicy.Inclusive.IsNull() && !data.UserDefinedAPIDiscoveryPolicy.Inclusive.IsUnknown() {
 			UserDefinedAPIDiscoveryPolicyMap["inclusive"] = map[string]interface{}{}
 		}
 		apiResource.Spec["user_defined_api_discovery_policy"] = UserDefinedAPIDiscoveryPolicyMap
@@ -1488,23 +1508,23 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 												}
 												if ExclusionData, ok := RulePropertiesData["exclusion"].(map[string]interface{}); ok {
 													return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel{
-														Archive: func() *APIDiscoveryEmptyModel {
-															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+														Archive: func() types.Object {
+															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil && !DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Archive.IsUnknown() {
 																return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Archive
 															}
 															if _, ok := ExclusionData["archive"].(map[string]interface{}); ok {
-																return &APIDiscoveryEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														Ignore: func() *APIDiscoveryEmptyModel {
-															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+														Ignore: func() types.Object {
+															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil && !DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Ignore.IsUnknown() {
 																return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Ignore
 															}
 															if _, ok := ExclusionData["ignore"].(map[string]interface{}); ok {
-																return &APIDiscoveryEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -1544,14 +1564,14 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 												}
 												return nil
 											}(),
-											Inclusion: func() *APIDiscoveryEmptyModel {
-												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil {
+											Inclusion: func() types.Object {
+												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && !DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Inclusion.IsUnknown() {
 													return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Inclusion
 												}
 												if _, ok := RulePropertiesData["inclusion"].(map[string]interface{}); ok {
-													return &APIDiscoveryEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Pattern: func() types.String {
 												if v, ok := RulePropertiesData["pattern"].(string); ok && v != "" {
@@ -1577,36 +1597,36 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 				}
 				if ExclusiveData, ok := blockData["exclusive"].(map[string]interface{}); ok {
 					return &APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel{
-						Archive: func() *APIDiscoveryEmptyModel {
-							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+						Archive: func() types.Object {
+							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil && !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive.IsUnknown() {
 								return data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive
 							}
 							if _, ok := ExclusiveData["archive"].(map[string]interface{}); ok {
-								return &APIDiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Ignore: func() *APIDiscoveryEmptyModel {
-							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+						Ignore: func() types.Object {
+							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil && !data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore.IsUnknown() {
 								return data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore
 							}
 							if _, ok := ExclusiveData["ignore"].(map[string]interface{}); ok {
-								return &APIDiscoveryEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
 				return nil
 			}(),
-			Inclusive: func() *APIDiscoveryEmptyModel {
-				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil {
+			Inclusive: func() types.Object {
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && !data.UserDefinedAPIDiscoveryPolicy.Inclusive.IsUnknown() {
 					return data.UserDefinedAPIDiscoveryPolicy.Inclusive
 				}
 				if _, ok := blockData["inclusive"].(map[string]interface{}); ok {
-					return &APIDiscoveryEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

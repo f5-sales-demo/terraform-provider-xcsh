@@ -22,8 +22,8 @@ resource "xcsh_service_policy" "test" {
   }
 
   # Allow all requests
-  allow_all_requests {}
+  allow_all_requests = {}
 
   # Apply to any server
-  any_server {}
+  any_server = {}
 }

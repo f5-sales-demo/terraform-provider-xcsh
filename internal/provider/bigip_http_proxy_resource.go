@@ -54,8 +54,8 @@ type BigIPHTTPProxyEmptyModel struct {
 
 // BigIPHTTPProxyAdvancedProfileModel represents advanced_profile block
 type BigIPHTTPProxyAdvancedProfileModel struct {
-	DisableSpec          *BigIPHTTPProxyEmptyModel `tfsdk:"disable_spec"`
-	EnableDefaultProfile *BigIPHTTPProxyEmptyModel `tfsdk:"enable_default_profile"`
+	DisableSpec          types.Object `tfsdk:"disable_spec"`
+	EnableDefaultProfile types.Object `tfsdk:"enable_default_profile"`
 }
 
 // BigIPHTTPProxyAdvancedProfileModelAttrTypes defines the attribute types for BigIPHTTPProxyAdvancedProfileModel
@@ -66,8 +66,8 @@ var BigIPHTTPProxyAdvancedProfileModelAttrTypes = map[string]attr.Type{
 
 // BigIPHTTPProxyDDOSProfileModel represents ddos_profile block
 type BigIPHTTPProxyDDOSProfileModel struct {
-	DisableDDOSMitigation *BigIPHTTPProxyEmptyModel `tfsdk:"disable_ddos_mitigation"`
-	EnableDDOSMitigation  *BigIPHTTPProxyEmptyModel `tfsdk:"enable_ddos_mitigation"`
+	DisableDDOSMitigation types.Object `tfsdk:"disable_ddos_mitigation"`
+	EnableDDOSMitigation  types.Object `tfsdk:"enable_ddos_mitigation"`
 }
 
 // BigIPHTTPProxyDDOSProfileModelAttrTypes defines the attribute types for BigIPHTTPProxyDDOSProfileModel
@@ -138,19 +138,19 @@ var BigIPHTTPProxyOriginPoolsPoolsModelAttrTypes = map[string]attr.Type{
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersModel represents origin_servers block
 type BigIPHTTPProxyOriginPoolsPoolsOriginServersModel struct {
+	AutomaticPort types.Object                                                  `tfsdk:"automatic_port"`
+	LBPort        types.Object                                                  `tfsdk:"lb_port"`
 	Port          types.Int64                                                   `tfsdk:"port"`
-	AutomaticPort *BigIPHTTPProxyEmptyModel                                     `tfsdk:"automatic_port"`
 	HealthChecks  *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel `tfsdk:"health_checks"`
-	LBPort        *BigIPHTTPProxyEmptyModel                                     `tfsdk:"lb_port"`
 	OriginServers types.List                                                    `tfsdk:"origin_servers"`
 }
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersModelAttrTypes defines the attribute types for BigIPHTTPProxyOriginPoolsPoolsOriginServersModel
 var BigIPHTTPProxyOriginPoolsPoolsOriginServersModelAttrTypes = map[string]attr.Type{
-	"port":           types.Int64Type,
 	"automatic_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"health_checks":  types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModelAttrTypes},
 	"lb_port":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"port":           types.Int64Type,
+	"health_checks":  types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModelAttrTypes},
 	"origin_servers": types.ListType{ElemType: types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModelAttrTypes}},
 }
 
@@ -174,7 +174,7 @@ var BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModelAttrTypes = map[
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel represents health_check block
 type BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel struct {
-	ICMPHealthCheck *BigIPHTTPProxyEmptyModel                                                              `tfsdk:"icmp_health_check"`
+	ICMPHealthCheck types.Object                                                                           `tfsdk:"icmp_health_check"`
 	TCPHealthCheck  *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckModel `tfsdk:"tcp_health_check"`
 }
 
@@ -214,24 +214,24 @@ var BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModelAttrTypes = map
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel represents k8s_service block
 type BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel struct {
+	InsideNetwork  types.Object                                                                        `tfsdk:"inside_network"`
+	OutsideNetwork types.Object                                                                        `tfsdk:"outside_network"`
 	Protocol       types.String                                                                        `tfsdk:"protocol"`
 	ServiceName    types.String                                                                        `tfsdk:"service_name"`
-	InsideNetwork  *BigIPHTTPProxyEmptyModel                                                           `tfsdk:"inside_network"`
-	OutsideNetwork *BigIPHTTPProxyEmptyModel                                                           `tfsdk:"outside_network"`
+	Vk8sNetworks   types.Object                                                                        `tfsdk:"vk8s_networks"`
 	SiteLocator    *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorModel `tfsdk:"site_locator"`
 	SnatPool       *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolModel    `tfsdk:"snat_pool"`
-	Vk8sNetworks   *BigIPHTTPProxyEmptyModel                                                           `tfsdk:"vk8s_networks"`
 }
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModelAttrTypes defines the attribute types for BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel
 var BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModelAttrTypes = map[string]attr.Type{
-	"protocol":        types.StringType,
-	"service_name":    types.StringType,
 	"inside_network":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"outside_network": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"protocol":        types.StringType,
+	"service_name":    types.StringType,
+	"vk8s_networks":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"site_locator":    types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorModelAttrTypes},
 	"snat_pool":       types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolModelAttrTypes},
-	"vk8s_networks":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorModel represents site_locator block
@@ -276,7 +276,7 @@ var BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocato
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolModel represents snat_pool block
 type BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolModel struct {
-	NoSnatPool *BigIPHTTPProxyEmptyModel                                                                `tfsdk:"no_snat_pool"`
+	NoSnatPool types.Object                                                                             `tfsdk:"no_snat_pool"`
 	SnatPool   *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel `tfsdk:"snat_pool"`
 }
 
@@ -298,9 +298,9 @@ var BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSn
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel represents private_ip block
 type BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel struct {
+	InsideNetwork  types.Object                                                                       `tfsdk:"inside_network"`
 	IP             types.String                                                                       `tfsdk:"ip"`
-	InsideNetwork  *BigIPHTTPProxyEmptyModel                                                          `tfsdk:"inside_network"`
-	OutsideNetwork *BigIPHTTPProxyEmptyModel                                                          `tfsdk:"outside_network"`
+	OutsideNetwork types.Object                                                                       `tfsdk:"outside_network"`
 	Segment        *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentModel     `tfsdk:"segment"`
 	SiteLocator    *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorModel `tfsdk:"site_locator"`
 	SnatPool       *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolModel    `tfsdk:"snat_pool"`
@@ -308,8 +308,8 @@ type BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel stru
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModelAttrTypes defines the attribute types for BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel
 var BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModelAttrTypes = map[string]attr.Type{
-	"ip":              types.StringType,
 	"inside_network":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"ip":              types.StringType,
 	"outside_network": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"segment":         types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentModelAttrTypes},
 	"site_locator":    types.ObjectType{AttrTypes: BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorModelAttrTypes},
@@ -372,7 +372,7 @@ var BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocator
 
 // BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolModel represents snat_pool block
 type BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolModel struct {
-	NoSnatPool *BigIPHTTPProxyEmptyModel                                                               `tfsdk:"no_snat_pool"`
+	NoSnatPool types.Object                                                                            `tfsdk:"no_snat_pool"`
 	SnatPool   *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolModel `tfsdk:"snat_pool"`
 }
 
@@ -416,14 +416,14 @@ var BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPublicNameModelAttrT
 
 // BigIPHTTPProxyProxyAdvertisementModel represents proxy_advertisement block
 type BigIPHTTPProxyProxyAdvertisementModel struct {
+	DoNotAdvertise  types.Object                                          `tfsdk:"do_not_advertise"`
 	AdvertiseCustom *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel `tfsdk:"advertise_custom"`
-	DoNotAdvertise  *BigIPHTTPProxyEmptyModel                             `tfsdk:"do_not_advertise"`
 }
 
 // BigIPHTTPProxyProxyAdvertisementModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyAdvertisementModel
 var BigIPHTTPProxyProxyAdvertisementModelAttrTypes = map[string]attr.Type{
-	"advertise_custom": types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModelAttrTypes},
 	"do_not_advertise": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"advertise_custom": types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModelAttrTypes},
 }
 
 // BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModel represents advertise_custom block
@@ -440,9 +440,9 @@ var BigIPHTTPProxyProxyAdvertisementAdvertiseCustomModelAttrTypes = map[string]a
 type BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel struct {
 	Port               types.Int64                                                                           `tfsdk:"port"`
 	PortRanges         types.String                                                                          `tfsdk:"port_ranges"`
+	UseDefaultPort     types.Object                                                                          `tfsdk:"use_default_port"`
 	AdvertiseOnPublic  *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel  `tfsdk:"advertise_on_public"`
 	Site               *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel               `tfsdk:"site"`
-	UseDefaultPort     *BigIPHTTPProxyEmptyModel                                                             `tfsdk:"use_default_port"`
 	VirtualNetwork     *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel     `tfsdk:"virtual_network"`
 	VirtualSite        *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel        `tfsdk:"virtual_site"`
 	VirtualSiteWithVIP *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel `tfsdk:"virtual_site_with_vip"`
@@ -453,9 +453,9 @@ type BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel struct {
 var BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes = map[string]attr.Type{
 	"port":                  types.Int64Type,
 	"port_ranges":           types.StringType,
+	"use_default_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"advertise_on_public":   types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModelAttrTypes},
 	"site":                  types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModelAttrTypes},
-	"use_default_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"virtual_network":       types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes},
 	"virtual_site":          types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModelAttrTypes},
 	"virtual_site_with_vip": types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModelAttrTypes},
@@ -516,19 +516,19 @@ var BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModelAt
 
 // BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel represents virtual_network block
 type BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel struct {
+	DefaultV6VIP   types.Object                                                                                    `tfsdk:"default_v6_vip"`
+	DefaultVIP     types.Object                                                                                    `tfsdk:"default_vip"`
 	SpecificV6VIP  types.String                                                                                    `tfsdk:"specific_v6_vip"`
 	SpecificVIP    types.String                                                                                    `tfsdk:"specific_vip"`
-	DefaultV6VIP   *BigIPHTTPProxyEmptyModel                                                                       `tfsdk:"default_v6_vip"`
-	DefaultVIP     *BigIPHTTPProxyEmptyModel                                                                       `tfsdk:"default_vip"`
 	VirtualNetwork *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel `tfsdk:"virtual_network"`
 }
 
 // BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel
 var BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes = map[string]attr.Type{
-	"specific_v6_vip": types.StringType,
-	"specific_vip":    types.StringType,
 	"default_v6_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"default_vip":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"specific_v6_vip": types.StringType,
+	"specific_vip":    types.StringType,
 	"virtual_network": types.ObjectType{AttrTypes: BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModelAttrTypes},
 }
 
@@ -675,18 +675,18 @@ type BigIPHTTPProxyProxyConfigHTTPSModel struct {
 	AddHsts                types.Bool                                              `tfsdk:"add_hsts"`
 	AppendServerName       types.String                                            `tfsdk:"append_server_name"`
 	ConnectionIdleTimeout  types.Int64                                             `tfsdk:"connection_idle_timeout"`
+	DefaultHeader          types.Object                                            `tfsdk:"default_header"`
+	DefaultLoadBalancer    types.Object                                            `tfsdk:"default_loadbalancer"`
+	DisablePathNormalize   types.Object                                            `tfsdk:"disable_path_normalize"`
+	EnablePathNormalize    types.Object                                            `tfsdk:"enable_path_normalize"`
 	HTTPRedirect           types.Bool                                              `tfsdk:"http_redirect"`
+	NonDefaultLoadBalancer types.Object                                            `tfsdk:"non_default_loadbalancer"`
+	PassThrough            types.Object                                            `tfsdk:"pass_through"`
 	Port                   types.Int64                                             `tfsdk:"port"`
 	PortRanges             types.String                                            `tfsdk:"port_ranges"`
 	ServerName             types.String                                            `tfsdk:"server_name"`
 	CoalescingOptions      *BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModel   `tfsdk:"coalescing_options"`
-	DefaultHeader          *BigIPHTTPProxyEmptyModel                               `tfsdk:"default_header"`
-	DefaultLoadBalancer    *BigIPHTTPProxyEmptyModel                               `tfsdk:"default_loadbalancer"`
-	DisablePathNormalize   *BigIPHTTPProxyEmptyModel                               `tfsdk:"disable_path_normalize"`
-	EnablePathNormalize    *BigIPHTTPProxyEmptyModel                               `tfsdk:"enable_path_normalize"`
 	HTTPProtocolOptions    *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModel `tfsdk:"http_protocol_options"`
-	NonDefaultLoadBalancer *BigIPHTTPProxyEmptyModel                               `tfsdk:"non_default_loadbalancer"`
-	PassThrough            *BigIPHTTPProxyEmptyModel                               `tfsdk:"pass_through"`
 	TLSCertParams          *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModel       `tfsdk:"tls_cert_params"`
 	TLSParameters          *BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel       `tfsdk:"tls_parameters"`
 }
@@ -696,26 +696,26 @@ var BigIPHTTPProxyProxyConfigHTTPSModelAttrTypes = map[string]attr.Type{
 	"add_hsts":                 types.BoolType,
 	"append_server_name":       types.StringType,
 	"connection_idle_timeout":  types.Int64Type,
-	"http_redirect":            types.BoolType,
-	"port":                     types.Int64Type,
-	"port_ranges":              types.StringType,
-	"server_name":              types.StringType,
-	"coalescing_options":       types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModelAttrTypes},
 	"default_header":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"default_loadbalancer":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_path_normalize":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_path_normalize":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"http_protocol_options":    types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModelAttrTypes},
+	"http_redirect":            types.BoolType,
 	"non_default_loadbalancer": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"pass_through":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"port":                     types.Int64Type,
+	"port_ranges":              types.StringType,
+	"server_name":              types.StringType,
+	"coalescing_options":       types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModelAttrTypes},
+	"http_protocol_options":    types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModelAttrTypes},
 	"tls_cert_params":          types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModelAttrTypes},
 	"tls_parameters":           types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersModelAttrTypes},
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModel represents coalescing_options block
 type BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModel struct {
-	DefaultCoalescing *BigIPHTTPProxyEmptyModel `tfsdk:"default_coalescing"`
-	StrictCoalescing  *BigIPHTTPProxyEmptyModel `tfsdk:"strict_coalescing"`
+	DefaultCoalescing types.Object `tfsdk:"default_coalescing"`
+	StrictCoalescing  types.Object `tfsdk:"strict_coalescing"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModel
@@ -726,16 +726,16 @@ var BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModelAttrTypes = map[string]a
 
 // BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModel represents http_protocol_options block
 type BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModel struct {
+	HTTPProtocolEnableV1V2   types.Object                                                                    `tfsdk:"http_protocol_enable_v1_v2"`
+	HTTPProtocolEnableV2Only types.Object                                                                    `tfsdk:"http_protocol_enable_v2_only"`
 	HTTPProtocolEnableV1Only *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel `tfsdk:"http_protocol_enable_v1_only"`
-	HTTPProtocolEnableV1V2   *BigIPHTTPProxyEmptyModel                                                       `tfsdk:"http_protocol_enable_v1_v2"`
-	HTTPProtocolEnableV2Only *BigIPHTTPProxyEmptyModel                                                       `tfsdk:"http_protocol_enable_v2_only"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModel
 var BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModelAttrTypes = map[string]attr.Type{
-	"http_protocol_enable_v1_only": types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModelAttrTypes},
 	"http_protocol_enable_v1_v2":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"http_protocol_enable_v2_only": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"http_protocol_enable_v1_only": types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModelAttrTypes},
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel represents http_protocol_enable_v1_only block
@@ -750,9 +750,9 @@ var BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMod
 
 // BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
-	DefaultHeaderTransformation      *BigIPHTTPProxyEmptyModel `tfsdk:"default_header_transformation"`
-	PreserveCaseHeaderTransformation *BigIPHTTPProxyEmptyModel `tfsdk:"preserve_case_header_transformation"`
-	ProperCaseHeaderTransformation   *BigIPHTTPProxyEmptyModel `tfsdk:"proper_case_header_transformation"`
+	DefaultHeaderTransformation      types.Object `tfsdk:"default_header_transformation"`
+	PreserveCaseHeaderTransformation types.Object `tfsdk:"preserve_case_header_transformation"`
+	ProperCaseHeaderTransformation   types.Object `tfsdk:"proper_case_header_transformation"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
@@ -764,16 +764,16 @@ var BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHea
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModel represents tls_cert_params block
 type BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModel struct {
+	NoMtls       types.Object                                               `tfsdk:"no_mtls"`
 	Certificates types.List                                                 `tfsdk:"certificates"`
-	NoMtls       *BigIPHTTPProxyEmptyModel                                  `tfsdk:"no_mtls"`
 	TLSConfig    *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel `tfsdk:"tls_config"`
 	UseMtls      *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModel   `tfsdk:"use_mtls"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModel
 var BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsModelAttrTypes = map[string]attr.Type{
-	"certificates": types.ListType{ElemType: types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModelAttrTypes}},
 	"no_mtls":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"certificates": types.ListType{ElemType: types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModelAttrTypes}},
 	"tls_config":   types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModelAttrTypes},
 	"use_mtls":     types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModelAttrTypes},
 }
@@ -794,18 +794,18 @@ var BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModelAttrTypes = map[
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel represents tls_config block
 type BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel struct {
+	DefaultSecurity types.Object                                                             `tfsdk:"default_security"`
+	LowSecurity     types.Object                                                             `tfsdk:"low_security"`
+	MediumSecurity  types.Object                                                             `tfsdk:"medium_security"`
 	CustomSecurity  *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityModel `tfsdk:"custom_security"`
-	DefaultSecurity *BigIPHTTPProxyEmptyModel                                                `tfsdk:"default_security"`
-	LowSecurity     *BigIPHTTPProxyEmptyModel                                                `tfsdk:"low_security"`
-	MediumSecurity  *BigIPHTTPProxyEmptyModel                                                `tfsdk:"medium_security"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel
 var BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModelAttrTypes = map[string]attr.Type{
-	"custom_security":  types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityModelAttrTypes},
 	"default_security": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"low_security":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"medium_security":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_security":  types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityModelAttrTypes},
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityModel represents custom_security block
@@ -825,22 +825,22 @@ var BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityModelAttrT
 // BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModel represents use_mtls block
 type BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModel struct {
 	ClientCertificateOptional types.Bool                                                          `tfsdk:"client_certificate_optional"`
+	NoCRL                     types.Object                                                        `tfsdk:"no_crl"`
 	TrustedCAURL              types.String                                                        `tfsdk:"trusted_ca_url"`
+	XfccDisabled              types.Object                                                        `tfsdk:"xfcc_disabled"`
 	CRL                       *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsCRLModel         `tfsdk:"crl"`
-	NoCRL                     *BigIPHTTPProxyEmptyModel                                           `tfsdk:"no_crl"`
 	TrustedCA                 *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAModel   `tfsdk:"trusted_ca"`
-	XfccDisabled              *BigIPHTTPProxyEmptyModel                                           `tfsdk:"xfcc_disabled"`
 	XfccOptions               *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsModel `tfsdk:"xfcc_options"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModel
 var BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsModelAttrTypes = map[string]attr.Type{
 	"client_certificate_optional": types.BoolType,
-	"trusted_ca_url":              types.StringType,
-	"crl":                         types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsCRLModelAttrTypes},
 	"no_crl":                      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"trusted_ca":                  types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAModelAttrTypes},
+	"trusted_ca_url":              types.StringType,
 	"xfcc_disabled":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"crl":                         types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsCRLModelAttrTypes},
+	"trusted_ca":                  types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAModelAttrTypes},
 	"xfcc_options":                types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsModelAttrTypes},
 }
 
@@ -884,7 +884,7 @@ var BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsModelAttrTypes 
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel represents tls_parameters block
 type BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel struct {
-	NoMtls          *BigIPHTTPProxyEmptyModel                                  `tfsdk:"no_mtls"`
+	NoMtls          types.Object                                               `tfsdk:"no_mtls"`
 	TLSCertificates types.List                                                 `tfsdk:"tls_certificates"`
 	TLSConfig       *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel `tfsdk:"tls_config"`
 	UseMtls         *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModel   `tfsdk:"use_mtls"`
@@ -902,20 +902,20 @@ var BigIPHTTPProxyProxyConfigHTTPSTLSParametersModelAttrTypes = map[string]attr.
 type BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel struct {
 	CertificateURL       types.String                                                                         `tfsdk:"certificate_url"`
 	DescriptionSpec      types.String                                                                         `tfsdk:"description_spec"`
+	DisableOCSPStapling  types.Object                                                                         `tfsdk:"disable_ocsp_stapling"`
+	UseSystemDefaults    types.Object                                                                         `tfsdk:"use_system_defaults"`
 	CustomHashAlgorithms *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsModel `tfsdk:"custom_hash_algorithms"`
-	DisableOCSPStapling  *BigIPHTTPProxyEmptyModel                                                            `tfsdk:"disable_ocsp_stapling"`
 	PrivateKey           *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModel           `tfsdk:"private_key"`
-	UseSystemDefaults    *BigIPHTTPProxyEmptyModel                                                            `tfsdk:"use_system_defaults"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel
 var BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModelAttrTypes = map[string]attr.Type{
 	"certificate_url":        types.StringType,
 	"description_spec":       types.StringType,
-	"custom_hash_algorithms": types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
 	"disable_ocsp_stapling":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"private_key":            types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModelAttrTypes},
 	"use_system_defaults":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_hash_algorithms": types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
+	"private_key":            types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModelAttrTypes},
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsModel represents custom_hash_algorithms block
@@ -968,18 +968,18 @@ var BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSec
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel represents tls_config block
 type BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel struct {
+	DefaultSecurity types.Object                                                             `tfsdk:"default_security"`
+	LowSecurity     types.Object                                                             `tfsdk:"low_security"`
+	MediumSecurity  types.Object                                                             `tfsdk:"medium_security"`
 	CustomSecurity  *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityModel `tfsdk:"custom_security"`
-	DefaultSecurity *BigIPHTTPProxyEmptyModel                                                `tfsdk:"default_security"`
-	LowSecurity     *BigIPHTTPProxyEmptyModel                                                `tfsdk:"low_security"`
-	MediumSecurity  *BigIPHTTPProxyEmptyModel                                                `tfsdk:"medium_security"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModel
 var BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigModelAttrTypes = map[string]attr.Type{
-	"custom_security":  types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityModelAttrTypes},
 	"default_security": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"low_security":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"medium_security":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_security":  types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityModelAttrTypes},
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityModel represents custom_security block
@@ -999,22 +999,22 @@ var BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityModelAttrT
 // BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModel represents use_mtls block
 type BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModel struct {
 	ClientCertificateOptional types.Bool                                                          `tfsdk:"client_certificate_optional"`
+	NoCRL                     types.Object                                                        `tfsdk:"no_crl"`
 	TrustedCAURL              types.String                                                        `tfsdk:"trusted_ca_url"`
+	XfccDisabled              types.Object                                                        `tfsdk:"xfcc_disabled"`
 	CRL                       *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsCRLModel         `tfsdk:"crl"`
-	NoCRL                     *BigIPHTTPProxyEmptyModel                                           `tfsdk:"no_crl"`
 	TrustedCA                 *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsTrustedCAModel   `tfsdk:"trusted_ca"`
-	XfccDisabled              *BigIPHTTPProxyEmptyModel                                           `tfsdk:"xfcc_disabled"`
 	XfccOptions               *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsModel `tfsdk:"xfcc_options"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModel
 var BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsModelAttrTypes = map[string]attr.Type{
 	"client_certificate_optional": types.BoolType,
-	"trusted_ca_url":              types.StringType,
-	"crl":                         types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsCRLModelAttrTypes},
 	"no_crl":                      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"trusted_ca":                  types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsTrustedCAModelAttrTypes},
+	"trusted_ca_url":              types.StringType,
 	"xfcc_disabled":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"crl":                         types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsCRLModelAttrTypes},
+	"trusted_ca":                  types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsTrustedCAModelAttrTypes},
 	"xfcc_options":                types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsModelAttrTypes},
 }
 
@@ -1061,19 +1061,19 @@ type BigIPHTTPProxyProxyConfigHTTPSAutoCertModel struct {
 	AddHsts                types.Bool                                                      `tfsdk:"add_hsts"`
 	AppendServerName       types.String                                                    `tfsdk:"append_server_name"`
 	ConnectionIdleTimeout  types.Int64                                                     `tfsdk:"connection_idle_timeout"`
+	DefaultHeader          types.Object                                                    `tfsdk:"default_header"`
+	DefaultLoadBalancer    types.Object                                                    `tfsdk:"default_loadbalancer"`
+	DisablePathNormalize   types.Object                                                    `tfsdk:"disable_path_normalize"`
+	EnablePathNormalize    types.Object                                                    `tfsdk:"enable_path_normalize"`
 	HTTPRedirect           types.Bool                                                      `tfsdk:"http_redirect"`
+	NoMtls                 types.Object                                                    `tfsdk:"no_mtls"`
+	NonDefaultLoadBalancer types.Object                                                    `tfsdk:"non_default_loadbalancer"`
+	PassThrough            types.Object                                                    `tfsdk:"pass_through"`
 	Port                   types.Int64                                                     `tfsdk:"port"`
 	PortRanges             types.String                                                    `tfsdk:"port_ranges"`
 	ServerName             types.String                                                    `tfsdk:"server_name"`
 	CoalescingOptions      *BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModel   `tfsdk:"coalescing_options"`
-	DefaultHeader          *BigIPHTTPProxyEmptyModel                                       `tfsdk:"default_header"`
-	DefaultLoadBalancer    *BigIPHTTPProxyEmptyModel                                       `tfsdk:"default_loadbalancer"`
-	DisablePathNormalize   *BigIPHTTPProxyEmptyModel                                       `tfsdk:"disable_path_normalize"`
-	EnablePathNormalize    *BigIPHTTPProxyEmptyModel                                       `tfsdk:"enable_path_normalize"`
 	HTTPProtocolOptions    *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModel `tfsdk:"http_protocol_options"`
-	NoMtls                 *BigIPHTTPProxyEmptyModel                                       `tfsdk:"no_mtls"`
-	NonDefaultLoadBalancer *BigIPHTTPProxyEmptyModel                                       `tfsdk:"non_default_loadbalancer"`
-	PassThrough            *BigIPHTTPProxyEmptyModel                                       `tfsdk:"pass_through"`
 	TLSConfig              *BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigModel           `tfsdk:"tls_config"`
 	UseMtls                *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsModel             `tfsdk:"use_mtls"`
 }
@@ -1083,27 +1083,27 @@ var BigIPHTTPProxyProxyConfigHTTPSAutoCertModelAttrTypes = map[string]attr.Type{
 	"add_hsts":                 types.BoolType,
 	"append_server_name":       types.StringType,
 	"connection_idle_timeout":  types.Int64Type,
-	"http_redirect":            types.BoolType,
-	"port":                     types.Int64Type,
-	"port_ranges":              types.StringType,
-	"server_name":              types.StringType,
-	"coalescing_options":       types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModelAttrTypes},
 	"default_header":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"default_loadbalancer":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_path_normalize":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_path_normalize":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"http_protocol_options":    types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModelAttrTypes},
+	"http_redirect":            types.BoolType,
 	"no_mtls":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"non_default_loadbalancer": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"pass_through":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"port":                     types.Int64Type,
+	"port_ranges":              types.StringType,
+	"server_name":              types.StringType,
+	"coalescing_options":       types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModelAttrTypes},
+	"http_protocol_options":    types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModelAttrTypes},
 	"tls_config":               types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigModelAttrTypes},
 	"use_mtls":                 types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsModelAttrTypes},
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModel represents coalescing_options block
 type BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModel struct {
-	DefaultCoalescing *BigIPHTTPProxyEmptyModel `tfsdk:"default_coalescing"`
-	StrictCoalescing  *BigIPHTTPProxyEmptyModel `tfsdk:"strict_coalescing"`
+	DefaultCoalescing types.Object `tfsdk:"default_coalescing"`
+	StrictCoalescing  types.Object `tfsdk:"strict_coalescing"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModel
@@ -1114,16 +1114,16 @@ var BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModelAttrTypes = map[
 
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModel represents http_protocol_options block
 type BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModel struct {
+	HTTPProtocolEnableV1V2   types.Object                                                                            `tfsdk:"http_protocol_enable_v1_v2"`
+	HTTPProtocolEnableV2Only types.Object                                                                            `tfsdk:"http_protocol_enable_v2_only"`
 	HTTPProtocolEnableV1Only *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel `tfsdk:"http_protocol_enable_v1_only"`
-	HTTPProtocolEnableV1V2   *BigIPHTTPProxyEmptyModel                                                               `tfsdk:"http_protocol_enable_v1_v2"`
-	HTTPProtocolEnableV2Only *BigIPHTTPProxyEmptyModel                                                               `tfsdk:"http_protocol_enable_v2_only"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModel
 var BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModelAttrTypes = map[string]attr.Type{
-	"http_protocol_enable_v1_only": types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModelAttrTypes},
 	"http_protocol_enable_v1_v2":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"http_protocol_enable_v2_only": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"http_protocol_enable_v1_only": types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModelAttrTypes},
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel represents http_protocol_enable_v1_only block
@@ -1138,9 +1138,9 @@ var BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV
 
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
-	DefaultHeaderTransformation      *BigIPHTTPProxyEmptyModel `tfsdk:"default_header_transformation"`
-	PreserveCaseHeaderTransformation *BigIPHTTPProxyEmptyModel `tfsdk:"preserve_case_header_transformation"`
-	ProperCaseHeaderTransformation   *BigIPHTTPProxyEmptyModel `tfsdk:"proper_case_header_transformation"`
+	DefaultHeaderTransformation      types.Object `tfsdk:"default_header_transformation"`
+	PreserveCaseHeaderTransformation types.Object `tfsdk:"preserve_case_header_transformation"`
+	ProperCaseHeaderTransformation   types.Object `tfsdk:"proper_case_header_transformation"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
@@ -1152,18 +1152,18 @@ var BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV
 
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigModel represents tls_config block
 type BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigModel struct {
+	DefaultSecurity types.Object                                                        `tfsdk:"default_security"`
+	LowSecurity     types.Object                                                        `tfsdk:"low_security"`
+	MediumSecurity  types.Object                                                        `tfsdk:"medium_security"`
 	CustomSecurity  *BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigCustomSecurityModel `tfsdk:"custom_security"`
-	DefaultSecurity *BigIPHTTPProxyEmptyModel                                           `tfsdk:"default_security"`
-	LowSecurity     *BigIPHTTPProxyEmptyModel                                           `tfsdk:"low_security"`
-	MediumSecurity  *BigIPHTTPProxyEmptyModel                                           `tfsdk:"medium_security"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigModel
 var BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigModelAttrTypes = map[string]attr.Type{
-	"custom_security":  types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigCustomSecurityModelAttrTypes},
 	"default_security": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"low_security":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"medium_security":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_security":  types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigCustomSecurityModelAttrTypes},
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigCustomSecurityModel represents custom_security block
@@ -1183,22 +1183,22 @@ var BigIPHTTPProxyProxyConfigHTTPSAutoCertTLSConfigCustomSecurityModelAttrTypes 
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsModel represents use_mtls block
 type BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsModel struct {
 	ClientCertificateOptional types.Bool                                                     `tfsdk:"client_certificate_optional"`
+	NoCRL                     types.Object                                                   `tfsdk:"no_crl"`
 	TrustedCAURL              types.String                                                   `tfsdk:"trusted_ca_url"`
+	XfccDisabled              types.Object                                                   `tfsdk:"xfcc_disabled"`
 	CRL                       *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsCRLModel         `tfsdk:"crl"`
-	NoCRL                     *BigIPHTTPProxyEmptyModel                                      `tfsdk:"no_crl"`
 	TrustedCA                 *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsTrustedCAModel   `tfsdk:"trusted_ca"`
-	XfccDisabled              *BigIPHTTPProxyEmptyModel                                      `tfsdk:"xfcc_disabled"`
 	XfccOptions               *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsXfccOptionsModel `tfsdk:"xfcc_options"`
 }
 
 // BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsModelAttrTypes defines the attribute types for BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsModel
 var BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsModelAttrTypes = map[string]attr.Type{
 	"client_certificate_optional": types.BoolType,
-	"trusted_ca_url":              types.StringType,
-	"crl":                         types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsCRLModelAttrTypes},
 	"no_crl":                      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"trusted_ca":                  types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsTrustedCAModelAttrTypes},
+	"trusted_ca_url":              types.StringType,
 	"xfcc_disabled":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"crl":                         types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsCRLModelAttrTypes},
+	"trusted_ca":                  types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsTrustedCAModelAttrTypes},
 	"xfcc_options":                types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsXfccOptionsModelAttrTypes},
 }
 
@@ -1321,27 +1321,35 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 			}),
 			"advanced_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines various advanced Profile OPTIONS for a Loadbalancer.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable_default_profile")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_spec": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_spec": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"enable_default_profile": schema.SingleNestedBlock{
+					"enable_default_profile": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for enable default profile.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
 			"ddos_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for ddos profile.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_ddos_mitigation", "enable_ddos_mitigation")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_ddos_mitigation": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_ddos_mitigation": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"enable_ddos_mitigation": schema.SingleNestedBlock{
+					"enable_ddos_mitigation": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
@@ -1428,8 +1436,18 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							Blocks: map[string]schema.Block{
 								"origin_servers": schema.SingleNestedBlock{
 									MarkdownDescription: "List of origin Servers for the BIG-IP HTTP Proxy.",
-									Validators:          []validator.Object{validators.RequiredObjectAttributes("origin_servers")},
+									Validators:          []validator.Object{validators.RequiredObjectAttributes("origin_servers"), validators.ConflictingObjectAttributes("automatic_port", "lb_port"), validators.ConflictingObjectAttributes("automatic_port", "port"), validators.ConflictingObjectAttributes("lb_port", "port")},
 									Attributes: map[string]schema.Attribute{
+										"automatic_port": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"lb_port": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"port": schema.Int64Attribute{
 											MarkdownDescription: "Exclusive with [automatic_port lb_port] Endpoint service is available on this port.",
 											Optional:            true,
@@ -1439,9 +1457,6 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										},
 									},
 									Blocks: map[string]schema.Block{
-										"automatic_port": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 										"health_checks": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for health checks.",
 											Validators:          []validator.Object{validators.RequiredObjectAttributes("health_check", "healthy_threshold", "interval", "timeout", "unhealthy_threshold")},
@@ -1478,12 +1493,16 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											Blocks: map[string]schema.Block{
 												"health_check": schema.ListNestedBlock{
 													MarkdownDescription: "List of Health Checks. List of Health Checks.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("icmp_health_check", "tcp_health_check")},
 													NestedObject: schema.NestedBlockObject{
-														Attributes: map[string]schema.Attribute{},
-														Blocks: map[string]schema.Block{
-															"icmp_health_check": schema.SingleNestedBlock{
+														Attributes: map[string]schema.Attribute{
+															"icmp_health_check": schema.ObjectAttribute{
 																MarkdownDescription: "Configuration parameter for icmp health check.",
+																Optional:            true,
+																AttributeTypes:      map[string]attr.Type{},
 															},
+														},
+														Blocks: map[string]schema.Block{
 															"tcp_health_check": schema.SingleNestedBlock{
 																MarkdownDescription: "Monitor reports healthy status if UDP connection is successful and response payload matches expected response pattern.",
 																Validators:          []validator.Object{validators.RequiredObjectAttributes("expected_response", "send_payload")},
@@ -1509,17 +1528,26 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												},
 											},
 										},
-										"lb_port": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 										"origin_servers": schema.ListNestedBlock{
 											MarkdownDescription: "List of Origin Servers. List of origin servers for Proxy.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("k8s_service", "private_ip"), validators.ConflictingListObjectAttributes("k8s_service", "public_ip"), validators.ConflictingListObjectAttributes("k8s_service", "public_name"), validators.ConflictingListObjectAttributes("private_ip", "public_ip"), validators.ConflictingListObjectAttributes("private_ip", "public_name"), validators.ConflictingListObjectAttributes("public_ip", "public_name")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{},
 												Blocks: map[string]schema.Block{
 													"k8s_service": schema.SingleNestedBlock{
 														MarkdownDescription: "Specify origin server with K8s service name and site information.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside_network", "outside_network"), validators.ConflictingObjectAttributes("inside_network", "vk8s_networks"), validators.ConflictingObjectAttributes("outside_network", "vk8s_networks")},
 														Attributes: map[string]schema.Attribute{
+															"inside_network": schema.ObjectAttribute{
+																MarkdownDescription: "Configuration parameter for inside network.",
+																Optional:            true,
+																AttributeTypes:      map[string]attr.Type{},
+															},
+															"outside_network": schema.ObjectAttribute{
+																MarkdownDescription: "Configuration parameter for outside network.",
+																Optional:            true,
+																AttributeTypes:      map[string]attr.Type{},
+															},
 															"protocol": schema.StringAttribute{
 																MarkdownDescription: "[Enum: PROTOCOL_TCP|PROTOCOL_UDP] Type of protocol - PROTOCOL_TCP: TCP - PROTOCOL_UDP: UDP. Possible values are `PROTOCOL_TCP`, `PROTOCOL_UDP`. Defaults to `PROTOCOL_TCP`.",
 																Optional:            true,
@@ -1531,16 +1559,16 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																MarkdownDescription: "Exclusive with [] K8s service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:example-namespace'frontend', namespace is 'speedtest' and cluster-ID is 'prod', then you will enter..",
 																Optional:            true,
 															},
+															"vk8s_networks": schema.ObjectAttribute{
+																MarkdownDescription: "Configuration parameter for vk8s networks.",
+																Optional:            true,
+																AttributeTypes:      map[string]attr.Type{},
+															},
 														},
 														Blocks: map[string]schema.Block{
-															"inside_network": schema.SingleNestedBlock{
-																MarkdownDescription: "Configuration parameter for inside network.",
-															},
-															"outside_network": schema.SingleNestedBlock{
-																MarkdownDescription: "Configuration parameter for outside network.",
-															},
 															"site_locator": schema.SingleNestedBlock{
 																MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"site": schema.SingleNestedBlock{
@@ -1609,11 +1637,15 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 															},
 															"snat_pool": schema.SingleNestedBlock{
 																MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
-																Attributes:          map[string]schema.Attribute{},
-																Blocks: map[string]schema.Block{
-																	"no_snat_pool": schema.SingleNestedBlock{
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
+																Attributes: map[string]schema.Attribute{
+																	"no_snat_pool": schema.ObjectAttribute{
 																		MarkdownDescription: "Configuration parameter for no snat pool.",
+																		Optional:            true,
+																		AttributeTypes:      map[string]attr.Type{},
 																	},
+																},
+																Blocks: map[string]schema.Block{
 																	"snat_pool": schema.SingleNestedBlock{
 																		MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
 																		Attributes: map[string]schema.Attribute{
@@ -1629,14 +1661,17 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																	},
 																},
 															},
-															"vk8s_networks": schema.SingleNestedBlock{
-																MarkdownDescription: "Configuration parameter for vk8s networks.",
-															},
 														},
 													},
 													"private_ip": schema.SingleNestedBlock{
 														MarkdownDescription: "Specify origin server with private or public IP address and site information.",
+														Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside_network", "outside_network"), validators.ConflictingObjectAttributes("inside_network", "segment"), validators.ConflictingObjectAttributes("outside_network", "segment")},
 														Attributes: map[string]schema.Attribute{
+															"inside_network": schema.ObjectAttribute{
+																MarkdownDescription: "Configuration parameter for inside network.",
+																Optional:            true,
+																AttributeTypes:      map[string]attr.Type{},
+															},
 															"ip": schema.StringAttribute{
 																MarkdownDescription: "IP. Exclusive with [] Private IPv4 address.",
 																Optional:            true,
@@ -1645,14 +1680,13 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 																	validators.IPv4Validator(),
 																},
 															},
+															"outside_network": schema.ObjectAttribute{
+																MarkdownDescription: "Configuration parameter for outside network.",
+																Optional:            true,
+																AttributeTypes:      map[string]attr.Type{},
+															},
 														},
 														Blocks: map[string]schema.Block{
-															"inside_network": schema.SingleNestedBlock{
-																MarkdownDescription: "Configuration parameter for inside network.",
-															},
-															"outside_network": schema.SingleNestedBlock{
-																MarkdownDescription: "Configuration parameter for outside network.",
-															},
 															"segment": schema.SingleNestedBlock{
 																MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 																Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -1686,6 +1720,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 															},
 															"site_locator": schema.SingleNestedBlock{
 																MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 																Attributes:          map[string]schema.Attribute{},
 																Blocks: map[string]schema.Block{
 																	"site": schema.SingleNestedBlock{
@@ -1754,11 +1789,15 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 															},
 															"snat_pool": schema.SingleNestedBlock{
 																MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
-																Attributes:          map[string]schema.Attribute{},
-																Blocks: map[string]schema.Block{
-																	"no_snat_pool": schema.SingleNestedBlock{
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
+																Attributes: map[string]schema.Attribute{
+																	"no_snat_pool": schema.ObjectAttribute{
 																		MarkdownDescription: "Configuration parameter for no snat pool.",
+																		Optional:            true,
+																		AttributeTypes:      map[string]attr.Type{},
 																	},
+																},
+																Blocks: map[string]schema.Block{
 																	"snat_pool": schema.SingleNestedBlock{
 																		MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
 																		Attributes: map[string]schema.Attribute{
@@ -1824,8 +1863,15 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 			},
 			"proxy_advertisement": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for proxy advertisement.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("advertise_custom", "do_not_advertise")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"do_not_advertise": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for do not advertise.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
 					"advertise_custom": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines a way to advertise a VIP on specific sites.",
@@ -1834,6 +1880,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 						Blocks: map[string]schema.Block{
 							"advertise_where": schema.ListNestedBlock{
 								MarkdownDescription: "Where should this load balancer be available.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("advertise_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("port", "port_ranges"), validators.ConflictingListObjectAttributes("port", "use_default_port"), validators.ConflictingListObjectAttributes("port_ranges", "use_default_port"), validators.ConflictingListObjectAttributes("site", "virtual_network"), validators.ConflictingListObjectAttributes("site", "virtual_site"), validators.ConflictingListObjectAttributes("site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_network", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site_with_vip", "vk8s_service")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"port": schema.Int64Attribute{
@@ -1849,6 +1896,11 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 512),
 											},
+										},
+										"use_default_port": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -1942,12 +1994,20 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												},
 											},
 										},
-										"use_default_port": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 										"virtual_network": schema.SingleNestedBlock{
 											MarkdownDescription: "Parameters to advertise on a given virtual network.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_v6_vip", "specific_v6_vip"), validators.ConflictingObjectAttributes("default_vip", "specific_vip")},
 											Attributes: map[string]schema.Attribute{
+												"default_v6_vip": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"default_vip": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"specific_v6_vip": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [default_v6_vip] Use given IPv6 address as VIP on virtual Network.",
 													Optional:            true,
@@ -1966,12 +2026,6 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												},
 											},
 											Blocks: map[string]schema.Block{
-												"default_v6_vip": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"default_vip": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
 												"virtual_network": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -2105,6 +2159,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										},
 										"vk8s_service": schema.SingleNestedBlock{
 											MarkdownDescription: "Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"site": schema.SingleNestedBlock{
@@ -2176,14 +2231,11 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							},
 						},
 					},
-					"do_not_advertise": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for do not advertise.",
-					},
 				},
 			},
 			"proxy_config": schema.SingleNestedBlock{
 				MarkdownDescription: "HTTP/HTTPS Load Balancer. HTTP/HTTPS Load balancer.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("domains"), validators.ConflictingObjectAttributes("http", "https"), validators.ConflictingObjectAttributes("http", "https_auto_cert"), validators.ConflictingObjectAttributes("https", "https_auto_cert")},
 
 				Attributes: map[string]schema.Attribute{
 					"domains": schema.ListAttribute{
@@ -2198,6 +2250,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 				Blocks: map[string]schema.Block{
 					"http": schema.SingleNestedBlock{
 						MarkdownDescription: "HTTP Choice. Choice for selecting HTTP proxy.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("port", "port_ranges")},
 						Attributes: map[string]schema.Attribute{
 							"dns_volterra_managed": schema.BoolAttribute{
 								MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal.",
@@ -2221,6 +2274,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 					},
 					"https": schema.SingleNestedBlock{
 						MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges"), validators.ConflictingObjectAttributes("tls_cert_params", "tls_parameters")},
 						Attributes: map[string]schema.Attribute{
 							"add_hsts": schema.BoolAttribute{
 								MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -2240,9 +2294,39 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 									int64validator.AtMost(600000),
 								},
 							},
+							"default_header": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for default header.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"default_loadbalancer": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for default loadbalancer.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"disable_path_normalize": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_path_normalize": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"http_redirect": schema.BoolAttribute{
 								MarkdownDescription: "HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS.",
 								Optional:            true,
+							},
+							"non_default_loadbalancer": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for non default loadbalancer.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"pass_through": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for pass through.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 							"port": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [port_ranges] HTTPS port to Listen.",
@@ -2269,31 +2353,35 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 						Blocks: map[string]schema.Block{
 							"coalescing_options": schema.SingleNestedBlock{
 								MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"default_coalescing": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
+								Attributes: map[string]schema.Attribute{
+									"default_coalescing": schema.ObjectAttribute{
 										MarkdownDescription: "Configuration parameter for default coalescing.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"strict_coalescing": schema.SingleNestedBlock{
+									"strict_coalescing": schema.ObjectAttribute{
 										MarkdownDescription: "Configuration parameter for strict coalescing.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
-							"default_header": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for default header.",
-							},
-							"default_loadbalancer": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for default loadbalancer.",
-							},
-							"disable_path_normalize": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"enable_path_normalize": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"http_protocol_options": schema.SingleNestedBlock{
 								MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
-								Attributes:          map[string]schema.Attribute{},
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
+								Attributes: map[string]schema.Attribute{
+									"http_protocol_enable_v1_v2": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for http protocol enable v1 v2.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"http_protocol_enable_v2_only": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for http protocol enable v2 only.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+								},
 								Blocks: map[string]schema.Block{
 									"http_protocol_enable_v1_only": schema.SingleNestedBlock{
 										MarkdownDescription: "HTTP/1.1 Protocol OPTIONS for downstream connections.",
@@ -2301,39 +2389,39 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										Blocks: map[string]schema.Block{
 											"header_transformation": schema.SingleNestedBlock{
 												MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
-												Attributes:          map[string]schema.Attribute{},
-												Blocks: map[string]schema.Block{
-													"default_header_transformation": schema.SingleNestedBlock{
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
+												Attributes: map[string]schema.Attribute{
+													"default_header_transformation": schema.ObjectAttribute{
 														MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
 													},
-													"preserve_case_header_transformation": schema.SingleNestedBlock{
+													"preserve_case_header_transformation": schema.ObjectAttribute{
 														MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
 													},
-													"proper_case_header_transformation": schema.SingleNestedBlock{
+													"proper_case_header_transformation": schema.ObjectAttribute{
 														MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
 													},
 												},
 											},
 										},
 									},
-									"http_protocol_enable_v1_v2": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for http protocol enable v1 v2.",
-									},
-									"http_protocol_enable_v2_only": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for http protocol enable v2 only.",
-									},
 								},
-							},
-							"non_default_loadbalancer": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for non default loadbalancer.",
-							},
-							"pass_through": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for pass through.",
 							},
 							"tls_cert_params": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for tls cert params.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
-								Attributes:          map[string]schema.Attribute{},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
+								Attributes: map[string]schema.Attribute{
+									"no_mtls": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+								},
 								Blocks: map[string]schema.Block{
 									"certificates": schema.ListNestedBlock{
 										MarkdownDescription: "Select one or more certificates with any domain names.",
@@ -2368,12 +2456,26 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											},
 										},
 									},
-									"no_mtls": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 									"tls_config": schema.SingleNestedBlock{
 										MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
-										Attributes:          map[string]schema.Attribute{},
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
+										Attributes: map[string]schema.Attribute{
+											"default_security": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+											"low_security": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+											"medium_security": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+										},
 										Blocks: map[string]schema.Block{
 											"custom_security": schema.SingleNestedBlock{
 												MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
@@ -2400,23 +2502,20 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													},
 												},
 											},
-											"default_security": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
-											"low_security": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
-											"medium_security": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
 										},
 									},
 									"use_mtls": schema.SingleNestedBlock{
 										MarkdownDescription: "Validation context for downstream client TLS connections.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 										Attributes: map[string]schema.Attribute{
 											"client_certificate_optional": schema.BoolAttribute{
 												MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
 												Optional:            true,
+											},
+											"no_crl": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
 											},
 											"trusted_ca_url": schema.StringAttribute{
 												MarkdownDescription: "Exclusive with [trusted_ca] Upload a Root CA Certificate specifically for this Load Balancer.",
@@ -2424,6 +2523,11 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 131072),
 												},
+											},
+											"xfcc_disabled": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
 											},
 										},
 										Blocks: map[string]schema.Block{
@@ -2458,9 +2562,6 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													},
 												},
 											},
-											"no_crl": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
 											"trusted_ca": schema.SingleNestedBlock{
 												MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 												Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -2492,9 +2593,6 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													},
 												},
 											},
-											"xfcc_disabled": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
 											"xfcc_options": schema.SingleNestedBlock{
 												MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 												Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
@@ -2512,15 +2610,18 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							},
 							"tls_parameters": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for tls parameters.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates")},
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"no_mtls": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("tls_certificates"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls")},
+								Attributes: map[string]schema.Attribute{
+									"no_mtls": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
+								},
+								Blocks: map[string]schema.Block{
 									"tls_certificates": schema.ListNestedBlock{
 										MarkdownDescription: "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"certificate_url": schema.StringAttribute{
@@ -2533,6 +2634,16 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												"description_spec": schema.StringAttribute{
 													MarkdownDescription: "Description. Description for the certificate.",
 													Optional:            true,
+												},
+												"disable_ocsp_stapling": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"use_system_defaults": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for use system defaults.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 											Blocks: map[string]schema.Block{
@@ -2550,11 +2661,9 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 														},
 													},
 												},
-												"disable_ocsp_stapling": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
-												},
 												"private_key": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2597,15 +2706,29 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 														},
 													},
 												},
-												"use_system_defaults": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for use system defaults.",
-												},
 											},
 										},
 									},
 									"tls_config": schema.SingleNestedBlock{
 										MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
-										Attributes:          map[string]schema.Attribute{},
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
+										Attributes: map[string]schema.Attribute{
+											"default_security": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+											"low_security": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+											"medium_security": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
+											},
+										},
 										Blocks: map[string]schema.Block{
 											"custom_security": schema.SingleNestedBlock{
 												MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
@@ -2632,23 +2755,20 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													},
 												},
 											},
-											"default_security": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
-											"low_security": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
-											"medium_security": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
 										},
 									},
 									"use_mtls": schema.SingleNestedBlock{
 										MarkdownDescription: "Validation context for downstream client TLS connections.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 										Attributes: map[string]schema.Attribute{
 											"client_certificate_optional": schema.BoolAttribute{
 												MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
 												Optional:            true,
+											},
+											"no_crl": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
 											},
 											"trusted_ca_url": schema.StringAttribute{
 												MarkdownDescription: "Exclusive with [trusted_ca] Upload a Root CA Certificate specifically for this Load Balancer.",
@@ -2656,6 +2776,11 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												Validators: []validator.String{
 													stringvalidator.LengthBetween(1, 131072),
 												},
+											},
+											"xfcc_disabled": schema.ObjectAttribute{
+												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
 											},
 										},
 										Blocks: map[string]schema.Block{
@@ -2690,9 +2815,6 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													},
 												},
 											},
-											"no_crl": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
 											"trusted_ca": schema.SingleNestedBlock{
 												MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 												Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -2724,9 +2846,6 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													},
 												},
 											},
-											"xfcc_disabled": schema.SingleNestedBlock{
-												MarkdownDescription: "Enable this option",
-											},
 											"xfcc_options": schema.SingleNestedBlock{
 												MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
 												Validators:          []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")},
@@ -2746,6 +2865,7 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 					},
 					"https_auto_cert": schema.SingleNestedBlock{
 						MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 						Attributes: map[string]schema.Attribute{
 							"add_hsts": schema.BoolAttribute{
 								MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -2765,9 +2885,44 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 									int64validator.AtMost(600000),
 								},
 							},
+							"default_header": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for default header.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"default_loadbalancer": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for default loadbalancer.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"disable_path_normalize": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_path_normalize": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"http_redirect": schema.BoolAttribute{
 								MarkdownDescription: "HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS.",
 								Optional:            true,
+							},
+							"no_mtls": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"non_default_loadbalancer": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for non default loadbalancer.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"pass_through": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for pass through.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 							"port": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [port_ranges] HTTPS port to Listen.",
@@ -2794,31 +2949,35 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 						Blocks: map[string]schema.Block{
 							"coalescing_options": schema.SingleNestedBlock{
 								MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"default_coalescing": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
+								Attributes: map[string]schema.Attribute{
+									"default_coalescing": schema.ObjectAttribute{
 										MarkdownDescription: "Configuration parameter for default coalescing.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"strict_coalescing": schema.SingleNestedBlock{
+									"strict_coalescing": schema.ObjectAttribute{
 										MarkdownDescription: "Configuration parameter for strict coalescing.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
-							"default_header": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for default header.",
-							},
-							"default_loadbalancer": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for default loadbalancer.",
-							},
-							"disable_path_normalize": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"enable_path_normalize": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"http_protocol_options": schema.SingleNestedBlock{
 								MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
-								Attributes:          map[string]schema.Attribute{},
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
+								Attributes: map[string]schema.Attribute{
+									"http_protocol_enable_v1_v2": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for http protocol enable v1 v2.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"http_protocol_enable_v2_only": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for http protocol enable v2 only.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+								},
 								Blocks: map[string]schema.Block{
 									"http_protocol_enable_v1_only": schema.SingleNestedBlock{
 										MarkdownDescription: "HTTP/1.1 Protocol OPTIONS for downstream connections.",
@@ -2826,41 +2985,49 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										Blocks: map[string]schema.Block{
 											"header_transformation": schema.SingleNestedBlock{
 												MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
-												Attributes:          map[string]schema.Attribute{},
-												Blocks: map[string]schema.Block{
-													"default_header_transformation": schema.SingleNestedBlock{
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
+												Attributes: map[string]schema.Attribute{
+													"default_header_transformation": schema.ObjectAttribute{
 														MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
 													},
-													"preserve_case_header_transformation": schema.SingleNestedBlock{
+													"preserve_case_header_transformation": schema.ObjectAttribute{
 														MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
 													},
-													"proper_case_header_transformation": schema.SingleNestedBlock{
+													"proper_case_header_transformation": schema.ObjectAttribute{
 														MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
 													},
 												},
 											},
 										},
 									},
-									"http_protocol_enable_v1_v2": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for http protocol enable v1 v2.",
-									},
-									"http_protocol_enable_v2_only": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for http protocol enable v2 only.",
-									},
 								},
-							},
-							"no_mtls": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"non_default_loadbalancer": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for non default loadbalancer.",
-							},
-							"pass_through": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for pass through.",
 							},
 							"tls_config": schema.SingleNestedBlock{
 								MarkdownDescription: "Defines various OPTIONS to configure TLS configuration parameters.",
-								Attributes:          map[string]schema.Attribute{},
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_security", "default_security"), validators.ConflictingObjectAttributes("custom_security", "low_security"), validators.ConflictingObjectAttributes("custom_security", "medium_security"), validators.ConflictingObjectAttributes("default_security", "low_security"), validators.ConflictingObjectAttributes("default_security", "medium_security"), validators.ConflictingObjectAttributes("low_security", "medium_security")},
+								Attributes: map[string]schema.Attribute{
+									"default_security": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"low_security": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"medium_security": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+								},
 								Blocks: map[string]schema.Block{
 									"custom_security": schema.SingleNestedBlock{
 										MarkdownDescription: "Defines TLS protocol config including min/max versions and allowed ciphers.",
@@ -2887,23 +3054,20 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											},
 										},
 									},
-									"default_security": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"low_security": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"medium_security": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 								},
 							},
 							"use_mtls": schema.SingleNestedBlock{
 								MarkdownDescription: "Validation context for downstream client TLS connections.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("crl", "no_crl"), validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url"), validators.ConflictingObjectAttributes("xfcc_disabled", "xfcc_options")},
 								Attributes: map[string]schema.Attribute{
 									"client_certificate_optional": schema.BoolAttribute{
 										MarkdownDescription: "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated.",
 										Optional:            true,
+									},
+									"no_crl": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 									"trusted_ca_url": schema.StringAttribute{
 										MarkdownDescription: "Exclusive with [trusted_ca] Upload a Root CA Certificate specifically for this Load Balancer.",
@@ -2911,6 +3075,11 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 131072),
 										},
+									},
+									"xfcc_disabled": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 								Blocks: map[string]schema.Block{
@@ -2945,9 +3114,6 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 											},
 										},
 									},
-									"no_crl": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 									"trusted_ca": schema.SingleNestedBlock{
 										MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 										Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -2978,9 +3144,6 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												},
 											},
 										},
-									},
-									"xfcc_disabled": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
 									},
 									"xfcc_options": schema.SingleNestedBlock{
 										MarkdownDescription: "X-Forwarded-Client-Cert header elements to be added to requests.",
@@ -3127,20 +3290,20 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 	// Marshal spec fields from Terraform state to API struct
 	if data.AdvancedProfile != nil {
 		AdvancedProfileMap := make(map[string]interface{})
-		if data.AdvancedProfile.DisableSpec != nil {
+		if !data.AdvancedProfile.DisableSpec.IsNull() && !data.AdvancedProfile.DisableSpec.IsUnknown() {
 			AdvancedProfileMap["disable"] = map[string]interface{}{}
 		}
-		if data.AdvancedProfile.EnableDefaultProfile != nil {
+		if !data.AdvancedProfile.EnableDefaultProfile.IsNull() && !data.AdvancedProfile.EnableDefaultProfile.IsUnknown() {
 			AdvancedProfileMap["enable_default_profile"] = map[string]interface{}{}
 		}
 		createReq.Spec["advanced_profile"] = AdvancedProfileMap
 	}
 	if data.DDOSProfile != nil {
 		DDOSProfileMap := make(map[string]interface{})
-		if data.DDOSProfile.DisableDDOSMitigation != nil {
+		if !data.DDOSProfile.DisableDDOSMitigation.IsNull() && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 			DDOSProfileMap["disable_ddos_mitigation"] = map[string]interface{}{}
 		}
-		if data.DDOSProfile.EnableDDOSMitigation != nil {
+		if !data.DDOSProfile.EnableDDOSMitigation.IsNull() && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 			DDOSProfileMap["enable_ddos_mitigation"] = map[string]interface{}{}
 		}
 		createReq.Spec["ddos_profile"] = DDOSProfileMap
@@ -3190,7 +3353,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 					}
 					if PoolsItem.OriginServers != nil {
 						OriginPoolsPoolsOriginServersMap := make(map[string]interface{})
-						if PoolsItem.OriginServers.AutomaticPort != nil {
+						if !PoolsItem.OriginServers.AutomaticPort.IsNull() && !PoolsItem.OriginServers.AutomaticPort.IsUnknown() {
 							OriginPoolsPoolsOriginServersMap["automatic_port"] = map[string]interface{}{}
 						}
 						if PoolsItem.OriginServers.HealthChecks != nil {
@@ -3203,7 +3366,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 									var HealthCheckList []map[string]interface{}
 									for _, HealthCheckItem := range HealthCheckElems {
 										HealthCheckItemMap := make(map[string]interface{})
-										if HealthCheckItem.ICMPHealthCheck != nil {
+										if !HealthCheckItem.ICMPHealthCheck.IsNull() && !HealthCheckItem.ICMPHealthCheck.IsUnknown() {
 											HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
 										}
 										if HealthCheckItem.TCPHealthCheck != nil {
@@ -3235,7 +3398,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							}
 							OriginPoolsPoolsOriginServersMap["health_checks"] = OriginPoolsPoolsOriginServersHealthChecksMap
 						}
-						if PoolsItem.OriginServers.LBPort != nil {
+						if !PoolsItem.OriginServers.LBPort.IsNull() && !PoolsItem.OriginServers.LBPort.IsUnknown() {
 							OriginPoolsPoolsOriginServersMap["lb_port"] = map[string]interface{}{}
 						}
 						if !PoolsItem.OriginServers.OriginServers.IsNull() && !PoolsItem.OriginServers.OriginServers.IsUnknown() {
@@ -3248,10 +3411,10 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 									OriginServersItemMap := make(map[string]interface{})
 									if OriginServersItem.K8SService != nil {
 										OriginPoolsPoolsOriginServersOriginServersK8SServiceMap := make(map[string]interface{})
-										if OriginServersItem.K8SService.InsideNetwork != nil {
+										if !OriginServersItem.K8SService.InsideNetwork.IsNull() && !OriginServersItem.K8SService.InsideNetwork.IsUnknown() {
 											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["inside_network"] = map[string]interface{}{}
 										}
-										if OriginServersItem.K8SService.OutsideNetwork != nil {
+										if !OriginServersItem.K8SService.OutsideNetwork.IsNull() && !OriginServersItem.K8SService.OutsideNetwork.IsUnknown() {
 											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["outside_network"] = map[string]interface{}{}
 										}
 										if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
@@ -3286,7 +3449,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 										}
 										if OriginServersItem.K8SService.SnatPool != nil {
 											OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap := make(map[string]interface{})
-											if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
+											if !OriginServersItem.K8SService.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.K8SService.SnatPool.NoSnatPool.IsUnknown() {
 												OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 											}
 											if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
@@ -3303,20 +3466,20 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 											}
 											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["snat_pool"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap
 										}
-										if OriginServersItem.K8SService.Vk8sNetworks != nil {
+										if !OriginServersItem.K8SService.Vk8sNetworks.IsNull() && !OriginServersItem.K8SService.Vk8sNetworks.IsUnknown() {
 											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["vk8s_networks"] = map[string]interface{}{}
 										}
 										OriginServersItemMap["k8s_service"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceMap
 									}
 									if OriginServersItem.PrivateIP != nil {
 										OriginPoolsPoolsOriginServersOriginServersPrivateIPMap := make(map[string]interface{})
-										if OriginServersItem.PrivateIP.InsideNetwork != nil {
+										if !OriginServersItem.PrivateIP.InsideNetwork.IsNull() && !OriginServersItem.PrivateIP.InsideNetwork.IsUnknown() {
 											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["inside_network"] = map[string]interface{}{}
 										}
 										if !OriginServersItem.PrivateIP.IP.IsNull() && !OriginServersItem.PrivateIP.IP.IsUnknown() {
 											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
 										}
-										if OriginServersItem.PrivateIP.OutsideNetwork != nil {
+										if !OriginServersItem.PrivateIP.OutsideNetwork.IsNull() && !OriginServersItem.PrivateIP.OutsideNetwork.IsUnknown() {
 											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["outside_network"] = map[string]interface{}{}
 										}
 										if OriginServersItem.PrivateIP.Segment != nil {
@@ -3355,7 +3518,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 										}
 										if OriginServersItem.PrivateIP.SnatPool != nil {
 											OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolMap := make(map[string]interface{})
-											if OriginServersItem.PrivateIP.SnatPool.NoSnatPool != nil {
+											if !OriginServersItem.PrivateIP.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.PrivateIP.SnatPool.NoSnatPool.IsUnknown() {
 												OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 											}
 											if OriginServersItem.PrivateIP.SnatPool.SnatPool != nil {
@@ -3466,15 +3629,15 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							}
 							AdvertiseWhereItemMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap
 						}
-						if AdvertiseWhereItem.UseDefaultPort != nil {
+						if !AdvertiseWhereItem.UseDefaultPort.IsNull() && !AdvertiseWhereItem.UseDefaultPort.IsUnknown() {
 							AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 						}
 						if AdvertiseWhereItem.VirtualNetwork != nil {
 							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
-							if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+							if !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsUnknown() {
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 							}
-							if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+							if !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsUnknown() {
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
@@ -3563,7 +3726,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 			}
 			ProxyAdvertisementMap["advertise_custom"] = ProxyAdvertisementAdvertiseCustomMap
 		}
-		if data.ProxyAdvertisement.DoNotAdvertise != nil {
+		if !data.ProxyAdvertisement.DoNotAdvertise.IsNull() && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
 			ProxyAdvertisementMap["do_not_advertise"] = map[string]interface{}{}
 		}
 		createReq.Spec["proxy_advertisement"] = ProxyAdvertisementMap
@@ -3601,10 +3764,10 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 			}
 			if data.ProxyConfig.HTTPS.CoalescingOptions != nil {
 				ProxyConfigHTTPSCoalescingOptionsMap := make(map[string]interface{})
-				if data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing != nil {
+				if !data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing.IsNull() && !data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 					ProxyConfigHTTPSCoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
 				}
-				if data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing != nil {
+				if !data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing.IsNull() && !data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing.IsUnknown() {
 					ProxyConfigHTTPSCoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
 				}
 				ProxyConfigHTTPSMap["coalescing_options"] = ProxyConfigHTTPSCoalescingOptionsMap
@@ -3612,16 +3775,16 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 			if !data.ProxyConfig.HTTPS.ConnectionIdleTimeout.IsNull() && !data.ProxyConfig.HTTPS.ConnectionIdleTimeout.IsUnknown() {
 				ProxyConfigHTTPSMap["connection_idle_timeout"] = data.ProxyConfig.HTTPS.ConnectionIdleTimeout.ValueInt64()
 			}
-			if data.ProxyConfig.HTTPS.DefaultHeader != nil {
+			if !data.ProxyConfig.HTTPS.DefaultHeader.IsNull() && !data.ProxyConfig.HTTPS.DefaultHeader.IsUnknown() {
 				ProxyConfigHTTPSMap["default_header"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPS.DefaultLoadBalancer != nil {
+			if !data.ProxyConfig.HTTPS.DefaultLoadBalancer.IsNull() && !data.ProxyConfig.HTTPS.DefaultLoadBalancer.IsUnknown() {
 				ProxyConfigHTTPSMap["default_loadbalancer"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPS.DisablePathNormalize != nil {
+			if !data.ProxyConfig.HTTPS.DisablePathNormalize.IsNull() && !data.ProxyConfig.HTTPS.DisablePathNormalize.IsUnknown() {
 				ProxyConfigHTTPSMap["disable_path_normalize"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPS.EnablePathNormalize != nil {
+			if !data.ProxyConfig.HTTPS.EnablePathNormalize.IsNull() && !data.ProxyConfig.HTTPS.EnablePathNormalize.IsUnknown() {
 				ProxyConfigHTTPSMap["enable_path_normalize"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
@@ -3630,23 +3793,23 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 					ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
 					if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 						ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
-						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
+						if !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsNull() && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 						}
-						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+						if !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsNull() && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 						}
-						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+						if !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsNull() && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 						}
 						ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap["header_transformation"] = ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap
 					}
 					ProxyConfigHTTPSHTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap
 				}
-				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
+				if !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsNull() && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 					ProxyConfigHTTPSHTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
 				}
-				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
+				if !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsNull() && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 					ProxyConfigHTTPSHTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
 				}
 				ProxyConfigHTTPSMap["http_protocol_options"] = ProxyConfigHTTPSHTTPProtocolOptionsMap
@@ -3654,10 +3817,10 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 			if !data.ProxyConfig.HTTPS.HTTPRedirect.IsNull() && !data.ProxyConfig.HTTPS.HTTPRedirect.IsUnknown() {
 				ProxyConfigHTTPSMap["http_redirect"] = data.ProxyConfig.HTTPS.HTTPRedirect.ValueBool()
 			}
-			if data.ProxyConfig.HTTPS.NonDefaultLoadBalancer != nil {
+			if !data.ProxyConfig.HTTPS.NonDefaultLoadBalancer.IsNull() && !data.ProxyConfig.HTTPS.NonDefaultLoadBalancer.IsUnknown() {
 				ProxyConfigHTTPSMap["non_default_loadbalancer"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPS.PassThrough != nil {
+			if !data.ProxyConfig.HTTPS.PassThrough.IsNull() && !data.ProxyConfig.HTTPS.PassThrough.IsUnknown() {
 				ProxyConfigHTTPSMap["pass_through"] = map[string]interface{}{}
 			}
 			if !data.ProxyConfig.HTTPS.Port.IsNull() && !data.ProxyConfig.HTTPS.Port.IsUnknown() {
@@ -3690,7 +3853,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						ProxyConfigHTTPSTLSCertParamsMap["certificates"] = CertificatesList
 					}
 				}
-				if data.ProxyConfig.HTTPS.TLSCertParams.NoMtls != nil {
+				if !data.ProxyConfig.HTTPS.TLSCertParams.NoMtls.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.NoMtls.IsUnknown() {
 					ProxyConfigHTTPSTLSCertParamsMap["no_mtls"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
@@ -3713,13 +3876,13 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						}
 						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["custom_security"] = ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap
 					}
-					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity != nil {
+					if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity.IsUnknown() {
 						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["default_security"] = map[string]interface{}{}
 					}
-					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity != nil {
+					if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity.IsUnknown() {
 						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["low_security"] = map[string]interface{}{}
 					}
-					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity != nil {
+					if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity.IsUnknown() {
 						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["medium_security"] = map[string]interface{}{}
 					}
 					ProxyConfigHTTPSTLSCertParamsMap["tls_config"] = ProxyConfigHTTPSTLSCertParamsTLSConfigMap
@@ -3739,7 +3902,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						}
 						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["crl"] = ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap
 					}
-					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
+					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL.IsUnknown() {
 						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["no_crl"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA != nil {
@@ -3755,7 +3918,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.IsUnknown() {
 						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
 					}
-					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled != nil {
+					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled.IsUnknown() {
 						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions != nil {
@@ -3776,7 +3939,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 			}
 			if data.ProxyConfig.HTTPS.TLSParameters != nil {
 				ProxyConfigHTTPSTLSParametersMap := make(map[string]interface{})
-				if data.ProxyConfig.HTTPS.TLSParameters.NoMtls != nil {
+				if !data.ProxyConfig.HTTPS.TLSParameters.NoMtls.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.NoMtls.IsUnknown() {
 					ProxyConfigHTTPSTLSParametersMap["no_mtls"] = map[string]interface{}{}
 				}
 				if !data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsUnknown() {
@@ -3805,7 +3968,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 							}
-							if TLSCertificatesItem.DisableOCSPStapling != nil {
+							if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 							}
 							if TLSCertificatesItem.PrivateKey != nil {
@@ -3835,7 +3998,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 								}
 								TLSCertificatesItemMap["private_key"] = ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyMap
 							}
-							if TLSCertificatesItem.UseSystemDefaults != nil {
+							if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 							}
 							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -3863,13 +4026,13 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						}
 						ProxyConfigHTTPSTLSParametersTLSConfigMap["custom_security"] = ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap
 					}
-					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity != nil {
+					if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity.IsUnknown() {
 						ProxyConfigHTTPSTLSParametersTLSConfigMap["default_security"] = map[string]interface{}{}
 					}
-					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity != nil {
+					if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity.IsUnknown() {
 						ProxyConfigHTTPSTLSParametersTLSConfigMap["low_security"] = map[string]interface{}{}
 					}
-					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity != nil {
+					if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity.IsUnknown() {
 						ProxyConfigHTTPSTLSParametersTLSConfigMap["medium_security"] = map[string]interface{}{}
 					}
 					ProxyConfigHTTPSTLSParametersMap["tls_config"] = ProxyConfigHTTPSTLSParametersTLSConfigMap
@@ -3889,7 +4052,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						}
 						ProxyConfigHTTPSTLSParametersUseMtlsMap["crl"] = ProxyConfigHTTPSTLSParametersUseMtlsCRLMap
 					}
-					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
+					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL.IsUnknown() {
 						ProxyConfigHTTPSTLSParametersUseMtlsMap["no_crl"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA != nil {
@@ -3905,7 +4068,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.IsUnknown() {
 						ProxyConfigHTTPSTLSParametersUseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.ValueString()
 					}
-					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled != nil {
+					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled.IsUnknown() {
 						ProxyConfigHTTPSTLSParametersUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions != nil {
@@ -3936,10 +4099,10 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 			}
 			if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil {
 				ProxyConfigHTTPSAutoCertCoalescingOptionsMap := make(map[string]interface{})
-				if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing.IsNull() && !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 					ProxyConfigHTTPSAutoCertCoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
 				}
-				if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing.IsNull() && !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing.IsUnknown() {
 					ProxyConfigHTTPSAutoCertCoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
 				}
 				ProxyConfigHTTPSAutoCertMap["coalescing_options"] = ProxyConfigHTTPSAutoCertCoalescingOptionsMap
@@ -3947,16 +4110,16 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 			if !data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.IsNull() && !data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["connection_idle_timeout"] = data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.ValueInt64()
 			}
-			if data.ProxyConfig.HTTPSAutoCert.DefaultHeader != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.DefaultHeader.IsNull() && !data.ProxyConfig.HTTPSAutoCert.DefaultHeader.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["default_header"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer.IsNull() && !data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["default_loadbalancer"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize.IsNull() && !data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["disable_path_normalize"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize.IsNull() && !data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["enable_path_normalize"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
@@ -3965,23 +4128,23 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
 					if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 						ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
-						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
+						if !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 						}
-						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+						if !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 						}
-						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+						if !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 						}
 						ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap["header_transformation"] = ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap
 					}
 					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap
 				}
-				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
 				}
-				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
 				}
 				ProxyConfigHTTPSAutoCertMap["http_protocol_options"] = ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap
@@ -3989,13 +4152,13 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 			if !data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["http_redirect"] = data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.ValueBool()
 			}
-			if data.ProxyConfig.HTTPSAutoCert.NoMtls != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.NoMtls.IsNull() && !data.ProxyConfig.HTTPSAutoCert.NoMtls.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["no_mtls"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer.IsNull() && !data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["non_default_loadbalancer"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPSAutoCert.PassThrough != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.PassThrough.IsNull() && !data.ProxyConfig.HTTPSAutoCert.PassThrough.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["pass_through"] = map[string]interface{}{}
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.Port.IsNull() && !data.ProxyConfig.HTTPSAutoCert.Port.IsUnknown() {
@@ -4027,13 +4190,13 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 					}
 					ProxyConfigHTTPSAutoCertTLSConfigMap["custom_security"] = ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap
 				}
-				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity.IsUnknown() {
 					ProxyConfigHTTPSAutoCertTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
-				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity.IsUnknown() {
 					ProxyConfigHTTPSAutoCertTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
-				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity.IsUnknown() {
 					ProxyConfigHTTPSAutoCertTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
 				ProxyConfigHTTPSAutoCertMap["tls_config"] = ProxyConfigHTTPSAutoCertTLSConfigMap
@@ -4053,7 +4216,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 					}
 					ProxyConfigHTTPSAutoCertUseMtlsMap["crl"] = ProxyConfigHTTPSAutoCertUseMtlsCRLMap
 				}
-				if data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL.IsUnknown() {
 					ProxyConfigHTTPSAutoCertUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA != nil {
@@ -4069,7 +4232,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.IsUnknown() {
 					ProxyConfigHTTPSAutoCertUseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.ValueString()
 				}
-				if data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled.IsUnknown() {
 					ProxyConfigHTTPSAutoCertUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions != nil {
@@ -4131,45 +4294,45 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["advanced_profile"].(map[string]interface{}); ok && (isImport || data.AdvancedProfile != nil) {
 		data.AdvancedProfile = &BigIPHTTPProxyAdvancedProfileModel{
-			DisableSpec: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.AdvancedProfile != nil {
+			DisableSpec: func() types.Object {
+				if !isImport && data.AdvancedProfile != nil && !data.AdvancedProfile.DisableSpec.IsUnknown() {
 					return data.AdvancedProfile.DisableSpec
 				}
 				if _, ok := blockData["disable"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableDefaultProfile: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.AdvancedProfile != nil {
+			EnableDefaultProfile: func() types.Object {
+				if !isImport && data.AdvancedProfile != nil && !data.AdvancedProfile.EnableDefaultProfile.IsUnknown() {
 					return data.AdvancedProfile.EnableDefaultProfile
 				}
 				if _, ok := blockData["enable_default_profile"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
 		data.DDOSProfile = &BigIPHTTPProxyDDOSProfileModel{
-			DisableDDOSMitigation: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			DisableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.DisableDDOSMitigation
 				}
 				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableDDOSMitigation: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			EnableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.EnableDDOSMitigation
 				}
 				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -4255,14 +4418,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 								OriginServers: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersModel {
 									if OriginServersData, ok := PoolsItemMap["origin_servers"].(map[string]interface{}); ok {
 										return &BigIPHTTPProxyOriginPoolsPoolsOriginServersModel{
-											AutomaticPort: func() *BigIPHTTPProxyEmptyModel {
-												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil {
+											AutomaticPort: func() types.Object {
+												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil && !PoolsExisting[PoolsIdx].OriginServers.AutomaticPort.IsUnknown() {
 													return PoolsExisting[PoolsIdx].OriginServers.AutomaticPort
 												}
 												if _, ok := OriginServersData["automatic_port"].(map[string]interface{}); ok {
-													return &BigIPHTTPProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											HealthChecks: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel {
 												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil && PoolsExisting[PoolsIdx].OriginServers.HealthChecks != nil {
@@ -4284,14 +4447,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																	_ = HealthCheckIdx
 																	if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
 																		HealthCheckResult = append(HealthCheckResult, BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel{
-																			ICMPHealthCheck: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(HealthCheckExisting) > HealthCheckIdx {
+																			ICMPHealthCheck: func() types.Object {
+																				if !isImport && len(HealthCheckExisting) > HealthCheckIdx && !HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck.IsUnknown() {
 																					return HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck
 																				}
 																				if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																			TCPHealthCheck: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckModel {
 																				if TCPHealthCheckData, ok := HealthCheckItemMap["tcp_health_check"].(map[string]interface{}); ok {
@@ -4360,14 +4523,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 												}
 												return nil
 											}(),
-											LBPort: func() *BigIPHTTPProxyEmptyModel {
-												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil {
+											LBPort: func() types.Object {
+												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil && !PoolsExisting[PoolsIdx].OriginServers.LBPort.IsUnknown() {
 													return PoolsExisting[PoolsIdx].OriginServers.LBPort
 												}
 												if _, ok := OriginServersData["lb_port"].(map[string]interface{}); ok {
-													return &BigIPHTTPProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											OriginServers: func() types.List {
 												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil && (PoolsExisting[PoolsIdx].OriginServers.OriginServers.IsNull() || len(PoolsExisting[PoolsIdx].OriginServers.OriginServers.Elements()) == 0) {
@@ -4386,23 +4549,23 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																K8SService: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel {
 																	if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
 																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel{
-																			InsideNetwork: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+																			InsideNetwork: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork
 																				}
 																				if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
-																			OutsideNetwork: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+																			OutsideNetwork: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork
 																				}
 																				if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																			Protocol: func() types.String {
 																				if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
@@ -4479,14 +4642,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																				}
 																				if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
 																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolModel{
-																						NoSnatPool: func() *BigIPHTTPProxyEmptyModel {
-																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil {
+																						NoSnatPool: func() types.Object {
+																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && !OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool.IsUnknown() {
 																								return OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool
 																							}
 																							if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-																								return &BigIPHTTPProxyEmptyModel{}
+																								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																							}
-																							return nil
+																							return types.ObjectNull(map[string]attr.Type{})
 																						}(),
 																						SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
 																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool.SnatPool != nil {
@@ -4516,14 +4679,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																				}
 																				return nil
 																			}(),
-																			Vk8sNetworks: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+																			Vk8sNetworks: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks
 																				}
 																				if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																		}
 																	}
@@ -4532,14 +4695,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																PrivateIP: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel {
 																	if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
 																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel{
-																			InsideNetwork: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil {
+																			InsideNetwork: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && !OriginServersExisting[OriginServersIdx].PrivateIP.InsideNetwork.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].PrivateIP.InsideNetwork
 																				}
 																				if _, ok := PrivateIPData["inside_network"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																			IP: func() types.String {
 																				if v, ok := PrivateIPData["ip"].(string); ok && v != "" {
@@ -4547,14 +4710,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																				}
 																				return types.StringNull()
 																			}(),
-																			OutsideNetwork: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil {
+																			OutsideNetwork: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && !OriginServersExisting[OriginServersIdx].PrivateIP.OutsideNetwork.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].PrivateIP.OutsideNetwork
 																				}
 																				if _, ok := PrivateIPData["outside_network"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																			Segment: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentModel {
 																				if SegmentData, ok := PrivateIPData["segment"].(map[string]interface{}); ok {
@@ -4644,14 +4807,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																				}
 																				if SnatPoolData, ok := PrivateIPData["snat_pool"].(map[string]interface{}); ok {
 																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolModel{
-																						NoSnatPool: func() *BigIPHTTPProxyEmptyModel {
-																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool != nil {
+																						NoSnatPool: func() types.Object {
+																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool != nil && !OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool.NoSnatPool.IsUnknown() {
 																								return OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool.NoSnatPool
 																							}
 																							if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-																								return &BigIPHTTPProxyEmptyModel{}
+																								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																							}
-																							return nil
+																							return types.ObjectNull(map[string]attr.Type{})
 																						}(),
 																						SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolModel {
 																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool != nil && OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool.SnatPool != nil {
@@ -4870,35 +5033,35 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 												}
 												return nil
 											}(),
-											UseDefaultPort: func() *BigIPHTTPProxyEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+											UseDefaultPort: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-													return &BigIPHTTPProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VirtualNetwork: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
 												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
-														DefaultV6VIP: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+														DefaultV6VIP: func() types.Object {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP.IsUnknown() {
 																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
 															}
 															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
-																return &BigIPHTTPProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														DefaultVIP: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+														DefaultVIP: func() types.Object {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP.IsUnknown() {
 																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
 															}
 															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
-																return &BigIPHTTPProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SpecificV6VIP: func() types.String {
 															if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
@@ -5092,14 +5255,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 				}
 				return nil
 			}(),
-			DoNotAdvertise: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.ProxyAdvertisement != nil {
+			DoNotAdvertise: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
 					return data.ProxyAdvertisement.DoNotAdvertise
 				}
 				if _, ok := blockData["do_not_advertise"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -5177,23 +5340,23 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							}
 							if CoalescingOptionsData, ok := HTTPSData["coalescing_options"].(map[string]interface{}); ok {
 								return &BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModel{
-									DefaultCoalescing: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.CoalescingOptions != nil {
+									DefaultCoalescing: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.CoalescingOptions != nil && !data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 											return data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing
 										}
 										if _, ok := CoalescingOptionsData["default_coalescing"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									StrictCoalescing: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.CoalescingOptions != nil {
+									StrictCoalescing: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.CoalescingOptions != nil && !data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing.IsUnknown() {
 											return data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing
 										}
 										if _, ok := CoalescingOptionsData["strict_coalescing"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -5208,41 +5371,41 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							}
 							return types.Int64Null()
 						}(),
-						DefaultHeader: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						DefaultHeader: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.DefaultHeader.IsUnknown() {
 								return data.ProxyConfig.HTTPS.DefaultHeader
 							}
 							if _, ok := HTTPSData["default_header"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						DefaultLoadBalancer: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.DefaultLoadBalancer.IsUnknown() {
 								return data.ProxyConfig.HTTPS.DefaultLoadBalancer
 							}
 							if _, ok := HTTPSData["default_loadbalancer"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DisablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						DisablePathNormalize: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.DisablePathNormalize.IsUnknown() {
 								return data.ProxyConfig.HTTPS.DisablePathNormalize
 							}
 							if _, ok := HTTPSData["disable_path_normalize"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						EnablePathNormalize: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.EnablePathNormalize.IsUnknown() {
 								return data.ProxyConfig.HTTPS.EnablePathNormalize
 							}
 							if _, ok := HTTPSData["enable_path_normalize"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						HTTPProtocolOptions: func() *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModel {
 							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
@@ -5262,32 +5425,32 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 													}
 													if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
 														return &BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
-															DefaultHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															DefaultHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
-															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															PreserveCaseHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
-															ProperCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															ProperCaseHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -5297,23 +5460,23 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 										}
 										return nil
 									}(),
-									HTTPProtocolEnableV1V2: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
+									HTTPProtocolEnableV1V2: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 											return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2
 										}
 										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									HTTPProtocolEnableV2Only: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
+									HTTPProtocolEnableV2Only: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 											return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only
 										}
 										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -5328,23 +5491,23 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							}
 							return types.BoolNull()
 						}(),
-						NonDefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						NonDefaultLoadBalancer: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.NonDefaultLoadBalancer.IsUnknown() {
 								return data.ProxyConfig.HTTPS.NonDefaultLoadBalancer
 							}
 							if _, ok := HTTPSData["non_default_loadbalancer"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						PassThrough: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						PassThrough: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.PassThrough.IsUnknown() {
 								return data.ProxyConfig.HTTPS.PassThrough
 							}
 							if _, ok := HTTPSData["pass_through"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						Port: func() types.Int64 {
 							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.Port.IsUnknown() {
@@ -5410,14 +5573,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 										}
 										return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModelAttrTypes})
 									}(),
-									NoMtls: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil {
+									NoMtls: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && !data.ProxyConfig.HTTPS.TLSCertParams.NoMtls.IsUnknown() {
 											return data.ProxyConfig.HTTPS.TLSCertParams.NoMtls
 										}
 										if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel {
 										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
@@ -5461,32 +5624,32 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 													}
 													return nil
 												}(),
-												DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
+												DefaultSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity
 													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												LowSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
+												LowSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity
 													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
+												MediumSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity
 													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -5529,14 +5692,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 													}
 													return nil
 												}(),
-												NoCRL: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil {
+												NoCRL: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL
 													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAModel {
 													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -5569,14 +5732,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 													}
 													return types.StringNull()
 												}(),
-												XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil {
+												XfccDisabled: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled
 													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsModel {
 													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions != nil {
@@ -5613,14 +5776,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						TLSParameters: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel {
 							if TLSParametersData, ok := HTTPSData["tls_parameters"].(map[string]interface{}); ok {
 								return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel{
-									NoMtls: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil {
+									NoMtls: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && !data.ProxyConfig.HTTPS.TLSParameters.NoMtls.IsUnknown() {
 											return data.ProxyConfig.HTTPS.TLSParameters.NoMtls
 										}
 										if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TLSCertificates: func() types.List {
 										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && (data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsNull() || len(data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.Elements()) == 0) {
@@ -5669,14 +5832,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 															}
 															return types.StringNull()
 														}(),
-														DisableOCSPStapling: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														DisableOCSPStapling: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-																return &BigIPHTTPProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														PrivateKey: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModel {
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -5735,14 +5898,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 															}
 															return nil
 														}(),
-														UseSystemDefaults: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														UseSystemDefaults: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-																return &BigIPHTTPProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													})
 												}
@@ -5794,32 +5957,32 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 													}
 													return nil
 												}(),
-												DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
+												DefaultSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity
 													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												LowSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
+												LowSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity
 													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
+												MediumSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity
 													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -5862,14 +6025,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 													}
 													return nil
 												}(),
-												NoCRL: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil {
+												NoCRL: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL
 													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsTrustedCAModel {
 													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -5902,14 +6065,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 													}
 													return types.StringNull()
 												}(),
-												XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil {
+												XfccDisabled: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled
 													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsModel {
 													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions != nil {
@@ -5971,23 +6134,23 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							}
 							if CoalescingOptionsData, ok := HTTPSAutoCertData["coalescing_options"].(map[string]interface{}); ok {
 								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModel{
-									DefaultCoalescing: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil {
+									DefaultCoalescing: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil && !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing
 										}
 										if _, ok := CoalescingOptionsData["default_coalescing"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									StrictCoalescing: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil {
+									StrictCoalescing: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil && !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing
 										}
 										if _, ok := CoalescingOptionsData["strict_coalescing"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -6002,41 +6165,41 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							}
 							return types.Int64Null()
 						}(),
-						DefaultHeader: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						DefaultHeader: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.DefaultHeader.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.DefaultHeader
 							}
 							if _, ok := HTTPSAutoCertData["default_header"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						DefaultLoadBalancer: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer
 							}
 							if _, ok := HTTPSAutoCertData["default_loadbalancer"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DisablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						DisablePathNormalize: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize
 							}
 							if _, ok := HTTPSAutoCertData["disable_path_normalize"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						EnablePathNormalize: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize
 							}
 							if _, ok := HTTPSAutoCertData["enable_path_normalize"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						HTTPProtocolOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModel {
 							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
@@ -6056,32 +6219,32 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 													}
 													if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
 														return &BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
-															DefaultHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															DefaultHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
-															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															PreserveCaseHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
-															ProperCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															ProperCaseHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -6091,23 +6254,23 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 										}
 										return nil
 									}(),
-									HTTPProtocolEnableV1V2: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
+									HTTPProtocolEnableV1V2: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2
 										}
 										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									HTTPProtocolEnableV2Only: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
+									HTTPProtocolEnableV2Only: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only
 										}
 										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -6122,32 +6285,32 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							}
 							return types.BoolNull()
 						}(),
-						NoMtls: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						NoMtls: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.NoMtls.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.NoMtls
 							}
 							if _, ok := HTTPSAutoCertData["no_mtls"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						NonDefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						NonDefaultLoadBalancer: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer
 							}
 							if _, ok := HTTPSAutoCertData["non_default_loadbalancer"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						PassThrough: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						PassThrough: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.PassThrough.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.PassThrough
 							}
 							if _, ok := HTTPSAutoCertData["pass_through"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						Port: func() types.Int64 {
 							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.Port.IsUnknown() {
@@ -6212,32 +6375,32 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 										}
 										return nil
 									}(),
-									DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil {
+									DefaultSecurity: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity
 										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									LowSecurity: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil {
+									LowSecurity: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity
 										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil {
+									MediumSecurity: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity
 										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -6280,14 +6443,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 										}
 										return nil
 									}(),
-									NoCRL: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil {
+									NoCRL: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil && !data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL
 										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsTrustedCAModel {
 										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -6320,14 +6483,14 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 										}
 										return types.StringNull()
 									}(),
-									XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil {
+									XfccDisabled: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil && !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled
 										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsXfccOptionsModel {
 										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions != nil {
@@ -6496,45 +6659,45 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["advanced_profile"].(map[string]interface{}); ok && (isImport || data.AdvancedProfile != nil) {
 		data.AdvancedProfile = &BigIPHTTPProxyAdvancedProfileModel{
-			DisableSpec: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.AdvancedProfile != nil {
+			DisableSpec: func() types.Object {
+				if !isImport && data.AdvancedProfile != nil && !data.AdvancedProfile.DisableSpec.IsUnknown() {
 					return data.AdvancedProfile.DisableSpec
 				}
 				if _, ok := blockData["disable"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableDefaultProfile: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.AdvancedProfile != nil {
+			EnableDefaultProfile: func() types.Object {
+				if !isImport && data.AdvancedProfile != nil && !data.AdvancedProfile.EnableDefaultProfile.IsUnknown() {
 					return data.AdvancedProfile.EnableDefaultProfile
 				}
 				if _, ok := blockData["enable_default_profile"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
 		data.DDOSProfile = &BigIPHTTPProxyDDOSProfileModel{
-			DisableDDOSMitigation: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			DisableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.DisableDDOSMitigation
 				}
 				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableDDOSMitigation: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			EnableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.EnableDDOSMitigation
 				}
 				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -6620,14 +6783,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 								OriginServers: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersModel {
 									if OriginServersData, ok := PoolsItemMap["origin_servers"].(map[string]interface{}); ok {
 										return &BigIPHTTPProxyOriginPoolsPoolsOriginServersModel{
-											AutomaticPort: func() *BigIPHTTPProxyEmptyModel {
-												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil {
+											AutomaticPort: func() types.Object {
+												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil && !PoolsExisting[PoolsIdx].OriginServers.AutomaticPort.IsUnknown() {
 													return PoolsExisting[PoolsIdx].OriginServers.AutomaticPort
 												}
 												if _, ok := OriginServersData["automatic_port"].(map[string]interface{}); ok {
-													return &BigIPHTTPProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											HealthChecks: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel {
 												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil && PoolsExisting[PoolsIdx].OriginServers.HealthChecks != nil {
@@ -6649,14 +6812,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																	_ = HealthCheckIdx
 																	if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
 																		HealthCheckResult = append(HealthCheckResult, BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel{
-																			ICMPHealthCheck: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(HealthCheckExisting) > HealthCheckIdx {
+																			ICMPHealthCheck: func() types.Object {
+																				if !isImport && len(HealthCheckExisting) > HealthCheckIdx && !HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck.IsUnknown() {
 																					return HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck
 																				}
 																				if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																			TCPHealthCheck: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckModel {
 																				if TCPHealthCheckData, ok := HealthCheckItemMap["tcp_health_check"].(map[string]interface{}); ok {
@@ -6725,14 +6888,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 												}
 												return nil
 											}(),
-											LBPort: func() *BigIPHTTPProxyEmptyModel {
-												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil {
+											LBPort: func() types.Object {
+												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil && !PoolsExisting[PoolsIdx].OriginServers.LBPort.IsUnknown() {
 													return PoolsExisting[PoolsIdx].OriginServers.LBPort
 												}
 												if _, ok := OriginServersData["lb_port"].(map[string]interface{}); ok {
-													return &BigIPHTTPProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											OriginServers: func() types.List {
 												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil && (PoolsExisting[PoolsIdx].OriginServers.OriginServers.IsNull() || len(PoolsExisting[PoolsIdx].OriginServers.OriginServers.Elements()) == 0) {
@@ -6751,23 +6914,23 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																K8SService: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel {
 																	if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
 																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel{
-																			InsideNetwork: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+																			InsideNetwork: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork
 																				}
 																				if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
-																			OutsideNetwork: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+																			OutsideNetwork: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork
 																				}
 																				if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																			Protocol: func() types.String {
 																				if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
@@ -6844,14 +7007,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																				}
 																				if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
 																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolModel{
-																						NoSnatPool: func() *BigIPHTTPProxyEmptyModel {
-																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil {
+																						NoSnatPool: func() types.Object {
+																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && !OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool.IsUnknown() {
 																								return OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool
 																							}
 																							if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-																								return &BigIPHTTPProxyEmptyModel{}
+																								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																							}
-																							return nil
+																							return types.ObjectNull(map[string]attr.Type{})
 																						}(),
 																						SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
 																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool.SnatPool != nil {
@@ -6881,14 +7044,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																				}
 																				return nil
 																			}(),
-																			Vk8sNetworks: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+																			Vk8sNetworks: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks
 																				}
 																				if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																		}
 																	}
@@ -6897,14 +7060,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																PrivateIP: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel {
 																	if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
 																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel{
-																			InsideNetwork: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil {
+																			InsideNetwork: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && !OriginServersExisting[OriginServersIdx].PrivateIP.InsideNetwork.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].PrivateIP.InsideNetwork
 																				}
 																				if _, ok := PrivateIPData["inside_network"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																			IP: func() types.String {
 																				if v, ok := PrivateIPData["ip"].(string); ok && v != "" {
@@ -6912,14 +7075,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																				}
 																				return types.StringNull()
 																			}(),
-																			OutsideNetwork: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil {
+																			OutsideNetwork: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && !OriginServersExisting[OriginServersIdx].PrivateIP.OutsideNetwork.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].PrivateIP.OutsideNetwork
 																				}
 																				if _, ok := PrivateIPData["outside_network"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																			Segment: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentModel {
 																				if SegmentData, ok := PrivateIPData["segment"].(map[string]interface{}); ok {
@@ -7009,14 +7172,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																				}
 																				if SnatPoolData, ok := PrivateIPData["snat_pool"].(map[string]interface{}); ok {
 																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolModel{
-																						NoSnatPool: func() *BigIPHTTPProxyEmptyModel {
-																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool != nil {
+																						NoSnatPool: func() types.Object {
+																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool != nil && !OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool.NoSnatPool.IsUnknown() {
 																								return OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool.NoSnatPool
 																							}
 																							if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-																								return &BigIPHTTPProxyEmptyModel{}
+																								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																							}
-																							return nil
+																							return types.ObjectNull(map[string]attr.Type{})
 																						}(),
 																						SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolModel {
 																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool != nil && OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool.SnatPool != nil {
@@ -7235,35 +7398,35 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 												}
 												return nil
 											}(),
-											UseDefaultPort: func() *BigIPHTTPProxyEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+											UseDefaultPort: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-													return &BigIPHTTPProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VirtualNetwork: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
 												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
-														DefaultV6VIP: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+														DefaultV6VIP: func() types.Object {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP.IsUnknown() {
 																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
 															}
 															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
-																return &BigIPHTTPProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														DefaultVIP: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+														DefaultVIP: func() types.Object {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP.IsUnknown() {
 																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
 															}
 															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
-																return &BigIPHTTPProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SpecificV6VIP: func() types.String {
 															if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
@@ -7457,14 +7620,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 				}
 				return nil
 			}(),
-			DoNotAdvertise: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.ProxyAdvertisement != nil {
+			DoNotAdvertise: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
 					return data.ProxyAdvertisement.DoNotAdvertise
 				}
 				if _, ok := blockData["do_not_advertise"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -7542,23 +7705,23 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 							}
 							if CoalescingOptionsData, ok := HTTPSData["coalescing_options"].(map[string]interface{}); ok {
 								return &BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModel{
-									DefaultCoalescing: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.CoalescingOptions != nil {
+									DefaultCoalescing: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.CoalescingOptions != nil && !data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 											return data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing
 										}
 										if _, ok := CoalescingOptionsData["default_coalescing"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									StrictCoalescing: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.CoalescingOptions != nil {
+									StrictCoalescing: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.CoalescingOptions != nil && !data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing.IsUnknown() {
 											return data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing
 										}
 										if _, ok := CoalescingOptionsData["strict_coalescing"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -7573,41 +7736,41 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 							}
 							return types.Int64Null()
 						}(),
-						DefaultHeader: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						DefaultHeader: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.DefaultHeader.IsUnknown() {
 								return data.ProxyConfig.HTTPS.DefaultHeader
 							}
 							if _, ok := HTTPSData["default_header"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						DefaultLoadBalancer: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.DefaultLoadBalancer.IsUnknown() {
 								return data.ProxyConfig.HTTPS.DefaultLoadBalancer
 							}
 							if _, ok := HTTPSData["default_loadbalancer"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DisablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						DisablePathNormalize: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.DisablePathNormalize.IsUnknown() {
 								return data.ProxyConfig.HTTPS.DisablePathNormalize
 							}
 							if _, ok := HTTPSData["disable_path_normalize"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						EnablePathNormalize: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.EnablePathNormalize.IsUnknown() {
 								return data.ProxyConfig.HTTPS.EnablePathNormalize
 							}
 							if _, ok := HTTPSData["enable_path_normalize"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						HTTPProtocolOptions: func() *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModel {
 							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
@@ -7627,32 +7790,32 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 													}
 													if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
 														return &BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
-															DefaultHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															DefaultHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
-															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															PreserveCaseHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
-															ProperCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															ProperCaseHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -7662,23 +7825,23 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 										}
 										return nil
 									}(),
-									HTTPProtocolEnableV1V2: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
+									HTTPProtocolEnableV1V2: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 											return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2
 										}
 										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									HTTPProtocolEnableV2Only: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
+									HTTPProtocolEnableV2Only: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 											return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only
 										}
 										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -7693,23 +7856,23 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 							}
 							return types.BoolNull()
 						}(),
-						NonDefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						NonDefaultLoadBalancer: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.NonDefaultLoadBalancer.IsUnknown() {
 								return data.ProxyConfig.HTTPS.NonDefaultLoadBalancer
 							}
 							if _, ok := HTTPSData["non_default_loadbalancer"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						PassThrough: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						PassThrough: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.PassThrough.IsUnknown() {
 								return data.ProxyConfig.HTTPS.PassThrough
 							}
 							if _, ok := HTTPSData["pass_through"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						Port: func() types.Int64 {
 							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.Port.IsUnknown() {
@@ -7775,14 +7938,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 										}
 										return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModelAttrTypes})
 									}(),
-									NoMtls: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil {
+									NoMtls: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && !data.ProxyConfig.HTTPS.TLSCertParams.NoMtls.IsUnknown() {
 											return data.ProxyConfig.HTTPS.TLSCertParams.NoMtls
 										}
 										if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel {
 										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
@@ -7826,32 +7989,32 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 													}
 													return nil
 												}(),
-												DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
+												DefaultSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity
 													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												LowSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
+												LowSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity
 													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
+												MediumSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity
 													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -7894,14 +8057,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 													}
 													return nil
 												}(),
-												NoCRL: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil {
+												NoCRL: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL
 													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAModel {
 													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -7934,14 +8097,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 													}
 													return types.StringNull()
 												}(),
-												XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil {
+												XfccDisabled: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled
 													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsModel {
 													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions != nil {
@@ -7978,14 +8141,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 						TLSParameters: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel {
 							if TLSParametersData, ok := HTTPSData["tls_parameters"].(map[string]interface{}); ok {
 								return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel{
-									NoMtls: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil {
+									NoMtls: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && !data.ProxyConfig.HTTPS.TLSParameters.NoMtls.IsUnknown() {
 											return data.ProxyConfig.HTTPS.TLSParameters.NoMtls
 										}
 										if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TLSCertificates: func() types.List {
 										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && (data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsNull() || len(data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.Elements()) == 0) {
@@ -8034,14 +8197,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 															}
 															return types.StringNull()
 														}(),
-														DisableOCSPStapling: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														DisableOCSPStapling: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-																return &BigIPHTTPProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														PrivateKey: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModel {
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -8100,14 +8263,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 															}
 															return nil
 														}(),
-														UseSystemDefaults: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														UseSystemDefaults: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-																return &BigIPHTTPProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													})
 												}
@@ -8159,32 +8322,32 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 													}
 													return nil
 												}(),
-												DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
+												DefaultSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity
 													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												LowSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
+												LowSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity
 													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
+												MediumSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity
 													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -8227,14 +8390,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 													}
 													return nil
 												}(),
-												NoCRL: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil {
+												NoCRL: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL
 													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsTrustedCAModel {
 													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -8267,14 +8430,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 													}
 													return types.StringNull()
 												}(),
-												XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil {
+												XfccDisabled: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled
 													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsModel {
 													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions != nil {
@@ -8336,23 +8499,23 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 							}
 							if CoalescingOptionsData, ok := HTTPSAutoCertData["coalescing_options"].(map[string]interface{}); ok {
 								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModel{
-									DefaultCoalescing: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil {
+									DefaultCoalescing: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil && !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing
 										}
 										if _, ok := CoalescingOptionsData["default_coalescing"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									StrictCoalescing: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil {
+									StrictCoalescing: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil && !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing
 										}
 										if _, ok := CoalescingOptionsData["strict_coalescing"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -8367,41 +8530,41 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 							}
 							return types.Int64Null()
 						}(),
-						DefaultHeader: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						DefaultHeader: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.DefaultHeader.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.DefaultHeader
 							}
 							if _, ok := HTTPSAutoCertData["default_header"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						DefaultLoadBalancer: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer
 							}
 							if _, ok := HTTPSAutoCertData["default_loadbalancer"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DisablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						DisablePathNormalize: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize
 							}
 							if _, ok := HTTPSAutoCertData["disable_path_normalize"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						EnablePathNormalize: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize
 							}
 							if _, ok := HTTPSAutoCertData["enable_path_normalize"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						HTTPProtocolOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModel {
 							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
@@ -8421,32 +8584,32 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 													}
 													if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
 														return &BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
-															DefaultHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															DefaultHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
-															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															PreserveCaseHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
-															ProperCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															ProperCaseHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -8456,23 +8619,23 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 										}
 										return nil
 									}(),
-									HTTPProtocolEnableV1V2: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
+									HTTPProtocolEnableV1V2: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2
 										}
 										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									HTTPProtocolEnableV2Only: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
+									HTTPProtocolEnableV2Only: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only
 										}
 										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -8487,32 +8650,32 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 							}
 							return types.BoolNull()
 						}(),
-						NoMtls: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						NoMtls: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.NoMtls.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.NoMtls
 							}
 							if _, ok := HTTPSAutoCertData["no_mtls"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						NonDefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						NonDefaultLoadBalancer: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer
 							}
 							if _, ok := HTTPSAutoCertData["non_default_loadbalancer"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						PassThrough: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						PassThrough: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.PassThrough.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.PassThrough
 							}
 							if _, ok := HTTPSAutoCertData["pass_through"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						Port: func() types.Int64 {
 							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.Port.IsUnknown() {
@@ -8577,32 +8740,32 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 										}
 										return nil
 									}(),
-									DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil {
+									DefaultSecurity: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity
 										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									LowSecurity: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil {
+									LowSecurity: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity
 										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil {
+									MediumSecurity: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity
 										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -8645,14 +8808,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 										}
 										return nil
 									}(),
-									NoCRL: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil {
+									NoCRL: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil && !data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL
 										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsTrustedCAModel {
 										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -8685,14 +8848,14 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 										}
 										return types.StringNull()
 									}(),
-									XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil {
+									XfccDisabled: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil && !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled
 										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsXfccOptionsModel {
 										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions != nil {
@@ -8824,20 +8987,20 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 	// Marshal spec fields from Terraform state to API struct
 	if data.AdvancedProfile != nil {
 		AdvancedProfileMap := make(map[string]interface{})
-		if data.AdvancedProfile.DisableSpec != nil {
+		if !data.AdvancedProfile.DisableSpec.IsNull() && !data.AdvancedProfile.DisableSpec.IsUnknown() {
 			AdvancedProfileMap["disable"] = map[string]interface{}{}
 		}
-		if data.AdvancedProfile.EnableDefaultProfile != nil {
+		if !data.AdvancedProfile.EnableDefaultProfile.IsNull() && !data.AdvancedProfile.EnableDefaultProfile.IsUnknown() {
 			AdvancedProfileMap["enable_default_profile"] = map[string]interface{}{}
 		}
 		apiResource.Spec["advanced_profile"] = AdvancedProfileMap
 	}
 	if data.DDOSProfile != nil {
 		DDOSProfileMap := make(map[string]interface{})
-		if data.DDOSProfile.DisableDDOSMitigation != nil {
+		if !data.DDOSProfile.DisableDDOSMitigation.IsNull() && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 			DDOSProfileMap["disable_ddos_mitigation"] = map[string]interface{}{}
 		}
-		if data.DDOSProfile.EnableDDOSMitigation != nil {
+		if !data.DDOSProfile.EnableDDOSMitigation.IsNull() && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 			DDOSProfileMap["enable_ddos_mitigation"] = map[string]interface{}{}
 		}
 		apiResource.Spec["ddos_profile"] = DDOSProfileMap
@@ -8887,7 +9050,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 					}
 					if PoolsItem.OriginServers != nil {
 						OriginPoolsPoolsOriginServersMap := make(map[string]interface{})
-						if PoolsItem.OriginServers.AutomaticPort != nil {
+						if !PoolsItem.OriginServers.AutomaticPort.IsNull() && !PoolsItem.OriginServers.AutomaticPort.IsUnknown() {
 							OriginPoolsPoolsOriginServersMap["automatic_port"] = map[string]interface{}{}
 						}
 						if PoolsItem.OriginServers.HealthChecks != nil {
@@ -8900,7 +9063,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 									var HealthCheckList []map[string]interface{}
 									for _, HealthCheckItem := range HealthCheckElems {
 										HealthCheckItemMap := make(map[string]interface{})
-										if HealthCheckItem.ICMPHealthCheck != nil {
+										if !HealthCheckItem.ICMPHealthCheck.IsNull() && !HealthCheckItem.ICMPHealthCheck.IsUnknown() {
 											HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
 										}
 										if HealthCheckItem.TCPHealthCheck != nil {
@@ -8932,7 +9095,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							}
 							OriginPoolsPoolsOriginServersMap["health_checks"] = OriginPoolsPoolsOriginServersHealthChecksMap
 						}
-						if PoolsItem.OriginServers.LBPort != nil {
+						if !PoolsItem.OriginServers.LBPort.IsNull() && !PoolsItem.OriginServers.LBPort.IsUnknown() {
 							OriginPoolsPoolsOriginServersMap["lb_port"] = map[string]interface{}{}
 						}
 						if !PoolsItem.OriginServers.OriginServers.IsNull() && !PoolsItem.OriginServers.OriginServers.IsUnknown() {
@@ -8945,10 +9108,10 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 									OriginServersItemMap := make(map[string]interface{})
 									if OriginServersItem.K8SService != nil {
 										OriginPoolsPoolsOriginServersOriginServersK8SServiceMap := make(map[string]interface{})
-										if OriginServersItem.K8SService.InsideNetwork != nil {
+										if !OriginServersItem.K8SService.InsideNetwork.IsNull() && !OriginServersItem.K8SService.InsideNetwork.IsUnknown() {
 											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["inside_network"] = map[string]interface{}{}
 										}
-										if OriginServersItem.K8SService.OutsideNetwork != nil {
+										if !OriginServersItem.K8SService.OutsideNetwork.IsNull() && !OriginServersItem.K8SService.OutsideNetwork.IsUnknown() {
 											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["outside_network"] = map[string]interface{}{}
 										}
 										if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
@@ -8983,7 +9146,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 										}
 										if OriginServersItem.K8SService.SnatPool != nil {
 											OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap := make(map[string]interface{})
-											if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
+											if !OriginServersItem.K8SService.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.K8SService.SnatPool.NoSnatPool.IsUnknown() {
 												OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 											}
 											if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
@@ -9000,20 +9163,20 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 											}
 											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["snat_pool"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap
 										}
-										if OriginServersItem.K8SService.Vk8sNetworks != nil {
+										if !OriginServersItem.K8SService.Vk8sNetworks.IsNull() && !OriginServersItem.K8SService.Vk8sNetworks.IsUnknown() {
 											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["vk8s_networks"] = map[string]interface{}{}
 										}
 										OriginServersItemMap["k8s_service"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceMap
 									}
 									if OriginServersItem.PrivateIP != nil {
 										OriginPoolsPoolsOriginServersOriginServersPrivateIPMap := make(map[string]interface{})
-										if OriginServersItem.PrivateIP.InsideNetwork != nil {
+										if !OriginServersItem.PrivateIP.InsideNetwork.IsNull() && !OriginServersItem.PrivateIP.InsideNetwork.IsUnknown() {
 											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["inside_network"] = map[string]interface{}{}
 										}
 										if !OriginServersItem.PrivateIP.IP.IsNull() && !OriginServersItem.PrivateIP.IP.IsUnknown() {
 											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
 										}
-										if OriginServersItem.PrivateIP.OutsideNetwork != nil {
+										if !OriginServersItem.PrivateIP.OutsideNetwork.IsNull() && !OriginServersItem.PrivateIP.OutsideNetwork.IsUnknown() {
 											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["outside_network"] = map[string]interface{}{}
 										}
 										if OriginServersItem.PrivateIP.Segment != nil {
@@ -9052,7 +9215,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 										}
 										if OriginServersItem.PrivateIP.SnatPool != nil {
 											OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolMap := make(map[string]interface{})
-											if OriginServersItem.PrivateIP.SnatPool.NoSnatPool != nil {
+											if !OriginServersItem.PrivateIP.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.PrivateIP.SnatPool.NoSnatPool.IsUnknown() {
 												OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 											}
 											if OriginServersItem.PrivateIP.SnatPool.SnatPool != nil {
@@ -9163,15 +9326,15 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							}
 							AdvertiseWhereItemMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap
 						}
-						if AdvertiseWhereItem.UseDefaultPort != nil {
+						if !AdvertiseWhereItem.UseDefaultPort.IsNull() && !AdvertiseWhereItem.UseDefaultPort.IsUnknown() {
 							AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 						}
 						if AdvertiseWhereItem.VirtualNetwork != nil {
 							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
-							if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+							if !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsUnknown() {
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 							}
-							if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+							if !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsUnknown() {
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
@@ -9260,7 +9423,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 			}
 			ProxyAdvertisementMap["advertise_custom"] = ProxyAdvertisementAdvertiseCustomMap
 		}
-		if data.ProxyAdvertisement.DoNotAdvertise != nil {
+		if !data.ProxyAdvertisement.DoNotAdvertise.IsNull() && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
 			ProxyAdvertisementMap["do_not_advertise"] = map[string]interface{}{}
 		}
 		apiResource.Spec["proxy_advertisement"] = ProxyAdvertisementMap
@@ -9298,10 +9461,10 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 			}
 			if data.ProxyConfig.HTTPS.CoalescingOptions != nil {
 				ProxyConfigHTTPSCoalescingOptionsMap := make(map[string]interface{})
-				if data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing != nil {
+				if !data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing.IsNull() && !data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 					ProxyConfigHTTPSCoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
 				}
-				if data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing != nil {
+				if !data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing.IsNull() && !data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing.IsUnknown() {
 					ProxyConfigHTTPSCoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
 				}
 				ProxyConfigHTTPSMap["coalescing_options"] = ProxyConfigHTTPSCoalescingOptionsMap
@@ -9309,16 +9472,16 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 			if !data.ProxyConfig.HTTPS.ConnectionIdleTimeout.IsNull() && !data.ProxyConfig.HTTPS.ConnectionIdleTimeout.IsUnknown() {
 				ProxyConfigHTTPSMap["connection_idle_timeout"] = data.ProxyConfig.HTTPS.ConnectionIdleTimeout.ValueInt64()
 			}
-			if data.ProxyConfig.HTTPS.DefaultHeader != nil {
+			if !data.ProxyConfig.HTTPS.DefaultHeader.IsNull() && !data.ProxyConfig.HTTPS.DefaultHeader.IsUnknown() {
 				ProxyConfigHTTPSMap["default_header"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPS.DefaultLoadBalancer != nil {
+			if !data.ProxyConfig.HTTPS.DefaultLoadBalancer.IsNull() && !data.ProxyConfig.HTTPS.DefaultLoadBalancer.IsUnknown() {
 				ProxyConfigHTTPSMap["default_loadbalancer"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPS.DisablePathNormalize != nil {
+			if !data.ProxyConfig.HTTPS.DisablePathNormalize.IsNull() && !data.ProxyConfig.HTTPS.DisablePathNormalize.IsUnknown() {
 				ProxyConfigHTTPSMap["disable_path_normalize"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPS.EnablePathNormalize != nil {
+			if !data.ProxyConfig.HTTPS.EnablePathNormalize.IsNull() && !data.ProxyConfig.HTTPS.EnablePathNormalize.IsUnknown() {
 				ProxyConfigHTTPSMap["enable_path_normalize"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
@@ -9327,23 +9490,23 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 					ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
 					if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 						ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
-						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
+						if !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsNull() && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 						}
-						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+						if !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsNull() && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 						}
-						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+						if !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsNull() && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 						}
 						ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap["header_transformation"] = ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap
 					}
 					ProxyConfigHTTPSHTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap
 				}
-				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
+				if !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsNull() && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 					ProxyConfigHTTPSHTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
 				}
-				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
+				if !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsNull() && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 					ProxyConfigHTTPSHTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
 				}
 				ProxyConfigHTTPSMap["http_protocol_options"] = ProxyConfigHTTPSHTTPProtocolOptionsMap
@@ -9351,10 +9514,10 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 			if !data.ProxyConfig.HTTPS.HTTPRedirect.IsNull() && !data.ProxyConfig.HTTPS.HTTPRedirect.IsUnknown() {
 				ProxyConfigHTTPSMap["http_redirect"] = data.ProxyConfig.HTTPS.HTTPRedirect.ValueBool()
 			}
-			if data.ProxyConfig.HTTPS.NonDefaultLoadBalancer != nil {
+			if !data.ProxyConfig.HTTPS.NonDefaultLoadBalancer.IsNull() && !data.ProxyConfig.HTTPS.NonDefaultLoadBalancer.IsUnknown() {
 				ProxyConfigHTTPSMap["non_default_loadbalancer"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPS.PassThrough != nil {
+			if !data.ProxyConfig.HTTPS.PassThrough.IsNull() && !data.ProxyConfig.HTTPS.PassThrough.IsUnknown() {
 				ProxyConfigHTTPSMap["pass_through"] = map[string]interface{}{}
 			}
 			if !data.ProxyConfig.HTTPS.Port.IsNull() && !data.ProxyConfig.HTTPS.Port.IsUnknown() {
@@ -9387,7 +9550,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						ProxyConfigHTTPSTLSCertParamsMap["certificates"] = CertificatesList
 					}
 				}
-				if data.ProxyConfig.HTTPS.TLSCertParams.NoMtls != nil {
+				if !data.ProxyConfig.HTTPS.TLSCertParams.NoMtls.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.NoMtls.IsUnknown() {
 					ProxyConfigHTTPSTLSCertParamsMap["no_mtls"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
@@ -9410,13 +9573,13 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						}
 						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["custom_security"] = ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap
 					}
-					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity != nil {
+					if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity.IsUnknown() {
 						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["default_security"] = map[string]interface{}{}
 					}
-					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity != nil {
+					if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity.IsUnknown() {
 						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["low_security"] = map[string]interface{}{}
 					}
-					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity != nil {
+					if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity.IsUnknown() {
 						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["medium_security"] = map[string]interface{}{}
 					}
 					ProxyConfigHTTPSTLSCertParamsMap["tls_config"] = ProxyConfigHTTPSTLSCertParamsTLSConfigMap
@@ -9436,7 +9599,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						}
 						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["crl"] = ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap
 					}
-					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
+					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL.IsUnknown() {
 						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["no_crl"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA != nil {
@@ -9452,7 +9615,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.IsUnknown() {
 						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
 					}
-					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled != nil {
+					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled.IsUnknown() {
 						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions != nil {
@@ -9473,7 +9636,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 			}
 			if data.ProxyConfig.HTTPS.TLSParameters != nil {
 				ProxyConfigHTTPSTLSParametersMap := make(map[string]interface{})
-				if data.ProxyConfig.HTTPS.TLSParameters.NoMtls != nil {
+				if !data.ProxyConfig.HTTPS.TLSParameters.NoMtls.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.NoMtls.IsUnknown() {
 					ProxyConfigHTTPSTLSParametersMap["no_mtls"] = map[string]interface{}{}
 				}
 				if !data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsUnknown() {
@@ -9502,7 +9665,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 							}
-							if TLSCertificatesItem.DisableOCSPStapling != nil {
+							if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 							}
 							if TLSCertificatesItem.PrivateKey != nil {
@@ -9532,7 +9695,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 								}
 								TLSCertificatesItemMap["private_key"] = ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyMap
 							}
-							if TLSCertificatesItem.UseSystemDefaults != nil {
+							if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 							}
 							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -9560,13 +9723,13 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						}
 						ProxyConfigHTTPSTLSParametersTLSConfigMap["custom_security"] = ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap
 					}
-					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity != nil {
+					if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity.IsUnknown() {
 						ProxyConfigHTTPSTLSParametersTLSConfigMap["default_security"] = map[string]interface{}{}
 					}
-					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity != nil {
+					if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity.IsUnknown() {
 						ProxyConfigHTTPSTLSParametersTLSConfigMap["low_security"] = map[string]interface{}{}
 					}
-					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity != nil {
+					if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity.IsUnknown() {
 						ProxyConfigHTTPSTLSParametersTLSConfigMap["medium_security"] = map[string]interface{}{}
 					}
 					ProxyConfigHTTPSTLSParametersMap["tls_config"] = ProxyConfigHTTPSTLSParametersTLSConfigMap
@@ -9586,7 +9749,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						}
 						ProxyConfigHTTPSTLSParametersUseMtlsMap["crl"] = ProxyConfigHTTPSTLSParametersUseMtlsCRLMap
 					}
-					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
+					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL.IsUnknown() {
 						ProxyConfigHTTPSTLSParametersUseMtlsMap["no_crl"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA != nil {
@@ -9602,7 +9765,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.IsUnknown() {
 						ProxyConfigHTTPSTLSParametersUseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.ValueString()
 					}
-					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled != nil {
+					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled.IsUnknown() {
 						ProxyConfigHTTPSTLSParametersUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions != nil {
@@ -9633,10 +9796,10 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 			}
 			if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil {
 				ProxyConfigHTTPSAutoCertCoalescingOptionsMap := make(map[string]interface{})
-				if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing.IsNull() && !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 					ProxyConfigHTTPSAutoCertCoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
 				}
-				if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing.IsNull() && !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing.IsUnknown() {
 					ProxyConfigHTTPSAutoCertCoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
 				}
 				ProxyConfigHTTPSAutoCertMap["coalescing_options"] = ProxyConfigHTTPSAutoCertCoalescingOptionsMap
@@ -9644,16 +9807,16 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 			if !data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.IsNull() && !data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["connection_idle_timeout"] = data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.ValueInt64()
 			}
-			if data.ProxyConfig.HTTPSAutoCert.DefaultHeader != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.DefaultHeader.IsNull() && !data.ProxyConfig.HTTPSAutoCert.DefaultHeader.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["default_header"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer.IsNull() && !data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["default_loadbalancer"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize.IsNull() && !data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["disable_path_normalize"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize.IsNull() && !data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["enable_path_normalize"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
@@ -9662,23 +9825,23 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
 					if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 						ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
-						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
+						if !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 						}
-						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+						if !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 						}
-						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+						if !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 						}
 						ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap["header_transformation"] = ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap
 					}
 					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap
 				}
-				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
 				}
-				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
 				}
 				ProxyConfigHTTPSAutoCertMap["http_protocol_options"] = ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap
@@ -9686,13 +9849,13 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 			if !data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["http_redirect"] = data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.ValueBool()
 			}
-			if data.ProxyConfig.HTTPSAutoCert.NoMtls != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.NoMtls.IsNull() && !data.ProxyConfig.HTTPSAutoCert.NoMtls.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["no_mtls"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer.IsNull() && !data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["non_default_loadbalancer"] = map[string]interface{}{}
 			}
-			if data.ProxyConfig.HTTPSAutoCert.PassThrough != nil {
+			if !data.ProxyConfig.HTTPSAutoCert.PassThrough.IsNull() && !data.ProxyConfig.HTTPSAutoCert.PassThrough.IsUnknown() {
 				ProxyConfigHTTPSAutoCertMap["pass_through"] = map[string]interface{}{}
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.Port.IsNull() && !data.ProxyConfig.HTTPSAutoCert.Port.IsUnknown() {
@@ -9724,13 +9887,13 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 					}
 					ProxyConfigHTTPSAutoCertTLSConfigMap["custom_security"] = ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap
 				}
-				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity.IsUnknown() {
 					ProxyConfigHTTPSAutoCertTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
-				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity.IsUnknown() {
 					ProxyConfigHTTPSAutoCertTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
-				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity.IsUnknown() {
 					ProxyConfigHTTPSAutoCertTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
 				ProxyConfigHTTPSAutoCertMap["tls_config"] = ProxyConfigHTTPSAutoCertTLSConfigMap
@@ -9750,7 +9913,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 					}
 					ProxyConfigHTTPSAutoCertUseMtlsMap["crl"] = ProxyConfigHTTPSAutoCertUseMtlsCRLMap
 				}
-				if data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL.IsUnknown() {
 					ProxyConfigHTTPSAutoCertUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA != nil {
@@ -9766,7 +9929,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.IsUnknown() {
 					ProxyConfigHTTPSAutoCertUseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.ValueString()
 				}
-				if data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled != nil {
+				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled.IsUnknown() {
 					ProxyConfigHTTPSAutoCertUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions != nil {
@@ -9848,45 +10011,45 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["advanced_profile"].(map[string]interface{}); ok && (isImport || data.AdvancedProfile != nil) {
 		data.AdvancedProfile = &BigIPHTTPProxyAdvancedProfileModel{
-			DisableSpec: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.AdvancedProfile != nil {
+			DisableSpec: func() types.Object {
+				if !isImport && data.AdvancedProfile != nil && !data.AdvancedProfile.DisableSpec.IsUnknown() {
 					return data.AdvancedProfile.DisableSpec
 				}
 				if _, ok := blockData["disable"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableDefaultProfile: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.AdvancedProfile != nil {
+			EnableDefaultProfile: func() types.Object {
+				if !isImport && data.AdvancedProfile != nil && !data.AdvancedProfile.EnableDefaultProfile.IsUnknown() {
 					return data.AdvancedProfile.EnableDefaultProfile
 				}
 				if _, ok := blockData["enable_default_profile"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
 		data.DDOSProfile = &BigIPHTTPProxyDDOSProfileModel{
-			DisableDDOSMitigation: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			DisableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.DisableDDOSMitigation
 				}
 				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableDDOSMitigation: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			EnableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.EnableDDOSMitigation
 				}
 				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -9972,14 +10135,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 								OriginServers: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersModel {
 									if OriginServersData, ok := PoolsItemMap["origin_servers"].(map[string]interface{}); ok {
 										return &BigIPHTTPProxyOriginPoolsPoolsOriginServersModel{
-											AutomaticPort: func() *BigIPHTTPProxyEmptyModel {
-												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil {
+											AutomaticPort: func() types.Object {
+												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil && !PoolsExisting[PoolsIdx].OriginServers.AutomaticPort.IsUnknown() {
 													return PoolsExisting[PoolsIdx].OriginServers.AutomaticPort
 												}
 												if _, ok := OriginServersData["automatic_port"].(map[string]interface{}); ok {
-													return &BigIPHTTPProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											HealthChecks: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksModel {
 												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil && PoolsExisting[PoolsIdx].OriginServers.HealthChecks != nil {
@@ -10001,14 +10164,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																	_ = HealthCheckIdx
 																	if HealthCheckItemMap, ok := HealthCheckItem.(map[string]interface{}); ok {
 																		HealthCheckResult = append(HealthCheckResult, BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel{
-																			ICMPHealthCheck: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(HealthCheckExisting) > HealthCheckIdx {
+																			ICMPHealthCheck: func() types.Object {
+																				if !isImport && len(HealthCheckExisting) > HealthCheckIdx && !HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck.IsUnknown() {
 																					return HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck
 																				}
 																				if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																			TCPHealthCheck: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckModel {
 																				if TCPHealthCheckData, ok := HealthCheckItemMap["tcp_health_check"].(map[string]interface{}); ok {
@@ -10077,14 +10240,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 												}
 												return nil
 											}(),
-											LBPort: func() *BigIPHTTPProxyEmptyModel {
-												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil {
+											LBPort: func() types.Object {
+												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil && !PoolsExisting[PoolsIdx].OriginServers.LBPort.IsUnknown() {
 													return PoolsExisting[PoolsIdx].OriginServers.LBPort
 												}
 												if _, ok := OriginServersData["lb_port"].(map[string]interface{}); ok {
-													return &BigIPHTTPProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											OriginServers: func() types.List {
 												if !isImport && len(PoolsExisting) > PoolsIdx && PoolsExisting[PoolsIdx].OriginServers != nil && (PoolsExisting[PoolsIdx].OriginServers.OriginServers.IsNull() || len(PoolsExisting[PoolsIdx].OriginServers.OriginServers.Elements()) == 0) {
@@ -10103,23 +10266,23 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																K8SService: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel {
 																	if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
 																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceModel{
-																			InsideNetwork: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+																			InsideNetwork: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork
 																				}
 																				if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
-																			OutsideNetwork: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+																			OutsideNetwork: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork
 																				}
 																				if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																			Protocol: func() types.String {
 																				if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
@@ -10196,14 +10359,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																				}
 																				if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
 																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolModel{
-																						NoSnatPool: func() *BigIPHTTPProxyEmptyModel {
-																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil {
+																						NoSnatPool: func() types.Object {
+																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && !OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool.IsUnknown() {
 																								return OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool
 																							}
 																							if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-																								return &BigIPHTTPProxyEmptyModel{}
+																								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																							}
-																							return nil
+																							return types.ObjectNull(map[string]attr.Type{})
 																						}(),
 																						SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
 																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool.SnatPool != nil {
@@ -10233,14 +10396,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																				}
 																				return nil
 																			}(),
-																			Vk8sNetworks: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+																			Vk8sNetworks: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks
 																				}
 																				if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																		}
 																	}
@@ -10249,14 +10412,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																PrivateIP: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel {
 																	if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
 																		return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPModel{
-																			InsideNetwork: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil {
+																			InsideNetwork: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && !OriginServersExisting[OriginServersIdx].PrivateIP.InsideNetwork.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].PrivateIP.InsideNetwork
 																				}
 																				if _, ok := PrivateIPData["inside_network"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																			IP: func() types.String {
 																				if v, ok := PrivateIPData["ip"].(string); ok && v != "" {
@@ -10264,14 +10427,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																				}
 																				return types.StringNull()
 																			}(),
-																			OutsideNetwork: func() *BigIPHTTPProxyEmptyModel {
-																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil {
+																			OutsideNetwork: func() types.Object {
+																				if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && !OriginServersExisting[OriginServersIdx].PrivateIP.OutsideNetwork.IsUnknown() {
 																					return OriginServersExisting[OriginServersIdx].PrivateIP.OutsideNetwork
 																				}
 																				if _, ok := PrivateIPData["outside_network"].(map[string]interface{}); ok {
-																					return &BigIPHTTPProxyEmptyModel{}
+																					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																				}
-																				return nil
+																				return types.ObjectNull(map[string]attr.Type{})
 																			}(),
 																			Segment: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentModel {
 																				if SegmentData, ok := PrivateIPData["segment"].(map[string]interface{}); ok {
@@ -10361,14 +10524,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																				}
 																				if SnatPoolData, ok := PrivateIPData["snat_pool"].(map[string]interface{}); ok {
 																					return &BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolModel{
-																						NoSnatPool: func() *BigIPHTTPProxyEmptyModel {
-																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool != nil {
+																						NoSnatPool: func() types.Object {
+																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool != nil && !OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool.NoSnatPool.IsUnknown() {
 																								return OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool.NoSnatPool
 																							}
 																							if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-																								return &BigIPHTTPProxyEmptyModel{}
+																								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																							}
-																							return nil
+																							return types.ObjectNull(map[string]attr.Type{})
 																						}(),
 																						SnatPool: func() *BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolModel {
 																							if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].PrivateIP != nil && OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool != nil && OriginServersExisting[OriginServersIdx].PrivateIP.SnatPool.SnatPool != nil {
@@ -10587,35 +10750,35 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 												}
 												return nil
 											}(),
-											UseDefaultPort: func() *BigIPHTTPProxyEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+											UseDefaultPort: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-													return &BigIPHTTPProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VirtualNetwork: func() *BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
 												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 													return &BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
-														DefaultV6VIP: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+														DefaultV6VIP: func() types.Object {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP.IsUnknown() {
 																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
 															}
 															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
-																return &BigIPHTTPProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														DefaultVIP: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+														DefaultVIP: func() types.Object {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP.IsUnknown() {
 																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
 															}
 															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
-																return &BigIPHTTPProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SpecificV6VIP: func() types.String {
 															if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
@@ -10809,14 +10972,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 				}
 				return nil
 			}(),
-			DoNotAdvertise: func() *BigIPHTTPProxyEmptyModel {
-				if !isImport && data.ProxyAdvertisement != nil {
+			DoNotAdvertise: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
 					return data.ProxyAdvertisement.DoNotAdvertise
 				}
 				if _, ok := blockData["do_not_advertise"].(map[string]interface{}); ok {
-					return &BigIPHTTPProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -10894,23 +11057,23 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							}
 							if CoalescingOptionsData, ok := HTTPSData["coalescing_options"].(map[string]interface{}); ok {
 								return &BigIPHTTPProxyProxyConfigHTTPSCoalescingOptionsModel{
-									DefaultCoalescing: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.CoalescingOptions != nil {
+									DefaultCoalescing: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.CoalescingOptions != nil && !data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 											return data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing
 										}
 										if _, ok := CoalescingOptionsData["default_coalescing"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									StrictCoalescing: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.CoalescingOptions != nil {
+									StrictCoalescing: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.CoalescingOptions != nil && !data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing.IsUnknown() {
 											return data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing
 										}
 										if _, ok := CoalescingOptionsData["strict_coalescing"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -10925,41 +11088,41 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							}
 							return types.Int64Null()
 						}(),
-						DefaultHeader: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						DefaultHeader: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.DefaultHeader.IsUnknown() {
 								return data.ProxyConfig.HTTPS.DefaultHeader
 							}
 							if _, ok := HTTPSData["default_header"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						DefaultLoadBalancer: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.DefaultLoadBalancer.IsUnknown() {
 								return data.ProxyConfig.HTTPS.DefaultLoadBalancer
 							}
 							if _, ok := HTTPSData["default_loadbalancer"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DisablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						DisablePathNormalize: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.DisablePathNormalize.IsUnknown() {
 								return data.ProxyConfig.HTTPS.DisablePathNormalize
 							}
 							if _, ok := HTTPSData["disable_path_normalize"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						EnablePathNormalize: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.EnablePathNormalize.IsUnknown() {
 								return data.ProxyConfig.HTTPS.EnablePathNormalize
 							}
 							if _, ok := HTTPSData["enable_path_normalize"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						HTTPProtocolOptions: func() *BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsModel {
 							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
@@ -10979,32 +11142,32 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 													}
 													if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
 														return &BigIPHTTPProxyProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
-															DefaultHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															DefaultHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
-															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															PreserveCaseHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
-															ProperCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															ProperCaseHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -11014,23 +11177,23 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 										}
 										return nil
 									}(),
-									HTTPProtocolEnableV1V2: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
+									HTTPProtocolEnableV1V2: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 											return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2
 										}
 										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									HTTPProtocolEnableV2Only: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
+									HTTPProtocolEnableV2Only: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil && !data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 											return data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only
 										}
 										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -11045,23 +11208,23 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							}
 							return types.BoolNull()
 						}(),
-						NonDefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						NonDefaultLoadBalancer: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.NonDefaultLoadBalancer.IsUnknown() {
 								return data.ProxyConfig.HTTPS.NonDefaultLoadBalancer
 							}
 							if _, ok := HTTPSData["non_default_loadbalancer"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						PassThrough: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil {
+						PassThrough: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.PassThrough.IsUnknown() {
 								return data.ProxyConfig.HTTPS.PassThrough
 							}
 							if _, ok := HTTPSData["pass_through"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						Port: func() types.Int64 {
 							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && !data.ProxyConfig.HTTPS.Port.IsUnknown() {
@@ -11127,14 +11290,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 										}
 										return types.ListNull(types.ObjectType{AttrTypes: BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModelAttrTypes})
 									}(),
-									NoMtls: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil {
+									NoMtls: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && !data.ProxyConfig.HTTPS.TLSCertParams.NoMtls.IsUnknown() {
 											return data.ProxyConfig.HTTPS.TLSCertParams.NoMtls
 										}
 										if _, ok := TLSCertParamsData["no_mtls"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TLSConfig: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsTLSConfigModel {
 										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
@@ -11178,32 +11341,32 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 													}
 													return nil
 												}(),
-												DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
+												DefaultSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity
 													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												LowSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
+												LowSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity
 													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
+												MediumSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity
 													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -11246,14 +11409,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 													}
 													return nil
 												}(),
-												NoCRL: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil {
+												NoCRL: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL
 													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAModel {
 													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -11286,14 +11449,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 													}
 													return types.StringNull()
 												}(),
-												XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil {
+												XfccDisabled: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled
 													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsModel {
 													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSCertParams != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil && data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions != nil {
@@ -11330,14 +11493,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						TLSParameters: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel {
 							if TLSParametersData, ok := HTTPSData["tls_parameters"].(map[string]interface{}); ok {
 								return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersModel{
-									NoMtls: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil {
+									NoMtls: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && !data.ProxyConfig.HTTPS.TLSParameters.NoMtls.IsUnknown() {
 											return data.ProxyConfig.HTTPS.TLSParameters.NoMtls
 										}
 										if _, ok := TLSParametersData["no_mtls"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TLSCertificates: func() types.List {
 										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && (data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsNull() || len(data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.Elements()) == 0) {
@@ -11386,14 +11549,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 															}
 															return types.StringNull()
 														}(),
-														DisableOCSPStapling: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														DisableOCSPStapling: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-																return &BigIPHTTPProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														PrivateKey: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModel {
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -11452,14 +11615,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 															}
 															return nil
 														}(),
-														UseSystemDefaults: func() *BigIPHTTPProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														UseSystemDefaults: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-																return &BigIPHTTPProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													})
 												}
@@ -11511,32 +11674,32 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 													}
 													return nil
 												}(),
-												DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
+												DefaultSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity
 													}
 													if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												LowSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
+												LowSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity
 													}
 													if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
-												MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
+												MediumSecurity: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity
 													}
 													if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -11579,14 +11742,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 													}
 													return nil
 												}(),
-												NoCRL: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil {
+												NoCRL: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL
 													}
 													if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsTrustedCAModel {
 													if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -11619,14 +11782,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 													}
 													return types.StringNull()
 												}(),
-												XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
-													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil {
+												XfccDisabled: func() types.Object {
+													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled.IsUnknown() {
 														return data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled
 													}
 													if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-														return &BigIPHTTPProxyEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsModel {
 													if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPS != nil && data.ProxyConfig.HTTPS.TLSParameters != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil && data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions != nil {
@@ -11688,23 +11851,23 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							}
 							if CoalescingOptionsData, ok := HTTPSAutoCertData["coalescing_options"].(map[string]interface{}); ok {
 								return &BigIPHTTPProxyProxyConfigHTTPSAutoCertCoalescingOptionsModel{
-									DefaultCoalescing: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil {
+									DefaultCoalescing: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil && !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing
 										}
 										if _, ok := CoalescingOptionsData["default_coalescing"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									StrictCoalescing: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil {
+									StrictCoalescing: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil && !data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing
 										}
 										if _, ok := CoalescingOptionsData["strict_coalescing"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -11719,41 +11882,41 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							}
 							return types.Int64Null()
 						}(),
-						DefaultHeader: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						DefaultHeader: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.DefaultHeader.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.DefaultHeader
 							}
 							if _, ok := HTTPSAutoCertData["default_header"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						DefaultLoadBalancer: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer
 							}
 							if _, ok := HTTPSAutoCertData["default_loadbalancer"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DisablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						DisablePathNormalize: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize
 							}
 							if _, ok := HTTPSAutoCertData["disable_path_normalize"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnablePathNormalize: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						EnablePathNormalize: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize
 							}
 							if _, ok := HTTPSAutoCertData["enable_path_normalize"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						HTTPProtocolOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsModel {
 							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
@@ -11773,32 +11936,32 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 													}
 													if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
 														return &BigIPHTTPProxyProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
-															DefaultHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															DefaultHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
-															PreserveCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															PreserveCaseHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
-															ProperCaseHeaderTransformation: func() *BigIPHTTPProxyEmptyModel {
-																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+															ProperCaseHeaderTransformation: func() types.Object {
+																if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 																	return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation
 																}
 																if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-																	return &BigIPHTTPProxyEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -11808,23 +11971,23 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 										}
 										return nil
 									}(),
-									HTTPProtocolEnableV1V2: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
+									HTTPProtocolEnableV1V2: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2
 										}
 										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									HTTPProtocolEnableV2Only: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
+									HTTPProtocolEnableV2Only: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil && !data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only
 										}
 										if _, ok := HTTPProtocolOptionsData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -11839,32 +12002,32 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							}
 							return types.BoolNull()
 						}(),
-						NoMtls: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						NoMtls: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.NoMtls.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.NoMtls
 							}
 							if _, ok := HTTPSAutoCertData["no_mtls"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						NonDefaultLoadBalancer: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						NonDefaultLoadBalancer: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer
 							}
 							if _, ok := HTTPSAutoCertData["non_default_loadbalancer"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						PassThrough: func() *BigIPHTTPProxyEmptyModel {
-							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil {
+						PassThrough: func() types.Object {
+							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.PassThrough.IsUnknown() {
 								return data.ProxyConfig.HTTPSAutoCert.PassThrough
 							}
 							if _, ok := HTTPSAutoCertData["pass_through"].(map[string]interface{}); ok {
-								return &BigIPHTTPProxyEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						Port: func() types.Int64 {
 							if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && !data.ProxyConfig.HTTPSAutoCert.Port.IsUnknown() {
@@ -11929,32 +12092,32 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 										}
 										return nil
 									}(),
-									DefaultSecurity: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil {
+									DefaultSecurity: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity
 										}
 										if _, ok := TLSConfigData["default_security"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									LowSecurity: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil {
+									LowSecurity: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity
 										}
 										if _, ok := TLSConfigData["low_security"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									MediumSecurity: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil {
+									MediumSecurity: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity
 										}
 										if _, ok := TLSConfigData["medium_security"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -11997,14 +12160,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 										}
 										return nil
 									}(),
-									NoCRL: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil {
+									NoCRL: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil && !data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL
 										}
 										if _, ok := UseMtlsData["no_crl"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									TrustedCA: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsTrustedCAModel {
 										if TrustedCAData, ok := UseMtlsData["trusted_ca"].(map[string]interface{}); ok {
@@ -12037,14 +12200,14 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 										}
 										return types.StringNull()
 									}(),
-									XfccDisabled: func() *BigIPHTTPProxyEmptyModel {
-										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil {
+									XfccDisabled: func() types.Object {
+										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil && !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled.IsUnknown() {
 											return data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled
 										}
 										if _, ok := UseMtlsData["xfcc_disabled"].(map[string]interface{}); ok {
-											return &BigIPHTTPProxyEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									XfccOptions: func() *BigIPHTTPProxyProxyConfigHTTPSAutoCertUseMtlsXfccOptionsModel {
 										if !isImport && data.ProxyConfig != nil && data.ProxyConfig.HTTPSAutoCert != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls != nil && data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions != nil {

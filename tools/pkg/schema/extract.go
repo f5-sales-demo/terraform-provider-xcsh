@@ -619,6 +619,7 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 		UsesBoolPlanModifier:        usesBool,
 		UsesInt64PlanModifier:       usesInt64,
 		UsesStringPlanModifier:      usesString,
+		UsesObjectPlanModifier:      HasImmutableObjectBlock(attributes),
 		UsesListPlanModifier:        usesList,
 		UsesMapPlanModifier:         usesMap,
 		HasBlocks:                   hasBlocks,

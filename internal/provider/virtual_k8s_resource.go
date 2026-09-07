@@ -88,12 +88,12 @@ type VirtualK8SResourceModel struct {
 	Annotations      types.Map                        `tfsdk:"annotations"`
 	Description      types.String                     `tfsdk:"description"`
 	Disable          types.Bool                       `tfsdk:"disable"`
+	Disabled         types.Object                     `tfsdk:"disabled"`
+	Isolated         types.Object                     `tfsdk:"isolated"`
 	Labels           types.Map                        `tfsdk:"labels"`
 	ID               types.String                     `tfsdk:"id"`
 	Timeouts         timeouts.Value                   `tfsdk:"timeouts"`
 	DefaultFlavorRef *VirtualK8SDefaultFlavorRefModel `tfsdk:"default_flavor_ref"`
-	Disabled         *VirtualK8SEmptyModel            `tfsdk:"disabled"`
-	Isolated         *VirtualK8SEmptyModel            `tfsdk:"isolated"`
 	VsiteRefs        types.List                       `tfsdk:"vsite_refs"`
 }
 
@@ -137,6 +137,16 @@ func (r *VirtualK8SResource) Schema(ctx context.Context, req resource.SchemaRequ
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
+			},
+			"disabled": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disabled, isolated] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"isolated": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
@@ -189,12 +199,6 @@ func (r *VirtualK8SResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 					},
 				},
-			},
-			"disabled": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disabled, isolated] Enable this option",
-			},
-			"isolated": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
 			},
 			"vsite_refs": schema.ListNestedBlock{
 				MarkdownDescription: "Reference to virtual-sites Default virtual-site of the Virtual K8s object. If no virtual-site is specified in the Kubernetes API resource object annotations via F5 XC/virtual-sites, then this virtual-site is used select sites on which to instantiate the Kubernetes API resource object.",
@@ -258,6 +262,14 @@ func (r *VirtualK8SResource) ValidateConfig(ctx context.Context, req resource.Va
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.Disabled.IsNull() && !data.Disabled.IsUnknown() && !data.Isolated.IsNull() && !data.Isolated.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disabled"),
+			"Conflicting Configuration",
+			"disabled and isolated are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -368,10 +380,10 @@ func (r *VirtualK8SResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["default_flavor_ref"] = DefaultFlavorRefMap
 	}
-	if data.Disabled != nil {
+	if !data.Disabled.IsNull() && !data.Disabled.IsUnknown() {
 		createReq.Spec["disabled"] = map[string]interface{}{}
 	}
-	if data.Isolated != nil {
+	if !data.Isolated.IsNull() && !data.Isolated.IsUnknown() {
 		createReq.Spec["isolated"] = map[string]interface{}{}
 	}
 	if !data.VsiteRefs.IsNull() && !data.VsiteRefs.IsUnknown() {
@@ -454,11 +466,19 @@ func (r *VirtualK8SResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok && isImport && data.Disabled == nil {
-		data.Disabled = &VirtualK8SEmptyModel{}
+	if !isImport && !data.Disabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok {
+		data.Disabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Disabled = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["isolated"].(map[string]interface{}); ok && isImport && data.Isolated == nil {
-		data.Isolated = &VirtualK8SEmptyModel{}
+	if !isImport && !data.Isolated.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["isolated"].(map[string]interface{}); ok {
+		data.Isolated = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Isolated = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.VsiteRefs.IsNull() || len(data.VsiteRefs.Elements()) == 0) {
 		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})
@@ -666,11 +686,19 @@ func (r *VirtualK8SResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok && isImport && data.Disabled == nil {
-		data.Disabled = &VirtualK8SEmptyModel{}
+	if !isImport && !data.Disabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok {
+		data.Disabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Disabled = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["isolated"].(map[string]interface{}); ok && isImport && data.Isolated == nil {
-		data.Isolated = &VirtualK8SEmptyModel{}
+	if !isImport && !data.Isolated.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["isolated"].(map[string]interface{}); ok {
+		data.Isolated = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Isolated = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.VsiteRefs.IsNull() || len(data.VsiteRefs.Elements()) == 0) {
 		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})
@@ -829,10 +857,10 @@ func (r *VirtualK8SResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["default_flavor_ref"] = DefaultFlavorRefMap
 	}
-	if data.Disabled != nil {
+	if !data.Disabled.IsNull() && !data.Disabled.IsUnknown() {
 		apiResource.Spec["disabled"] = map[string]interface{}{}
 	}
-	if data.Isolated != nil {
+	if !data.Isolated.IsNull() && !data.Isolated.IsUnknown() {
 		apiResource.Spec["isolated"] = map[string]interface{}{}
 	}
 	if !data.VsiteRefs.IsNull() && !data.VsiteRefs.IsUnknown() {
@@ -935,11 +963,19 @@ func (r *VirtualK8SResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok && isImport && data.Disabled == nil {
-		data.Disabled = &VirtualK8SEmptyModel{}
+	if !isImport && !data.Disabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disabled"].(map[string]interface{}); ok {
+		data.Disabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Disabled = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["isolated"].(map[string]interface{}); ok && isImport && data.Isolated == nil {
-		data.Isolated = &VirtualK8SEmptyModel{}
+	if !isImport && !data.Isolated.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["isolated"].(map[string]interface{}); ok {
+		data.Isolated = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Isolated = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.VsiteRefs.IsNull() || len(data.VsiteRefs.Elements()) == 0) {
 		data.VsiteRefs = types.ListNull(types.ObjectType{AttrTypes: VirtualK8SVsiteRefsModelAttrTypes})

@@ -49,15 +49,17 @@ func validateSecuremeshSiteV2AWSContract(
 		)
 		return
 	}
-	if data.AWS.NotManaged == nil || data.AWS.NotManaged.NodeList.IsNull() {
+	if data.AWS.NotManaged == nil {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("aws").AtName("not_managed").AtName("node_list"),
-			"AWS SMSv2 Nodes Are Required",
-			"AWS CE configuration requires an ordered non-empty node_list.",
+			"AWS SMSv2 Node Management Mode Is Required",
+			"Select aws.not_managed to discover CE nodes or configure them explicitly.",
 		)
 		return
 	}
-	if data.AWS.NotManaged.NodeList.IsUnknown() {
+	// An omitted or empty node list selects registration-time discovery.
+	// Explicit declarations retain the per-node validation below.
+	if data.AWS.NotManaged.NodeList.IsNull() || data.AWS.NotManaged.NodeList.IsUnknown() {
 		return
 	}
 	var nodes []SecuremeshSiteV2AWSNotManagedNodeListModel
@@ -65,14 +67,7 @@ func validateSecuremeshSiteV2AWSContract(
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if len(nodes) == 0 {
-		resp.Diagnostics.AddAttributeError(
-			path.Root("aws").AtName("not_managed").AtName("node_list"),
-			"AWS SMSv2 Nodes Are Required",
-			"AWS CE configuration requires an ordered non-empty node_list.",
-		)
-		return
-	}
+
 	for nodeIndex, node := range nodes {
 		if node.InterfaceList.IsNull() {
 			resp.Diagnostics.AddAttributeError(
@@ -92,6 +87,7 @@ func validateSecuremeshSiteV2AWSContract(
 			continue
 		}
 		macs := map[string]bool{}
+		devices := map[string]bool{}
 		roles := map[string]bool{}
 		unknownInterface := false
 		for interfaceIndex, iface := range interfaces {
@@ -132,10 +128,10 @@ func validateSecuremeshSiteV2AWSContract(
 			}
 			macs[mac] = true
 			role := ""
-			if iface.NetworkOption != nil && iface.NetworkOption.SiteLocalNetwork != nil {
+			if iface.NetworkOption != nil && emptyObjectMarkerConfigured(iface.NetworkOption.SiteLocalNetwork) {
 				role = "slo"
 			}
-			if iface.NetworkOption != nil && iface.NetworkOption.SiteLocalInsideNetwork != nil {
+			if iface.NetworkOption != nil && emptyObjectMarkerConfigured(iface.NetworkOption.SiteLocalInsideNetwork) {
 				if role != "" {
 					resp.Diagnostics.AddAttributeError(interfacePath.AtName("network_option"), "AWS SMSv2 Interface Role Is Ambiguous", "An interface may have exactly one role.")
 					continue
@@ -146,10 +142,12 @@ func validateSecuremeshSiteV2AWSContract(
 				resp.Diagnostics.AddAttributeError(interfacePath.AtName("network_option"), "AWS SMSv2 Interface Role Is Required", "Each interface must declare an explicit SLO or SLI role.")
 				continue
 			}
-			expectedDevice := map[string]string{"slo": "eth0", "sli": "eth1"}[role]
-			if device != expectedDevice {
-				resp.Diagnostics.AddAttributeError(interfacePath.AtName("ethernet_interface").AtName("device"), "AWS SMSv2 Interface Device Does Not Match Role", fmt.Sprintf("Role %q must use guest device %q; got %q.", role, expectedDevice, device))
+			// The API requires a discovered ethernet device, whose name depends on
+			// the guest image and hardware. SLO/SLI do not imply eth0/eth1.
+			if devices[device] {
+				resp.Diagnostics.AddAttributeError(interfacePath.AtName("ethernet_interface").AtName("device"), "AWS SMSv2 Interface Device Is Duplicate", "Each ethernet device may be configured only once within its CE node.")
 			}
+			devices[device] = true
 			if roles[role] {
 				resp.Diagnostics.AddAttributeError(interfacePath.AtName("network_option"), "AWS SMSv2 Interface Role Is Duplicate", fmt.Sprintf("Role %q may appear only once per CE node.", role))
 			}

@@ -18,6 +18,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -144,14 +145,14 @@ var AppFirewallCustomAnonymizationAnonymizationConfigQueryParameterModelAttrType
 
 // AppFirewallDetectionSettingsModel represents detection_settings block
 type AppFirewallDetectionSettingsModel struct {
+	DefaultBotSetting            types.Object                                                   `tfsdk:"default_bot_setting"`
+	DefaultViolationSettings     types.Object                                                   `tfsdk:"default_violation_settings"`
+	DisableStaging               types.Object                                                   `tfsdk:"disable_staging"`
+	DisableSuppression           types.Object                                                   `tfsdk:"disable_suppression"`
+	DisableThreatCampaigns       types.Object                                                   `tfsdk:"disable_threat_campaigns"`
+	EnableSuppression            types.Object                                                   `tfsdk:"enable_suppression"`
+	EnableThreatCampaigns        types.Object                                                   `tfsdk:"enable_threat_campaigns"`
 	BotProtectionSetting         *AppFirewallDetectionSettingsBotProtectionSettingModel         `tfsdk:"bot_protection_setting"`
-	DefaultBotSetting            *AppFirewallEmptyModel                                         `tfsdk:"default_bot_setting"`
-	DefaultViolationSettings     *AppFirewallEmptyModel                                         `tfsdk:"default_violation_settings"`
-	DisableStaging               *AppFirewallEmptyModel                                         `tfsdk:"disable_staging"`
-	DisableSuppression           *AppFirewallEmptyModel                                         `tfsdk:"disable_suppression"`
-	DisableThreatCampaigns       *AppFirewallEmptyModel                                         `tfsdk:"disable_threat_campaigns"`
-	EnableSuppression            *AppFirewallEmptyModel                                         `tfsdk:"enable_suppression"`
-	EnableThreatCampaigns        *AppFirewallEmptyModel                                         `tfsdk:"enable_threat_campaigns"`
 	SignatureSelectionSetting    *AppFirewallDetectionSettingsSignatureSelectionSettingModel    `tfsdk:"signature_selection_setting"`
 	StageNewAndUpdatedSignatures *AppFirewallDetectionSettingsStageNewAndUpdatedSignaturesModel `tfsdk:"stage_new_and_updated_signatures"`
 	StageNewSignatures           *AppFirewallDetectionSettingsStageNewSignaturesModel           `tfsdk:"stage_new_signatures"`
@@ -161,7 +162,6 @@ type AppFirewallDetectionSettingsModel struct {
 
 // AppFirewallDetectionSettingsModelAttrTypes defines the attribute types for AppFirewallDetectionSettingsModel
 var AppFirewallDetectionSettingsModelAttrTypes = map[string]attr.Type{
-	"bot_protection_setting":           types.ObjectType{AttrTypes: AppFirewallDetectionSettingsBotProtectionSettingModelAttrTypes},
 	"default_bot_setting":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"default_violation_settings":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_staging":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -169,6 +169,7 @@ var AppFirewallDetectionSettingsModelAttrTypes = map[string]attr.Type{
 	"disable_threat_campaigns":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_suppression":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_threat_campaigns":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"bot_protection_setting":           types.ObjectType{AttrTypes: AppFirewallDetectionSettingsBotProtectionSettingModelAttrTypes},
 	"signature_selection_setting":      types.ObjectType{AttrTypes: AppFirewallDetectionSettingsSignatureSelectionSettingModelAttrTypes},
 	"stage_new_and_updated_signatures": types.ObjectType{AttrTypes: AppFirewallDetectionSettingsStageNewAndUpdatedSignaturesModelAttrTypes},
 	"stage_new_signatures":             types.ObjectType{AttrTypes: AppFirewallDetectionSettingsStageNewSignaturesModelAttrTypes},
@@ -192,20 +193,20 @@ var AppFirewallDetectionSettingsBotProtectionSettingModelAttrTypes = map[string]
 
 // AppFirewallDetectionSettingsSignatureSelectionSettingModel represents signature_selection_setting block
 type AppFirewallDetectionSettingsSignatureSelectionSettingModel struct {
+	DefaultAttackTypeSettings       types.Object                                                                  `tfsdk:"default_attack_type_settings"`
+	HighMediumAccuracySignatures    types.Object                                                                  `tfsdk:"high_medium_accuracy_signatures"`
+	HighMediumLowAccuracySignatures types.Object                                                                  `tfsdk:"high_medium_low_accuracy_signatures"`
+	OnlyHighAccuracySignatures      types.Object                                                                  `tfsdk:"only_high_accuracy_signatures"`
 	AttackTypeSettings              *AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel `tfsdk:"attack_type_settings"`
-	DefaultAttackTypeSettings       *AppFirewallEmptyModel                                                        `tfsdk:"default_attack_type_settings"`
-	HighMediumAccuracySignatures    *AppFirewallEmptyModel                                                        `tfsdk:"high_medium_accuracy_signatures"`
-	HighMediumLowAccuracySignatures *AppFirewallEmptyModel                                                        `tfsdk:"high_medium_low_accuracy_signatures"`
-	OnlyHighAccuracySignatures      *AppFirewallEmptyModel                                                        `tfsdk:"only_high_accuracy_signatures"`
 }
 
 // AppFirewallDetectionSettingsSignatureSelectionSettingModelAttrTypes defines the attribute types for AppFirewallDetectionSettingsSignatureSelectionSettingModel
 var AppFirewallDetectionSettingsSignatureSelectionSettingModelAttrTypes = map[string]attr.Type{
-	"attack_type_settings":                types.ObjectType{AttrTypes: AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModelAttrTypes},
 	"default_attack_type_settings":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"high_medium_accuracy_signatures":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"high_medium_low_accuracy_signatures": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"only_high_accuracy_signatures":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"attack_type_settings":                types.ObjectType{AttrTypes: AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModelAttrTypes},
 }
 
 // AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel represents attack_type_settings block
@@ -268,8 +269,8 @@ var AppFirewallDetectionSettingsViolationsViewModelAttrTypes = map[string]attr.T
 
 // AppFirewallEnableAiEnhancementsModel represents enable_ai_enhancements block
 type AppFirewallEnableAiEnhancementsModel struct {
-	MitigateHighMediumRiskAction *AppFirewallEmptyModel `tfsdk:"mitigate_high_medium_risk_action"`
-	MitigateHighRiskAction       *AppFirewallEmptyModel `tfsdk:"mitigate_high_risk_action"`
+	MitigateHighMediumRiskAction types.Object `tfsdk:"mitigate_high_medium_risk_action"`
+	MitigateHighRiskAction       types.Object `tfsdk:"mitigate_high_risk_action"`
 }
 
 // AppFirewallEnableAiEnhancementsModelAttrTypes defines the attribute types for AppFirewallEnableAiEnhancementsModel
@@ -282,26 +283,26 @@ type AppFirewallResourceModel struct {
 	Name                     types.String                          `tfsdk:"name"`
 	Namespace                types.String                          `tfsdk:"namespace"`
 	Annotations              types.Map                             `tfsdk:"annotations"`
+	Blocking                 types.Object                          `tfsdk:"blocking"`
 	Description              types.String                          `tfsdk:"description"`
 	Disable                  types.Bool                            `tfsdk:"disable"`
+	DisableAnonymization     types.Object                          `tfsdk:"disable_anonymization"`
 	Labels                   types.Map                             `tfsdk:"labels"`
 	ID                       types.String                          `tfsdk:"id"`
+	AllowAllResponseCodes    types.Object                          `tfsdk:"allow_all_response_codes"`
+	DefaultAnonymization     types.Object                          `tfsdk:"default_anonymization"`
+	DefaultBotSetting        types.Object                          `tfsdk:"default_bot_setting"`
+	DefaultDetectionSettings types.Object                          `tfsdk:"default_detection_settings"`
+	DisableAiEnhancements    types.Object                          `tfsdk:"disable_ai_enhancements"`
+	Monitoring               types.Object                          `tfsdk:"monitoring"`
+	UseDefaultBlockingPage   types.Object                          `tfsdk:"use_default_blocking_page"`
 	Timeouts                 timeouts.Value                        `tfsdk:"timeouts"`
 	AllowedResponseCodes     *AppFirewallAllowedResponseCodesModel `tfsdk:"allowed_response_codes"`
-	Blocking                 *AppFirewallEmptyModel                `tfsdk:"blocking"`
 	BlockingPage             *AppFirewallBlockingPageModel         `tfsdk:"blocking_page"`
 	BotProtectionSetting     *AppFirewallBotProtectionSettingModel `tfsdk:"bot_protection_setting"`
 	CustomAnonymization      *AppFirewallCustomAnonymizationModel  `tfsdk:"custom_anonymization"`
 	DetectionSettings        *AppFirewallDetectionSettingsModel    `tfsdk:"detection_settings"`
-	DisableAnonymization     *AppFirewallEmptyModel                `tfsdk:"disable_anonymization"`
 	EnableAiEnhancements     *AppFirewallEnableAiEnhancementsModel `tfsdk:"enable_ai_enhancements"`
-	AllowAllResponseCodes    *AppFirewallEmptyModel                `tfsdk:"allow_all_response_codes"`
-	DefaultAnonymization     *AppFirewallEmptyModel                `tfsdk:"default_anonymization"`
-	DefaultBotSetting        *AppFirewallEmptyModel                `tfsdk:"default_bot_setting"`
-	DefaultDetectionSettings *AppFirewallEmptyModel                `tfsdk:"default_detection_settings"`
-	DisableAiEnhancements    *AppFirewallEmptyModel                `tfsdk:"disable_ai_enhancements"`
-	Monitoring               *AppFirewallEmptyModel                `tfsdk:"monitoring"`
-	UseDefaultBlockingPage   *AppFirewallEmptyModel                `tfsdk:"use_default_blocking_page"`
 }
 
 func (r *AppFirewallResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -337,6 +338,11 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"blocking": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: blocking, monitoring] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
@@ -344,6 +350,11 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
+			},
+			"disable_anonymization": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for disable anonymization.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
@@ -355,6 +366,69 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"allow_all_response_codes": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: allow_all_response_codes, allowed_response_codes] Configuration parameter for allow all response codes. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"default_anonymization": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for default anonymization. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"default_bot_setting": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for default bot setting. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"default_detection_settings": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: default_detection_settings, detection_settings; Default: default_detection_settings] Configuration parameter for default detection settings. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"disable_ai_enhancements": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable_ai_enhancements, enable_ai_enhancements; Default: disable_ai_enhancements] Configuration parameter for disable ai enhancements. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"monitoring": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"use_default_blocking_page": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
 		},
@@ -379,9 +453,6 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 						},
 					},
 				},
-			},
-			"blocking": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: blocking, monitoring] Enable this option",
 			},
 			"blocking_page": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: blocking_page, use_default_blocking_page; Default: use_default_blocking_page] Custom Blocking Response Page. Custom blocking response page body.",
@@ -438,6 +509,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 				Blocks: map[string]schema.Block{
 					"anonymization_config": schema.ListNestedBlock{
 						MarkdownDescription: "List of HTTP headers, cookies and query parameters whose values will be masked.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("cookie", "http_header"), validators.ConflictingListObjectAttributes("cookie", "query_parameter"), validators.ConflictingListObjectAttributes("http_header", "query_parameter")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
@@ -484,8 +556,45 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"detection_settings": schema.SingleNestedBlock{
 				MarkdownDescription: "Specifies detection settings to be used by WAF.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("bot_protection_setting", "default_bot_setting"), validators.ConflictingObjectAttributes("default_violation_settings", "violation_settings"), validators.ConflictingObjectAttributes("disable_staging", "stage_new_and_updated_signatures"), validators.ConflictingObjectAttributes("disable_staging", "stage_new_signatures"), validators.ConflictingObjectAttributes("disable_suppression", "enable_suppression"), validators.ConflictingObjectAttributes("disable_threat_campaigns", "enable_threat_campaigns"), validators.ConflictingObjectAttributes("stage_new_and_updated_signatures", "stage_new_signatures")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"default_bot_setting": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default bot setting.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"default_violation_settings": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default violation settings.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_staging": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_suppression": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable suppression.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_threat_campaigns": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"enable_suppression": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for enable suppression.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"enable_threat_campaigns": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
 					"bot_protection_setting": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for bot protection setting.",
@@ -513,30 +622,31 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 							},
 						},
 					},
-					"default_bot_setting": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for default bot setting.",
-					},
-					"default_violation_settings": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for default violation settings.",
-					},
-					"disable_staging": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"disable_suppression": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable suppression.",
-					},
-					"disable_threat_campaigns": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"enable_suppression": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for enable suppression.",
-					},
-					"enable_threat_campaigns": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"signature_selection_setting": schema.SingleNestedBlock{
 						MarkdownDescription: "Attack Signatures are patterns that identify attacks on a web application and its components.",
-						Attributes:          map[string]schema.Attribute{},
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("attack_type_settings", "default_attack_type_settings"), validators.ConflictingObjectAttributes("high_medium_accuracy_signatures", "high_medium_low_accuracy_signatures"), validators.ConflictingObjectAttributes("high_medium_accuracy_signatures", "only_high_accuracy_signatures"), validators.ConflictingObjectAttributes("high_medium_low_accuracy_signatures", "only_high_accuracy_signatures")},
+						Attributes: map[string]schema.Attribute{
+							"default_attack_type_settings": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for default attack type settings.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"high_medium_accuracy_signatures": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for high medium accuracy signatures.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"high_medium_low_accuracy_signatures": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for high medium low accuracy signatures.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"only_high_accuracy_signatures": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for only high accuracy signatures.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"attack_type_settings": schema.SingleNestedBlock{
 								MarkdownDescription: "Specifies attack-type settings to be used by WAF.",
@@ -551,18 +661,6 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 										},
 									},
 								},
-							},
-							"default_attack_type_settings": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for default attack type settings.",
-							},
-							"high_medium_accuracy_signatures": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for high medium accuracy signatures.",
-							},
-							"high_medium_low_accuracy_signatures": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for high medium low accuracy signatures.",
-							},
-							"only_high_accuracy_signatures": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for only high accuracy signatures.",
 							},
 						},
 					},
@@ -639,42 +737,22 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 				},
 			},
-			"disable_anonymization": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for disable anonymization.",
-			},
 			"enable_ai_enhancements": schema.SingleNestedBlock{
 				MarkdownDescription: "Actions complimented by the additional intelligence of the F5 AI Powered Risk-based analysis.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("mitigate_high_medium_risk_action", "mitigate_high_risk_action")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"mitigate_high_medium_risk_action": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"mitigate_high_medium_risk_action": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"mitigate_high_risk_action": schema.SingleNestedBlock{
+					"mitigate_high_risk_action": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
-			},
-			"allow_all_response_codes": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: allow_all_response_codes, allowed_response_codes] Configuration parameter for allow all response codes. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"default_anonymization": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for default anonymization. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"default_bot_setting": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for default bot setting. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"default_detection_settings": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: default_detection_settings, detection_settings; Default: default_detection_settings] Configuration parameter for default detection settings. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"disable_ai_enhancements": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disable_ai_enhancements, enable_ai_enhancements; Default: disable_ai_enhancements] Configuration parameter for disable ai enhancements. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"monitoring": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"use_default_blocking_page": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
 			},
 		},
 	}
@@ -702,6 +780,21 @@ func (r *AppFirewallResource) ValidateConfig(ctx context.Context, req resource.V
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.Blocking.IsNull() && !data.Blocking.IsUnknown() && !data.Monitoring.IsNull() && !data.Monitoring.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("blocking"),
+			"Conflicting Configuration",
+			"blocking and monitoring are mutually exclusive.",
+		)
+	}
+	if !data.DisableAnonymization.IsNull() && !data.DisableAnonymization.IsUnknown() && !data.DefaultAnonymization.IsNull() && !data.DefaultAnonymization.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_anonymization"),
+			"Conflicting Configuration",
+			"disable_anonymization and default_anonymization are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -814,7 +907,7 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 		}
 		createReq.Spec["allowed_response_codes"] = AllowedResponseCodesMap
 	}
-	if data.Blocking != nil {
+	if !data.Blocking.IsNull() && !data.Blocking.IsUnknown() {
 		createReq.Spec["blocking"] = map[string]interface{}{}
 	}
 	if data.BlockingPage != nil {
@@ -893,25 +986,25 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 			}
 			DetectionSettingsMap["bot_protection_setting"] = DetectionSettingsBotProtectionSettingMap
 		}
-		if data.DetectionSettings.DefaultBotSetting != nil {
+		if !data.DetectionSettings.DefaultBotSetting.IsNull() && !data.DetectionSettings.DefaultBotSetting.IsUnknown() {
 			DetectionSettingsMap["default_bot_setting"] = map[string]interface{}{}
 		}
-		if data.DetectionSettings.DefaultViolationSettings != nil {
+		if !data.DetectionSettings.DefaultViolationSettings.IsNull() && !data.DetectionSettings.DefaultViolationSettings.IsUnknown() {
 			DetectionSettingsMap["default_violation_settings"] = map[string]interface{}{}
 		}
-		if data.DetectionSettings.DisableStaging != nil {
+		if !data.DetectionSettings.DisableStaging.IsNull() && !data.DetectionSettings.DisableStaging.IsUnknown() {
 			DetectionSettingsMap["disable_staging"] = map[string]interface{}{}
 		}
-		if data.DetectionSettings.DisableSuppression != nil {
+		if !data.DetectionSettings.DisableSuppression.IsNull() && !data.DetectionSettings.DisableSuppression.IsUnknown() {
 			DetectionSettingsMap["disable_suppression"] = map[string]interface{}{}
 		}
-		if data.DetectionSettings.DisableThreatCampaigns != nil {
+		if !data.DetectionSettings.DisableThreatCampaigns.IsNull() && !data.DetectionSettings.DisableThreatCampaigns.IsUnknown() {
 			DetectionSettingsMap["disable_threat_campaigns"] = map[string]interface{}{}
 		}
-		if data.DetectionSettings.EnableSuppression != nil {
+		if !data.DetectionSettings.EnableSuppression.IsNull() && !data.DetectionSettings.EnableSuppression.IsUnknown() {
 			DetectionSettingsMap["enable_suppression"] = map[string]interface{}{}
 		}
-		if data.DetectionSettings.EnableThreatCampaigns != nil {
+		if !data.DetectionSettings.EnableThreatCampaigns.IsNull() && !data.DetectionSettings.EnableThreatCampaigns.IsUnknown() {
 			DetectionSettingsMap["enable_threat_campaigns"] = map[string]interface{}{}
 		}
 		if data.DetectionSettings.SignatureSelectionSetting != nil {
@@ -928,16 +1021,16 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				DetectionSettingsSignatureSelectionSettingMap["attack_type_settings"] = DetectionSettingsSignatureSelectionSettingAttackTypeSettingsMap
 			}
-			if data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings != nil {
+			if !data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["default_attack_type_settings"] = map[string]interface{}{}
 			}
-			if data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures != nil {
+			if !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["high_medium_accuracy_signatures"] = map[string]interface{}{}
 			}
-			if data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures != nil {
+			if !data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["high_medium_low_accuracy_signatures"] = map[string]interface{}{}
 			}
-			if data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures != nil {
+			if !data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["only_high_accuracy_signatures"] = map[string]interface{}{}
 			}
 			DetectionSettingsMap["signature_selection_setting"] = DetectionSettingsSignatureSelectionSettingMap
@@ -998,38 +1091,38 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 		}
 		createReq.Spec["detection_settings"] = DetectionSettingsMap
 	}
-	if data.DisableAnonymization != nil {
+	if !data.DisableAnonymization.IsNull() && !data.DisableAnonymization.IsUnknown() {
 		createReq.Spec["disable_anonymization"] = map[string]interface{}{}
 	}
 	if data.EnableAiEnhancements != nil {
 		EnableAiEnhancementsMap := make(map[string]interface{})
-		if data.EnableAiEnhancements.MitigateHighMediumRiskAction != nil {
+		if !data.EnableAiEnhancements.MitigateHighMediumRiskAction.IsNull() && !data.EnableAiEnhancements.MitigateHighMediumRiskAction.IsUnknown() {
 			EnableAiEnhancementsMap["mitigate_high_medium_risk_action"] = map[string]interface{}{}
 		}
-		if data.EnableAiEnhancements.MitigateHighRiskAction != nil {
+		if !data.EnableAiEnhancements.MitigateHighRiskAction.IsNull() && !data.EnableAiEnhancements.MitigateHighRiskAction.IsUnknown() {
 			EnableAiEnhancementsMap["mitigate_high_risk_action"] = map[string]interface{}{}
 		}
 		createReq.Spec["enable_ai_enhancements"] = EnableAiEnhancementsMap
 	}
-	if data.AllowAllResponseCodes != nil {
+	if !data.AllowAllResponseCodes.IsNull() && !data.AllowAllResponseCodes.IsUnknown() {
 		createReq.Spec["allow_all_response_codes"] = map[string]interface{}{}
 	}
-	if data.DefaultAnonymization != nil {
+	if !data.DefaultAnonymization.IsNull() && !data.DefaultAnonymization.IsUnknown() {
 		createReq.Spec["default_anonymization"] = map[string]interface{}{}
 	}
-	if data.DefaultBotSetting != nil {
+	if !data.DefaultBotSetting.IsNull() && !data.DefaultBotSetting.IsUnknown() {
 		createReq.Spec["default_bot_setting"] = map[string]interface{}{}
 	}
-	if data.DefaultDetectionSettings != nil {
+	if !data.DefaultDetectionSettings.IsNull() && !data.DefaultDetectionSettings.IsUnknown() {
 		createReq.Spec["default_detection_settings"] = map[string]interface{}{}
 	}
-	if data.DisableAiEnhancements != nil {
+	if !data.DisableAiEnhancements.IsNull() && !data.DisableAiEnhancements.IsUnknown() {
 		createReq.Spec["disable_ai_enhancements"] = map[string]interface{}{}
 	}
-	if data.Monitoring != nil {
+	if !data.Monitoring.IsNull() && !data.Monitoring.IsUnknown() {
 		createReq.Spec["monitoring"] = map[string]interface{}{}
 	}
-	if data.UseDefaultBlockingPage != nil {
+	if !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
 		createReq.Spec["use_default_blocking_page"] = map[string]interface{}{}
 	}
 
@@ -1089,8 +1182,12 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["blocking"].(map[string]interface{}); ok && isImport && data.Blocking == nil {
-		data.Blocking = &AppFirewallEmptyModel{}
+	if !isImport && !data.Blocking.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["blocking"].(map[string]interface{}); ok {
+		data.Blocking = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Blocking = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["blocking_page"].(map[string]interface{}); ok && (isImport || data.BlockingPage != nil) {
 		data.BlockingPage = &AppFirewallBlockingPageModel{
@@ -1225,70 +1322,68 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return nil
 			}(),
-			DefaultBotSetting: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DefaultBotSetting: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DefaultBotSetting.IsUnknown() {
 					return data.DetectionSettings.DefaultBotSetting
 				}
-				if !isImport {
-					if _, ok := blockData["default_bot_setting"].(map[string]interface{}); ok {
-						return &AppFirewallEmptyModel{}
-					}
+				if _, ok := blockData["default_bot_setting"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultViolationSettings: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DefaultViolationSettings: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DefaultViolationSettings.IsUnknown() {
 					return data.DetectionSettings.DefaultViolationSettings
 				}
 				if _, ok := blockData["default_violation_settings"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableStaging: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DisableStaging: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableStaging.IsUnknown() {
 					return data.DetectionSettings.DisableStaging
 				}
 				if _, ok := blockData["disable_staging"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSuppression: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DisableSuppression: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableSuppression.IsUnknown() {
 					return data.DetectionSettings.DisableSuppression
 				}
 				if _, ok := blockData["disable_suppression"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableThreatCampaigns: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DisableThreatCampaigns: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableThreatCampaigns.IsUnknown() {
 					return data.DetectionSettings.DisableThreatCampaigns
 				}
 				if _, ok := blockData["disable_threat_campaigns"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableSuppression: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			EnableSuppression: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableSuppression.IsUnknown() {
 					return data.DetectionSettings.EnableSuppression
 				}
 				if _, ok := blockData["enable_suppression"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableThreatCampaigns: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			EnableThreatCampaigns: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableThreatCampaigns.IsUnknown() {
 					return data.DetectionSettings.EnableThreatCampaigns
 				}
 				if _, ok := blockData["enable_threat_campaigns"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SignatureSelectionSetting: func() *AppFirewallDetectionSettingsSignatureSelectionSettingModel {
 				if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
@@ -1320,41 +1415,41 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 							}
 							return nil
 						}(),
-						DefaultAttackTypeSettings: func() *AppFirewallEmptyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+						DefaultAttackTypeSettings: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings
 							}
 							if _, ok := SignatureSelectionSettingData["default_attack_type_settings"].(map[string]interface{}); ok {
-								return &AppFirewallEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						HighMediumAccuracySignatures: func() *AppFirewallEmptyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+						HighMediumAccuracySignatures: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures
 							}
 							if _, ok := SignatureSelectionSettingData["high_medium_accuracy_signatures"].(map[string]interface{}); ok {
-								return &AppFirewallEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						HighMediumLowAccuracySignatures: func() *AppFirewallEmptyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+						HighMediumLowAccuracySignatures: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures
 							}
 							if _, ok := SignatureSelectionSettingData["high_medium_low_accuracy_signatures"].(map[string]interface{}); ok {
-								return &AppFirewallEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						OnlyHighAccuracySignatures: func() *AppFirewallEmptyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+						OnlyHighAccuracySignatures: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures
 							}
 							if _, ok := SignatureSelectionSettingData["only_high_accuracy_signatures"].(map[string]interface{}); ok {
-								return &AppFirewallEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -1479,36 +1574,83 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_anonymization"].(map[string]interface{}); ok && isImport && data.DisableAnonymization == nil {
-		data.DisableAnonymization = &AppFirewallEmptyModel{}
+	if !isImport && !data.DisableAnonymization.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_anonymization"].(map[string]interface{}); ok {
+		data.DisableAnonymization = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableAnonymization = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_ai_enhancements"].(map[string]interface{}); ok && (isImport || data.EnableAiEnhancements != nil) {
 		data.EnableAiEnhancements = &AppFirewallEnableAiEnhancementsModel{
-			MitigateHighMediumRiskAction: func() *AppFirewallEmptyModel {
-				if !isImport && data.EnableAiEnhancements != nil {
+			MitigateHighMediumRiskAction: func() types.Object {
+				if !isImport && data.EnableAiEnhancements != nil && !data.EnableAiEnhancements.MitigateHighMediumRiskAction.IsUnknown() {
 					return data.EnableAiEnhancements.MitigateHighMediumRiskAction
 				}
 				if _, ok := blockData["mitigate_high_medium_risk_action"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			MitigateHighRiskAction: func() *AppFirewallEmptyModel {
-				if !isImport && data.EnableAiEnhancements != nil {
+			MitigateHighRiskAction: func() types.Object {
+				if !isImport && data.EnableAiEnhancements != nil && !data.EnableAiEnhancements.MitigateHighRiskAction.IsUnknown() {
 					return data.EnableAiEnhancements.MitigateHighRiskAction
 				}
 				if _, ok := blockData["mitigate_high_risk_action"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_detection_settings"].(map[string]interface{}); ok && isImport && data.DefaultDetectionSettings == nil {
-		data.DefaultDetectionSettings = &AppFirewallEmptyModel{}
+	if !isImport && !data.AllowAllResponseCodes.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all_response_codes"].(map[string]interface{}); ok && !isImport {
+		data.AllowAllResponseCodes = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAllResponseCodes = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["monitoring"].(map[string]interface{}); ok && isImport && data.Monitoring == nil {
-		data.Monitoring = &AppFirewallEmptyModel{}
+	if !isImport && !data.DefaultAnonymization.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_anonymization"].(map[string]interface{}); ok && !isImport {
+		data.DefaultAnonymization = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultAnonymization = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.DefaultBotSetting.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_bot_setting"].(map[string]interface{}); ok && !isImport {
+		data.DefaultBotSetting = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBotSetting = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.DefaultDetectionSettings.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_detection_settings"].(map[string]interface{}); ok {
+		data.DefaultDetectionSettings = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultDetectionSettings = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.DisableAiEnhancements.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_ai_enhancements"].(map[string]interface{}); ok && !isImport {
+		data.DisableAiEnhancements = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableAiEnhancements = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.Monitoring.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["monitoring"].(map[string]interface{}); ok {
+		data.Monitoring = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Monitoring = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.UseDefaultBlockingPage.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_blocking_page"].(map[string]interface{}); ok && !isImport {
+		data.UseDefaultBlockingPage = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultBlockingPage = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	tflog.Trace(ctx, "created AppFirewall resource")
@@ -1659,8 +1801,12 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["blocking"].(map[string]interface{}); ok && isImport && data.Blocking == nil {
-		data.Blocking = &AppFirewallEmptyModel{}
+	if !isImport && !data.Blocking.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["blocking"].(map[string]interface{}); ok {
+		data.Blocking = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Blocking = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["blocking_page"].(map[string]interface{}); ok && (isImport || data.BlockingPage != nil) {
 		data.BlockingPage = &AppFirewallBlockingPageModel{
@@ -1795,70 +1941,68 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return nil
 			}(),
-			DefaultBotSetting: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DefaultBotSetting: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DefaultBotSetting.IsUnknown() {
 					return data.DetectionSettings.DefaultBotSetting
 				}
-				if !isImport {
-					if _, ok := blockData["default_bot_setting"].(map[string]interface{}); ok {
-						return &AppFirewallEmptyModel{}
-					}
+				if _, ok := blockData["default_bot_setting"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultViolationSettings: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DefaultViolationSettings: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DefaultViolationSettings.IsUnknown() {
 					return data.DetectionSettings.DefaultViolationSettings
 				}
 				if _, ok := blockData["default_violation_settings"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableStaging: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DisableStaging: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableStaging.IsUnknown() {
 					return data.DetectionSettings.DisableStaging
 				}
 				if _, ok := blockData["disable_staging"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSuppression: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DisableSuppression: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableSuppression.IsUnknown() {
 					return data.DetectionSettings.DisableSuppression
 				}
 				if _, ok := blockData["disable_suppression"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableThreatCampaigns: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DisableThreatCampaigns: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableThreatCampaigns.IsUnknown() {
 					return data.DetectionSettings.DisableThreatCampaigns
 				}
 				if _, ok := blockData["disable_threat_campaigns"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableSuppression: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			EnableSuppression: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableSuppression.IsUnknown() {
 					return data.DetectionSettings.EnableSuppression
 				}
 				if _, ok := blockData["enable_suppression"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableThreatCampaigns: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			EnableThreatCampaigns: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableThreatCampaigns.IsUnknown() {
 					return data.DetectionSettings.EnableThreatCampaigns
 				}
 				if _, ok := blockData["enable_threat_campaigns"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SignatureSelectionSetting: func() *AppFirewallDetectionSettingsSignatureSelectionSettingModel {
 				if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
@@ -1890,41 +2034,41 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 							}
 							return nil
 						}(),
-						DefaultAttackTypeSettings: func() *AppFirewallEmptyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+						DefaultAttackTypeSettings: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings
 							}
 							if _, ok := SignatureSelectionSettingData["default_attack_type_settings"].(map[string]interface{}); ok {
-								return &AppFirewallEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						HighMediumAccuracySignatures: func() *AppFirewallEmptyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+						HighMediumAccuracySignatures: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures
 							}
 							if _, ok := SignatureSelectionSettingData["high_medium_accuracy_signatures"].(map[string]interface{}); ok {
-								return &AppFirewallEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						HighMediumLowAccuracySignatures: func() *AppFirewallEmptyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+						HighMediumLowAccuracySignatures: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures
 							}
 							if _, ok := SignatureSelectionSettingData["high_medium_low_accuracy_signatures"].(map[string]interface{}); ok {
-								return &AppFirewallEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						OnlyHighAccuracySignatures: func() *AppFirewallEmptyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+						OnlyHighAccuracySignatures: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures
 							}
 							if _, ok := SignatureSelectionSettingData["only_high_accuracy_signatures"].(map[string]interface{}); ok {
-								return &AppFirewallEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -2049,36 +2193,83 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_anonymization"].(map[string]interface{}); ok && isImport && data.DisableAnonymization == nil {
-		data.DisableAnonymization = &AppFirewallEmptyModel{}
+	if !isImport && !data.DisableAnonymization.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_anonymization"].(map[string]interface{}); ok {
+		data.DisableAnonymization = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableAnonymization = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_ai_enhancements"].(map[string]interface{}); ok && (isImport || data.EnableAiEnhancements != nil) {
 		data.EnableAiEnhancements = &AppFirewallEnableAiEnhancementsModel{
-			MitigateHighMediumRiskAction: func() *AppFirewallEmptyModel {
-				if !isImport && data.EnableAiEnhancements != nil {
+			MitigateHighMediumRiskAction: func() types.Object {
+				if !isImport && data.EnableAiEnhancements != nil && !data.EnableAiEnhancements.MitigateHighMediumRiskAction.IsUnknown() {
 					return data.EnableAiEnhancements.MitigateHighMediumRiskAction
 				}
 				if _, ok := blockData["mitigate_high_medium_risk_action"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			MitigateHighRiskAction: func() *AppFirewallEmptyModel {
-				if !isImport && data.EnableAiEnhancements != nil {
+			MitigateHighRiskAction: func() types.Object {
+				if !isImport && data.EnableAiEnhancements != nil && !data.EnableAiEnhancements.MitigateHighRiskAction.IsUnknown() {
 					return data.EnableAiEnhancements.MitigateHighRiskAction
 				}
 				if _, ok := blockData["mitigate_high_risk_action"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_detection_settings"].(map[string]interface{}); ok && isImport && data.DefaultDetectionSettings == nil {
-		data.DefaultDetectionSettings = &AppFirewallEmptyModel{}
+	if !isImport && !data.AllowAllResponseCodes.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all_response_codes"].(map[string]interface{}); ok && !isImport {
+		data.AllowAllResponseCodes = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAllResponseCodes = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["monitoring"].(map[string]interface{}); ok && isImport && data.Monitoring == nil {
-		data.Monitoring = &AppFirewallEmptyModel{}
+	if !isImport && !data.DefaultAnonymization.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_anonymization"].(map[string]interface{}); ok && !isImport {
+		data.DefaultAnonymization = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultAnonymization = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.DefaultBotSetting.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_bot_setting"].(map[string]interface{}); ok && !isImport {
+		data.DefaultBotSetting = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBotSetting = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.DefaultDetectionSettings.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_detection_settings"].(map[string]interface{}); ok {
+		data.DefaultDetectionSettings = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultDetectionSettings = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.DisableAiEnhancements.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_ai_enhancements"].(map[string]interface{}); ok && !isImport {
+		data.DisableAiEnhancements = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableAiEnhancements = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.Monitoring.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["monitoring"].(map[string]interface{}); ok {
+		data.Monitoring = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Monitoring = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.UseDefaultBlockingPage.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_blocking_page"].(map[string]interface{}); ok && !isImport {
+		data.UseDefaultBlockingPage = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultBlockingPage = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -2186,7 +2377,7 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 		}
 		apiResource.Spec["allowed_response_codes"] = AllowedResponseCodesMap
 	}
-	if data.Blocking != nil {
+	if !data.Blocking.IsNull() && !data.Blocking.IsUnknown() {
 		apiResource.Spec["blocking"] = map[string]interface{}{}
 	}
 	if data.BlockingPage != nil {
@@ -2265,25 +2456,25 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 			}
 			DetectionSettingsMap["bot_protection_setting"] = DetectionSettingsBotProtectionSettingMap
 		}
-		if data.DetectionSettings.DefaultBotSetting != nil {
+		if !data.DetectionSettings.DefaultBotSetting.IsNull() && !data.DetectionSettings.DefaultBotSetting.IsUnknown() {
 			DetectionSettingsMap["default_bot_setting"] = map[string]interface{}{}
 		}
-		if data.DetectionSettings.DefaultViolationSettings != nil {
+		if !data.DetectionSettings.DefaultViolationSettings.IsNull() && !data.DetectionSettings.DefaultViolationSettings.IsUnknown() {
 			DetectionSettingsMap["default_violation_settings"] = map[string]interface{}{}
 		}
-		if data.DetectionSettings.DisableStaging != nil {
+		if !data.DetectionSettings.DisableStaging.IsNull() && !data.DetectionSettings.DisableStaging.IsUnknown() {
 			DetectionSettingsMap["disable_staging"] = map[string]interface{}{}
 		}
-		if data.DetectionSettings.DisableSuppression != nil {
+		if !data.DetectionSettings.DisableSuppression.IsNull() && !data.DetectionSettings.DisableSuppression.IsUnknown() {
 			DetectionSettingsMap["disable_suppression"] = map[string]interface{}{}
 		}
-		if data.DetectionSettings.DisableThreatCampaigns != nil {
+		if !data.DetectionSettings.DisableThreatCampaigns.IsNull() && !data.DetectionSettings.DisableThreatCampaigns.IsUnknown() {
 			DetectionSettingsMap["disable_threat_campaigns"] = map[string]interface{}{}
 		}
-		if data.DetectionSettings.EnableSuppression != nil {
+		if !data.DetectionSettings.EnableSuppression.IsNull() && !data.DetectionSettings.EnableSuppression.IsUnknown() {
 			DetectionSettingsMap["enable_suppression"] = map[string]interface{}{}
 		}
-		if data.DetectionSettings.EnableThreatCampaigns != nil {
+		if !data.DetectionSettings.EnableThreatCampaigns.IsNull() && !data.DetectionSettings.EnableThreatCampaigns.IsUnknown() {
 			DetectionSettingsMap["enable_threat_campaigns"] = map[string]interface{}{}
 		}
 		if data.DetectionSettings.SignatureSelectionSetting != nil {
@@ -2300,16 +2491,16 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				DetectionSettingsSignatureSelectionSettingMap["attack_type_settings"] = DetectionSettingsSignatureSelectionSettingAttackTypeSettingsMap
 			}
-			if data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings != nil {
+			if !data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["default_attack_type_settings"] = map[string]interface{}{}
 			}
-			if data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures != nil {
+			if !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["high_medium_accuracy_signatures"] = map[string]interface{}{}
 			}
-			if data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures != nil {
+			if !data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["high_medium_low_accuracy_signatures"] = map[string]interface{}{}
 			}
-			if data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures != nil {
+			if !data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures.IsUnknown() {
 				DetectionSettingsSignatureSelectionSettingMap["only_high_accuracy_signatures"] = map[string]interface{}{}
 			}
 			DetectionSettingsMap["signature_selection_setting"] = DetectionSettingsSignatureSelectionSettingMap
@@ -2370,38 +2561,38 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 		}
 		apiResource.Spec["detection_settings"] = DetectionSettingsMap
 	}
-	if data.DisableAnonymization != nil {
+	if !data.DisableAnonymization.IsNull() && !data.DisableAnonymization.IsUnknown() {
 		apiResource.Spec["disable_anonymization"] = map[string]interface{}{}
 	}
 	if data.EnableAiEnhancements != nil {
 		EnableAiEnhancementsMap := make(map[string]interface{})
-		if data.EnableAiEnhancements.MitigateHighMediumRiskAction != nil {
+		if !data.EnableAiEnhancements.MitigateHighMediumRiskAction.IsNull() && !data.EnableAiEnhancements.MitigateHighMediumRiskAction.IsUnknown() {
 			EnableAiEnhancementsMap["mitigate_high_medium_risk_action"] = map[string]interface{}{}
 		}
-		if data.EnableAiEnhancements.MitigateHighRiskAction != nil {
+		if !data.EnableAiEnhancements.MitigateHighRiskAction.IsNull() && !data.EnableAiEnhancements.MitigateHighRiskAction.IsUnknown() {
 			EnableAiEnhancementsMap["mitigate_high_risk_action"] = map[string]interface{}{}
 		}
 		apiResource.Spec["enable_ai_enhancements"] = EnableAiEnhancementsMap
 	}
-	if data.AllowAllResponseCodes != nil {
+	if !data.AllowAllResponseCodes.IsNull() && !data.AllowAllResponseCodes.IsUnknown() {
 		apiResource.Spec["allow_all_response_codes"] = map[string]interface{}{}
 	}
-	if data.DefaultAnonymization != nil {
+	if !data.DefaultAnonymization.IsNull() && !data.DefaultAnonymization.IsUnknown() {
 		apiResource.Spec["default_anonymization"] = map[string]interface{}{}
 	}
-	if data.DefaultBotSetting != nil {
+	if !data.DefaultBotSetting.IsNull() && !data.DefaultBotSetting.IsUnknown() {
 		apiResource.Spec["default_bot_setting"] = map[string]interface{}{}
 	}
-	if data.DefaultDetectionSettings != nil {
+	if !data.DefaultDetectionSettings.IsNull() && !data.DefaultDetectionSettings.IsUnknown() {
 		apiResource.Spec["default_detection_settings"] = map[string]interface{}{}
 	}
-	if data.DisableAiEnhancements != nil {
+	if !data.DisableAiEnhancements.IsNull() && !data.DisableAiEnhancements.IsUnknown() {
 		apiResource.Spec["disable_ai_enhancements"] = map[string]interface{}{}
 	}
-	if data.Monitoring != nil {
+	if !data.Monitoring.IsNull() && !data.Monitoring.IsUnknown() {
 		apiResource.Spec["monitoring"] = map[string]interface{}{}
 	}
-	if data.UseDefaultBlockingPage != nil {
+	if !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
 		apiResource.Spec["use_default_blocking_page"] = map[string]interface{}{}
 	}
 
@@ -2481,8 +2672,12 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["blocking"].(map[string]interface{}); ok && isImport && data.Blocking == nil {
-		data.Blocking = &AppFirewallEmptyModel{}
+	if !isImport && !data.Blocking.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["blocking"].(map[string]interface{}); ok {
+		data.Blocking = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Blocking = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["blocking_page"].(map[string]interface{}); ok && (isImport || data.BlockingPage != nil) {
 		data.BlockingPage = &AppFirewallBlockingPageModel{
@@ -2617,70 +2812,68 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return nil
 			}(),
-			DefaultBotSetting: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DefaultBotSetting: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DefaultBotSetting.IsUnknown() {
 					return data.DetectionSettings.DefaultBotSetting
 				}
-				if !isImport {
-					if _, ok := blockData["default_bot_setting"].(map[string]interface{}); ok {
-						return &AppFirewallEmptyModel{}
-					}
+				if _, ok := blockData["default_bot_setting"].(map[string]interface{}); ok && !isImport {
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultViolationSettings: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DefaultViolationSettings: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DefaultViolationSettings.IsUnknown() {
 					return data.DetectionSettings.DefaultViolationSettings
 				}
 				if _, ok := blockData["default_violation_settings"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableStaging: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DisableStaging: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableStaging.IsUnknown() {
 					return data.DetectionSettings.DisableStaging
 				}
 				if _, ok := blockData["disable_staging"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableSuppression: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DisableSuppression: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableSuppression.IsUnknown() {
 					return data.DetectionSettings.DisableSuppression
 				}
 				if _, ok := blockData["disable_suppression"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableThreatCampaigns: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			DisableThreatCampaigns: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableThreatCampaigns.IsUnknown() {
 					return data.DetectionSettings.DisableThreatCampaigns
 				}
 				if _, ok := blockData["disable_threat_campaigns"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableSuppression: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			EnableSuppression: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableSuppression.IsUnknown() {
 					return data.DetectionSettings.EnableSuppression
 				}
 				if _, ok := blockData["enable_suppression"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableThreatCampaigns: func() *AppFirewallEmptyModel {
-				if !isImport && data.DetectionSettings != nil {
+			EnableThreatCampaigns: func() types.Object {
+				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableThreatCampaigns.IsUnknown() {
 					return data.DetectionSettings.EnableThreatCampaigns
 				}
 				if _, ok := blockData["enable_threat_campaigns"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SignatureSelectionSetting: func() *AppFirewallDetectionSettingsSignatureSelectionSettingModel {
 				if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
@@ -2712,41 +2905,41 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 							}
 							return nil
 						}(),
-						DefaultAttackTypeSettings: func() *AppFirewallEmptyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+						DefaultAttackTypeSettings: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings
 							}
 							if _, ok := SignatureSelectionSettingData["default_attack_type_settings"].(map[string]interface{}); ok {
-								return &AppFirewallEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						HighMediumAccuracySignatures: func() *AppFirewallEmptyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+						HighMediumAccuracySignatures: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures
 							}
 							if _, ok := SignatureSelectionSettingData["high_medium_accuracy_signatures"].(map[string]interface{}); ok {
-								return &AppFirewallEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						HighMediumLowAccuracySignatures: func() *AppFirewallEmptyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+						HighMediumLowAccuracySignatures: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures
 							}
 							if _, ok := SignatureSelectionSettingData["high_medium_low_accuracy_signatures"].(map[string]interface{}); ok {
-								return &AppFirewallEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						OnlyHighAccuracySignatures: func() *AppFirewallEmptyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
+						OnlyHighAccuracySignatures: func() types.Object {
+							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && !data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures.IsUnknown() {
 								return data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures
 							}
 							if _, ok := SignatureSelectionSettingData["only_high_accuracy_signatures"].(map[string]interface{}); ok {
-								return &AppFirewallEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -2871,36 +3064,83 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_anonymization"].(map[string]interface{}); ok && isImport && data.DisableAnonymization == nil {
-		data.DisableAnonymization = &AppFirewallEmptyModel{}
+	if !isImport && !data.DisableAnonymization.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_anonymization"].(map[string]interface{}); ok {
+		data.DisableAnonymization = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableAnonymization = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_ai_enhancements"].(map[string]interface{}); ok && (isImport || data.EnableAiEnhancements != nil) {
 		data.EnableAiEnhancements = &AppFirewallEnableAiEnhancementsModel{
-			MitigateHighMediumRiskAction: func() *AppFirewallEmptyModel {
-				if !isImport && data.EnableAiEnhancements != nil {
+			MitigateHighMediumRiskAction: func() types.Object {
+				if !isImport && data.EnableAiEnhancements != nil && !data.EnableAiEnhancements.MitigateHighMediumRiskAction.IsUnknown() {
 					return data.EnableAiEnhancements.MitigateHighMediumRiskAction
 				}
 				if _, ok := blockData["mitigate_high_medium_risk_action"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			MitigateHighRiskAction: func() *AppFirewallEmptyModel {
-				if !isImport && data.EnableAiEnhancements != nil {
+			MitigateHighRiskAction: func() types.Object {
+				if !isImport && data.EnableAiEnhancements != nil && !data.EnableAiEnhancements.MitigateHighRiskAction.IsUnknown() {
 					return data.EnableAiEnhancements.MitigateHighRiskAction
 				}
 				if _, ok := blockData["mitigate_high_risk_action"].(map[string]interface{}); ok {
-					return &AppFirewallEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_detection_settings"].(map[string]interface{}); ok && isImport && data.DefaultDetectionSettings == nil {
-		data.DefaultDetectionSettings = &AppFirewallEmptyModel{}
+	if !isImport && !data.AllowAllResponseCodes.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all_response_codes"].(map[string]interface{}); ok && !isImport {
+		data.AllowAllResponseCodes = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAllResponseCodes = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["monitoring"].(map[string]interface{}); ok && isImport && data.Monitoring == nil {
-		data.Monitoring = &AppFirewallEmptyModel{}
+	if !isImport && !data.DefaultAnonymization.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_anonymization"].(map[string]interface{}); ok && !isImport {
+		data.DefaultAnonymization = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultAnonymization = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.DefaultBotSetting.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_bot_setting"].(map[string]interface{}); ok && !isImport {
+		data.DefaultBotSetting = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBotSetting = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.DefaultDetectionSettings.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_detection_settings"].(map[string]interface{}); ok {
+		data.DefaultDetectionSettings = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultDetectionSettings = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.DisableAiEnhancements.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_ai_enhancements"].(map[string]interface{}); ok && !isImport {
+		data.DisableAiEnhancements = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableAiEnhancements = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.Monitoring.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["monitoring"].(map[string]interface{}); ok {
+		data.Monitoring = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.Monitoring = types.ObjectNull(map[string]attr.Type{})
+	}
+	if !isImport && !data.UseDefaultBlockingPage.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["use_default_blocking_page"].(map[string]interface{}); ok && !isImport {
+		data.UseDefaultBlockingPage = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UseDefaultBlockingPage = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

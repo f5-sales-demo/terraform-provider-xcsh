@@ -170,6 +170,8 @@ func exampleValue(attr openapi.TerraformAttribute) string {
 		return "{\n    example = \"value\"\n  }"
 	case "list":
 		return fmt.Sprintf("[%s]", scalarValue(attr.ElementType, attr))
+	case "object":
+		return "{}"
 	default: // string
 		return scalarValue("string", attr)
 	}

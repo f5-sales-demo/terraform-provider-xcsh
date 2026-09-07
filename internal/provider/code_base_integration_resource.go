@@ -501,6 +501,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 			}),
 			"code_base_integration": schema.SingleNestedBlock{
 				MarkdownDescription: "Choose your code base (e.g. GitHub, GitLab, Bitbucket, Azure) and provide credentials and connection details.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("azure_repos", "bitbucket"), validators.ConflictingObjectAttributes("azure_repos", "bitbucket_server"), validators.ConflictingObjectAttributes("azure_repos", "github"), validators.ConflictingObjectAttributes("azure_repos", "github_enterprise"), validators.ConflictingObjectAttributes("azure_repos", "gitlab"), validators.ConflictingObjectAttributes("azure_repos", "gitlab_enterprise"), validators.ConflictingObjectAttributes("bitbucket", "bitbucket_server"), validators.ConflictingObjectAttributes("bitbucket", "github"), validators.ConflictingObjectAttributes("bitbucket", "github_enterprise"), validators.ConflictingObjectAttributes("bitbucket", "gitlab"), validators.ConflictingObjectAttributes("bitbucket", "gitlab_enterprise"), validators.ConflictingObjectAttributes("bitbucket_server", "github"), validators.ConflictingObjectAttributes("bitbucket_server", "github_enterprise"), validators.ConflictingObjectAttributes("bitbucket_server", "gitlab"), validators.ConflictingObjectAttributes("bitbucket_server", "gitlab_enterprise"), validators.ConflictingObjectAttributes("github", "github_enterprise"), validators.ConflictingObjectAttributes("github", "gitlab"), validators.ConflictingObjectAttributes("github", "gitlab_enterprise"), validators.ConflictingObjectAttributes("github_enterprise", "gitlab"), validators.ConflictingObjectAttributes("github_enterprise", "gitlab_enterprise"), validators.ConflictingObjectAttributes("gitlab", "gitlab_enterprise")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -510,6 +511,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 						Blocks: map[string]schema.Block{
 							"access_token": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -566,6 +568,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 						Blocks: map[string]schema.Block{
 							"passwd": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -634,6 +637,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 						Blocks: map[string]schema.Block{
 							"passwd": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -694,6 +698,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 						Blocks: map[string]schema.Block{
 							"access_token": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -758,6 +763,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 						Blocks: map[string]schema.Block{
 							"access_token": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -808,6 +814,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 						Blocks: map[string]schema.Block{
 							"access_token": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -868,6 +875,7 @@ func (r *CodeBaseIntegrationResource) Schema(ctx context.Context, req resource.S
 						Blocks: map[string]schema.Block{
 							"access_token": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{

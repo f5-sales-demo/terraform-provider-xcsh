@@ -27,7 +27,7 @@ resource "xcsh_http_loadbalancer" "test" {
           namespace = "example-value"
         }
       }
-      use_default_port {}
+      use_default_port = {}
     }
   }
 }

@@ -578,22 +578,22 @@ resource "xcsh_app_firewall" "test" {
   namespace  = "system"
 
   # Use default detection settings for simplicity
-  default_detection_settings {}
+  default_detection_settings = {}
 
   # Allow all response codes
-  allow_all_response_codes {}
+  allow_all_response_codes = {}
 
   # Blocking mode
-  blocking {}
+  blocking = {}
 
   # Use default blocking page
-  use_default_blocking_page {}
+  use_default_blocking_page = {}
 
   # Use default bot settings
-  default_bot_setting {}
+  default_bot_setting = {}
 
   # Use default anonymization
-  default_anonymization {}
+  default_anonymization = {}
 }
 `, name)
 }
@@ -611,22 +611,22 @@ resource "xcsh_app_firewall" "test" {
   }
 
   # Use default detection settings
-  default_detection_settings {}
+  default_detection_settings = {}
 
   # Allow all response codes
-  allow_all_response_codes {}
+  allow_all_response_codes = {}
 
   # Blocking mode
-  blocking {}
+  blocking = {}
 
   # Use default blocking page
-  use_default_blocking_page {}
+  use_default_blocking_page = {}
 
   # Use default bot settings
-  default_bot_setting {}
+  default_bot_setting = {}
 
   # Use default anonymization
-  default_anonymization {}
+  default_anonymization = {}
 }
 `, name)
 }
@@ -638,10 +638,10 @@ resource "xcsh_app_firewall" "test" {
   namespace  = "system"
 
   # Use default detection settings
-  default_detection_settings {}
+  default_detection_settings = {}
 
   # Blocking mode - actively block malicious requests
-  blocking {}
+  blocking = {}
 
   # allow_all_response_codes / use_default_blocking_page / default_bot_setting /
   # default_anonymization are server-default oneof markers the provider import-suppresses.
@@ -667,12 +667,12 @@ resource "xcsh_app_firewall" "test" {
     purpose = "acceptance-testing"
   }
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes = {}
+  blocking = {}
+  use_default_blocking_page = {}
+  default_bot_setting = {}
+  default_anonymization = {}
 }
 `, name)
 }
@@ -689,12 +689,12 @@ resource "xcsh_app_firewall" "test" {
     team        = "platform"
   }
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes = {}
+  blocking = {}
+  use_default_blocking_page = {}
+  default_bot_setting = {}
+  default_anonymization = {}
 }
 `, name)
 }
@@ -705,12 +705,12 @@ resource "xcsh_app_firewall" "test" {
   name       = %[1]q
   namespace  = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  monitoring {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes = {}
+  monitoring = {}
+  use_default_blocking_page = {}
+  default_bot_setting = {}
+  default_anonymization = {}
 }
 `, name)
 }
@@ -726,11 +726,11 @@ resource "xcsh_app_firewall" "test" {
   name      = %[1]q
   namespace = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes = {}
+  blocking = {}
+  default_bot_setting = {}
+  default_anonymization = {}
 
   blocking_page {
     blocking_page = "https://example.com/blocked.html"
@@ -747,11 +747,11 @@ resource "xcsh_app_firewall" "test" {
   name      = %[1]q
   namespace = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes = {}
+  blocking = {}
+  use_default_blocking_page = {}
+  default_anonymization = {}
 
   bot_protection_setting {
     good_bot_action       = "REPORT"
@@ -769,13 +769,13 @@ resource "xcsh_app_firewall" "test" {
   name      = %[1]q
   namespace = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
+  default_detection_settings = {}
+  allow_all_response_codes = {}
+  blocking = {}
+  use_default_blocking_page = {}
+  default_bot_setting = {}
 
-  disable_anonymization {}
+  disable_anonymization = {}
 }
 `, name)
 }
@@ -787,20 +787,20 @@ resource "xcsh_app_firewall" "test" {
   name      = %[1]q
   namespace = "system"
 
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  allow_all_response_codes = {}
+  blocking = {}
+  use_default_blocking_page = {}
+  default_bot_setting = {}
+  default_anonymization = {}
 
   detection_settings {
-    default_violation_settings {}
-    default_bot_setting {}
-    enable_suppression {}
-    enable_threat_campaigns {}
+    default_violation_settings = {}
+    default_bot_setting = {}
+    enable_suppression = {}
+    enable_threat_campaigns = {}
     signature_selection_setting {
-      high_medium_accuracy_signatures {}
-      default_attack_type_settings {}
+      high_medium_accuracy_signatures = {}
+      default_attack_type_settings = {}
     }
   }
 }
@@ -814,15 +814,15 @@ resource "xcsh_app_firewall" "test" {
   name      = %[1]q
   namespace = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes = {}
+  blocking = {}
+  use_default_blocking_page = {}
+  default_bot_setting = {}
+  default_anonymization = {}
 
   enable_ai_enhancements {
-    mitigate_high_risk_action {}
+    mitigate_high_risk_action = {}
   }
 }
 `, name)
@@ -835,11 +835,11 @@ resource "xcsh_app_firewall" "test" {
   name      = %[1]q
   namespace = "system"
 
-  default_detection_settings {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  blocking = {}
+  use_default_blocking_page = {}
+  default_bot_setting = {}
+  default_anonymization = {}
 
   allowed_response_codes {
     response_code = [200, 204, 301, 302]
@@ -1099,14 +1099,14 @@ resource "xcsh_app_firewall" "test" {
   name      = %[1]q
   namespace = "system"
 
-  blocking {}
-  monitoring {}
+  blocking = {}
+  monitoring = {}
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes = {}
+  use_default_blocking_page = {}
+  default_bot_setting = {}
+  default_anonymization = {}
 }
 `, rName),
 				ExpectError: regexp.MustCompile(`(?i)(conflict|mutually exclusive|only one|Invalid|these attributes cannot)`),
@@ -1135,18 +1135,18 @@ resource "xcsh_app_firewall" "test" {
   name      = %[1]q
   namespace = "system"
 
-  blocking {}
+  blocking = {}
 
-  use_default_blocking_page {}
+  use_default_blocking_page = {}
   blocking_page {
     blocking_page = "https://example.com/blocked.html"
     response_code = "Forbidden"
   }
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes = {}
+  default_bot_setting = {}
+  default_anonymization = {}
 }
 `, rName),
 				ExpectError: regexp.MustCompile(`(?i)(conflict|mutually exclusive|only one|Invalid|these attributes cannot)`),

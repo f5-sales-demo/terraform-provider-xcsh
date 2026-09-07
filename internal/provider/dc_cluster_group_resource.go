@@ -52,8 +52,8 @@ type DcClusterGroupEmptyModel struct {
 
 // DcClusterGroupTypeModel represents type block
 type DcClusterGroupTypeModel struct {
-	ControlAndDataPlaneMesh *DcClusterGroupEmptyModel `tfsdk:"control_and_data_plane_mesh"`
-	DataPlaneMesh           *DcClusterGroupEmptyModel `tfsdk:"data_plane_mesh"`
+	ControlAndDataPlaneMesh types.Object `tfsdk:"control_and_data_plane_mesh"`
+	DataPlaneMesh           types.Object `tfsdk:"data_plane_mesh"`
 }
 
 // DcClusterGroupTypeModelAttrTypes defines the attribute types for DcClusterGroupTypeModel
@@ -140,14 +140,18 @@ func (r *DcClusterGroupResource) Schema(ctx context.Context, req resource.Schema
 			}),
 			"type": schema.SingleNestedBlock{
 				MarkdownDescription: "DC Cluster Group Mesh Type. Details of DC Cluster Group Mesh Type.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("control_and_data_plane_mesh", "data_plane_mesh")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"control_and_data_plane_mesh": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"control_and_data_plane_mesh": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"data_plane_mesh": schema.SingleNestedBlock{
+					"data_plane_mesh": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
@@ -279,10 +283,10 @@ func (r *DcClusterGroupResource) Create(ctx context.Context, req resource.Create
 	// Marshal spec fields from Terraform state to API struct
 	if data.Type != nil {
 		TypeMap := make(map[string]interface{})
-		if data.Type.ControlAndDataPlaneMesh != nil {
+		if !data.Type.ControlAndDataPlaneMesh.IsNull() && !data.Type.ControlAndDataPlaneMesh.IsUnknown() {
 			TypeMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
-		if data.Type.DataPlaneMesh != nil {
+		if !data.Type.DataPlaneMesh.IsNull() && !data.Type.DataPlaneMesh.IsUnknown() {
 			TypeMap["data_plane_mesh"] = map[string]interface{}{}
 		}
 		createReq.Spec["type"] = TypeMap
@@ -328,23 +332,23 @@ func (r *DcClusterGroupResource) Create(ctx context.Context, req resource.Create
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["type"].(map[string]interface{}); ok && (isImport || data.Type != nil) {
 		data.Type = &DcClusterGroupTypeModel{
-			ControlAndDataPlaneMesh: func() *DcClusterGroupEmptyModel {
-				if !isImport && data.Type != nil {
+			ControlAndDataPlaneMesh: func() types.Object {
+				if !isImport && data.Type != nil && !data.Type.ControlAndDataPlaneMesh.IsUnknown() {
 					return data.Type.ControlAndDataPlaneMesh
 				}
 				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
-					return &DcClusterGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DataPlaneMesh: func() *DcClusterGroupEmptyModel {
-				if !isImport && data.Type != nil {
+			DataPlaneMesh: func() types.Object {
+				if !isImport && data.Type != nil && !data.Type.DataPlaneMesh.IsUnknown() {
 					return data.Type.DataPlaneMesh
 				}
 				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
-					return &DcClusterGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -481,23 +485,23 @@ func (r *DcClusterGroupResource) Read(ctx context.Context, req resource.ReadRequ
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["type"].(map[string]interface{}); ok && (isImport || data.Type != nil) {
 		data.Type = &DcClusterGroupTypeModel{
-			ControlAndDataPlaneMesh: func() *DcClusterGroupEmptyModel {
-				if !isImport && data.Type != nil {
+			ControlAndDataPlaneMesh: func() types.Object {
+				if !isImport && data.Type != nil && !data.Type.ControlAndDataPlaneMesh.IsUnknown() {
 					return data.Type.ControlAndDataPlaneMesh
 				}
 				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
-					return &DcClusterGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DataPlaneMesh: func() *DcClusterGroupEmptyModel {
-				if !isImport && data.Type != nil {
+			DataPlaneMesh: func() types.Object {
+				if !isImport && data.Type != nil && !data.Type.DataPlaneMesh.IsUnknown() {
 					return data.Type.DataPlaneMesh
 				}
 				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
-					return &DcClusterGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -597,10 +601,10 @@ func (r *DcClusterGroupResource) Update(ctx context.Context, req resource.Update
 	// Marshal spec fields from Terraform state to API struct
 	if data.Type != nil {
 		TypeMap := make(map[string]interface{})
-		if data.Type.ControlAndDataPlaneMesh != nil {
+		if !data.Type.ControlAndDataPlaneMesh.IsNull() && !data.Type.ControlAndDataPlaneMesh.IsUnknown() {
 			TypeMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
-		if data.Type.DataPlaneMesh != nil {
+		if !data.Type.DataPlaneMesh.IsNull() && !data.Type.DataPlaneMesh.IsUnknown() {
 			TypeMap["data_plane_mesh"] = map[string]interface{}{}
 		}
 		apiResource.Spec["type"] = TypeMap
@@ -666,23 +670,23 @@ func (r *DcClusterGroupResource) Update(ctx context.Context, req resource.Update
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["type"].(map[string]interface{}); ok && (isImport || data.Type != nil) {
 		data.Type = &DcClusterGroupTypeModel{
-			ControlAndDataPlaneMesh: func() *DcClusterGroupEmptyModel {
-				if !isImport && data.Type != nil {
+			ControlAndDataPlaneMesh: func() types.Object {
+				if !isImport && data.Type != nil && !data.Type.ControlAndDataPlaneMesh.IsUnknown() {
 					return data.Type.ControlAndDataPlaneMesh
 				}
 				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
-					return &DcClusterGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DataPlaneMesh: func() *DcClusterGroupEmptyModel {
-				if !isImport && data.Type != nil {
+			DataPlaneMesh: func() types.Object {
+				if !isImport && data.Type != nil && !data.Type.DataPlaneMesh.IsUnknown() {
 					return data.Type.DataPlaneMesh
 				}
 				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
-					return &DcClusterGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

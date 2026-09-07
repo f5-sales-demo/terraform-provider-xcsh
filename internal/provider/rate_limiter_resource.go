@@ -54,25 +54,25 @@ type RateLimiterEmptyModel struct {
 // RateLimiterLimitsModel represents limits block
 type RateLimiterLimitsModel struct {
 	BurstMultiplier  types.Int64                        `tfsdk:"burst_multiplier"`
+	Disabled         types.Object                       `tfsdk:"disabled"`
+	LeakyBucket      types.Object                       `tfsdk:"leaky_bucket"`
 	PeriodMultiplier types.Int64                        `tfsdk:"period_multiplier"`
+	TokenBucket      types.Object                       `tfsdk:"token_bucket"`
 	TotalNumber      types.Int64                        `tfsdk:"total_number"`
 	Unit             types.String                       `tfsdk:"unit"`
 	ActionBlock      *RateLimiterLimitsActionBlockModel `tfsdk:"action_block"`
-	Disabled         *RateLimiterEmptyModel             `tfsdk:"disabled"`
-	LeakyBucket      *RateLimiterEmptyModel             `tfsdk:"leaky_bucket"`
-	TokenBucket      *RateLimiterEmptyModel             `tfsdk:"token_bucket"`
 }
 
 // RateLimiterLimitsModelAttrTypes defines the attribute types for RateLimiterLimitsModel
 var RateLimiterLimitsModelAttrTypes = map[string]attr.Type{
 	"burst_multiplier":  types.Int64Type,
+	"disabled":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"leaky_bucket":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"period_multiplier": types.Int64Type,
+	"token_bucket":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"total_number":      types.Int64Type,
 	"unit":              types.StringType,
 	"action_block":      types.ObjectType{AttrTypes: RateLimiterLimitsActionBlockModelAttrTypes},
-	"disabled":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"leaky_bucket":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"token_bucket":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // RateLimiterLimitsActionBlockModel represents action_block block
@@ -213,7 +213,7 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"limits": schema.ListNestedBlock{
 				MarkdownDescription: "List of RateLimitValues that specifies the total number of allowed requests for each specified period.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("total_number")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("total_number"), validators.ConflictingListObjectAttributes("action_block", "disabled"), validators.ConflictingListObjectAttributes("leaky_bucket", "token_bucket")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -224,12 +224,27 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 								int64validator.Between(1, 100),
 							},
 						},
+						"disabled": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"leaky_bucket": schema.ObjectAttribute{
+							MarkdownDescription: "Leaky-Bucket is the default rate limiter algorithm for F5.",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
 						"period_multiplier": schema.Int64Attribute{
 							MarkdownDescription: "Setting, combined with Per Period units, provides a duration.",
 							Optional:            true,
 							Validators: []validator.Int64{
 								int64validator.AtLeast(0),
 							},
+						},
+						"token_bucket": schema.ObjectAttribute{
+							MarkdownDescription: "Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits.",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
 						},
 						"total_number": schema.Int64Attribute{
 							MarkdownDescription: "The total number of allowed requests per rate-limiting period.",
@@ -249,6 +264,7 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 					Blocks: map[string]schema.Block{
 						"action_block": schema.SingleNestedBlock{
 							MarkdownDescription: "Action where a user is blocked from making further requests after exceeding rate limit threshold.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("hours", "minutes"), validators.ConflictingObjectAttributes("hours", "seconds"), validators.ConflictingObjectAttributes("minutes", "seconds")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"hours": schema.SingleNestedBlock{
@@ -288,15 +304,6 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 									},
 								},
 							},
-						},
-						"disabled": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
-						"leaky_bucket": schema.SingleNestedBlock{
-							MarkdownDescription: "Leaky-Bucket is the default rate limiter algorithm for F5.",
-						},
-						"token_bucket": schema.SingleNestedBlock{
-							MarkdownDescription: "Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits.",
 						},
 					},
 				},
@@ -499,16 +506,16 @@ func (r *RateLimiterResource) Create(ctx context.Context, req resource.CreateReq
 				if !LimitsItem.BurstMultiplier.IsNull() && !LimitsItem.BurstMultiplier.IsUnknown() {
 					LimitsItemMap["burst_multiplier"] = LimitsItem.BurstMultiplier.ValueInt64()
 				}
-				if LimitsItem.Disabled != nil {
+				if !LimitsItem.Disabled.IsNull() && !LimitsItem.Disabled.IsUnknown() {
 					LimitsItemMap["disabled"] = map[string]interface{}{}
 				}
-				if LimitsItem.LeakyBucket != nil {
+				if !LimitsItem.LeakyBucket.IsNull() && !LimitsItem.LeakyBucket.IsUnknown() {
 					LimitsItemMap["leaky_bucket"] = map[string]interface{}{}
 				}
 				if !LimitsItem.PeriodMultiplier.IsNull() && !LimitsItem.PeriodMultiplier.IsUnknown() {
 					LimitsItemMap["period_multiplier"] = LimitsItem.PeriodMultiplier.ValueInt64()
 				}
-				if LimitsItem.TokenBucket != nil {
+				if !LimitsItem.TokenBucket.IsNull() && !LimitsItem.TokenBucket.IsUnknown() {
 					LimitsItemMap["token_bucket"] = map[string]interface{}{}
 				}
 				if !LimitsItem.TotalNumber.IsNull() && !LimitsItem.TotalNumber.IsUnknown() {
@@ -662,23 +669,23 @@ func (r *RateLimiterResource) Create(ctx context.Context, req resource.CreateReq
 						}
 						return types.Int64Null()
 					}(),
-					Disabled: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx {
+					Disabled: func() types.Object {
+						if !isImport && len(existingLimitsItems) > listIdx && !existingLimitsItems[listIdx].Disabled.IsUnknown() {
 							return existingLimitsItems[listIdx].Disabled
 						}
 						if _, ok := itemMap["disabled"].(map[string]interface{}); ok {
-							return &RateLimiterEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					LeakyBucket: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx {
+					LeakyBucket: func() types.Object {
+						if !isImport && len(existingLimitsItems) > listIdx && !existingLimitsItems[listIdx].LeakyBucket.IsUnknown() {
 							return existingLimitsItems[listIdx].LeakyBucket
 						}
 						if _, ok := itemMap["leaky_bucket"].(map[string]interface{}); ok {
-							return &RateLimiterEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					PeriodMultiplier: func() types.Int64 {
 						if v, ok := itemMap["period_multiplier"].(float64); ok && v != 0 {
@@ -686,14 +693,14 @@ func (r *RateLimiterResource) Create(ctx context.Context, req resource.CreateReq
 						}
 						return types.Int64Null()
 					}(),
-					TokenBucket: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx {
+					TokenBucket: func() types.Object {
+						if !isImport && len(existingLimitsItems) > listIdx && !existingLimitsItems[listIdx].TokenBucket.IsUnknown() {
 							return existingLimitsItems[listIdx].TokenBucket
 						}
 						if _, ok := itemMap["token_bucket"].(map[string]interface{}); ok {
-							return &RateLimiterEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					TotalNumber: func() types.Int64 {
 						if v, ok := itemMap["total_number"].(float64); ok && v != 0 {
@@ -984,23 +991,23 @@ func (r *RateLimiterResource) Read(ctx context.Context, req resource.ReadRequest
 						}
 						return types.Int64Null()
 					}(),
-					Disabled: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx {
+					Disabled: func() types.Object {
+						if !isImport && len(existingLimitsItems) > listIdx && !existingLimitsItems[listIdx].Disabled.IsUnknown() {
 							return existingLimitsItems[listIdx].Disabled
 						}
 						if _, ok := itemMap["disabled"].(map[string]interface{}); ok {
-							return &RateLimiterEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					LeakyBucket: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx {
+					LeakyBucket: func() types.Object {
+						if !isImport && len(existingLimitsItems) > listIdx && !existingLimitsItems[listIdx].LeakyBucket.IsUnknown() {
 							return existingLimitsItems[listIdx].LeakyBucket
 						}
 						if _, ok := itemMap["leaky_bucket"].(map[string]interface{}); ok {
-							return &RateLimiterEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					PeriodMultiplier: func() types.Int64 {
 						if v, ok := itemMap["period_multiplier"].(float64); ok && v != 0 {
@@ -1008,14 +1015,14 @@ func (r *RateLimiterResource) Read(ctx context.Context, req resource.ReadRequest
 						}
 						return types.Int64Null()
 					}(),
-					TokenBucket: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx {
+					TokenBucket: func() types.Object {
+						if !isImport && len(existingLimitsItems) > listIdx && !existingLimitsItems[listIdx].TokenBucket.IsUnknown() {
 							return existingLimitsItems[listIdx].TokenBucket
 						}
 						if _, ok := itemMap["token_bucket"].(map[string]interface{}); ok {
-							return &RateLimiterEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					TotalNumber: func() types.Int64 {
 						if v, ok := itemMap["total_number"].(float64); ok && v != 0 {
@@ -1223,16 +1230,16 @@ func (r *RateLimiterResource) Update(ctx context.Context, req resource.UpdateReq
 				if !LimitsItem.BurstMultiplier.IsNull() && !LimitsItem.BurstMultiplier.IsUnknown() {
 					LimitsItemMap["burst_multiplier"] = LimitsItem.BurstMultiplier.ValueInt64()
 				}
-				if LimitsItem.Disabled != nil {
+				if !LimitsItem.Disabled.IsNull() && !LimitsItem.Disabled.IsUnknown() {
 					LimitsItemMap["disabled"] = map[string]interface{}{}
 				}
-				if LimitsItem.LeakyBucket != nil {
+				if !LimitsItem.LeakyBucket.IsNull() && !LimitsItem.LeakyBucket.IsUnknown() {
 					LimitsItemMap["leaky_bucket"] = map[string]interface{}{}
 				}
 				if !LimitsItem.PeriodMultiplier.IsNull() && !LimitsItem.PeriodMultiplier.IsUnknown() {
 					LimitsItemMap["period_multiplier"] = LimitsItem.PeriodMultiplier.ValueInt64()
 				}
-				if LimitsItem.TokenBucket != nil {
+				if !LimitsItem.TokenBucket.IsNull() && !LimitsItem.TokenBucket.IsUnknown() {
 					LimitsItemMap["token_bucket"] = map[string]interface{}{}
 				}
 				if !LimitsItem.TotalNumber.IsNull() && !LimitsItem.TotalNumber.IsUnknown() {
@@ -1406,23 +1413,23 @@ func (r *RateLimiterResource) Update(ctx context.Context, req resource.UpdateReq
 						}
 						return types.Int64Null()
 					}(),
-					Disabled: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx {
+					Disabled: func() types.Object {
+						if !isImport && len(existingLimitsItems) > listIdx && !existingLimitsItems[listIdx].Disabled.IsUnknown() {
 							return existingLimitsItems[listIdx].Disabled
 						}
 						if _, ok := itemMap["disabled"].(map[string]interface{}); ok {
-							return &RateLimiterEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					LeakyBucket: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx {
+					LeakyBucket: func() types.Object {
+						if !isImport && len(existingLimitsItems) > listIdx && !existingLimitsItems[listIdx].LeakyBucket.IsUnknown() {
 							return existingLimitsItems[listIdx].LeakyBucket
 						}
 						if _, ok := itemMap["leaky_bucket"].(map[string]interface{}); ok {
-							return &RateLimiterEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					PeriodMultiplier: func() types.Int64 {
 						if v, ok := itemMap["period_multiplier"].(float64); ok && v != 0 {
@@ -1430,14 +1437,14 @@ func (r *RateLimiterResource) Update(ctx context.Context, req resource.UpdateReq
 						}
 						return types.Int64Null()
 					}(),
-					TokenBucket: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx {
+					TokenBucket: func() types.Object {
+						if !isImport && len(existingLimitsItems) > listIdx && !existingLimitsItems[listIdx].TokenBucket.IsUnknown() {
 							return existingLimitsItems[listIdx].TokenBucket
 						}
 						if _, ok := itemMap["token_bucket"].(map[string]interface{}); ok {
-							return &RateLimiterEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					TotalNumber: func() types.Int64 {
 						if v, ok := itemMap["total_number"].(float64); ok && v != 0 {

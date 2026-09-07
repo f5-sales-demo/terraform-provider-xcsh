@@ -39,7 +39,7 @@ resource "xcsh_k8s_cluster" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -77,14 +77,14 @@ spec: {}
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="cluster-scoped-access-deny"></a>[`cluster_scoped_access_deny`](#cluster-scoped-access-deny) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
-<br><br>&#x2022; <a id="cluster-scoped-access-permit"></a>[`cluster_scoped_access_permit`](#cluster-scoped-access-permit) - Optional Block<br>Enable this option
+&#x2022; <a id="cluster-scoped-access-deny"></a>[`cluster_scoped_access_deny`](#cluster-scoped-access-deny) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<br><br>&#x2022; <a id="cluster-scoped-access-permit"></a>[`cluster_scoped_access_permit`](#cluster-scoped-access-permit) - Optional Object<br>Enable this option
 
 -> **One of the following:**
 &#x2022; <a id="cluster-wide-app-list"></a>[`cluster_wide_app_list`](#cluster-wide-app-list) - Optional Block<br>Cluster Wide Application List. List of cluster wide applications<br>See [Cluster Wide App List](#cluster-wide-app-list) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="global-access-enable"></a>[`global_access_enable`](#global-access-enable) - Optional Block<br>Configuration parameter for global access enable
+&#x2022; <a id="global-access-enable"></a>[`global_access_enable`](#global-access-enable) - Optional Object<br>Configuration parameter for global access enable
 
 -> **One of the following:**
 &#x2022; <a id="insecure-registry-list"></a>[`insecure_registry_list`](#insecure-registry-list) - Optional Block<br>Docker Insecure Registry List. List of Docker insecure registries<br>See [Insecure Registry List](#insecure-registry-list) below for details.
@@ -92,13 +92,13 @@ spec: {}
 -> **One of the following:**
 &#x2022; <a id="local-access-config"></a>[`local_access_config`](#local-access-config) - Optional Block<br>Parameters required to enable local access<br>See [Local Access Config](#local-access-config) below for details.
 
-<a id="no-cluster-wide-apps"></a>&#x2022; [`no_cluster_wide_apps`](#no-cluster-wide-apps) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<a id="no-cluster-wide-apps"></a>&#x2022; [`no_cluster_wide_apps`](#no-cluster-wide-apps) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
-<a id="no-global-access"></a>&#x2022; [`no_global_access`](#no-global-access) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no global access.  Server applies default when omitted
+<a id="no-global-access"></a>&#x2022; [`no_global_access`](#no-global-access) - Optional Object  Defaults to `map[]`<br>Configuration parameter for no global access.  Server applies default when omitted
 
-<a id="no-insecure-registries"></a>&#x2022; [`no_insecure_registries`](#no-insecure-registries) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<a id="no-insecure-registries"></a>&#x2022; [`no_insecure_registries`](#no-insecure-registries) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
-<a id="no-local-access"></a>&#x2022; [`no_local_access`](#no-local-access) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no local access.  Server applies default when omitted
+<a id="no-local-access"></a>&#x2022; [`no_local_access`](#no-local-access) - Optional Object  Defaults to `map[]`<br>Configuration parameter for no local access.  Server applies default when omitted
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
@@ -114,17 +114,17 @@ spec: {}
 -> **One of the following:**
 &#x2022; <a id="use-custom-psp-list"></a>[`use_custom_psp_list`](#use-custom-psp-list) - Optional Block<br>List of active Pod security policies for a K8S cluster<br>See [Use Custom Psp List](#use-custom-psp-list) below for details.
 
-<a id="use-default-cluster-role-bindings"></a>&#x2022; [`use_default_cluster_role_bindings`](#use-default-cluster-role-bindings) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<a id="use-default-cluster-role-bindings"></a>&#x2022; [`use_default_cluster_role_bindings`](#use-default-cluster-role-bindings) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
-<a id="use-default-cluster-roles"></a>&#x2022; [`use_default_cluster_roles`](#use-default-cluster-roles) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<a id="use-default-cluster-roles"></a>&#x2022; [`use_default_cluster_roles`](#use-default-cluster-roles) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
-<a id="use-default-pod-security-admission"></a>&#x2022; [`use_default_pod_security_admission`](#use-default-pod-security-admission) - Optional Block<br>Enable this option
+<a id="use-default-pod-security-admission"></a>&#x2022; [`use_default_pod_security_admission`](#use-default-pod-security-admission) - Optional Object<br>Enable this option
 
-<a id="use-default-psp"></a>&#x2022; [`use_default_psp`](#use-default-psp) - Optional Block  Defaults to `map[]`<br>Configuration parameter for use default psp.  Server applies default when omitted
+<a id="use-default-psp"></a>&#x2022; [`use_default_psp`](#use-default-psp) - Optional Object  Defaults to `map[]`<br>Configuration parameter for use default psp.  Server applies default when omitted
 
 -> **One of the following:**
-&#x2022; <a id="vk8s-namespace-access-deny"></a>[`vk8s_namespace_access_deny`](#vk8s-namespace-access-deny) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
-<br><br>&#x2022; <a id="vk8s-namespace-access-permit"></a>[`vk8s_namespace_access_permit`](#vk8s-namespace-access-permit) - Optional Block<br>Enable this option
+&#x2022; <a id="vk8s-namespace-access-deny"></a>[`vk8s_namespace_access_deny`](#vk8s-namespace-access-deny) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<br><br>&#x2022; <a id="vk8s-namespace-access-permit"></a>[`vk8s_namespace_access_permit`](#vk8s-namespace-access-permit) - Optional Object<br>Enable this option
 
 ### Attributes Reference
 
@@ -146,11 +146,11 @@ A [`cluster_wide_apps`](#cluster-wide-app-list-cluster-wide-apps) block (within 
 
 <a id="argo-cd-64d0ab"></a>&#x2022; [`argo_cd`](#argo-cd-64d0ab) - Optional Block<br>Description Parameters for Argo Continuous Deployment(CD) application<br>See [Argo Cd](#argo-cd-64d0ab) below.
 
-<a id="dashboard-0fee36"></a>&#x2022; [`dashboard`](#dashboard-0fee36) - Optional Block<br>Description Parameters for K8S dashboard
+<a id="dashboard-0fee36"></a>&#x2022; [`dashboard`](#dashboard-0fee36) - Optional Object<br>Description Parameters for K8S dashboard
 
-<a id="server-f57512"></a>&#x2022; [`metrics_server`](#server-f57512) - Optional Block<br>Description Parameters for Kubernetes Metrics Server application
+<a id="server-f57512"></a>&#x2022; [`metrics_server`](#server-f57512) - Optional Object<br>Description Parameters for Kubernetes Metrics Server application
 
-<a id="prometheus-0ee820"></a>&#x2022; [`prometheus`](#prometheus-0ee820) - Optional Block<br>Description Parameters for Prometheus server access
+<a id="prometheus-0ee820"></a>&#x2022; [`prometheus`](#prometheus-0ee820) - Optional Object<br>Description Parameters for Prometheus server access
 
 #### Cluster Wide App List Cluster Wide Apps Argo Cd
 
@@ -159,6 +159,10 @@ A [`cluster_wide_apps`](#cluster-wide-app-list-cluster-wide-apps) block (within 
 #### Cluster Wide App List Cluster Wide Apps Argo Cd Local Domain
 
 <a id="deep-6f320e"></a>Deeply nested **Domain** block collapsed for readability.
+
+#### Cluster Wide App List Cluster Wide Apps Argo Cd Local Domain Default Port
+
+<a id="deep-7cac3a"></a>Deeply nested **Port** block collapsed for readability.
 
 #### Cluster Wide App List Cluster Wide Apps Argo Cd Local Domain Password
 
@@ -172,6 +176,22 @@ A [`cluster_wide_apps`](#cluster-wide-app-list-cluster-wide-apps) block (within 
 
 <a id="deep-5d2d98"></a>Deeply nested **Info** block collapsed for readability.
 
+#### Cluster Wide App List Cluster Wide Apps Dashboard
+
+<a id="deep-23a775"></a>Deeply nested **Dashboard** block collapsed for readability.
+
+#### Cluster Wide App List Cluster Wide Apps Metrics Server
+
+<a id="deep-286533"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Cluster Wide App List Cluster Wide Apps Prometheus
+
+<a id="deep-6887df"></a>Deeply nested **Prometheus** block collapsed for readability.
+
+#### Global Access Enable
+
+A [`global_access_enable`](#global-access-enable) block supports the following:
+
 #### Insecure Registry List
 
 An [`insecure_registry_list`](#insecure-registry-list) block supports the following:
@@ -182,11 +202,31 @@ An [`insecure_registry_list`](#insecure-registry-list) block supports the follow
 
 A [`local_access_config`](#local-access-config) block supports the following:
 
-<a id="local-access-config-default-port"></a>&#x2022; [`default_port`](#local-access-config-default-port) - Optional Block<br>Enable this option
+<a id="local-access-config-default-port"></a>&#x2022; [`default_port`](#local-access-config-default-port) - Optional Object<br>Enable this option
 
 <a id="local-access-config-local-domain"></a>&#x2022; [`local_domain`](#local-access-config-local-domain) - Optional String<br>Local K8S API server will be accessible at `<site name>`.`<local domain>`
 
 <a id="local-access-config-port"></a>&#x2022; [`port`](#local-access-config-port) - Optional Number<br>Use custom K8S port for API server. Available port range is less than 65000 except reserved ports
+
+#### Local Access Config Default Port
+
+A [`default_port`](#local-access-config-default-port) block (within [`local_access_config`](#local-access-config)) supports the following:
+
+#### No Cluster Wide Apps
+
+A [`no_cluster_wide_apps`](#no-cluster-wide-apps) block supports the following:
+
+#### No Global Access
+
+A [`no_global_access`](#no-global-access) block supports the following:
+
+#### No Insecure Registries
+
+A [`no_insecure_registries`](#no-insecure-registries) block supports the following:
+
+#### No Local Access
+
+A [`no_local_access`](#no-local-access) block supports the following:
 
 #### Timeouts
 
@@ -251,6 +291,30 @@ A [`pod_security_policies`](#policies-4f6709) block (within [`use_custom_psp_lis
 <a id="namespace-c1705c"></a>&#x2022; [`namespace`](#namespace-c1705c) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="tenant-de8ae0"></a>&#x2022; [`tenant`](#tenant-de8ae0) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Use Default Cluster Role Bindings
+
+An [`use_default_cluster_role_bindings`](#use-default-cluster-role-bindings) block supports the following:
+
+#### Use Default Cluster Roles
+
+An [`use_default_cluster_roles`](#use-default-cluster-roles) block supports the following:
+
+#### Use Default Pod Security Admission
+
+An [`use_default_pod_security_admission`](#use-default-pod-security-admission) block supports the following:
+
+#### Use Default Psp
+
+An [`use_default_psp`](#use-default-psp) block supports the following:
+
+#### Vk8s Namespace Access Deny
+
+A [`vk8s_namespace_access_deny`](#vk8s-namespace-access-deny) block supports the following:
+
+#### Vk8s Namespace Access Permit
+
+A [`vk8s_namespace_access_permit`](#vk8s-namespace-access-permit) block supports the following:
 
 ---
 

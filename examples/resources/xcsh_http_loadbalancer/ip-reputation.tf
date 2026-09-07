@@ -24,5 +24,5 @@ resource "xcsh_http_loadbalancer" "test" {
     ip_threat_categories = ["SPAM_SOURCES"]
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }

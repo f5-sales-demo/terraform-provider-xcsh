@@ -121,7 +121,7 @@ func (d *SiteBGPStatusDataSource) Schema(_ context.Context, _ datasource.SchemaR
 		"expected_peers": schema.MapNestedAttribute{Required: true, NestedObject: schema.NestedAttributeObject{Attributes: map[string]schema.Attribute{
 			"node": schema.StringAttribute{Required: true}, "role": schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.OneOf("slo", "sli")}},
 			"mac": schema.StringAttribute{Required: true}, "peer_address": schema.StringAttribute{Required: true},
-			"expected_routes": schema.SetAttribute{Required: true, ElementType: types.StringType},
+			"expected_routes": schema.SetAttribute{Required: true, ElementType: types.StringType, MarkdownDescription: "Prefixes that must be imported from this remote peer on the expected node."},
 		}}},
 		"timeout_seconds":       schema.Int64Attribute{Optional: true, Computed: true, Validators: []validator.Int64{int64validator.Between(1, 1800)}},
 		"poll_interval_seconds": schema.Int64Attribute{Optional: true, Computed: true, Validators: []validator.Int64{int64validator.Between(1, 60)}},
@@ -209,7 +209,7 @@ func routeArray(value map[string]interface{}, key string) ([]interface{}, error)
 	return routes, nil
 }
 
-func addRouteSubnets(routes []interface{}, node string, result map[string]map[string]struct{}) error {
+func addRouteSubnets(routes []interface{}, node, remoteAddress string, result map[string]map[string]struct{}) error {
 	if result[node] == nil {
 		result[node] = map[string]struct{}{}
 	}
@@ -222,12 +222,39 @@ func addRouteSubnets(routes []interface{}, node string, result map[string]map[st
 		if _, _, err := net.ParseCIDR(prefix); err != nil {
 			return fmt.Errorf("route observation for node %q has invalid subnet %q", node, prefix)
 		}
+		if remoteAddress != "" {
+			paths, err := routeArray(route, "path")
+			if err != nil {
+				return err
+			}
+			matched := false
+			for _, rawPath := range paths {
+				path, ok := rawPath.(map[string]interface{})
+				if !ok {
+					return fmt.Errorf("imported BGP route path is malformed")
+				}
+				address := peerAddress(path["peer"])
+				if net.ParseIP(address) == nil {
+					return fmt.Errorf("imported BGP route path has no valid peer address")
+				}
+				matched = matched || sameSMSv2PeerAddress(address, remoteAddress)
+			}
+			if !matched {
+				continue
+			}
+		}
 		result[node][prefix] = struct{}{}
 	}
 	return nil
 }
 
 func extractBGPRoutePrefixesForDirections(observation client.SMSv2Observation, directions ...string) (map[string]map[string]struct{}, error) {
+	return extractBGPRoutePrefixesForPeer(observation, "", directions...)
+}
+
+// A route imported from another session cannot prove this session's route
+// availability. The API records the remote endpoint in each imported path.
+func extractBGPRoutePrefixesForPeer(observation client.SMSv2Observation, remoteAddress string, directions ...string) (map[string]map[string]struct{}, error) {
 	result := map[string]map[string]struct{}{}
 	rawNodes, ok := observation["ver"].([]interface{})
 	if !ok {
@@ -265,7 +292,7 @@ func extractBGPRoutePrefixesForDirections(observation client.SMSv2Observation, d
 					if err != nil {
 						return nil, err
 					}
-					if err := addRouteSubnets(routes, name, result); err != nil {
+					if err := addRouteSubnets(routes, name, remoteAddress, result); err != nil {
 						return nil, err
 					}
 				}
@@ -273,10 +300,6 @@ func extractBGPRoutePrefixesForDirections(observation client.SMSv2Observation, d
 		}
 	}
 	return result, nil
-}
-
-func extractBGPRoutePrefixes(observation client.SMSv2Observation) (map[string]map[string]struct{}, error) {
-	return extractBGPRoutePrefixesForDirections(observation, "imported", "exported")
 }
 
 func extractSimplifiedRoutePrefixes(observation client.SMSv2Observation) (map[string]map[string]struct{}, error) {
@@ -331,6 +354,11 @@ func routePrefixesForNode(prefixes map[string]map[string]struct{}, configuredNod
 	return matches[0], nil
 }
 
+func sameSMSv2PeerAddress(left, right string) bool {
+	a, b := net.ParseIP(strings.TrimSpace(left)), net.ParseIP(strings.TrimSpace(right))
+	return a != nil && b != nil && a.Equal(b)
+}
+
 func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []smsv2ConfiguredInterface, peers []observedBGPPeer, bgpRoutes, sloRoutes, sliRoutes client.SMSv2Observation) (map[string]smsv2PeerStatusModel, bool, string) {
 	if len(expected) == 0 {
 		return nil, false, "expected_peers must not be empty"
@@ -338,10 +366,6 @@ func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []s
 	configuredByIdentity := map[string][]smsv2ConfiguredInterface{}
 	for _, iface := range configured {
 		configuredByIdentity[iface.Node+"\x00"+iface.MAC] = append(configuredByIdentity[iface.Node+"\x00"+iface.MAC], iface)
-	}
-	bgpPrefixes, err := extractBGPRoutePrefixes(bgpRoutes)
-	if err != nil {
-		return nil, false, err.Error()
 	}
 	bgpExportedPrefixes, err := extractBGPRoutePrefixesForDirections(bgpRoutes, "exported")
 	if err != nil {
@@ -380,7 +404,7 @@ func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []s
 			// API v6 defines BGP observation identity as node plus peer address.
 			// interface_name is retained as observed status, but it is not the
 			// SMSv2 network-interface object name and must not be used as identity.
-			if smsv2NodeMatches(iface.Node, peer.Node) && peer.PeerAddress == want.PeerAddress.ValueString() {
+			if smsv2NodeMatches(iface.Node, peer.Node) && sameSMSv2PeerAddress(peer.PeerAddress, want.PeerAddress.ValueString()) {
 				matches = append(matches, peer)
 			}
 		}
@@ -391,7 +415,11 @@ func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []s
 		if got.State != "Established" {
 			return nil, false, fmt.Sprintf("peer %q state is %q", key, got.State)
 		}
-		nodeBGPPrefixes, err := routePrefixesForNode(bgpPrefixes, iface.Node, "BGP route")
+		bgpPrefixes, err := extractBGPRoutePrefixesForPeer(bgpRoutes, got.PeerAddress, "imported")
+		if err != nil {
+			return nil, false, err.Error()
+		}
+		nodeBGPPrefixes, err := routePrefixesForNode(bgpPrefixes, iface.Node, "imported BGP route")
 		if err != nil {
 			return nil, false, err.Error()
 		}
@@ -418,7 +446,7 @@ func convergeSMSv2BGP(expected map[string]smsv2ExpectedPeerModel, configured []s
 		}
 		for _, route := range routes {
 			if _, ok := nodeBGPPrefixes[route]; !ok {
-				return nil, false, fmt.Sprintf("peer %q BGP route %s is missing on node %q", key, route, iface.Node)
+				return nil, false, fmt.Sprintf("peer %q imported BGP route %s has no matching session path on node %q", key, route, iface.Node)
 			}
 		}
 		for route := range nodeExportedPrefixes {
@@ -459,7 +487,7 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	seenMAC := map[string]string{}
+	seenSessions := map[string]string{}
 	for key, peer := range expected {
 		if peer.Node.IsUnknown() || peer.Role.IsUnknown() || peer.MAC.IsUnknown() ||
 			peer.PeerAddress.IsUnknown() || peer.ExpectedRoutes.IsUnknown() {
@@ -484,12 +512,22 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 			resp.Diagnostics.AddError("Invalid BGP Peer Identity", fmt.Sprintf("peer %q: %v", key, err))
 			return
 		}
-		identity := node + "\x00" + mac
-		if old, exists := seenMAC[identity]; exists {
-			resp.Diagnostics.AddError("Duplicate BGP Peer MAC", fmt.Sprintf("peers %q and %q use MAC %s within node %q", old, key, mac, node))
+		address := net.ParseIP(strings.TrimSpace(peer.PeerAddress.ValueString()))
+		if address == nil {
+			resp.Diagnostics.AddError("Invalid BGP Peer Identity", fmt.Sprintf("peer %q has an invalid remote IP address", key))
 			return
 		}
-		seenMAC[identity] = key
+		// The endpoint is scoped to this site. MAC identifies the transport
+		// interface, which can carry multiple sessions. Until the API exposes
+		// a routing-context discriminator, duplicate node/address observations
+		// are ambiguous and must fail closed, even across different MACs.
+		identity := node + "\x00" + address.String()
+		if old, exists := seenSessions[identity]; exists {
+			resp.Diagnostics.AddError("Duplicate BGP Session", fmt.Sprintf("peers %q and %q identify the same session within this site", old, key))
+			return
+		}
+		seenSessions[identity] = key
+		peer.PeerAddress = types.StringValue(address.String())
 		peer.Node = types.StringValue(node)
 		peer.Role = types.StringValue(role)
 		peer.MAC = types.StringValue(mac)
@@ -503,6 +541,14 @@ func (d *SiteBGPStatusDataSource) Read(ctx context.Context, req datasource.ReadR
 	configured, err := extractSMSv2ConfiguredInterfaces(configuration)
 	if err != nil {
 		resp.Diagnostics.AddError("Invalid SMSv2 Configuration Observation", err.Error())
+		return
+	}
+	objects, err := d.client.ListSMSv2NetworkInterfaces(ctx, data.Namespace.ValueString())
+	if err == nil {
+		configured, err = resolveSMSv2InterfaceObjects(configuration, configured, objects)
+	}
+	if err != nil {
+		resp.Diagnostics.AddError("SMSv2 Interface Discovery Failed", err.Error())
 		return
 	}
 	deadline := d.nowTime().Add(time.Duration(data.TimeoutSeconds.ValueInt64()) * time.Second)

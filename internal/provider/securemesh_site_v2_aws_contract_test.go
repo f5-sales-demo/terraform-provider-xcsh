@@ -7,6 +7,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -28,12 +29,10 @@ func TestValidateSecuremeshSiteV2AWSContract(t *testing.T) {
 			},
 		},
 		{
-			name: "requires nodes",
+			name: "requires node management selector",
 			data: SecuremeshSiteV2ResourceModel{
 				Namespace: types.StringValue("system"),
-				AWS: &SecuremeshSiteV2AWSModel{
-					NotManaged: &SecuremeshSiteV2AWSNotManagedModel{NodeList: types.ListNull(types.StringType)},
-				},
+				AWS:       &SecuremeshSiteV2AWSModel{},
 			},
 		},
 	}
@@ -119,7 +118,7 @@ func TestValidateSecuremeshSiteV2AWSContractKnownValues(t *testing.T) {
 		{name: "normalized duplicate mac", interfaces: []contractInterface{{mac: "02-00-00-00-00-01", role: "slo"}, {mac: "02:00:00:00:00:01", role: "sli"}}, want: "MAC Is Duplicate"},
 		{name: "missing device", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo", device: "null"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Device Is Required"},
 		{name: "empty device", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo", device: "empty"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Device Is Required"},
-		{name: "device role mismatch", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo", device: "eth1"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Device Does Not Match Role"},
+		{name: "duplicate device", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo", device: "eth1"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Device Is Duplicate"},
 		{name: "missing sli", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo"}}, want: "SLI Is Required"},
 		{name: "duplicate role", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "slo"}, {mac: "02:00:00:00:00:02", role: "slo"}}, want: "Role Is Duplicate"},
 		{name: "ambiguous role", interfaces: []contractInterface{{mac: "02:00:00:00:00:01", role: "ambiguous"}, {mac: "02:00:00:00:00:02", role: "sli"}}, want: "Role Is Ambiguous"},
@@ -172,11 +171,12 @@ func awsSMSv2ContractFixture(t *testing.T, fixtures []contractInterface) Securem
 		role := &SecuremeshSiteV2AWSNotManagedNodeListInterfaceListNetworkOptionModel{}
 		switch fixture.role {
 		case "slo":
-			role.SiteLocalNetwork = &SecuremeshSiteV2EmptyModel{}
+			role.SiteLocalNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 		case "sli":
-			role.SiteLocalInsideNetwork = &SecuremeshSiteV2EmptyModel{}
+			role.SiteLocalInsideNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 		case "ambiguous":
-			role.SiteLocalNetwork, role.SiteLocalInsideNetwork = &SecuremeshSiteV2EmptyModel{}, &SecuremeshSiteV2EmptyModel{}
+			marker := types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+			role.SiteLocalNetwork, role.SiteLocalInsideNetwork = marker, marker
 		}
 		interfaces = append(interfaces, SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel{
 			Labels:            types.MapNull(types.StringType),
@@ -202,4 +202,32 @@ func gotSummary(diagnostics diag.Diagnostics) string {
 		summaries = append(summaries, diagnostic.Summary())
 	}
 	return strings.Join(summaries, "; ")
+}
+
+func TestValidateSecuremeshSiteV2AWSDiscovery(t *testing.T) {
+	for _, nodes := range []types.List{
+		types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListModelAttrTypes}),
+		types.ListValueMust(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListModelAttrTypes}, nil),
+	} {
+		data := SecuremeshSiteV2ResourceModel{Namespace: types.StringValue("system"), AWS: &SecuremeshSiteV2AWSModel{
+			NotManaged: &SecuremeshSiteV2AWSNotManagedModel{NodeList: nodes},
+		}}
+		var response resource.ValidateConfigResponse
+		validateSecuremeshSiteV2AWSContract(context.Background(), data, &response)
+		if response.Diagnostics.HasError() {
+			t.Fatalf("discovery configuration rejected: %v", response.Diagnostics)
+		}
+	}
+}
+
+func TestValidateSecuremeshSiteV2AWSDiscoveredDevices(t *testing.T) {
+	data := awsSMSv2ContractFixture(t, []contractInterface{
+		{mac: "02:00:00:00:00:01", role: "slo", device: "ens5"},
+		{mac: "02:00:00:00:00:02", role: "sli", device: "ens6"},
+	})
+	var resp resource.ValidateConfigResponse
+	validateSecuremeshSiteV2AWSContract(context.Background(), data, &resp)
+	if resp.Diagnostics.HasError() {
+		t.Fatalf("rejected discovered device names: %v", resp.Diagnostics)
+	}
 }

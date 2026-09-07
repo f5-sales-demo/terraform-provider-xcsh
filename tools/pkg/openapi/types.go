@@ -163,6 +163,7 @@ type TerraformAttribute struct {
 	NestedAttributes   []TerraformAttribute
 	NestedBlockType    string
 	IsBlock            bool
+	EmptyObjectMarker  bool   // Empty protobuf oneof member exposed as a nullable object attribute.
 	ConversionError    string // Tracks controlled generator errors during conversion
 	OneOfGroup         string
 	PlanModifier       string
@@ -223,6 +224,7 @@ type ResourceTemplate struct {
 	UsesBoolPlanModifier   bool   // True if any bool attribute uses a plan modifier
 	UsesInt64PlanModifier  bool   // True if any int64 attribute uses a plan modifier
 	UsesStringPlanModifier bool   // True if any string attribute uses a plan modifier
+	UsesObjectPlanModifier bool   // True if an immutable single nested block needs a plan modifier
 	UsesListPlanModifier   bool   // True if any list attribute uses a plan modifier
 	UsesMapPlanModifier    bool   // True if any map attribute uses a plan modifier
 

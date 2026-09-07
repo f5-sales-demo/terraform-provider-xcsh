@@ -78,7 +78,7 @@ resource "xcsh_rate_limiter_policy" "test" {
   name      = %[2]q
   namespace = xcsh_namespace.test.name
 
-  any_server {}
+  any_server = {}
 }
 `, nsName, name))
 }

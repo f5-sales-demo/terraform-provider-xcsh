@@ -19,7 +19,7 @@ func runtimeConfiguration() client.SMSv2Observation {
 	}
 	nodes := []interface{}{map[string]interface{}{"hostname": "master-0", "interface_list": interfaces}}
 	return client.SMSv2Observation{
-		"metadata": map[string]interface{}{"name": "lab-site", "namespace": "system"},
+		"system_metadata": map[string]interface{}{"uid": "site-uid"}, "metadata": map[string]interface{}{"name": "lab-site", "namespace": "system"},
 		"spec": map[string]interface{}{
 			"aws": map[string]interface{}{
 				"not_managed": map[string]interface{}{"node_list": nodes},
@@ -39,7 +39,7 @@ func multiNodeRuntimeConfiguration() client.SMSv2Observation {
 			},
 		})
 	}
-	return client.SMSv2Observation{"metadata": map[string]interface{}{"name": "lab-site", "namespace": "system"}, "spec": map[string]interface{}{"aws": map[string]interface{}{"not_managed": map[string]interface{}{"node_list": nodes}}}}
+	return client.SMSv2Observation{"system_metadata": map[string]interface{}{"uid": "site-uid"}, "metadata": map[string]interface{}{"name": "lab-site", "namespace": "system"}, "spec": map[string]interface{}{"aws": map[string]interface{}{"not_managed": map[string]interface{}{"node_list": nodes}}}}
 }
 
 func TestSMSv2CapabilitiesFailClosedBeforeRuntimeReads(t *testing.T) {
@@ -56,7 +56,7 @@ func TestSMSv2CapabilitiesFailClosedBeforeRuntimeReads(t *testing.T) {
 }
 
 func TestExtractAndCorrelateSMSv2Runtime(t *testing.T) {
-	configured, err := extractSMSv2ConfiguredInterfaces(runtimeConfiguration())
+	configured, err := resolvedRuntimeFixture(runtimeConfiguration())
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -85,7 +85,7 @@ func TestSMSv2RuntimeRejectsDuplicateAndMismatch(t *testing.T) {
 	if _, err := validateSMSv2Bindings(bindings); err == nil || !strings.Contains(err.Error(), "duplicate MAC") {
 		t.Fatalf("duplicate error = %v", err)
 	}
-	configured, err := extractSMSv2ConfiguredInterfaces(runtimeConfiguration())
+	configured, err := resolvedRuntimeFixture(runtimeConfiguration())
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -97,7 +97,7 @@ func TestSMSv2RuntimeRejectsDuplicateAndMismatch(t *testing.T) {
 }
 
 func TestSMSv2RuntimeCorrelatesMultiNodeSiteGlobalHealth(t *testing.T) {
-	configured, err := extractSMSv2ConfiguredInterfaces(multiNodeRuntimeConfiguration())
+	configured, err := resolvedRuntimeFixture(multiNodeRuntimeConfiguration())
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -126,7 +126,7 @@ func TestSMSv2RuntimeCorrelatesMultiNodeSiteGlobalHealth(t *testing.T) {
 }
 
 func TestSMSv2RuntimeRejectsForeignOrIncompleteSiteHealth(t *testing.T) {
-	configured, err := extractSMSv2ConfiguredInterfaces(multiNodeRuntimeConfiguration())
+	configured, err := resolvedRuntimeFixture(multiNodeRuntimeConfiguration())
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -152,7 +152,7 @@ func TestSMSv2RuntimeRejectsForeignOrIncompleteSiteHealth(t *testing.T) {
 }
 
 func TestSMSv2RuntimePropagatesUnhealthySiteState(t *testing.T) {
-	configured, err := extractSMSv2ConfiguredInterfaces(multiNodeRuntimeConfiguration())
+	configured, err := resolvedRuntimeFixture(multiNodeRuntimeConfiguration())
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -177,7 +177,7 @@ func TestSMSv2RuntimePropagatesUnhealthySiteState(t *testing.T) {
 }
 
 func TestSMSv2BGPConvergenceUsesExactNodeScopedSchemas(t *testing.T) {
-	configured, err := extractSMSv2ConfiguredInterfaces(runtimeConfiguration())
+	configured, err := resolvedRuntimeFixture(runtimeConfiguration())
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -194,7 +194,7 @@ func TestSMSv2BGPConvergenceUsesExactNodeScopedSchemas(t *testing.T) {
 	bgpRoutes := client.SMSv2Observation{"ver": []interface{}{map[string]interface{}{
 		"name": "master-0", "ri_table": []interface{}{map[string]interface{}{
 			"rt_table": []interface{}{map[string]interface{}{
-				"imported": []interface{}{map[string]interface{}{"subnet": "10.10.0.0/16"}},
+				"imported": []interface{}{map[string]interface{}{"subnet": "10.10.0.0/16", "path": []interface{}{map[string]interface{}{"peer": "169.254.10.1"}, map[string]interface{}{"peer": "169.254.10.2"}}}},
 				"exported": []interface{}{map[string]interface{}{"subnet": "10.20.0.0/16"}},
 			}},
 		}},
@@ -266,5 +266,17 @@ func TestSMSv2BindingIdentityValidation(t *testing.T) {
 	}
 	if _, err := validateSMSv2Bindings(duplicate); err == nil || !strings.Contains(err.Error(), "within node") {
 		t.Fatalf("within-node duplicate error = %v", err)
+	}
+}
+
+func TestSMSv2ConfigurationDoesNotInventInterfaceObjects(t *testing.T) {
+	configured, err := extractSMSv2ConfiguredInterfaces(runtimeConfiguration())
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, iface := range configured {
+		if iface.Name != "" {
+			t.Fatalf("configuration alone invented network_interface object %q", iface.Name)
+		}
 	}
 }

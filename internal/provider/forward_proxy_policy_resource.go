@@ -52,12 +52,12 @@ type ForwardProxyPolicyEmptyModel struct {
 
 // ForwardProxyPolicyAllowListModel represents allow_list block
 type ForwardProxyPolicyAllowListModel struct {
-	DefaultActionAllow      *ForwardProxyPolicyEmptyModel `tfsdk:"default_action_allow"`
-	DefaultActionDeny       *ForwardProxyPolicyEmptyModel `tfsdk:"default_action_deny"`
-	DefaultActionNextPolicy *ForwardProxyPolicyEmptyModel `tfsdk:"default_action_next_policy"`
-	DestList                types.List                    `tfsdk:"dest_list"`
-	HTTPList                types.List                    `tfsdk:"http_list"`
-	TLSList                 types.List                    `tfsdk:"tls_list"`
+	DefaultActionAllow      types.Object `tfsdk:"default_action_allow"`
+	DefaultActionDeny       types.Object `tfsdk:"default_action_deny"`
+	DefaultActionNextPolicy types.Object `tfsdk:"default_action_next_policy"`
+	DestList                types.List   `tfsdk:"dest_list"`
+	HTTPList                types.List   `tfsdk:"http_list"`
+	TLSList                 types.List   `tfsdk:"tls_list"`
 }
 
 // ForwardProxyPolicyAllowListModelAttrTypes defines the attribute types for ForwardProxyPolicyAllowListModel
@@ -86,24 +86,24 @@ var ForwardProxyPolicyAllowListDestListModelAttrTypes = map[string]attr.Type{
 
 // ForwardProxyPolicyAllowListHTTPListModel represents http_list block
 type ForwardProxyPolicyAllowListHTTPListModel struct {
-	ExactValue      types.String                  `tfsdk:"exact_value"`
-	PathExactValue  types.String                  `tfsdk:"path_exact_value"`
-	PathPrefixValue types.String                  `tfsdk:"path_prefix_value"`
-	PathRegexValue  types.String                  `tfsdk:"path_regex_value"`
-	RegexValue      types.String                  `tfsdk:"regex_value"`
-	SuffixValue     types.String                  `tfsdk:"suffix_value"`
-	AnyPath         *ForwardProxyPolicyEmptyModel `tfsdk:"any_path"`
+	AnyPath         types.Object `tfsdk:"any_path"`
+	ExactValue      types.String `tfsdk:"exact_value"`
+	PathExactValue  types.String `tfsdk:"path_exact_value"`
+	PathPrefixValue types.String `tfsdk:"path_prefix_value"`
+	PathRegexValue  types.String `tfsdk:"path_regex_value"`
+	RegexValue      types.String `tfsdk:"regex_value"`
+	SuffixValue     types.String `tfsdk:"suffix_value"`
 }
 
 // ForwardProxyPolicyAllowListHTTPListModelAttrTypes defines the attribute types for ForwardProxyPolicyAllowListHTTPListModel
 var ForwardProxyPolicyAllowListHTTPListModelAttrTypes = map[string]attr.Type{
+	"any_path":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"exact_value":       types.StringType,
 	"path_exact_value":  types.StringType,
 	"path_prefix_value": types.StringType,
 	"path_regex_value":  types.StringType,
 	"regex_value":       types.StringType,
 	"suffix_value":      types.StringType,
-	"any_path":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // ForwardProxyPolicyAllowListTLSListModel represents tls_list block
@@ -122,12 +122,12 @@ var ForwardProxyPolicyAllowListTLSListModelAttrTypes = map[string]attr.Type{
 
 // ForwardProxyPolicyDenyListModel represents deny_list block
 type ForwardProxyPolicyDenyListModel struct {
-	DefaultActionAllow      *ForwardProxyPolicyEmptyModel `tfsdk:"default_action_allow"`
-	DefaultActionDeny       *ForwardProxyPolicyEmptyModel `tfsdk:"default_action_deny"`
-	DefaultActionNextPolicy *ForwardProxyPolicyEmptyModel `tfsdk:"default_action_next_policy"`
-	DestList                types.List                    `tfsdk:"dest_list"`
-	HTTPList                types.List                    `tfsdk:"http_list"`
-	TLSList                 types.List                    `tfsdk:"tls_list"`
+	DefaultActionAllow      types.Object `tfsdk:"default_action_allow"`
+	DefaultActionDeny       types.Object `tfsdk:"default_action_deny"`
+	DefaultActionNextPolicy types.Object `tfsdk:"default_action_next_policy"`
+	DestList                types.List   `tfsdk:"dest_list"`
+	HTTPList                types.List   `tfsdk:"http_list"`
+	TLSList                 types.List   `tfsdk:"tls_list"`
 }
 
 // ForwardProxyPolicyDenyListModelAttrTypes defines the attribute types for ForwardProxyPolicyDenyListModel
@@ -156,24 +156,24 @@ var ForwardProxyPolicyDenyListDestListModelAttrTypes = map[string]attr.Type{
 
 // ForwardProxyPolicyDenyListHTTPListModel represents http_list block
 type ForwardProxyPolicyDenyListHTTPListModel struct {
-	ExactValue      types.String                  `tfsdk:"exact_value"`
-	PathExactValue  types.String                  `tfsdk:"path_exact_value"`
-	PathPrefixValue types.String                  `tfsdk:"path_prefix_value"`
-	PathRegexValue  types.String                  `tfsdk:"path_regex_value"`
-	RegexValue      types.String                  `tfsdk:"regex_value"`
-	SuffixValue     types.String                  `tfsdk:"suffix_value"`
-	AnyPath         *ForwardProxyPolicyEmptyModel `tfsdk:"any_path"`
+	AnyPath         types.Object `tfsdk:"any_path"`
+	ExactValue      types.String `tfsdk:"exact_value"`
+	PathExactValue  types.String `tfsdk:"path_exact_value"`
+	PathPrefixValue types.String `tfsdk:"path_prefix_value"`
+	PathRegexValue  types.String `tfsdk:"path_regex_value"`
+	RegexValue      types.String `tfsdk:"regex_value"`
+	SuffixValue     types.String `tfsdk:"suffix_value"`
 }
 
 // ForwardProxyPolicyDenyListHTTPListModelAttrTypes defines the attribute types for ForwardProxyPolicyDenyListHTTPListModel
 var ForwardProxyPolicyDenyListHTTPListModelAttrTypes = map[string]attr.Type{
+	"any_path":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"exact_value":       types.StringType,
 	"path_exact_value":  types.StringType,
 	"path_prefix_value": types.StringType,
 	"path_regex_value":  types.StringType,
 	"regex_value":       types.StringType,
 	"suffix_value":      types.StringType,
-	"any_path":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // ForwardProxyPolicyDenyListTLSListModel represents tls_list block
@@ -227,8 +227,9 @@ var ForwardProxyPolicyRuleListModelAttrTypes = map[string]attr.Type{
 // ForwardProxyPolicyRuleListRulesModel represents rules block
 type ForwardProxyPolicyRuleListRulesModel struct {
 	Action            types.String                                          `tfsdk:"action"`
-	AllDestinations   *ForwardProxyPolicyEmptyModel                         `tfsdk:"all_destinations"`
-	AllSources        *ForwardProxyPolicyEmptyModel                         `tfsdk:"all_sources"`
+	AllDestinations   types.Object                                          `tfsdk:"all_destinations"`
+	AllSources        types.Object                                          `tfsdk:"all_sources"`
+	NoHTTPConnectPort types.Object                                          `tfsdk:"no_http_connect_port"`
 	DstAsnList        *ForwardProxyPolicyRuleListRulesDstAsnListModel       `tfsdk:"dst_asn_list"`
 	DstAsnSet         *ForwardProxyPolicyRuleListRulesDstAsnSetModel        `tfsdk:"dst_asn_set"`
 	DstIPPrefixSet    *ForwardProxyPolicyRuleListRulesDstIPPrefixSetModel   `tfsdk:"dst_ip_prefix_set"`
@@ -238,7 +239,6 @@ type ForwardProxyPolicyRuleListRulesModel struct {
 	IPPrefixSet       *ForwardProxyPolicyRuleListRulesIPPrefixSetModel      `tfsdk:"ip_prefix_set"`
 	LabelSelector     *ForwardProxyPolicyRuleListRulesLabelSelectorModel    `tfsdk:"label_selector"`
 	Metadata          *ForwardProxyPolicyRuleListRulesMetadataModel         `tfsdk:"metadata"`
-	NoHTTPConnectPort *ForwardProxyPolicyEmptyModel                         `tfsdk:"no_http_connect_port"`
 	PortMatcher       *ForwardProxyPolicyRuleListRulesPortMatcherModel      `tfsdk:"port_matcher"`
 	PrefixList        *ForwardProxyPolicyRuleListRulesPrefixListModel       `tfsdk:"prefix_list"`
 	TLSList           *ForwardProxyPolicyRuleListRulesTLSListModel          `tfsdk:"tls_list"`
@@ -250,6 +250,7 @@ var ForwardProxyPolicyRuleListRulesModelAttrTypes = map[string]attr.Type{
 	"action":               types.StringType,
 	"all_destinations":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"all_sources":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_http_connect_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"dst_asn_list":         types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesDstAsnListModelAttrTypes},
 	"dst_asn_set":          types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesDstAsnSetModelAttrTypes},
 	"dst_ip_prefix_set":    types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesDstIPPrefixSetModelAttrTypes},
@@ -259,7 +260,6 @@ var ForwardProxyPolicyRuleListRulesModelAttrTypes = map[string]attr.Type{
 	"ip_prefix_set":        types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesIPPrefixSetModelAttrTypes},
 	"label_selector":       types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesLabelSelectorModelAttrTypes},
 	"metadata":             types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesMetadataModelAttrTypes},
-	"no_http_connect_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"port_matcher":         types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesPortMatcherModelAttrTypes},
 	"prefix_list":          types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesPrefixListModelAttrTypes},
 	"tls_list":             types.ObjectType{AttrTypes: ForwardProxyPolicyRuleListRulesTLSListModelAttrTypes},
@@ -336,24 +336,24 @@ var ForwardProxyPolicyRuleListRulesHTTPListModelAttrTypes = map[string]attr.Type
 
 // ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel represents http_list block
 type ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel struct {
-	ExactValue      types.String                  `tfsdk:"exact_value"`
-	PathExactValue  types.String                  `tfsdk:"path_exact_value"`
-	PathPrefixValue types.String                  `tfsdk:"path_prefix_value"`
-	PathRegexValue  types.String                  `tfsdk:"path_regex_value"`
-	RegexValue      types.String                  `tfsdk:"regex_value"`
-	SuffixValue     types.String                  `tfsdk:"suffix_value"`
-	AnyPath         *ForwardProxyPolicyEmptyModel `tfsdk:"any_path"`
+	AnyPath         types.Object `tfsdk:"any_path"`
+	ExactValue      types.String `tfsdk:"exact_value"`
+	PathExactValue  types.String `tfsdk:"path_exact_value"`
+	PathPrefixValue types.String `tfsdk:"path_prefix_value"`
+	PathRegexValue  types.String `tfsdk:"path_regex_value"`
+	RegexValue      types.String `tfsdk:"regex_value"`
+	SuffixValue     types.String `tfsdk:"suffix_value"`
 }
 
 // ForwardProxyPolicyRuleListRulesHTTPListHTTPListModelAttrTypes defines the attribute types for ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel
 var ForwardProxyPolicyRuleListRulesHTTPListHTTPListModelAttrTypes = map[string]attr.Type{
+	"any_path":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"exact_value":       types.StringType,
 	"path_exact_value":  types.StringType,
 	"path_prefix_value": types.StringType,
 	"path_regex_value":  types.StringType,
 	"regex_value":       types.StringType,
 	"suffix_value":      types.StringType,
-	"any_path":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // ForwardProxyPolicyRuleListRulesIPPrefixSetModel represents ip_prefix_set block
@@ -451,17 +451,17 @@ var ForwardProxyPolicyRuleListRulesURLCategoryListModelAttrTypes = map[string]at
 type ForwardProxyPolicyResourceModel struct {
 	Name               types.String                               `tfsdk:"name"`
 	Namespace          types.String                               `tfsdk:"namespace"`
+	AllowAll           types.Object                               `tfsdk:"allow_all"`
 	Annotations        types.Map                                  `tfsdk:"annotations"`
+	AnyProxy           types.Object                               `tfsdk:"any_proxy"`
 	Description        types.String                               `tfsdk:"description"`
 	Disable            types.Bool                                 `tfsdk:"disable"`
+	DrpHTTPConnect     types.Object                               `tfsdk:"drp_http_connect"`
 	Labels             types.Map                                  `tfsdk:"labels"`
 	ID                 types.String                               `tfsdk:"id"`
 	Timeouts           timeouts.Value                             `tfsdk:"timeouts"`
-	AllowAll           *ForwardProxyPolicyEmptyModel              `tfsdk:"allow_all"`
 	AllowList          *ForwardProxyPolicyAllowListModel          `tfsdk:"allow_list"`
-	AnyProxy           *ForwardProxyPolicyEmptyModel              `tfsdk:"any_proxy"`
 	DenyList           *ForwardProxyPolicyDenyListModel           `tfsdk:"deny_list"`
-	DrpHTTPConnect     *ForwardProxyPolicyEmptyModel              `tfsdk:"drp_http_connect"`
 	NetworkConnector   *ForwardProxyPolicyNetworkConnectorModel   `tfsdk:"network_connector"`
 	ProxyLabelSelector *ForwardProxyPolicyProxyLabelSelectorModel `tfsdk:"proxy_label_selector"`
 	RuleList           *ForwardProxyPolicyRuleListModel           `tfsdk:"rule_list"`
@@ -495,10 +495,20 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 					validators.NamespaceValidator(),
 				},
 			},
+			"allow_all": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: allow_all, allow_list, deny_list, rule_list] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"annotations": schema.MapAttribute{
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"any_proxy": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: any_proxy, drp_http_connect, network_connector, proxy_label_selector] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
@@ -507,6 +517,11 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
+			},
+			"drp_http_connect": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for drp http connect.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
@@ -528,23 +543,28 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 				Update: true,
 				Delete: true,
 			}),
-			"allow_all": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: allow_all, allow_list, deny_list, rule_list] Enable this option",
-			},
 			"allow_list": schema.SingleNestedBlock{
 				MarkdownDescription: "URL(s) and domains policy for forward proxy for a connection type (TLS or HTTP).",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_action_allow", "default_action_deny"), validators.ConflictingObjectAttributes("default_action_allow", "default_action_next_policy"), validators.ConflictingObjectAttributes("default_action_deny", "default_action_next_policy")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"default_action_allow": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"default_action_allow": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"default_action_deny": schema.SingleNestedBlock{
+					"default_action_deny": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"default_action_next_policy": schema.SingleNestedBlock{
+					"default_action_next_policy": schema.ObjectAttribute{
 						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+				},
+				Blocks: map[string]schema.Block{
 					"dest_list": schema.ListNestedBlock{
 						MarkdownDescription: "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.",
 						Validators:          []validator.List{validators.RequiredListObjectAttributes("port_ranges")},
@@ -578,8 +598,14 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 					},
 					"http_list": schema.ListNestedBlock{
 						MarkdownDescription: "HTTP URLs. URLs for HTTP connections.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_path", "path_exact_value"), validators.ConflictingListObjectAttributes("any_path", "path_prefix_value"), validators.ConflictingListObjectAttributes("any_path", "path_regex_value"), validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_prefix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_regex_value"), validators.ConflictingListObjectAttributes("path_prefix_value", "path_regex_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
+								"any_path": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"exact_value": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
 									Optional:            true,
@@ -623,15 +649,11 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 									},
 								},
 							},
-							Blocks: map[string]schema.Block{
-								"any_path": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
-							},
 						},
 					},
 					"tls_list": schema.ListNestedBlock{
 						MarkdownDescription: "TLS Domains. Domains in SNI for TLS connections.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"exact_value": schema.StringAttribute{
@@ -659,24 +681,29 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 						},
 					},
 				},
-			},
-			"any_proxy": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: any_proxy, drp_http_connect, network_connector, proxy_label_selector] Enable this option",
 			},
 			"deny_list": schema.SingleNestedBlock{
 				MarkdownDescription: "URL(s) and domains policy for forward proxy for a connection type (TLS or HTTP).",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_action_allow", "default_action_deny"), validators.ConflictingObjectAttributes("default_action_allow", "default_action_next_policy"), validators.ConflictingObjectAttributes("default_action_deny", "default_action_next_policy")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"default_action_allow": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"default_action_allow": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"default_action_deny": schema.SingleNestedBlock{
+					"default_action_deny": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"default_action_next_policy": schema.SingleNestedBlock{
+					"default_action_next_policy": schema.ObjectAttribute{
 						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+				},
+				Blocks: map[string]schema.Block{
 					"dest_list": schema.ListNestedBlock{
 						MarkdownDescription: "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.",
 						Validators:          []validator.List{validators.RequiredListObjectAttributes("port_ranges")},
@@ -710,8 +737,14 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 					},
 					"http_list": schema.ListNestedBlock{
 						MarkdownDescription: "HTTP URLs. URLs for HTTP connections.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_path", "path_exact_value"), validators.ConflictingListObjectAttributes("any_path", "path_prefix_value"), validators.ConflictingListObjectAttributes("any_path", "path_regex_value"), validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_prefix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_regex_value"), validators.ConflictingListObjectAttributes("path_prefix_value", "path_regex_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
+								"any_path": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"exact_value": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
 									Optional:            true,
@@ -755,15 +788,11 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 									},
 								},
 							},
-							Blocks: map[string]schema.Block{
-								"any_path": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
-							},
 						},
 					},
 					"tls_list": schema.ListNestedBlock{
 						MarkdownDescription: "TLS Domains. Domains in SNI for TLS connections.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"exact_value": schema.StringAttribute{
@@ -791,9 +820,6 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 						},
 					},
 				},
-			},
-			"drp_http_connect": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for drp http connect.",
 			},
 			"network_connector": schema.SingleNestedBlock{
 				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
@@ -850,6 +876,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 				Blocks: map[string]schema.Block{
 					"rules": schema.ListNestedBlock{
 						MarkdownDescription: "Custom Rule List. List of custom rules.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("all_destinations", "dst_asn_list"), validators.ConflictingListObjectAttributes("all_destinations", "dst_asn_set"), validators.ConflictingListObjectAttributes("all_destinations", "dst_ip_prefix_set"), validators.ConflictingListObjectAttributes("all_destinations", "dst_label_selector"), validators.ConflictingListObjectAttributes("all_destinations", "dst_prefix_list"), validators.ConflictingListObjectAttributes("all_destinations", "http_list"), validators.ConflictingListObjectAttributes("all_destinations", "tls_list"), validators.ConflictingListObjectAttributes("all_destinations", "url_category_list"), validators.ConflictingListObjectAttributes("all_sources", "ip_prefix_set"), validators.ConflictingListObjectAttributes("all_sources", "label_selector"), validators.ConflictingListObjectAttributes("all_sources", "prefix_list"), validators.ConflictingListObjectAttributes("dst_asn_list", "dst_asn_set"), validators.ConflictingListObjectAttributes("dst_asn_list", "dst_ip_prefix_set"), validators.ConflictingListObjectAttributes("dst_asn_list", "dst_label_selector"), validators.ConflictingListObjectAttributes("dst_asn_list", "dst_prefix_list"), validators.ConflictingListObjectAttributes("dst_asn_list", "http_list"), validators.ConflictingListObjectAttributes("dst_asn_list", "tls_list"), validators.ConflictingListObjectAttributes("dst_asn_list", "url_category_list"), validators.ConflictingListObjectAttributes("dst_asn_set", "dst_ip_prefix_set"), validators.ConflictingListObjectAttributes("dst_asn_set", "dst_label_selector"), validators.ConflictingListObjectAttributes("dst_asn_set", "dst_prefix_list"), validators.ConflictingListObjectAttributes("dst_asn_set", "http_list"), validators.ConflictingListObjectAttributes("dst_asn_set", "tls_list"), validators.ConflictingListObjectAttributes("dst_asn_set", "url_category_list"), validators.ConflictingListObjectAttributes("dst_ip_prefix_set", "dst_label_selector"), validators.ConflictingListObjectAttributes("dst_ip_prefix_set", "dst_prefix_list"), validators.ConflictingListObjectAttributes("dst_ip_prefix_set", "http_list"), validators.ConflictingListObjectAttributes("dst_ip_prefix_set", "tls_list"), validators.ConflictingListObjectAttributes("dst_ip_prefix_set", "url_category_list"), validators.ConflictingListObjectAttributes("dst_label_selector", "dst_prefix_list"), validators.ConflictingListObjectAttributes("dst_label_selector", "http_list"), validators.ConflictingListObjectAttributes("dst_label_selector", "tls_list"), validators.ConflictingListObjectAttributes("dst_label_selector", "url_category_list"), validators.ConflictingListObjectAttributes("dst_prefix_list", "http_list"), validators.ConflictingListObjectAttributes("dst_prefix_list", "tls_list"), validators.ConflictingListObjectAttributes("dst_prefix_list", "url_category_list"), validators.ConflictingListObjectAttributes("http_list", "tls_list"), validators.ConflictingListObjectAttributes("http_list", "url_category_list"), validators.ConflictingListObjectAttributes("ip_prefix_set", "label_selector"), validators.ConflictingListObjectAttributes("ip_prefix_set", "prefix_list"), validators.ConflictingListObjectAttributes("label_selector", "prefix_list"), validators.ConflictingListObjectAttributes("no_http_connect_port", "port_matcher"), validators.ConflictingListObjectAttributes("tls_list", "url_category_list")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"action": schema.StringAttribute{
@@ -859,14 +886,23 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 										stringvalidator.OneOf("DENY", "ALLOW", "NEXT_POLICY"),
 									},
 								},
+								"all_destinations": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all destinations.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_sources": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all sources.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"no_http_connect_port": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 							},
 							Blocks: map[string]schema.Block{
-								"all_destinations": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for all destinations.",
-								},
-								"all_sources": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for all sources.",
-								},
 								"dst_asn_list": schema.SingleNestedBlock{
 									MarkdownDescription: "Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
 									Validators:          []validator.Object{validators.RequiredObjectAttributes("as_numbers")},
@@ -976,8 +1012,14 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 									Blocks: map[string]schema.Block{
 										"http_list": schema.ListNestedBlock{
 											MarkdownDescription: "HTTP URLs. URLs for HTTP connections.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("any_path", "path_exact_value"), validators.ConflictingListObjectAttributes("any_path", "path_prefix_value"), validators.ConflictingListObjectAttributes("any_path", "path_regex_value"), validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_prefix_value"), validators.ConflictingListObjectAttributes("path_exact_value", "path_regex_value"), validators.ConflictingListObjectAttributes("path_prefix_value", "path_regex_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
+													"any_path": schema.ObjectAttribute{
+														MarkdownDescription: "Enable this option",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
+													},
 													"exact_value": schema.StringAttribute{
 														MarkdownDescription: "Exclusive with [regex_value suffix_value] Exact domain name.",
 														Optional:            true,
@@ -1019,11 +1061,6 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 														Validators: []validator.String{
 															stringvalidator.LengthBetween(1, 256),
 														},
-													},
-												},
-												Blocks: map[string]schema.Block{
-													"any_path": schema.SingleNestedBlock{
-														MarkdownDescription: "Enable this option",
 													},
 												},
 											},
@@ -1095,9 +1132,6 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 										},
 									},
 								},
-								"no_http_connect_port": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
 								"port_matcher": schema.SingleNestedBlock{
 									MarkdownDescription: "Port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true.",
 									Validators:          []validator.Object{validators.RequiredObjectAttributes("ports")},
@@ -1135,6 +1169,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 									Blocks: map[string]schema.Block{
 										"tls_list": schema.ListNestedBlock{
 											MarkdownDescription: "TLS Domains. Domains in SNI for TLS connections.",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("exact_value", "regex_value"), validators.ConflictingListObjectAttributes("exact_value", "suffix_value"), validators.ConflictingListObjectAttributes("regex_value", "suffix_value")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"exact_value": schema.StringAttribute{
@@ -1208,6 +1243,14 @@ func (r *ForwardProxyPolicyResource) ValidateConfig(ctx context.Context, req res
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.AnyProxy.IsNull() && !data.AnyProxy.IsUnknown() && !data.DrpHTTPConnect.IsNull() && !data.DrpHTTPConnect.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("any_proxy"),
+			"Conflicting Configuration",
+			"any_proxy and drp_http_connect are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -1308,18 +1351,18 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.AllowAll != nil {
+	if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() {
 		createReq.Spec["allow_all"] = map[string]interface{}{}
 	}
 	if data.AllowList != nil {
 		AllowListMap := make(map[string]interface{})
-		if data.AllowList.DefaultActionAllow != nil {
+		if !data.AllowList.DefaultActionAllow.IsNull() && !data.AllowList.DefaultActionAllow.IsUnknown() {
 			AllowListMap["default_action_allow"] = map[string]interface{}{}
 		}
-		if data.AllowList.DefaultActionDeny != nil {
+		if !data.AllowList.DefaultActionDeny.IsNull() && !data.AllowList.DefaultActionDeny.IsUnknown() {
 			AllowListMap["default_action_deny"] = map[string]interface{}{}
 		}
-		if data.AllowList.DefaultActionNextPolicy != nil {
+		if !data.AllowList.DefaultActionNextPolicy.IsNull() && !data.AllowList.DefaultActionNextPolicy.IsUnknown() {
 			AllowListMap["default_action_next_policy"] = map[string]interface{}{}
 		}
 		if !data.AllowList.DestList.IsNull() && !data.AllowList.DestList.IsUnknown() {
@@ -1362,7 +1405,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 				var HTTPListList []map[string]interface{}
 				for _, HTTPListItem := range HTTPListElems {
 					HTTPListItemMap := make(map[string]interface{})
-					if HTTPListItem.AnyPath != nil {
+					if !HTTPListItem.AnyPath.IsNull() && !HTTPListItem.AnyPath.IsUnknown() {
 						HTTPListItemMap["any_path"] = map[string]interface{}{}
 					}
 					if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
@@ -1412,18 +1455,18 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 		}
 		createReq.Spec["allow_list"] = AllowListMap
 	}
-	if data.AnyProxy != nil {
+	if !data.AnyProxy.IsNull() && !data.AnyProxy.IsUnknown() {
 		createReq.Spec["any_proxy"] = map[string]interface{}{}
 	}
 	if data.DenyList != nil {
 		DenyListMap := make(map[string]interface{})
-		if data.DenyList.DefaultActionAllow != nil {
+		if !data.DenyList.DefaultActionAllow.IsNull() && !data.DenyList.DefaultActionAllow.IsUnknown() {
 			DenyListMap["default_action_allow"] = map[string]interface{}{}
 		}
-		if data.DenyList.DefaultActionDeny != nil {
+		if !data.DenyList.DefaultActionDeny.IsNull() && !data.DenyList.DefaultActionDeny.IsUnknown() {
 			DenyListMap["default_action_deny"] = map[string]interface{}{}
 		}
-		if data.DenyList.DefaultActionNextPolicy != nil {
+		if !data.DenyList.DefaultActionNextPolicy.IsNull() && !data.DenyList.DefaultActionNextPolicy.IsUnknown() {
 			DenyListMap["default_action_next_policy"] = map[string]interface{}{}
 		}
 		if !data.DenyList.DestList.IsNull() && !data.DenyList.DestList.IsUnknown() {
@@ -1466,7 +1509,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 				var HTTPListList []map[string]interface{}
 				for _, HTTPListItem := range HTTPListElems {
 					HTTPListItemMap := make(map[string]interface{})
-					if HTTPListItem.AnyPath != nil {
+					if !HTTPListItem.AnyPath.IsNull() && !HTTPListItem.AnyPath.IsUnknown() {
 						HTTPListItemMap["any_path"] = map[string]interface{}{}
 					}
 					if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
@@ -1516,7 +1559,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 		}
 		createReq.Spec["deny_list"] = DenyListMap
 	}
-	if data.DrpHTTPConnect != nil {
+	if !data.DrpHTTPConnect.IsNull() && !data.DrpHTTPConnect.IsUnknown() {
 		createReq.Spec["drp_http_connect"] = map[string]interface{}{}
 	}
 	if data.NetworkConnector != nil {
@@ -1554,10 +1597,10 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 					if !RulesItem.Action.IsNull() && !RulesItem.Action.IsUnknown() {
 						RulesItemMap["action"] = RulesItem.Action.ValueString()
 					}
-					if RulesItem.AllDestinations != nil {
+					if !RulesItem.AllDestinations.IsNull() && !RulesItem.AllDestinations.IsUnknown() {
 						RulesItemMap["all_destinations"] = map[string]interface{}{}
 					}
-					if RulesItem.AllSources != nil {
+					if !RulesItem.AllSources.IsNull() && !RulesItem.AllSources.IsUnknown() {
 						RulesItemMap["all_sources"] = map[string]interface{}{}
 					}
 					if RulesItem.DstAsnList != nil {
@@ -1626,7 +1669,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 								var HTTPListList []map[string]interface{}
 								for _, HTTPListItem := range HTTPListElems {
 									HTTPListItemMap := make(map[string]interface{})
-									if HTTPListItem.AnyPath != nil {
+									if !HTTPListItem.AnyPath.IsNull() && !HTTPListItem.AnyPath.IsUnknown() {
 										HTTPListItemMap["any_path"] = map[string]interface{}{}
 									}
 									if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
@@ -1686,7 +1729,7 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						}
 						RulesItemMap["metadata"] = RuleListRulesMetadataMap
 					}
-					if RulesItem.NoHTTPConnectPort != nil {
+					if !RulesItem.NoHTTPConnectPort.IsNull() && !RulesItem.NoHTTPConnectPort.IsUnknown() {
 						RulesItemMap["no_http_connect_port"] = map[string]interface{}{}
 					}
 					if RulesItem.PortMatcher != nil {
@@ -1800,37 +1843,41 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok && isImport && data.AllowAll == nil {
-		data.AllowAll = &ForwardProxyPolicyEmptyModel{}
+	if !isImport && !data.AllowAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok {
+		data.AllowAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAll = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["allow_list"].(map[string]interface{}); ok && (isImport || data.AllowList != nil) {
 		data.AllowList = &ForwardProxyPolicyAllowListModel{
-			DefaultActionAllow: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionAllow.IsUnknown() {
 					return data.AllowList.DefaultActionAllow
 				}
 				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionDeny: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionDeny.IsUnknown() {
 					return data.AllowList.DefaultActionDeny
 				}
 				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionNextPolicy: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionNextPolicy.IsUnknown() {
 					return data.AllowList.DefaultActionNextPolicy
 				}
 				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DestList: func() types.List {
 				if !isImport && data.AllowList != nil && (data.AllowList.DestList.IsNull() || len(data.AllowList.DestList.Elements()) == 0) {
@@ -1902,14 +1949,14 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						_ = HTTPListIdx
 						if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 							HTTPListResult = append(HTTPListResult, ForwardProxyPolicyAllowListHTTPListModel{
-								AnyPath: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(HTTPListExisting) > HTTPListIdx {
+								AnyPath: func() types.Object {
+									if !isImport && len(HTTPListExisting) > HTTPListIdx && !HTTPListExisting[HTTPListIdx].AnyPath.IsUnknown() {
 										return HTTPListExisting[HTTPListIdx].AnyPath
 									}
 									if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ExactValue: func() types.String {
 									if v, ok := HTTPListItemMap["exact_value"].(string); ok && v != "" {
@@ -1997,37 +2044,41 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["any_proxy"].(map[string]interface{}); ok && isImport && data.AnyProxy == nil {
-		data.AnyProxy = &ForwardProxyPolicyEmptyModel{}
+	if !isImport && !data.AnyProxy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["any_proxy"].(map[string]interface{}); ok {
+		data.AnyProxy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AnyProxy = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["deny_list"].(map[string]interface{}); ok && (isImport || data.DenyList != nil) {
 		data.DenyList = &ForwardProxyPolicyDenyListModel{
-			DefaultActionAllow: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionAllow.IsUnknown() {
 					return data.DenyList.DefaultActionAllow
 				}
 				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionDeny: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionDeny.IsUnknown() {
 					return data.DenyList.DefaultActionDeny
 				}
 				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionNextPolicy: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionNextPolicy.IsUnknown() {
 					return data.DenyList.DefaultActionNextPolicy
 				}
 				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DestList: func() types.List {
 				if !isImport && data.DenyList != nil && (data.DenyList.DestList.IsNull() || len(data.DenyList.DestList.Elements()) == 0) {
@@ -2099,14 +2150,14 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						_ = HTTPListIdx
 						if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 							HTTPListResult = append(HTTPListResult, ForwardProxyPolicyDenyListHTTPListModel{
-								AnyPath: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(HTTPListExisting) > HTTPListIdx {
+								AnyPath: func() types.Object {
+									if !isImport && len(HTTPListExisting) > HTTPListIdx && !HTTPListExisting[HTTPListIdx].AnyPath.IsUnknown() {
 										return HTTPListExisting[HTTPListIdx].AnyPath
 									}
 									if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ExactValue: func() types.String {
 									if v, ok := HTTPListItemMap["exact_value"].(string); ok && v != "" {
@@ -2194,8 +2245,12 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["drp_http_connect"].(map[string]interface{}); ok && isImport && data.DrpHTTPConnect == nil {
-		data.DrpHTTPConnect = &ForwardProxyPolicyEmptyModel{}
+	if !isImport && !data.DrpHTTPConnect.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["drp_http_connect"].(map[string]interface{}); ok {
+		data.DrpHTTPConnect = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DrpHTTPConnect = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["network_connector"].(map[string]interface{}); ok && (isImport || data.NetworkConnector != nil) {
 		data.NetworkConnector = &ForwardProxyPolicyNetworkConnectorModel{
@@ -2259,23 +2314,23 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 									}
 									return types.StringNull()
 								}(),
-								AllDestinations: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllDestinations.IsUnknown() {
 										return RulesExisting[RulesIdx].AllDestinations
 									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllSources: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSources.IsUnknown() {
 										return RulesExisting[RulesIdx].AllSources
 									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								DstAsnList: func() *ForwardProxyPolicyRuleListRulesDstAsnListModel {
 									if DstAsnListData, ok := RulesItemMap["dst_asn_list"].(map[string]interface{}); ok {
@@ -2407,14 +2462,14 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 														_ = HTTPListIdx
 														if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 															HTTPListResult = append(HTTPListResult, ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel{
-																AnyPath: func() *ForwardProxyPolicyEmptyModel {
-																	if !isImport && len(HTTPListExisting) > HTTPListIdx {
+																AnyPath: func() types.Object {
+																	if !isImport && len(HTTPListExisting) > HTTPListIdx && !HTTPListExisting[HTTPListIdx].AnyPath.IsUnknown() {
 																		return HTTPListExisting[HTTPListIdx].AnyPath
 																	}
 																	if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
-																		return &ForwardProxyPolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																ExactValue: func() types.String {
 																	if v, ok := HTTPListItemMap["exact_value"].(string); ok && v != "" {
@@ -2529,14 +2584,14 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 									}
 									return nil
 								}(),
-								NoHTTPConnectPort: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								NoHTTPConnectPort: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].NoHTTPConnectPort.IsUnknown() {
 										return RulesExisting[RulesIdx].NoHTTPConnectPort
 									}
 									if _, ok := RulesItemMap["no_http_connect_port"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								PortMatcher: func() *ForwardProxyPolicyRuleListRulesPortMatcherModel {
 									if PortMatcherData, ok := RulesItemMap["port_matcher"].(map[string]interface{}); ok {
@@ -2798,37 +2853,41 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok && isImport && data.AllowAll == nil {
-		data.AllowAll = &ForwardProxyPolicyEmptyModel{}
+	if !isImport && !data.AllowAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok {
+		data.AllowAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAll = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["allow_list"].(map[string]interface{}); ok && (isImport || data.AllowList != nil) {
 		data.AllowList = &ForwardProxyPolicyAllowListModel{
-			DefaultActionAllow: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionAllow.IsUnknown() {
 					return data.AllowList.DefaultActionAllow
 				}
 				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionDeny: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionDeny.IsUnknown() {
 					return data.AllowList.DefaultActionDeny
 				}
 				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionNextPolicy: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionNextPolicy.IsUnknown() {
 					return data.AllowList.DefaultActionNextPolicy
 				}
 				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DestList: func() types.List {
 				if !isImport && data.AllowList != nil && (data.AllowList.DestList.IsNull() || len(data.AllowList.DestList.Elements()) == 0) {
@@ -2900,14 +2959,14 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 						_ = HTTPListIdx
 						if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 							HTTPListResult = append(HTTPListResult, ForwardProxyPolicyAllowListHTTPListModel{
-								AnyPath: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(HTTPListExisting) > HTTPListIdx {
+								AnyPath: func() types.Object {
+									if !isImport && len(HTTPListExisting) > HTTPListIdx && !HTTPListExisting[HTTPListIdx].AnyPath.IsUnknown() {
 										return HTTPListExisting[HTTPListIdx].AnyPath
 									}
 									if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ExactValue: func() types.String {
 									if v, ok := HTTPListItemMap["exact_value"].(string); ok && v != "" {
@@ -2995,37 +3054,41 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["any_proxy"].(map[string]interface{}); ok && isImport && data.AnyProxy == nil {
-		data.AnyProxy = &ForwardProxyPolicyEmptyModel{}
+	if !isImport && !data.AnyProxy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["any_proxy"].(map[string]interface{}); ok {
+		data.AnyProxy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AnyProxy = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["deny_list"].(map[string]interface{}); ok && (isImport || data.DenyList != nil) {
 		data.DenyList = &ForwardProxyPolicyDenyListModel{
-			DefaultActionAllow: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionAllow.IsUnknown() {
 					return data.DenyList.DefaultActionAllow
 				}
 				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionDeny: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionDeny.IsUnknown() {
 					return data.DenyList.DefaultActionDeny
 				}
 				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionNextPolicy: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionNextPolicy.IsUnknown() {
 					return data.DenyList.DefaultActionNextPolicy
 				}
 				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DestList: func() types.List {
 				if !isImport && data.DenyList != nil && (data.DenyList.DestList.IsNull() || len(data.DenyList.DestList.Elements()) == 0) {
@@ -3097,14 +3160,14 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 						_ = HTTPListIdx
 						if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 							HTTPListResult = append(HTTPListResult, ForwardProxyPolicyDenyListHTTPListModel{
-								AnyPath: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(HTTPListExisting) > HTTPListIdx {
+								AnyPath: func() types.Object {
+									if !isImport && len(HTTPListExisting) > HTTPListIdx && !HTTPListExisting[HTTPListIdx].AnyPath.IsUnknown() {
 										return HTTPListExisting[HTTPListIdx].AnyPath
 									}
 									if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ExactValue: func() types.String {
 									if v, ok := HTTPListItemMap["exact_value"].(string); ok && v != "" {
@@ -3192,8 +3255,12 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["drp_http_connect"].(map[string]interface{}); ok && isImport && data.DrpHTTPConnect == nil {
-		data.DrpHTTPConnect = &ForwardProxyPolicyEmptyModel{}
+	if !isImport && !data.DrpHTTPConnect.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["drp_http_connect"].(map[string]interface{}); ok {
+		data.DrpHTTPConnect = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DrpHTTPConnect = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["network_connector"].(map[string]interface{}); ok && (isImport || data.NetworkConnector != nil) {
 		data.NetworkConnector = &ForwardProxyPolicyNetworkConnectorModel{
@@ -3257,23 +3324,23 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 									}
 									return types.StringNull()
 								}(),
-								AllDestinations: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllDestinations.IsUnknown() {
 										return RulesExisting[RulesIdx].AllDestinations
 									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllSources: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSources.IsUnknown() {
 										return RulesExisting[RulesIdx].AllSources
 									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								DstAsnList: func() *ForwardProxyPolicyRuleListRulesDstAsnListModel {
 									if DstAsnListData, ok := RulesItemMap["dst_asn_list"].(map[string]interface{}); ok {
@@ -3405,14 +3472,14 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 														_ = HTTPListIdx
 														if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 															HTTPListResult = append(HTTPListResult, ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel{
-																AnyPath: func() *ForwardProxyPolicyEmptyModel {
-																	if !isImport && len(HTTPListExisting) > HTTPListIdx {
+																AnyPath: func() types.Object {
+																	if !isImport && len(HTTPListExisting) > HTTPListIdx && !HTTPListExisting[HTTPListIdx].AnyPath.IsUnknown() {
 																		return HTTPListExisting[HTTPListIdx].AnyPath
 																	}
 																	if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
-																		return &ForwardProxyPolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																ExactValue: func() types.String {
 																	if v, ok := HTTPListItemMap["exact_value"].(string); ok && v != "" {
@@ -3527,14 +3594,14 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 									}
 									return nil
 								}(),
-								NoHTTPConnectPort: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								NoHTTPConnectPort: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].NoHTTPConnectPort.IsUnknown() {
 										return RulesExisting[RulesIdx].NoHTTPConnectPort
 									}
 									if _, ok := RulesItemMap["no_http_connect_port"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								PortMatcher: func() *ForwardProxyPolicyRuleListRulesPortMatcherModel {
 									if PortMatcherData, ok := RulesItemMap["port_matcher"].(map[string]interface{}); ok {
@@ -3759,18 +3826,18 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.AllowAll != nil {
+	if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() {
 		apiResource.Spec["allow_all"] = map[string]interface{}{}
 	}
 	if data.AllowList != nil {
 		AllowListMap := make(map[string]interface{})
-		if data.AllowList.DefaultActionAllow != nil {
+		if !data.AllowList.DefaultActionAllow.IsNull() && !data.AllowList.DefaultActionAllow.IsUnknown() {
 			AllowListMap["default_action_allow"] = map[string]interface{}{}
 		}
-		if data.AllowList.DefaultActionDeny != nil {
+		if !data.AllowList.DefaultActionDeny.IsNull() && !data.AllowList.DefaultActionDeny.IsUnknown() {
 			AllowListMap["default_action_deny"] = map[string]interface{}{}
 		}
-		if data.AllowList.DefaultActionNextPolicy != nil {
+		if !data.AllowList.DefaultActionNextPolicy.IsNull() && !data.AllowList.DefaultActionNextPolicy.IsUnknown() {
 			AllowListMap["default_action_next_policy"] = map[string]interface{}{}
 		}
 		if !data.AllowList.DestList.IsNull() && !data.AllowList.DestList.IsUnknown() {
@@ -3813,7 +3880,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 				var HTTPListList []map[string]interface{}
 				for _, HTTPListItem := range HTTPListElems {
 					HTTPListItemMap := make(map[string]interface{})
-					if HTTPListItem.AnyPath != nil {
+					if !HTTPListItem.AnyPath.IsNull() && !HTTPListItem.AnyPath.IsUnknown() {
 						HTTPListItemMap["any_path"] = map[string]interface{}{}
 					}
 					if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
@@ -3863,18 +3930,18 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 		}
 		apiResource.Spec["allow_list"] = AllowListMap
 	}
-	if data.AnyProxy != nil {
+	if !data.AnyProxy.IsNull() && !data.AnyProxy.IsUnknown() {
 		apiResource.Spec["any_proxy"] = map[string]interface{}{}
 	}
 	if data.DenyList != nil {
 		DenyListMap := make(map[string]interface{})
-		if data.DenyList.DefaultActionAllow != nil {
+		if !data.DenyList.DefaultActionAllow.IsNull() && !data.DenyList.DefaultActionAllow.IsUnknown() {
 			DenyListMap["default_action_allow"] = map[string]interface{}{}
 		}
-		if data.DenyList.DefaultActionDeny != nil {
+		if !data.DenyList.DefaultActionDeny.IsNull() && !data.DenyList.DefaultActionDeny.IsUnknown() {
 			DenyListMap["default_action_deny"] = map[string]interface{}{}
 		}
-		if data.DenyList.DefaultActionNextPolicy != nil {
+		if !data.DenyList.DefaultActionNextPolicy.IsNull() && !data.DenyList.DefaultActionNextPolicy.IsUnknown() {
 			DenyListMap["default_action_next_policy"] = map[string]interface{}{}
 		}
 		if !data.DenyList.DestList.IsNull() && !data.DenyList.DestList.IsUnknown() {
@@ -3917,7 +3984,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 				var HTTPListList []map[string]interface{}
 				for _, HTTPListItem := range HTTPListElems {
 					HTTPListItemMap := make(map[string]interface{})
-					if HTTPListItem.AnyPath != nil {
+					if !HTTPListItem.AnyPath.IsNull() && !HTTPListItem.AnyPath.IsUnknown() {
 						HTTPListItemMap["any_path"] = map[string]interface{}{}
 					}
 					if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
@@ -3967,7 +4034,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 		}
 		apiResource.Spec["deny_list"] = DenyListMap
 	}
-	if data.DrpHTTPConnect != nil {
+	if !data.DrpHTTPConnect.IsNull() && !data.DrpHTTPConnect.IsUnknown() {
 		apiResource.Spec["drp_http_connect"] = map[string]interface{}{}
 	}
 	if data.NetworkConnector != nil {
@@ -4005,10 +4072,10 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 					if !RulesItem.Action.IsNull() && !RulesItem.Action.IsUnknown() {
 						RulesItemMap["action"] = RulesItem.Action.ValueString()
 					}
-					if RulesItem.AllDestinations != nil {
+					if !RulesItem.AllDestinations.IsNull() && !RulesItem.AllDestinations.IsUnknown() {
 						RulesItemMap["all_destinations"] = map[string]interface{}{}
 					}
-					if RulesItem.AllSources != nil {
+					if !RulesItem.AllSources.IsNull() && !RulesItem.AllSources.IsUnknown() {
 						RulesItemMap["all_sources"] = map[string]interface{}{}
 					}
 					if RulesItem.DstAsnList != nil {
@@ -4077,7 +4144,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 								var HTTPListList []map[string]interface{}
 								for _, HTTPListItem := range HTTPListElems {
 									HTTPListItemMap := make(map[string]interface{})
-									if HTTPListItem.AnyPath != nil {
+									if !HTTPListItem.AnyPath.IsNull() && !HTTPListItem.AnyPath.IsUnknown() {
 										HTTPListItemMap["any_path"] = map[string]interface{}{}
 									}
 									if !HTTPListItem.ExactValue.IsNull() && !HTTPListItem.ExactValue.IsUnknown() {
@@ -4137,7 +4204,7 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						}
 						RulesItemMap["metadata"] = RuleListRulesMetadataMap
 					}
-					if RulesItem.NoHTTPConnectPort != nil {
+					if !RulesItem.NoHTTPConnectPort.IsNull() && !RulesItem.NoHTTPConnectPort.IsUnknown() {
 						RulesItemMap["no_http_connect_port"] = map[string]interface{}{}
 					}
 					if RulesItem.PortMatcher != nil {
@@ -4271,37 +4338,41 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok && isImport && data.AllowAll == nil {
-		data.AllowAll = &ForwardProxyPolicyEmptyModel{}
+	if !isImport && !data.AllowAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok {
+		data.AllowAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAll = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["allow_list"].(map[string]interface{}); ok && (isImport || data.AllowList != nil) {
 		data.AllowList = &ForwardProxyPolicyAllowListModel{
-			DefaultActionAllow: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionAllow.IsUnknown() {
 					return data.AllowList.DefaultActionAllow
 				}
 				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionDeny: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionDeny.IsUnknown() {
 					return data.AllowList.DefaultActionDeny
 				}
 				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionNextPolicy: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.AllowList != nil {
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.AllowList != nil && !data.AllowList.DefaultActionNextPolicy.IsUnknown() {
 					return data.AllowList.DefaultActionNextPolicy
 				}
 				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DestList: func() types.List {
 				if !isImport && data.AllowList != nil && (data.AllowList.DestList.IsNull() || len(data.AllowList.DestList.Elements()) == 0) {
@@ -4373,14 +4444,14 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						_ = HTTPListIdx
 						if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 							HTTPListResult = append(HTTPListResult, ForwardProxyPolicyAllowListHTTPListModel{
-								AnyPath: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(HTTPListExisting) > HTTPListIdx {
+								AnyPath: func() types.Object {
+									if !isImport && len(HTTPListExisting) > HTTPListIdx && !HTTPListExisting[HTTPListIdx].AnyPath.IsUnknown() {
 										return HTTPListExisting[HTTPListIdx].AnyPath
 									}
 									if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ExactValue: func() types.String {
 									if v, ok := HTTPListItemMap["exact_value"].(string); ok && v != "" {
@@ -4468,37 +4539,41 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["any_proxy"].(map[string]interface{}); ok && isImport && data.AnyProxy == nil {
-		data.AnyProxy = &ForwardProxyPolicyEmptyModel{}
+	if !isImport && !data.AnyProxy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["any_proxy"].(map[string]interface{}); ok {
+		data.AnyProxy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AnyProxy = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["deny_list"].(map[string]interface{}); ok && (isImport || data.DenyList != nil) {
 		data.DenyList = &ForwardProxyPolicyDenyListModel{
-			DefaultActionAllow: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionAllow: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionAllow.IsUnknown() {
 					return data.DenyList.DefaultActionAllow
 				}
 				if _, ok := blockData["default_action_allow"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionDeny: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionDeny: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionDeny.IsUnknown() {
 					return data.DenyList.DefaultActionDeny
 				}
 				if _, ok := blockData["default_action_deny"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DefaultActionNextPolicy: func() *ForwardProxyPolicyEmptyModel {
-				if !isImport && data.DenyList != nil {
+			DefaultActionNextPolicy: func() types.Object {
+				if !isImport && data.DenyList != nil && !data.DenyList.DefaultActionNextPolicy.IsUnknown() {
 					return data.DenyList.DefaultActionNextPolicy
 				}
 				if _, ok := blockData["default_action_next_policy"].(map[string]interface{}); ok {
-					return &ForwardProxyPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DestList: func() types.List {
 				if !isImport && data.DenyList != nil && (data.DenyList.DestList.IsNull() || len(data.DenyList.DestList.Elements()) == 0) {
@@ -4570,14 +4645,14 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						_ = HTTPListIdx
 						if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 							HTTPListResult = append(HTTPListResult, ForwardProxyPolicyDenyListHTTPListModel{
-								AnyPath: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(HTTPListExisting) > HTTPListIdx {
+								AnyPath: func() types.Object {
+									if !isImport && len(HTTPListExisting) > HTTPListIdx && !HTTPListExisting[HTTPListIdx].AnyPath.IsUnknown() {
 										return HTTPListExisting[HTTPListIdx].AnyPath
 									}
 									if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ExactValue: func() types.String {
 									if v, ok := HTTPListItemMap["exact_value"].(string); ok && v != "" {
@@ -4665,8 +4740,12 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["drp_http_connect"].(map[string]interface{}); ok && isImport && data.DrpHTTPConnect == nil {
-		data.DrpHTTPConnect = &ForwardProxyPolicyEmptyModel{}
+	if !isImport && !data.DrpHTTPConnect.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["drp_http_connect"].(map[string]interface{}); ok {
+		data.DrpHTTPConnect = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DrpHTTPConnect = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["network_connector"].(map[string]interface{}); ok && (isImport || data.NetworkConnector != nil) {
 		data.NetworkConnector = &ForwardProxyPolicyNetworkConnectorModel{
@@ -4730,23 +4809,23 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 									}
 									return types.StringNull()
 								}(),
-								AllDestinations: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllDestinations.IsUnknown() {
 										return RulesExisting[RulesIdx].AllDestinations
 									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllSources: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSources.IsUnknown() {
 										return RulesExisting[RulesIdx].AllSources
 									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								DstAsnList: func() *ForwardProxyPolicyRuleListRulesDstAsnListModel {
 									if DstAsnListData, ok := RulesItemMap["dst_asn_list"].(map[string]interface{}); ok {
@@ -4878,14 +4957,14 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 														_ = HTTPListIdx
 														if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 															HTTPListResult = append(HTTPListResult, ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel{
-																AnyPath: func() *ForwardProxyPolicyEmptyModel {
-																	if !isImport && len(HTTPListExisting) > HTTPListIdx {
+																AnyPath: func() types.Object {
+																	if !isImport && len(HTTPListExisting) > HTTPListIdx && !HTTPListExisting[HTTPListIdx].AnyPath.IsUnknown() {
 																		return HTTPListExisting[HTTPListIdx].AnyPath
 																	}
 																	if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
-																		return &ForwardProxyPolicyEmptyModel{}
+																		return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																	}
-																	return nil
+																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																ExactValue: func() types.String {
 																	if v, ok := HTTPListItemMap["exact_value"].(string); ok && v != "" {
@@ -5000,14 +5079,14 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 									}
 									return nil
 								}(),
-								NoHTTPConnectPort: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								NoHTTPConnectPort: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].NoHTTPConnectPort.IsUnknown() {
 										return RulesExisting[RulesIdx].NoHTTPConnectPort
 									}
 									if _, ok := RulesItemMap["no_http_connect_port"].(map[string]interface{}); ok {
-										return &ForwardProxyPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								PortMatcher: func() *ForwardProxyPolicyRuleListRulesPortMatcherModel {
 									if PortMatcherData, ok := RulesItemMap["port_matcher"].(map[string]interface{}); ok {

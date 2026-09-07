@@ -301,7 +301,7 @@ func evaluateSiteUpgradeTargets(status siteUpgradeStatus, upgradable []string, p
 }
 
 func (d *SiteUpgradeStatusDataSource) observe(ctx context.Context, namespace, site, expectedSoftware, expectedOS string) (siteUpgradeSnapshot, error) {
-	rawStatus, err := d.client.GetSMSv2SiteUpgradeStatus(ctx, namespace, site)
+	rawStatus, err := d.client.GetSMSv2SiteStatus(ctx, namespace, site)
 	if err != nil {
 		return siteUpgradeSnapshot{}, fmt.Errorf("site upgrade status request failed")
 	}

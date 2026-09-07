@@ -39,7 +39,7 @@ resource "xcsh_cdn_cache_rule" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -75,13 +75,17 @@ In addition to all arguments above, the following attributes are exported:
 
 A [`cache_rules`](#cache-rules) block supports the following:
 
-<a id="cache-rules-cache-bypass"></a>&#x2022; [`cache_bypass`](#cache-rules-cache-bypass) - Optional Block<br>Configuration parameter for cache bypass
+<a id="cache-rules-cache-bypass"></a>&#x2022; [`cache_bypass`](#cache-rules-cache-bypass) - Optional Object<br>Configuration parameter for cache bypass
 
 <a id="cache-rules-eligible-for-cache"></a>&#x2022; [`eligible_for_cache`](#cache-rules-eligible-for-cache) - Optional Block<br>Configuration parameter for eligible for cache<br>See [Eligible For Cache](#cache-rules-eligible-for-cache) below.
 
 <a id="cache-rules-rule-expression-list"></a>&#x2022; [`rule_expression_list`](#cache-rules-rule-expression-list) - Optional Block<br>Expressions are evaluated in the order in which they are specified. The evaluation stops when the first rule match occurs<br>See [Rule Expression List](#cache-rules-rule-expression-list) below.
 
 <a id="cache-rules-rule-name"></a>&#x2022; [`rule_name`](#cache-rules-rule-name) - Optional String<br>Rule Name. Name of the Cache Rule
+
+#### Cache Rules Cache Bypass
+
+A [`cache_bypass`](#cache-rules-cache-bypass) block (within [`cache_rules`](#cache-rules)) supports the following:
 
 #### Cache Rules Eligible For Cache
 

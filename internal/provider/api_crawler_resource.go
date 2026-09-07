@@ -213,6 +213,7 @@ func (r *APICrawlerResource) Schema(ctx context.Context, req resource.SchemaRequ
 							Blocks: map[string]schema.Block{
 								"password": schema.SingleNestedBlock{
 									MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"blindfold_secret_info": schema.SingleNestedBlock{

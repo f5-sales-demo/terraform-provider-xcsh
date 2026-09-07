@@ -12,6 +12,9 @@ import (
 // AttrTypes are generated for any nested model that has ANY nested attributes (block or non-block).
 func HasNestedModelsWithAttrTypes(attributes []openapi.TerraformAttribute) bool {
 	for _, attr := range attributes {
+		if attr.EmptyObjectMarker {
+			return true
+		}
 		if attr.IsBlock {
 			// If this block has ANY nested attributes, AttrTypes will be generated for it
 			if len(attr.NestedAttributes) > 0 {
@@ -19,6 +22,9 @@ func HasNestedModelsWithAttrTypes(attributes []openapi.TerraformAttribute) bool 
 			}
 			// Note: Even if NestedAttributes is empty, we don't need to recurse
 			// because empty blocks use EmptyModel which doesn't have AttrTypes
+		}
+		if HasNestedModelsWithAttrTypes(attr.NestedAttributes) {
+			return true
 		}
 	}
 	return false
@@ -147,6 +153,9 @@ func HasInt64RangeValidatorsAny(attributes []openapi.TerraformAttribute) bool {
 // ScanPlanModifierUsage recursively scans attributes to determine which plan modifier imports are needed.
 func ScanPlanModifierUsage(attributes []openapi.TerraformAttribute) (usesBool, usesInt64, usesString, usesList, usesMap bool) {
 	for _, attr := range attributes {
+		if attr.IsBlock && attr.NestedBlockType == "list" && attr.PlanModifier == "RequiresReplace" {
+			usesList = true
+		}
 		if attr.PlanModifier != "" && !attr.IsBlock {
 			switch attr.Type {
 			case "bool":
@@ -173,12 +182,29 @@ func ScanPlanModifierUsage(attributes []openapi.TerraformAttribute) (usesBool, u
 	return
 }
 
+// HasImmutableObjectBlock reports whether any object block or object attribute
+// uses an object plan modifier. The historical name is retained because object
+// blocks originally supported only RequiresReplace.
+func HasImmutableObjectBlock(attributes []openapi.TerraformAttribute) bool {
+	for _, attr := range attributes {
+		if (attr.IsBlock && attr.NestedBlockType != "list" && attr.PlanModifier == "RequiresReplace") ||
+			(!attr.IsBlock && attr.Type == "object" && attr.PlanModifier != "") {
+			return true
+		}
+		if HasImmutableObjectBlock(attr.NestedAttributes) {
+			return true
+		}
+	}
+	return false
+}
+
 // RefreshResourcePlanModifierUsage recalculates template import flags after a
 // caller mutates resource attributes. Generator orchestration can apply
 // RequiresReplace after extraction (for resources without an update
 // operation), so the flags captured during extraction are no longer
 // authoritative at render time.
 func RefreshResourcePlanModifierUsage(resource *openapi.ResourceTemplate) {
+	resource.UsesObjectPlanModifier = HasImmutableObjectBlock(resource.Attributes)
 	resource.UsesBoolPlanModifier,
 		resource.UsesInt64PlanModifier,
 		resource.UsesStringPlanModifier,

@@ -39,7 +39,7 @@ resource "xcsh_waf_exclusion_policy" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -111,9 +111,9 @@ A [`timeouts`](#timeouts) block supports the following:
 
 A [`waf_exclusion_rules`](#waf-exclusion-rules) block supports the following:
 
-<a id="waf-exclusion-rules-any-domain"></a>&#x2022; [`any_domain`](#waf-exclusion-rules-any-domain) - Optional Block<br>Enable this option
+<a id="waf-exclusion-rules-any-domain"></a>&#x2022; [`any_domain`](#waf-exclusion-rules-any-domain) - Optional Object<br>Enable this option
 
-<a id="waf-exclusion-rules-any-path"></a>&#x2022; [`any_path`](#waf-exclusion-rules-any-path) - Optional Block<br>Enable this option
+<a id="waf-exclusion-rules-any-path"></a>&#x2022; [`any_path`](#waf-exclusion-rules-any-path) - Optional Object<br>Enable this option
 
 <a id="control-b277f9"></a>&#x2022; [`app_firewall_detection_control`](#control-b277f9) - Optional Block<br>Define the list of Signature IDs, Violations, Attack Types and Bot Names that should be excluded from triggering on the defined match criteria<br>See [App Firewall Detection Control](#control-b277f9) below.
 
@@ -132,7 +132,15 @@ during create<br>See [Metadata](#waf-exclusion-rules-metadata) below.
 
 <a id="waf-exclusion-rules-suffix-value"></a>&#x2022; [`suffix_value`](#waf-exclusion-rules-suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
 
-<a id="waf-exclusion-rules-waf-skip-processing"></a>&#x2022; [`waf_skip_processing`](#waf-exclusion-rules-waf-skip-processing) - Optional Block<br>Enable this option
+<a id="waf-exclusion-rules-waf-skip-processing"></a>&#x2022; [`waf_skip_processing`](#waf-exclusion-rules-waf-skip-processing) - Optional Object<br>Enable this option
+
+#### WAF Exclusion Rules Any Domain
+
+An [`any_domain`](#waf-exclusion-rules-any-domain) block (within [`waf_exclusion_rules`](#waf-exclusion-rules)) supports the following:
+
+#### WAF Exclusion Rules Any Path
+
+An [`any_path`](#waf-exclusion-rules-any-path) block (within [`waf_exclusion_rules`](#waf-exclusion-rules)) supports the following:
 
 #### WAF Exclusion Rules App Firewall Detection Control
 
@@ -170,6 +178,10 @@ A [`metadata`](#waf-exclusion-rules-metadata) block (within [`waf_exclusion_rule
 <a id="spec-9494c5"></a>&#x2022; [`description_spec`](#spec-9494c5) - Optional String<br>Description. Human readable description
 
 <a id="waf-exclusion-rules-metadata-name"></a>&#x2022; [`name`](#waf-exclusion-rules-metadata-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### WAF Exclusion Rules WAF Skip Processing
+
+A [`waf_skip_processing`](#waf-exclusion-rules-waf-skip-processing) block (within [`waf_exclusion_rules`](#waf-exclusion-rules)) supports the following:
 
 ---
 

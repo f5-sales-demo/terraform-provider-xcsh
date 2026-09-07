@@ -20,6 +20,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
@@ -119,16 +120,16 @@ var AzureVNETSiteBlockedServicesModelAttrTypes = map[string]attr.Type{
 
 // AzureVNETSiteBlockedServicesBlockedServiceModel represents blocked_service block
 type AzureVNETSiteBlockedServicesBlockedServiceModel struct {
-	NetworkType      types.String             `tfsdk:"network_type"`
-	DNS              *AzureVNETSiteEmptyModel `tfsdk:"dns"`
-	SSH              *AzureVNETSiteEmptyModel `tfsdk:"ssh"`
-	WebUserInterface *AzureVNETSiteEmptyModel `tfsdk:"web_user_interface"`
+	DNS              types.Object `tfsdk:"dns"`
+	NetworkType      types.String `tfsdk:"network_type"`
+	SSH              types.Object `tfsdk:"ssh"`
+	WebUserInterface types.Object `tfsdk:"web_user_interface"`
 }
 
 // AzureVNETSiteBlockedServicesBlockedServiceModelAttrTypes defines the attribute types for AzureVNETSiteBlockedServicesBlockedServiceModel
 var AzureVNETSiteBlockedServicesBlockedServiceModelAttrTypes = map[string]attr.Type{
-	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"network_type":       types.StringType,
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"web_user_interface": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -172,6 +173,16 @@ var AzureVNETSiteEnableEncryptionModelAttrTypes = map[string]attr.Type{
 // AzureVNETSiteIngressEgressGwModel represents ingress_egress_gw block
 type AzureVNETSiteIngressEgressGwModel struct {
 	AzureCertifiedHw               types.String                                                     `tfsdk:"azure_certified_hw"`
+	ForwardProxyAllowAll           types.Object                                                     `tfsdk:"forward_proxy_allow_all"`
+	NoDcClusterGroup               types.Object                                                     `tfsdk:"no_dc_cluster_group"`
+	NoForwardProxy                 types.Object                                                     `tfsdk:"no_forward_proxy"`
+	NoGlobalNetwork                types.Object                                                     `tfsdk:"no_global_network"`
+	NoInsideStaticRoutes           types.Object                                                     `tfsdk:"no_inside_static_routes"`
+	NoNetworkPolicy                types.Object                                                     `tfsdk:"no_network_policy"`
+	NoOutsideStaticRoutes          types.Object                                                     `tfsdk:"no_outside_static_routes"`
+	NotHub                         types.Object                                                     `tfsdk:"not_hub"`
+	SmConnectionPublicIP           types.Object                                                     `tfsdk:"sm_connection_public_ip"`
+	SmConnectionPvtIP              types.Object                                                     `tfsdk:"sm_connection_pvt_ip"`
 	AcceleratedNetworking          *AzureVNETSiteIngressEgressGwAcceleratedNetworkingModel          `tfsdk:"accelerated_networking"`
 	ActiveEnhancedFirewallPolicies *AzureVNETSiteIngressEgressGwActiveEnhancedFirewallPoliciesModel `tfsdk:"active_enhanced_firewall_policies"`
 	ActiveForwardProxyPolicies     *AzureVNETSiteIngressEgressGwActiveForwardProxyPoliciesModel     `tfsdk:"active_forward_proxy_policies"`
@@ -179,37 +190,17 @@ type AzureVNETSiteIngressEgressGwModel struct {
 	AzNodes                        types.List                                                       `tfsdk:"az_nodes"`
 	DcClusterGroupInsideVn         *AzureVNETSiteIngressEgressGwDcClusterGroupInsideVnModel         `tfsdk:"dc_cluster_group_inside_vn"`
 	DcClusterGroupOutsideVn        *AzureVNETSiteIngressEgressGwDcClusterGroupOutsideVnModel        `tfsdk:"dc_cluster_group_outside_vn"`
-	ForwardProxyAllowAll           *AzureVNETSiteEmptyModel                                         `tfsdk:"forward_proxy_allow_all"`
 	GlobalNetworkList              *AzureVNETSiteIngressEgressGwGlobalNetworkListModel              `tfsdk:"global_network_list"`
 	Hub                            *AzureVNETSiteIngressEgressGwHubModel                            `tfsdk:"hub"`
 	InsideStaticRoutes             *AzureVNETSiteIngressEgressGwInsideStaticRoutesModel             `tfsdk:"inside_static_routes"`
-	NoDcClusterGroup               *AzureVNETSiteEmptyModel                                         `tfsdk:"no_dc_cluster_group"`
-	NoForwardProxy                 *AzureVNETSiteEmptyModel                                         `tfsdk:"no_forward_proxy"`
-	NoGlobalNetwork                *AzureVNETSiteEmptyModel                                         `tfsdk:"no_global_network"`
-	NoInsideStaticRoutes           *AzureVNETSiteEmptyModel                                         `tfsdk:"no_inside_static_routes"`
-	NoNetworkPolicy                *AzureVNETSiteEmptyModel                                         `tfsdk:"no_network_policy"`
-	NoOutsideStaticRoutes          *AzureVNETSiteEmptyModel                                         `tfsdk:"no_outside_static_routes"`
-	NotHub                         *AzureVNETSiteEmptyModel                                         `tfsdk:"not_hub"`
 	OutsideStaticRoutes            *AzureVNETSiteIngressEgressGwOutsideStaticRoutesModel            `tfsdk:"outside_static_routes"`
 	PerformanceEnhancementMode     *AzureVNETSiteIngressEgressGwPerformanceEnhancementModeModel     `tfsdk:"performance_enhancement_mode"`
-	SmConnectionPublicIP           *AzureVNETSiteEmptyModel                                         `tfsdk:"sm_connection_public_ip"`
-	SmConnectionPvtIP              *AzureVNETSiteEmptyModel                                         `tfsdk:"sm_connection_pvt_ip"`
 }
 
 // AzureVNETSiteIngressEgressGwModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwModel
 var AzureVNETSiteIngressEgressGwModelAttrTypes = map[string]attr.Type{
 	"azure_certified_hw":                types.StringType,
-	"accelerated_networking":            types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwAcceleratedNetworkingModelAttrTypes},
-	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwActiveEnhancedFirewallPoliciesModelAttrTypes},
-	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwActiveForwardProxyPoliciesModelAttrTypes},
-	"active_network_policies":           types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwActiveNetworkPoliciesModelAttrTypes},
-	"az_nodes":                          types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwAzNodesModelAttrTypes}},
-	"dc_cluster_group_inside_vn":        types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwDcClusterGroupInsideVnModelAttrTypes},
-	"dc_cluster_group_outside_vn":       types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwDcClusterGroupOutsideVnModelAttrTypes},
 	"forward_proxy_allow_all":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"global_network_list":               types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwGlobalNetworkListModelAttrTypes},
-	"hub":                               types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubModelAttrTypes},
-	"inside_static_routes":              types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwInsideStaticRoutesModelAttrTypes},
 	"no_dc_cluster_group":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_forward_proxy":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_global_network":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -217,16 +208,26 @@ var AzureVNETSiteIngressEgressGwModelAttrTypes = map[string]attr.Type{
 	"no_network_policy":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_outside_static_routes":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"not_hub":                           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"outside_static_routes":             types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwOutsideStaticRoutesModelAttrTypes},
-	"performance_enhancement_mode":      types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwPerformanceEnhancementModeModelAttrTypes},
 	"sm_connection_public_ip":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"sm_connection_pvt_ip":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"accelerated_networking":            types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwAcceleratedNetworkingModelAttrTypes},
+	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwActiveEnhancedFirewallPoliciesModelAttrTypes},
+	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwActiveForwardProxyPoliciesModelAttrTypes},
+	"active_network_policies":           types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwActiveNetworkPoliciesModelAttrTypes},
+	"az_nodes":                          types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwAzNodesModelAttrTypes}},
+	"dc_cluster_group_inside_vn":        types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwDcClusterGroupInsideVnModelAttrTypes},
+	"dc_cluster_group_outside_vn":       types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwDcClusterGroupOutsideVnModelAttrTypes},
+	"global_network_list":               types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwGlobalNetworkListModelAttrTypes},
+	"hub":                               types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubModelAttrTypes},
+	"inside_static_routes":              types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwInsideStaticRoutesModelAttrTypes},
+	"outside_static_routes":             types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwOutsideStaticRoutesModelAttrTypes},
+	"performance_enhancement_mode":      types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwPerformanceEnhancementModeModelAttrTypes},
 }
 
 // AzureVNETSiteIngressEgressGwAcceleratedNetworkingModel represents accelerated_networking block
 type AzureVNETSiteIngressEgressGwAcceleratedNetworkingModel struct {
-	DisableSpec *AzureVNETSiteEmptyModel `tfsdk:"disable_spec"`
-	Enable      *AzureVNETSiteEmptyModel `tfsdk:"enable"`
+	DisableSpec types.Object `tfsdk:"disable_spec"`
+	Enable      types.Object `tfsdk:"enable"`
 }
 
 // AzureVNETSiteIngressEgressGwAcceleratedNetworkingModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwAcceleratedNetworkingModel
@@ -335,9 +336,9 @@ var AzureVNETSiteIngressEgressGwAzNodesInsideSubnetModelAttrTypes = map[string]a
 
 // AzureVNETSiteIngressEgressGwAzNodesInsideSubnetSubnetModel represents subnet block
 type AzureVNETSiteIngressEgressGwAzNodesInsideSubnetSubnetModel struct {
-	SubnetName        types.String             `tfsdk:"subnet_name"`
-	SubnetResourceGrp types.String             `tfsdk:"subnet_resource_grp"`
-	VNETResourceGroup *AzureVNETSiteEmptyModel `tfsdk:"vnet_resource_group"`
+	SubnetName        types.String `tfsdk:"subnet_name"`
+	SubnetResourceGrp types.String `tfsdk:"subnet_resource_grp"`
+	VNETResourceGroup types.Object `tfsdk:"vnet_resource_group"`
 }
 
 // AzureVNETSiteIngressEgressGwAzNodesInsideSubnetSubnetModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwAzNodesInsideSubnetSubnetModel
@@ -371,9 +372,9 @@ var AzureVNETSiteIngressEgressGwAzNodesOutsideSubnetModelAttrTypes = map[string]
 
 // AzureVNETSiteIngressEgressGwAzNodesOutsideSubnetSubnetModel represents subnet block
 type AzureVNETSiteIngressEgressGwAzNodesOutsideSubnetSubnetModel struct {
-	SubnetName        types.String             `tfsdk:"subnet_name"`
-	SubnetResourceGrp types.String             `tfsdk:"subnet_resource_grp"`
-	VNETResourceGroup *AzureVNETSiteEmptyModel `tfsdk:"vnet_resource_group"`
+	SubnetName        types.String `tfsdk:"subnet_name"`
+	SubnetResourceGrp types.String `tfsdk:"subnet_resource_grp"`
+	VNETResourceGroup types.Object `tfsdk:"vnet_resource_group"`
 }
 
 // AzureVNETSiteIngressEgressGwAzNodesOutsideSubnetSubnetModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwAzNodesOutsideSubnetSubnetModel
@@ -493,7 +494,7 @@ var AzureVNETSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGl
 
 // AzureVNETSiteIngressEgressGwHubModel represents hub block
 type AzureVNETSiteIngressEgressGwHubModel struct {
-	ExpressRouteDisabled *AzureVNETSiteEmptyModel                                 `tfsdk:"express_route_disabled"`
+	ExpressRouteDisabled types.Object                                             `tfsdk:"express_route_disabled"`
 	ExpressRouteEnabled  *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledModel `tfsdk:"express_route_enabled"`
 	SpokeVnets           types.List                                               `tfsdk:"spoke_vnets"`
 }
@@ -507,36 +508,36 @@ var AzureVNETSiteIngressEgressGwHubModelAttrTypes = map[string]attr.Type{
 
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledModel represents express_route_enabled block
 type AzureVNETSiteIngressEgressGwHubExpressRouteEnabledModel struct {
+	AdvertiseToRouteServer           types.Object                                                                             `tfsdk:"advertise_to_route_server"`
+	AutoAsn                          types.Object                                                                             `tfsdk:"auto_asn"`
 	CustomAsn                        types.Int64                                                                              `tfsdk:"custom_asn"`
-	AdvertiseToRouteServer           *AzureVNETSiteEmptyModel                                                                 `tfsdk:"advertise_to_route_server"`
-	AutoAsn                          *AzureVNETSiteEmptyModel                                                                 `tfsdk:"auto_asn"`
+	DoNotAdvertiseToRouteServer      types.Object                                                                             `tfsdk:"do_not_advertise_to_route_server"`
+	SiteRegistrationOverInternet     types.Object                                                                             `tfsdk:"site_registration_over_internet"`
+	SkuErgw1az                       types.Object                                                                             `tfsdk:"sku_ergw1az"`
+	SkuErgw2az                       types.Object                                                                             `tfsdk:"sku_ergw2az"`
+	SkuHighPerf                      types.Object                                                                             `tfsdk:"sku_high_perf"`
+	SkuStandard                      types.Object                                                                             `tfsdk:"sku_standard"`
 	Connections                      types.List                                                                               `tfsdk:"connections"`
-	DoNotAdvertiseToRouteServer      *AzureVNETSiteEmptyModel                                                                 `tfsdk:"do_not_advertise_to_route_server"`
 	GatewaySubnet                    *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetModel                    `tfsdk:"gateway_subnet"`
 	RouteServerSubnet                *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetModel                `tfsdk:"route_server_subnet"`
 	SiteRegistrationOverExpressRoute *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledSiteRegistrationOverExpressRouteModel `tfsdk:"site_registration_over_express_route"`
-	SiteRegistrationOverInternet     *AzureVNETSiteEmptyModel                                                                 `tfsdk:"site_registration_over_internet"`
-	SkuErgw1az                       *AzureVNETSiteEmptyModel                                                                 `tfsdk:"sku_ergw1az"`
-	SkuErgw2az                       *AzureVNETSiteEmptyModel                                                                 `tfsdk:"sku_ergw2az"`
-	SkuHighPerf                      *AzureVNETSiteEmptyModel                                                                 `tfsdk:"sku_high_perf"`
-	SkuStandard                      *AzureVNETSiteEmptyModel                                                                 `tfsdk:"sku_standard"`
 }
 
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwHubExpressRouteEnabledModel
 var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledModelAttrTypes = map[string]attr.Type{
-	"custom_asn":                           types.Int64Type,
 	"advertise_to_route_server":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"auto_asn":                             types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"connections":                          types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsModelAttrTypes}},
+	"custom_asn":                           types.Int64Type,
 	"do_not_advertise_to_route_server":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"gateway_subnet":                       types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetModelAttrTypes},
-	"route_server_subnet":                  types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetModelAttrTypes},
-	"site_registration_over_express_route": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledSiteRegistrationOverExpressRouteModelAttrTypes},
 	"site_registration_over_internet":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"sku_ergw1az":                          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"sku_ergw2az":                          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"sku_high_perf":                        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"sku_standard":                         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"connections":                          types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsModelAttrTypes}},
+	"gateway_subnet":                       types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetModelAttrTypes},
+	"route_server_subnet":                  types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetModelAttrTypes},
+	"site_registration_over_express_route": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledSiteRegistrationOverExpressRouteModelAttrTypes},
 }
 
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsModel represents connections block
@@ -619,7 +620,7 @@ var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscripti
 
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetModel represents gateway_subnet block
 type AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetModel struct {
-	Auto        *AzureVNETSiteEmptyModel                                                         `tfsdk:"auto"`
+	Auto        types.Object                                                                     `tfsdk:"auto"`
 	Subnet      *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetModel      `tfsdk:"subnet"`
 	SubnetParam *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetParamModel `tfsdk:"subnet_param"`
 }
@@ -633,8 +634,8 @@ var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetModelAttrType
 
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetModel represents subnet block
 type AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetModel struct {
-	SubnetResourceGrp types.String             `tfsdk:"subnet_resource_grp"`
-	VNETResourceGroup *AzureVNETSiteEmptyModel `tfsdk:"vnet_resource_group"`
+	SubnetResourceGrp types.String `tfsdk:"subnet_resource_grp"`
+	VNETResourceGroup types.Object `tfsdk:"vnet_resource_group"`
 }
 
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetModel
@@ -655,7 +656,7 @@ var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetParamMo
 
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetModel represents route_server_subnet block
 type AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetModel struct {
-	Auto        *AzureVNETSiteEmptyModel                                                             `tfsdk:"auto"`
+	Auto        types.Object                                                                         `tfsdk:"auto"`
 	Subnet      *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetModel      `tfsdk:"subnet"`
 	SubnetParam *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetParamModel `tfsdk:"subnet_param"`
 }
@@ -669,8 +670,8 @@ var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetModelAttr
 
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetModel represents subnet block
 type AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetModel struct {
-	SubnetResourceGrp types.String             `tfsdk:"subnet_resource_grp"`
-	VNETResourceGroup *AzureVNETSiteEmptyModel `tfsdk:"vnet_resource_group"`
+	SubnetResourceGrp types.String `tfsdk:"subnet_resource_grp"`
+	VNETResourceGroup types.Object `tfsdk:"vnet_resource_group"`
 }
 
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetModel
@@ -701,34 +702,34 @@ var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledSiteRegistrationOverExpres
 
 // AzureVNETSiteIngressEgressGwHubSpokeVnetsModel represents spoke_vnets block
 type AzureVNETSiteIngressEgressGwHubSpokeVnetsModel struct {
-	Auto   *AzureVNETSiteEmptyModel                            `tfsdk:"auto"`
+	Auto   types.Object                                        `tfsdk:"auto"`
+	Manual types.Object                                        `tfsdk:"manual"`
 	Labels *AzureVNETSiteEmptyModel                            `tfsdk:"labels"`
-	Manual *AzureVNETSiteEmptyModel                            `tfsdk:"manual"`
 	VNET   *AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModel `tfsdk:"vnet"`
 }
 
 // AzureVNETSiteIngressEgressGwHubSpokeVnetsModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwHubSpokeVnetsModel
 var AzureVNETSiteIngressEgressGwHubSpokeVnetsModelAttrTypes = map[string]attr.Type{
 	"auto":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"labels": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"manual": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"labels": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"vnet":   types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModelAttrTypes},
 }
 
 // AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModel represents vnet block
 type AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModel struct {
-	ResourceGroup         types.String             `tfsdk:"resource_group"`
-	VNETName              types.String             `tfsdk:"vnet_name"`
-	F5OrchestratedRouting *AzureVNETSiteEmptyModel `tfsdk:"f5_orchestrated_routing"`
-	ManualRouting         *AzureVNETSiteEmptyModel `tfsdk:"manual_routing"`
+	F5OrchestratedRouting types.Object `tfsdk:"f5_orchestrated_routing"`
+	ManualRouting         types.Object `tfsdk:"manual_routing"`
+	ResourceGroup         types.String `tfsdk:"resource_group"`
+	VNETName              types.String `tfsdk:"vnet_name"`
 }
 
 // AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModel
 var AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModelAttrTypes = map[string]attr.Type{
-	"resource_group":          types.StringType,
-	"vnet_name":               types.StringType,
 	"f5_orchestrated_routing": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"manual_routing":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"resource_group":          types.StringType,
+	"vnet_name":               types.StringType,
 }
 
 // AzureVNETSiteIngressEgressGwInsideStaticRoutesModel represents inside_static_routes block
@@ -1021,8 +1022,8 @@ var AzureVNETSiteIngressEgressGwPerformanceEnhancementModeModelAttrTypes = map[s
 
 // AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
 type AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *AzureVNETSiteEmptyModel `tfsdk:"jumbo"`
-	NoJumbo *AzureVNETSiteEmptyModel `tfsdk:"no_jumbo"`
+	Jumbo   types.Object `tfsdk:"jumbo"`
+	NoJumbo types.Object `tfsdk:"no_jumbo"`
 }
 
 // AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel
@@ -1033,8 +1034,8 @@ var AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMode
 
 // AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
 type AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *AzureVNETSiteEmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *AzureVNETSiteEmptyModel `tfsdk:"jumbo_enabled"`
+	JumboDisabled types.Object `tfsdk:"jumbo_disabled"`
+	JumboEnabled  types.Object `tfsdk:"jumbo_enabled"`
 }
 
 // AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel
@@ -1046,61 +1047,61 @@ var AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMode
 // AzureVNETSiteIngressEgressGwArModel represents ingress_egress_gw_ar block
 type AzureVNETSiteIngressEgressGwArModel struct {
 	AzureCertifiedHw               types.String                                                       `tfsdk:"azure_certified_hw"`
+	ForwardProxyAllowAll           types.Object                                                       `tfsdk:"forward_proxy_allow_all"`
+	NoDcClusterGroup               types.Object                                                       `tfsdk:"no_dc_cluster_group"`
+	NoForwardProxy                 types.Object                                                       `tfsdk:"no_forward_proxy"`
+	NoGlobalNetwork                types.Object                                                       `tfsdk:"no_global_network"`
+	NoInsideStaticRoutes           types.Object                                                       `tfsdk:"no_inside_static_routes"`
+	NoNetworkPolicy                types.Object                                                       `tfsdk:"no_network_policy"`
+	NoOutsideStaticRoutes          types.Object                                                       `tfsdk:"no_outside_static_routes"`
+	NotHub                         types.Object                                                       `tfsdk:"not_hub"`
+	SmConnectionPublicIP           types.Object                                                       `tfsdk:"sm_connection_public_ip"`
+	SmConnectionPvtIP              types.Object                                                       `tfsdk:"sm_connection_pvt_ip"`
 	AcceleratedNetworking          *AzureVNETSiteIngressEgressGwArAcceleratedNetworkingModel          `tfsdk:"accelerated_networking"`
 	ActiveEnhancedFirewallPolicies *AzureVNETSiteIngressEgressGwArActiveEnhancedFirewallPoliciesModel `tfsdk:"active_enhanced_firewall_policies"`
 	ActiveForwardProxyPolicies     *AzureVNETSiteIngressEgressGwArActiveForwardProxyPoliciesModel     `tfsdk:"active_forward_proxy_policies"`
 	ActiveNetworkPolicies          *AzureVNETSiteIngressEgressGwArActiveNetworkPoliciesModel          `tfsdk:"active_network_policies"`
 	DcClusterGroupInsideVn         *AzureVNETSiteIngressEgressGwArDcClusterGroupInsideVnModel         `tfsdk:"dc_cluster_group_inside_vn"`
 	DcClusterGroupOutsideVn        *AzureVNETSiteIngressEgressGwArDcClusterGroupOutsideVnModel        `tfsdk:"dc_cluster_group_outside_vn"`
-	ForwardProxyAllowAll           *AzureVNETSiteEmptyModel                                           `tfsdk:"forward_proxy_allow_all"`
 	GlobalNetworkList              *AzureVNETSiteIngressEgressGwArGlobalNetworkListModel              `tfsdk:"global_network_list"`
 	Hub                            *AzureVNETSiteIngressEgressGwArHubModel                            `tfsdk:"hub"`
 	InsideStaticRoutes             *AzureVNETSiteIngressEgressGwArInsideStaticRoutesModel             `tfsdk:"inside_static_routes"`
-	NoDcClusterGroup               *AzureVNETSiteEmptyModel                                           `tfsdk:"no_dc_cluster_group"`
-	NoForwardProxy                 *AzureVNETSiteEmptyModel                                           `tfsdk:"no_forward_proxy"`
-	NoGlobalNetwork                *AzureVNETSiteEmptyModel                                           `tfsdk:"no_global_network"`
-	NoInsideStaticRoutes           *AzureVNETSiteEmptyModel                                           `tfsdk:"no_inside_static_routes"`
-	NoNetworkPolicy                *AzureVNETSiteEmptyModel                                           `tfsdk:"no_network_policy"`
-	NoOutsideStaticRoutes          *AzureVNETSiteEmptyModel                                           `tfsdk:"no_outside_static_routes"`
 	Node                           *AzureVNETSiteIngressEgressGwArNodeModel                           `tfsdk:"node"`
-	NotHub                         *AzureVNETSiteEmptyModel                                           `tfsdk:"not_hub"`
 	OutsideStaticRoutes            *AzureVNETSiteIngressEgressGwArOutsideStaticRoutesModel            `tfsdk:"outside_static_routes"`
 	PerformanceEnhancementMode     *AzureVNETSiteIngressEgressGwArPerformanceEnhancementModeModel     `tfsdk:"performance_enhancement_mode"`
-	SmConnectionPublicIP           *AzureVNETSiteEmptyModel                                           `tfsdk:"sm_connection_public_ip"`
-	SmConnectionPvtIP              *AzureVNETSiteEmptyModel                                           `tfsdk:"sm_connection_pvt_ip"`
 }
 
 // AzureVNETSiteIngressEgressGwArModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArModel
 var AzureVNETSiteIngressEgressGwArModelAttrTypes = map[string]attr.Type{
 	"azure_certified_hw":                types.StringType,
-	"accelerated_networking":            types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArAcceleratedNetworkingModelAttrTypes},
-	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArActiveEnhancedFirewallPoliciesModelAttrTypes},
-	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArActiveForwardProxyPoliciesModelAttrTypes},
-	"active_network_policies":           types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArActiveNetworkPoliciesModelAttrTypes},
-	"dc_cluster_group_inside_vn":        types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArDcClusterGroupInsideVnModelAttrTypes},
-	"dc_cluster_group_outside_vn":       types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArDcClusterGroupOutsideVnModelAttrTypes},
 	"forward_proxy_allow_all":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"global_network_list":               types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArGlobalNetworkListModelAttrTypes},
-	"hub":                               types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubModelAttrTypes},
-	"inside_static_routes":              types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArInsideStaticRoutesModelAttrTypes},
 	"no_dc_cluster_group":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_forward_proxy":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_global_network":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_inside_static_routes":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_network_policy":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_outside_static_routes":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"node":                              types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArNodeModelAttrTypes},
 	"not_hub":                           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"outside_static_routes":             types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArOutsideStaticRoutesModelAttrTypes},
-	"performance_enhancement_mode":      types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArPerformanceEnhancementModeModelAttrTypes},
 	"sm_connection_public_ip":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"sm_connection_pvt_ip":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"accelerated_networking":            types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArAcceleratedNetworkingModelAttrTypes},
+	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArActiveEnhancedFirewallPoliciesModelAttrTypes},
+	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArActiveForwardProxyPoliciesModelAttrTypes},
+	"active_network_policies":           types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArActiveNetworkPoliciesModelAttrTypes},
+	"dc_cluster_group_inside_vn":        types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArDcClusterGroupInsideVnModelAttrTypes},
+	"dc_cluster_group_outside_vn":       types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArDcClusterGroupOutsideVnModelAttrTypes},
+	"global_network_list":               types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArGlobalNetworkListModelAttrTypes},
+	"hub":                               types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubModelAttrTypes},
+	"inside_static_routes":              types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArInsideStaticRoutesModelAttrTypes},
+	"node":                              types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArNodeModelAttrTypes},
+	"outside_static_routes":             types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArOutsideStaticRoutesModelAttrTypes},
+	"performance_enhancement_mode":      types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArPerformanceEnhancementModeModelAttrTypes},
 }
 
 // AzureVNETSiteIngressEgressGwArAcceleratedNetworkingModel represents accelerated_networking block
 type AzureVNETSiteIngressEgressGwArAcceleratedNetworkingModel struct {
-	DisableSpec *AzureVNETSiteEmptyModel `tfsdk:"disable_spec"`
-	Enable      *AzureVNETSiteEmptyModel `tfsdk:"enable"`
+	DisableSpec types.Object `tfsdk:"disable_spec"`
+	Enable      types.Object `tfsdk:"enable"`
 }
 
 // AzureVNETSiteIngressEgressGwArAcceleratedNetworkingModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArAcceleratedNetworkingModel
@@ -1281,7 +1282,7 @@ var AzureVNETSiteIngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloTo
 
 // AzureVNETSiteIngressEgressGwArHubModel represents hub block
 type AzureVNETSiteIngressEgressGwArHubModel struct {
-	ExpressRouteDisabled *AzureVNETSiteEmptyModel                                   `tfsdk:"express_route_disabled"`
+	ExpressRouteDisabled types.Object                                               `tfsdk:"express_route_disabled"`
 	ExpressRouteEnabled  *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledModel `tfsdk:"express_route_enabled"`
 	SpokeVnets           types.List                                                 `tfsdk:"spoke_vnets"`
 }
@@ -1295,36 +1296,36 @@ var AzureVNETSiteIngressEgressGwArHubModelAttrTypes = map[string]attr.Type{
 
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledModel represents express_route_enabled block
 type AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledModel struct {
+	AdvertiseToRouteServer           types.Object                                                                               `tfsdk:"advertise_to_route_server"`
+	AutoAsn                          types.Object                                                                               `tfsdk:"auto_asn"`
 	CustomAsn                        types.Int64                                                                                `tfsdk:"custom_asn"`
-	AdvertiseToRouteServer           *AzureVNETSiteEmptyModel                                                                   `tfsdk:"advertise_to_route_server"`
-	AutoAsn                          *AzureVNETSiteEmptyModel                                                                   `tfsdk:"auto_asn"`
+	DoNotAdvertiseToRouteServer      types.Object                                                                               `tfsdk:"do_not_advertise_to_route_server"`
+	SiteRegistrationOverInternet     types.Object                                                                               `tfsdk:"site_registration_over_internet"`
+	SkuErgw1az                       types.Object                                                                               `tfsdk:"sku_ergw1az"`
+	SkuErgw2az                       types.Object                                                                               `tfsdk:"sku_ergw2az"`
+	SkuHighPerf                      types.Object                                                                               `tfsdk:"sku_high_perf"`
+	SkuStandard                      types.Object                                                                               `tfsdk:"sku_standard"`
 	Connections                      types.List                                                                                 `tfsdk:"connections"`
-	DoNotAdvertiseToRouteServer      *AzureVNETSiteEmptyModel                                                                   `tfsdk:"do_not_advertise_to_route_server"`
 	GatewaySubnet                    *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetModel                    `tfsdk:"gateway_subnet"`
 	RouteServerSubnet                *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetModel                `tfsdk:"route_server_subnet"`
 	SiteRegistrationOverExpressRoute *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledSiteRegistrationOverExpressRouteModel `tfsdk:"site_registration_over_express_route"`
-	SiteRegistrationOverInternet     *AzureVNETSiteEmptyModel                                                                   `tfsdk:"site_registration_over_internet"`
-	SkuErgw1az                       *AzureVNETSiteEmptyModel                                                                   `tfsdk:"sku_ergw1az"`
-	SkuErgw2az                       *AzureVNETSiteEmptyModel                                                                   `tfsdk:"sku_ergw2az"`
-	SkuHighPerf                      *AzureVNETSiteEmptyModel                                                                   `tfsdk:"sku_high_perf"`
-	SkuStandard                      *AzureVNETSiteEmptyModel                                                                   `tfsdk:"sku_standard"`
 }
 
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledModel
 var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledModelAttrTypes = map[string]attr.Type{
-	"custom_asn":                           types.Int64Type,
 	"advertise_to_route_server":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"auto_asn":                             types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"connections":                          types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsModelAttrTypes}},
+	"custom_asn":                           types.Int64Type,
 	"do_not_advertise_to_route_server":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"gateway_subnet":                       types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetModelAttrTypes},
-	"route_server_subnet":                  types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetModelAttrTypes},
-	"site_registration_over_express_route": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledSiteRegistrationOverExpressRouteModelAttrTypes},
 	"site_registration_over_internet":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"sku_ergw1az":                          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"sku_ergw2az":                          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"sku_high_perf":                        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"sku_standard":                         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"connections":                          types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsModelAttrTypes}},
+	"gateway_subnet":                       types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetModelAttrTypes},
+	"route_server_subnet":                  types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetModelAttrTypes},
+	"site_registration_over_express_route": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledSiteRegistrationOverExpressRouteModelAttrTypes},
 }
 
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsModel represents connections block
@@ -1407,7 +1408,7 @@ var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscrip
 
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetModel represents gateway_subnet block
 type AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetModel struct {
-	Auto        *AzureVNETSiteEmptyModel                                                           `tfsdk:"auto"`
+	Auto        types.Object                                                                       `tfsdk:"auto"`
 	Subnet      *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetModel      `tfsdk:"subnet"`
 	SubnetParam *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetParamModel `tfsdk:"subnet_param"`
 }
@@ -1421,8 +1422,8 @@ var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetModelAttrTy
 
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetModel represents subnet block
 type AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetModel struct {
-	SubnetResourceGrp types.String             `tfsdk:"subnet_resource_grp"`
-	VNETResourceGroup *AzureVNETSiteEmptyModel `tfsdk:"vnet_resource_group"`
+	SubnetResourceGrp types.String `tfsdk:"subnet_resource_grp"`
+	VNETResourceGroup types.Object `tfsdk:"vnet_resource_group"`
 }
 
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetModel
@@ -1443,7 +1444,7 @@ var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetParam
 
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetModel represents route_server_subnet block
 type AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetModel struct {
-	Auto        *AzureVNETSiteEmptyModel                                                               `tfsdk:"auto"`
+	Auto        types.Object                                                                           `tfsdk:"auto"`
 	Subnet      *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetModel      `tfsdk:"subnet"`
 	SubnetParam *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetParamModel `tfsdk:"subnet_param"`
 }
@@ -1457,8 +1458,8 @@ var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetModelAt
 
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetModel represents subnet block
 type AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetModel struct {
-	SubnetResourceGrp types.String             `tfsdk:"subnet_resource_grp"`
-	VNETResourceGroup *AzureVNETSiteEmptyModel `tfsdk:"vnet_resource_group"`
+	SubnetResourceGrp types.String `tfsdk:"subnet_resource_grp"`
+	VNETResourceGroup types.Object `tfsdk:"vnet_resource_group"`
 }
 
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetModel
@@ -1489,34 +1490,34 @@ var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledSiteRegistrationOverExpr
 
 // AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel represents spoke_vnets block
 type AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel struct {
-	Auto   *AzureVNETSiteEmptyModel                              `tfsdk:"auto"`
+	Auto   types.Object                                          `tfsdk:"auto"`
+	Manual types.Object                                          `tfsdk:"manual"`
 	Labels *AzureVNETSiteEmptyModel                              `tfsdk:"labels"`
-	Manual *AzureVNETSiteEmptyModel                              `tfsdk:"manual"`
 	VNET   *AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModel `tfsdk:"vnet"`
 }
 
 // AzureVNETSiteIngressEgressGwArHubSpokeVnetsModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel
 var AzureVNETSiteIngressEgressGwArHubSpokeVnetsModelAttrTypes = map[string]attr.Type{
 	"auto":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"labels": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"manual": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"labels": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"vnet":   types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModelAttrTypes},
 }
 
 // AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModel represents vnet block
 type AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModel struct {
-	ResourceGroup         types.String             `tfsdk:"resource_group"`
-	VNETName              types.String             `tfsdk:"vnet_name"`
-	F5OrchestratedRouting *AzureVNETSiteEmptyModel `tfsdk:"f5_orchestrated_routing"`
-	ManualRouting         *AzureVNETSiteEmptyModel `tfsdk:"manual_routing"`
+	F5OrchestratedRouting types.Object `tfsdk:"f5_orchestrated_routing"`
+	ManualRouting         types.Object `tfsdk:"manual_routing"`
+	ResourceGroup         types.String `tfsdk:"resource_group"`
+	VNETName              types.String `tfsdk:"vnet_name"`
 }
 
 // AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModel
 var AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModelAttrTypes = map[string]attr.Type{
-	"resource_group":          types.StringType,
-	"vnet_name":               types.StringType,
 	"f5_orchestrated_routing": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"manual_routing":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"resource_group":          types.StringType,
+	"vnet_name":               types.StringType,
 }
 
 // AzureVNETSiteIngressEgressGwArInsideStaticRoutesModel represents inside_static_routes block
@@ -1689,9 +1690,9 @@ var AzureVNETSiteIngressEgressGwArNodeInsideSubnetModelAttrTypes = map[string]at
 
 // AzureVNETSiteIngressEgressGwArNodeInsideSubnetSubnetModel represents subnet block
 type AzureVNETSiteIngressEgressGwArNodeInsideSubnetSubnetModel struct {
-	SubnetName        types.String             `tfsdk:"subnet_name"`
-	SubnetResourceGrp types.String             `tfsdk:"subnet_resource_grp"`
-	VNETResourceGroup *AzureVNETSiteEmptyModel `tfsdk:"vnet_resource_group"`
+	SubnetName        types.String `tfsdk:"subnet_name"`
+	SubnetResourceGrp types.String `tfsdk:"subnet_resource_grp"`
+	VNETResourceGroup types.Object `tfsdk:"vnet_resource_group"`
 }
 
 // AzureVNETSiteIngressEgressGwArNodeInsideSubnetSubnetModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArNodeInsideSubnetSubnetModel
@@ -1725,9 +1726,9 @@ var AzureVNETSiteIngressEgressGwArNodeOutsideSubnetModelAttrTypes = map[string]a
 
 // AzureVNETSiteIngressEgressGwArNodeOutsideSubnetSubnetModel represents subnet block
 type AzureVNETSiteIngressEgressGwArNodeOutsideSubnetSubnetModel struct {
-	SubnetName        types.String             `tfsdk:"subnet_name"`
-	SubnetResourceGrp types.String             `tfsdk:"subnet_resource_grp"`
-	VNETResourceGroup *AzureVNETSiteEmptyModel `tfsdk:"vnet_resource_group"`
+	SubnetName        types.String `tfsdk:"subnet_name"`
+	SubnetResourceGrp types.String `tfsdk:"subnet_resource_grp"`
+	VNETResourceGroup types.Object `tfsdk:"vnet_resource_group"`
 }
 
 // AzureVNETSiteIngressEgressGwArNodeOutsideSubnetSubnetModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArNodeOutsideSubnetSubnetModel
@@ -1899,8 +1900,8 @@ var AzureVNETSiteIngressEgressGwArPerformanceEnhancementModeModelAttrTypes = map
 
 // AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
 type AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *AzureVNETSiteEmptyModel `tfsdk:"jumbo"`
-	NoJumbo *AzureVNETSiteEmptyModel `tfsdk:"no_jumbo"`
+	Jumbo   types.Object `tfsdk:"jumbo"`
+	NoJumbo types.Object `tfsdk:"no_jumbo"`
 }
 
 // AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedModel
@@ -1911,8 +1912,8 @@ var AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMo
 
 // AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
 type AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *AzureVNETSiteEmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *AzureVNETSiteEmptyModel `tfsdk:"jumbo_enabled"`
+	JumboDisabled types.Object `tfsdk:"jumbo_disabled"`
+	JumboEnabled  types.Object `tfsdk:"jumbo_enabled"`
 }
 
 // AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel
@@ -1939,8 +1940,8 @@ var AzureVNETSiteIngressGwModelAttrTypes = map[string]attr.Type{
 
 // AzureVNETSiteIngressGwAcceleratedNetworkingModel represents accelerated_networking block
 type AzureVNETSiteIngressGwAcceleratedNetworkingModel struct {
-	DisableSpec *AzureVNETSiteEmptyModel `tfsdk:"disable_spec"`
-	Enable      *AzureVNETSiteEmptyModel `tfsdk:"enable"`
+	DisableSpec types.Object `tfsdk:"disable_spec"`
+	Enable      types.Object `tfsdk:"enable"`
 }
 
 // AzureVNETSiteIngressGwAcceleratedNetworkingModelAttrTypes defines the attribute types for AzureVNETSiteIngressGwAcceleratedNetworkingModel
@@ -1975,9 +1976,9 @@ var AzureVNETSiteIngressGwAzNodesLocalSubnetModelAttrTypes = map[string]attr.Typ
 
 // AzureVNETSiteIngressGwAzNodesLocalSubnetSubnetModel represents subnet block
 type AzureVNETSiteIngressGwAzNodesLocalSubnetSubnetModel struct {
-	SubnetName        types.String             `tfsdk:"subnet_name"`
-	SubnetResourceGrp types.String             `tfsdk:"subnet_resource_grp"`
-	VNETResourceGroup *AzureVNETSiteEmptyModel `tfsdk:"vnet_resource_group"`
+	SubnetName        types.String `tfsdk:"subnet_name"`
+	SubnetResourceGrp types.String `tfsdk:"subnet_resource_grp"`
+	VNETResourceGroup types.Object `tfsdk:"vnet_resource_group"`
 }
 
 // AzureVNETSiteIngressGwAzNodesLocalSubnetSubnetModelAttrTypes defines the attribute types for AzureVNETSiteIngressGwAzNodesLocalSubnetSubnetModel
@@ -2011,8 +2012,8 @@ var AzureVNETSiteIngressGwPerformanceEnhancementModeModelAttrTypes = map[string]
 
 // AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
 type AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *AzureVNETSiteEmptyModel `tfsdk:"jumbo"`
-	NoJumbo *AzureVNETSiteEmptyModel `tfsdk:"no_jumbo"`
+	Jumbo   types.Object `tfsdk:"jumbo"`
+	NoJumbo types.Object `tfsdk:"no_jumbo"`
 }
 
 // AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel
@@ -2023,8 +2024,8 @@ var AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrT
 
 // AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
 type AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *AzureVNETSiteEmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *AzureVNETSiteEmptyModel `tfsdk:"jumbo_enabled"`
+	JumboDisabled types.Object `tfsdk:"jumbo_disabled"`
+	JumboEnabled  types.Object `tfsdk:"jumbo_enabled"`
 }
 
 // AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel
@@ -2051,8 +2052,8 @@ var AzureVNETSiteIngressGwArModelAttrTypes = map[string]attr.Type{
 
 // AzureVNETSiteIngressGwArAcceleratedNetworkingModel represents accelerated_networking block
 type AzureVNETSiteIngressGwArAcceleratedNetworkingModel struct {
-	DisableSpec *AzureVNETSiteEmptyModel `tfsdk:"disable_spec"`
-	Enable      *AzureVNETSiteEmptyModel `tfsdk:"enable"`
+	DisableSpec types.Object `tfsdk:"disable_spec"`
+	Enable      types.Object `tfsdk:"enable"`
 }
 
 // AzureVNETSiteIngressGwArAcceleratedNetworkingModelAttrTypes defines the attribute types for AzureVNETSiteIngressGwArAcceleratedNetworkingModel
@@ -2091,9 +2092,9 @@ var AzureVNETSiteIngressGwArNodeLocalSubnetModelAttrTypes = map[string]attr.Type
 
 // AzureVNETSiteIngressGwArNodeLocalSubnetSubnetModel represents subnet block
 type AzureVNETSiteIngressGwArNodeLocalSubnetSubnetModel struct {
-	SubnetName        types.String             `tfsdk:"subnet_name"`
-	SubnetResourceGrp types.String             `tfsdk:"subnet_resource_grp"`
-	VNETResourceGroup *AzureVNETSiteEmptyModel `tfsdk:"vnet_resource_group"`
+	SubnetName        types.String `tfsdk:"subnet_name"`
+	SubnetResourceGrp types.String `tfsdk:"subnet_resource_grp"`
+	VNETResourceGroup types.Object `tfsdk:"vnet_resource_group"`
 }
 
 // AzureVNETSiteIngressGwArNodeLocalSubnetSubnetModelAttrTypes defines the attribute types for AzureVNETSiteIngressGwArNodeLocalSubnetSubnetModel
@@ -2127,8 +2128,8 @@ var AzureVNETSiteIngressGwArPerformanceEnhancementModeModelAttrTypes = map[strin
 
 // AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
 type AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *AzureVNETSiteEmptyModel `tfsdk:"jumbo"`
-	NoJumbo *AzureVNETSiteEmptyModel `tfsdk:"no_jumbo"`
+	Jumbo   types.Object `tfsdk:"jumbo"`
+	NoJumbo types.Object `tfsdk:"no_jumbo"`
 }
 
 // AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL3EnhancedModel
@@ -2139,8 +2140,8 @@ var AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL3EnhancedModelAtt
 
 // AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
 type AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *AzureVNETSiteEmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *AzureVNETSiteEmptyModel `tfsdk:"jumbo_enabled"`
+	JumboDisabled types.Object `tfsdk:"jumbo_disabled"`
+	JumboEnabled  types.Object `tfsdk:"jumbo_enabled"`
 }
 
 // AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel
@@ -2151,7 +2152,7 @@ var AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModelAtt
 
 // AzureVNETSiteKubernetesUpgradeDrainModel represents kubernetes_upgrade_drain block
 type AzureVNETSiteKubernetesUpgradeDrainModel struct {
-	DisableUpgradeDrain *AzureVNETSiteEmptyModel                                    `tfsdk:"disable_upgrade_drain"`
+	DisableUpgradeDrain types.Object                                                `tfsdk:"disable_upgrade_drain"`
 	EnableUpgradeDrain  *AzureVNETSiteKubernetesUpgradeDrainEnableUpgradeDrainModel `tfsdk:"enable_upgrade_drain"`
 }
 
@@ -2163,18 +2164,20 @@ var AzureVNETSiteKubernetesUpgradeDrainModelAttrTypes = map[string]attr.Type{
 
 // AzureVNETSiteKubernetesUpgradeDrainEnableUpgradeDrainModel represents enable_upgrade_drain block
 type AzureVNETSiteKubernetesUpgradeDrainEnableUpgradeDrainModel struct {
-	DrainMaxUnavailableNodeCount types.Int64              `tfsdk:"drain_max_unavailable_node_count"`
-	DrainNodeTimeout             types.Int64              `tfsdk:"drain_node_timeout"`
-	DisableVegaUpgradeMode       *AzureVNETSiteEmptyModel `tfsdk:"disable_vega_upgrade_mode"`
-	EnableVegaUpgradeMode        *AzureVNETSiteEmptyModel `tfsdk:"enable_vega_upgrade_mode"`
+	DisableVegaUpgradeMode            types.Object `tfsdk:"disable_vega_upgrade_mode"`
+	DrainMaxUnavailableNodeCount      types.Int64  `tfsdk:"drain_max_unavailable_node_count"`
+	DrainMaxUnavailableNodePercentage types.Int64  `tfsdk:"drain_max_unavailable_node_percentage"`
+	DrainNodeTimeout                  types.Int64  `tfsdk:"drain_node_timeout"`
+	EnableVegaUpgradeMode             types.Object `tfsdk:"enable_vega_upgrade_mode"`
 }
 
 // AzureVNETSiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes defines the attribute types for AzureVNETSiteKubernetesUpgradeDrainEnableUpgradeDrainModel
 var AzureVNETSiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes = map[string]attr.Type{
-	"drain_max_unavailable_node_count": types.Int64Type,
-	"drain_node_timeout":               types.Int64Type,
-	"disable_vega_upgrade_mode":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable_vega_upgrade_mode":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disable_vega_upgrade_mode":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"drain_max_unavailable_node_count":      types.Int64Type,
+	"drain_max_unavailable_node_percentage": types.Int64Type,
+	"drain_node_timeout":                    types.Int64Type,
+	"enable_vega_upgrade_mode":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AzureVNETSiteLogReceiverModel represents log_receiver block
@@ -2193,8 +2196,8 @@ var AzureVNETSiteLogReceiverModelAttrTypes = map[string]attr.Type{
 
 // AzureVNETSiteOfflineSurvivabilityModeModel represents offline_survivability_mode block
 type AzureVNETSiteOfflineSurvivabilityModeModel struct {
-	EnableOfflineSurvivabilityMode *AzureVNETSiteEmptyModel `tfsdk:"enable_offline_survivability_mode"`
-	NoOfflineSurvivabilityMode     *AzureVNETSiteEmptyModel `tfsdk:"no_offline_survivability_mode"`
+	EnableOfflineSurvivabilityMode types.Object `tfsdk:"enable_offline_survivability_mode"`
+	NoOfflineSurvivabilityMode     types.Object `tfsdk:"no_offline_survivability_mode"`
 }
 
 // AzureVNETSiteOfflineSurvivabilityModeModelAttrTypes defines the attribute types for AzureVNETSiteOfflineSurvivabilityModeModel
@@ -2205,26 +2208,26 @@ var AzureVNETSiteOfflineSurvivabilityModeModelAttrTypes = map[string]attr.Type{
 
 // AzureVNETSiteOSModel represents os block
 type AzureVNETSiteOSModel struct {
-	OperatingSystemVersion types.String             `tfsdk:"operating_system_version"`
-	DefaultOSVersion       *AzureVNETSiteEmptyModel `tfsdk:"default_os_version"`
+	DefaultOSVersion       types.Object `tfsdk:"default_os_version"`
+	OperatingSystemVersion types.String `tfsdk:"operating_system_version"`
 }
 
 // AzureVNETSiteOSModelAttrTypes defines the attribute types for AzureVNETSiteOSModel
 var AzureVNETSiteOSModelAttrTypes = map[string]attr.Type{
-	"operating_system_version": types.StringType,
 	"default_os_version":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"operating_system_version": types.StringType,
 }
 
 // AzureVNETSiteSwModel represents sw block
 type AzureVNETSiteSwModel struct {
-	VolterraSoftwareVersion types.String             `tfsdk:"volterra_software_version"`
-	DefaultSwVersion        *AzureVNETSiteEmptyModel `tfsdk:"default_sw_version"`
+	DefaultSwVersion        types.Object `tfsdk:"default_sw_version"`
+	VolterraSoftwareVersion types.String `tfsdk:"volterra_software_version"`
 }
 
 // AzureVNETSiteSwModelAttrTypes defines the attribute types for AzureVNETSiteSwModel
 var AzureVNETSiteSwModelAttrTypes = map[string]attr.Type{
-	"volterra_software_version": types.StringType,
 	"default_sw_version":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"volterra_software_version": types.StringType,
 }
 
 // AzureVNETSiteVNETModel represents vnet block
@@ -2241,88 +2244,88 @@ var AzureVNETSiteVNETModelAttrTypes = map[string]attr.Type{
 
 // AzureVNETSiteVNETExistingVNETModel represents existing_vnet block
 type AzureVNETSiteVNETExistingVNETModel struct {
-	ResourceGroup         types.String             `tfsdk:"resource_group"`
-	VNETName              types.String             `tfsdk:"vnet_name"`
-	F5OrchestratedRouting *AzureVNETSiteEmptyModel `tfsdk:"f5_orchestrated_routing"`
-	ManualRouting         *AzureVNETSiteEmptyModel `tfsdk:"manual_routing"`
+	F5OrchestratedRouting types.Object `tfsdk:"f5_orchestrated_routing"`
+	ManualRouting         types.Object `tfsdk:"manual_routing"`
+	ResourceGroup         types.String `tfsdk:"resource_group"`
+	VNETName              types.String `tfsdk:"vnet_name"`
 }
 
 // AzureVNETSiteVNETExistingVNETModelAttrTypes defines the attribute types for AzureVNETSiteVNETExistingVNETModel
 var AzureVNETSiteVNETExistingVNETModelAttrTypes = map[string]attr.Type{
-	"resource_group":          types.StringType,
-	"vnet_name":               types.StringType,
 	"f5_orchestrated_routing": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"manual_routing":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"resource_group":          types.StringType,
+	"vnet_name":               types.StringType,
 }
 
 // AzureVNETSiteVNETNewVNETModel represents new_vnet block
 type AzureVNETSiteVNETNewVNETModel struct {
-	Name         types.String             `tfsdk:"name"`
-	PrimaryIpv4  types.String             `tfsdk:"primary_ipv4"`
-	Autogenerate *AzureVNETSiteEmptyModel `tfsdk:"autogenerate"`
+	Autogenerate types.Object `tfsdk:"autogenerate"`
+	Name         types.String `tfsdk:"name"`
+	PrimaryIpv4  types.String `tfsdk:"primary_ipv4"`
 }
 
 // AzureVNETSiteVNETNewVNETModelAttrTypes defines the attribute types for AzureVNETSiteVNETNewVNETModel
 var AzureVNETSiteVNETNewVNETModelAttrTypes = map[string]attr.Type{
+	"autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"name":         types.StringType,
 	"primary_ipv4": types.StringType,
-	"autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AzureVNETSiteVoltstackClusterModel represents voltstack_cluster block
 type AzureVNETSiteVoltstackClusterModel struct {
 	AzureCertifiedHw               types.String                                                      `tfsdk:"azure_certified_hw"`
+	DefaultStorage                 types.Object                                                      `tfsdk:"default_storage"`
+	ForwardProxyAllowAll           types.Object                                                      `tfsdk:"forward_proxy_allow_all"`
+	NoDcClusterGroup               types.Object                                                      `tfsdk:"no_dc_cluster_group"`
+	NoForwardProxy                 types.Object                                                      `tfsdk:"no_forward_proxy"`
+	NoGlobalNetwork                types.Object                                                      `tfsdk:"no_global_network"`
+	NoK8SCluster                   types.Object                                                      `tfsdk:"no_k8s_cluster"`
+	NoNetworkPolicy                types.Object                                                      `tfsdk:"no_network_policy"`
+	NoOutsideStaticRoutes          types.Object                                                      `tfsdk:"no_outside_static_routes"`
+	SmConnectionPublicIP           types.Object                                                      `tfsdk:"sm_connection_public_ip"`
+	SmConnectionPvtIP              types.Object                                                      `tfsdk:"sm_connection_pvt_ip"`
 	AcceleratedNetworking          *AzureVNETSiteVoltstackClusterAcceleratedNetworkingModel          `tfsdk:"accelerated_networking"`
 	ActiveEnhancedFirewallPolicies *AzureVNETSiteVoltstackClusterActiveEnhancedFirewallPoliciesModel `tfsdk:"active_enhanced_firewall_policies"`
 	ActiveForwardProxyPolicies     *AzureVNETSiteVoltstackClusterActiveForwardProxyPoliciesModel     `tfsdk:"active_forward_proxy_policies"`
 	ActiveNetworkPolicies          *AzureVNETSiteVoltstackClusterActiveNetworkPoliciesModel          `tfsdk:"active_network_policies"`
 	AzNodes                        types.List                                                        `tfsdk:"az_nodes"`
 	DcClusterGroup                 *AzureVNETSiteVoltstackClusterDcClusterGroupModel                 `tfsdk:"dc_cluster_group"`
-	DefaultStorage                 *AzureVNETSiteEmptyModel                                          `tfsdk:"default_storage"`
-	ForwardProxyAllowAll           *AzureVNETSiteEmptyModel                                          `tfsdk:"forward_proxy_allow_all"`
 	GlobalNetworkList              *AzureVNETSiteVoltstackClusterGlobalNetworkListModel              `tfsdk:"global_network_list"`
 	K8SCluster                     *AzureVNETSiteVoltstackClusterK8SClusterModel                     `tfsdk:"k8s_cluster"`
-	NoDcClusterGroup               *AzureVNETSiteEmptyModel                                          `tfsdk:"no_dc_cluster_group"`
-	NoForwardProxy                 *AzureVNETSiteEmptyModel                                          `tfsdk:"no_forward_proxy"`
-	NoGlobalNetwork                *AzureVNETSiteEmptyModel                                          `tfsdk:"no_global_network"`
-	NoK8SCluster                   *AzureVNETSiteEmptyModel                                          `tfsdk:"no_k8s_cluster"`
-	NoNetworkPolicy                *AzureVNETSiteEmptyModel                                          `tfsdk:"no_network_policy"`
-	NoOutsideStaticRoutes          *AzureVNETSiteEmptyModel                                          `tfsdk:"no_outside_static_routes"`
 	OutsideStaticRoutes            *AzureVNETSiteVoltstackClusterOutsideStaticRoutesModel            `tfsdk:"outside_static_routes"`
-	SmConnectionPublicIP           *AzureVNETSiteEmptyModel                                          `tfsdk:"sm_connection_public_ip"`
-	SmConnectionPvtIP              *AzureVNETSiteEmptyModel                                          `tfsdk:"sm_connection_pvt_ip"`
 	StorageClassList               *AzureVNETSiteVoltstackClusterStorageClassListModel               `tfsdk:"storage_class_list"`
 }
 
 // AzureVNETSiteVoltstackClusterModelAttrTypes defines the attribute types for AzureVNETSiteVoltstackClusterModel
 var AzureVNETSiteVoltstackClusterModelAttrTypes = map[string]attr.Type{
 	"azure_certified_hw":                types.StringType,
-	"accelerated_networking":            types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterAcceleratedNetworkingModelAttrTypes},
-	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterActiveEnhancedFirewallPoliciesModelAttrTypes},
-	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterActiveForwardProxyPoliciesModelAttrTypes},
-	"active_network_policies":           types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterActiveNetworkPoliciesModelAttrTypes},
-	"az_nodes":                          types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterAzNodesModelAttrTypes}},
-	"dc_cluster_group":                  types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterDcClusterGroupModelAttrTypes},
 	"default_storage":                   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"forward_proxy_allow_all":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"global_network_list":               types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterGlobalNetworkListModelAttrTypes},
-	"k8s_cluster":                       types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterK8SClusterModelAttrTypes},
 	"no_dc_cluster_group":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_forward_proxy":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_global_network":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_k8s_cluster":                    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_network_policy":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_outside_static_routes":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"outside_static_routes":             types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterOutsideStaticRoutesModelAttrTypes},
 	"sm_connection_public_ip":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"sm_connection_pvt_ip":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"accelerated_networking":            types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterAcceleratedNetworkingModelAttrTypes},
+	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterActiveEnhancedFirewallPoliciesModelAttrTypes},
+	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterActiveForwardProxyPoliciesModelAttrTypes},
+	"active_network_policies":           types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterActiveNetworkPoliciesModelAttrTypes},
+	"az_nodes":                          types.ListType{ElemType: types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterAzNodesModelAttrTypes}},
+	"dc_cluster_group":                  types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterDcClusterGroupModelAttrTypes},
+	"global_network_list":               types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterGlobalNetworkListModelAttrTypes},
+	"k8s_cluster":                       types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterK8SClusterModelAttrTypes},
+	"outside_static_routes":             types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterOutsideStaticRoutesModelAttrTypes},
 	"storage_class_list":                types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterStorageClassListModelAttrTypes},
 }
 
 // AzureVNETSiteVoltstackClusterAcceleratedNetworkingModel represents accelerated_networking block
 type AzureVNETSiteVoltstackClusterAcceleratedNetworkingModel struct {
-	DisableSpec *AzureVNETSiteEmptyModel `tfsdk:"disable_spec"`
-	Enable      *AzureVNETSiteEmptyModel `tfsdk:"enable"`
+	DisableSpec types.Object `tfsdk:"disable_spec"`
+	Enable      types.Object `tfsdk:"enable"`
 }
 
 // AzureVNETSiteVoltstackClusterAcceleratedNetworkingModelAttrTypes defines the attribute types for AzureVNETSiteVoltstackClusterAcceleratedNetworkingModel
@@ -2429,9 +2432,9 @@ var AzureVNETSiteVoltstackClusterAzNodesLocalSubnetModelAttrTypes = map[string]a
 
 // AzureVNETSiteVoltstackClusterAzNodesLocalSubnetSubnetModel represents subnet block
 type AzureVNETSiteVoltstackClusterAzNodesLocalSubnetSubnetModel struct {
-	SubnetName        types.String             `tfsdk:"subnet_name"`
-	SubnetResourceGrp types.String             `tfsdk:"subnet_resource_grp"`
-	VNETResourceGroup *AzureVNETSiteEmptyModel `tfsdk:"vnet_resource_group"`
+	SubnetName        types.String `tfsdk:"subnet_name"`
+	SubnetResourceGrp types.String `tfsdk:"subnet_resource_grp"`
+	VNETResourceGroup types.Object `tfsdk:"vnet_resource_group"`
 }
 
 // AzureVNETSiteVoltstackClusterAzNodesLocalSubnetSubnetModelAttrTypes defines the attribute types for AzureVNETSiteVoltstackClusterAzNodesLocalSubnetSubnetModel
@@ -2712,57 +2715,57 @@ var AzureVNETSiteVoltstackClusterStorageClassListStorageClassesModelAttrTypes = 
 // AzureVNETSiteVoltstackClusterArModel represents voltstack_cluster_ar block
 type AzureVNETSiteVoltstackClusterArModel struct {
 	AzureCertifiedHw               types.String                                                        `tfsdk:"azure_certified_hw"`
+	DefaultStorage                 types.Object                                                        `tfsdk:"default_storage"`
+	ForwardProxyAllowAll           types.Object                                                        `tfsdk:"forward_proxy_allow_all"`
+	NoDcClusterGroup               types.Object                                                        `tfsdk:"no_dc_cluster_group"`
+	NoForwardProxy                 types.Object                                                        `tfsdk:"no_forward_proxy"`
+	NoGlobalNetwork                types.Object                                                        `tfsdk:"no_global_network"`
+	NoK8SCluster                   types.Object                                                        `tfsdk:"no_k8s_cluster"`
+	NoNetworkPolicy                types.Object                                                        `tfsdk:"no_network_policy"`
+	NoOutsideStaticRoutes          types.Object                                                        `tfsdk:"no_outside_static_routes"`
+	SmConnectionPublicIP           types.Object                                                        `tfsdk:"sm_connection_public_ip"`
+	SmConnectionPvtIP              types.Object                                                        `tfsdk:"sm_connection_pvt_ip"`
 	AcceleratedNetworking          *AzureVNETSiteVoltstackClusterArAcceleratedNetworkingModel          `tfsdk:"accelerated_networking"`
 	ActiveEnhancedFirewallPolicies *AzureVNETSiteVoltstackClusterArActiveEnhancedFirewallPoliciesModel `tfsdk:"active_enhanced_firewall_policies"`
 	ActiveForwardProxyPolicies     *AzureVNETSiteVoltstackClusterArActiveForwardProxyPoliciesModel     `tfsdk:"active_forward_proxy_policies"`
 	ActiveNetworkPolicies          *AzureVNETSiteVoltstackClusterArActiveNetworkPoliciesModel          `tfsdk:"active_network_policies"`
 	DcClusterGroup                 *AzureVNETSiteVoltstackClusterArDcClusterGroupModel                 `tfsdk:"dc_cluster_group"`
-	DefaultStorage                 *AzureVNETSiteEmptyModel                                            `tfsdk:"default_storage"`
-	ForwardProxyAllowAll           *AzureVNETSiteEmptyModel                                            `tfsdk:"forward_proxy_allow_all"`
 	GlobalNetworkList              *AzureVNETSiteVoltstackClusterArGlobalNetworkListModel              `tfsdk:"global_network_list"`
 	K8SCluster                     *AzureVNETSiteVoltstackClusterArK8SClusterModel                     `tfsdk:"k8s_cluster"`
-	NoDcClusterGroup               *AzureVNETSiteEmptyModel                                            `tfsdk:"no_dc_cluster_group"`
-	NoForwardProxy                 *AzureVNETSiteEmptyModel                                            `tfsdk:"no_forward_proxy"`
-	NoGlobalNetwork                *AzureVNETSiteEmptyModel                                            `tfsdk:"no_global_network"`
-	NoK8SCluster                   *AzureVNETSiteEmptyModel                                            `tfsdk:"no_k8s_cluster"`
-	NoNetworkPolicy                *AzureVNETSiteEmptyModel                                            `tfsdk:"no_network_policy"`
-	NoOutsideStaticRoutes          *AzureVNETSiteEmptyModel                                            `tfsdk:"no_outside_static_routes"`
 	Node                           *AzureVNETSiteVoltstackClusterArNodeModel                           `tfsdk:"node"`
 	OutsideStaticRoutes            *AzureVNETSiteVoltstackClusterArOutsideStaticRoutesModel            `tfsdk:"outside_static_routes"`
-	SmConnectionPublicIP           *AzureVNETSiteEmptyModel                                            `tfsdk:"sm_connection_public_ip"`
-	SmConnectionPvtIP              *AzureVNETSiteEmptyModel                                            `tfsdk:"sm_connection_pvt_ip"`
 	StorageClassList               *AzureVNETSiteVoltstackClusterArStorageClassListModel               `tfsdk:"storage_class_list"`
 }
 
 // AzureVNETSiteVoltstackClusterArModelAttrTypes defines the attribute types for AzureVNETSiteVoltstackClusterArModel
 var AzureVNETSiteVoltstackClusterArModelAttrTypes = map[string]attr.Type{
 	"azure_certified_hw":                types.StringType,
-	"accelerated_networking":            types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArAcceleratedNetworkingModelAttrTypes},
-	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArActiveEnhancedFirewallPoliciesModelAttrTypes},
-	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArActiveForwardProxyPoliciesModelAttrTypes},
-	"active_network_policies":           types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArActiveNetworkPoliciesModelAttrTypes},
-	"dc_cluster_group":                  types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArDcClusterGroupModelAttrTypes},
 	"default_storage":                   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"forward_proxy_allow_all":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"global_network_list":               types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArGlobalNetworkListModelAttrTypes},
-	"k8s_cluster":                       types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArK8SClusterModelAttrTypes},
 	"no_dc_cluster_group":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_forward_proxy":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_global_network":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_k8s_cluster":                    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_network_policy":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_outside_static_routes":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"node":                              types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArNodeModelAttrTypes},
-	"outside_static_routes":             types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArOutsideStaticRoutesModelAttrTypes},
 	"sm_connection_public_ip":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"sm_connection_pvt_ip":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"accelerated_networking":            types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArAcceleratedNetworkingModelAttrTypes},
+	"active_enhanced_firewall_policies": types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArActiveEnhancedFirewallPoliciesModelAttrTypes},
+	"active_forward_proxy_policies":     types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArActiveForwardProxyPoliciesModelAttrTypes},
+	"active_network_policies":           types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArActiveNetworkPoliciesModelAttrTypes},
+	"dc_cluster_group":                  types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArDcClusterGroupModelAttrTypes},
+	"global_network_list":               types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArGlobalNetworkListModelAttrTypes},
+	"k8s_cluster":                       types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArK8SClusterModelAttrTypes},
+	"node":                              types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArNodeModelAttrTypes},
+	"outside_static_routes":             types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArOutsideStaticRoutesModelAttrTypes},
 	"storage_class_list":                types.ObjectType{AttrTypes: AzureVNETSiteVoltstackClusterArStorageClassListModelAttrTypes},
 }
 
 // AzureVNETSiteVoltstackClusterArAcceleratedNetworkingModel represents accelerated_networking block
 type AzureVNETSiteVoltstackClusterArAcceleratedNetworkingModel struct {
-	DisableSpec *AzureVNETSiteEmptyModel `tfsdk:"disable_spec"`
-	Enable      *AzureVNETSiteEmptyModel `tfsdk:"enable"`
+	DisableSpec types.Object `tfsdk:"disable_spec"`
+	Enable      types.Object `tfsdk:"enable"`
 }
 
 // AzureVNETSiteVoltstackClusterArAcceleratedNetworkingModelAttrTypes defines the attribute types for AzureVNETSiteVoltstackClusterArAcceleratedNetworkingModel
@@ -2971,9 +2974,9 @@ var AzureVNETSiteVoltstackClusterArNodeLocalSubnetModelAttrTypes = map[string]at
 
 // AzureVNETSiteVoltstackClusterArNodeLocalSubnetSubnetModel represents subnet block
 type AzureVNETSiteVoltstackClusterArNodeLocalSubnetSubnetModel struct {
-	SubnetName        types.String             `tfsdk:"subnet_name"`
-	SubnetResourceGrp types.String             `tfsdk:"subnet_resource_grp"`
-	VNETResourceGroup *AzureVNETSiteEmptyModel `tfsdk:"vnet_resource_group"`
+	SubnetName        types.String `tfsdk:"subnet_name"`
+	SubnetResourceGrp types.String `tfsdk:"subnet_resource_grp"`
+	VNETResourceGroup types.Object `tfsdk:"vnet_resource_group"`
 }
 
 // AzureVNETSiteVoltstackClusterArNodeLocalSubnetSubnetModelAttrTypes defines the attribute types for AzureVNETSiteVoltstackClusterArNodeLocalSubnetSubnetModel
@@ -3160,14 +3163,19 @@ type AzureVNETSiteResourceModel struct {
 	ResourceGroup            types.String                                `tfsdk:"resource_group"`
 	SSHKey                   types.String                                `tfsdk:"ssh_key"`
 	Annotations              types.Map                                   `tfsdk:"annotations"`
+	DefaultBlockedServices   types.Object                                `tfsdk:"default_blocked_services"`
 	Description              types.String                                `tfsdk:"description"`
 	Disable                  types.Bool                                  `tfsdk:"disable"`
+	DisableEncryption        types.Object                                `tfsdk:"disable_encryption"`
 	Labels                   types.Map                                   `tfsdk:"labels"`
 	ID                       types.String                                `tfsdk:"id"`
 	Address                  types.String                                `tfsdk:"address"`
 	AlternateRegion          types.String                                `tfsdk:"alternate_region"`
 	AzureRegion              types.String                                `tfsdk:"azure_region"`
+	BlockAllServices         types.Object                                `tfsdk:"block_all_services"`
 	DiskSize                 types.Int64                                 `tfsdk:"disk_size"`
+	LogsStreamingDisabled    types.Object                                `tfsdk:"logs_streaming_disabled"`
+	NoWorkerNodes            types.Object                                `tfsdk:"no_worker_nodes"`
 	NodesPerAz               types.Int64                                 `tfsdk:"nodes_per_az"`
 	Tags                     types.Map                                   `tfsdk:"tags"`
 	TotalNodes               types.Int64                                 `tfsdk:"total_nodes"`
@@ -3177,8 +3185,6 @@ type AzureVNETSiteResourceModel struct {
 	BlockedServices          *AzureVNETSiteBlockedServicesModel          `tfsdk:"blocked_services"`
 	Coordinates              *AzureVNETSiteCoordinatesModel              `tfsdk:"coordinates"`
 	CustomDNS                *AzureVNETSiteCustomDNSModel                `tfsdk:"custom_dns"`
-	DefaultBlockedServices   *AzureVNETSiteEmptyModel                    `tfsdk:"default_blocked_services"`
-	DisableEncryption        *AzureVNETSiteEmptyModel                    `tfsdk:"disable_encryption"`
 	EnableEncryption         *AzureVNETSiteEnableEncryptionModel         `tfsdk:"enable_encryption"`
 	IngressEgressGw          *AzureVNETSiteIngressEgressGwModel          `tfsdk:"ingress_egress_gw"`
 	IngressEgressGwAr        *AzureVNETSiteIngressEgressGwArModel        `tfsdk:"ingress_egress_gw_ar"`
@@ -3192,9 +3198,6 @@ type AzureVNETSiteResourceModel struct {
 	VNET                     *AzureVNETSiteVNETModel                     `tfsdk:"vnet"`
 	VoltstackCluster         *AzureVNETSiteVoltstackClusterModel         `tfsdk:"voltstack_cluster"`
 	VoltstackClusterAr       *AzureVNETSiteVoltstackClusterArModel       `tfsdk:"voltstack_cluster_ar"`
-	BlockAllServices         *AzureVNETSiteEmptyModel                    `tfsdk:"block_all_services"`
-	LogsStreamingDisabled    *AzureVNETSiteEmptyModel                    `tfsdk:"logs_streaming_disabled"`
-	NoWorkerNodes            *AzureVNETSiteEmptyModel                    `tfsdk:"no_worker_nodes"`
 }
 
 func (r *AzureVNETSiteResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -3254,6 +3257,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"default_blocked_services": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
@@ -3261,6 +3269,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
+			},
+			"disable_encryption": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable_encryption, enable_encryption; Default: disable_encryption] Configuration parameter for disable encryption.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
@@ -3307,6 +3320,15 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					stringvalidator.LengthAtMost(64),
 				},
 			},
+			"block_all_services": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: block_all_services, blocked_services, default_blocked_services; Default: default_blocked_services] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
 			"disk_size": schema.Int64Attribute{
 				MarkdownDescription: "Disk size to be used for this instance in GiB. 80 is 80 GiB. Server applies default when omitted.",
 				Optional:            true,
@@ -3316,6 +3338,24 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 				Validators: []validator.Int64{
 					int64validator.AtMost(4095),
+				},
+			},
+			"logs_streaming_disabled": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"no_worker_nodes": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: no_worker_nodes, nodes_per_az, total_nodes; Default: no_worker_nodes] Configuration parameter for no worker nodes. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"nodes_per_az": schema.Int64Attribute{
@@ -3359,6 +3399,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			}),
 			"admin_password": schema.SingleNestedBlock{
 				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
@@ -3441,8 +3482,14 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("dns", "ssh"), validators.ConflictingListObjectAttributes("dns", "web_user_interface"), validators.ConflictingListObjectAttributes("ssh", "web_user_interface")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
+								"dns": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"network_type": schema.StringAttribute{
 									MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
 									Optional:            true,
@@ -3450,16 +3497,15 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										stringvalidator.OneOf("VIRTUAL_NETWORK_SITE_LOCAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE", "VIRTUAL_NETWORK_PER_SITE", "VIRTUAL_NETWORK_PUBLIC", "VIRTUAL_NETWORK_GLOBAL", "VIRTUAL_NETWORK_SITE_SERVICE", "VIRTUAL_NETWORK_VER_INTERNAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE", "VIRTUAL_NETWORK_IP_AUTO", "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK", "VIRTUAL_NETWORK_SRV6_NETWORK", "VIRTUAL_NETWORK_IP_FABRIC", "VIRTUAL_NETWORK_SEGMENT", "VIRTUAL_NETWORK_MANAGEMENT"),
 									},
 								},
-							},
-							Blocks: map[string]schema.Block{
-								"dns": schema.SingleNestedBlock{
+								"ssh": schema.ObjectAttribute{
 									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
-								"ssh": schema.SingleNestedBlock{
+								"web_user_interface": schema.ObjectAttribute{
 									MarkdownDescription: "Enable this option",
-								},
-								"web_user_interface": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
 							},
 						},
@@ -3502,12 +3548,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 				},
 			},
-			"default_blocked_services": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"disable_encryption": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disable_encryption, enable_encryption; Default: disable_encryption] Configuration parameter for disable encryption.",
-			},
 			"enable_encryption": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for enable encryption.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("disk_encryption_set_id", "resource_group")},
@@ -3528,7 +3568,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"ingress_egress_gw": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: ingress_egress_gw, ingress_egress_gw_ar, ingress_gw, ingress_gw_ar, voltstack_cluster, voltstack_cluster_ar] Two interface Azure ingress/egress site.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("az_nodes", "azure_certified_hw")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("az_nodes", "azure_certified_hw"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "dc_cluster_group_outside_vn"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("dc_cluster_group_outside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("hub", "not_hub"), validators.ConflictingObjectAttributes("inside_static_routes", "no_inside_static_routes"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
@@ -3539,17 +3579,71 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							stringvalidator.OneOf("azure-byol-multi-nic-voltmesh"),
 						},
 					},
+					"forward_proxy_allow_all": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_dc_cluster_group": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_forward_proxy": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no forward proxy.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_global_network": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no global network.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_inside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no inside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_network_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_outside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no outside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"not_hub": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_public_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_pvt_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 				},
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
 						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"disable_spec": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
+						Attributes: map[string]schema.Attribute{
+							"disable_spec": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"enable": schema.SingleNestedBlock{
+							"enable": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -3689,11 +3783,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							Blocks: map[string]schema.Block{
 								"inside_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for inside subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"subnet": schema.SingleNestedBlock{
 											MarkdownDescription: "Subnet specification for network segmentation.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 											Attributes: map[string]schema.Attribute{
 												"subnet_name": schema.StringAttribute{
 													MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -3709,10 +3804,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														stringvalidator.LengthAtMost(64),
 													},
 												},
-											},
-											Blocks: map[string]schema.Block{
-												"vnet_resource_group": schema.SingleNestedBlock{
+												"vnet_resource_group": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for vnet resource group.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -3730,11 +3825,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 								"outside_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for outside subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"subnet": schema.SingleNestedBlock{
 											MarkdownDescription: "Subnet specification for network segmentation.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 											Attributes: map[string]schema.Attribute{
 												"subnet_name": schema.StringAttribute{
 													MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -3750,10 +3846,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														stringvalidator.LengthAtMost(64),
 													},
 												},
-											},
-											Blocks: map[string]schema.Block{
-												"vnet_resource_group": schema.SingleNestedBlock{
+												"vnet_resource_group": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for vnet resource group.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -3834,9 +3930,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 						},
 					},
-					"forward_proxy_allow_all": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
-					},
 					"global_network_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Global Network Connection List. List of global network connections.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("global_network_connections")},
@@ -3844,6 +3937,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -3928,15 +4022,29 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"hub": schema.SingleNestedBlock{
 						MarkdownDescription: "Hub VNet type. Hub VNet type.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"express_route_disabled": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("express_route_disabled", "express_route_enabled")},
+						Attributes: map[string]schema.Attribute{
+							"express_route_disabled": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
+						},
+						Blocks: map[string]schema.Block{
 							"express_route_enabled": schema.SingleNestedBlock{
 								MarkdownDescription: "Express Route Configuration. Express Route Configuration.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("connections")},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("connections"), validators.ConflictingObjectAttributes("advertise_to_route_server", "do_not_advertise_to_route_server"), validators.ConflictingObjectAttributes("auto_asn", "custom_asn"), validators.ConflictingObjectAttributes("site_registration_over_express_route", "site_registration_over_internet"), validators.ConflictingObjectAttributes("sku_ergw1az", "sku_ergw2az"), validators.ConflictingObjectAttributes("sku_ergw1az", "sku_high_perf"), validators.ConflictingObjectAttributes("sku_ergw1az", "sku_standard"), validators.ConflictingObjectAttributes("sku_ergw2az", "sku_high_perf"), validators.ConflictingObjectAttributes("sku_ergw2az", "sku_standard"), validators.ConflictingObjectAttributes("sku_high_perf", "sku_standard")},
 								Attributes: map[string]schema.Attribute{
+									"advertise_to_route_server": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for advertise to route server.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"auto_asn": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
 									"custom_asn": schema.Int64Attribute{
 										MarkdownDescription: "Exclusive with [auto_asn] Set custom ASN for F5XC Site.",
 										Optional:            true,
@@ -3944,16 +4052,41 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											int64validator.Between(2, 65535),
 										},
 									},
+									"do_not_advertise_to_route_server": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for do not advertise to route server.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"site_registration_over_internet": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"sku_ergw1az": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for sku ergw1az.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"sku_ergw2az": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for sku ergw2az.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"sku_high_perf": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for sku high perf.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"sku_standard": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for sku standard.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
 								},
 								Blocks: map[string]schema.Block{
-									"advertise_to_route_server": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for advertise to route server.",
-									},
-									"auto_asn": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 									"connections": schema.ListNestedBlock{
 										MarkdownDescription: "Add the ExpressRoute Circuit Connections to this site.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("circuit_id", "other_subscription")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"circuit_id": schema.StringAttribute{
@@ -4003,6 +4136,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"authorized_key": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
@@ -4050,18 +4184,20 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 										},
 									},
-									"do_not_advertise_to_route_server": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for do not advertise to route server.",
-									},
 									"gateway_subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Configuration parameter for gateway subnet.",
-										Attributes:          map[string]schema.Attribute{},
-										Blocks: map[string]schema.Block{
-											"auto": schema.SingleNestedBlock{
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto", "subnet"), validators.ConflictingObjectAttributes("auto", "subnet_param"), validators.ConflictingObjectAttributes("subnet", "subnet_param")},
+										Attributes: map[string]schema.Attribute{
+											"auto": schema.ObjectAttribute{
 												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
 											},
+										},
+										Blocks: map[string]schema.Block{
 											"subnet": schema.SingleNestedBlock{
 												MarkdownDescription: "Parameters for Azure special subnet which name is reserved. (i.e GatewaySubnet or RouteServerSubnet).",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 												Attributes: map[string]schema.Attribute{
 													"subnet_resource_grp": schema.StringAttribute{
 														MarkdownDescription: "Exclusive with [vnet_resource_group] Specify name of Resource Group.",
@@ -4070,10 +4206,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															stringvalidator.LengthAtMost(64),
 														},
 													},
-												},
-												Blocks: map[string]schema.Block{
-													"vnet_resource_group": schema.SingleNestedBlock{
+													"vnet_resource_group": schema.ObjectAttribute{
 														MarkdownDescription: "Configuration parameter for vnet resource group.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
 													},
 												},
 											},
@@ -4091,13 +4227,18 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 									},
 									"route_server_subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Configuration parameter for route server subnet.",
-										Attributes:          map[string]schema.Attribute{},
-										Blocks: map[string]schema.Block{
-											"auto": schema.SingleNestedBlock{
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto", "subnet"), validators.ConflictingObjectAttributes("auto", "subnet_param"), validators.ConflictingObjectAttributes("subnet", "subnet_param")},
+										Attributes: map[string]schema.Attribute{
+											"auto": schema.ObjectAttribute{
 												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
 											},
+										},
+										Blocks: map[string]schema.Block{
 											"subnet": schema.SingleNestedBlock{
 												MarkdownDescription: "Parameters for Azure special subnet which name is reserved. (i.e GatewaySubnet or RouteServerSubnet).",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 												Attributes: map[string]schema.Attribute{
 													"subnet_resource_grp": schema.StringAttribute{
 														MarkdownDescription: "Exclusive with [vnet_resource_group] Specify name of Resource Group.",
@@ -4106,10 +4247,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															stringvalidator.LengthAtMost(64),
 														},
 													},
-												},
-												Blocks: map[string]schema.Block{
-													"vnet_resource_group": schema.SingleNestedBlock{
+													"vnet_resource_group": schema.ObjectAttribute{
 														MarkdownDescription: "Configuration parameter for vnet resource group.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
 													},
 												},
 											},
@@ -4138,41 +4279,42 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 										},
 									},
-									"site_registration_over_internet": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"sku_ergw1az": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for sku ergw1az.",
-									},
-									"sku_ergw2az": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for sku ergw2az.",
-									},
-									"sku_high_perf": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for sku high perf.",
-									},
-									"sku_standard": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for sku standard.",
-									},
 								},
 							},
 							"spoke_vnets": schema.ListNestedBlock{
 								MarkdownDescription: "Spoke VNet Peering (Legacy). Spoke VNet Peering.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("auto", "manual")},
 								NestedObject: schema.NestedBlockObject{
-									Attributes: map[string]schema.Attribute{},
-									Blocks: map[string]schema.Block{
-										"auto": schema.SingleNestedBlock{
+									Attributes: map[string]schema.Attribute{
+										"auto": schema.ObjectAttribute{
 											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
+										"manual": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+									},
+									Blocks: map[string]schema.Block{
 										"labels": schema.SingleNestedBlock{
 											MarkdownDescription: "Add Labels for each of the VNets peered with transit VNet, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace.",
 										},
-										"manual": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 										"vnet": schema.SingleNestedBlock{
 											MarkdownDescription: "Resource group and name of existing Azure VNet.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("resource_group", "vnet_name")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("resource_group", "vnet_name"), validators.ConflictingObjectAttributes("f5_orchestrated_routing", "manual_routing")},
 											Attributes: map[string]schema.Attribute{
+												"f5_orchestrated_routing": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"manual_routing": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"resource_group": schema.StringAttribute{
 													MarkdownDescription: "Existing VNet Resource Group. Resource group of existing VNet.",
 													Optional:            true,
@@ -4188,14 +4330,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 											},
-											Blocks: map[string]schema.Block{
-												"f5_orchestrated_routing": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"manual_routing": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-											},
 										},
 									},
 								},
@@ -4209,6 +4343,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -4283,6 +4418,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -4317,6 +4453,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -4370,27 +4507,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 						},
 					},
-					"no_dc_cluster_group": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_forward_proxy": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no forward proxy.",
-					},
-					"no_global_network": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no global network.",
-					},
-					"no_inside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no inside static routes.",
-					},
-					"no_network_policy": schema.SingleNestedBlock{
-						MarkdownDescription: "Policy configuration for this feature.",
-					},
-					"no_outside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no outside static routes.",
-					},
-					"not_hub": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"outside_static_routes": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for outside static routes.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("static_route_list")},
@@ -4398,6 +4514,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -4472,6 +4589,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -4506,6 +4624,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -4561,45 +4680,48 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"performance_enhancement_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
+								Attributes: map[string]schema.Attribute{
+									"jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"no_jumbo": schema.SingleNestedBlock{
+									"no_jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo_disabled": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
+								Attributes: map[string]schema.Attribute{
+									"jumbo_disabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"jumbo_enabled": schema.SingleNestedBlock{
+									"jumbo_enabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
 						},
 					},
-					"sm_connection_public_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"sm_connection_pvt_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 				},
 			},
 			"ingress_egress_gw_ar": schema.SingleNestedBlock{
 				MarkdownDescription: "Two interface Azure ingress/egress site on Alternate Region with no support for zones.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("azure_certified_hw")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("azure_certified_hw"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "dc_cluster_group_outside_vn"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("dc_cluster_group_outside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("hub", "not_hub"), validators.ConflictingObjectAttributes("inside_static_routes", "no_inside_static_routes"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
@@ -4610,17 +4732,71 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							stringvalidator.OneOf("azure-byol-multi-nic-voltmesh"),
 						},
 					},
+					"forward_proxy_allow_all": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_dc_cluster_group": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_forward_proxy": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no forward proxy.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_global_network": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no global network.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_inside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no inside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_network_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_outside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no outside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"not_hub": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_public_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_pvt_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 				},
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
 						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"disable_spec": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
+						Attributes: map[string]schema.Attribute{
+							"disable_spec": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"enable": schema.SingleNestedBlock{
+							"enable": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -4806,9 +4982,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 						},
 					},
-					"forward_proxy_allow_all": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
-					},
 					"global_network_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Global Network Connection List. List of global network connections.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("global_network_connections")},
@@ -4816,6 +4989,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -4900,15 +5074,29 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"hub": schema.SingleNestedBlock{
 						MarkdownDescription: "Hub VNet type. Hub VNet type.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"express_route_disabled": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("express_route_disabled", "express_route_enabled")},
+						Attributes: map[string]schema.Attribute{
+							"express_route_disabled": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
+						},
+						Blocks: map[string]schema.Block{
 							"express_route_enabled": schema.SingleNestedBlock{
 								MarkdownDescription: "Express Route Configuration. Express Route Configuration.",
-								Validators:          []validator.Object{validators.RequiredObjectAttributes("connections")},
+								Validators:          []validator.Object{validators.RequiredObjectAttributes("connections"), validators.ConflictingObjectAttributes("advertise_to_route_server", "do_not_advertise_to_route_server"), validators.ConflictingObjectAttributes("auto_asn", "custom_asn"), validators.ConflictingObjectAttributes("site_registration_over_express_route", "site_registration_over_internet"), validators.ConflictingObjectAttributes("sku_ergw1az", "sku_ergw2az"), validators.ConflictingObjectAttributes("sku_ergw1az", "sku_high_perf"), validators.ConflictingObjectAttributes("sku_ergw1az", "sku_standard"), validators.ConflictingObjectAttributes("sku_ergw2az", "sku_high_perf"), validators.ConflictingObjectAttributes("sku_ergw2az", "sku_standard"), validators.ConflictingObjectAttributes("sku_high_perf", "sku_standard")},
 								Attributes: map[string]schema.Attribute{
+									"advertise_to_route_server": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for advertise to route server.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"auto_asn": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
 									"custom_asn": schema.Int64Attribute{
 										MarkdownDescription: "Exclusive with [auto_asn] Set custom ASN for F5XC Site.",
 										Optional:            true,
@@ -4916,16 +5104,41 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											int64validator.Between(2, 65535),
 										},
 									},
+									"do_not_advertise_to_route_server": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for do not advertise to route server.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"site_registration_over_internet": schema.ObjectAttribute{
+										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"sku_ergw1az": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for sku ergw1az.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"sku_ergw2az": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for sku ergw2az.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"sku_high_perf": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for sku high perf.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
+									"sku_standard": schema.ObjectAttribute{
+										MarkdownDescription: "Configuration parameter for sku standard.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
+									},
 								},
 								Blocks: map[string]schema.Block{
-									"advertise_to_route_server": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for advertise to route server.",
-									},
-									"auto_asn": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
 									"connections": schema.ListNestedBlock{
 										MarkdownDescription: "Add the ExpressRoute Circuit Connections to this site.",
+										Validators:          []validator.List{validators.ConflictingListObjectAttributes("circuit_id", "other_subscription")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"circuit_id": schema.StringAttribute{
@@ -4975,6 +5188,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"authorized_key": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
@@ -5022,18 +5236,20 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 										},
 									},
-									"do_not_advertise_to_route_server": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for do not advertise to route server.",
-									},
 									"gateway_subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Configuration parameter for gateway subnet.",
-										Attributes:          map[string]schema.Attribute{},
-										Blocks: map[string]schema.Block{
-											"auto": schema.SingleNestedBlock{
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto", "subnet"), validators.ConflictingObjectAttributes("auto", "subnet_param"), validators.ConflictingObjectAttributes("subnet", "subnet_param")},
+										Attributes: map[string]schema.Attribute{
+											"auto": schema.ObjectAttribute{
 												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
 											},
+										},
+										Blocks: map[string]schema.Block{
 											"subnet": schema.SingleNestedBlock{
 												MarkdownDescription: "Parameters for Azure special subnet which name is reserved. (i.e GatewaySubnet or RouteServerSubnet).",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 												Attributes: map[string]schema.Attribute{
 													"subnet_resource_grp": schema.StringAttribute{
 														MarkdownDescription: "Exclusive with [vnet_resource_group] Specify name of Resource Group.",
@@ -5042,10 +5258,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															stringvalidator.LengthAtMost(64),
 														},
 													},
-												},
-												Blocks: map[string]schema.Block{
-													"vnet_resource_group": schema.SingleNestedBlock{
+													"vnet_resource_group": schema.ObjectAttribute{
 														MarkdownDescription: "Configuration parameter for vnet resource group.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
 													},
 												},
 											},
@@ -5063,13 +5279,18 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 									},
 									"route_server_subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Configuration parameter for route server subnet.",
-										Attributes:          map[string]schema.Attribute{},
-										Blocks: map[string]schema.Block{
-											"auto": schema.SingleNestedBlock{
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto", "subnet"), validators.ConflictingObjectAttributes("auto", "subnet_param"), validators.ConflictingObjectAttributes("subnet", "subnet_param")},
+										Attributes: map[string]schema.Attribute{
+											"auto": schema.ObjectAttribute{
 												MarkdownDescription: "Enable this option",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
 											},
+										},
+										Blocks: map[string]schema.Block{
 											"subnet": schema.SingleNestedBlock{
 												MarkdownDescription: "Parameters for Azure special subnet which name is reserved. (i.e GatewaySubnet or RouteServerSubnet).",
+												Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 												Attributes: map[string]schema.Attribute{
 													"subnet_resource_grp": schema.StringAttribute{
 														MarkdownDescription: "Exclusive with [vnet_resource_group] Specify name of Resource Group.",
@@ -5078,10 +5299,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															stringvalidator.LengthAtMost(64),
 														},
 													},
-												},
-												Blocks: map[string]schema.Block{
-													"vnet_resource_group": schema.SingleNestedBlock{
+													"vnet_resource_group": schema.ObjectAttribute{
 														MarkdownDescription: "Configuration parameter for vnet resource group.",
+														Optional:            true,
+														AttributeTypes:      map[string]attr.Type{},
 													},
 												},
 											},
@@ -5110,41 +5331,42 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 										},
 									},
-									"site_registration_over_internet": schema.SingleNestedBlock{
-										MarkdownDescription: "Enable this option",
-									},
-									"sku_ergw1az": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for sku ergw1az.",
-									},
-									"sku_ergw2az": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for sku ergw2az.",
-									},
-									"sku_high_perf": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for sku high perf.",
-									},
-									"sku_standard": schema.SingleNestedBlock{
-										MarkdownDescription: "Configuration parameter for sku standard.",
-									},
 								},
 							},
 							"spoke_vnets": schema.ListNestedBlock{
 								MarkdownDescription: "Spoke VNet Peering (Legacy). Spoke VNet Peering.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("auto", "manual")},
 								NestedObject: schema.NestedBlockObject{
-									Attributes: map[string]schema.Attribute{},
-									Blocks: map[string]schema.Block{
-										"auto": schema.SingleNestedBlock{
+									Attributes: map[string]schema.Attribute{
+										"auto": schema.ObjectAttribute{
 											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
+										"manual": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+									},
+									Blocks: map[string]schema.Block{
 										"labels": schema.SingleNestedBlock{
 											MarkdownDescription: "Add Labels for each of the VNets peered with transit VNet, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace.",
 										},
-										"manual": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 										"vnet": schema.SingleNestedBlock{
 											MarkdownDescription: "Resource group and name of existing Azure VNet.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("resource_group", "vnet_name")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("resource_group", "vnet_name"), validators.ConflictingObjectAttributes("f5_orchestrated_routing", "manual_routing")},
 											Attributes: map[string]schema.Attribute{
+												"f5_orchestrated_routing": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"manual_routing": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"resource_group": schema.StringAttribute{
 													MarkdownDescription: "Existing VNet Resource Group. Resource group of existing VNet.",
 													Optional:            true,
@@ -5160,14 +5382,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 											},
-											Blocks: map[string]schema.Block{
-												"f5_orchestrated_routing": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"manual_routing": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-											},
 										},
 									},
 								},
@@ -5181,6 +5395,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -5255,6 +5470,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -5289,6 +5505,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -5342,24 +5559,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 						},
 					},
-					"no_dc_cluster_group": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_forward_proxy": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no forward proxy.",
-					},
-					"no_global_network": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no global network.",
-					},
-					"no_inside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no inside static routes.",
-					},
-					"no_network_policy": schema.SingleNestedBlock{
-						MarkdownDescription: "Policy configuration for this feature.",
-					},
-					"no_outside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no outside static routes.",
-					},
 					"node": schema.SingleNestedBlock{
 						MarkdownDescription: "Parameters for creating two interface Node in one AZ.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("fault_domain", "node_number", "update_domain")},
@@ -5386,11 +5585,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"inside_subnet": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for inside subnet.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Subnet specification for network segmentation.",
-										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 										Attributes: map[string]schema.Attribute{
 											"subnet_name": schema.StringAttribute{
 												MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -5406,10 +5606,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													stringvalidator.LengthAtMost(64),
 												},
 											},
-										},
-										Blocks: map[string]schema.Block{
-											"vnet_resource_group": schema.SingleNestedBlock{
+											"vnet_resource_group": schema.ObjectAttribute{
 												MarkdownDescription: "Configuration parameter for vnet resource group.",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
 											},
 										},
 									},
@@ -5427,11 +5627,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"outside_subnet": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for outside subnet.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Subnet specification for network segmentation.",
-										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 										Attributes: map[string]schema.Attribute{
 											"subnet_name": schema.StringAttribute{
 												MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -5447,10 +5648,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													stringvalidator.LengthAtMost(64),
 												},
 											},
-										},
-										Blocks: map[string]schema.Block{
-											"vnet_resource_group": schema.SingleNestedBlock{
+											"vnet_resource_group": schema.ObjectAttribute{
 												MarkdownDescription: "Configuration parameter for vnet resource group.",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
 											},
 										},
 									},
@@ -5468,9 +5669,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 						},
 					},
-					"not_hub": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"outside_static_routes": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for outside static routes.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("static_route_list")},
@@ -5478,6 +5676,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -5552,6 +5751,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -5586,6 +5786,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -5641,39 +5842,42 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"performance_enhancement_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
+								Attributes: map[string]schema.Attribute{
+									"jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"no_jumbo": schema.SingleNestedBlock{
+									"no_jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo_disabled": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
+								Attributes: map[string]schema.Attribute{
+									"jumbo_disabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"jumbo_enabled": schema.SingleNestedBlock{
+									"jumbo_enabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
 						},
-					},
-					"sm_connection_public_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"sm_connection_pvt_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 				},
 			},
@@ -5694,13 +5898,17 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
 						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen. Server applies default when omitted.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"disable_spec": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
+						Attributes: map[string]schema.Attribute{
+							"disable_spec": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"enable": schema.SingleNestedBlock{
+							"enable": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -5720,11 +5928,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							Blocks: map[string]schema.Block{
 								"local_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for local subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"subnet": schema.SingleNestedBlock{
 											MarkdownDescription: "Subnet specification for network segmentation.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 											Attributes: map[string]schema.Attribute{
 												"subnet_name": schema.StringAttribute{
 													MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -5740,10 +5949,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														stringvalidator.LengthAtMost(64),
 													},
 												},
-											},
-											Blocks: map[string]schema.Block{
-												"vnet_resource_group": schema.SingleNestedBlock{
+												"vnet_resource_group": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for vnet resource group.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -5764,29 +5973,38 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"performance_enhancement_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default. Server applies default when omitted.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
+								Attributes: map[string]schema.Attribute{
+									"jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"no_jumbo": schema.SingleNestedBlock{
+									"no_jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo_disabled": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
+								Attributes: map[string]schema.Attribute{
+									"jumbo_disabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"jumbo_enabled": schema.SingleNestedBlock{
+									"jumbo_enabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
@@ -5811,13 +6029,17 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
 						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"disable_spec": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
+						Attributes: map[string]schema.Attribute{
+							"disable_spec": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"enable": schema.SingleNestedBlock{
+							"enable": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -5847,11 +6069,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"local_subnet": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for local subnet.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Subnet specification for network segmentation.",
-										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 										Attributes: map[string]schema.Attribute{
 											"subnet_name": schema.StringAttribute{
 												MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -5867,10 +6090,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													stringvalidator.LengthAtMost(64),
 												},
 											},
-										},
-										Blocks: map[string]schema.Block{
-											"vnet_resource_group": schema.SingleNestedBlock{
+											"vnet_resource_group": schema.ObjectAttribute{
 												MarkdownDescription: "Configuration parameter for vnet resource group.",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
 											},
 										},
 									},
@@ -5890,29 +6113,38 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 					"performance_enhancement_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
+								Attributes: map[string]schema.Attribute{
+									"jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"no_jumbo": schema.SingleNestedBlock{
+									"no_jumbo": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"jumbo_disabled": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
+								Attributes: map[string]schema.Attribute{
+									"jumbo_disabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"jumbo_enabled": schema.SingleNestedBlock{
+									"jumbo_enabled": schema.ObjectAttribute{
 										MarkdownDescription: "Enable this option",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
@@ -5922,22 +6154,35 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_upgrade_drain", "enable_upgrade_drain")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_upgrade_drain": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_upgrade_drain": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for disable upgrade drain.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+				},
+				Blocks: map[string]schema.Block{
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout"), validators.ConflictingObjectAttributes("disable_vega_upgrade_mode", "enable_vega_upgrade_mode"), validators.ConflictingObjectAttributes("drain_max_unavailable_node_count", "drain_max_unavailable_node_percentage")},
 						Attributes: map[string]schema.Attribute{
+							"disable_vega_upgrade_mode": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable vega upgrade mode.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
 								Optional:            true,
 								Validators: []validator.Int64{
 									int64validator.Between(1, 5000),
 								},
+							},
+							"drain_max_unavailable_node_percentage": schema.Int64Attribute{
+								MarkdownDescription: "Maximum percentage of nodes unavailable during upgrade draining.",
+								Optional:            true,
 							},
 							"drain_node_timeout": schema.Int64Attribute{
 								MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
@@ -5946,13 +6191,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 									int64validator.Between(0, 900),
 								},
 							},
-						},
-						Blocks: map[string]schema.Block{
-							"disable_vega_upgrade_mode": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for disable vega upgrade mode.",
-							},
-							"enable_vega_upgrade_mode": schema.SingleNestedBlock{
+							"enable_vega_upgrade_mode": schema.ObjectAttribute{
 								MarkdownDescription: "Configuration parameter for enable vega upgrade mode.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -5992,21 +6234,31 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"offline_survivability_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing configuration for upto 7..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("enable_offline_survivability_mode", "no_offline_survivability_mode")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"enable_offline_survivability_mode": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"enable_offline_survivability_mode": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for enable offline survivability mode.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"no_offline_survivability_mode": schema.SingleNestedBlock{
+					"no_offline_survivability_mode": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for no offline survivability mode.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
 			"os": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_os_version", "operating_system_version")},
 
 				Attributes: map[string]schema.Attribute{
+					"default_os_version": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"operating_system_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_os_version] Specify a OS version to be used e.g. 9.2024.6.",
 						Optional:            true,
@@ -6015,16 +6267,17 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						},
 					},
 				},
-				Blocks: map[string]schema.Block{
-					"default_os_version": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-				},
 			},
 			"sw": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_sw_version", "volterra_software_version")},
 
 				Attributes: map[string]schema.Attribute{
+					"default_sw_version": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"volterra_software_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_sw_version] Specify a F5XC Software Version to be used e.g. Crt-20210329-1002.",
 						Optional:            true,
@@ -6033,21 +6286,27 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						},
 					},
 				},
-				Blocks: map[string]schema.Block{
-					"default_sw_version": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-				},
 			},
 			"vnet": schema.SingleNestedBlock{
 				MarkdownDescription: "Defines choice about Azure VNet for a view.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_vnet", "new_vnet")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"existing_vnet": schema.SingleNestedBlock{
 						MarkdownDescription: "Resource group and name of existing Azure VNet.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("resource_group", "vnet_name")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("resource_group", "vnet_name"), validators.ConflictingObjectAttributes("f5_orchestrated_routing", "manual_routing")},
 						Attributes: map[string]schema.Attribute{
+							"f5_orchestrated_routing": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"manual_routing": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"resource_group": schema.StringAttribute{
 								MarkdownDescription: "Existing VNet Resource Group. Resource group of existing VNet.",
 								Optional:            true,
@@ -6063,19 +6322,16 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 							},
 						},
-						Blocks: map[string]schema.Block{
-							"f5_orchestrated_routing": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"manual_routing": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-						},
 					},
 					"new_vnet": schema.SingleNestedBlock{
 						MarkdownDescription: "Azure VNet Parameters. Parameters to create a new Azure VNet.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("primary_ipv4")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("primary_ipv4"), validators.ConflictingObjectAttributes("autogenerate", "name")},
 						Attributes: map[string]schema.Attribute{
+							"autogenerate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for autogenerate.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"name": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [autogenerate] Specify the VNet Name.",
 								Optional:            true,
@@ -6088,17 +6344,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Optional:            true,
 							},
 						},
-						Blocks: map[string]schema.Block{
-							"autogenerate": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for autogenerate.",
-							},
-						},
 					},
 				},
 			},
 			"voltstack_cluster": schema.SingleNestedBlock{
 				MarkdownDescription: "App Stack Cluster of single interface Azure nodes.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("az_nodes", "azure_certified_hw")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("az_nodes", "azure_certified_hw"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("dc_cluster_group", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("default_storage", "storage_class_list"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("k8s_cluster", "no_k8s_cluster"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
@@ -6109,17 +6360,71 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							stringvalidator.OneOf("azure-byol-voltstack-combo"),
 						},
 					},
+					"default_storage": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default storage.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"forward_proxy_allow_all": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_dc_cluster_group": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_forward_proxy": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no forward proxy.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_global_network": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no global network.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_k8s_cluster": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_network_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_outside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no outside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_public_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_pvt_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 				},
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
 						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"disable_spec": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
+						Attributes: map[string]schema.Attribute{
+							"disable_spec": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"enable": schema.SingleNestedBlock{
+							"enable": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -6259,11 +6564,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							Blocks: map[string]schema.Block{
 								"local_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for local subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"subnet": schema.SingleNestedBlock{
 											MarkdownDescription: "Subnet specification for network segmentation.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 											Attributes: map[string]schema.Attribute{
 												"subnet_name": schema.StringAttribute{
 													MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -6279,10 +6585,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														stringvalidator.LengthAtMost(64),
 													},
 												},
-											},
-											Blocks: map[string]schema.Block{
-												"vnet_resource_group": schema.SingleNestedBlock{
+												"vnet_resource_group": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for vnet resource group.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 										},
@@ -6332,12 +6638,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 						},
 					},
-					"default_storage": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for default storage.",
-					},
-					"forward_proxy_allow_all": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
-					},
 					"global_network_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Global Network Connection List. List of global network connections.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("global_network_connections")},
@@ -6345,6 +6645,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -6458,24 +6759,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 						},
 					},
-					"no_dc_cluster_group": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_forward_proxy": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no forward proxy.",
-					},
-					"no_global_network": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no global network.",
-					},
-					"no_k8s_cluster": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_network_policy": schema.SingleNestedBlock{
-						MarkdownDescription: "Policy configuration for this feature.",
-					},
-					"no_outside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no outside static routes.",
-					},
 					"outside_static_routes": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for outside static routes.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("static_route_list")},
@@ -6483,6 +6766,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -6557,6 +6841,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -6591,6 +6876,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -6644,12 +6930,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 						},
 					},
-					"sm_connection_public_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"sm_connection_pvt_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"storage_class_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Add additional custom storage classes in Kubernetes for this site.",
 						Attributes:          map[string]schema.Attribute{},
@@ -6679,7 +6959,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			},
 			"voltstack_cluster_ar": schema.SingleNestedBlock{
 				MarkdownDescription: "App Stack Cluster of single interface Azure nodes.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("azure_certified_hw")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("azure_certified_hw"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("dc_cluster_group", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("default_storage", "storage_class_list"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("k8s_cluster", "no_k8s_cluster"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
@@ -6690,17 +6970,71 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							stringvalidator.OneOf("azure-byol-voltstack-combo"),
 						},
 					},
+					"default_storage": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default storage.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"forward_proxy_allow_all": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_dc_cluster_group": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_forward_proxy": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no forward proxy.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_global_network": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no global network.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_k8s_cluster": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_network_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_outside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no outside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_public_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_pvt_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 				},
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
 						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"disable_spec": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
+						Attributes: map[string]schema.Attribute{
+							"disable_spec": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"enable": schema.SingleNestedBlock{
+							"enable": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -6855,12 +7189,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 						},
 					},
-					"default_storage": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for default storage.",
-					},
-					"forward_proxy_allow_all": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
-					},
 					"global_network_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Global Network Connection List. List of global network connections.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("global_network_connections")},
@@ -6868,6 +7196,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -6981,24 +7310,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 						},
 					},
-					"no_dc_cluster_group": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_forward_proxy": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no forward proxy.",
-					},
-					"no_global_network": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no global network.",
-					},
-					"no_k8s_cluster": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_network_policy": schema.SingleNestedBlock{
-						MarkdownDescription: "Policy configuration for this feature.",
-					},
-					"no_outside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no outside static routes.",
-					},
 					"node": schema.SingleNestedBlock{
 						MarkdownDescription: "Parameters for creating Single interface Node for Alternate Region.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("fault_domain", "node_number", "update_domain")},
@@ -7025,11 +7336,12 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"local_subnet": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for local subnet.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("subnet", "subnet_param")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"subnet": schema.SingleNestedBlock{
 										MarkdownDescription: "Subnet specification for network segmentation.",
-										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name")},
+										Validators:          []validator.Object{validators.RequiredObjectAttributes("subnet_name"), validators.ConflictingObjectAttributes("subnet_resource_grp", "vnet_resource_group")},
 										Attributes: map[string]schema.Attribute{
 											"subnet_name": schema.StringAttribute{
 												MarkdownDescription: "Subnet Name. Name of existing subnet.",
@@ -7045,10 +7357,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													stringvalidator.LengthAtMost(64),
 												},
 											},
-										},
-										Blocks: map[string]schema.Block{
-											"vnet_resource_group": schema.SingleNestedBlock{
+											"vnet_resource_group": schema.ObjectAttribute{
 												MarkdownDescription: "Configuration parameter for vnet resource group.",
+												Optional:            true,
+												AttributeTypes:      map[string]attr.Type{},
 											},
 										},
 									},
@@ -7073,6 +7385,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -7147,6 +7460,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -7181,6 +7495,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -7234,12 +7549,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 						},
 					},
-					"sm_connection_public_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"sm_connection_pvt_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"storage_class_list": schema.SingleNestedBlock{
 						MarkdownDescription: "Add additional custom storage classes in Kubernetes for this site.",
 						Attributes:          map[string]schema.Attribute{},
@@ -7267,15 +7576,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 				},
 			},
-			"block_all_services": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: block_all_services, blocked_services, default_blocked_services; Default: default_blocked_services] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"logs_streaming_disabled": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"no_worker_nodes": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: no_worker_nodes, nodes_per_az, total_nodes; Default: no_worker_nodes] Configuration parameter for no worker nodes. Defaults to `map[]`. Server applies default when omitted.",
-			},
 		},
 	}
 }
@@ -7302,14 +7602,35 @@ func (r *AzureVNETSiteResource) ValidateConfig(ctx context.Context, req resource
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.AlternateRegion.IsNull() && !data.AzureRegion.IsNull() {
+	if !data.DefaultBlockedServices.IsNull() && !data.DefaultBlockedServices.IsUnknown() && !data.BlockAllServices.IsNull() && !data.BlockAllServices.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_blocked_services"),
+			"Conflicting Configuration",
+			"default_blocked_services and block_all_services are mutually exclusive.",
+		)
+	}
+	if !data.AlternateRegion.IsNull() && !data.AlternateRegion.IsUnknown() && !data.AzureRegion.IsNull() && !data.AzureRegion.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("alternate_region"),
 			"Conflicting Configuration",
 			"alternate_region and azure_region are mutually exclusive.",
 		)
 	}
-	if !data.NodesPerAz.IsNull() && !data.TotalNodes.IsNull() {
+	if !data.NoWorkerNodes.IsNull() && !data.NoWorkerNodes.IsUnknown() && !data.NodesPerAz.IsNull() && !data.NodesPerAz.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_worker_nodes"),
+			"Conflicting Configuration",
+			"no_worker_nodes and nodes_per_az are mutually exclusive.",
+		)
+	}
+	if !data.NoWorkerNodes.IsNull() && !data.NoWorkerNodes.IsUnknown() && !data.TotalNodes.IsNull() && !data.TotalNodes.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_worker_nodes"),
+			"Conflicting Configuration",
+			"no_worker_nodes and total_nodes are mutually exclusive.",
+		)
+	}
+	if !data.NodesPerAz.IsNull() && !data.NodesPerAz.IsUnknown() && !data.TotalNodes.IsNull() && !data.TotalNodes.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("nodes_per_az"),
 			"Conflicting Configuration",
@@ -7509,16 +7830,16 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				var BlockedServiceList []map[string]interface{}
 				for _, BlockedServiceItem := range BlockedServiceElems {
 					BlockedServiceItemMap := make(map[string]interface{})
-					if BlockedServiceItem.DNS != nil {
+					if !BlockedServiceItem.DNS.IsNull() && !BlockedServiceItem.DNS.IsUnknown() {
 						BlockedServiceItemMap["dns"] = map[string]interface{}{}
 					}
 					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
 						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
 					}
-					if BlockedServiceItem.SSH != nil {
+					if !BlockedServiceItem.SSH.IsNull() && !BlockedServiceItem.SSH.IsUnknown() {
 						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
 					}
-					if BlockedServiceItem.WebUserInterface != nil {
+					if !BlockedServiceItem.WebUserInterface.IsNull() && !BlockedServiceItem.WebUserInterface.IsUnknown() {
 						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
@@ -7548,10 +7869,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		}
 		createReq.Spec["custom_dns"] = CustomDNSMap
 	}
-	if data.DefaultBlockedServices != nil {
+	if !data.DefaultBlockedServices.IsNull() && !data.DefaultBlockedServices.IsUnknown() {
 		createReq.Spec["default_blocked_services"] = map[string]interface{}{}
 	}
-	if data.DisableEncryption != nil {
+	if !data.DisableEncryption.IsNull() && !data.DisableEncryption.IsUnknown() {
 		createReq.Spec["disable_encryption"] = map[string]interface{}{}
 	}
 	if data.EnableEncryption != nil {
@@ -7568,10 +7889,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		IngressEgressGwMap := make(map[string]interface{})
 		if data.IngressEgressGw.AcceleratedNetworking != nil {
 			IngressEgressGwAcceleratedNetworkingMap := make(map[string]interface{})
-			if data.IngressEgressGw.AcceleratedNetworking.DisableSpec != nil {
+			if !data.IngressEgressGw.AcceleratedNetworking.DisableSpec.IsNull() && !data.IngressEgressGw.AcceleratedNetworking.DisableSpec.IsUnknown() {
 				IngressEgressGwAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AcceleratedNetworking.Enable != nil {
+			if !data.IngressEgressGw.AcceleratedNetworking.Enable.IsNull() && !data.IngressEgressGw.AcceleratedNetworking.Enable.IsUnknown() {
 				IngressEgressGwAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
 			IngressEgressGwMap["accelerated_networking"] = IngressEgressGwAcceleratedNetworkingMap
@@ -7666,7 +7987,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							if !AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 								IngressEgressGwAzNodesInsideSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
-							if AzNodesItem.InsideSubnet.Subnet.VNETResourceGroup != nil {
+							if !AzNodesItem.InsideSubnet.Subnet.VNETResourceGroup.IsNull() && !AzNodesItem.InsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 								IngressEgressGwAzNodesInsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
 							IngressEgressGwAzNodesInsideSubnetMap["subnet"] = IngressEgressGwAzNodesInsideSubnetSubnetMap
@@ -7690,7 +8011,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							if !AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 								IngressEgressGwAzNodesOutsideSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
-							if AzNodesItem.OutsideSubnet.Subnet.VNETResourceGroup != nil {
+							if !AzNodesItem.OutsideSubnet.Subnet.VNETResourceGroup.IsNull() && !AzNodesItem.OutsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 								IngressEgressGwAzNodesOutsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
 							IngressEgressGwAzNodesOutsideSubnetMap["subnet"] = IngressEgressGwAzNodesOutsideSubnetSubnetMap
@@ -7732,7 +8053,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
-		if data.IngressEgressGw.ForwardProxyAllowAll != nil {
+		if !data.IngressEgressGw.ForwardProxyAllowAll.IsNull() && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 			IngressEgressGwMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGw.GlobalNetworkList != nil {
@@ -7782,15 +8103,15 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		}
 		if data.IngressEgressGw.Hub != nil {
 			IngressEgressGwHubMap := make(map[string]interface{})
-			if data.IngressEgressGw.Hub.ExpressRouteDisabled != nil {
+			if !data.IngressEgressGw.Hub.ExpressRouteDisabled.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteDisabled.IsUnknown() {
 				IngressEgressGwHubMap["express_route_disabled"] = map[string]interface{}{}
 			}
 			if data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
 				IngressEgressGwHubExpressRouteEnabledMap := make(map[string]interface{})
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["advertise_to_route_server"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["auto_asn"] = map[string]interface{}{}
 				}
 				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.IsUnknown() {
@@ -7859,12 +8180,12 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["custom_asn"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.ValueInt64()
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["do_not_advertise_to_route_server"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
 					IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap := make(map[string]interface{})
-					if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto != nil {
+					if !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsUnknown() {
 						IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
@@ -7872,7 +8193,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 							IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
-						if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup != nil {
+						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsUnknown() {
 							IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
 						IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap["subnet"] = IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap
@@ -7888,7 +8209,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
 					IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap := make(map[string]interface{})
-					if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto != nil {
+					if !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsUnknown() {
 						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
@@ -7896,7 +8217,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 							IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
-						if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup != nil {
+						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 							IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
 						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap["subnet"] = IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap
@@ -7917,19 +8238,19 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					}
 					IngressEgressGwHubExpressRouteEnabledMap["site_registration_over_express_route"] = IngressEgressGwHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["site_registration_over_internet"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["sku_ergw1az"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["sku_ergw2az"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["sku_high_perf"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["sku_standard"] = map[string]interface{}{}
 				}
 				IngressEgressGwHubMap["express_route_enabled"] = IngressEgressGwHubExpressRouteEnabledMap
@@ -7942,21 +8263,21 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					var SpokeVnetsList []map[string]interface{}
 					for _, SpokeVnetsItem := range SpokeVnetsElems {
 						SpokeVnetsItemMap := make(map[string]interface{})
-						if SpokeVnetsItem.Auto != nil {
+						if !SpokeVnetsItem.Auto.IsNull() && !SpokeVnetsItem.Auto.IsUnknown() {
 							SpokeVnetsItemMap["auto"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.Labels != nil {
 							SpokeVnetsItemMap["labels"] = map[string]interface{}{}
 						}
-						if SpokeVnetsItem.Manual != nil {
+						if !SpokeVnetsItem.Manual.IsNull() && !SpokeVnetsItem.Manual.IsUnknown() {
 							SpokeVnetsItemMap["manual"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.VNET != nil {
 							IngressEgressGwHubSpokeVnetsVNETMap := make(map[string]interface{})
-							if SpokeVnetsItem.VNET.F5OrchestratedRouting != nil {
+							if !SpokeVnetsItem.VNET.F5OrchestratedRouting.IsNull() && !SpokeVnetsItem.VNET.F5OrchestratedRouting.IsUnknown() {
 								IngressEgressGwHubSpokeVnetsVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
 							}
-							if SpokeVnetsItem.VNET.ManualRouting != nil {
+							if !SpokeVnetsItem.VNET.ManualRouting.IsNull() && !SpokeVnetsItem.VNET.ManualRouting.IsUnknown() {
 								IngressEgressGwHubSpokeVnetsVNETMap["manual_routing"] = map[string]interface{}{}
 							}
 							if !SpokeVnetsItem.VNET.ResourceGroup.IsNull() && !SpokeVnetsItem.VNET.ResourceGroup.IsUnknown() {
@@ -8086,25 +8407,25 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			IngressEgressGwMap["inside_static_routes"] = IngressEgressGwInsideStaticRoutesMap
 		}
-		if data.IngressEgressGw.NoDcClusterGroup != nil {
+		if !data.IngressEgressGw.NoDcClusterGroup.IsNull() && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 			IngressEgressGwMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoForwardProxy != nil {
+		if !data.IngressEgressGw.NoForwardProxy.IsNull() && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 			IngressEgressGwMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoGlobalNetwork != nil {
+		if !data.IngressEgressGw.NoGlobalNetwork.IsNull() && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 			IngressEgressGwMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoInsideStaticRoutes != nil {
+		if !data.IngressEgressGw.NoInsideStaticRoutes.IsNull() && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 			IngressEgressGwMap["no_inside_static_routes"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoNetworkPolicy != nil {
+		if !data.IngressEgressGw.NoNetworkPolicy.IsNull() && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 			IngressEgressGwMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoOutsideStaticRoutes != nil {
+		if !data.IngressEgressGw.NoOutsideStaticRoutes.IsNull() && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 			IngressEgressGwMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NotHub != nil {
+		if !data.IngressEgressGw.NotHub.IsNull() && !data.IngressEgressGw.NotHub.IsUnknown() {
 			IngressEgressGwMap["not_hub"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGw.OutsideStaticRoutes != nil {
@@ -8223,30 +8544,30 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			IngressEgressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
-		if data.IngressEgressGw.SmConnectionPublicIP != nil {
+		if !data.IngressEgressGw.SmConnectionPublicIP.IsNull() && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 			IngressEgressGwMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.SmConnectionPvtIP != nil {
+		if !data.IngressEgressGw.SmConnectionPvtIP.IsNull() && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 			IngressEgressGwMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		createReq.Spec["ingress_egress_gw"] = IngressEgressGwMap
@@ -8255,10 +8576,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		IngressEgressGwArMap := make(map[string]interface{})
 		if data.IngressEgressGwAr.AcceleratedNetworking != nil {
 			IngressEgressGwArAcceleratedNetworkingMap := make(map[string]interface{})
-			if data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec != nil {
+			if !data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec.IsNull() && !data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 				IngressEgressGwArAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGwAr.AcceleratedNetworking.Enable != nil {
+			if !data.IngressEgressGwAr.AcceleratedNetworking.Enable.IsNull() && !data.IngressEgressGwAr.AcceleratedNetworking.Enable.IsUnknown() {
 				IngressEgressGwArAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
 			IngressEgressGwArMap["accelerated_networking"] = IngressEgressGwArAcceleratedNetworkingMap
@@ -8355,7 +8676,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			IngressEgressGwArMap["dc_cluster_group_outside_vn"] = IngressEgressGwArDcClusterGroupOutsideVnMap
 		}
-		if data.IngressEgressGwAr.ForwardProxyAllowAll != nil {
+		if !data.IngressEgressGwAr.ForwardProxyAllowAll.IsNull() && !data.IngressEgressGwAr.ForwardProxyAllowAll.IsUnknown() {
 			IngressEgressGwArMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGwAr.GlobalNetworkList != nil {
@@ -8405,15 +8726,15 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		}
 		if data.IngressEgressGwAr.Hub != nil {
 			IngressEgressGwArHubMap := make(map[string]interface{})
-			if data.IngressEgressGwAr.Hub.ExpressRouteDisabled != nil {
+			if !data.IngressEgressGwAr.Hub.ExpressRouteDisabled.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteDisabled.IsUnknown() {
 				IngressEgressGwArHubMap["express_route_disabled"] = map[string]interface{}{}
 			}
 			if data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
 				IngressEgressGwArHubExpressRouteEnabledMap := make(map[string]interface{})
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["advertise_to_route_server"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["auto_asn"] = map[string]interface{}{}
 				}
 				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.IsUnknown() {
@@ -8482,12 +8803,12 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["custom_asn"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.ValueInt64()
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["do_not_advertise_to_route_server"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
 					IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap := make(map[string]interface{})
-					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto != nil {
+					if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsUnknown() {
 						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
@@ -8495,7 +8816,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 							IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
-						if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup != nil {
+						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsUnknown() {
 							IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
 						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap["subnet"] = IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap
@@ -8511,7 +8832,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
 					IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap := make(map[string]interface{})
-					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto != nil {
+					if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsUnknown() {
 						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
@@ -8519,7 +8840,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 							IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
-						if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup != nil {
+						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 							IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
 						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap["subnet"] = IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap
@@ -8540,19 +8861,19 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					}
 					IngressEgressGwArHubExpressRouteEnabledMap["site_registration_over_express_route"] = IngressEgressGwArHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["site_registration_over_internet"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["sku_ergw1az"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["sku_ergw2az"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["sku_high_perf"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["sku_standard"] = map[string]interface{}{}
 				}
 				IngressEgressGwArHubMap["express_route_enabled"] = IngressEgressGwArHubExpressRouteEnabledMap
@@ -8565,21 +8886,21 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					var SpokeVnetsList []map[string]interface{}
 					for _, SpokeVnetsItem := range SpokeVnetsElems {
 						SpokeVnetsItemMap := make(map[string]interface{})
-						if SpokeVnetsItem.Auto != nil {
+						if !SpokeVnetsItem.Auto.IsNull() && !SpokeVnetsItem.Auto.IsUnknown() {
 							SpokeVnetsItemMap["auto"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.Labels != nil {
 							SpokeVnetsItemMap["labels"] = map[string]interface{}{}
 						}
-						if SpokeVnetsItem.Manual != nil {
+						if !SpokeVnetsItem.Manual.IsNull() && !SpokeVnetsItem.Manual.IsUnknown() {
 							SpokeVnetsItemMap["manual"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.VNET != nil {
 							IngressEgressGwArHubSpokeVnetsVNETMap := make(map[string]interface{})
-							if SpokeVnetsItem.VNET.F5OrchestratedRouting != nil {
+							if !SpokeVnetsItem.VNET.F5OrchestratedRouting.IsNull() && !SpokeVnetsItem.VNET.F5OrchestratedRouting.IsUnknown() {
 								IngressEgressGwArHubSpokeVnetsVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
 							}
-							if SpokeVnetsItem.VNET.ManualRouting != nil {
+							if !SpokeVnetsItem.VNET.ManualRouting.IsNull() && !SpokeVnetsItem.VNET.ManualRouting.IsUnknown() {
 								IngressEgressGwArHubSpokeVnetsVNETMap["manual_routing"] = map[string]interface{}{}
 							}
 							if !SpokeVnetsItem.VNET.ResourceGroup.IsNull() && !SpokeVnetsItem.VNET.ResourceGroup.IsUnknown() {
@@ -8709,22 +9030,22 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			IngressEgressGwArMap["inside_static_routes"] = IngressEgressGwArInsideStaticRoutesMap
 		}
-		if data.IngressEgressGwAr.NoDcClusterGroup != nil {
+		if !data.IngressEgressGwAr.NoDcClusterGroup.IsNull() && !data.IngressEgressGwAr.NoDcClusterGroup.IsUnknown() {
 			IngressEgressGwArMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGwAr.NoForwardProxy != nil {
+		if !data.IngressEgressGwAr.NoForwardProxy.IsNull() && !data.IngressEgressGwAr.NoForwardProxy.IsUnknown() {
 			IngressEgressGwArMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGwAr.NoGlobalNetwork != nil {
+		if !data.IngressEgressGwAr.NoGlobalNetwork.IsNull() && !data.IngressEgressGwAr.NoGlobalNetwork.IsUnknown() {
 			IngressEgressGwArMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGwAr.NoInsideStaticRoutes != nil {
+		if !data.IngressEgressGwAr.NoInsideStaticRoutes.IsNull() && !data.IngressEgressGwAr.NoInsideStaticRoutes.IsUnknown() {
 			IngressEgressGwArMap["no_inside_static_routes"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGwAr.NoNetworkPolicy != nil {
+		if !data.IngressEgressGwAr.NoNetworkPolicy.IsNull() && !data.IngressEgressGwAr.NoNetworkPolicy.IsUnknown() {
 			IngressEgressGwArMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGwAr.NoOutsideStaticRoutes != nil {
+		if !data.IngressEgressGwAr.NoOutsideStaticRoutes.IsNull() && !data.IngressEgressGwAr.NoOutsideStaticRoutes.IsUnknown() {
 			IngressEgressGwArMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGwAr.Node != nil {
@@ -8742,7 +9063,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					if !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 						IngressEgressGwArNodeInsideSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
-					if data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup != nil {
+					if !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 						IngressEgressGwArNodeInsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
 					IngressEgressGwArNodeInsideSubnetMap["subnet"] = IngressEgressGwArNodeInsideSubnetSubnetMap
@@ -8769,7 +9090,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					if !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 						IngressEgressGwArNodeOutsideSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
-					if data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup != nil {
+					if !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 						IngressEgressGwArNodeOutsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
 					IngressEgressGwArNodeOutsideSubnetMap["subnet"] = IngressEgressGwArNodeOutsideSubnetSubnetMap
@@ -8788,7 +9109,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			IngressEgressGwArMap["node"] = IngressEgressGwArNodeMap
 		}
-		if data.IngressEgressGwAr.NotHub != nil {
+		if !data.IngressEgressGwAr.NotHub.IsNull() && !data.IngressEgressGwAr.NotHub.IsUnknown() {
 			IngressEgressGwArMap["not_hub"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGwAr.OutsideStaticRoutes != nil {
@@ -8907,30 +9228,30 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			IngressEgressGwArPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwArMap["performance_enhancement_mode"] = IngressEgressGwArPerformanceEnhancementModeMap
 		}
-		if data.IngressEgressGwAr.SmConnectionPublicIP != nil {
+		if !data.IngressEgressGwAr.SmConnectionPublicIP.IsNull() && !data.IngressEgressGwAr.SmConnectionPublicIP.IsUnknown() {
 			IngressEgressGwArMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGwAr.SmConnectionPvtIP != nil {
+		if !data.IngressEgressGwAr.SmConnectionPvtIP.IsNull() && !data.IngressEgressGwAr.SmConnectionPvtIP.IsUnknown() {
 			IngressEgressGwArMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		createReq.Spec["ingress_egress_gw_ar"] = IngressEgressGwArMap
@@ -8939,10 +9260,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		IngressGwMap := make(map[string]interface{})
 		if data.IngressGw.AcceleratedNetworking != nil {
 			IngressGwAcceleratedNetworkingMap := make(map[string]interface{})
-			if data.IngressGw.AcceleratedNetworking.DisableSpec != nil {
+			if !data.IngressGw.AcceleratedNetworking.DisableSpec.IsNull() && !data.IngressGw.AcceleratedNetworking.DisableSpec.IsUnknown() {
 				IngressGwAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
-			if data.IngressGw.AcceleratedNetworking.Enable != nil {
+			if !data.IngressGw.AcceleratedNetworking.Enable.IsNull() && !data.IngressGw.AcceleratedNetworking.Enable.IsUnknown() {
 				IngressGwAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
 			IngressGwMap["accelerated_networking"] = IngressGwAcceleratedNetworkingMap
@@ -8968,7 +9289,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							if !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 								IngressGwAzNodesLocalSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
-							if AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup != nil {
+							if !AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup.IsNull() && !AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 								IngressGwAzNodesLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
 							IngressGwAzNodesLocalSubnetMap["subnet"] = IngressGwAzNodesLocalSubnetSubnetMap
@@ -8994,20 +9315,20 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			IngressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap
@@ -9020,10 +9341,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		IngressGwArMap := make(map[string]interface{})
 		if data.IngressGwAr.AcceleratedNetworking != nil {
 			IngressGwArAcceleratedNetworkingMap := make(map[string]interface{})
-			if data.IngressGwAr.AcceleratedNetworking.DisableSpec != nil {
+			if !data.IngressGwAr.AcceleratedNetworking.DisableSpec.IsNull() && !data.IngressGwAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 				IngressGwArAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
-			if data.IngressGwAr.AcceleratedNetworking.Enable != nil {
+			if !data.IngressGwAr.AcceleratedNetworking.Enable.IsNull() && !data.IngressGwAr.AcceleratedNetworking.Enable.IsUnknown() {
 				IngressGwArAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
 			IngressGwArMap["accelerated_networking"] = IngressGwArAcceleratedNetworkingMap
@@ -9046,7 +9367,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					if !data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 						IngressGwArNodeLocalSubnetSubnetMap["subnet_resource_grp"] = data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
-					if data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup != nil {
+					if !data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 						IngressGwArNodeLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
 					IngressGwArNodeLocalSubnetMap["subnet"] = IngressGwArNodeLocalSubnetSubnetMap
@@ -9072,20 +9393,20 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			IngressGwArPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressGwArPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap
@@ -9096,21 +9417,24 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	}
 	if data.KubernetesUpgradeDrain != nil {
 		KubernetesUpgradeDrainMap := make(map[string]interface{})
-		if data.KubernetesUpgradeDrain.DisableUpgradeDrain != nil {
+		if !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsNull() && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
 			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
+			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
@@ -9129,17 +9453,17 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	}
 	if data.OfflineSurvivabilityMode != nil {
 		OfflineSurvivabilityModeMap := make(map[string]interface{})
-		if data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["enable_offline_survivability_mode"] = map[string]interface{}{}
 		}
-		if data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["no_offline_survivability_mode"] = map[string]interface{}{}
 		}
 		createReq.Spec["offline_survivability_mode"] = OfflineSurvivabilityModeMap
 	}
 	if data.OS != nil {
 		OSMap := make(map[string]interface{})
-		if data.OS.DefaultOSVersion != nil {
+		if !data.OS.DefaultOSVersion.IsNull() && !data.OS.DefaultOSVersion.IsUnknown() {
 			OSMap["default_os_version"] = map[string]interface{}{}
 		}
 		if !data.OS.OperatingSystemVersion.IsNull() && !data.OS.OperatingSystemVersion.IsUnknown() {
@@ -9149,7 +9473,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	}
 	if data.Sw != nil {
 		SwMap := make(map[string]interface{})
-		if data.Sw.DefaultSwVersion != nil {
+		if !data.Sw.DefaultSwVersion.IsNull() && !data.Sw.DefaultSwVersion.IsUnknown() {
 			SwMap["default_sw_version"] = map[string]interface{}{}
 		}
 		if !data.Sw.VolterraSoftwareVersion.IsNull() && !data.Sw.VolterraSoftwareVersion.IsUnknown() {
@@ -9161,10 +9485,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		VNETMap := make(map[string]interface{})
 		if data.VNET.ExistingVNET != nil {
 			VNETExistingVNETMap := make(map[string]interface{})
-			if data.VNET.ExistingVNET.F5OrchestratedRouting != nil {
+			if !data.VNET.ExistingVNET.F5OrchestratedRouting.IsNull() && !data.VNET.ExistingVNET.F5OrchestratedRouting.IsUnknown() {
 				VNETExistingVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
 			}
-			if data.VNET.ExistingVNET.ManualRouting != nil {
+			if !data.VNET.ExistingVNET.ManualRouting.IsNull() && !data.VNET.ExistingVNET.ManualRouting.IsUnknown() {
 				VNETExistingVNETMap["manual_routing"] = map[string]interface{}{}
 			}
 			if !data.VNET.ExistingVNET.ResourceGroup.IsNull() && !data.VNET.ExistingVNET.ResourceGroup.IsUnknown() {
@@ -9177,7 +9501,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		}
 		if data.VNET.NewVNET != nil {
 			VNETNewVNETMap := make(map[string]interface{})
-			if data.VNET.NewVNET.Autogenerate != nil {
+			if !data.VNET.NewVNET.Autogenerate.IsNull() && !data.VNET.NewVNET.Autogenerate.IsUnknown() {
 				VNETNewVNETMap["autogenerate"] = map[string]interface{}{}
 			}
 			if !data.VNET.NewVNET.Name.IsNull() && !data.VNET.NewVNET.Name.IsUnknown() {
@@ -9194,10 +9518,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		VoltstackClusterMap := make(map[string]interface{})
 		if data.VoltstackCluster.AcceleratedNetworking != nil {
 			VoltstackClusterAcceleratedNetworkingMap := make(map[string]interface{})
-			if data.VoltstackCluster.AcceleratedNetworking.DisableSpec != nil {
+			if !data.VoltstackCluster.AcceleratedNetworking.DisableSpec.IsNull() && !data.VoltstackCluster.AcceleratedNetworking.DisableSpec.IsUnknown() {
 				VoltstackClusterAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
-			if data.VoltstackCluster.AcceleratedNetworking.Enable != nil {
+			if !data.VoltstackCluster.AcceleratedNetworking.Enable.IsNull() && !data.VoltstackCluster.AcceleratedNetworking.Enable.IsUnknown() {
 				VoltstackClusterAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
 			VoltstackClusterMap["accelerated_networking"] = VoltstackClusterAcceleratedNetworkingMap
@@ -9292,7 +9616,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							if !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 								VoltstackClusterAzNodesLocalSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
-							if AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup != nil {
+							if !AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup.IsNull() && !AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 								VoltstackClusterAzNodesLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
 							VoltstackClusterAzNodesLocalSubnetMap["subnet"] = VoltstackClusterAzNodesLocalSubnetSubnetMap
@@ -9324,10 +9648,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
-		if data.VoltstackCluster.DefaultStorage != nil {
+		if !data.VoltstackCluster.DefaultStorage.IsNull() && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 			VoltstackClusterMap["default_storage"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.ForwardProxyAllowAll != nil {
+		if !data.VoltstackCluster.ForwardProxyAllowAll.IsNull() && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 			VoltstackClusterMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.GlobalNetworkList != nil {
@@ -9385,22 +9709,22 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
-		if data.VoltstackCluster.NoDcClusterGroup != nil {
+		if !data.VoltstackCluster.NoDcClusterGroup.IsNull() && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 			VoltstackClusterMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoForwardProxy != nil {
+		if !data.VoltstackCluster.NoForwardProxy.IsNull() && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 			VoltstackClusterMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoGlobalNetwork != nil {
+		if !data.VoltstackCluster.NoGlobalNetwork.IsNull() && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 			VoltstackClusterMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoK8SCluster != nil {
+		if !data.VoltstackCluster.NoK8SCluster.IsNull() && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 			VoltstackClusterMap["no_k8s_cluster"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoNetworkPolicy != nil {
+		if !data.VoltstackCluster.NoNetworkPolicy.IsNull() && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 			VoltstackClusterMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoOutsideStaticRoutes != nil {
+		if !data.VoltstackCluster.NoOutsideStaticRoutes.IsNull() && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 			VoltstackClusterMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.OutsideStaticRoutes != nil {
@@ -9515,10 +9839,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			VoltstackClusterMap["outside_static_routes"] = VoltstackClusterOutsideStaticRoutesMap
 		}
-		if data.VoltstackCluster.SmConnectionPublicIP != nil {
+		if !data.VoltstackCluster.SmConnectionPublicIP.IsNull() && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 			VoltstackClusterMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.SmConnectionPvtIP != nil {
+		if !data.VoltstackCluster.SmConnectionPvtIP.IsNull() && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 			VoltstackClusterMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
@@ -9550,10 +9874,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 		VoltstackClusterArMap := make(map[string]interface{})
 		if data.VoltstackClusterAr.AcceleratedNetworking != nil {
 			VoltstackClusterArAcceleratedNetworkingMap := make(map[string]interface{})
-			if data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec != nil {
+			if !data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec.IsNull() && !data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 				VoltstackClusterArAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
-			if data.VoltstackClusterAr.AcceleratedNetworking.Enable != nil {
+			if !data.VoltstackClusterAr.AcceleratedNetworking.Enable.IsNull() && !data.VoltstackClusterAr.AcceleratedNetworking.Enable.IsUnknown() {
 				VoltstackClusterArAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
 			VoltstackClusterArMap["accelerated_networking"] = VoltstackClusterArAcceleratedNetworkingMap
@@ -9640,10 +9964,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			VoltstackClusterArMap["dc_cluster_group"] = VoltstackClusterArDcClusterGroupMap
 		}
-		if data.VoltstackClusterAr.DefaultStorage != nil {
+		if !data.VoltstackClusterAr.DefaultStorage.IsNull() && !data.VoltstackClusterAr.DefaultStorage.IsUnknown() {
 			VoltstackClusterArMap["default_storage"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.ForwardProxyAllowAll != nil {
+		if !data.VoltstackClusterAr.ForwardProxyAllowAll.IsNull() && !data.VoltstackClusterAr.ForwardProxyAllowAll.IsUnknown() {
 			VoltstackClusterArMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.VoltstackClusterAr.GlobalNetworkList != nil {
@@ -9701,22 +10025,22 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			VoltstackClusterArMap["k8s_cluster"] = VoltstackClusterArK8SClusterMap
 		}
-		if data.VoltstackClusterAr.NoDcClusterGroup != nil {
+		if !data.VoltstackClusterAr.NoDcClusterGroup.IsNull() && !data.VoltstackClusterAr.NoDcClusterGroup.IsUnknown() {
 			VoltstackClusterArMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.NoForwardProxy != nil {
+		if !data.VoltstackClusterAr.NoForwardProxy.IsNull() && !data.VoltstackClusterAr.NoForwardProxy.IsUnknown() {
 			VoltstackClusterArMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.NoGlobalNetwork != nil {
+		if !data.VoltstackClusterAr.NoGlobalNetwork.IsNull() && !data.VoltstackClusterAr.NoGlobalNetwork.IsUnknown() {
 			VoltstackClusterArMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.NoK8SCluster != nil {
+		if !data.VoltstackClusterAr.NoK8SCluster.IsNull() && !data.VoltstackClusterAr.NoK8SCluster.IsUnknown() {
 			VoltstackClusterArMap["no_k8s_cluster"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.NoNetworkPolicy != nil {
+		if !data.VoltstackClusterAr.NoNetworkPolicy.IsNull() && !data.VoltstackClusterAr.NoNetworkPolicy.IsUnknown() {
 			VoltstackClusterArMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.NoOutsideStaticRoutes != nil {
+		if !data.VoltstackClusterAr.NoOutsideStaticRoutes.IsNull() && !data.VoltstackClusterAr.NoOutsideStaticRoutes.IsUnknown() {
 			VoltstackClusterArMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.VoltstackClusterAr.Node != nil {
@@ -9734,7 +10058,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					if !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 						VoltstackClusterArNodeLocalSubnetSubnetMap["subnet_resource_grp"] = data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
-					if data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup != nil {
+					if !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsNull() && !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 						VoltstackClusterArNodeLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
 					VoltstackClusterArNodeLocalSubnetMap["subnet"] = VoltstackClusterArNodeLocalSubnetSubnetMap
@@ -9868,10 +10192,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			VoltstackClusterArMap["outside_static_routes"] = VoltstackClusterArOutsideStaticRoutesMap
 		}
-		if data.VoltstackClusterAr.SmConnectionPublicIP != nil {
+		if !data.VoltstackClusterAr.SmConnectionPublicIP.IsNull() && !data.VoltstackClusterAr.SmConnectionPublicIP.IsUnknown() {
 			VoltstackClusterArMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.SmConnectionPvtIP != nil {
+		if !data.VoltstackClusterAr.SmConnectionPvtIP.IsNull() && !data.VoltstackClusterAr.SmConnectionPvtIP.IsUnknown() {
 			VoltstackClusterArMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackClusterAr.StorageClassList != nil {
@@ -9908,16 +10232,16 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	if !data.AzureRegion.IsNull() && !data.AzureRegion.IsUnknown() {
 		createReq.Spec["azure_region"] = data.AzureRegion.ValueString()
 	}
-	if data.BlockAllServices != nil {
+	if !data.BlockAllServices.IsNull() && !data.BlockAllServices.IsUnknown() {
 		createReq.Spec["block_all_services"] = map[string]interface{}{}
 	}
 	if !data.DiskSize.IsNull() && !data.DiskSize.IsUnknown() {
 		createReq.Spec["disk_size"] = data.DiskSize.ValueInt64()
 	}
-	if data.LogsStreamingDisabled != nil {
+	if !data.LogsStreamingDisabled.IsNull() && !data.LogsStreamingDisabled.IsUnknown() {
 		createReq.Spec["logs_streaming_disabled"] = map[string]interface{}{}
 	}
-	if data.NoWorkerNodes != nil {
+	if !data.NoWorkerNodes.IsNull() && !data.NoWorkerNodes.IsUnknown() {
 		createReq.Spec["no_worker_nodes"] = map[string]interface{}{}
 	}
 	if !data.NodesPerAz.IsNull() && !data.NodesPerAz.IsUnknown() {
@@ -10080,14 +10404,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AzureVNETSiteBlockedServicesBlockedServiceModel{
-								DNS: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								DNS: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].DNS.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
-										return &AzureVNETSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								NetworkType: func() types.String {
 									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
@@ -10095,23 +10419,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									}
 									return types.StringNull()
 								}(),
-								SSH: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								SSH: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].SSH.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
-										return &AzureVNETSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								WebUserInterface: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								WebUserInterface: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].WebUserInterface.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
-										return &AzureVNETSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -10161,11 +10485,19 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok && isImport && data.DefaultBlockedServices == nil {
-		data.DefaultBlockedServices = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.DefaultBlockedServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok {
+		data.DefaultBlockedServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBlockedServices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok && isImport && data.DisableEncryption == nil {
-		data.DisableEncryption = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.DisableEncryption.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok {
+		data.DisableEncryption = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableEncryption = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_encryption"].(map[string]interface{}); ok && (isImport || data.EnableEncryption != nil) {
 		data.EnableEncryption = &AzureVNETSiteEnableEncryptionModel{
@@ -10191,23 +10523,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AcceleratedNetworking != nil && !data.IngressEgressGw.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.IngressEgressGw.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AcceleratedNetworking != nil && !data.IngressEgressGw.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.IngressEgressGw.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -10395,14 +10727,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.StringNull()
 														}(),
-														VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].InsideSubnet != nil && AzNodesExisting[AzNodesIdx].InsideSubnet.Subnet != nil {
+														VNETResourceGroup: func() types.Object {
+															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].InsideSubnet != nil && AzNodesExisting[AzNodesIdx].InsideSubnet.Subnet != nil && !AzNodesExisting[AzNodesIdx].InsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																return AzNodesExisting[AzNodesIdx].InsideSubnet.Subnet.VNETResourceGroup
 															}
 															if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -10449,14 +10781,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.StringNull()
 														}(),
-														VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].OutsideSubnet != nil && AzNodesExisting[AzNodesIdx].OutsideSubnet.Subnet != nil {
+														VNETResourceGroup: func() types.Object {
+															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].OutsideSubnet != nil && AzNodesExisting[AzNodesIdx].OutsideSubnet.Subnet != nil && !AzNodesExisting[AzNodesIdx].OutsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																return AzNodesExisting[AzNodesIdx].OutsideSubnet.Subnet.VNETResourceGroup
 															}
 															if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -10546,14 +10878,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			ForwardProxyAllowAll: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 					return data.IngressEgressGw.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AzureVNETSiteIngressEgressGwGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -10654,14 +10986,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if HubData, ok := blockData["hub"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwHubModel{
-						ExpressRouteDisabled: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil {
+						ExpressRouteDisabled: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && !data.IngressEgressGw.Hub.ExpressRouteDisabled.IsUnknown() {
 								return data.IngressEgressGw.Hub.ExpressRouteDisabled
 							}
 							if _, ok := HubData["express_route_disabled"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						ExpressRouteEnabled: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledModel {
 							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
@@ -10669,23 +11001,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							if ExpressRouteEnabledData, ok := HubData["express_route_enabled"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledModel{
-									AdvertiseToRouteServer: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									AdvertiseToRouteServer: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer
 										}
 										if _, ok := ExpressRouteEnabledData["advertise_to_route_server"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									AutoAsn: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									AutoAsn: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn
 										}
 										if _, ok := ExpressRouteEnabledData["auto_asn"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									Connections: func() types.List {
 										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && (data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.IsNull() || len(data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.Elements()) == 0) {
@@ -10822,14 +11154,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										return types.Int64Null()
 									}(),
-									DoNotAdvertiseToRouteServer: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									DoNotAdvertiseToRouteServer: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer
 										}
 										if _, ok := ExpressRouteEnabledData["do_not_advertise_to_route_server"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									GatewaySubnet: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetModel {
 										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
@@ -10837,14 +11169,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										if GatewaySubnetData, ok := ExpressRouteEnabledData["gateway_subnet"].(map[string]interface{}); ok {
 											return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetModel{
-												Auto: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
+												Auto: func() types.Object {
+													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsUnknown() {
 														return data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto
 													}
 													if _, ok := GatewaySubnetData["auto"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												Subnet: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetModel {
 													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
@@ -10858,14 +11190,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																}
 																return types.StringNull()
 															}(),
-															VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-																if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
+															VNETResourceGroup: func() types.Object {
+																if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																	return data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup
 																}
 																if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																	return &AzureVNETSiteEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -10897,14 +11229,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										if RouteServerSubnetData, ok := ExpressRouteEnabledData["route_server_subnet"].(map[string]interface{}); ok {
 											return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetModel{
-												Auto: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
+												Auto: func() types.Object {
+													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsUnknown() {
 														return data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto
 													}
 													if _, ok := RouteServerSubnetData["auto"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												Subnet: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetModel {
 													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
@@ -10918,14 +11250,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																}
 																return types.StringNull()
 															}(),
-															VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-																if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
+															VNETResourceGroup: func() types.Object {
+																if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																	return data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup
 																}
 																if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																	return &AzureVNETSiteEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -10967,50 +11299,50 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										return nil
 									}(),
-									SiteRegistrationOverInternet: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SiteRegistrationOverInternet: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet
 										}
 										if _, ok := ExpressRouteEnabledData["site_registration_over_internet"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuErgw1az: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SkuErgw1az: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az
 										}
 										if _, ok := ExpressRouteEnabledData["sku_ergw1az"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuErgw2az: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SkuErgw2az: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az
 										}
 										if _, ok := ExpressRouteEnabledData["sku_ergw2az"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuHighPerf: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SkuHighPerf: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf
 										}
 										if _, ok := ExpressRouteEnabledData["sku_high_perf"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuStandard: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SkuStandard: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard
 										}
 										if _, ok := ExpressRouteEnabledData["sku_standard"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -11030,14 +11362,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									_ = SpokeVnetsIdx
 									if SpokeVnetsItemMap, ok := SpokeVnetsItem.(map[string]interface{}); ok {
 										SpokeVnetsResult = append(SpokeVnetsResult, AzureVNETSiteIngressEgressGwHubSpokeVnetsModel{
-											Auto: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Auto: func() types.Object {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && !SpokeVnetsExisting[SpokeVnetsIdx].Auto.IsUnknown() {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Auto
 												}
 												if _, ok := SpokeVnetsItemMap["auto"].(map[string]interface{}); ok {
-													return &AzureVNETSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Labels: func() *AzureVNETSiteEmptyModel {
 												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
@@ -11048,35 +11380,35 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return nil
 											}(),
-											Manual: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Manual: func() types.Object {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && !SpokeVnetsExisting[SpokeVnetsIdx].Manual.IsUnknown() {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
 												}
 												if _, ok := SpokeVnetsItemMap["manual"].(map[string]interface{}); ok {
-													return &AzureVNETSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VNET: func() *AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModel {
 												if VNETData, ok := SpokeVnetsItemMap["vnet"].(map[string]interface{}); ok {
 													return &AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModel{
-														F5OrchestratedRouting: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil {
+														F5OrchestratedRouting: func() types.Object {
+															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil && !SpokeVnetsExisting[SpokeVnetsIdx].VNET.F5OrchestratedRouting.IsUnknown() {
 																return SpokeVnetsExisting[SpokeVnetsIdx].VNET.F5OrchestratedRouting
 															}
 															if _, ok := VNETData["f5_orchestrated_routing"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ManualRouting: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil {
+														ManualRouting: func() types.Object {
+															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil && !SpokeVnetsExisting[SpokeVnetsIdx].VNET.ManualRouting.IsUnknown() {
 																return SpokeVnetsExisting[SpokeVnetsIdx].VNET.ManualRouting
 															}
 															if _, ok := VNETData["manual_routing"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														ResourceGroup: func() types.String {
 															if v, ok := VNETData["resource_group"].(string); ok && v != "" {
@@ -11344,68 +11676,68 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 					return data.IngressEgressGw.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 					return data.IngressEgressGw.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 					return data.IngressEgressGw.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 					return data.IngressEgressGw.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NotHub: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NotHub: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NotHub.IsUnknown() {
 					return data.IngressEgressGw.NotHub
 				}
 				if _, ok := blockData["not_hub"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AzureVNETSiteIngressEgressGwOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -11657,23 +11989,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -11685,23 +12017,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -11711,23 +12043,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -11739,23 +12071,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwArAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.AcceleratedNetworking != nil && !data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.AcceleratedNetworking != nil && !data.IngressEgressGwAr.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.IngressEgressGwAr.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -11958,14 +12290,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			ForwardProxyAllowAll: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.ForwardProxyAllowAll.IsUnknown() {
 					return data.IngressEgressGwAr.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AzureVNETSiteIngressEgressGwArGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -12066,14 +12398,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if HubData, ok := blockData["hub"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwArHubModel{
-						ExpressRouteDisabled: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil {
+						ExpressRouteDisabled: func() types.Object {
+							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && !data.IngressEgressGwAr.Hub.ExpressRouteDisabled.IsUnknown() {
 								return data.IngressEgressGwAr.Hub.ExpressRouteDisabled
 							}
 							if _, ok := HubData["express_route_disabled"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						ExpressRouteEnabled: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledModel {
 							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
@@ -12081,23 +12413,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							if ExpressRouteEnabledData, ok := HubData["express_route_enabled"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledModel{
-									AdvertiseToRouteServer: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									AdvertiseToRouteServer: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer
 										}
 										if _, ok := ExpressRouteEnabledData["advertise_to_route_server"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									AutoAsn: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									AutoAsn: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn
 										}
 										if _, ok := ExpressRouteEnabledData["auto_asn"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									Connections: func() types.List {
 										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && (data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.IsNull() || len(data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.Elements()) == 0) {
@@ -12234,14 +12566,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										return types.Int64Null()
 									}(),
-									DoNotAdvertiseToRouteServer: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									DoNotAdvertiseToRouteServer: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer
 										}
 										if _, ok := ExpressRouteEnabledData["do_not_advertise_to_route_server"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									GatewaySubnet: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetModel {
 										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
@@ -12249,14 +12581,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										if GatewaySubnetData, ok := ExpressRouteEnabledData["gateway_subnet"].(map[string]interface{}); ok {
 											return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetModel{
-												Auto: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
+												Auto: func() types.Object {
+													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsUnknown() {
 														return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto
 													}
 													if _, ok := GatewaySubnetData["auto"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												Subnet: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetModel {
 													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
@@ -12270,14 +12602,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																}
 																return types.StringNull()
 															}(),
-															VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-																if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
+															VNETResourceGroup: func() types.Object {
+																if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																	return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup
 																}
 																if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																	return &AzureVNETSiteEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -12309,14 +12641,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										if RouteServerSubnetData, ok := ExpressRouteEnabledData["route_server_subnet"].(map[string]interface{}); ok {
 											return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetModel{
-												Auto: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
+												Auto: func() types.Object {
+													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsUnknown() {
 														return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto
 													}
 													if _, ok := RouteServerSubnetData["auto"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												Subnet: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetModel {
 													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
@@ -12330,14 +12662,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																}
 																return types.StringNull()
 															}(),
-															VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-																if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
+															VNETResourceGroup: func() types.Object {
+																if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																	return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup
 																}
 																if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																	return &AzureVNETSiteEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -12379,50 +12711,50 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										return nil
 									}(),
-									SiteRegistrationOverInternet: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SiteRegistrationOverInternet: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet
 										}
 										if _, ok := ExpressRouteEnabledData["site_registration_over_internet"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuErgw1az: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SkuErgw1az: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az
 										}
 										if _, ok := ExpressRouteEnabledData["sku_ergw1az"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuErgw2az: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SkuErgw2az: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az
 										}
 										if _, ok := ExpressRouteEnabledData["sku_ergw2az"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuHighPerf: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SkuHighPerf: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf
 										}
 										if _, ok := ExpressRouteEnabledData["sku_high_perf"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuStandard: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SkuStandard: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard
 										}
 										if _, ok := ExpressRouteEnabledData["sku_standard"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -12442,14 +12774,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									_ = SpokeVnetsIdx
 									if SpokeVnetsItemMap, ok := SpokeVnetsItem.(map[string]interface{}); ok {
 										SpokeVnetsResult = append(SpokeVnetsResult, AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel{
-											Auto: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Auto: func() types.Object {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && !SpokeVnetsExisting[SpokeVnetsIdx].Auto.IsUnknown() {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Auto
 												}
 												if _, ok := SpokeVnetsItemMap["auto"].(map[string]interface{}); ok {
-													return &AzureVNETSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Labels: func() *AzureVNETSiteEmptyModel {
 												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
@@ -12460,35 +12792,35 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return nil
 											}(),
-											Manual: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Manual: func() types.Object {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && !SpokeVnetsExisting[SpokeVnetsIdx].Manual.IsUnknown() {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
 												}
 												if _, ok := SpokeVnetsItemMap["manual"].(map[string]interface{}); ok {
-													return &AzureVNETSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VNET: func() *AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModel {
 												if VNETData, ok := SpokeVnetsItemMap["vnet"].(map[string]interface{}); ok {
 													return &AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModel{
-														F5OrchestratedRouting: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil {
+														F5OrchestratedRouting: func() types.Object {
+															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil && !SpokeVnetsExisting[SpokeVnetsIdx].VNET.F5OrchestratedRouting.IsUnknown() {
 																return SpokeVnetsExisting[SpokeVnetsIdx].VNET.F5OrchestratedRouting
 															}
 															if _, ok := VNETData["f5_orchestrated_routing"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ManualRouting: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil {
+														ManualRouting: func() types.Object {
+															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil && !SpokeVnetsExisting[SpokeVnetsIdx].VNET.ManualRouting.IsUnknown() {
 																return SpokeVnetsExisting[SpokeVnetsIdx].VNET.ManualRouting
 															}
 															if _, ok := VNETData["manual_routing"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														ResourceGroup: func() types.String {
 															if v, ok := VNETData["resource_group"].(string); ok && v != "" {
@@ -12756,59 +13088,59 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoDcClusterGroup.IsUnknown() {
 					return data.IngressEgressGwAr.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoForwardProxy.IsUnknown() {
 					return data.IngressEgressGwAr.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoGlobalNetwork.IsUnknown() {
 					return data.IngressEgressGwAr.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoInsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGwAr.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoNetworkPolicy.IsUnknown() {
 					return data.IngressEgressGwAr.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoOutsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGwAr.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Node: func() *AzureVNETSiteIngressEgressGwArNodeModel {
 				if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil {
@@ -12849,14 +13181,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 													}
 													return types.StringNull()
 												}(),
-												VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil && data.IngressEgressGwAr.Node.InsideSubnet != nil && data.IngressEgressGwAr.Node.InsideSubnet.Subnet != nil {
+												VNETResourceGroup: func() types.Object {
+													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil && data.IngressEgressGwAr.Node.InsideSubnet != nil && data.IngressEgressGwAr.Node.InsideSubnet.Subnet != nil && !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 														return data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup
 													}
 													if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -12915,14 +13247,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 													}
 													return types.StringNull()
 												}(),
-												VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil && data.IngressEgressGwAr.Node.OutsideSubnet != nil && data.IngressEgressGwAr.Node.OutsideSubnet.Subnet != nil {
+												VNETResourceGroup: func() types.Object {
+													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil && data.IngressEgressGwAr.Node.OutsideSubnet != nil && data.IngressEgressGwAr.Node.OutsideSubnet.Subnet != nil && !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 														return data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup
 													}
 													if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -12961,14 +13293,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			NotHub: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NotHub: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NotHub.IsUnknown() {
 					return data.IngressEgressGwAr.NotHub
 				}
 				if _, ok := blockData["not_hub"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AzureVNETSiteIngressEgressGwArOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -13220,23 +13552,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -13248,23 +13580,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -13274,23 +13606,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.SmConnectionPublicIP.IsUnknown() {
 					return data.IngressEgressGwAr.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.SmConnectionPvtIP.IsUnknown() {
 					return data.IngressEgressGwAr.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -13302,23 +13634,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressGwAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AcceleratedNetworking != nil && !data.IngressGw.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.IngressGw.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AcceleratedNetworking != nil && !data.IngressGw.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.IngressGw.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -13365,14 +13697,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.StringNull()
 														}(),
-														VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].LocalSubnet != nil && AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet != nil {
+														VNETResourceGroup: func() types.Object {
+															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].LocalSubnet != nil && AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet != nil && !AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																return AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet.VNETResourceGroup
 															}
 															if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -13424,23 +13756,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -13452,23 +13784,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -13488,23 +13820,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressGwArAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.AcceleratedNetworking != nil && !data.IngressGwAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.IngressGwAr.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.AcceleratedNetworking != nil && !data.IngressGwAr.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.IngressGwAr.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -13555,14 +13887,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 													}
 													return types.StringNull()
 												}(),
-												VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressGwAr != nil && data.IngressGwAr.Node != nil && data.IngressGwAr.Node.LocalSubnet != nil && data.IngressGwAr.Node.LocalSubnet.Subnet != nil {
+												VNETResourceGroup: func() types.Object {
+													if !isImport && data.IngressGwAr != nil && data.IngressGwAr.Node != nil && data.IngressGwAr.Node.LocalSubnet != nil && data.IngressGwAr.Node.LocalSubnet.Subnet != nil && !data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 														return data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup
 													}
 													if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -13622,23 +13954,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -13650,23 +13982,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -13680,14 +14012,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &AzureVNETSiteKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *AzureVNETSiteKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -13695,20 +14027,29 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &AzureVNETSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -13722,14 +14063,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -13761,36 +14102,36 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	}
 	if blockData, ok := apiResource.Spec["offline_survivability_mode"].(map[string]interface{}); ok && (isImport || data.OfflineSurvivabilityMode != nil) {
 		data.OfflineSurvivabilityMode = &AzureVNETSiteOfflineSurvivabilityModeModel{
-			EnableOfflineSurvivabilityMode: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			EnableOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["enable_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOfflineSurvivabilityMode: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			NoOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["no_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["os"].(map[string]interface{}); ok && (isImport || data.OS != nil) {
 		data.OS = &AzureVNETSiteOSModel{
-			DefaultOSVersion: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.OS != nil {
+			DefaultOSVersion: func() types.Object {
+				if !isImport && data.OS != nil && !data.OS.DefaultOSVersion.IsUnknown() {
 					return data.OS.DefaultOSVersion
 				}
 				if _, ok := blockData["default_os_version"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OperatingSystemVersion: func() types.String {
 				if v, ok := blockData["operating_system_version"].(string); ok && v != "" {
@@ -13802,14 +14143,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &AzureVNETSiteSwModel{
-			DefaultSwVersion: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.Sw != nil {
+			DefaultSwVersion: func() types.Object {
+				if !isImport && data.Sw != nil && !data.Sw.DefaultSwVersion.IsUnknown() {
 					return data.Sw.DefaultSwVersion
 				}
 				if _, ok := blockData["default_sw_version"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			VolterraSoftwareVersion: func() types.String {
 				if v, ok := blockData["volterra_software_version"].(string); ok && v != "" {
@@ -13827,23 +14168,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if ExistingVNETData, ok := blockData["existing_vnet"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVNETExistingVNETModel{
-						F5OrchestratedRouting: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VNET != nil && data.VNET.ExistingVNET != nil {
+						F5OrchestratedRouting: func() types.Object {
+							if !isImport && data.VNET != nil && data.VNET.ExistingVNET != nil && !data.VNET.ExistingVNET.F5OrchestratedRouting.IsUnknown() {
 								return data.VNET.ExistingVNET.F5OrchestratedRouting
 							}
 							if _, ok := ExistingVNETData["f5_orchestrated_routing"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						ManualRouting: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VNET != nil && data.VNET.ExistingVNET != nil {
+						ManualRouting: func() types.Object {
+							if !isImport && data.VNET != nil && data.VNET.ExistingVNET != nil && !data.VNET.ExistingVNET.ManualRouting.IsUnknown() {
 								return data.VNET.ExistingVNET.ManualRouting
 							}
 							if _, ok := ExistingVNETData["manual_routing"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						ResourceGroup: func() types.String {
 							if v, ok := ExistingVNETData["resource_group"].(string); ok && v != "" {
@@ -13867,14 +14208,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if NewVNETData, ok := blockData["new_vnet"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVNETNewVNETModel{
-						Autogenerate: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VNET != nil && data.VNET.NewVNET != nil {
+						Autogenerate: func() types.Object {
+							if !isImport && data.VNET != nil && data.VNET.NewVNET != nil && !data.VNET.NewVNET.Autogenerate.IsUnknown() {
 								return data.VNET.NewVNET.Autogenerate
 							}
 							if _, ok := NewVNETData["autogenerate"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						Name: func() types.String {
 							if v, ok := NewVNETData["name"].(string); ok && v != "" {
@@ -13902,23 +14243,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AcceleratedNetworking != nil && !data.VoltstackCluster.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.VoltstackCluster.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AcceleratedNetworking != nil && !data.VoltstackCluster.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.VoltstackCluster.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -14106,14 +14447,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 															}
 															return types.StringNull()
 														}(),
-														VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].LocalSubnet != nil && AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet != nil {
+														VNETResourceGroup: func() types.Object {
+															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].LocalSubnet != nil && AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet != nil && !AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																return AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet.VNETResourceGroup
 															}
 															if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -14178,23 +14519,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			DefaultStorage: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			DefaultStorage: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 					return data.VoltstackCluster.DefaultStorage
 				}
 				if _, ok := blockData["default_storage"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 					return data.VoltstackCluster.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AzureVNETSiteVoltstackClusterGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -14314,59 +14655,59 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 					return data.VoltstackCluster.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 					return data.VoltstackCluster.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 					return data.VoltstackCluster.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoK8SCluster: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoK8SCluster: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 					return data.VoltstackCluster.NoK8SCluster
 				}
 				if _, ok := blockData["no_k8s_cluster"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 					return data.VoltstackCluster.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VoltstackCluster.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AzureVNETSiteVoltstackClusterOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -14606,23 +14947,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			StorageClassList: func() *AzureVNETSiteVoltstackClusterStorageClassListModel {
 				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil {
@@ -14678,23 +15019,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterArAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.AcceleratedNetworking != nil && !data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.AcceleratedNetworking != nil && !data.VoltstackClusterAr.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.VoltstackClusterAr.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -14872,23 +15213,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			DefaultStorage: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			DefaultStorage: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.DefaultStorage.IsUnknown() {
 					return data.VoltstackClusterAr.DefaultStorage
 				}
 				if _, ok := blockData["default_storage"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.ForwardProxyAllowAll.IsUnknown() {
 					return data.VoltstackClusterAr.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AzureVNETSiteVoltstackClusterArGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -15008,59 +15349,59 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoDcClusterGroup.IsUnknown() {
 					return data.VoltstackClusterAr.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoForwardProxy.IsUnknown() {
 					return data.VoltstackClusterAr.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoGlobalNetwork.IsUnknown() {
 					return data.VoltstackClusterAr.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoK8SCluster: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoK8SCluster: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoK8SCluster.IsUnknown() {
 					return data.VoltstackClusterAr.NoK8SCluster
 				}
 				if _, ok := blockData["no_k8s_cluster"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoNetworkPolicy.IsUnknown() {
 					return data.VoltstackClusterAr.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VoltstackClusterAr.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Node: func() *AzureVNETSiteVoltstackClusterArNodeModel {
 				if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.Node != nil {
@@ -15101,14 +15442,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 													}
 													return types.StringNull()
 												}(),
-												VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.Node != nil && data.VoltstackClusterAr.Node.LocalSubnet != nil && data.VoltstackClusterAr.Node.LocalSubnet.Subnet != nil {
+												VNETResourceGroup: func() types.Object {
+													if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.Node != nil && data.VoltstackClusterAr.Node.LocalSubnet != nil && data.VoltstackClusterAr.Node.LocalSubnet.Subnet != nil && !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 														return data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup
 													}
 													if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -15394,23 +15735,23 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.SmConnectionPublicIP.IsUnknown() {
 					return data.VoltstackClusterAr.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.SmConnectionPvtIP.IsUnknown() {
 					return data.VoltstackClusterAr.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			StorageClassList: func() *AzureVNETSiteVoltstackClusterArStorageClassListModel {
 				if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.StorageClassList != nil {
@@ -15473,19 +15814,31 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	} else {
 		data.AzureRegion = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok && isImport && data.BlockAllServices == nil {
-		data.BlockAllServices = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.BlockAllServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok {
+		data.BlockAllServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BlockAllServices = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["disk_size"].(float64); ok {
 		data.DiskSize = types.Int64Value(int64(v))
 	} else {
 		data.DiskSize = types.Int64Null()
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_worker_nodes"].(map[string]interface{}); ok && isImport && data.NoWorkerNodes == nil {
-		data.NoWorkerNodes = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.NoWorkerNodes.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_worker_nodes"].(map[string]interface{}); ok {
+		data.NoWorkerNodes = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoWorkerNodes = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["nodes_per_az"].(float64); ok {
 		data.NodesPerAz = types.Int64Value(int64(v))
@@ -15736,14 +16089,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AzureVNETSiteBlockedServicesBlockedServiceModel{
-								DNS: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								DNS: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].DNS.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
-										return &AzureVNETSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								NetworkType: func() types.String {
 									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
@@ -15751,23 +16104,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 									}
 									return types.StringNull()
 								}(),
-								SSH: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								SSH: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].SSH.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
-										return &AzureVNETSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								WebUserInterface: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								WebUserInterface: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].WebUserInterface.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
-										return &AzureVNETSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -15817,11 +16170,19 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok && isImport && data.DefaultBlockedServices == nil {
-		data.DefaultBlockedServices = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.DefaultBlockedServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok {
+		data.DefaultBlockedServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBlockedServices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok && isImport && data.DisableEncryption == nil {
-		data.DisableEncryption = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.DisableEncryption.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok {
+		data.DisableEncryption = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableEncryption = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_encryption"].(map[string]interface{}); ok && (isImport || data.EnableEncryption != nil) {
 		data.EnableEncryption = &AzureVNETSiteEnableEncryptionModel{
@@ -15847,23 +16208,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AcceleratedNetworking != nil && !data.IngressEgressGw.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.IngressEgressGw.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AcceleratedNetworking != nil && !data.IngressEgressGw.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.IngressEgressGw.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -16051,14 +16412,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.StringNull()
 														}(),
-														VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].InsideSubnet != nil && AzNodesExisting[AzNodesIdx].InsideSubnet.Subnet != nil {
+														VNETResourceGroup: func() types.Object {
+															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].InsideSubnet != nil && AzNodesExisting[AzNodesIdx].InsideSubnet.Subnet != nil && !AzNodesExisting[AzNodesIdx].InsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																return AzNodesExisting[AzNodesIdx].InsideSubnet.Subnet.VNETResourceGroup
 															}
 															if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -16105,14 +16466,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.StringNull()
 														}(),
-														VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].OutsideSubnet != nil && AzNodesExisting[AzNodesIdx].OutsideSubnet.Subnet != nil {
+														VNETResourceGroup: func() types.Object {
+															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].OutsideSubnet != nil && AzNodesExisting[AzNodesIdx].OutsideSubnet.Subnet != nil && !AzNodesExisting[AzNodesIdx].OutsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																return AzNodesExisting[AzNodesIdx].OutsideSubnet.Subnet.VNETResourceGroup
 															}
 															if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -16202,14 +16563,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			ForwardProxyAllowAll: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 					return data.IngressEgressGw.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AzureVNETSiteIngressEgressGwGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -16310,14 +16671,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				if HubData, ok := blockData["hub"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwHubModel{
-						ExpressRouteDisabled: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil {
+						ExpressRouteDisabled: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && !data.IngressEgressGw.Hub.ExpressRouteDisabled.IsUnknown() {
 								return data.IngressEgressGw.Hub.ExpressRouteDisabled
 							}
 							if _, ok := HubData["express_route_disabled"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						ExpressRouteEnabled: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledModel {
 							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
@@ -16325,23 +16686,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							if ExpressRouteEnabledData, ok := HubData["express_route_enabled"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledModel{
-									AdvertiseToRouteServer: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									AdvertiseToRouteServer: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer
 										}
 										if _, ok := ExpressRouteEnabledData["advertise_to_route_server"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									AutoAsn: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									AutoAsn: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn
 										}
 										if _, ok := ExpressRouteEnabledData["auto_asn"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									Connections: func() types.List {
 										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && (data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.IsNull() || len(data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.Elements()) == 0) {
@@ -16478,14 +16839,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 										}
 										return types.Int64Null()
 									}(),
-									DoNotAdvertiseToRouteServer: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									DoNotAdvertiseToRouteServer: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer
 										}
 										if _, ok := ExpressRouteEnabledData["do_not_advertise_to_route_server"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									GatewaySubnet: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetModel {
 										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
@@ -16493,14 +16854,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 										}
 										if GatewaySubnetData, ok := ExpressRouteEnabledData["gateway_subnet"].(map[string]interface{}); ok {
 											return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetModel{
-												Auto: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
+												Auto: func() types.Object {
+													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsUnknown() {
 														return data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto
 													}
 													if _, ok := GatewaySubnetData["auto"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												Subnet: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetModel {
 													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
@@ -16514,14 +16875,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																}
 																return types.StringNull()
 															}(),
-															VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-																if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
+															VNETResourceGroup: func() types.Object {
+																if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																	return data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup
 																}
 																if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																	return &AzureVNETSiteEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -16553,14 +16914,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 										}
 										if RouteServerSubnetData, ok := ExpressRouteEnabledData["route_server_subnet"].(map[string]interface{}); ok {
 											return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetModel{
-												Auto: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
+												Auto: func() types.Object {
+													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsUnknown() {
 														return data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto
 													}
 													if _, ok := RouteServerSubnetData["auto"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												Subnet: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetModel {
 													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
@@ -16574,14 +16935,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																}
 																return types.StringNull()
 															}(),
-															VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-																if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
+															VNETResourceGroup: func() types.Object {
+																if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																	return data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup
 																}
 																if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																	return &AzureVNETSiteEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -16623,50 +16984,50 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 										}
 										return nil
 									}(),
-									SiteRegistrationOverInternet: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SiteRegistrationOverInternet: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet
 										}
 										if _, ok := ExpressRouteEnabledData["site_registration_over_internet"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuErgw1az: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SkuErgw1az: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az
 										}
 										if _, ok := ExpressRouteEnabledData["sku_ergw1az"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuErgw2az: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SkuErgw2az: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az
 										}
 										if _, ok := ExpressRouteEnabledData["sku_ergw2az"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuHighPerf: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SkuHighPerf: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf
 										}
 										if _, ok := ExpressRouteEnabledData["sku_high_perf"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuStandard: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SkuStandard: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard
 										}
 										if _, ok := ExpressRouteEnabledData["sku_standard"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -16686,14 +17047,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 									_ = SpokeVnetsIdx
 									if SpokeVnetsItemMap, ok := SpokeVnetsItem.(map[string]interface{}); ok {
 										SpokeVnetsResult = append(SpokeVnetsResult, AzureVNETSiteIngressEgressGwHubSpokeVnetsModel{
-											Auto: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Auto: func() types.Object {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && !SpokeVnetsExisting[SpokeVnetsIdx].Auto.IsUnknown() {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Auto
 												}
 												if _, ok := SpokeVnetsItemMap["auto"].(map[string]interface{}); ok {
-													return &AzureVNETSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Labels: func() *AzureVNETSiteEmptyModel {
 												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
@@ -16704,35 +17065,35 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return nil
 											}(),
-											Manual: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Manual: func() types.Object {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && !SpokeVnetsExisting[SpokeVnetsIdx].Manual.IsUnknown() {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
 												}
 												if _, ok := SpokeVnetsItemMap["manual"].(map[string]interface{}); ok {
-													return &AzureVNETSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VNET: func() *AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModel {
 												if VNETData, ok := SpokeVnetsItemMap["vnet"].(map[string]interface{}); ok {
 													return &AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModel{
-														F5OrchestratedRouting: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil {
+														F5OrchestratedRouting: func() types.Object {
+															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil && !SpokeVnetsExisting[SpokeVnetsIdx].VNET.F5OrchestratedRouting.IsUnknown() {
 																return SpokeVnetsExisting[SpokeVnetsIdx].VNET.F5OrchestratedRouting
 															}
 															if _, ok := VNETData["f5_orchestrated_routing"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ManualRouting: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil {
+														ManualRouting: func() types.Object {
+															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil && !SpokeVnetsExisting[SpokeVnetsIdx].VNET.ManualRouting.IsUnknown() {
 																return SpokeVnetsExisting[SpokeVnetsIdx].VNET.ManualRouting
 															}
 															if _, ok := VNETData["manual_routing"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														ResourceGroup: func() types.String {
 															if v, ok := VNETData["resource_group"].(string); ok && v != "" {
@@ -17000,68 +17361,68 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 					return data.IngressEgressGw.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 					return data.IngressEgressGw.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 					return data.IngressEgressGw.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 					return data.IngressEgressGw.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NotHub: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NotHub: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NotHub.IsUnknown() {
 					return data.IngressEgressGw.NotHub
 				}
 				if _, ok := blockData["not_hub"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AzureVNETSiteIngressEgressGwOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -17313,23 +17674,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -17341,23 +17702,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -17367,23 +17728,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -17395,23 +17756,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwArAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.AcceleratedNetworking != nil && !data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.AcceleratedNetworking != nil && !data.IngressEgressGwAr.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.IngressEgressGwAr.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -17614,14 +17975,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			ForwardProxyAllowAll: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.ForwardProxyAllowAll.IsUnknown() {
 					return data.IngressEgressGwAr.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AzureVNETSiteIngressEgressGwArGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -17722,14 +18083,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				if HubData, ok := blockData["hub"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwArHubModel{
-						ExpressRouteDisabled: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil {
+						ExpressRouteDisabled: func() types.Object {
+							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && !data.IngressEgressGwAr.Hub.ExpressRouteDisabled.IsUnknown() {
 								return data.IngressEgressGwAr.Hub.ExpressRouteDisabled
 							}
 							if _, ok := HubData["express_route_disabled"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						ExpressRouteEnabled: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledModel {
 							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
@@ -17737,23 +18098,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							if ExpressRouteEnabledData, ok := HubData["express_route_enabled"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledModel{
-									AdvertiseToRouteServer: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									AdvertiseToRouteServer: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer
 										}
 										if _, ok := ExpressRouteEnabledData["advertise_to_route_server"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									AutoAsn: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									AutoAsn: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn
 										}
 										if _, ok := ExpressRouteEnabledData["auto_asn"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									Connections: func() types.List {
 										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && (data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.IsNull() || len(data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.Elements()) == 0) {
@@ -17890,14 +18251,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 										}
 										return types.Int64Null()
 									}(),
-									DoNotAdvertiseToRouteServer: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									DoNotAdvertiseToRouteServer: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer
 										}
 										if _, ok := ExpressRouteEnabledData["do_not_advertise_to_route_server"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									GatewaySubnet: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetModel {
 										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
@@ -17905,14 +18266,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 										}
 										if GatewaySubnetData, ok := ExpressRouteEnabledData["gateway_subnet"].(map[string]interface{}); ok {
 											return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetModel{
-												Auto: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
+												Auto: func() types.Object {
+													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsUnknown() {
 														return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto
 													}
 													if _, ok := GatewaySubnetData["auto"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												Subnet: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetModel {
 													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
@@ -17926,14 +18287,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																}
 																return types.StringNull()
 															}(),
-															VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-																if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
+															VNETResourceGroup: func() types.Object {
+																if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																	return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup
 																}
 																if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																	return &AzureVNETSiteEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -17965,14 +18326,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 										}
 										if RouteServerSubnetData, ok := ExpressRouteEnabledData["route_server_subnet"].(map[string]interface{}); ok {
 											return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetModel{
-												Auto: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
+												Auto: func() types.Object {
+													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsUnknown() {
 														return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto
 													}
 													if _, ok := RouteServerSubnetData["auto"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												Subnet: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetModel {
 													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
@@ -17986,14 +18347,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																}
 																return types.StringNull()
 															}(),
-															VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-																if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
+															VNETResourceGroup: func() types.Object {
+																if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																	return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup
 																}
 																if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																	return &AzureVNETSiteEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -18035,50 +18396,50 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 										}
 										return nil
 									}(),
-									SiteRegistrationOverInternet: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SiteRegistrationOverInternet: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet
 										}
 										if _, ok := ExpressRouteEnabledData["site_registration_over_internet"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuErgw1az: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SkuErgw1az: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az
 										}
 										if _, ok := ExpressRouteEnabledData["sku_ergw1az"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuErgw2az: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SkuErgw2az: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az
 										}
 										if _, ok := ExpressRouteEnabledData["sku_ergw2az"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuHighPerf: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SkuHighPerf: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf
 										}
 										if _, ok := ExpressRouteEnabledData["sku_high_perf"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuStandard: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SkuStandard: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard
 										}
 										if _, ok := ExpressRouteEnabledData["sku_standard"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -18098,14 +18459,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 									_ = SpokeVnetsIdx
 									if SpokeVnetsItemMap, ok := SpokeVnetsItem.(map[string]interface{}); ok {
 										SpokeVnetsResult = append(SpokeVnetsResult, AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel{
-											Auto: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Auto: func() types.Object {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && !SpokeVnetsExisting[SpokeVnetsIdx].Auto.IsUnknown() {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Auto
 												}
 												if _, ok := SpokeVnetsItemMap["auto"].(map[string]interface{}); ok {
-													return &AzureVNETSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Labels: func() *AzureVNETSiteEmptyModel {
 												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
@@ -18116,35 +18477,35 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return nil
 											}(),
-											Manual: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Manual: func() types.Object {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && !SpokeVnetsExisting[SpokeVnetsIdx].Manual.IsUnknown() {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
 												}
 												if _, ok := SpokeVnetsItemMap["manual"].(map[string]interface{}); ok {
-													return &AzureVNETSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VNET: func() *AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModel {
 												if VNETData, ok := SpokeVnetsItemMap["vnet"].(map[string]interface{}); ok {
 													return &AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModel{
-														F5OrchestratedRouting: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil {
+														F5OrchestratedRouting: func() types.Object {
+															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil && !SpokeVnetsExisting[SpokeVnetsIdx].VNET.F5OrchestratedRouting.IsUnknown() {
 																return SpokeVnetsExisting[SpokeVnetsIdx].VNET.F5OrchestratedRouting
 															}
 															if _, ok := VNETData["f5_orchestrated_routing"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ManualRouting: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil {
+														ManualRouting: func() types.Object {
+															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil && !SpokeVnetsExisting[SpokeVnetsIdx].VNET.ManualRouting.IsUnknown() {
 																return SpokeVnetsExisting[SpokeVnetsIdx].VNET.ManualRouting
 															}
 															if _, ok := VNETData["manual_routing"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														ResourceGroup: func() types.String {
 															if v, ok := VNETData["resource_group"].(string); ok && v != "" {
@@ -18412,59 +18773,59 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoDcClusterGroup.IsUnknown() {
 					return data.IngressEgressGwAr.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoForwardProxy.IsUnknown() {
 					return data.IngressEgressGwAr.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoGlobalNetwork.IsUnknown() {
 					return data.IngressEgressGwAr.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoInsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGwAr.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoNetworkPolicy.IsUnknown() {
 					return data.IngressEgressGwAr.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoOutsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGwAr.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Node: func() *AzureVNETSiteIngressEgressGwArNodeModel {
 				if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil {
@@ -18505,14 +18866,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 													}
 													return types.StringNull()
 												}(),
-												VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil && data.IngressEgressGwAr.Node.InsideSubnet != nil && data.IngressEgressGwAr.Node.InsideSubnet.Subnet != nil {
+												VNETResourceGroup: func() types.Object {
+													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil && data.IngressEgressGwAr.Node.InsideSubnet != nil && data.IngressEgressGwAr.Node.InsideSubnet.Subnet != nil && !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 														return data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup
 													}
 													if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -18571,14 +18932,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 													}
 													return types.StringNull()
 												}(),
-												VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil && data.IngressEgressGwAr.Node.OutsideSubnet != nil && data.IngressEgressGwAr.Node.OutsideSubnet.Subnet != nil {
+												VNETResourceGroup: func() types.Object {
+													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil && data.IngressEgressGwAr.Node.OutsideSubnet != nil && data.IngressEgressGwAr.Node.OutsideSubnet.Subnet != nil && !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 														return data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup
 													}
 													if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -18617,14 +18978,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			NotHub: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NotHub: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NotHub.IsUnknown() {
 					return data.IngressEgressGwAr.NotHub
 				}
 				if _, ok := blockData["not_hub"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AzureVNETSiteIngressEgressGwArOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -18876,23 +19237,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -18904,23 +19265,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -18930,23 +19291,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.SmConnectionPublicIP.IsUnknown() {
 					return data.IngressEgressGwAr.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.SmConnectionPvtIP.IsUnknown() {
 					return data.IngressEgressGwAr.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -18958,23 +19319,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressGwAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AcceleratedNetworking != nil && !data.IngressGw.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.IngressGw.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AcceleratedNetworking != nil && !data.IngressGw.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.IngressGw.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -19021,14 +19382,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.StringNull()
 														}(),
-														VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].LocalSubnet != nil && AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet != nil {
+														VNETResourceGroup: func() types.Object {
+															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].LocalSubnet != nil && AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet != nil && !AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																return AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet.VNETResourceGroup
 															}
 															if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -19080,23 +19441,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -19108,23 +19469,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -19144,23 +19505,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressGwArAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.AcceleratedNetworking != nil && !data.IngressGwAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.IngressGwAr.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.AcceleratedNetworking != nil && !data.IngressGwAr.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.IngressGwAr.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -19211,14 +19572,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 													}
 													return types.StringNull()
 												}(),
-												VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressGwAr != nil && data.IngressGwAr.Node != nil && data.IngressGwAr.Node.LocalSubnet != nil && data.IngressGwAr.Node.LocalSubnet.Subnet != nil {
+												VNETResourceGroup: func() types.Object {
+													if !isImport && data.IngressGwAr != nil && data.IngressGwAr.Node != nil && data.IngressGwAr.Node.LocalSubnet != nil && data.IngressGwAr.Node.LocalSubnet.Subnet != nil && !data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 														return data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup
 													}
 													if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -19278,23 +19639,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -19306,23 +19667,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -19336,14 +19697,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &AzureVNETSiteKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *AzureVNETSiteKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -19351,20 +19712,29 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &AzureVNETSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -19378,14 +19748,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -19417,36 +19787,36 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 	}
 	if blockData, ok := apiResource.Spec["offline_survivability_mode"].(map[string]interface{}); ok && (isImport || data.OfflineSurvivabilityMode != nil) {
 		data.OfflineSurvivabilityMode = &AzureVNETSiteOfflineSurvivabilityModeModel{
-			EnableOfflineSurvivabilityMode: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			EnableOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["enable_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOfflineSurvivabilityMode: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			NoOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["no_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["os"].(map[string]interface{}); ok && (isImport || data.OS != nil) {
 		data.OS = &AzureVNETSiteOSModel{
-			DefaultOSVersion: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.OS != nil {
+			DefaultOSVersion: func() types.Object {
+				if !isImport && data.OS != nil && !data.OS.DefaultOSVersion.IsUnknown() {
 					return data.OS.DefaultOSVersion
 				}
 				if _, ok := blockData["default_os_version"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OperatingSystemVersion: func() types.String {
 				if v, ok := blockData["operating_system_version"].(string); ok && v != "" {
@@ -19458,14 +19828,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &AzureVNETSiteSwModel{
-			DefaultSwVersion: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.Sw != nil {
+			DefaultSwVersion: func() types.Object {
+				if !isImport && data.Sw != nil && !data.Sw.DefaultSwVersion.IsUnknown() {
 					return data.Sw.DefaultSwVersion
 				}
 				if _, ok := blockData["default_sw_version"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			VolterraSoftwareVersion: func() types.String {
 				if v, ok := blockData["volterra_software_version"].(string); ok && v != "" {
@@ -19483,23 +19853,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				if ExistingVNETData, ok := blockData["existing_vnet"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVNETExistingVNETModel{
-						F5OrchestratedRouting: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VNET != nil && data.VNET.ExistingVNET != nil {
+						F5OrchestratedRouting: func() types.Object {
+							if !isImport && data.VNET != nil && data.VNET.ExistingVNET != nil && !data.VNET.ExistingVNET.F5OrchestratedRouting.IsUnknown() {
 								return data.VNET.ExistingVNET.F5OrchestratedRouting
 							}
 							if _, ok := ExistingVNETData["f5_orchestrated_routing"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						ManualRouting: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VNET != nil && data.VNET.ExistingVNET != nil {
+						ManualRouting: func() types.Object {
+							if !isImport && data.VNET != nil && data.VNET.ExistingVNET != nil && !data.VNET.ExistingVNET.ManualRouting.IsUnknown() {
 								return data.VNET.ExistingVNET.ManualRouting
 							}
 							if _, ok := ExistingVNETData["manual_routing"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						ResourceGroup: func() types.String {
 							if v, ok := ExistingVNETData["resource_group"].(string); ok && v != "" {
@@ -19523,14 +19893,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				if NewVNETData, ok := blockData["new_vnet"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVNETNewVNETModel{
-						Autogenerate: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VNET != nil && data.VNET.NewVNET != nil {
+						Autogenerate: func() types.Object {
+							if !isImport && data.VNET != nil && data.VNET.NewVNET != nil && !data.VNET.NewVNET.Autogenerate.IsUnknown() {
 								return data.VNET.NewVNET.Autogenerate
 							}
 							if _, ok := NewVNETData["autogenerate"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						Name: func() types.String {
 							if v, ok := NewVNETData["name"].(string); ok && v != "" {
@@ -19558,23 +19928,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AcceleratedNetworking != nil && !data.VoltstackCluster.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.VoltstackCluster.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AcceleratedNetworking != nil && !data.VoltstackCluster.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.VoltstackCluster.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -19762,14 +20132,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 															}
 															return types.StringNull()
 														}(),
-														VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].LocalSubnet != nil && AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet != nil {
+														VNETResourceGroup: func() types.Object {
+															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].LocalSubnet != nil && AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet != nil && !AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																return AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet.VNETResourceGroup
 															}
 															if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -19834,23 +20204,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			DefaultStorage: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			DefaultStorage: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 					return data.VoltstackCluster.DefaultStorage
 				}
 				if _, ok := blockData["default_storage"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 					return data.VoltstackCluster.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AzureVNETSiteVoltstackClusterGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -19970,59 +20340,59 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 					return data.VoltstackCluster.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 					return data.VoltstackCluster.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 					return data.VoltstackCluster.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoK8SCluster: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoK8SCluster: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 					return data.VoltstackCluster.NoK8SCluster
 				}
 				if _, ok := blockData["no_k8s_cluster"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 					return data.VoltstackCluster.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VoltstackCluster.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AzureVNETSiteVoltstackClusterOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -20262,23 +20632,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			StorageClassList: func() *AzureVNETSiteVoltstackClusterStorageClassListModel {
 				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil {
@@ -20334,23 +20704,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterArAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.AcceleratedNetworking != nil && !data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.AcceleratedNetworking != nil && !data.VoltstackClusterAr.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.VoltstackClusterAr.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -20528,23 +20898,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			DefaultStorage: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			DefaultStorage: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.DefaultStorage.IsUnknown() {
 					return data.VoltstackClusterAr.DefaultStorage
 				}
 				if _, ok := blockData["default_storage"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.ForwardProxyAllowAll.IsUnknown() {
 					return data.VoltstackClusterAr.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AzureVNETSiteVoltstackClusterArGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -20664,59 +21034,59 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoDcClusterGroup.IsUnknown() {
 					return data.VoltstackClusterAr.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoForwardProxy.IsUnknown() {
 					return data.VoltstackClusterAr.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoGlobalNetwork.IsUnknown() {
 					return data.VoltstackClusterAr.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoK8SCluster: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoK8SCluster: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoK8SCluster.IsUnknown() {
 					return data.VoltstackClusterAr.NoK8SCluster
 				}
 				if _, ok := blockData["no_k8s_cluster"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoNetworkPolicy.IsUnknown() {
 					return data.VoltstackClusterAr.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VoltstackClusterAr.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Node: func() *AzureVNETSiteVoltstackClusterArNodeModel {
 				if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.Node != nil {
@@ -20757,14 +21127,14 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 													}
 													return types.StringNull()
 												}(),
-												VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.Node != nil && data.VoltstackClusterAr.Node.LocalSubnet != nil && data.VoltstackClusterAr.Node.LocalSubnet.Subnet != nil {
+												VNETResourceGroup: func() types.Object {
+													if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.Node != nil && data.VoltstackClusterAr.Node.LocalSubnet != nil && data.VoltstackClusterAr.Node.LocalSubnet.Subnet != nil && !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 														return data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup
 													}
 													if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -21050,23 +21420,23 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.SmConnectionPublicIP.IsUnknown() {
 					return data.VoltstackClusterAr.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.SmConnectionPvtIP.IsUnknown() {
 					return data.VoltstackClusterAr.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			StorageClassList: func() *AzureVNETSiteVoltstackClusterArStorageClassListModel {
 				if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.StorageClassList != nil {
@@ -21129,19 +21499,31 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 	} else {
 		data.AzureRegion = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok && isImport && data.BlockAllServices == nil {
-		data.BlockAllServices = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.BlockAllServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok {
+		data.BlockAllServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BlockAllServices = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["disk_size"].(float64); ok {
 		data.DiskSize = types.Int64Value(int64(v))
 	} else {
 		data.DiskSize = types.Int64Null()
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_worker_nodes"].(map[string]interface{}); ok && isImport && data.NoWorkerNodes == nil {
-		data.NoWorkerNodes = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.NoWorkerNodes.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_worker_nodes"].(map[string]interface{}); ok {
+		data.NoWorkerNodes = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoWorkerNodes = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["nodes_per_az"].(float64); ok {
 		data.NodesPerAz = types.Int64Value(int64(v))
@@ -21341,16 +21723,16 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				var BlockedServiceList []map[string]interface{}
 				for _, BlockedServiceItem := range BlockedServiceElems {
 					BlockedServiceItemMap := make(map[string]interface{})
-					if BlockedServiceItem.DNS != nil {
+					if !BlockedServiceItem.DNS.IsNull() && !BlockedServiceItem.DNS.IsUnknown() {
 						BlockedServiceItemMap["dns"] = map[string]interface{}{}
 					}
 					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
 						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
 					}
-					if BlockedServiceItem.SSH != nil {
+					if !BlockedServiceItem.SSH.IsNull() && !BlockedServiceItem.SSH.IsUnknown() {
 						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
 					}
-					if BlockedServiceItem.WebUserInterface != nil {
+					if !BlockedServiceItem.WebUserInterface.IsNull() && !BlockedServiceItem.WebUserInterface.IsUnknown() {
 						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
@@ -21380,10 +21762,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		}
 		apiResource.Spec["custom_dns"] = CustomDNSMap
 	}
-	if data.DefaultBlockedServices != nil {
+	if !data.DefaultBlockedServices.IsNull() && !data.DefaultBlockedServices.IsUnknown() {
 		apiResource.Spec["default_blocked_services"] = map[string]interface{}{}
 	}
-	if data.DisableEncryption != nil {
+	if !data.DisableEncryption.IsNull() && !data.DisableEncryption.IsUnknown() {
 		apiResource.Spec["disable_encryption"] = map[string]interface{}{}
 	}
 	if data.EnableEncryption != nil {
@@ -21400,10 +21782,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		IngressEgressGwMap := make(map[string]interface{})
 		if data.IngressEgressGw.AcceleratedNetworking != nil {
 			IngressEgressGwAcceleratedNetworkingMap := make(map[string]interface{})
-			if data.IngressEgressGw.AcceleratedNetworking.DisableSpec != nil {
+			if !data.IngressEgressGw.AcceleratedNetworking.DisableSpec.IsNull() && !data.IngressEgressGw.AcceleratedNetworking.DisableSpec.IsUnknown() {
 				IngressEgressGwAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGw.AcceleratedNetworking.Enable != nil {
+			if !data.IngressEgressGw.AcceleratedNetworking.Enable.IsNull() && !data.IngressEgressGw.AcceleratedNetworking.Enable.IsUnknown() {
 				IngressEgressGwAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
 			IngressEgressGwMap["accelerated_networking"] = IngressEgressGwAcceleratedNetworkingMap
@@ -21498,7 +21880,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if !AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 								IngressEgressGwAzNodesInsideSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
-							if AzNodesItem.InsideSubnet.Subnet.VNETResourceGroup != nil {
+							if !AzNodesItem.InsideSubnet.Subnet.VNETResourceGroup.IsNull() && !AzNodesItem.InsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 								IngressEgressGwAzNodesInsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
 							IngressEgressGwAzNodesInsideSubnetMap["subnet"] = IngressEgressGwAzNodesInsideSubnetSubnetMap
@@ -21522,7 +21904,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if !AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 								IngressEgressGwAzNodesOutsideSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
-							if AzNodesItem.OutsideSubnet.Subnet.VNETResourceGroup != nil {
+							if !AzNodesItem.OutsideSubnet.Subnet.VNETResourceGroup.IsNull() && !AzNodesItem.OutsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 								IngressEgressGwAzNodesOutsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
 							IngressEgressGwAzNodesOutsideSubnetMap["subnet"] = IngressEgressGwAzNodesOutsideSubnetSubnetMap
@@ -21564,7 +21946,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
-		if data.IngressEgressGw.ForwardProxyAllowAll != nil {
+		if !data.IngressEgressGw.ForwardProxyAllowAll.IsNull() && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 			IngressEgressGwMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGw.GlobalNetworkList != nil {
@@ -21614,15 +21996,15 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		}
 		if data.IngressEgressGw.Hub != nil {
 			IngressEgressGwHubMap := make(map[string]interface{})
-			if data.IngressEgressGw.Hub.ExpressRouteDisabled != nil {
+			if !data.IngressEgressGw.Hub.ExpressRouteDisabled.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteDisabled.IsUnknown() {
 				IngressEgressGwHubMap["express_route_disabled"] = map[string]interface{}{}
 			}
 			if data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
 				IngressEgressGwHubExpressRouteEnabledMap := make(map[string]interface{})
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["advertise_to_route_server"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["auto_asn"] = map[string]interface{}{}
 				}
 				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.IsUnknown() {
@@ -21691,12 +22073,12 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["custom_asn"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.ValueInt64()
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["do_not_advertise_to_route_server"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
 					IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap := make(map[string]interface{})
-					if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto != nil {
+					if !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsUnknown() {
 						IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
@@ -21704,7 +22086,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 							IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
-						if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup != nil {
+						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsUnknown() {
 							IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
 						IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap["subnet"] = IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap
@@ -21720,7 +22102,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
 					IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap := make(map[string]interface{})
-					if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto != nil {
+					if !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsUnknown() {
 						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
@@ -21728,7 +22110,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 							IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
-						if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup != nil {
+						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 							IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
 						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap["subnet"] = IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap
@@ -21749,19 +22131,19 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					}
 					IngressEgressGwHubExpressRouteEnabledMap["site_registration_over_express_route"] = IngressEgressGwHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["site_registration_over_internet"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["sku_ergw1az"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["sku_ergw2az"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["sku_high_perf"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard != nil {
+				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard.IsUnknown() {
 					IngressEgressGwHubExpressRouteEnabledMap["sku_standard"] = map[string]interface{}{}
 				}
 				IngressEgressGwHubMap["express_route_enabled"] = IngressEgressGwHubExpressRouteEnabledMap
@@ -21774,21 +22156,21 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					var SpokeVnetsList []map[string]interface{}
 					for _, SpokeVnetsItem := range SpokeVnetsElems {
 						SpokeVnetsItemMap := make(map[string]interface{})
-						if SpokeVnetsItem.Auto != nil {
+						if !SpokeVnetsItem.Auto.IsNull() && !SpokeVnetsItem.Auto.IsUnknown() {
 							SpokeVnetsItemMap["auto"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.Labels != nil {
 							SpokeVnetsItemMap["labels"] = map[string]interface{}{}
 						}
-						if SpokeVnetsItem.Manual != nil {
+						if !SpokeVnetsItem.Manual.IsNull() && !SpokeVnetsItem.Manual.IsUnknown() {
 							SpokeVnetsItemMap["manual"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.VNET != nil {
 							IngressEgressGwHubSpokeVnetsVNETMap := make(map[string]interface{})
-							if SpokeVnetsItem.VNET.F5OrchestratedRouting != nil {
+							if !SpokeVnetsItem.VNET.F5OrchestratedRouting.IsNull() && !SpokeVnetsItem.VNET.F5OrchestratedRouting.IsUnknown() {
 								IngressEgressGwHubSpokeVnetsVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
 							}
-							if SpokeVnetsItem.VNET.ManualRouting != nil {
+							if !SpokeVnetsItem.VNET.ManualRouting.IsNull() && !SpokeVnetsItem.VNET.ManualRouting.IsUnknown() {
 								IngressEgressGwHubSpokeVnetsVNETMap["manual_routing"] = map[string]interface{}{}
 							}
 							if !SpokeVnetsItem.VNET.ResourceGroup.IsNull() && !SpokeVnetsItem.VNET.ResourceGroup.IsUnknown() {
@@ -21918,25 +22300,25 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			IngressEgressGwMap["inside_static_routes"] = IngressEgressGwInsideStaticRoutesMap
 		}
-		if data.IngressEgressGw.NoDcClusterGroup != nil {
+		if !data.IngressEgressGw.NoDcClusterGroup.IsNull() && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 			IngressEgressGwMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoForwardProxy != nil {
+		if !data.IngressEgressGw.NoForwardProxy.IsNull() && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 			IngressEgressGwMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoGlobalNetwork != nil {
+		if !data.IngressEgressGw.NoGlobalNetwork.IsNull() && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 			IngressEgressGwMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoInsideStaticRoutes != nil {
+		if !data.IngressEgressGw.NoInsideStaticRoutes.IsNull() && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 			IngressEgressGwMap["no_inside_static_routes"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoNetworkPolicy != nil {
+		if !data.IngressEgressGw.NoNetworkPolicy.IsNull() && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 			IngressEgressGwMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NoOutsideStaticRoutes != nil {
+		if !data.IngressEgressGw.NoOutsideStaticRoutes.IsNull() && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 			IngressEgressGwMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.NotHub != nil {
+		if !data.IngressEgressGw.NotHub.IsNull() && !data.IngressEgressGw.NotHub.IsUnknown() {
 			IngressEgressGwMap["not_hub"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGw.OutsideStaticRoutes != nil {
@@ -22055,30 +22437,30 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			IngressEgressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
-		if data.IngressEgressGw.SmConnectionPublicIP != nil {
+		if !data.IngressEgressGw.SmConnectionPublicIP.IsNull() && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 			IngressEgressGwMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGw.SmConnectionPvtIP != nil {
+		if !data.IngressEgressGw.SmConnectionPvtIP.IsNull() && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 			IngressEgressGwMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		apiResource.Spec["ingress_egress_gw"] = IngressEgressGwMap
@@ -22087,10 +22469,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		IngressEgressGwArMap := make(map[string]interface{})
 		if data.IngressEgressGwAr.AcceleratedNetworking != nil {
 			IngressEgressGwArAcceleratedNetworkingMap := make(map[string]interface{})
-			if data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec != nil {
+			if !data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec.IsNull() && !data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 				IngressEgressGwArAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
-			if data.IngressEgressGwAr.AcceleratedNetworking.Enable != nil {
+			if !data.IngressEgressGwAr.AcceleratedNetworking.Enable.IsNull() && !data.IngressEgressGwAr.AcceleratedNetworking.Enable.IsUnknown() {
 				IngressEgressGwArAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
 			IngressEgressGwArMap["accelerated_networking"] = IngressEgressGwArAcceleratedNetworkingMap
@@ -22187,7 +22569,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			IngressEgressGwArMap["dc_cluster_group_outside_vn"] = IngressEgressGwArDcClusterGroupOutsideVnMap
 		}
-		if data.IngressEgressGwAr.ForwardProxyAllowAll != nil {
+		if !data.IngressEgressGwAr.ForwardProxyAllowAll.IsNull() && !data.IngressEgressGwAr.ForwardProxyAllowAll.IsUnknown() {
 			IngressEgressGwArMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGwAr.GlobalNetworkList != nil {
@@ -22237,15 +22619,15 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		}
 		if data.IngressEgressGwAr.Hub != nil {
 			IngressEgressGwArHubMap := make(map[string]interface{})
-			if data.IngressEgressGwAr.Hub.ExpressRouteDisabled != nil {
+			if !data.IngressEgressGwAr.Hub.ExpressRouteDisabled.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteDisabled.IsUnknown() {
 				IngressEgressGwArHubMap["express_route_disabled"] = map[string]interface{}{}
 			}
 			if data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
 				IngressEgressGwArHubExpressRouteEnabledMap := make(map[string]interface{})
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["advertise_to_route_server"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["auto_asn"] = map[string]interface{}{}
 				}
 				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.IsUnknown() {
@@ -22314,12 +22696,12 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["custom_asn"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.ValueInt64()
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["do_not_advertise_to_route_server"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
 					IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap := make(map[string]interface{})
-					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto != nil {
+					if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsUnknown() {
 						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
@@ -22327,7 +22709,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 							IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
-						if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup != nil {
+						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsUnknown() {
 							IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
 						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap["subnet"] = IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap
@@ -22343,7 +22725,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
 					IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap := make(map[string]interface{})
-					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto != nil {
+					if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsUnknown() {
 						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
@@ -22351,7 +22733,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 							IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
-						if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup != nil {
+						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 							IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
 						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap["subnet"] = IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap
@@ -22372,19 +22754,19 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					}
 					IngressEgressGwArHubExpressRouteEnabledMap["site_registration_over_express_route"] = IngressEgressGwArHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["site_registration_over_internet"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["sku_ergw1az"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["sku_ergw2az"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["sku_high_perf"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard != nil {
+				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard.IsUnknown() {
 					IngressEgressGwArHubExpressRouteEnabledMap["sku_standard"] = map[string]interface{}{}
 				}
 				IngressEgressGwArHubMap["express_route_enabled"] = IngressEgressGwArHubExpressRouteEnabledMap
@@ -22397,21 +22779,21 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					var SpokeVnetsList []map[string]interface{}
 					for _, SpokeVnetsItem := range SpokeVnetsElems {
 						SpokeVnetsItemMap := make(map[string]interface{})
-						if SpokeVnetsItem.Auto != nil {
+						if !SpokeVnetsItem.Auto.IsNull() && !SpokeVnetsItem.Auto.IsUnknown() {
 							SpokeVnetsItemMap["auto"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.Labels != nil {
 							SpokeVnetsItemMap["labels"] = map[string]interface{}{}
 						}
-						if SpokeVnetsItem.Manual != nil {
+						if !SpokeVnetsItem.Manual.IsNull() && !SpokeVnetsItem.Manual.IsUnknown() {
 							SpokeVnetsItemMap["manual"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.VNET != nil {
 							IngressEgressGwArHubSpokeVnetsVNETMap := make(map[string]interface{})
-							if SpokeVnetsItem.VNET.F5OrchestratedRouting != nil {
+							if !SpokeVnetsItem.VNET.F5OrchestratedRouting.IsNull() && !SpokeVnetsItem.VNET.F5OrchestratedRouting.IsUnknown() {
 								IngressEgressGwArHubSpokeVnetsVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
 							}
-							if SpokeVnetsItem.VNET.ManualRouting != nil {
+							if !SpokeVnetsItem.VNET.ManualRouting.IsNull() && !SpokeVnetsItem.VNET.ManualRouting.IsUnknown() {
 								IngressEgressGwArHubSpokeVnetsVNETMap["manual_routing"] = map[string]interface{}{}
 							}
 							if !SpokeVnetsItem.VNET.ResourceGroup.IsNull() && !SpokeVnetsItem.VNET.ResourceGroup.IsUnknown() {
@@ -22541,22 +22923,22 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			IngressEgressGwArMap["inside_static_routes"] = IngressEgressGwArInsideStaticRoutesMap
 		}
-		if data.IngressEgressGwAr.NoDcClusterGroup != nil {
+		if !data.IngressEgressGwAr.NoDcClusterGroup.IsNull() && !data.IngressEgressGwAr.NoDcClusterGroup.IsUnknown() {
 			IngressEgressGwArMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGwAr.NoForwardProxy != nil {
+		if !data.IngressEgressGwAr.NoForwardProxy.IsNull() && !data.IngressEgressGwAr.NoForwardProxy.IsUnknown() {
 			IngressEgressGwArMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGwAr.NoGlobalNetwork != nil {
+		if !data.IngressEgressGwAr.NoGlobalNetwork.IsNull() && !data.IngressEgressGwAr.NoGlobalNetwork.IsUnknown() {
 			IngressEgressGwArMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGwAr.NoInsideStaticRoutes != nil {
+		if !data.IngressEgressGwAr.NoInsideStaticRoutes.IsNull() && !data.IngressEgressGwAr.NoInsideStaticRoutes.IsUnknown() {
 			IngressEgressGwArMap["no_inside_static_routes"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGwAr.NoNetworkPolicy != nil {
+		if !data.IngressEgressGwAr.NoNetworkPolicy.IsNull() && !data.IngressEgressGwAr.NoNetworkPolicy.IsUnknown() {
 			IngressEgressGwArMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGwAr.NoOutsideStaticRoutes != nil {
+		if !data.IngressEgressGwAr.NoOutsideStaticRoutes.IsNull() && !data.IngressEgressGwAr.NoOutsideStaticRoutes.IsUnknown() {
 			IngressEgressGwArMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGwAr.Node != nil {
@@ -22574,7 +22956,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					if !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 						IngressEgressGwArNodeInsideSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
-					if data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup != nil {
+					if !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 						IngressEgressGwArNodeInsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
 					IngressEgressGwArNodeInsideSubnetMap["subnet"] = IngressEgressGwArNodeInsideSubnetSubnetMap
@@ -22601,7 +22983,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					if !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 						IngressEgressGwArNodeOutsideSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
-					if data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup != nil {
+					if !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 						IngressEgressGwArNodeOutsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
 					IngressEgressGwArNodeOutsideSubnetMap["subnet"] = IngressEgressGwArNodeOutsideSubnetSubnetMap
@@ -22620,7 +23002,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			IngressEgressGwArMap["node"] = IngressEgressGwArNodeMap
 		}
-		if data.IngressEgressGwAr.NotHub != nil {
+		if !data.IngressEgressGwAr.NotHub.IsNull() && !data.IngressEgressGwAr.NotHub.IsUnknown() {
 			IngressEgressGwArMap["not_hub"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGwAr.OutsideStaticRoutes != nil {
@@ -22739,30 +23121,30 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			IngressEgressGwArPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwArMap["performance_enhancement_mode"] = IngressEgressGwArPerformanceEnhancementModeMap
 		}
-		if data.IngressEgressGwAr.SmConnectionPublicIP != nil {
+		if !data.IngressEgressGwAr.SmConnectionPublicIP.IsNull() && !data.IngressEgressGwAr.SmConnectionPublicIP.IsUnknown() {
 			IngressEgressGwArMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.IngressEgressGwAr.SmConnectionPvtIP != nil {
+		if !data.IngressEgressGwAr.SmConnectionPvtIP.IsNull() && !data.IngressEgressGwAr.SmConnectionPvtIP.IsUnknown() {
 			IngressEgressGwArMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		apiResource.Spec["ingress_egress_gw_ar"] = IngressEgressGwArMap
@@ -22771,10 +23153,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		IngressGwMap := make(map[string]interface{})
 		if data.IngressGw.AcceleratedNetworking != nil {
 			IngressGwAcceleratedNetworkingMap := make(map[string]interface{})
-			if data.IngressGw.AcceleratedNetworking.DisableSpec != nil {
+			if !data.IngressGw.AcceleratedNetworking.DisableSpec.IsNull() && !data.IngressGw.AcceleratedNetworking.DisableSpec.IsUnknown() {
 				IngressGwAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
-			if data.IngressGw.AcceleratedNetworking.Enable != nil {
+			if !data.IngressGw.AcceleratedNetworking.Enable.IsNull() && !data.IngressGw.AcceleratedNetworking.Enable.IsUnknown() {
 				IngressGwAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
 			IngressGwMap["accelerated_networking"] = IngressGwAcceleratedNetworkingMap
@@ -22800,7 +23182,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 								IngressGwAzNodesLocalSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
-							if AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup != nil {
+							if !AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup.IsNull() && !AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 								IngressGwAzNodesLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
 							IngressGwAzNodesLocalSubnetMap["subnet"] = IngressGwAzNodesLocalSubnetSubnetMap
@@ -22826,20 +23208,20 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			IngressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap
@@ -22852,10 +23234,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		IngressGwArMap := make(map[string]interface{})
 		if data.IngressGwAr.AcceleratedNetworking != nil {
 			IngressGwArAcceleratedNetworkingMap := make(map[string]interface{})
-			if data.IngressGwAr.AcceleratedNetworking.DisableSpec != nil {
+			if !data.IngressGwAr.AcceleratedNetworking.DisableSpec.IsNull() && !data.IngressGwAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 				IngressGwArAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
-			if data.IngressGwAr.AcceleratedNetworking.Enable != nil {
+			if !data.IngressGwAr.AcceleratedNetworking.Enable.IsNull() && !data.IngressGwAr.AcceleratedNetworking.Enable.IsUnknown() {
 				IngressGwArAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
 			IngressGwArMap["accelerated_networking"] = IngressGwArAcceleratedNetworkingMap
@@ -22878,7 +23260,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					if !data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 						IngressGwArNodeLocalSubnetSubnetMap["subnet_resource_grp"] = data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
-					if data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup != nil {
+					if !data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsNull() && !data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 						IngressGwArNodeLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
 					IngressGwArNodeLocalSubnetMap["subnet"] = IngressGwArNodeLocalSubnetSubnetMap
@@ -22904,20 +23286,20 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			IngressGwArPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 				IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+				if !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 					IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
-				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+				if !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 					IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
 				IngressGwArPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 				IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				if !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 					IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 				}
-				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				if !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 					IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 				}
 				IngressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap
@@ -22928,21 +23310,24 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	}
 	if data.KubernetesUpgradeDrain != nil {
 		KubernetesUpgradeDrainMap := make(map[string]interface{})
-		if data.KubernetesUpgradeDrain.DisableUpgradeDrain != nil {
+		if !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsNull() && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
 			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
+			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
@@ -22961,17 +23346,17 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	}
 	if data.OfflineSurvivabilityMode != nil {
 		OfflineSurvivabilityModeMap := make(map[string]interface{})
-		if data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["enable_offline_survivability_mode"] = map[string]interface{}{}
 		}
-		if data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["no_offline_survivability_mode"] = map[string]interface{}{}
 		}
 		apiResource.Spec["offline_survivability_mode"] = OfflineSurvivabilityModeMap
 	}
 	if data.OS != nil {
 		OSMap := make(map[string]interface{})
-		if data.OS.DefaultOSVersion != nil {
+		if !data.OS.DefaultOSVersion.IsNull() && !data.OS.DefaultOSVersion.IsUnknown() {
 			OSMap["default_os_version"] = map[string]interface{}{}
 		}
 		if !data.OS.OperatingSystemVersion.IsNull() && !data.OS.OperatingSystemVersion.IsUnknown() {
@@ -22981,7 +23366,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	}
 	if data.Sw != nil {
 		SwMap := make(map[string]interface{})
-		if data.Sw.DefaultSwVersion != nil {
+		if !data.Sw.DefaultSwVersion.IsNull() && !data.Sw.DefaultSwVersion.IsUnknown() {
 			SwMap["default_sw_version"] = map[string]interface{}{}
 		}
 		if !data.Sw.VolterraSoftwareVersion.IsNull() && !data.Sw.VolterraSoftwareVersion.IsUnknown() {
@@ -22993,10 +23378,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		VNETMap := make(map[string]interface{})
 		if data.VNET.ExistingVNET != nil {
 			VNETExistingVNETMap := make(map[string]interface{})
-			if data.VNET.ExistingVNET.F5OrchestratedRouting != nil {
+			if !data.VNET.ExistingVNET.F5OrchestratedRouting.IsNull() && !data.VNET.ExistingVNET.F5OrchestratedRouting.IsUnknown() {
 				VNETExistingVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
 			}
-			if data.VNET.ExistingVNET.ManualRouting != nil {
+			if !data.VNET.ExistingVNET.ManualRouting.IsNull() && !data.VNET.ExistingVNET.ManualRouting.IsUnknown() {
 				VNETExistingVNETMap["manual_routing"] = map[string]interface{}{}
 			}
 			if !data.VNET.ExistingVNET.ResourceGroup.IsNull() && !data.VNET.ExistingVNET.ResourceGroup.IsUnknown() {
@@ -23009,7 +23394,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		}
 		if data.VNET.NewVNET != nil {
 			VNETNewVNETMap := make(map[string]interface{})
-			if data.VNET.NewVNET.Autogenerate != nil {
+			if !data.VNET.NewVNET.Autogenerate.IsNull() && !data.VNET.NewVNET.Autogenerate.IsUnknown() {
 				VNETNewVNETMap["autogenerate"] = map[string]interface{}{}
 			}
 			if !data.VNET.NewVNET.Name.IsNull() && !data.VNET.NewVNET.Name.IsUnknown() {
@@ -23026,10 +23411,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		VoltstackClusterMap := make(map[string]interface{})
 		if data.VoltstackCluster.AcceleratedNetworking != nil {
 			VoltstackClusterAcceleratedNetworkingMap := make(map[string]interface{})
-			if data.VoltstackCluster.AcceleratedNetworking.DisableSpec != nil {
+			if !data.VoltstackCluster.AcceleratedNetworking.DisableSpec.IsNull() && !data.VoltstackCluster.AcceleratedNetworking.DisableSpec.IsUnknown() {
 				VoltstackClusterAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
-			if data.VoltstackCluster.AcceleratedNetworking.Enable != nil {
+			if !data.VoltstackCluster.AcceleratedNetworking.Enable.IsNull() && !data.VoltstackCluster.AcceleratedNetworking.Enable.IsUnknown() {
 				VoltstackClusterAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
 			VoltstackClusterMap["accelerated_networking"] = VoltstackClusterAcceleratedNetworkingMap
@@ -23124,7 +23509,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							if !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 								VoltstackClusterAzNodesLocalSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
-							if AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup != nil {
+							if !AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup.IsNull() && !AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 								VoltstackClusterAzNodesLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
 							VoltstackClusterAzNodesLocalSubnetMap["subnet"] = VoltstackClusterAzNodesLocalSubnetSubnetMap
@@ -23156,10 +23541,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
-		if data.VoltstackCluster.DefaultStorage != nil {
+		if !data.VoltstackCluster.DefaultStorage.IsNull() && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 			VoltstackClusterMap["default_storage"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.ForwardProxyAllowAll != nil {
+		if !data.VoltstackCluster.ForwardProxyAllowAll.IsNull() && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 			VoltstackClusterMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.GlobalNetworkList != nil {
@@ -23217,22 +23602,22 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
-		if data.VoltstackCluster.NoDcClusterGroup != nil {
+		if !data.VoltstackCluster.NoDcClusterGroup.IsNull() && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 			VoltstackClusterMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoForwardProxy != nil {
+		if !data.VoltstackCluster.NoForwardProxy.IsNull() && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 			VoltstackClusterMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoGlobalNetwork != nil {
+		if !data.VoltstackCluster.NoGlobalNetwork.IsNull() && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 			VoltstackClusterMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoK8SCluster != nil {
+		if !data.VoltstackCluster.NoK8SCluster.IsNull() && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 			VoltstackClusterMap["no_k8s_cluster"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoNetworkPolicy != nil {
+		if !data.VoltstackCluster.NoNetworkPolicy.IsNull() && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 			VoltstackClusterMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.NoOutsideStaticRoutes != nil {
+		if !data.VoltstackCluster.NoOutsideStaticRoutes.IsNull() && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 			VoltstackClusterMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.OutsideStaticRoutes != nil {
@@ -23347,10 +23732,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			VoltstackClusterMap["outside_static_routes"] = VoltstackClusterOutsideStaticRoutesMap
 		}
-		if data.VoltstackCluster.SmConnectionPublicIP != nil {
+		if !data.VoltstackCluster.SmConnectionPublicIP.IsNull() && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 			VoltstackClusterMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.VoltstackCluster.SmConnectionPvtIP != nil {
+		if !data.VoltstackCluster.SmConnectionPvtIP.IsNull() && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 			VoltstackClusterMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
@@ -23382,10 +23767,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		VoltstackClusterArMap := make(map[string]interface{})
 		if data.VoltstackClusterAr.AcceleratedNetworking != nil {
 			VoltstackClusterArAcceleratedNetworkingMap := make(map[string]interface{})
-			if data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec != nil {
+			if !data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec.IsNull() && !data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 				VoltstackClusterArAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
-			if data.VoltstackClusterAr.AcceleratedNetworking.Enable != nil {
+			if !data.VoltstackClusterAr.AcceleratedNetworking.Enable.IsNull() && !data.VoltstackClusterAr.AcceleratedNetworking.Enable.IsUnknown() {
 				VoltstackClusterArAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
 			VoltstackClusterArMap["accelerated_networking"] = VoltstackClusterArAcceleratedNetworkingMap
@@ -23472,10 +23857,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			VoltstackClusterArMap["dc_cluster_group"] = VoltstackClusterArDcClusterGroupMap
 		}
-		if data.VoltstackClusterAr.DefaultStorage != nil {
+		if !data.VoltstackClusterAr.DefaultStorage.IsNull() && !data.VoltstackClusterAr.DefaultStorage.IsUnknown() {
 			VoltstackClusterArMap["default_storage"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.ForwardProxyAllowAll != nil {
+		if !data.VoltstackClusterAr.ForwardProxyAllowAll.IsNull() && !data.VoltstackClusterAr.ForwardProxyAllowAll.IsUnknown() {
 			VoltstackClusterArMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.VoltstackClusterAr.GlobalNetworkList != nil {
@@ -23533,22 +23918,22 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			VoltstackClusterArMap["k8s_cluster"] = VoltstackClusterArK8SClusterMap
 		}
-		if data.VoltstackClusterAr.NoDcClusterGroup != nil {
+		if !data.VoltstackClusterAr.NoDcClusterGroup.IsNull() && !data.VoltstackClusterAr.NoDcClusterGroup.IsUnknown() {
 			VoltstackClusterArMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.NoForwardProxy != nil {
+		if !data.VoltstackClusterAr.NoForwardProxy.IsNull() && !data.VoltstackClusterAr.NoForwardProxy.IsUnknown() {
 			VoltstackClusterArMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.NoGlobalNetwork != nil {
+		if !data.VoltstackClusterAr.NoGlobalNetwork.IsNull() && !data.VoltstackClusterAr.NoGlobalNetwork.IsUnknown() {
 			VoltstackClusterArMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.NoK8SCluster != nil {
+		if !data.VoltstackClusterAr.NoK8SCluster.IsNull() && !data.VoltstackClusterAr.NoK8SCluster.IsUnknown() {
 			VoltstackClusterArMap["no_k8s_cluster"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.NoNetworkPolicy != nil {
+		if !data.VoltstackClusterAr.NoNetworkPolicy.IsNull() && !data.VoltstackClusterAr.NoNetworkPolicy.IsUnknown() {
 			VoltstackClusterArMap["no_network_policy"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.NoOutsideStaticRoutes != nil {
+		if !data.VoltstackClusterAr.NoOutsideStaticRoutes.IsNull() && !data.VoltstackClusterAr.NoOutsideStaticRoutes.IsUnknown() {
 			VoltstackClusterArMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.VoltstackClusterAr.Node != nil {
@@ -23566,7 +23951,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					if !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
 						VoltstackClusterArNodeLocalSubnetSubnetMap["subnet_resource_grp"] = data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
-					if data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup != nil {
+					if !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsNull() && !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 						VoltstackClusterArNodeLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
 					VoltstackClusterArNodeLocalSubnetMap["subnet"] = VoltstackClusterArNodeLocalSubnetSubnetMap
@@ -23700,10 +24085,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			VoltstackClusterArMap["outside_static_routes"] = VoltstackClusterArOutsideStaticRoutesMap
 		}
-		if data.VoltstackClusterAr.SmConnectionPublicIP != nil {
+		if !data.VoltstackClusterAr.SmConnectionPublicIP.IsNull() && !data.VoltstackClusterAr.SmConnectionPublicIP.IsUnknown() {
 			VoltstackClusterArMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.VoltstackClusterAr.SmConnectionPvtIP != nil {
+		if !data.VoltstackClusterAr.SmConnectionPvtIP.IsNull() && !data.VoltstackClusterAr.SmConnectionPvtIP.IsUnknown() {
 			VoltstackClusterArMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackClusterAr.StorageClassList != nil {
@@ -23740,16 +24125,16 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	if !data.AzureRegion.IsNull() && !data.AzureRegion.IsUnknown() {
 		apiResource.Spec["azure_region"] = data.AzureRegion.ValueString()
 	}
-	if data.BlockAllServices != nil {
+	if !data.BlockAllServices.IsNull() && !data.BlockAllServices.IsUnknown() {
 		apiResource.Spec["block_all_services"] = map[string]interface{}{}
 	}
 	if !data.DiskSize.IsNull() && !data.DiskSize.IsUnknown() {
 		apiResource.Spec["disk_size"] = data.DiskSize.ValueInt64()
 	}
-	if data.LogsStreamingDisabled != nil {
+	if !data.LogsStreamingDisabled.IsNull() && !data.LogsStreamingDisabled.IsUnknown() {
 		apiResource.Spec["logs_streaming_disabled"] = map[string]interface{}{}
 	}
-	if data.NoWorkerNodes != nil {
+	if !data.NoWorkerNodes.IsNull() && !data.NoWorkerNodes.IsUnknown() {
 		apiResource.Spec["no_worker_nodes"] = map[string]interface{}{}
 	}
 	if !data.NodesPerAz.IsNull() && !data.NodesPerAz.IsUnknown() {
@@ -23974,14 +24359,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AzureVNETSiteBlockedServicesBlockedServiceModel{
-								DNS: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								DNS: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].DNS.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
-										return &AzureVNETSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								NetworkType: func() types.String {
 									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
@@ -23989,23 +24374,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									}
 									return types.StringNull()
 								}(),
-								SSH: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								SSH: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].SSH.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
-										return &AzureVNETSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								WebUserInterface: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								WebUserInterface: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].WebUserInterface.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
-										return &AzureVNETSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -24055,11 +24440,19 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok && isImport && data.DefaultBlockedServices == nil {
-		data.DefaultBlockedServices = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.DefaultBlockedServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok {
+		data.DefaultBlockedServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBlockedServices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok && isImport && data.DisableEncryption == nil {
-		data.DisableEncryption = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.DisableEncryption.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_encryption"].(map[string]interface{}); ok {
+		data.DisableEncryption = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableEncryption = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_encryption"].(map[string]interface{}); ok && (isImport || data.EnableEncryption != nil) {
 		data.EnableEncryption = &AzureVNETSiteEnableEncryptionModel{
@@ -24085,23 +24478,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AcceleratedNetworking != nil && !data.IngressEgressGw.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.IngressEgressGw.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.AcceleratedNetworking != nil && !data.IngressEgressGw.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.IngressEgressGw.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -24289,14 +24682,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.StringNull()
 														}(),
-														VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].InsideSubnet != nil && AzNodesExisting[AzNodesIdx].InsideSubnet.Subnet != nil {
+														VNETResourceGroup: func() types.Object {
+															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].InsideSubnet != nil && AzNodesExisting[AzNodesIdx].InsideSubnet.Subnet != nil && !AzNodesExisting[AzNodesIdx].InsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																return AzNodesExisting[AzNodesIdx].InsideSubnet.Subnet.VNETResourceGroup
 															}
 															if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -24343,14 +24736,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.StringNull()
 														}(),
-														VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].OutsideSubnet != nil && AzNodesExisting[AzNodesIdx].OutsideSubnet.Subnet != nil {
+														VNETResourceGroup: func() types.Object {
+															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].OutsideSubnet != nil && AzNodesExisting[AzNodesIdx].OutsideSubnet.Subnet != nil && !AzNodesExisting[AzNodesIdx].OutsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																return AzNodesExisting[AzNodesIdx].OutsideSubnet.Subnet.VNETResourceGroup
 															}
 															if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -24440,14 +24833,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			ForwardProxyAllowAll: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.ForwardProxyAllowAll.IsUnknown() {
 					return data.IngressEgressGw.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AzureVNETSiteIngressEgressGwGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -24548,14 +24941,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if HubData, ok := blockData["hub"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwHubModel{
-						ExpressRouteDisabled: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil {
+						ExpressRouteDisabled: func() types.Object {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && !data.IngressEgressGw.Hub.ExpressRouteDisabled.IsUnknown() {
 								return data.IngressEgressGw.Hub.ExpressRouteDisabled
 							}
 							if _, ok := HubData["express_route_disabled"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						ExpressRouteEnabled: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledModel {
 							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
@@ -24563,23 +24956,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							if ExpressRouteEnabledData, ok := HubData["express_route_enabled"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledModel{
-									AdvertiseToRouteServer: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									AdvertiseToRouteServer: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer
 										}
 										if _, ok := ExpressRouteEnabledData["advertise_to_route_server"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									AutoAsn: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									AutoAsn: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn
 										}
 										if _, ok := ExpressRouteEnabledData["auto_asn"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									Connections: func() types.List {
 										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && (data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.IsNull() || len(data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.Elements()) == 0) {
@@ -24716,14 +25109,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										return types.Int64Null()
 									}(),
-									DoNotAdvertiseToRouteServer: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									DoNotAdvertiseToRouteServer: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer
 										}
 										if _, ok := ExpressRouteEnabledData["do_not_advertise_to_route_server"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									GatewaySubnet: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetModel {
 										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
@@ -24731,14 +25124,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										if GatewaySubnetData, ok := ExpressRouteEnabledData["gateway_subnet"].(map[string]interface{}); ok {
 											return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetModel{
-												Auto: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
+												Auto: func() types.Object {
+													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsUnknown() {
 														return data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto
 													}
 													if _, ok := GatewaySubnetData["auto"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												Subnet: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetModel {
 													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
@@ -24752,14 +25145,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																}
 																return types.StringNull()
 															}(),
-															VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-																if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
+															VNETResourceGroup: func() types.Object {
+																if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																	return data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup
 																}
 																if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																	return &AzureVNETSiteEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -24791,14 +25184,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										if RouteServerSubnetData, ok := ExpressRouteEnabledData["route_server_subnet"].(map[string]interface{}); ok {
 											return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetModel{
-												Auto: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
+												Auto: func() types.Object {
+													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsUnknown() {
 														return data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto
 													}
 													if _, ok := RouteServerSubnetData["auto"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												Subnet: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetModel {
 													if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
@@ -24812,14 +25205,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																}
 																return types.StringNull()
 															}(),
-															VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-																if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
+															VNETResourceGroup: func() types.Object {
+																if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																	return data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup
 																}
 																if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																	return &AzureVNETSiteEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -24861,50 +25254,50 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										return nil
 									}(),
-									SiteRegistrationOverInternet: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SiteRegistrationOverInternet: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet
 										}
 										if _, ok := ExpressRouteEnabledData["site_registration_over_internet"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuErgw1az: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SkuErgw1az: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az
 										}
 										if _, ok := ExpressRouteEnabledData["sku_ergw1az"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuErgw2az: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SkuErgw2az: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az
 										}
 										if _, ok := ExpressRouteEnabledData["sku_ergw2az"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuHighPerf: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SkuHighPerf: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf
 										}
 										if _, ok := ExpressRouteEnabledData["sku_high_perf"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuStandard: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
+									SkuStandard: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.Hub != nil && data.IngressEgressGw.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard.IsUnknown() {
 											return data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard
 										}
 										if _, ok := ExpressRouteEnabledData["sku_standard"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -24924,14 +25317,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									_ = SpokeVnetsIdx
 									if SpokeVnetsItemMap, ok := SpokeVnetsItem.(map[string]interface{}); ok {
 										SpokeVnetsResult = append(SpokeVnetsResult, AzureVNETSiteIngressEgressGwHubSpokeVnetsModel{
-											Auto: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Auto: func() types.Object {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && !SpokeVnetsExisting[SpokeVnetsIdx].Auto.IsUnknown() {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Auto
 												}
 												if _, ok := SpokeVnetsItemMap["auto"].(map[string]interface{}); ok {
-													return &AzureVNETSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Labels: func() *AzureVNETSiteEmptyModel {
 												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
@@ -24942,35 +25335,35 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return nil
 											}(),
-											Manual: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Manual: func() types.Object {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && !SpokeVnetsExisting[SpokeVnetsIdx].Manual.IsUnknown() {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
 												}
 												if _, ok := SpokeVnetsItemMap["manual"].(map[string]interface{}); ok {
-													return &AzureVNETSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VNET: func() *AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModel {
 												if VNETData, ok := SpokeVnetsItemMap["vnet"].(map[string]interface{}); ok {
 													return &AzureVNETSiteIngressEgressGwHubSpokeVnetsVNETModel{
-														F5OrchestratedRouting: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil {
+														F5OrchestratedRouting: func() types.Object {
+															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil && !SpokeVnetsExisting[SpokeVnetsIdx].VNET.F5OrchestratedRouting.IsUnknown() {
 																return SpokeVnetsExisting[SpokeVnetsIdx].VNET.F5OrchestratedRouting
 															}
 															if _, ok := VNETData["f5_orchestrated_routing"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ManualRouting: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil {
+														ManualRouting: func() types.Object {
+															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil && !SpokeVnetsExisting[SpokeVnetsIdx].VNET.ManualRouting.IsUnknown() {
 																return SpokeVnetsExisting[SpokeVnetsIdx].VNET.ManualRouting
 															}
 															if _, ok := VNETData["manual_routing"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														ResourceGroup: func() types.String {
 															if v, ok := VNETData["resource_group"].(string); ok && v != "" {
@@ -25238,68 +25631,68 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoDcClusterGroup.IsUnknown() {
 					return data.IngressEgressGw.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoForwardProxy.IsUnknown() {
 					return data.IngressEgressGw.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoGlobalNetwork.IsUnknown() {
 					return data.IngressEgressGw.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoInsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoNetworkPolicy.IsUnknown() {
 					return data.IngressEgressGw.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NoOutsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGw.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NotHub: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			NotHub: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.NotHub.IsUnknown() {
 					return data.IngressEgressGw.NotHub
 				}
 				if _, ok := blockData["not_hub"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AzureVNETSiteIngressEgressGwOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -25551,23 +25944,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -25579,23 +25972,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -25605,23 +25998,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPublicIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGw != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.IngressEgressGw != nil && !data.IngressEgressGw.SmConnectionPvtIP.IsUnknown() {
 					return data.IngressEgressGw.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -25633,23 +26026,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwArAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.AcceleratedNetworking != nil && !data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.AcceleratedNetworking != nil && !data.IngressEgressGwAr.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.IngressEgressGwAr.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -25852,14 +26245,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			ForwardProxyAllowAll: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.ForwardProxyAllowAll.IsUnknown() {
 					return data.IngressEgressGwAr.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AzureVNETSiteIngressEgressGwArGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -25960,14 +26353,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if HubData, ok := blockData["hub"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressEgressGwArHubModel{
-						ExpressRouteDisabled: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil {
+						ExpressRouteDisabled: func() types.Object {
+							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && !data.IngressEgressGwAr.Hub.ExpressRouteDisabled.IsUnknown() {
 								return data.IngressEgressGwAr.Hub.ExpressRouteDisabled
 							}
 							if _, ok := HubData["express_route_disabled"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						ExpressRouteEnabled: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledModel {
 							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
@@ -25975,23 +26368,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							if ExpressRouteEnabledData, ok := HubData["express_route_enabled"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledModel{
-									AdvertiseToRouteServer: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									AdvertiseToRouteServer: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer
 										}
 										if _, ok := ExpressRouteEnabledData["advertise_to_route_server"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									AutoAsn: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									AutoAsn: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn
 										}
 										if _, ok := ExpressRouteEnabledData["auto_asn"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									Connections: func() types.List {
 										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && (data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.IsNull() || len(data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.Elements()) == 0) {
@@ -26128,14 +26521,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										return types.Int64Null()
 									}(),
-									DoNotAdvertiseToRouteServer: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									DoNotAdvertiseToRouteServer: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer
 										}
 										if _, ok := ExpressRouteEnabledData["do_not_advertise_to_route_server"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									GatewaySubnet: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetModel {
 										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
@@ -26143,14 +26536,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										if GatewaySubnetData, ok := ExpressRouteEnabledData["gateway_subnet"].(map[string]interface{}); ok {
 											return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetModel{
-												Auto: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
+												Auto: func() types.Object {
+													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto.IsUnknown() {
 														return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto
 													}
 													if _, ok := GatewaySubnetData["auto"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												Subnet: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetModel {
 													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
@@ -26164,14 +26557,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																}
 																return types.StringNull()
 															}(),
-															VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-																if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
+															VNETResourceGroup: func() types.Object {
+																if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																	return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup
 																}
 																if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																	return &AzureVNETSiteEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -26203,14 +26596,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										if RouteServerSubnetData, ok := ExpressRouteEnabledData["route_server_subnet"].(map[string]interface{}); ok {
 											return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetModel{
-												Auto: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
+												Auto: func() types.Object {
+													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto.IsUnknown() {
 														return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto
 													}
 													if _, ok := RouteServerSubnetData["auto"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 												Subnet: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetModel {
 													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
@@ -26224,14 +26617,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																}
 																return types.StringNull()
 															}(),
-															VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-																if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
+															VNETResourceGroup: func() types.Object {
+																if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																	return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup
 																}
 																if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																	return &AzureVNETSiteEmptyModel{}
+																	return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																}
-																return nil
+																return types.ObjectNull(map[string]attr.Type{})
 															}(),
 														}
 													}
@@ -26273,50 +26666,50 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										return nil
 									}(),
-									SiteRegistrationOverInternet: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SiteRegistrationOverInternet: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet
 										}
 										if _, ok := ExpressRouteEnabledData["site_registration_over_internet"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuErgw1az: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SkuErgw1az: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az
 										}
 										if _, ok := ExpressRouteEnabledData["sku_ergw1az"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuErgw2az: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SkuErgw2az: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az
 										}
 										if _, ok := ExpressRouteEnabledData["sku_ergw2az"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuHighPerf: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SkuHighPerf: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf
 										}
 										if _, ok := ExpressRouteEnabledData["sku_high_perf"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									SkuStandard: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
+									SkuStandard: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Hub != nil && data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard.IsUnknown() {
 											return data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard
 										}
 										if _, ok := ExpressRouteEnabledData["sku_standard"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -26336,14 +26729,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									_ = SpokeVnetsIdx
 									if SpokeVnetsItemMap, ok := SpokeVnetsItem.(map[string]interface{}); ok {
 										SpokeVnetsResult = append(SpokeVnetsResult, AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel{
-											Auto: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Auto: func() types.Object {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && !SpokeVnetsExisting[SpokeVnetsIdx].Auto.IsUnknown() {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Auto
 												}
 												if _, ok := SpokeVnetsItemMap["auto"].(map[string]interface{}); ok {
-													return &AzureVNETSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Labels: func() *AzureVNETSiteEmptyModel {
 												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
@@ -26354,35 +26747,35 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return nil
 											}(),
-											Manual: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+											Manual: func() types.Object {
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && !SpokeVnetsExisting[SpokeVnetsIdx].Manual.IsUnknown() {
 													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
 												}
 												if _, ok := SpokeVnetsItemMap["manual"].(map[string]interface{}); ok {
-													return &AzureVNETSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VNET: func() *AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModel {
 												if VNETData, ok := SpokeVnetsItemMap["vnet"].(map[string]interface{}); ok {
 													return &AzureVNETSiteIngressEgressGwArHubSpokeVnetsVNETModel{
-														F5OrchestratedRouting: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil {
+														F5OrchestratedRouting: func() types.Object {
+															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil && !SpokeVnetsExisting[SpokeVnetsIdx].VNET.F5OrchestratedRouting.IsUnknown() {
 																return SpokeVnetsExisting[SpokeVnetsIdx].VNET.F5OrchestratedRouting
 															}
 															if _, ok := VNETData["f5_orchestrated_routing"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														ManualRouting: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil {
+														ManualRouting: func() types.Object {
+															if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].VNET != nil && !SpokeVnetsExisting[SpokeVnetsIdx].VNET.ManualRouting.IsUnknown() {
 																return SpokeVnetsExisting[SpokeVnetsIdx].VNET.ManualRouting
 															}
 															if _, ok := VNETData["manual_routing"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														ResourceGroup: func() types.String {
 															if v, ok := VNETData["resource_group"].(string); ok && v != "" {
@@ -26650,59 +27043,59 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoDcClusterGroup.IsUnknown() {
 					return data.IngressEgressGwAr.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoForwardProxy.IsUnknown() {
 					return data.IngressEgressGwAr.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoGlobalNetwork.IsUnknown() {
 					return data.IngressEgressGwAr.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoInsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGwAr.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoNetworkPolicy.IsUnknown() {
 					return data.IngressEgressGwAr.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NoOutsideStaticRoutes.IsUnknown() {
 					return data.IngressEgressGwAr.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Node: func() *AzureVNETSiteIngressEgressGwArNodeModel {
 				if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil {
@@ -26743,14 +27136,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 													}
 													return types.StringNull()
 												}(),
-												VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil && data.IngressEgressGwAr.Node.InsideSubnet != nil && data.IngressEgressGwAr.Node.InsideSubnet.Subnet != nil {
+												VNETResourceGroup: func() types.Object {
+													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil && data.IngressEgressGwAr.Node.InsideSubnet != nil && data.IngressEgressGwAr.Node.InsideSubnet.Subnet != nil && !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 														return data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup
 													}
 													if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -26809,14 +27202,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 													}
 													return types.StringNull()
 												}(),
-												VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil && data.IngressEgressGwAr.Node.OutsideSubnet != nil && data.IngressEgressGwAr.Node.OutsideSubnet.Subnet != nil {
+												VNETResourceGroup: func() types.Object {
+													if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.Node != nil && data.IngressEgressGwAr.Node.OutsideSubnet != nil && data.IngressEgressGwAr.Node.OutsideSubnet.Subnet != nil && !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 														return data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup
 													}
 													if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -26855,14 +27248,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			NotHub: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			NotHub: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.NotHub.IsUnknown() {
 					return data.IngressEgressGwAr.NotHub
 				}
 				if _, ok := blockData["not_hub"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AzureVNETSiteIngressEgressGwArOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -27114,23 +27507,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -27142,23 +27535,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -27168,23 +27561,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.SmConnectionPublicIP.IsUnknown() {
 					return data.IngressEgressGwAr.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.IngressEgressGwAr != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.IngressEgressGwAr != nil && !data.IngressEgressGwAr.SmConnectionPvtIP.IsUnknown() {
 					return data.IngressEgressGwAr.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -27196,23 +27589,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressGwAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AcceleratedNetworking != nil && !data.IngressGw.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.IngressGw.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.IngressGw != nil && data.IngressGw.AcceleratedNetworking != nil && !data.IngressGw.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.IngressGw.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -27259,14 +27652,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.StringNull()
 														}(),
-														VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].LocalSubnet != nil && AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet != nil {
+														VNETResourceGroup: func() types.Object {
+															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].LocalSubnet != nil && AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet != nil && !AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																return AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet.VNETResourceGroup
 															}
 															if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -27318,23 +27711,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -27346,23 +27739,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -27382,23 +27775,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteIngressGwArAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.AcceleratedNetworking != nil && !data.IngressGwAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.IngressGwAr.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.AcceleratedNetworking != nil && !data.IngressGwAr.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.IngressGwAr.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -27449,14 +27842,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 													}
 													return types.StringNull()
 												}(),
-												VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.IngressGwAr != nil && data.IngressGwAr.Node != nil && data.IngressGwAr.Node.LocalSubnet != nil && data.IngressGwAr.Node.LocalSubnet.Subnet != nil {
+												VNETResourceGroup: func() types.Object {
+													if !isImport && data.IngressGwAr != nil && data.IngressGwAr.Node != nil && data.IngressGwAr.Node.LocalSubnet != nil && data.IngressGwAr.Node.LocalSubnet.Subnet != nil && !data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 														return data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup
 													}
 													if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -27516,23 +27909,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							if PerfModeL3EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL3EnhancedModel{
-									Jumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									Jumbo: func() types.Object {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									NoJumbo: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+									NoJumbo: func() types.Object {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 										}
 										if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -27544,23 +27937,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 								return &AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel{
-									JumboDisabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboDisabled: func() types.Object {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									JumboEnabled: func() *AzureVNETSiteEmptyModel {
-										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+									JumboEnabled: func() types.Object {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 										}
 										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-											return &AzureVNETSiteEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -27574,14 +27967,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &AzureVNETSiteKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *AzureVNETSiteKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -27589,20 +27982,29 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &AzureVNETSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -27616,14 +28018,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -27655,36 +28057,36 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	}
 	if blockData, ok := apiResource.Spec["offline_survivability_mode"].(map[string]interface{}); ok && (isImport || data.OfflineSurvivabilityMode != nil) {
 		data.OfflineSurvivabilityMode = &AzureVNETSiteOfflineSurvivabilityModeModel{
-			EnableOfflineSurvivabilityMode: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			EnableOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["enable_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOfflineSurvivabilityMode: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			NoOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["no_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["os"].(map[string]interface{}); ok && (isImport || data.OS != nil) {
 		data.OS = &AzureVNETSiteOSModel{
-			DefaultOSVersion: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.OS != nil {
+			DefaultOSVersion: func() types.Object {
+				if !isImport && data.OS != nil && !data.OS.DefaultOSVersion.IsUnknown() {
 					return data.OS.DefaultOSVersion
 				}
 				if _, ok := blockData["default_os_version"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OperatingSystemVersion: func() types.String {
 				if v, ok := blockData["operating_system_version"].(string); ok && v != "" {
@@ -27696,14 +28098,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &AzureVNETSiteSwModel{
-			DefaultSwVersion: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.Sw != nil {
+			DefaultSwVersion: func() types.Object {
+				if !isImport && data.Sw != nil && !data.Sw.DefaultSwVersion.IsUnknown() {
 					return data.Sw.DefaultSwVersion
 				}
 				if _, ok := blockData["default_sw_version"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			VolterraSoftwareVersion: func() types.String {
 				if v, ok := blockData["volterra_software_version"].(string); ok && v != "" {
@@ -27721,23 +28123,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if ExistingVNETData, ok := blockData["existing_vnet"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVNETExistingVNETModel{
-						F5OrchestratedRouting: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VNET != nil && data.VNET.ExistingVNET != nil {
+						F5OrchestratedRouting: func() types.Object {
+							if !isImport && data.VNET != nil && data.VNET.ExistingVNET != nil && !data.VNET.ExistingVNET.F5OrchestratedRouting.IsUnknown() {
 								return data.VNET.ExistingVNET.F5OrchestratedRouting
 							}
 							if _, ok := ExistingVNETData["f5_orchestrated_routing"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						ManualRouting: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VNET != nil && data.VNET.ExistingVNET != nil {
+						ManualRouting: func() types.Object {
+							if !isImport && data.VNET != nil && data.VNET.ExistingVNET != nil && !data.VNET.ExistingVNET.ManualRouting.IsUnknown() {
 								return data.VNET.ExistingVNET.ManualRouting
 							}
 							if _, ok := ExistingVNETData["manual_routing"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						ResourceGroup: func() types.String {
 							if v, ok := ExistingVNETData["resource_group"].(string); ok && v != "" {
@@ -27761,14 +28163,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if NewVNETData, ok := blockData["new_vnet"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVNETNewVNETModel{
-						Autogenerate: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VNET != nil && data.VNET.NewVNET != nil {
+						Autogenerate: func() types.Object {
+							if !isImport && data.VNET != nil && data.VNET.NewVNET != nil && !data.VNET.NewVNET.Autogenerate.IsUnknown() {
 								return data.VNET.NewVNET.Autogenerate
 							}
 							if _, ok := NewVNETData["autogenerate"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						Name: func() types.String {
 							if v, ok := NewVNETData["name"].(string); ok && v != "" {
@@ -27796,23 +28198,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AcceleratedNetworking != nil && !data.VoltstackCluster.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.VoltstackCluster.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.AcceleratedNetworking != nil && !data.VoltstackCluster.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.VoltstackCluster.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -28000,14 +28402,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 															}
 															return types.StringNull()
 														}(),
-														VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].LocalSubnet != nil && AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet != nil {
+														VNETResourceGroup: func() types.Object {
+															if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].LocalSubnet != nil && AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet != nil && !AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 																return AzNodesExisting[AzNodesIdx].LocalSubnet.Subnet.VNETResourceGroup
 															}
 															if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-																return &AzureVNETSiteEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													}
 												}
@@ -28072,23 +28474,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			DefaultStorage: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			DefaultStorage: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.DefaultStorage.IsUnknown() {
 					return data.VoltstackCluster.DefaultStorage
 				}
 				if _, ok := blockData["default_storage"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.ForwardProxyAllowAll.IsUnknown() {
 					return data.VoltstackCluster.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AzureVNETSiteVoltstackClusterGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -28208,59 +28610,59 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoDcClusterGroup.IsUnknown() {
 					return data.VoltstackCluster.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoForwardProxy.IsUnknown() {
 					return data.VoltstackCluster.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoGlobalNetwork.IsUnknown() {
 					return data.VoltstackCluster.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoK8SCluster: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoK8SCluster: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoK8SCluster.IsUnknown() {
 					return data.VoltstackCluster.NoK8SCluster
 				}
 				if _, ok := blockData["no_k8s_cluster"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoNetworkPolicy.IsUnknown() {
 					return data.VoltstackCluster.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VoltstackCluster.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AzureVNETSiteVoltstackClusterOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -28500,23 +28902,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPublicIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackCluster != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VoltstackCluster != nil && !data.VoltstackCluster.SmConnectionPvtIP.IsUnknown() {
 					return data.VoltstackCluster.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			StorageClassList: func() *AzureVNETSiteVoltstackClusterStorageClassListModel {
 				if !isImport && data.VoltstackCluster != nil && data.VoltstackCluster.StorageClassList != nil {
@@ -28572,23 +28974,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				if AcceleratedNetworkingData, ok := blockData["accelerated_networking"].(map[string]interface{}); ok {
 					return &AzureVNETSiteVoltstackClusterArAcceleratedNetworkingModel{
-						DisableSpec: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.AcceleratedNetworking != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.AcceleratedNetworking != nil && !data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec.IsUnknown() {
 								return data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec
 							}
 							if _, ok := AcceleratedNetworkingData["disable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.AcceleratedNetworking != nil {
+						Enable: func() types.Object {
+							if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.AcceleratedNetworking != nil && !data.VoltstackClusterAr.AcceleratedNetworking.Enable.IsUnknown() {
 								return data.VoltstackClusterAr.AcceleratedNetworking.Enable
 							}
 							if _, ok := AcceleratedNetworkingData["enable"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -28766,23 +29168,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			DefaultStorage: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			DefaultStorage: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.DefaultStorage.IsUnknown() {
 					return data.VoltstackClusterAr.DefaultStorage
 				}
 				if _, ok := blockData["default_storage"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.ForwardProxyAllowAll.IsUnknown() {
 					return data.VoltstackClusterAr.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GlobalNetworkList: func() *AzureVNETSiteVoltstackClusterArGlobalNetworkListModel {
 				if GlobalNetworkListData, ok := blockData["global_network_list"].(map[string]interface{}); ok {
@@ -28902,59 +29304,59 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoDcClusterGroup.IsUnknown() {
 					return data.VoltstackClusterAr.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoForwardProxy.IsUnknown() {
 					return data.VoltstackClusterAr.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoGlobalNetwork.IsUnknown() {
 					return data.VoltstackClusterAr.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoK8SCluster: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoK8SCluster: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoK8SCluster.IsUnknown() {
 					return data.VoltstackClusterAr.NoK8SCluster
 				}
 				if _, ok := blockData["no_k8s_cluster"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoNetworkPolicy.IsUnknown() {
 					return data.VoltstackClusterAr.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VoltstackClusterAr.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			Node: func() *AzureVNETSiteVoltstackClusterArNodeModel {
 				if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.Node != nil {
@@ -28995,14 +29397,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 													}
 													return types.StringNull()
 												}(),
-												VNETResourceGroup: func() *AzureVNETSiteEmptyModel {
-													if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.Node != nil && data.VoltstackClusterAr.Node.LocalSubnet != nil && data.VoltstackClusterAr.Node.LocalSubnet.Subnet != nil {
+												VNETResourceGroup: func() types.Object {
+													if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.Node != nil && data.VoltstackClusterAr.Node.LocalSubnet != nil && data.VoltstackClusterAr.Node.LocalSubnet.Subnet != nil && !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup.IsUnknown() {
 														return data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup
 													}
 													if _, ok := SubnetData["vnet_resource_group"].(map[string]interface{}); ok {
-														return &AzureVNETSiteEmptyModel{}
+														return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 													}
-													return nil
+													return types.ObjectNull(map[string]attr.Type{})
 												}(),
 											}
 										}
@@ -29288,23 +29690,23 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.SmConnectionPublicIP.IsUnknown() {
 					return data.VoltstackClusterAr.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AzureVNETSiteEmptyModel {
-				if !isImport && data.VoltstackClusterAr != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VoltstackClusterAr != nil && !data.VoltstackClusterAr.SmConnectionPvtIP.IsUnknown() {
 					return data.VoltstackClusterAr.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AzureVNETSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			StorageClassList: func() *AzureVNETSiteVoltstackClusterArStorageClassListModel {
 				if !isImport && data.VoltstackClusterAr != nil && data.VoltstackClusterAr.StorageClassList != nil {
@@ -29367,19 +29769,31 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	} else {
 		data.AzureRegion = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok && isImport && data.BlockAllServices == nil {
-		data.BlockAllServices = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.BlockAllServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok {
+		data.BlockAllServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BlockAllServices = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["disk_size"].(float64); ok {
 		data.DiskSize = types.Int64Value(int64(v))
 	} else {
 		data.DiskSize = types.Int64Null()
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_worker_nodes"].(map[string]interface{}); ok && isImport && data.NoWorkerNodes == nil {
-		data.NoWorkerNodes = &AzureVNETSiteEmptyModel{}
+	if !isImport && !data.NoWorkerNodes.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_worker_nodes"].(map[string]interface{}); ok {
+		data.NoWorkerNodes = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoWorkerNodes = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["nodes_per_az"].(float64); ok {
 		data.NodesPerAz = types.Int64Value(int64(v))

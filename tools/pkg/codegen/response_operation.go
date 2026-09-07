@@ -155,7 +155,7 @@ func renderResponseOperationSchemaMap(attributes []openapi.TerraformAttribute, i
 			fmt.Fprintf(&result, "%s\t},\n", indent)
 			continue
 		}
-		typeName := map[string]string{"string": "String", "int64": "Int64", "bool": "Bool", "list": "List", "map": "Map"}[attribute.Type]
+		typeName := map[string]string{"string": "String", "int64": "Int64", "bool": "Bool", "list": "List", "map": "Map", "object": "Object"}[attribute.Type]
 		if typeName == "" {
 			typeName = "Dynamic"
 		}
@@ -168,6 +168,9 @@ func renderResponseOperationSchemaMap(attributes []openapi.TerraformAttribute, i
 				elementType = "types.StringType"
 			}
 			fmt.Fprintf(&result, "%s\t\tElementType: %s,\n", indent, elementType)
+		}
+		if attribute.EmptyObjectMarker {
+			fmt.Fprintf(&result, "%s\t\tAttributeTypes: map[string]attr.Type{},\n", indent)
 		}
 		fmt.Fprintf(&result, "%s\t},\n", indent)
 	}
@@ -391,7 +394,7 @@ func renderResponseOperationUnmarshal(operation *openapi.ResponseOperationTempla
 		case attribute.IsBlock:
 			err = renderUnmarshalTopLevelSingle(&code, operation.TitleCase, attribute, "\t")
 		default:
-			err = renderUnmarshalTopLevelScalar(&code, attribute, "\t")
+			err = renderUnmarshalTopLevelScalar(&code, operation.TitleCase, attribute, "\t")
 		}
 		if err != nil {
 			return "", fmt.Errorf("render response operation %s field %q: %w", operation.Name, attribute.Name, err)

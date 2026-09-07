@@ -499,10 +499,10 @@ resource "xcsh_service_policy" "test" {
   namespace  = "system"
 
   # Allow all requests - simplest policy
-  allow_all_requests {}
+  allow_all_requests = {}
 
   # Apply to any server
-  any_server {}
+  any_server = {}
 }
 `, name)
 }
@@ -520,10 +520,10 @@ resource "xcsh_service_policy" "test" {
   }
 
   # Allow all requests
-  allow_all_requests {}
+  allow_all_requests = {}
 
   # Apply to any server
-  any_server {}
+  any_server = {}
 }
 `, name)
 }
@@ -535,10 +535,10 @@ resource "xcsh_service_policy" "test" {
   namespace  = "system"
 
   # Deny all requests
-  deny_all_requests {}
+  deny_all_requests = {}
 
   # Apply to any server
-  any_server {}
+  any_server = {}
 }
 `, name)
 }
@@ -553,10 +553,10 @@ resource "xcsh_service_policy" "test" {
     prefix_list {
       prefixes = ["172.16.0.0/12"]
     }
-    default_action_allow {}
+    default_action_allow = {}
   }
 
-  any_server {}
+  any_server = {}
 }
 `, name)
 }
@@ -572,11 +572,11 @@ resource "xcsh_service_policy" "test" {
     prefix_list {
       prefixes = ["10.0.0.0/8", "192.168.0.0/16"]
     }
-    default_action_deny {}
+    default_action_deny = {}
   }
 
   # Apply to any server
-  any_server {}
+  any_server = {}
 }
 `, name)
 }

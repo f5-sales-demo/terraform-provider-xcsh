@@ -42,7 +42,7 @@ func testAccVirtualNetworkDataSourceConfig_basic(name string) string {
 resource "xcsh_virtual_network" "test" {
   name      = %[1]q
   namespace = "system"
-  global_network {}
+  global_network = {}
 }
 
 data "xcsh_virtual_network" "test" {

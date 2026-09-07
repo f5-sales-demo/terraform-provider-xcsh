@@ -39,7 +39,7 @@ resource "xcsh_app_type" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -77,17 +77,25 @@ In addition to all arguments above, the following attributes are exported:
 
 A [`business_logic_markup_setting`](#business-logic-markup-setting) block supports the following:
 
-<a id="spec-b70952"></a>&#x2022; [`disable_spec`](#spec-b70952) - Optional Block<br>Enable this option
+<a id="spec-b70952"></a>&#x2022; [`disable_spec`](#spec-b70952) - Optional Object<br>Enable this option
 
 <a id="settings-c32a65"></a>&#x2022; [`discovered_api_settings`](#settings-c32a65) - Optional Block<br>Discovered API Settings. Configure Discovered API Settings<br>See [Discovered API Settings](#settings-c32a65) below.
 
-<a id="business-logic-markup-setting-enable"></a>&#x2022; [`enable`](#business-logic-markup-setting-enable) - Optional Block<br>Enable this option
+<a id="business-logic-markup-setting-enable"></a>&#x2022; [`enable`](#business-logic-markup-setting-enable) - Optional Object<br>Enable this option
+
+#### Business Logic Markup Setting Disable Spec
+
+A [`disable_spec`](#spec-b70952) block (within [`business_logic_markup_setting`](#business-logic-markup-setting)) supports the following:
 
 #### Business Logic Markup Setting Discovered API Settings
 
 A [`discovered_api_settings`](#settings-c32a65) block (within [`business_logic_markup_setting`](#business-logic-markup-setting)) supports the following:
 
 <a id="apis-85d7fa"></a>&#x2022; [`purge_duration_for_inactive_discovered_apis`](#apis-85d7fa) - Optional Number<br>Inactive discovered API will be deleted after configured duration
+
+#### Business Logic Markup Setting Enable
+
+An [`enable`](#business-logic-markup-setting-enable) block (within [`business_logic_markup_setting`](#business-logic-markup-setting)) supports the following:
 
 #### Features
 

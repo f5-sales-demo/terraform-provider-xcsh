@@ -55,8 +55,8 @@ type DNSZoneEmptyModel struct {
 // DNSZonePrimaryModel represents primary block
 type DNSZonePrimaryModel struct {
 	AllowHTTPLBManagedRecords types.Bool                        `tfsdk:"allow_http_lb_managed_records"`
+	DefaultSoaParameters      types.Object                      `tfsdk:"default_soa_parameters"`
 	DefaultRrSetGroup         types.List                        `tfsdk:"default_rr_set_group"`
-	DefaultSoaParameters      *DNSZoneEmptyModel                `tfsdk:"default_soa_parameters"`
 	DnssecMode                *DNSZonePrimaryDnssecModeModel    `tfsdk:"dnssec_mode"`
 	RrSetGroup                types.List                        `tfsdk:"rr_set_group"`
 	SoaParameters             *DNSZonePrimarySoaParametersModel `tfsdk:"soa_parameters"`
@@ -65,8 +65,8 @@ type DNSZonePrimaryModel struct {
 // DNSZonePrimaryModelAttrTypes defines the attribute types for DNSZonePrimaryModel
 var DNSZonePrimaryModelAttrTypes = map[string]attr.Type{
 	"allow_http_lb_managed_records": types.BoolType,
-	"default_rr_set_group":          types.ListType{ElemType: types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupModelAttrTypes}},
 	"default_soa_parameters":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"default_rr_set_group":          types.ListType{ElemType: types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupModelAttrTypes}},
 	"dnssec_mode":                   types.ObjectType{AttrTypes: DNSZonePrimaryDnssecModeModelAttrTypes},
 	"rr_set_group":                  types.ListType{ElemType: types.ObjectType{AttrTypes: DNSZonePrimaryRrSetGroupModelAttrTypes}},
 	"soa_parameters":                types.ObjectType{AttrTypes: DNSZonePrimarySoaParametersModelAttrTypes},
@@ -660,8 +660,8 @@ var DNSZonePrimaryDefaultRrSetGroupTxtRecordModelAttrTypes = map[string]attr.Typ
 
 // DNSZonePrimaryDnssecModeModel represents dnssec_mode block
 type DNSZonePrimaryDnssecModeModel struct {
-	DisableSpec *DNSZoneEmptyModel `tfsdk:"disable_spec"`
-	Enable      *DNSZoneEmptyModel `tfsdk:"enable"`
+	DisableSpec types.Object `tfsdk:"disable_spec"`
+	Enable      types.Object `tfsdk:"enable"`
 }
 
 // DNSZonePrimaryDnssecModeModelAttrTypes defines the attribute types for DNSZonePrimaryDnssecModeModel
@@ -1431,17 +1431,23 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 			}),
 			"primary": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: primary, secondary] PrimaryDNSCreateSpecType.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_soa_parameters", "soa_parameters")},
 
 				Attributes: map[string]schema.Attribute{
 					"allow_http_lb_managed_records": schema.BoolAttribute{
 						MarkdownDescription: "Option to allow user-created HTTP, TCP, and CDN load balancer related resource records to be automatically managed in a protected RRset.",
 						Optional:            true,
 					},
+					"default_soa_parameters": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for default soa parameters.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 				},
 				Blocks: map[string]schema.Block{
 					"default_rr_set_group": schema.ListNestedBlock{
 						MarkdownDescription: "Add and manage DNS resource record sets part of Default set group.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("ttl")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("ttl"), validators.ConflictingListObjectAttributes("a_record", "aaaa_record"), validators.ConflictingListObjectAttributes("a_record", "afsdb_record"), validators.ConflictingListObjectAttributes("a_record", "alias_record"), validators.ConflictingListObjectAttributes("a_record", "caa_record"), validators.ConflictingListObjectAttributes("a_record", "cds_record"), validators.ConflictingListObjectAttributes("a_record", "cert_record"), validators.ConflictingListObjectAttributes("a_record", "cname_record"), validators.ConflictingListObjectAttributes("a_record", "ds_record"), validators.ConflictingListObjectAttributes("a_record", "eui48_record"), validators.ConflictingListObjectAttributes("a_record", "eui64_record"), validators.ConflictingListObjectAttributes("a_record", "lb_record"), validators.ConflictingListObjectAttributes("a_record", "loc_record"), validators.ConflictingListObjectAttributes("a_record", "mx_record"), validators.ConflictingListObjectAttributes("a_record", "naptr_record"), validators.ConflictingListObjectAttributes("a_record", "ns_record"), validators.ConflictingListObjectAttributes("a_record", "ptr_record"), validators.ConflictingListObjectAttributes("a_record", "srv_record"), validators.ConflictingListObjectAttributes("a_record", "sshfp_record"), validators.ConflictingListObjectAttributes("a_record", "tlsa_record"), validators.ConflictingListObjectAttributes("a_record", "txt_record"), validators.ConflictingListObjectAttributes("aaaa_record", "afsdb_record"), validators.ConflictingListObjectAttributes("aaaa_record", "alias_record"), validators.ConflictingListObjectAttributes("aaaa_record", "caa_record"), validators.ConflictingListObjectAttributes("aaaa_record", "cds_record"), validators.ConflictingListObjectAttributes("aaaa_record", "cert_record"), validators.ConflictingListObjectAttributes("aaaa_record", "cname_record"), validators.ConflictingListObjectAttributes("aaaa_record", "ds_record"), validators.ConflictingListObjectAttributes("aaaa_record", "eui48_record"), validators.ConflictingListObjectAttributes("aaaa_record", "eui64_record"), validators.ConflictingListObjectAttributes("aaaa_record", "lb_record"), validators.ConflictingListObjectAttributes("aaaa_record", "loc_record"), validators.ConflictingListObjectAttributes("aaaa_record", "mx_record"), validators.ConflictingListObjectAttributes("aaaa_record", "naptr_record"), validators.ConflictingListObjectAttributes("aaaa_record", "ns_record"), validators.ConflictingListObjectAttributes("aaaa_record", "ptr_record"), validators.ConflictingListObjectAttributes("aaaa_record", "srv_record"), validators.ConflictingListObjectAttributes("aaaa_record", "sshfp_record"), validators.ConflictingListObjectAttributes("aaaa_record", "tlsa_record"), validators.ConflictingListObjectAttributes("aaaa_record", "txt_record"), validators.ConflictingListObjectAttributes("afsdb_record", "alias_record"), validators.ConflictingListObjectAttributes("afsdb_record", "caa_record"), validators.ConflictingListObjectAttributes("afsdb_record", "cds_record"), validators.ConflictingListObjectAttributes("afsdb_record", "cert_record"), validators.ConflictingListObjectAttributes("afsdb_record", "cname_record"), validators.ConflictingListObjectAttributes("afsdb_record", "ds_record"), validators.ConflictingListObjectAttributes("afsdb_record", "eui48_record"), validators.ConflictingListObjectAttributes("afsdb_record", "eui64_record"), validators.ConflictingListObjectAttributes("afsdb_record", "lb_record"), validators.ConflictingListObjectAttributes("afsdb_record", "loc_record"), validators.ConflictingListObjectAttributes("afsdb_record", "mx_record"), validators.ConflictingListObjectAttributes("afsdb_record", "naptr_record"), validators.ConflictingListObjectAttributes("afsdb_record", "ns_record"), validators.ConflictingListObjectAttributes("afsdb_record", "ptr_record"), validators.ConflictingListObjectAttributes("afsdb_record", "srv_record"), validators.ConflictingListObjectAttributes("afsdb_record", "sshfp_record"), validators.ConflictingListObjectAttributes("afsdb_record", "tlsa_record"), validators.ConflictingListObjectAttributes("afsdb_record", "txt_record"), validators.ConflictingListObjectAttributes("alias_record", "caa_record"), validators.ConflictingListObjectAttributes("alias_record", "cds_record"), validators.ConflictingListObjectAttributes("alias_record", "cert_record"), validators.ConflictingListObjectAttributes("alias_record", "cname_record"), validators.ConflictingListObjectAttributes("alias_record", "ds_record"), validators.ConflictingListObjectAttributes("alias_record", "eui48_record"), validators.ConflictingListObjectAttributes("alias_record", "eui64_record"), validators.ConflictingListObjectAttributes("alias_record", "lb_record"), validators.ConflictingListObjectAttributes("alias_record", "loc_record"), validators.ConflictingListObjectAttributes("alias_record", "mx_record"), validators.ConflictingListObjectAttributes("alias_record", "naptr_record"), validators.ConflictingListObjectAttributes("alias_record", "ns_record"), validators.ConflictingListObjectAttributes("alias_record", "ptr_record"), validators.ConflictingListObjectAttributes("alias_record", "srv_record"), validators.ConflictingListObjectAttributes("alias_record", "sshfp_record"), validators.ConflictingListObjectAttributes("alias_record", "tlsa_record"), validators.ConflictingListObjectAttributes("alias_record", "txt_record"), validators.ConflictingListObjectAttributes("caa_record", "cds_record"), validators.ConflictingListObjectAttributes("caa_record", "cert_record"), validators.ConflictingListObjectAttributes("caa_record", "cname_record"), validators.ConflictingListObjectAttributes("caa_record", "ds_record"), validators.ConflictingListObjectAttributes("caa_record", "eui48_record"), validators.ConflictingListObjectAttributes("caa_record", "eui64_record"), validators.ConflictingListObjectAttributes("caa_record", "lb_record"), validators.ConflictingListObjectAttributes("caa_record", "loc_record"), validators.ConflictingListObjectAttributes("caa_record", "mx_record"), validators.ConflictingListObjectAttributes("caa_record", "naptr_record"), validators.ConflictingListObjectAttributes("caa_record", "ns_record"), validators.ConflictingListObjectAttributes("caa_record", "ptr_record"), validators.ConflictingListObjectAttributes("caa_record", "srv_record"), validators.ConflictingListObjectAttributes("caa_record", "sshfp_record"), validators.ConflictingListObjectAttributes("caa_record", "tlsa_record"), validators.ConflictingListObjectAttributes("caa_record", "txt_record"), validators.ConflictingListObjectAttributes("cds_record", "cert_record"), validators.ConflictingListObjectAttributes("cds_record", "cname_record"), validators.ConflictingListObjectAttributes("cds_record", "ds_record"), validators.ConflictingListObjectAttributes("cds_record", "eui48_record"), validators.ConflictingListObjectAttributes("cds_record", "eui64_record"), validators.ConflictingListObjectAttributes("cds_record", "lb_record"), validators.ConflictingListObjectAttributes("cds_record", "loc_record"), validators.ConflictingListObjectAttributes("cds_record", "mx_record"), validators.ConflictingListObjectAttributes("cds_record", "naptr_record"), validators.ConflictingListObjectAttributes("cds_record", "ns_record"), validators.ConflictingListObjectAttributes("cds_record", "ptr_record"), validators.ConflictingListObjectAttributes("cds_record", "srv_record"), validators.ConflictingListObjectAttributes("cds_record", "sshfp_record"), validators.ConflictingListObjectAttributes("cds_record", "tlsa_record"), validators.ConflictingListObjectAttributes("cds_record", "txt_record"), validators.ConflictingListObjectAttributes("cert_record", "cname_record"), validators.ConflictingListObjectAttributes("cert_record", "ds_record"), validators.ConflictingListObjectAttributes("cert_record", "eui48_record"), validators.ConflictingListObjectAttributes("cert_record", "eui64_record"), validators.ConflictingListObjectAttributes("cert_record", "lb_record"), validators.ConflictingListObjectAttributes("cert_record", "loc_record"), validators.ConflictingListObjectAttributes("cert_record", "mx_record"), validators.ConflictingListObjectAttributes("cert_record", "naptr_record"), validators.ConflictingListObjectAttributes("cert_record", "ns_record"), validators.ConflictingListObjectAttributes("cert_record", "ptr_record"), validators.ConflictingListObjectAttributes("cert_record", "srv_record"), validators.ConflictingListObjectAttributes("cert_record", "sshfp_record"), validators.ConflictingListObjectAttributes("cert_record", "tlsa_record"), validators.ConflictingListObjectAttributes("cert_record", "txt_record"), validators.ConflictingListObjectAttributes("cname_record", "ds_record"), validators.ConflictingListObjectAttributes("cname_record", "eui48_record"), validators.ConflictingListObjectAttributes("cname_record", "eui64_record"), validators.ConflictingListObjectAttributes("cname_record", "lb_record"), validators.ConflictingListObjectAttributes("cname_record", "loc_record"), validators.ConflictingListObjectAttributes("cname_record", "mx_record"), validators.ConflictingListObjectAttributes("cname_record", "naptr_record"), validators.ConflictingListObjectAttributes("cname_record", "ns_record"), validators.ConflictingListObjectAttributes("cname_record", "ptr_record"), validators.ConflictingListObjectAttributes("cname_record", "srv_record"), validators.ConflictingListObjectAttributes("cname_record", "sshfp_record"), validators.ConflictingListObjectAttributes("cname_record", "tlsa_record"), validators.ConflictingListObjectAttributes("cname_record", "txt_record"), validators.ConflictingListObjectAttributes("ds_record", "eui48_record"), validators.ConflictingListObjectAttributes("ds_record", "eui64_record"), validators.ConflictingListObjectAttributes("ds_record", "lb_record"), validators.ConflictingListObjectAttributes("ds_record", "loc_record"), validators.ConflictingListObjectAttributes("ds_record", "mx_record"), validators.ConflictingListObjectAttributes("ds_record", "naptr_record"), validators.ConflictingListObjectAttributes("ds_record", "ns_record"), validators.ConflictingListObjectAttributes("ds_record", "ptr_record"), validators.ConflictingListObjectAttributes("ds_record", "srv_record"), validators.ConflictingListObjectAttributes("ds_record", "sshfp_record"), validators.ConflictingListObjectAttributes("ds_record", "tlsa_record"), validators.ConflictingListObjectAttributes("ds_record", "txt_record"), validators.ConflictingListObjectAttributes("eui48_record", "eui64_record"), validators.ConflictingListObjectAttributes("eui48_record", "lb_record"), validators.ConflictingListObjectAttributes("eui48_record", "loc_record"), validators.ConflictingListObjectAttributes("eui48_record", "mx_record"), validators.ConflictingListObjectAttributes("eui48_record", "naptr_record"), validators.ConflictingListObjectAttributes("eui48_record", "ns_record"), validators.ConflictingListObjectAttributes("eui48_record", "ptr_record"), validators.ConflictingListObjectAttributes("eui48_record", "srv_record"), validators.ConflictingListObjectAttributes("eui48_record", "sshfp_record"), validators.ConflictingListObjectAttributes("eui48_record", "tlsa_record"), validators.ConflictingListObjectAttributes("eui48_record", "txt_record"), validators.ConflictingListObjectAttributes("eui64_record", "lb_record"), validators.ConflictingListObjectAttributes("eui64_record", "loc_record"), validators.ConflictingListObjectAttributes("eui64_record", "mx_record"), validators.ConflictingListObjectAttributes("eui64_record", "naptr_record"), validators.ConflictingListObjectAttributes("eui64_record", "ns_record"), validators.ConflictingListObjectAttributes("eui64_record", "ptr_record"), validators.ConflictingListObjectAttributes("eui64_record", "srv_record"), validators.ConflictingListObjectAttributes("eui64_record", "sshfp_record"), validators.ConflictingListObjectAttributes("eui64_record", "tlsa_record"), validators.ConflictingListObjectAttributes("eui64_record", "txt_record"), validators.ConflictingListObjectAttributes("lb_record", "loc_record"), validators.ConflictingListObjectAttributes("lb_record", "mx_record"), validators.ConflictingListObjectAttributes("lb_record", "naptr_record"), validators.ConflictingListObjectAttributes("lb_record", "ns_record"), validators.ConflictingListObjectAttributes("lb_record", "ptr_record"), validators.ConflictingListObjectAttributes("lb_record", "srv_record"), validators.ConflictingListObjectAttributes("lb_record", "sshfp_record"), validators.ConflictingListObjectAttributes("lb_record", "tlsa_record"), validators.ConflictingListObjectAttributes("lb_record", "txt_record"), validators.ConflictingListObjectAttributes("loc_record", "mx_record"), validators.ConflictingListObjectAttributes("loc_record", "naptr_record"), validators.ConflictingListObjectAttributes("loc_record", "ns_record"), validators.ConflictingListObjectAttributes("loc_record", "ptr_record"), validators.ConflictingListObjectAttributes("loc_record", "srv_record"), validators.ConflictingListObjectAttributes("loc_record", "sshfp_record"), validators.ConflictingListObjectAttributes("loc_record", "tlsa_record"), validators.ConflictingListObjectAttributes("loc_record", "txt_record"), validators.ConflictingListObjectAttributes("mx_record", "naptr_record"), validators.ConflictingListObjectAttributes("mx_record", "ns_record"), validators.ConflictingListObjectAttributes("mx_record", "ptr_record"), validators.ConflictingListObjectAttributes("mx_record", "srv_record"), validators.ConflictingListObjectAttributes("mx_record", "sshfp_record"), validators.ConflictingListObjectAttributes("mx_record", "tlsa_record"), validators.ConflictingListObjectAttributes("mx_record", "txt_record"), validators.ConflictingListObjectAttributes("naptr_record", "ns_record"), validators.ConflictingListObjectAttributes("naptr_record", "ptr_record"), validators.ConflictingListObjectAttributes("naptr_record", "srv_record"), validators.ConflictingListObjectAttributes("naptr_record", "sshfp_record"), validators.ConflictingListObjectAttributes("naptr_record", "tlsa_record"), validators.ConflictingListObjectAttributes("naptr_record", "txt_record"), validators.ConflictingListObjectAttributes("ns_record", "ptr_record"), validators.ConflictingListObjectAttributes("ns_record", "srv_record"), validators.ConflictingListObjectAttributes("ns_record", "sshfp_record"), validators.ConflictingListObjectAttributes("ns_record", "tlsa_record"), validators.ConflictingListObjectAttributes("ns_record", "txt_record"), validators.ConflictingListObjectAttributes("ptr_record", "srv_record"), validators.ConflictingListObjectAttributes("ptr_record", "sshfp_record"), validators.ConflictingListObjectAttributes("ptr_record", "tlsa_record"), validators.ConflictingListObjectAttributes("ptr_record", "txt_record"), validators.ConflictingListObjectAttributes("srv_record", "sshfp_record"), validators.ConflictingListObjectAttributes("srv_record", "tlsa_record"), validators.ConflictingListObjectAttributes("srv_record", "txt_record"), validators.ConflictingListObjectAttributes("sshfp_record", "tlsa_record"), validators.ConflictingListObjectAttributes("sshfp_record", "txt_record"), validators.ConflictingListObjectAttributes("tlsa_record", "txt_record")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"description_spec": schema.StringAttribute{
@@ -1605,7 +1611,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
 											MarkdownDescription: "DS Value. Configuration parameter for values",
-											Validators:          []validator.List{validators.RequiredListObjectAttributes("key_tag")},
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("key_tag"), validators.ConflictingListObjectAttributes("sha1_digest", "sha256_digest"), validators.ConflictingListObjectAttributes("sha1_digest", "sha384_digest"), validators.ConflictingListObjectAttributes("sha256_digest", "sha384_digest")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"ds_key_algorithm": schema.StringAttribute{
@@ -1754,7 +1760,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
 											MarkdownDescription: "DS Value. Configuration parameter for values",
-											Validators:          []validator.List{validators.RequiredListObjectAttributes("key_tag")},
+											Validators:          []validator.List{validators.RequiredListObjectAttributes("key_tag"), validators.ConflictingListObjectAttributes("sha1_digest", "sha256_digest"), validators.ConflictingListObjectAttributes("sha1_digest", "sha384_digest"), validators.ConflictingListObjectAttributes("sha256_digest", "sha384_digest")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"ds_key_algorithm": schema.StringAttribute{
@@ -2196,6 +2202,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 									Blocks: map[string]schema.Block{
 										"values": schema.ListNestedBlock{
 											MarkdownDescription: "SSHFP Value. Configuration parameter for values",
+											Validators:          []validator.List{validators.ConflictingListObjectAttributes("sha1_fingerprint", "sha256_fingerprint")},
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"algorithm": schema.StringAttribute{
@@ -2313,18 +2320,19 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 							},
 						},
 					},
-					"default_soa_parameters": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for default soa parameters.",
-					},
 					"dnssec_mode": schema.SingleNestedBlock{
 						MarkdownDescription: "Disable",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"disable_spec": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_spec", "enable")},
+						Attributes: map[string]schema.Attribute{
+							"disable_spec": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"enable": schema.SingleNestedBlock{
+							"enable": schema.ObjectAttribute{
 								MarkdownDescription: "Enable. DNSSEC enable.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -2355,7 +2363,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								},
 								"rr_set": schema.ListNestedBlock{
 									MarkdownDescription: "Resource Record Sets. Collection of DNS resource record sets.",
-									Validators:          []validator.List{validators.RequiredListObjectAttributes("ttl")},
+									Validators:          []validator.List{validators.RequiredListObjectAttributes("ttl"), validators.ConflictingListObjectAttributes("a_record", "aaaa_record"), validators.ConflictingListObjectAttributes("a_record", "afsdb_record"), validators.ConflictingListObjectAttributes("a_record", "alias_record"), validators.ConflictingListObjectAttributes("a_record", "caa_record"), validators.ConflictingListObjectAttributes("a_record", "cds_record"), validators.ConflictingListObjectAttributes("a_record", "cert_record"), validators.ConflictingListObjectAttributes("a_record", "cname_record"), validators.ConflictingListObjectAttributes("a_record", "ds_record"), validators.ConflictingListObjectAttributes("a_record", "eui48_record"), validators.ConflictingListObjectAttributes("a_record", "eui64_record"), validators.ConflictingListObjectAttributes("a_record", "lb_record"), validators.ConflictingListObjectAttributes("a_record", "loc_record"), validators.ConflictingListObjectAttributes("a_record", "mx_record"), validators.ConflictingListObjectAttributes("a_record", "naptr_record"), validators.ConflictingListObjectAttributes("a_record", "ns_record"), validators.ConflictingListObjectAttributes("a_record", "ptr_record"), validators.ConflictingListObjectAttributes("a_record", "srv_record"), validators.ConflictingListObjectAttributes("a_record", "sshfp_record"), validators.ConflictingListObjectAttributes("a_record", "tlsa_record"), validators.ConflictingListObjectAttributes("a_record", "txt_record"), validators.ConflictingListObjectAttributes("aaaa_record", "afsdb_record"), validators.ConflictingListObjectAttributes("aaaa_record", "alias_record"), validators.ConflictingListObjectAttributes("aaaa_record", "caa_record"), validators.ConflictingListObjectAttributes("aaaa_record", "cds_record"), validators.ConflictingListObjectAttributes("aaaa_record", "cert_record"), validators.ConflictingListObjectAttributes("aaaa_record", "cname_record"), validators.ConflictingListObjectAttributes("aaaa_record", "ds_record"), validators.ConflictingListObjectAttributes("aaaa_record", "eui48_record"), validators.ConflictingListObjectAttributes("aaaa_record", "eui64_record"), validators.ConflictingListObjectAttributes("aaaa_record", "lb_record"), validators.ConflictingListObjectAttributes("aaaa_record", "loc_record"), validators.ConflictingListObjectAttributes("aaaa_record", "mx_record"), validators.ConflictingListObjectAttributes("aaaa_record", "naptr_record"), validators.ConflictingListObjectAttributes("aaaa_record", "ns_record"), validators.ConflictingListObjectAttributes("aaaa_record", "ptr_record"), validators.ConflictingListObjectAttributes("aaaa_record", "srv_record"), validators.ConflictingListObjectAttributes("aaaa_record", "sshfp_record"), validators.ConflictingListObjectAttributes("aaaa_record", "tlsa_record"), validators.ConflictingListObjectAttributes("aaaa_record", "txt_record"), validators.ConflictingListObjectAttributes("afsdb_record", "alias_record"), validators.ConflictingListObjectAttributes("afsdb_record", "caa_record"), validators.ConflictingListObjectAttributes("afsdb_record", "cds_record"), validators.ConflictingListObjectAttributes("afsdb_record", "cert_record"), validators.ConflictingListObjectAttributes("afsdb_record", "cname_record"), validators.ConflictingListObjectAttributes("afsdb_record", "ds_record"), validators.ConflictingListObjectAttributes("afsdb_record", "eui48_record"), validators.ConflictingListObjectAttributes("afsdb_record", "eui64_record"), validators.ConflictingListObjectAttributes("afsdb_record", "lb_record"), validators.ConflictingListObjectAttributes("afsdb_record", "loc_record"), validators.ConflictingListObjectAttributes("afsdb_record", "mx_record"), validators.ConflictingListObjectAttributes("afsdb_record", "naptr_record"), validators.ConflictingListObjectAttributes("afsdb_record", "ns_record"), validators.ConflictingListObjectAttributes("afsdb_record", "ptr_record"), validators.ConflictingListObjectAttributes("afsdb_record", "srv_record"), validators.ConflictingListObjectAttributes("afsdb_record", "sshfp_record"), validators.ConflictingListObjectAttributes("afsdb_record", "tlsa_record"), validators.ConflictingListObjectAttributes("afsdb_record", "txt_record"), validators.ConflictingListObjectAttributes("alias_record", "caa_record"), validators.ConflictingListObjectAttributes("alias_record", "cds_record"), validators.ConflictingListObjectAttributes("alias_record", "cert_record"), validators.ConflictingListObjectAttributes("alias_record", "cname_record"), validators.ConflictingListObjectAttributes("alias_record", "ds_record"), validators.ConflictingListObjectAttributes("alias_record", "eui48_record"), validators.ConflictingListObjectAttributes("alias_record", "eui64_record"), validators.ConflictingListObjectAttributes("alias_record", "lb_record"), validators.ConflictingListObjectAttributes("alias_record", "loc_record"), validators.ConflictingListObjectAttributes("alias_record", "mx_record"), validators.ConflictingListObjectAttributes("alias_record", "naptr_record"), validators.ConflictingListObjectAttributes("alias_record", "ns_record"), validators.ConflictingListObjectAttributes("alias_record", "ptr_record"), validators.ConflictingListObjectAttributes("alias_record", "srv_record"), validators.ConflictingListObjectAttributes("alias_record", "sshfp_record"), validators.ConflictingListObjectAttributes("alias_record", "tlsa_record"), validators.ConflictingListObjectAttributes("alias_record", "txt_record"), validators.ConflictingListObjectAttributes("caa_record", "cds_record"), validators.ConflictingListObjectAttributes("caa_record", "cert_record"), validators.ConflictingListObjectAttributes("caa_record", "cname_record"), validators.ConflictingListObjectAttributes("caa_record", "ds_record"), validators.ConflictingListObjectAttributes("caa_record", "eui48_record"), validators.ConflictingListObjectAttributes("caa_record", "eui64_record"), validators.ConflictingListObjectAttributes("caa_record", "lb_record"), validators.ConflictingListObjectAttributes("caa_record", "loc_record"), validators.ConflictingListObjectAttributes("caa_record", "mx_record"), validators.ConflictingListObjectAttributes("caa_record", "naptr_record"), validators.ConflictingListObjectAttributes("caa_record", "ns_record"), validators.ConflictingListObjectAttributes("caa_record", "ptr_record"), validators.ConflictingListObjectAttributes("caa_record", "srv_record"), validators.ConflictingListObjectAttributes("caa_record", "sshfp_record"), validators.ConflictingListObjectAttributes("caa_record", "tlsa_record"), validators.ConflictingListObjectAttributes("caa_record", "txt_record"), validators.ConflictingListObjectAttributes("cds_record", "cert_record"), validators.ConflictingListObjectAttributes("cds_record", "cname_record"), validators.ConflictingListObjectAttributes("cds_record", "ds_record"), validators.ConflictingListObjectAttributes("cds_record", "eui48_record"), validators.ConflictingListObjectAttributes("cds_record", "eui64_record"), validators.ConflictingListObjectAttributes("cds_record", "lb_record"), validators.ConflictingListObjectAttributes("cds_record", "loc_record"), validators.ConflictingListObjectAttributes("cds_record", "mx_record"), validators.ConflictingListObjectAttributes("cds_record", "naptr_record"), validators.ConflictingListObjectAttributes("cds_record", "ns_record"), validators.ConflictingListObjectAttributes("cds_record", "ptr_record"), validators.ConflictingListObjectAttributes("cds_record", "srv_record"), validators.ConflictingListObjectAttributes("cds_record", "sshfp_record"), validators.ConflictingListObjectAttributes("cds_record", "tlsa_record"), validators.ConflictingListObjectAttributes("cds_record", "txt_record"), validators.ConflictingListObjectAttributes("cert_record", "cname_record"), validators.ConflictingListObjectAttributes("cert_record", "ds_record"), validators.ConflictingListObjectAttributes("cert_record", "eui48_record"), validators.ConflictingListObjectAttributes("cert_record", "eui64_record"), validators.ConflictingListObjectAttributes("cert_record", "lb_record"), validators.ConflictingListObjectAttributes("cert_record", "loc_record"), validators.ConflictingListObjectAttributes("cert_record", "mx_record"), validators.ConflictingListObjectAttributes("cert_record", "naptr_record"), validators.ConflictingListObjectAttributes("cert_record", "ns_record"), validators.ConflictingListObjectAttributes("cert_record", "ptr_record"), validators.ConflictingListObjectAttributes("cert_record", "srv_record"), validators.ConflictingListObjectAttributes("cert_record", "sshfp_record"), validators.ConflictingListObjectAttributes("cert_record", "tlsa_record"), validators.ConflictingListObjectAttributes("cert_record", "txt_record"), validators.ConflictingListObjectAttributes("cname_record", "ds_record"), validators.ConflictingListObjectAttributes("cname_record", "eui48_record"), validators.ConflictingListObjectAttributes("cname_record", "eui64_record"), validators.ConflictingListObjectAttributes("cname_record", "lb_record"), validators.ConflictingListObjectAttributes("cname_record", "loc_record"), validators.ConflictingListObjectAttributes("cname_record", "mx_record"), validators.ConflictingListObjectAttributes("cname_record", "naptr_record"), validators.ConflictingListObjectAttributes("cname_record", "ns_record"), validators.ConflictingListObjectAttributes("cname_record", "ptr_record"), validators.ConflictingListObjectAttributes("cname_record", "srv_record"), validators.ConflictingListObjectAttributes("cname_record", "sshfp_record"), validators.ConflictingListObjectAttributes("cname_record", "tlsa_record"), validators.ConflictingListObjectAttributes("cname_record", "txt_record"), validators.ConflictingListObjectAttributes("ds_record", "eui48_record"), validators.ConflictingListObjectAttributes("ds_record", "eui64_record"), validators.ConflictingListObjectAttributes("ds_record", "lb_record"), validators.ConflictingListObjectAttributes("ds_record", "loc_record"), validators.ConflictingListObjectAttributes("ds_record", "mx_record"), validators.ConflictingListObjectAttributes("ds_record", "naptr_record"), validators.ConflictingListObjectAttributes("ds_record", "ns_record"), validators.ConflictingListObjectAttributes("ds_record", "ptr_record"), validators.ConflictingListObjectAttributes("ds_record", "srv_record"), validators.ConflictingListObjectAttributes("ds_record", "sshfp_record"), validators.ConflictingListObjectAttributes("ds_record", "tlsa_record"), validators.ConflictingListObjectAttributes("ds_record", "txt_record"), validators.ConflictingListObjectAttributes("eui48_record", "eui64_record"), validators.ConflictingListObjectAttributes("eui48_record", "lb_record"), validators.ConflictingListObjectAttributes("eui48_record", "loc_record"), validators.ConflictingListObjectAttributes("eui48_record", "mx_record"), validators.ConflictingListObjectAttributes("eui48_record", "naptr_record"), validators.ConflictingListObjectAttributes("eui48_record", "ns_record"), validators.ConflictingListObjectAttributes("eui48_record", "ptr_record"), validators.ConflictingListObjectAttributes("eui48_record", "srv_record"), validators.ConflictingListObjectAttributes("eui48_record", "sshfp_record"), validators.ConflictingListObjectAttributes("eui48_record", "tlsa_record"), validators.ConflictingListObjectAttributes("eui48_record", "txt_record"), validators.ConflictingListObjectAttributes("eui64_record", "lb_record"), validators.ConflictingListObjectAttributes("eui64_record", "loc_record"), validators.ConflictingListObjectAttributes("eui64_record", "mx_record"), validators.ConflictingListObjectAttributes("eui64_record", "naptr_record"), validators.ConflictingListObjectAttributes("eui64_record", "ns_record"), validators.ConflictingListObjectAttributes("eui64_record", "ptr_record"), validators.ConflictingListObjectAttributes("eui64_record", "srv_record"), validators.ConflictingListObjectAttributes("eui64_record", "sshfp_record"), validators.ConflictingListObjectAttributes("eui64_record", "tlsa_record"), validators.ConflictingListObjectAttributes("eui64_record", "txt_record"), validators.ConflictingListObjectAttributes("lb_record", "loc_record"), validators.ConflictingListObjectAttributes("lb_record", "mx_record"), validators.ConflictingListObjectAttributes("lb_record", "naptr_record"), validators.ConflictingListObjectAttributes("lb_record", "ns_record"), validators.ConflictingListObjectAttributes("lb_record", "ptr_record"), validators.ConflictingListObjectAttributes("lb_record", "srv_record"), validators.ConflictingListObjectAttributes("lb_record", "sshfp_record"), validators.ConflictingListObjectAttributes("lb_record", "tlsa_record"), validators.ConflictingListObjectAttributes("lb_record", "txt_record"), validators.ConflictingListObjectAttributes("loc_record", "mx_record"), validators.ConflictingListObjectAttributes("loc_record", "naptr_record"), validators.ConflictingListObjectAttributes("loc_record", "ns_record"), validators.ConflictingListObjectAttributes("loc_record", "ptr_record"), validators.ConflictingListObjectAttributes("loc_record", "srv_record"), validators.ConflictingListObjectAttributes("loc_record", "sshfp_record"), validators.ConflictingListObjectAttributes("loc_record", "tlsa_record"), validators.ConflictingListObjectAttributes("loc_record", "txt_record"), validators.ConflictingListObjectAttributes("mx_record", "naptr_record"), validators.ConflictingListObjectAttributes("mx_record", "ns_record"), validators.ConflictingListObjectAttributes("mx_record", "ptr_record"), validators.ConflictingListObjectAttributes("mx_record", "srv_record"), validators.ConflictingListObjectAttributes("mx_record", "sshfp_record"), validators.ConflictingListObjectAttributes("mx_record", "tlsa_record"), validators.ConflictingListObjectAttributes("mx_record", "txt_record"), validators.ConflictingListObjectAttributes("naptr_record", "ns_record"), validators.ConflictingListObjectAttributes("naptr_record", "ptr_record"), validators.ConflictingListObjectAttributes("naptr_record", "srv_record"), validators.ConflictingListObjectAttributes("naptr_record", "sshfp_record"), validators.ConflictingListObjectAttributes("naptr_record", "tlsa_record"), validators.ConflictingListObjectAttributes("naptr_record", "txt_record"), validators.ConflictingListObjectAttributes("ns_record", "ptr_record"), validators.ConflictingListObjectAttributes("ns_record", "srv_record"), validators.ConflictingListObjectAttributes("ns_record", "sshfp_record"), validators.ConflictingListObjectAttributes("ns_record", "tlsa_record"), validators.ConflictingListObjectAttributes("ns_record", "txt_record"), validators.ConflictingListObjectAttributes("ptr_record", "srv_record"), validators.ConflictingListObjectAttributes("ptr_record", "sshfp_record"), validators.ConflictingListObjectAttributes("ptr_record", "tlsa_record"), validators.ConflictingListObjectAttributes("ptr_record", "txt_record"), validators.ConflictingListObjectAttributes("srv_record", "sshfp_record"), validators.ConflictingListObjectAttributes("srv_record", "tlsa_record"), validators.ConflictingListObjectAttributes("srv_record", "txt_record"), validators.ConflictingListObjectAttributes("sshfp_record", "tlsa_record"), validators.ConflictingListObjectAttributes("sshfp_record", "txt_record"), validators.ConflictingListObjectAttributes("tlsa_record", "txt_record")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"description_spec": schema.StringAttribute{
@@ -2519,7 +2527,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
 														MarkdownDescription: "DS Value. Configuration parameter for values",
-														Validators:          []validator.List{validators.RequiredListObjectAttributes("key_tag")},
+														Validators:          []validator.List{validators.RequiredListObjectAttributes("key_tag"), validators.ConflictingListObjectAttributes("sha1_digest", "sha256_digest"), validators.ConflictingListObjectAttributes("sha1_digest", "sha384_digest"), validators.ConflictingListObjectAttributes("sha256_digest", "sha384_digest")},
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"ds_key_algorithm": schema.StringAttribute{
@@ -2668,7 +2676,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
 														MarkdownDescription: "DS Value. Configuration parameter for values",
-														Validators:          []validator.List{validators.RequiredListObjectAttributes("key_tag")},
+														Validators:          []validator.List{validators.RequiredListObjectAttributes("key_tag"), validators.ConflictingListObjectAttributes("sha1_digest", "sha256_digest"), validators.ConflictingListObjectAttributes("sha1_digest", "sha384_digest"), validators.ConflictingListObjectAttributes("sha256_digest", "sha384_digest")},
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"ds_key_algorithm": schema.StringAttribute{
@@ -3110,6 +3118,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 												Blocks: map[string]schema.Block{
 													"values": schema.ListNestedBlock{
 														MarkdownDescription: "SSHFP Value. Configuration parameter for values",
+														Validators:          []validator.List{validators.ConflictingListObjectAttributes("sha1_fingerprint", "sha256_fingerprint")},
 														NestedObject: schema.NestedBlockObject{
 															Attributes: map[string]schema.Attribute{
 																"algorithm": schema.StringAttribute{
@@ -3304,6 +3313,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 				Blocks: map[string]schema.Block{
 					"tsig_key_value": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -4029,15 +4039,15 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 				PrimaryMap["default_rr_set_group"] = DefaultRrSetGroupList
 			}
 		}
-		if data.Primary.DefaultSoaParameters != nil {
+		if !data.Primary.DefaultSoaParameters.IsNull() && !data.Primary.DefaultSoaParameters.IsUnknown() {
 			PrimaryMap["default_soa_parameters"] = map[string]interface{}{}
 		}
 		if data.Primary.DnssecMode != nil {
 			PrimaryDnssecModeMap := make(map[string]interface{})
-			if data.Primary.DnssecMode.DisableSpec != nil {
+			if !data.Primary.DnssecMode.DisableSpec.IsNull() && !data.Primary.DnssecMode.DisableSpec.IsUnknown() {
 				PrimaryDnssecModeMap["disable"] = map[string]interface{}{}
 			}
-			if data.Primary.DnssecMode.Enable != nil {
+			if !data.Primary.DnssecMode.Enable.IsNull() && !data.Primary.DnssecMode.Enable.IsUnknown() {
 				PrimaryDnssecModeMap["enable"] = map[string]interface{}{}
 			}
 			PrimaryMap["dnssec_mode"] = PrimaryDnssecModeMap
@@ -5749,14 +5759,14 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 				}
 				return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupModelAttrTypes})
 			}(),
-			DefaultSoaParameters: func() *DNSZoneEmptyModel {
-				if !isImport && data.Primary != nil {
+			DefaultSoaParameters: func() types.Object {
+				if !isImport && data.Primary != nil && !data.Primary.DefaultSoaParameters.IsUnknown() {
 					return data.Primary.DefaultSoaParameters
 				}
 				if _, ok := blockData["default_soa_parameters"].(map[string]interface{}); ok {
-					return &DNSZoneEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DnssecMode: func() *DNSZonePrimaryDnssecModeModel {
 				if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
@@ -5764,23 +5774,23 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 				}
 				if DnssecModeData, ok := blockData["dnssec_mode"].(map[string]interface{}); ok {
 					return &DNSZonePrimaryDnssecModeModel{
-						DisableSpec: func() *DNSZoneEmptyModel {
-							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil && !data.Primary.DnssecMode.DisableSpec.IsUnknown() {
 								return data.Primary.DnssecMode.DisableSpec
 							}
 							if _, ok := DnssecModeData["disable"].(map[string]interface{}); ok {
-								return &DNSZoneEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *DNSZoneEmptyModel {
-							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+						Enable: func() types.Object {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil && !data.Primary.DnssecMode.Enable.IsUnknown() {
 								return data.Primary.DnssecMode.Enable
 							}
 							if _, ok := DnssecModeData["enable"].(map[string]interface{}); ok {
-								return &DNSZoneEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -8153,14 +8163,14 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 				}
 				return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupModelAttrTypes})
 			}(),
-			DefaultSoaParameters: func() *DNSZoneEmptyModel {
-				if !isImport && data.Primary != nil {
+			DefaultSoaParameters: func() types.Object {
+				if !isImport && data.Primary != nil && !data.Primary.DefaultSoaParameters.IsUnknown() {
 					return data.Primary.DefaultSoaParameters
 				}
 				if _, ok := blockData["default_soa_parameters"].(map[string]interface{}); ok {
-					return &DNSZoneEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DnssecMode: func() *DNSZonePrimaryDnssecModeModel {
 				if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
@@ -8168,23 +8178,23 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 				}
 				if DnssecModeData, ok := blockData["dnssec_mode"].(map[string]interface{}); ok {
 					return &DNSZonePrimaryDnssecModeModel{
-						DisableSpec: func() *DNSZoneEmptyModel {
-							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil && !data.Primary.DnssecMode.DisableSpec.IsUnknown() {
 								return data.Primary.DnssecMode.DisableSpec
 							}
 							if _, ok := DnssecModeData["disable"].(map[string]interface{}); ok {
-								return &DNSZoneEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *DNSZoneEmptyModel {
-							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+						Enable: func() types.Object {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil && !data.Primary.DnssecMode.Enable.IsUnknown() {
 								return data.Primary.DnssecMode.Enable
 							}
 							if _, ok := DnssecModeData["enable"].(map[string]interface{}); ok {
-								return &DNSZoneEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -10046,15 +10056,15 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 				PrimaryMap["default_rr_set_group"] = DefaultRrSetGroupList
 			}
 		}
-		if data.Primary.DefaultSoaParameters != nil {
+		if !data.Primary.DefaultSoaParameters.IsNull() && !data.Primary.DefaultSoaParameters.IsUnknown() {
 			PrimaryMap["default_soa_parameters"] = map[string]interface{}{}
 		}
 		if data.Primary.DnssecMode != nil {
 			PrimaryDnssecModeMap := make(map[string]interface{})
-			if data.Primary.DnssecMode.DisableSpec != nil {
+			if !data.Primary.DnssecMode.DisableSpec.IsNull() && !data.Primary.DnssecMode.DisableSpec.IsUnknown() {
 				PrimaryDnssecModeMap["disable"] = map[string]interface{}{}
 			}
-			if data.Primary.DnssecMode.Enable != nil {
+			if !data.Primary.DnssecMode.Enable.IsNull() && !data.Primary.DnssecMode.Enable.IsUnknown() {
 				PrimaryDnssecModeMap["enable"] = map[string]interface{}{}
 			}
 			PrimaryMap["dnssec_mode"] = PrimaryDnssecModeMap
@@ -11786,14 +11796,14 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 				}
 				return types.ListNull(types.ObjectType{AttrTypes: DNSZonePrimaryDefaultRrSetGroupModelAttrTypes})
 			}(),
-			DefaultSoaParameters: func() *DNSZoneEmptyModel {
-				if !isImport && data.Primary != nil {
+			DefaultSoaParameters: func() types.Object {
+				if !isImport && data.Primary != nil && !data.Primary.DefaultSoaParameters.IsUnknown() {
 					return data.Primary.DefaultSoaParameters
 				}
 				if _, ok := blockData["default_soa_parameters"].(map[string]interface{}); ok {
-					return &DNSZoneEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DnssecMode: func() *DNSZonePrimaryDnssecModeModel {
 				if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
@@ -11801,23 +11811,23 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 				}
 				if DnssecModeData, ok := blockData["dnssec_mode"].(map[string]interface{}); ok {
 					return &DNSZonePrimaryDnssecModeModel{
-						DisableSpec: func() *DNSZoneEmptyModel {
-							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+						DisableSpec: func() types.Object {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil && !data.Primary.DnssecMode.DisableSpec.IsUnknown() {
 								return data.Primary.DnssecMode.DisableSpec
 							}
 							if _, ok := DnssecModeData["disable"].(map[string]interface{}); ok {
-								return &DNSZoneEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						Enable: func() *DNSZoneEmptyModel {
-							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil {
+						Enable: func() types.Object {
+							if !isImport && data.Primary != nil && data.Primary.DnssecMode != nil && !data.Primary.DnssecMode.Enable.IsUnknown() {
 								return data.Primary.DnssecMode.Enable
 							}
 							if _, ok := DnssecModeData["enable"].(map[string]interface{}); ok {
-								return &DNSZoneEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}

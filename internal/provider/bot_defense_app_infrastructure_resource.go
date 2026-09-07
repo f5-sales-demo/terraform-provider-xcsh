@@ -277,6 +277,7 @@ func (r *BotDefenseAppInfrastructureResource) Schema(ctx context.Context, req re
 					},
 					"ingress": schema.ListNestedBlock{
 						MarkdownDescription: "Ingress. Ingress",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("host_name", "ip_address")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"host_name": schema.StringAttribute{
@@ -352,6 +353,7 @@ func (r *BotDefenseAppInfrastructureResource) Schema(ctx context.Context, req re
 					},
 					"ingress": schema.ListNestedBlock{
 						MarkdownDescription: "Ingress. Ingress",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("host_name", "ip_address")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"host_name": schema.StringAttribute{

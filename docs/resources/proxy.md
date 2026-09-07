@@ -39,7 +39,7 @@ resource "xcsh_proxy" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -65,21 +65,21 @@ resource "xcsh_proxy" "example" {
 <a id="connection-timeout"></a>&#x2022; [`connection_timeout`](#connection-timeout) - Optional Number  Defaults to `2000`  Specified in milliseconds<br>The timeout for new network connections to upstream server.  The (2 seconds)
 
 -> **One of the following:**
-&#x2022; <a id="do-not-advertise"></a>[`do_not_advertise`](#do-not-advertise) - Optional Block<br>Configuration parameter for do not advertise
+&#x2022; <a id="do-not-advertise"></a>[`do_not_advertise`](#do-not-advertise) - Optional Object<br>Configuration parameter for do not advertise
 <br><br>&#x2022; <a id="site-virtual-sites"></a>[`site_virtual_sites`](#site-virtual-sites) - Optional Block<br>Defines a way to advertise a VIP on specific sites
 
 -> **One of the following:**
 &#x2022; <a id="dynamic-proxy"></a>[`dynamic_proxy`](#dynamic-proxy) - Optional Block<br>Configuration parameter for dynamic proxy<br>See [Dynamic Proxy](#dynamic-proxy) below for details.
 <br><br>&#x2022; <a id="http-proxy"></a>[`http_proxy`](#http-proxy) - Optional Block<br>HTTP Connect Proxy. Parameters for HTTP Connect Proxy
 
-<a id="no-forward-proxy-policy"></a>&#x2022; [`no_forward_proxy_policy`](#no-forward-proxy-policy) - Optional Block<br>Policy configuration for this feature
+<a id="no-forward-proxy-policy"></a>&#x2022; [`no_forward_proxy_policy`](#no-forward-proxy-policy) - Optional Object<br>Policy configuration for this feature
 
 -> **One of the following:**
-&#x2022; <a id="no-interception"></a>[`no_interception`](#no-interception) - Optional Block<br>Configuration parameter for no interception
+&#x2022; <a id="no-interception"></a>[`no_interception`](#no-interception) - Optional Object<br>Configuration parameter for no interception
 
 -> **One of the following:**
-&#x2022; <a id="site-local-inside-network"></a>[`site_local_inside_network`](#site-local-inside-network) - Optional Block<br>Enable this option
-<br><br>&#x2022; <a id="site-local-network"></a>[`site_local_network`](#site-local-network) - Optional Block<br>Enable this option
+&#x2022; <a id="site-local-inside-network"></a>[`site_local_inside_network`](#site-local-inside-network) - Optional Object<br>Enable this option
+<br><br>&#x2022; <a id="site-local-network"></a>[`site_local_network`](#site-local-network) - Optional Object<br>Enable this option
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block
 
@@ -109,21 +109,33 @@ A [`forward_proxy_policies`](#policies-42e2f7) block (within [`active_forward_pr
 
 <a id="tenant-e68ab4"></a>&#x2022; [`tenant`](#tenant-e68ab4) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Do Not Advertise
+
+A [`do_not_advertise`](#do-not-advertise) block supports the following:
+
 #### Dynamic Proxy
 
 A [`dynamic_proxy`](#dynamic-proxy) block supports the following:
 
-<a id="dynamic-proxy-disable-dns-masquerade"></a>&#x2022; [`disable_dns_masquerade`](#dynamic-proxy-disable-dns-masquerade) - Optional Block<br>Configuration parameter for disable DNS masquerade
+<a id="dynamic-proxy-disable-dns-masquerade"></a>&#x2022; [`disable_dns_masquerade`](#dynamic-proxy-disable-dns-masquerade) - Optional Object<br>Configuration parameter for disable DNS masquerade
 
 <a id="dynamic-proxy-domains"></a>&#x2022; [`domains`](#dynamic-proxy-domains) - Optional List<br>List of Domains to be proxied. Wildcard hosts are supported in the suffix or prefix form Supported Domains and search order: 1. Exact Domain names: `www.example.com.` 2
 
-<a id="dynamic-proxy-enable-dns-masquerade"></a>&#x2022; [`enable_dns_masquerade`](#dynamic-proxy-enable-dns-masquerade) - Optional Block<br>Configuration parameter for enable DNS masquerade
+<a id="dynamic-proxy-enable-dns-masquerade"></a>&#x2022; [`enable_dns_masquerade`](#dynamic-proxy-enable-dns-masquerade) - Optional Object<br>Configuration parameter for enable DNS masquerade
 
 <a id="dynamic-proxy-http-proxy"></a>&#x2022; [`http_proxy`](#dynamic-proxy-http-proxy) - Optional Block<br>Dynamic HTTP Proxy Type. Parameters for dynamic HTTP proxy<br>See [HTTP Proxy](#dynamic-proxy-http-proxy) below.
 
 <a id="dynamic-proxy-https-proxy"></a>&#x2022; [`https_proxy`](#dynamic-proxy-https-proxy) - Optional Block<br>Configuration parameter for HTTPS proxy<br>See [HTTPS Proxy](#dynamic-proxy-https-proxy) below.
 
 <a id="dynamic-proxy-sni-proxy"></a>&#x2022; [`sni_proxy`](#dynamic-proxy-sni-proxy) - Optional Block<br>Dynamic SNI Proxy Type. Parameters for dynamic SNI proxy<br>See [Sni Proxy](#dynamic-proxy-sni-proxy) below.
+
+#### Dynamic Proxy Disable DNS Masquerade
+
+A [`disable_dns_masquerade`](#dynamic-proxy-disable-dns-masquerade) block (within [`dynamic_proxy`](#dynamic-proxy)) supports the following:
+
+#### Dynamic Proxy Enable DNS Masquerade
+
+An [`enable_dns_masquerade`](#dynamic-proxy-enable-dns-masquerade) block (within [`dynamic_proxy`](#dynamic-proxy)) supports the following:
 
 #### Dynamic Proxy HTTP Proxy
 
@@ -143,9 +155,9 @@ A [`more_option`](#dynamic-proxy-http-proxy-more-option) block (within [`dynamic
 
 <a id="pages-241bd8"></a>&#x2022; [`disable_default_error_pages`](#pages-241bd8) - Optional Bool<br>Disable the use of default F5XC error pages
 
-<a id="normalize-343080"></a>&#x2022; [`disable_path_normalize`](#normalize-343080) - Optional Block<br>Enable this option
+<a id="normalize-343080"></a>&#x2022; [`disable_path_normalize`](#normalize-343080) - Optional Object<br>Enable this option
 
-<a id="normalize-19a976"></a>&#x2022; [`enable_path_normalize`](#normalize-19a976) - Optional Block<br>Enable this option
+<a id="normalize-19a976"></a>&#x2022; [`enable_path_normalize`](#normalize-19a976) - Optional Object<br>Enable this option
 
 <a id="timeout-14c486"></a>&#x2022; [`idle_timeout`](#timeout-14c486) - Optional Number<br>The amount of time that a stream can exist without upstream or downstream activity, in milliseconds. The stream is terminated with an HTTP 504 (Gateway Timeout) error code if no upstream response header has been received, otherwise the stream is reset
 
@@ -153,7 +165,7 @@ A [`more_option`](#dynamic-proxy-http-proxy-more-option) block (within [`dynamic
 
 <a id="connection-da0551"></a>&#x2022; [`max_requests_per_connection`](#connection-da0551) - Optional Number<br>Sets the maximum number of requests a downstream client can send over a single connection to Envoy. Enter a value >=1 to define the request limit per connection
 
-<a id="connection-bb8aa1"></a>&#x2022; [`no_request_limit_per_connection`](#connection-bb8aa1) - Optional Block<br>Configuration parameter for no request limit per connection
+<a id="connection-bb8aa1"></a>&#x2022; [`no_request_limit_per_connection`](#connection-bb8aa1) - Optional Object<br>Configuration parameter for no request limit per connection
 
 <a id="add-a872f8"></a>&#x2022; [`request_cookies_to_add`](#add-a872f8) - Optional Block<br>Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied<br>See [Request Cookies To Add](#add-a872f8) below.
 
@@ -178,6 +190,18 @@ A [`more_option`](#dynamic-proxy-http-proxy-more-option) block (within [`dynamic
 #### Dynamic Proxy HTTP Proxy More Option Compression Params
 
 <a id="deep-01a7f1"></a>Deeply nested **Params** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Disable Path Normalize
+
+<a id="deep-937d2c"></a>Deeply nested **Normalize** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Enable Path Normalize
+
+<a id="deep-d102b4"></a>Deeply nested **Normalize** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option No Request Limit Per Connection
+
+<a id="deep-4a768a"></a>Deeply nested **Connection** block collapsed for readability.
 
 #### Dynamic Proxy HTTP Proxy More Option Request Cookies To Add
 
@@ -214,6 +238,66 @@ A [`more_option`](#dynamic-proxy-http-proxy-more-option) block (within [`dynamic
 #### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add
 
 <a id="deep-236633"></a>Deeply nested **Add** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Add Httponly
+
+<a id="deep-15d77f"></a>Deeply nested **Httponly** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Add Partitioned
+
+<a id="deep-4a08c7"></a>Deeply nested **Partitioned** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Add Secure
+
+<a id="deep-eddeec"></a>Deeply nested **Secure** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Ignore Domain
+
+<a id="deep-71d4cd"></a>Deeply nested **Domain** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Ignore Expiry
+
+<a id="deep-33fd59"></a>Deeply nested **Expiry** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Ignore Httponly
+
+<a id="deep-1f345d"></a>Deeply nested **Httponly** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Ignore Max Age
+
+<a id="deep-942cc6"></a>Deeply nested **Age** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Ignore Partitioned
+
+<a id="deep-68952b"></a>Deeply nested **Partitioned** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Ignore Path
+
+<a id="deep-1082b6"></a>Deeply nested **Path** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Ignore Samesite
+
+<a id="deep-582adb"></a>Deeply nested **Samesite** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Ignore Secure
+
+<a id="deep-368aeb"></a>Deeply nested **Secure** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Ignore Value
+
+<a id="deep-986fc3"></a>Deeply nested **Value** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Samesite Lax
+
+<a id="deep-fa7ade"></a>Deeply nested **Lax** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Samesite None
+
+<a id="deep-216979"></a>Deeply nested **None** block collapsed for readability.
+
+#### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Samesite Strict
+
+<a id="deep-b8322a"></a>Deeply nested **Strict** block collapsed for readability.
 
 #### Dynamic Proxy HTTP Proxy More Option Response Cookies To Add Secret Value
 
@@ -263,9 +347,9 @@ A [`more_option`](#dynamic-proxy-https-proxy-more-option) block (within [`dynami
 
 <a id="pages-9edd65"></a>&#x2022; [`disable_default_error_pages`](#pages-9edd65) - Optional Bool<br>Disable the use of default F5XC error pages
 
-<a id="normalize-780e38"></a>&#x2022; [`disable_path_normalize`](#normalize-780e38) - Optional Block<br>Enable this option
+<a id="normalize-780e38"></a>&#x2022; [`disable_path_normalize`](#normalize-780e38) - Optional Object<br>Enable this option
 
-<a id="normalize-a240ab"></a>&#x2022; [`enable_path_normalize`](#normalize-a240ab) - Optional Block<br>Enable this option
+<a id="normalize-a240ab"></a>&#x2022; [`enable_path_normalize`](#normalize-a240ab) - Optional Object<br>Enable this option
 
 <a id="timeout-1062ad"></a>&#x2022; [`idle_timeout`](#timeout-1062ad) - Optional Number<br>The amount of time that a stream can exist without upstream or downstream activity, in milliseconds. The stream is terminated with an HTTP 504 (Gateway Timeout) error code if no upstream response header has been received, otherwise the stream is reset
 
@@ -273,7 +357,7 @@ A [`more_option`](#dynamic-proxy-https-proxy-more-option) block (within [`dynami
 
 <a id="connection-6faed8"></a>&#x2022; [`max_requests_per_connection`](#connection-6faed8) - Optional Number<br>Sets the maximum number of requests a downstream client can send over a single connection to Envoy. Enter a value >=1 to define the request limit per connection
 
-<a id="connection-97bedb"></a>&#x2022; [`no_request_limit_per_connection`](#connection-97bedb) - Optional Block<br>Configuration parameter for no request limit per connection
+<a id="connection-97bedb"></a>&#x2022; [`no_request_limit_per_connection`](#connection-97bedb) - Optional Object<br>Configuration parameter for no request limit per connection
 
 <a id="add-1b5bcd"></a>&#x2022; [`request_cookies_to_add`](#add-1b5bcd) - Optional Block<br>Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied<br>See [Request Cookies To Add](#add-1b5bcd) below.
 
@@ -298,6 +382,18 @@ A [`more_option`](#dynamic-proxy-https-proxy-more-option) block (within [`dynami
 #### Dynamic Proxy HTTPS Proxy More Option Compression Params
 
 <a id="deep-159dd4"></a>Deeply nested **Params** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Disable Path Normalize
+
+<a id="deep-a4a43b"></a>Deeply nested **Normalize** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Enable Path Normalize
+
+<a id="deep-d74f2a"></a>Deeply nested **Normalize** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option No Request Limit Per Connection
+
+<a id="deep-35171b"></a>Deeply nested **Connection** block collapsed for readability.
 
 #### Dynamic Proxy HTTPS Proxy More Option Request Cookies To Add
 
@@ -335,6 +431,66 @@ A [`more_option`](#dynamic-proxy-https-proxy-more-option) block (within [`dynami
 
 <a id="deep-dfa548"></a>Deeply nested **Add** block collapsed for readability.
 
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Add Httponly
+
+<a id="deep-f36a3d"></a>Deeply nested **Httponly** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Add Partitioned
+
+<a id="deep-295e1e"></a>Deeply nested **Partitioned** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Add Secure
+
+<a id="deep-35c633"></a>Deeply nested **Secure** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Ignore Domain
+
+<a id="deep-ecc429"></a>Deeply nested **Domain** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Ignore Expiry
+
+<a id="deep-defbe3"></a>Deeply nested **Expiry** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Ignore Httponly
+
+<a id="deep-1ce68c"></a>Deeply nested **Httponly** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Ignore Max Age
+
+<a id="deep-6be5b0"></a>Deeply nested **Age** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Ignore Partitioned
+
+<a id="deep-f8c5a0"></a>Deeply nested **Partitioned** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Ignore Path
+
+<a id="deep-d0da35"></a>Deeply nested **Path** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Ignore Samesite
+
+<a id="deep-666925"></a>Deeply nested **Samesite** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Ignore Secure
+
+<a id="deep-da78dd"></a>Deeply nested **Secure** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Ignore Value
+
+<a id="deep-561ccb"></a>Deeply nested **Value** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Samesite Lax
+
+<a id="deep-e2e652"></a>Deeply nested **Lax** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Samesite None
+
+<a id="deep-063f51"></a>Deeply nested **None** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Samesite Strict
+
+<a id="deep-f97282"></a>Deeply nested **Strict** block collapsed for readability.
+
 #### Dynamic Proxy HTTPS Proxy More Option Response Cookies To Add Secret Value
 
 <a id="deep-d3f531"></a>Deeply nested **Value** block collapsed for readability.
@@ -367,13 +523,17 @@ A [`more_option`](#dynamic-proxy-https-proxy-more-option) block (within [`dynami
 
 A [`tls_params`](#dynamic-proxy-https-proxy-tls-params) block (within [`dynamic_proxy.https_proxy`](#dynamic-proxy-https-proxy)) supports the following:
 
-<a id="mtls-1872dc"></a>&#x2022; [`no_mtls`](#mtls-1872dc) - Optional Block<br>Enable this option
+<a id="mtls-1872dc"></a>&#x2022; [`no_mtls`](#mtls-1872dc) - Optional Object<br>Enable this option
 
 <a id="certificates-6f0e81"></a>&#x2022; [`tls_certificates`](#certificates-6f0e81) - Optional Block<br>Users can add one or more certificates that share the same set of domains. For example, domain.com and \*.domain.com - but use different signature algorithms<br>See [TLS Certificates](#certificates-6f0e81) below.
 
 <a id="config-116b33"></a>&#x2022; [`tls_config`](#config-116b33) - Optional Block<br>Defines various OPTIONS to configure TLS configuration parameters<br>See [TLS Config](#config-116b33) below.
 
 <a id="mtls-7179b9"></a>&#x2022; [`use_mtls`](#mtls-7179b9) - Optional Block<br>Validation context for downstream client TLS connections<br>See [Use mTLS](#mtls-7179b9) below.
+
+#### Dynamic Proxy HTTPS Proxy TLS Params No mTLS
+
+<a id="deep-916348"></a>Deeply nested **mTLS** block collapsed for readability.
 
 #### Dynamic Proxy HTTPS Proxy TLS Params TLS Certificates
 
@@ -382,6 +542,10 @@ A [`tls_params`](#dynamic-proxy-https-proxy-tls-params) block (within [`dynamic_
 #### Dynamic Proxy HTTPS Proxy TLS Params TLS Certificates Custom Hash Algorithms
 
 <a id="deep-5b3bf1"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy TLS Params TLS Certificates Disable OCSP Stapling
+
+<a id="deep-362857"></a>Deeply nested **Stapling** block collapsed for readability.
 
 #### Dynamic Proxy HTTPS Proxy TLS Params TLS Certificates Private Key
 
@@ -395,6 +559,10 @@ A [`tls_params`](#dynamic-proxy-https-proxy-tls-params) block (within [`dynamic_
 
 <a id="deep-2b70cd"></a>Deeply nested **Info** block collapsed for readability.
 
+#### Dynamic Proxy HTTPS Proxy TLS Params TLS Certificates Use System Defaults
+
+<a id="deep-346d27"></a>Deeply nested **Defaults** block collapsed for readability.
+
 #### Dynamic Proxy HTTPS Proxy TLS Params TLS Config
 
 <a id="deep-68f6bc"></a>Deeply nested **Config** block collapsed for readability.
@@ -402,6 +570,18 @@ A [`tls_params`](#dynamic-proxy-https-proxy-tls-params) block (within [`dynamic_
 #### Dynamic Proxy HTTPS Proxy TLS Params TLS Config Custom Security
 
 <a id="deep-37426e"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy TLS Params TLS Config Default Security
+
+<a id="deep-f8e9ef"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy TLS Params TLS Config Low Security
+
+<a id="deep-96492b"></a>Deeply nested **Security** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy TLS Params TLS Config Medium Security
+
+<a id="deep-b46b09"></a>Deeply nested **Security** block collapsed for readability.
 
 #### Dynamic Proxy HTTPS Proxy TLS Params Use mTLS
 
@@ -411,9 +591,17 @@ A [`tls_params`](#dynamic-proxy-https-proxy-tls-params) block (within [`dynamic_
 
 <a id="deep-4e5a20"></a>Deeply nested **CRL** block collapsed for readability.
 
+#### Dynamic Proxy HTTPS Proxy TLS Params Use mTLS No CRL
+
+<a id="deep-5fec3a"></a>Deeply nested **CRL** block collapsed for readability.
+
 #### Dynamic Proxy HTTPS Proxy TLS Params Use mTLS Trusted CA
 
 <a id="deep-b473b7"></a>Deeply nested **CA** block collapsed for readability.
+
+#### Dynamic Proxy HTTPS Proxy TLS Params Use mTLS Xfcc Disabled
+
+<a id="deep-1dbd7f"></a>Deeply nested **Disabled** block collapsed for readability.
 
 #### Dynamic Proxy HTTPS Proxy TLS Params Use mTLS Xfcc Options
 
@@ -447,9 +635,9 @@ code class 4 -- for 4xx
 
 <a id="pages-159caf"></a>&#x2022; [`disable_default_error_pages`](#pages-159caf) - Optional Bool<br>Disable the use of default F5XC error pages
 
-<a id="normalize-3090b6"></a>&#x2022; [`disable_path_normalize`](#normalize-3090b6) - Optional Block<br>Enable this option
+<a id="normalize-3090b6"></a>&#x2022; [`disable_path_normalize`](#normalize-3090b6) - Optional Object<br>Enable this option
 
-<a id="normalize-8562f8"></a>&#x2022; [`enable_path_normalize`](#normalize-8562f8) - Optional Block<br>Enable this option
+<a id="normalize-8562f8"></a>&#x2022; [`enable_path_normalize`](#normalize-8562f8) - Optional Object<br>Enable this option
 
 <a id="http-proxy-more-option-idle-timeout"></a>&#x2022; [`idle_timeout`](#http-proxy-more-option-idle-timeout) - Optional Number<br>The amount of time that a stream can exist without upstream or downstream activity, in milliseconds. The stream is terminated with an HTTP 504 (Gateway Timeout) error code if no upstream response header has been received, otherwise the stream is reset
 
@@ -457,7 +645,7 @@ code class 4 -- for 4xx
 
 <a id="connection-0ec673"></a>&#x2022; [`max_requests_per_connection`](#connection-0ec673) - Optional Number<br>Sets the maximum number of requests a downstream client can send over a single connection to Envoy. Enter a value >=1 to define the request limit per connection
 
-<a id="connection-c66eb6"></a>&#x2022; [`no_request_limit_per_connection`](#connection-c66eb6) - Optional Block<br>Configuration parameter for no request limit per connection
+<a id="connection-c66eb6"></a>&#x2022; [`no_request_limit_per_connection`](#connection-c66eb6) - Optional Object<br>Configuration parameter for no request limit per connection
 
 <a id="add-19fe20"></a>&#x2022; [`request_cookies_to_add`](#add-19fe20) - Optional Block<br>Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied<br>See [Request Cookies To Add](#add-19fe20) below.
 
@@ -495,6 +683,18 @@ A [`compression_params`](#params-c32856) block (within [`http_proxy.more_option`
 
 <a id="header-925ccf"></a>&#x2022; [`remove_accept_encoding_header`](#header-925ccf) - Optional Bool<br>If true, removes accept-encoding from the request headers before dispatching it to the upstream so that responses do not GET compressed before reaching the filter
 
+#### HTTP Proxy More Option Disable Path Normalize
+
+A [`disable_path_normalize`](#normalize-3090b6) block (within [`http_proxy.more_option`](#http-proxy-more-option)) supports the following:
+
+#### HTTP Proxy More Option Enable Path Normalize
+
+An [`enable_path_normalize`](#normalize-8562f8) block (within [`http_proxy.more_option`](#http-proxy-more-option)) supports the following:
+
+#### HTTP Proxy More Option No Request Limit Per Connection
+
+<a id="deep-11a8d8"></a>Deeply nested **Connection** block collapsed for readability.
+
 #### HTTP Proxy More Option Request Cookies To Add
 
 <a id="deep-807053"></a>Deeply nested **Add** block collapsed for readability.
@@ -531,6 +731,66 @@ A [`compression_params`](#params-c32856) block (within [`http_proxy.more_option`
 
 <a id="deep-ecab43"></a>Deeply nested **Add** block collapsed for readability.
 
+#### HTTP Proxy More Option Response Cookies To Add Add Httponly
+
+<a id="deep-e53325"></a>Deeply nested **Httponly** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Add Partitioned
+
+<a id="deep-066bd5"></a>Deeply nested **Partitioned** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Add Secure
+
+<a id="deep-b8f5dd"></a>Deeply nested **Secure** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Ignore Domain
+
+<a id="deep-6cf18f"></a>Deeply nested **Domain** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Ignore Expiry
+
+<a id="deep-662cfc"></a>Deeply nested **Expiry** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Ignore Httponly
+
+<a id="deep-9b63e6"></a>Deeply nested **Httponly** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Ignore Max Age
+
+<a id="deep-12de79"></a>Deeply nested **Age** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Ignore Partitioned
+
+<a id="deep-5ac6d5"></a>Deeply nested **Partitioned** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Ignore Path
+
+<a id="deep-8c4563"></a>Deeply nested **Path** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Ignore Samesite
+
+<a id="deep-d010ce"></a>Deeply nested **Samesite** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Ignore Secure
+
+<a id="deep-ddeb52"></a>Deeply nested **Secure** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Ignore Value
+
+<a id="deep-2dee0e"></a>Deeply nested **Value** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Samesite Lax
+
+<a id="deep-ad3d6e"></a>Deeply nested **Lax** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Samesite None
+
+<a id="deep-04c1a7"></a>Deeply nested **None** block collapsed for readability.
+
+#### HTTP Proxy More Option Response Cookies To Add Samesite Strict
+
+<a id="deep-310008"></a>Deeply nested **Strict** block collapsed for readability.
+
 #### HTTP Proxy More Option Response Cookies To Add Secret Value
 
 <a id="deep-362886"></a>Deeply nested **Value** block collapsed for readability.
@@ -559,6 +819,22 @@ A [`compression_params`](#params-c32856) block (within [`http_proxy.more_option`
 
 <a id="deep-5256f6"></a>Deeply nested **Info** block collapsed for readability.
 
+#### No Forward Proxy Policy
+
+A [`no_forward_proxy_policy`](#no-forward-proxy-policy) block supports the following:
+
+#### No Interception
+
+A [`no_interception`](#no-interception) block supports the following:
+
+#### Site Local Inside Network
+
+A [`site_local_inside_network`](#site-local-inside-network) block supports the following:
+
+#### Site Local Network
+
+A [`site_local_network`](#site-local-network) block supports the following:
+
 #### Site Virtual Sites
 
 A [`site_virtual_sites`](#site-virtual-sites) block supports the following:
@@ -573,7 +849,7 @@ An [`advertise_where`](#site-virtual-sites-advertise-where) block (within [`site
 
 <a id="site-virtual-sites-advertise-where-site"></a>&#x2022; [`site`](#site-virtual-sites-advertise-where-site) - Optional Block<br>Defines a reference to a CE site along with network type and an optional IP address where a load balancer could be advertised<br>See [Site](#site-virtual-sites-advertise-where-site) below.
 
-<a id="port-7cb8fb"></a>&#x2022; [`use_default_port`](#port-7cb8fb) - Optional Block<br>Enable this option
+<a id="port-7cb8fb"></a>&#x2022; [`use_default_port`](#port-7cb8fb) - Optional Object<br>Enable this option
 
 <a id="site-7107b1"></a>&#x2022; [`virtual_site`](#site-7107b1) - Optional Block<br>Defines a reference to a customer site virtual site along with network type where a load balancer could be advertised<br>See [Virtual Site](#site-7107b1) below.
 
@@ -597,6 +873,10 @@ A [`site`](#site-91e167) block (within [`site_virtual_sites.advertise_where.site
 <a id="namespace-81a6ad"></a>&#x2022; [`namespace`](#namespace-81a6ad) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="tenant-d56172"></a>&#x2022; [`tenant`](#tenant-d56172) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Site Virtual Sites Advertise Where Use Default Port
+
+<a id="deep-cb6654"></a>Deeply nested **Port** block collapsed for readability.
 
 #### Site Virtual Sites Advertise Where Virtual Site
 
@@ -629,15 +909,15 @@ A [`tls_intercept`](#tls-intercept) block supports the following:
 
 <a id="tls-intercept-custom-certificate"></a>&#x2022; [`custom_certificate`](#tls-intercept-custom-certificate) - Optional Block<br>Configuration parameter for custom certificate<br>See [Custom Certificate](#tls-intercept-custom-certificate) below.
 
-<a id="tls-intercept-enable-for-all-domains"></a>&#x2022; [`enable_for_all_domains`](#tls-intercept-enable-for-all-domains) - Optional Block<br>Configuration parameter for enable for all domains
+<a id="tls-intercept-enable-for-all-domains"></a>&#x2022; [`enable_for_all_domains`](#tls-intercept-enable-for-all-domains) - Optional Object<br>Configuration parameter for enable for all domains
 
 <a id="tls-intercept-policy"></a>&#x2022; [`policy`](#tls-intercept-policy) - Optional Block<br>Policy to enable or disable TLS interception<br>See [Policy](#tls-intercept-policy) below.
 
 <a id="tls-intercept-trusted-ca-url"></a>&#x2022; [`trusted_ca_url`](#tls-intercept-trusted-ca-url) - Optional String<br>Custom Root CA Certificate for validating upstream server certificate
 
-<a id="tls-intercept-volterra-certificate"></a>&#x2022; [`volterra_certificate`](#tls-intercept-volterra-certificate) - Optional Block<br>Configuration parameter for volterra certificate
+<a id="tls-intercept-volterra-certificate"></a>&#x2022; [`volterra_certificate`](#tls-intercept-volterra-certificate) - Optional Object<br>Configuration parameter for volterra certificate
 
-<a id="tls-intercept-volterra-trusted-ca"></a>&#x2022; [`volterra_trusted_ca`](#tls-intercept-volterra-trusted-ca) - Optional Block<br>Configuration parameter for volterra trusted CA
+<a id="tls-intercept-volterra-trusted-ca"></a>&#x2022; [`volterra_trusted_ca`](#tls-intercept-volterra-trusted-ca) - Optional Object<br>Configuration parameter for volterra trusted CA
 
 #### TLS Intercept Custom Certificate
 
@@ -649,17 +929,21 @@ A [`custom_certificate`](#tls-intercept-custom-certificate) block (within [`tls_
 
 <a id="spec-309e16"></a>&#x2022; [`description_spec`](#spec-309e16) - Optional String<br>Description. Description for the certificate
 
-<a id="stapling-e452bc"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-e452bc) - Optional Block<br>Configuration parameter for disable OCSP stapling
+<a id="stapling-e452bc"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-e452bc) - Optional Object<br>Configuration parameter for disable OCSP stapling
 
 <a id="key-64ce0d"></a>&#x2022; [`private_key`](#key-64ce0d) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Private Key](#key-64ce0d) below.
 
-<a id="defaults-a85c93"></a>&#x2022; [`use_system_defaults`](#defaults-a85c93) - Optional Block<br>Configuration parameter for use system defaults
+<a id="defaults-a85c93"></a>&#x2022; [`use_system_defaults`](#defaults-a85c93) - Optional Object<br>Configuration parameter for use system defaults
 
 #### TLS Intercept Custom Certificate Custom Hash Algorithms
 
 A [`custom_hash_algorithms`](#algorithms-04b03c) block (within [`tls_intercept.custom_certificate`](#tls-intercept-custom-certificate)) supports the following:
 
 <a id="algorithms-bb1c8a"></a>&#x2022; [`hash_algorithms`](#algorithms-bb1c8a) - Optional List  Defaults to `INVALID_HASH_ALGORITHM`<br>Possible values are `INVALID_HASH_ALGORITHM`, `SHA256`, `SHA1`<br>[Enum: INVALID_HASH_ALGORITHM|SHA256|SHA1] Ordered list of hash algorithms to be used
+
+#### TLS Intercept Custom Certificate Disable OCSP Stapling
+
+A [`disable_ocsp_stapling`](#stapling-e452bc) block (within [`tls_intercept.custom_certificate`](#tls-intercept-custom-certificate)) supports the following:
 
 #### TLS Intercept Custom Certificate Private Key
 
@@ -677,6 +961,14 @@ A [`private_key`](#key-64ce0d) block (within [`tls_intercept.custom_certificate`
 
 <a id="deep-e6b706"></a>Deeply nested **Info** block collapsed for readability.
 
+#### TLS Intercept Custom Certificate Use System Defaults
+
+An [`use_system_defaults`](#defaults-a85c93) block (within [`tls_intercept.custom_certificate`](#tls-intercept-custom-certificate)) supports the following:
+
+#### TLS Intercept Enable For All Domains
+
+An [`enable_for_all_domains`](#tls-intercept-enable-for-all-domains) block (within [`tls_intercept`](#tls-intercept)) supports the following:
+
 #### TLS Intercept Policy
 
 A [`policy`](#tls-intercept-policy) block (within [`tls_intercept`](#tls-intercept)) supports the following:
@@ -687,11 +979,15 @@ A [`policy`](#tls-intercept-policy) block (within [`tls_intercept`](#tls-interce
 
 An [`interception_rules`](#tls-intercept-policy-interception-rules) block (within [`tls_intercept.policy`](#tls-intercept-policy)) supports the following:
 
-<a id="interception-f6b646"></a>&#x2022; [`disable_interception`](#interception-f6b646) - Optional Block<br>Configuration parameter for disable interception
+<a id="interception-f6b646"></a>&#x2022; [`disable_interception`](#interception-f6b646) - Optional Object<br>Configuration parameter for disable interception
 
 <a id="match-42a3da"></a>&#x2022; [`domain_match`](#match-42a3da) - Optional Block<br>Configuration parameter for domain match<br>See [Domain Match](#match-42a3da) below.
 
-<a id="interception-e82eca"></a>&#x2022; [`enable_interception`](#interception-e82eca) - Optional Block<br>Configuration parameter for enable interception
+<a id="interception-e82eca"></a>&#x2022; [`enable_interception`](#interception-e82eca) - Optional Object<br>Configuration parameter for enable interception
+
+#### TLS Intercept Policy Interception Rules Disable Interception
+
+A [`disable_interception`](#interception-f6b646) block (within [`tls_intercept.policy.interception_rules`](#tls-intercept-policy-interception-rules)) supports the following:
 
 #### TLS Intercept Policy Interception Rules Domain Match
 
@@ -702,6 +998,18 @@ A [`domain_match`](#match-42a3da) block (within [`tls_intercept.policy.intercept
 <a id="value-7aa963"></a>&#x2022; [`regex_value`](#value-7aa963) - Optional String<br>Regular Expression value for the domain name
 
 <a id="value-5d0d1d"></a>&#x2022; [`suffix_value`](#value-5d0d1d) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+#### TLS Intercept Policy Interception Rules Enable Interception
+
+An [`enable_interception`](#interception-e82eca) block (within [`tls_intercept.policy.interception_rules`](#tls-intercept-policy-interception-rules)) supports the following:
+
+#### TLS Intercept Volterra Certificate
+
+A [`volterra_certificate`](#tls-intercept-volterra-certificate) block (within [`tls_intercept`](#tls-intercept)) supports the following:
+
+#### TLS Intercept Volterra Trusted CA
+
+A [`volterra_trusted_ca`](#tls-intercept-volterra-trusted-ca) block (within [`tls_intercept`](#tls-intercept)) supports the following:
 
 ---
 

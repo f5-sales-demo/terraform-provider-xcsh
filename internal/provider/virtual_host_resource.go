@@ -74,20 +74,20 @@ var VirtualHostAdvertisePoliciesModelAttrTypes = map[string]attr.Type{
 
 // VirtualHostAuthenticationModel represents authentication block
 type VirtualHostAuthenticationModel struct {
+	RedirectDynamic     types.Object                                `tfsdk:"redirect_dynamic"`
 	RedirectURL         types.String                                `tfsdk:"redirect_url"`
+	UseAuthObjectConfig types.Object                                `tfsdk:"use_auth_object_config"`
 	AuthConfig          types.List                                  `tfsdk:"auth_config"`
 	CookieParams        *VirtualHostAuthenticationCookieParamsModel `tfsdk:"cookie_params"`
-	RedirectDynamic     *VirtualHostEmptyModel                      `tfsdk:"redirect_dynamic"`
-	UseAuthObjectConfig *VirtualHostEmptyModel                      `tfsdk:"use_auth_object_config"`
 }
 
 // VirtualHostAuthenticationModelAttrTypes defines the attribute types for VirtualHostAuthenticationModel
 var VirtualHostAuthenticationModelAttrTypes = map[string]attr.Type{
+	"redirect_dynamic":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"redirect_url":           types.StringType,
+	"use_auth_object_config": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"auth_config":            types.ListType{ElemType: types.ObjectType{AttrTypes: VirtualHostAuthenticationAuthConfigModelAttrTypes}},
 	"cookie_params":          types.ObjectType{AttrTypes: VirtualHostAuthenticationCookieParamsModelAttrTypes},
-	"redirect_dynamic":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"use_auth_object_config": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // VirtualHostAuthenticationAuthConfigModel represents auth_config block
@@ -112,18 +112,18 @@ var VirtualHostAuthenticationAuthConfigModelAttrTypes = map[string]attr.Type{
 type VirtualHostAuthenticationCookieParamsModel struct {
 	CookieExpiry          types.Int64                                         `tfsdk:"cookie_expiry"`
 	CookieRefreshInterval types.Int64                                         `tfsdk:"cookie_refresh_interval"`
+	KmsKeyHMAC            types.Object                                        `tfsdk:"kms_key_hmac"`
 	SessionExpiry         types.Int64                                         `tfsdk:"session_expiry"`
 	AuthHMAC              *VirtualHostAuthenticationCookieParamsAuthHMACModel `tfsdk:"auth_hmac"`
-	KmsKeyHMAC            *VirtualHostEmptyModel                              `tfsdk:"kms_key_hmac"`
 }
 
 // VirtualHostAuthenticationCookieParamsModelAttrTypes defines the attribute types for VirtualHostAuthenticationCookieParamsModel
 var VirtualHostAuthenticationCookieParamsModelAttrTypes = map[string]attr.Type{
 	"cookie_expiry":           types.Int64Type,
 	"cookie_refresh_interval": types.Int64Type,
+	"kms_key_hmac":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"session_expiry":          types.Int64Type,
 	"auth_hmac":               types.ObjectType{AttrTypes: VirtualHostAuthenticationCookieParamsAuthHMACModelAttrTypes},
-	"kms_key_hmac":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // VirtualHostAuthenticationCookieParamsAuthHMACModel represents auth_hmac block
@@ -244,8 +244,8 @@ var VirtualHostCaptchaChallengeModelAttrTypes = map[string]attr.Type{
 
 // VirtualHostCoalescingOptionsModel represents coalescing_options block
 type VirtualHostCoalescingOptionsModel struct {
-	DefaultCoalescing *VirtualHostEmptyModel `tfsdk:"default_coalescing"`
-	StrictCoalescing  *VirtualHostEmptyModel `tfsdk:"strict_coalescing"`
+	DefaultCoalescing types.Object `tfsdk:"default_coalescing"`
+	StrictCoalescing  types.Object `tfsdk:"strict_coalescing"`
 }
 
 // VirtualHostCoalescingOptionsModelAttrTypes defines the attribute types for VirtualHostCoalescingOptionsModel
@@ -296,16 +296,16 @@ var VirtualHostCORSPolicyModelAttrTypes = map[string]attr.Type{
 
 // VirtualHostCSRFPolicyModel represents csrf_policy block
 type VirtualHostCSRFPolicyModel struct {
-	AllLoadBalancerDomains *VirtualHostEmptyModel                      `tfsdk:"all_load_balancer_domains"`
+	AllLoadBalancerDomains types.Object                                `tfsdk:"all_load_balancer_domains"`
+	Disabled               types.Object                                `tfsdk:"disabled"`
 	CustomDomainList       *VirtualHostCSRFPolicyCustomDomainListModel `tfsdk:"custom_domain_list"`
-	Disabled               *VirtualHostEmptyModel                      `tfsdk:"disabled"`
 }
 
 // VirtualHostCSRFPolicyModelAttrTypes defines the attribute types for VirtualHostCSRFPolicyModel
 var VirtualHostCSRFPolicyModelAttrTypes = map[string]attr.Type{
 	"all_load_balancer_domains": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"custom_domain_list":        types.ObjectType{AttrTypes: VirtualHostCSRFPolicyCustomDomainListModelAttrTypes},
 	"disabled":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_domain_list":        types.ObjectType{AttrTypes: VirtualHostCSRFPolicyCustomDomainListModelAttrTypes},
 }
 
 // VirtualHostCSRFPolicyCustomDomainListModel represents custom_domain_list block
@@ -354,16 +354,16 @@ var VirtualHostDynamicReverseProxyResolutionNetworkModelAttrTypes = map[string]a
 
 // VirtualHostHTTPProtocolOptionsModel represents http_protocol_options block
 type VirtualHostHTTPProtocolOptionsModel struct {
+	HTTPProtocolEnableV1V2   types.Object                                                 `tfsdk:"http_protocol_enable_v1_v2"`
+	HTTPProtocolEnableV2Only types.Object                                                 `tfsdk:"http_protocol_enable_v2_only"`
 	HTTPProtocolEnableV1Only *VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel `tfsdk:"http_protocol_enable_v1_only"`
-	HTTPProtocolEnableV1V2   *VirtualHostEmptyModel                                       `tfsdk:"http_protocol_enable_v1_v2"`
-	HTTPProtocolEnableV2Only *VirtualHostEmptyModel                                       `tfsdk:"http_protocol_enable_v2_only"`
 }
 
 // VirtualHostHTTPProtocolOptionsModelAttrTypes defines the attribute types for VirtualHostHTTPProtocolOptionsModel
 var VirtualHostHTTPProtocolOptionsModelAttrTypes = map[string]attr.Type{
-	"http_protocol_enable_v1_only": types.ObjectType{AttrTypes: VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModelAttrTypes},
 	"http_protocol_enable_v1_v2":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"http_protocol_enable_v2_only": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"http_protocol_enable_v1_only": types.ObjectType{AttrTypes: VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModelAttrTypes},
 }
 
 // VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModel represents http_protocol_enable_v1_only block
@@ -378,9 +378,9 @@ var VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyModelAttrTypes = map[s
 
 // VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel represents header_transformation block
 type VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel struct {
-	DefaultHeaderTransformation      *VirtualHostEmptyModel `tfsdk:"default_header_transformation"`
-	PreserveCaseHeaderTransformation *VirtualHostEmptyModel `tfsdk:"preserve_case_header_transformation"`
-	ProperCaseHeaderTransformation   *VirtualHostEmptyModel `tfsdk:"proper_case_header_transformation"`
+	DefaultHeaderTransformation      types.Object `tfsdk:"default_header_transformation"`
+	PreserveCaseHeaderTransformation types.Object `tfsdk:"preserve_case_header_transformation"`
+	ProperCaseHeaderTransformation   types.Object `tfsdk:"proper_case_header_transformation"`
 }
 
 // VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModelAttrTypes defines the attribute types for VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel
@@ -534,26 +534,26 @@ var VirtualHostRequestHeadersToAddSecretValueClearSecretInfoModelAttrTypes = map
 type VirtualHostResponseCookiesToAddModel struct {
 	AddDomain         types.String                                     `tfsdk:"add_domain"`
 	AddExpiry         types.String                                     `tfsdk:"add_expiry"`
+	AddHttponly       types.Object                                     `tfsdk:"add_httponly"`
+	AddPartitioned    types.Object                                     `tfsdk:"add_partitioned"`
 	AddPath           types.String                                     `tfsdk:"add_path"`
+	AddSecure         types.Object                                     `tfsdk:"add_secure"`
+	IgnoreDomain      types.Object                                     `tfsdk:"ignore_domain"`
+	IgnoreExpiry      types.Object                                     `tfsdk:"ignore_expiry"`
+	IgnoreHttponly    types.Object                                     `tfsdk:"ignore_httponly"`
+	IgnoreMaxAge      types.Object                                     `tfsdk:"ignore_max_age"`
+	IgnorePartitioned types.Object                                     `tfsdk:"ignore_partitioned"`
+	IgnorePath        types.Object                                     `tfsdk:"ignore_path"`
+	IgnoreSamesite    types.Object                                     `tfsdk:"ignore_samesite"`
+	IgnoreSecure      types.Object                                     `tfsdk:"ignore_secure"`
+	IgnoreValue       types.Object                                     `tfsdk:"ignore_value"`
 	MaxAgeValue       types.Int64                                      `tfsdk:"max_age_value"`
 	Name              types.String                                     `tfsdk:"name"`
 	Overwrite         types.Bool                                       `tfsdk:"overwrite"`
+	SamesiteLax       types.Object                                     `tfsdk:"samesite_lax"`
+	SamesiteNone      types.Object                                     `tfsdk:"samesite_none"`
+	SamesiteStrict    types.Object                                     `tfsdk:"samesite_strict"`
 	Value             types.String                                     `tfsdk:"value"`
-	AddHttponly       *VirtualHostEmptyModel                           `tfsdk:"add_httponly"`
-	AddPartitioned    *VirtualHostEmptyModel                           `tfsdk:"add_partitioned"`
-	AddSecure         *VirtualHostEmptyModel                           `tfsdk:"add_secure"`
-	IgnoreDomain      *VirtualHostEmptyModel                           `tfsdk:"ignore_domain"`
-	IgnoreExpiry      *VirtualHostEmptyModel                           `tfsdk:"ignore_expiry"`
-	IgnoreHttponly    *VirtualHostEmptyModel                           `tfsdk:"ignore_httponly"`
-	IgnoreMaxAge      *VirtualHostEmptyModel                           `tfsdk:"ignore_max_age"`
-	IgnorePartitioned *VirtualHostEmptyModel                           `tfsdk:"ignore_partitioned"`
-	IgnorePath        *VirtualHostEmptyModel                           `tfsdk:"ignore_path"`
-	IgnoreSamesite    *VirtualHostEmptyModel                           `tfsdk:"ignore_samesite"`
-	IgnoreSecure      *VirtualHostEmptyModel                           `tfsdk:"ignore_secure"`
-	IgnoreValue       *VirtualHostEmptyModel                           `tfsdk:"ignore_value"`
-	SamesiteLax       *VirtualHostEmptyModel                           `tfsdk:"samesite_lax"`
-	SamesiteNone      *VirtualHostEmptyModel                           `tfsdk:"samesite_none"`
-	SamesiteStrict    *VirtualHostEmptyModel                           `tfsdk:"samesite_strict"`
 	SecretValue       *VirtualHostResponseCookiesToAddSecretValueModel `tfsdk:"secret_value"`
 }
 
@@ -561,13 +561,9 @@ type VirtualHostResponseCookiesToAddModel struct {
 var VirtualHostResponseCookiesToAddModelAttrTypes = map[string]attr.Type{
 	"add_domain":         types.StringType,
 	"add_expiry":         types.StringType,
-	"add_path":           types.StringType,
-	"max_age_value":      types.Int64Type,
-	"name":               types.StringType,
-	"overwrite":          types.BoolType,
-	"value":              types.StringType,
 	"add_httponly":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"add_partitioned":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"add_path":           types.StringType,
 	"add_secure":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_domain":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_expiry":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -578,9 +574,13 @@ var VirtualHostResponseCookiesToAddModelAttrTypes = map[string]attr.Type{
 	"ignore_samesite":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_secure":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ignore_value":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_age_value":      types.Int64Type,
+	"name":               types.StringType,
+	"overwrite":          types.BoolType,
 	"samesite_lax":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"samesite_none":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"samesite_strict":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"value":              types.StringType,
 	"secret_value":       types.ObjectType{AttrTypes: VirtualHostResponseCookiesToAddSecretValueModelAttrTypes},
 }
 
@@ -744,41 +744,41 @@ var VirtualHostSensitiveDataPolicyModelAttrTypes = map[string]attr.Type{
 
 // VirtualHostSlowDDOSMitigationModel represents slow_ddos_mitigation block
 type VirtualHostSlowDDOSMitigationModel struct {
-	RequestHeadersTimeout types.Int64            `tfsdk:"request_headers_timeout"`
-	RequestTimeout        types.Int64            `tfsdk:"request_timeout"`
-	DisableRequestTimeout *VirtualHostEmptyModel `tfsdk:"disable_request_timeout"`
+	DisableRequestTimeout types.Object `tfsdk:"disable_request_timeout"`
+	RequestHeadersTimeout types.Int64  `tfsdk:"request_headers_timeout"`
+	RequestTimeout        types.Int64  `tfsdk:"request_timeout"`
 }
 
 // VirtualHostSlowDDOSMitigationModelAttrTypes defines the attribute types for VirtualHostSlowDDOSMitigationModel
 var VirtualHostSlowDDOSMitigationModelAttrTypes = map[string]attr.Type{
+	"disable_request_timeout": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"request_headers_timeout": types.Int64Type,
 	"request_timeout":         types.Int64Type,
-	"disable_request_timeout": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // VirtualHostTLSCertParamsModel represents tls_cert_params block
 type VirtualHostTLSCertParamsModel struct {
 	CipherSuites              types.List                                     `tfsdk:"cipher_suites"`
+	ClientCertificateOptional types.Object                                   `tfsdk:"client_certificate_optional"`
+	ClientCertificateRequired types.Object                                   `tfsdk:"client_certificate_required"`
 	MaximumProtocolVersion    types.String                                   `tfsdk:"maximum_protocol_version"`
 	MinimumProtocolVersion    types.String                                   `tfsdk:"minimum_protocol_version"`
+	NoClientCertificate       types.Object                                   `tfsdk:"no_client_certificate"`
 	XfccHeaderElements        types.List                                     `tfsdk:"xfcc_header_elements"`
 	Certificates              types.List                                     `tfsdk:"certificates"`
-	ClientCertificateOptional *VirtualHostEmptyModel                         `tfsdk:"client_certificate_optional"`
-	ClientCertificateRequired *VirtualHostEmptyModel                         `tfsdk:"client_certificate_required"`
-	NoClientCertificate       *VirtualHostEmptyModel                         `tfsdk:"no_client_certificate"`
 	ValidationParams          *VirtualHostTLSCertParamsValidationParamsModel `tfsdk:"validation_params"`
 }
 
 // VirtualHostTLSCertParamsModelAttrTypes defines the attribute types for VirtualHostTLSCertParamsModel
 var VirtualHostTLSCertParamsModelAttrTypes = map[string]attr.Type{
 	"cipher_suites":               types.ListType{ElemType: types.StringType},
-	"maximum_protocol_version":    types.StringType,
-	"minimum_protocol_version":    types.StringType,
-	"xfcc_header_elements":        types.ListType{ElemType: types.StringType},
-	"certificates":                types.ListType{ElemType: types.ObjectType{AttrTypes: VirtualHostTLSCertParamsCertificatesModelAttrTypes}},
 	"client_certificate_optional": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"client_certificate_required": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"maximum_protocol_version":    types.StringType,
+	"minimum_protocol_version":    types.StringType,
 	"no_client_certificate":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"xfcc_header_elements":        types.ListType{ElemType: types.StringType},
+	"certificates":                types.ListType{ElemType: types.ObjectType{AttrTypes: VirtualHostTLSCertParamsCertificatesModelAttrTypes}},
 	"validation_params":           types.ObjectType{AttrTypes: VirtualHostTLSCertParamsValidationParamsModelAttrTypes},
 }
 
@@ -846,20 +846,20 @@ var VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModelAttrTypes
 
 // VirtualHostTLSParametersModel represents tls_parameters block
 type VirtualHostTLSParametersModel struct {
+	ClientCertificateOptional types.Object                               `tfsdk:"client_certificate_optional"`
+	ClientCertificateRequired types.Object                               `tfsdk:"client_certificate_required"`
+	NoClientCertificate       types.Object                               `tfsdk:"no_client_certificate"`
 	XfccHeaderElements        types.List                                 `tfsdk:"xfcc_header_elements"`
-	ClientCertificateOptional *VirtualHostEmptyModel                     `tfsdk:"client_certificate_optional"`
-	ClientCertificateRequired *VirtualHostEmptyModel                     `tfsdk:"client_certificate_required"`
 	CommonParams              *VirtualHostTLSParametersCommonParamsModel `tfsdk:"common_params"`
-	NoClientCertificate       *VirtualHostEmptyModel                     `tfsdk:"no_client_certificate"`
 }
 
 // VirtualHostTLSParametersModelAttrTypes defines the attribute types for VirtualHostTLSParametersModel
 var VirtualHostTLSParametersModelAttrTypes = map[string]attr.Type{
-	"xfcc_header_elements":        types.ListType{ElemType: types.StringType},
 	"client_certificate_optional": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"client_certificate_required": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"common_params":               types.ObjectType{AttrTypes: VirtualHostTLSParametersCommonParamsModelAttrTypes},
 	"no_client_certificate":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"xfcc_header_elements":        types.ListType{ElemType: types.StringType},
+	"common_params":               types.ObjectType{AttrTypes: VirtualHostTLSParametersCommonParamsModelAttrTypes},
 }
 
 // VirtualHostTLSParametersCommonParamsModel represents common_params block
@@ -884,20 +884,20 @@ var VirtualHostTLSParametersCommonParamsModelAttrTypes = map[string]attr.Type{
 type VirtualHostTLSParametersCommonParamsTLSCertificatesModel struct {
 	CertificateURL       types.String                                                                  `tfsdk:"certificate_url"`
 	DescriptionSpec      types.String                                                                  `tfsdk:"description_spec"`
+	DisableOCSPStapling  types.Object                                                                  `tfsdk:"disable_ocsp_stapling"`
+	UseSystemDefaults    types.Object                                                                  `tfsdk:"use_system_defaults"`
 	CustomHashAlgorithms *VirtualHostTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel `tfsdk:"custom_hash_algorithms"`
-	DisableOCSPStapling  *VirtualHostEmptyModel                                                        `tfsdk:"disable_ocsp_stapling"`
 	PrivateKey           *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyModel           `tfsdk:"private_key"`
-	UseSystemDefaults    *VirtualHostEmptyModel                                                        `tfsdk:"use_system_defaults"`
 }
 
 // VirtualHostTLSParametersCommonParamsTLSCertificatesModelAttrTypes defines the attribute types for VirtualHostTLSParametersCommonParamsTLSCertificatesModel
 var VirtualHostTLSParametersCommonParamsTLSCertificatesModelAttrTypes = map[string]attr.Type{
 	"certificate_url":        types.StringType,
 	"description_spec":       types.StringType,
-	"custom_hash_algorithms": types.ObjectType{AttrTypes: VirtualHostTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
 	"disable_ocsp_stapling":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"private_key":            types.ObjectType{AttrTypes: VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyModelAttrTypes},
 	"use_system_defaults":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_hash_algorithms": types.ObjectType{AttrTypes: VirtualHostTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
+	"private_key":            types.ObjectType{AttrTypes: VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyModelAttrTypes},
 }
 
 // VirtualHostTLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsModel represents custom_hash_algorithms block
@@ -1012,16 +1012,16 @@ var VirtualHostUserIdentificationModelAttrTypes = map[string]attr.Type{
 
 // VirtualHostWAFTypeModel represents waf_type block
 type VirtualHostWAFTypeModel struct {
+	DisableWAF  types.Object                        `tfsdk:"disable_waf"`
+	InheritWAF  types.Object                        `tfsdk:"inherit_waf"`
 	AppFirewall *VirtualHostWAFTypeAppFirewallModel `tfsdk:"app_firewall"`
-	DisableWAF  *VirtualHostEmptyModel              `tfsdk:"disable_waf"`
-	InheritWAF  *VirtualHostEmptyModel              `tfsdk:"inherit_waf"`
 }
 
 // VirtualHostWAFTypeModelAttrTypes defines the attribute types for VirtualHostWAFTypeModel
 var VirtualHostWAFTypeModelAttrTypes = map[string]attr.Type{
-	"app_firewall": types.ObjectType{AttrTypes: VirtualHostWAFTypeAppFirewallModelAttrTypes},
 	"disable_waf":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"inherit_waf":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"app_firewall": types.ObjectType{AttrTypes: VirtualHostWAFTypeAppFirewallModelAttrTypes},
 }
 
 // VirtualHostWAFTypeAppFirewallModel represents app_firewall block
@@ -1057,10 +1057,19 @@ type VirtualHostResourceModel struct {
 	Namespace                   types.String                         `tfsdk:"namespace"`
 	Annotations                 types.Map                            `tfsdk:"annotations"`
 	CustomErrors                types.Map                            `tfsdk:"custom_errors"`
+	DefaultHeader               types.Object                         `tfsdk:"default_header"`
+	DefaultLoadBalancer         types.Object                         `tfsdk:"default_loadbalancer"`
 	Description                 types.String                         `tfsdk:"description"`
 	Disable                     types.Bool                           `tfsdk:"disable"`
+	DisablePathNormalize        types.Object                         `tfsdk:"disable_path_normalize"`
 	Domains                     types.List                           `tfsdk:"domains"`
+	EnablePathNormalize         types.Object                         `tfsdk:"enable_path_normalize"`
 	Labels                      types.Map                            `tfsdk:"labels"`
+	NoAuthentication            types.Object                         `tfsdk:"no_authentication"`
+	NoChallenge                 types.Object                         `tfsdk:"no_challenge"`
+	NoRequestLimitPerConnection types.Object                         `tfsdk:"no_request_limit_per_connection"`
+	NonDefaultLoadBalancer      types.Object                         `tfsdk:"non_default_loadbalancer"`
+	PassThrough                 types.Object                         `tfsdk:"pass_through"`
 	RequestCookiesToRemove      types.List                           `tfsdk:"request_cookies_to_remove"`
 	RequestHeadersToRemove      types.List                           `tfsdk:"request_headers_to_remove"`
 	ResponseCookiesToRemove     types.List                           `tfsdk:"response_cookies_to_remove"`
@@ -1085,18 +1094,9 @@ type VirtualHostResourceModel struct {
 	CompressionParams           *VirtualHostCompressionParamsModel   `tfsdk:"compression_params"`
 	CORSPolicy                  *VirtualHostCORSPolicyModel          `tfsdk:"cors_policy"`
 	CSRFPolicy                  *VirtualHostCSRFPolicyModel          `tfsdk:"csrf_policy"`
-	DefaultHeader               *VirtualHostEmptyModel               `tfsdk:"default_header"`
-	DefaultLoadBalancer         *VirtualHostEmptyModel               `tfsdk:"default_loadbalancer"`
-	DisablePathNormalize        *VirtualHostEmptyModel               `tfsdk:"disable_path_normalize"`
 	DynamicReverseProxy         *VirtualHostDynamicReverseProxyModel `tfsdk:"dynamic_reverse_proxy"`
-	EnablePathNormalize         *VirtualHostEmptyModel               `tfsdk:"enable_path_normalize"`
 	HTTPProtocolOptions         *VirtualHostHTTPProtocolOptionsModel `tfsdk:"http_protocol_options"`
 	JsChallenge                 *VirtualHostJsChallengeModel         `tfsdk:"js_challenge"`
-	NoAuthentication            *VirtualHostEmptyModel               `tfsdk:"no_authentication"`
-	NoChallenge                 *VirtualHostEmptyModel               `tfsdk:"no_challenge"`
-	NoRequestLimitPerConnection *VirtualHostEmptyModel               `tfsdk:"no_request_limit_per_connection"`
-	NonDefaultLoadBalancer      *VirtualHostEmptyModel               `tfsdk:"non_default_loadbalancer"`
-	PassThrough                 *VirtualHostEmptyModel               `tfsdk:"pass_through"`
 	RateLimiterAllowedPrefixes  types.List                           `tfsdk:"rate_limiter_allowed_prefixes"`
 	RequestCookiesToAdd         types.List                           `tfsdk:"request_cookies_to_add"`
 	RequestHeadersToAdd         types.List                           `tfsdk:"request_headers_to_add"`
@@ -1150,6 +1150,16 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"default_header": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for default header.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"default_loadbalancer": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: default_loadbalancer, non_default_loadbalancer; Default: default_loadbalancer] Configuration parameter for default loadbalancer.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
@@ -1157,6 +1167,11 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
+			},
+			"disable_path_normalize": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable_path_normalize, enable_path_normalize; Default: disable_path_normalize] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"domains": schema.ListAttribute{
 				MarkdownDescription: "List of domain names matched to this virtual host for routing incoming requests. Supports wildcard patterns like *.example.com for subdomain matching.",
@@ -1166,10 +1181,40 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					listvalidator.SizeBetween(1, 33),
 				},
 			},
+			"enable_path_normalize": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"no_authentication": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for no authentication.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_challenge": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for no challenge.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_request_limit_per_connection": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for no request limit per connection.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"non_default_loadbalancer": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for non default loadbalancer.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"pass_through": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for pass through.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"request_cookies_to_remove": schema.ListAttribute{
 				MarkdownDescription: "List of keys of Cookies to be removed from the HTTP request being sent towards upstream.",
@@ -1354,15 +1399,25 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"authentication": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: authentication, no_authentication; Default: no_authentication] Authentication related information. This allows to configure the URL to redirect after the authentication Authentication Object Reference, configuration of cookie params etc.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("auth_config")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("auth_config"), validators.ConflictingObjectAttributes("cookie_params", "use_auth_object_config"), validators.ConflictingObjectAttributes("redirect_dynamic", "redirect_url")},
 
 				Attributes: map[string]schema.Attribute{
+					"redirect_dynamic": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for redirect dynamic.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"redirect_url": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [redirect_dynamic] user can provide a URL for e.g https://abc.xyz.com where user gets redirected. This URL configured here must match with the redirect URL configured with the OIDC provider.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(1, 128),
 						},
+					},
+					"use_auth_object_config": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -1403,6 +1458,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 					"cookie_params": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies different cookie related config parameters for authentication.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("auth_hmac", "kms_key_hmac")},
 						Attributes: map[string]schema.Attribute{
 							"cookie_expiry": schema.Int64Attribute{
 								MarkdownDescription: "Specifies in seconds max duration of the allocated cookie. This maps to “Max-Age” attribute in the session cookie. This will act as an expiry duration on the client side after which client will not be setting the cookie as part of the request.",
@@ -1417,6 +1473,11 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 								Validators: []validator.Int64{
 									int64validator.AtMost(86400),
 								},
+							},
+							"kms_key_hmac": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for kms key hmac.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 							"session_expiry": schema.Int64Attribute{
 								MarkdownDescription: "Specifies in seconds max lifetime of an authenticated session after which the user will be forced to login again. Default session expiry is 86400 seconds(24 hours).",
@@ -1443,6 +1504,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 								Blocks: map[string]schema.Block{
 									"prim_key": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1487,6 +1549,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 									},
 									"sec_key": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1531,16 +1594,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 									},
 								},
 							},
-							"kms_key_hmac": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for kms key hmac.",
-							},
 						},
-					},
-					"redirect_dynamic": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for redirect dynamic.",
-					},
-					"use_auth_object_config": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 				},
 			},
@@ -1584,14 +1638,18 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"coalescing_options": schema.SingleNestedBlock{
 				MarkdownDescription: "TLS connection coalescing configuration (not compatible with mTLS).",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_coalescing", "strict_coalescing")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"default_coalescing": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"default_coalescing": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for default coalescing.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"strict_coalescing": schema.SingleNestedBlock{
+					"strict_coalescing": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for strict coalescing.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
@@ -1676,12 +1734,21 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"csrf_policy": schema.SingleNestedBlock{
 				MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("all_load_balancer_domains", "custom_domain_list"), validators.ConflictingObjectAttributes("all_load_balancer_domains", "disabled"), validators.ConflictingObjectAttributes("custom_domain_list", "disabled")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"all_load_balancer_domains": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"all_load_balancer_domains": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for all load balancer domains.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+					"disabled": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
+				Blocks: map[string]schema.Block{
 					"custom_domain_list": schema.SingleNestedBlock{
 						MarkdownDescription: "List of domain names used for Host header matching.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("domains")},
@@ -1696,19 +1763,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							},
 						},
 					},
-					"disabled": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 				},
-			},
-			"default_header": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for default header.",
-			},
-			"default_loadbalancer": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: default_loadbalancer, non_default_loadbalancer; Default: default_loadbalancer] Configuration parameter for default loadbalancer.",
-			},
-			"disable_path_normalize": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disable_path_normalize, enable_path_normalize; Default: disable_path_normalize] Enable this option",
 			},
 			"dynamic_reverse_proxy": schema.SingleNestedBlock{
 				MarkdownDescription: "In this mode of proxy, virtual host will resolve the destination endpoint dynamically. The dynamic resolution is done using a predefined field in the request. This predefined field depends on the ProxyType configured on the Virtual Host.",
@@ -1771,13 +1826,22 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 				},
 			},
-			"enable_path_normalize": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
 			"http_protocol_options": schema.SingleNestedBlock{
 				MarkdownDescription: "HTTP protocol configuration OPTIONS for downstream connections.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v1_v2"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_only", "http_protocol_enable_v2_only"), validators.ConflictingObjectAttributes("http_protocol_enable_v1_v2", "http_protocol_enable_v2_only")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"http_protocol_enable_v1_v2": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for http protocol enable v1 v2.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"http_protocol_enable_v2_only": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for http protocol enable v2 only.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
 					"http_protocol_enable_v1_only": schema.SingleNestedBlock{
 						MarkdownDescription: "HTTP/1.1 Protocol OPTIONS for downstream connections.",
@@ -1785,26 +1849,26 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						Blocks: map[string]schema.Block{
 							"header_transformation": schema.SingleNestedBlock{
 								MarkdownDescription: "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
-								Attributes:          map[string]schema.Attribute{},
-								Blocks: map[string]schema.Block{
-									"default_header_transformation": schema.SingleNestedBlock{
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation", "preserve_case_header_transformation"), validators.ConflictingObjectAttributes("default_header_transformation", "proper_case_header_transformation"), validators.ConflictingObjectAttributes("preserve_case_header_transformation", "proper_case_header_transformation")},
+								Attributes: map[string]schema.Attribute{
+									"default_header_transformation": schema.ObjectAttribute{
 										MarkdownDescription: "Use the platform's current default HTTP header transformation behavior.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"preserve_case_header_transformation": schema.SingleNestedBlock{
+									"preserve_case_header_transformation": schema.ObjectAttribute{
 										MarkdownDescription: "Preserve HTTP header-name case when upstream case must remain unchanged.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
-									"proper_case_header_transformation": schema.SingleNestedBlock{
+									"proper_case_header_transformation": schema.ObjectAttribute{
 										MarkdownDescription: "Transform HTTP header names to proper case when explicit transformation is required.",
+										Optional:            true,
+										AttributeTypes:      map[string]attr.Type{},
 									},
 								},
 							},
 						},
-					},
-					"http_protocol_enable_v1_v2": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for http protocol enable v1 v2.",
-					},
-					"http_protocol_enable_v2_only": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for http protocol enable v2 only.",
 					},
 				},
 			},
@@ -1835,21 +1899,6 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						},
 					},
 				},
-			},
-			"no_authentication": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for no authentication.",
-			},
-			"no_challenge": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for no challenge.",
-			},
-			"no_request_limit_per_connection": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for no request limit per connection.",
-			},
-			"non_default_loadbalancer": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for non default loadbalancer.",
-			},
-			"pass_through": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for pass through.",
 			},
 			"rate_limiter_allowed_prefixes": schema.ListNestedBlock{
 				MarkdownDescription: "References to ip_prefix_set objects. Requests from source IP addresses that are covered by one of the allowed IP Prefixes are not subjected to rate limiting.",
@@ -1889,7 +1938,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"request_cookies_to_add": schema.ListNestedBlock{
 				MarkdownDescription: "Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -1915,6 +1964,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					Blocks: map[string]schema.Block{
 						"secret_value": schema.SingleNestedBlock{
 							MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1962,7 +2012,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"request_headers_to_add": schema.ListNestedBlock{
 				MarkdownDescription: "Headers are key-value pairs to be added to HTTP request being routed towards upstream. Headers specified at this level are applied after headers from matched Route are applied.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -1988,6 +2038,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					Blocks: map[string]schema.Block{
 						"secret_value": schema.SingleNestedBlock{
 							MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2035,7 +2086,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"response_cookies_to_add": schema.ListNestedBlock{
 				MarkdownDescription: "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream. Cookies specified at this level are applied after cookies from matched Route are applied.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("add_domain", "ignore_domain"), validators.ConflictingListObjectAttributes("add_expiry", "ignore_expiry"), validators.ConflictingListObjectAttributes("add_httponly", "ignore_httponly"), validators.ConflictingListObjectAttributes("add_partitioned", "ignore_partitioned"), validators.ConflictingListObjectAttributes("add_path", "ignore_path"), validators.ConflictingListObjectAttributes("add_secure", "ignore_secure"), validators.ConflictingListObjectAttributes("ignore_max_age", "max_age_value"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_lax"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_none"), validators.ConflictingListObjectAttributes("ignore_samesite", "samesite_strict"), validators.ConflictingListObjectAttributes("ignore_value", "secret_value"), validators.ConflictingListObjectAttributes("ignore_value", "value"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_none"), validators.ConflictingListObjectAttributes("samesite_lax", "samesite_strict"), validators.ConflictingListObjectAttributes("samesite_none", "samesite_strict"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -2053,12 +2104,72 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 								stringvalidator.LengthAtMost(256),
 							},
 						},
+						"add_httponly": schema.ObjectAttribute{
+							MarkdownDescription: "Configuration parameter for add httponly.",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"add_partitioned": schema.ObjectAttribute{
+							MarkdownDescription: "Configuration parameter for add partitioned.",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
 						"add_path": schema.StringAttribute{
 							MarkdownDescription: "Exclusive with [ignore_path] Add path attribute.",
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.LengthAtMost(256),
 							},
+						},
+						"add_secure": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"ignore_domain": schema.ObjectAttribute{
+							MarkdownDescription: "Configuration parameter for ignore domain.",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"ignore_expiry": schema.ObjectAttribute{
+							MarkdownDescription: "Configuration parameter for ignore expiry.",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"ignore_httponly": schema.ObjectAttribute{
+							MarkdownDescription: "Configuration parameter for ignore httponly.",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"ignore_max_age": schema.ObjectAttribute{
+							MarkdownDescription: "Configuration parameter for ignore max age.",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"ignore_partitioned": schema.ObjectAttribute{
+							MarkdownDescription: "Configuration parameter for ignore partitioned.",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"ignore_path": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"ignore_samesite": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"ignore_secure": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"ignore_value": schema.ObjectAttribute{
+							MarkdownDescription: "Configuration parameter for ignore value.",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
 						},
 						"max_age_value": schema.Int64Attribute{
 							MarkdownDescription: "Exclusive with [ignore_max_age] Add max age attribute.",
@@ -2078,6 +2189,21 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							MarkdownDescription: "Should the value be overwritten? If true, the value is overwritten to existing values.  not overwrite. Defaults to `do`.",
 							Optional:            true,
 						},
+						"samesite_lax": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"samesite_none": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"samesite_strict": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
 						"value": schema.StringAttribute{
 							MarkdownDescription: "Exclusive with [ignore_value secret_value] Value of the Cookie header.",
 							Optional:            true,
@@ -2087,53 +2213,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						},
 					},
 					Blocks: map[string]schema.Block{
-						"add_httponly": schema.SingleNestedBlock{
-							MarkdownDescription: "Configuration parameter for add httponly.",
-						},
-						"add_partitioned": schema.SingleNestedBlock{
-							MarkdownDescription: "Configuration parameter for add partitioned.",
-						},
-						"add_secure": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
-						"ignore_domain": schema.SingleNestedBlock{
-							MarkdownDescription: "Configuration parameter for ignore domain.",
-						},
-						"ignore_expiry": schema.SingleNestedBlock{
-							MarkdownDescription: "Configuration parameter for ignore expiry.",
-						},
-						"ignore_httponly": schema.SingleNestedBlock{
-							MarkdownDescription: "Configuration parameter for ignore httponly.",
-						},
-						"ignore_max_age": schema.SingleNestedBlock{
-							MarkdownDescription: "Configuration parameter for ignore max age.",
-						},
-						"ignore_partitioned": schema.SingleNestedBlock{
-							MarkdownDescription: "Configuration parameter for ignore partitioned.",
-						},
-						"ignore_path": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
-						"ignore_samesite": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
-						"ignore_secure": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
-						"ignore_value": schema.SingleNestedBlock{
-							MarkdownDescription: "Configuration parameter for ignore value.",
-						},
-						"samesite_lax": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
-						"samesite_none": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
-						"samesite_strict": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
 						"secret_value": schema.SingleNestedBlock{
 							MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2181,7 +2263,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"response_headers_to_add": schema.ListNestedBlock{
 				MarkdownDescription: "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied after headers from matched Route are applied.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("name")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("name"), validators.ConflictingListObjectAttributes("secret_value", "value")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -2207,6 +2289,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					Blocks: map[string]schema.Block{
 						"secret_value": schema.SingleNestedBlock{
 							MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
 								"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2381,9 +2464,14 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"slow_ddos_mitigation": schema.SingleNestedBlock{
 				MarkdownDescription: "'Slow and low' attacks tie up server resources, leaving none available for servicing requests from actual users.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("request_headers_timeout")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("request_headers_timeout"), validators.ConflictingObjectAttributes("disable_request_timeout", "request_timeout")},
 
 				Attributes: map[string]schema.Attribute{
+					"disable_request_timeout": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable request timeout.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"request_headers_timeout": schema.Int64Attribute{
 						MarkdownDescription: "The amount of time the client has to send only the headers on the request stream before the stream is cancelled. The  milliseconds. This setting provides protection against Slowloris attacks. Defaults to `10000`.",
 						Optional:            true,
@@ -2399,21 +2487,26 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						},
 					},
 				},
-				Blocks: map[string]schema.Block{
-					"disable_request_timeout": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable request timeout.",
-					},
-				},
 			},
 			"tls_cert_params": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: tls_cert_params, tls_parameters] Certificate Parameters for authentication, TLS ciphers, and trust store.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("certificates"), validators.ConflictingObjectAttributes("client_certificate_optional", "client_certificate_required"), validators.ConflictingObjectAttributes("client_certificate_optional", "no_client_certificate"), validators.ConflictingObjectAttributes("client_certificate_required", "no_client_certificate")},
 
 				Attributes: map[string]schema.Attribute{
 					"cipher_suites": schema.ListAttribute{
 						MarkdownDescription: "The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256..",
 						Optional:            true,
 						ElementType:         types.StringType,
+					},
+					"client_certificate_optional": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"client_certificate_required": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 					"maximum_protocol_version": schema.StringAttribute{
 						MarkdownDescription: "[Enum: TLS_AUTO|TLSv1_0|TLSv1_1|TLSv1_2|TLSv1_3] TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are `TLS_AUTO`, `TLSv1_0`, `TLSv1_1`, `TLSv1_2`, `TLSv1_3`. Defaults to `TLS_AUTO`.",
@@ -2428,6 +2521,11 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						Validators: []validator.String{
 							stringvalidator.OneOf("TLS_AUTO", "TLSv1_0", "TLSv1_1", "TLSv1_2", "TLSv1_3"),
 						},
+					},
+					"no_client_certificate": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 					"xfcc_header_elements": schema.ListAttribute{
 						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be set in an mTLS enabled connections. If none are defined, the header will not be added. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
@@ -2471,17 +2569,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							},
 						},
 					},
-					"client_certificate_optional": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"client_certificate_required": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_client_certificate": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"validation_params": schema.SingleNestedBlock{
 						MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url")},
 						Attributes: map[string]schema.Attribute{
 							"skip_hostname_verification": schema.BoolAttribute{
 								MarkdownDescription: "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
@@ -2548,8 +2638,24 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"tls_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "TLS configuration for downstream connections.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("client_certificate_optional", "client_certificate_required"), validators.ConflictingObjectAttributes("client_certificate_optional", "no_client_certificate"), validators.ConflictingObjectAttributes("client_certificate_required", "no_client_certificate")},
 
 				Attributes: map[string]schema.Attribute{
+					"client_certificate_optional": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"client_certificate_required": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_client_certificate": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"xfcc_header_elements": schema.ListAttribute{
 						MarkdownDescription: "[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be set in an mTLS enabled connections. If none are defined, the header will not be added. Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`. Defaults to `XFCC_NONE`.",
 						Optional:            true,
@@ -2557,12 +2663,6 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					},
 				},
 				Blocks: map[string]schema.Block{
-					"client_certificate_optional": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"client_certificate_required": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"common_params": schema.SingleNestedBlock{
 						MarkdownDescription: "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
 						Attributes: map[string]schema.Attribute{
@@ -2589,7 +2689,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						Blocks: map[string]schema.Block{
 							"tls_certificates": schema.ListNestedBlock{
 								MarkdownDescription: "TLS Certificates. Set of TLS certificates.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"certificate_url": schema.StringAttribute{
@@ -2602,6 +2702,16 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 										"description_spec": schema.StringAttribute{
 											MarkdownDescription: "Description. Description for the certificate.",
 											Optional:            true,
+										},
+										"disable_ocsp_stapling": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"use_system_defaults": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for use system defaults.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -2619,11 +2729,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 												},
 											},
 										},
-										"disable_ocsp_stapling": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
-										},
 										"private_key": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2666,14 +2774,12 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 												},
 											},
 										},
-										"use_system_defaults": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for use system defaults.",
-										},
 									},
 								},
 							},
 							"validation_params": schema.SingleNestedBlock{
 								MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url")},
 								Attributes: map[string]schema.Attribute{
 									"skip_hostname_verification": schema.BoolAttribute{
 										MarkdownDescription: "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
@@ -2738,9 +2844,6 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							},
 						},
 					},
-					"no_client_certificate": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 				},
 			},
 			"user_identification": schema.ListNestedBlock{
@@ -2781,8 +2884,20 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"waf_type": schema.SingleNestedBlock{
 				MarkdownDescription: "WAF instance will be pointing to an app_firewall object.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("app_firewall", "disable_waf"), validators.ConflictingObjectAttributes("app_firewall", "inherit_waf"), validators.ConflictingObjectAttributes("disable_waf", "inherit_waf")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"disable_waf": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable waf.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"inherit_waf": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for inherit waf.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
 					"app_firewall": schema.SingleNestedBlock{
 						MarkdownDescription: "List of references to the app_firewall configuration objects.",
@@ -2826,12 +2941,6 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							},
 						},
 					},
-					"disable_waf": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable waf.",
-					},
-					"inherit_waf": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for inherit waf.",
-					},
 				},
 			},
 		},
@@ -2860,7 +2969,63 @@ func (r *VirtualHostResource) ValidateConfig(ctx context.Context, req resource.V
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.AppendServerName.IsNull() && !data.ServerName.IsNull() {
+	if !data.DefaultHeader.IsNull() && !data.DefaultHeader.IsUnknown() && !data.AppendServerName.IsNull() && !data.AppendServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_header"),
+			"Conflicting Configuration",
+			"default_header and append_server_name are mutually exclusive.",
+		)
+	}
+	if !data.DefaultHeader.IsNull() && !data.DefaultHeader.IsUnknown() && !data.PassThrough.IsNull() && !data.PassThrough.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_header"),
+			"Conflicting Configuration",
+			"default_header and pass_through are mutually exclusive.",
+		)
+	}
+	if !data.DefaultHeader.IsNull() && !data.DefaultHeader.IsUnknown() && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_header"),
+			"Conflicting Configuration",
+			"default_header and server_name are mutually exclusive.",
+		)
+	}
+	if !data.DefaultLoadBalancer.IsNull() && !data.DefaultLoadBalancer.IsUnknown() && !data.NonDefaultLoadBalancer.IsNull() && !data.NonDefaultLoadBalancer.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("default_loadbalancer"),
+			"Conflicting Configuration",
+			"default_loadbalancer and non_default_loadbalancer are mutually exclusive.",
+		)
+	}
+	if !data.DisablePathNormalize.IsNull() && !data.DisablePathNormalize.IsUnknown() && !data.EnablePathNormalize.IsNull() && !data.EnablePathNormalize.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_path_normalize"),
+			"Conflicting Configuration",
+			"disable_path_normalize and enable_path_normalize are mutually exclusive.",
+		)
+	}
+	if !data.NoRequestLimitPerConnection.IsNull() && !data.NoRequestLimitPerConnection.IsUnknown() && !data.MaxRequestsPerConnection.IsNull() && !data.MaxRequestsPerConnection.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("no_request_limit_per_connection"),
+			"Conflicting Configuration",
+			"no_request_limit_per_connection and max_requests_per_connection are mutually exclusive.",
+		)
+	}
+	if !data.PassThrough.IsNull() && !data.PassThrough.IsUnknown() && !data.AppendServerName.IsNull() && !data.AppendServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("pass_through"),
+			"Conflicting Configuration",
+			"pass_through and append_server_name are mutually exclusive.",
+		)
+	}
+	if !data.PassThrough.IsNull() && !data.PassThrough.IsUnknown() && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("pass_through"),
+			"Conflicting Configuration",
+			"pass_through and server_name are mutually exclusive.",
+		)
+	}
+	if !data.AppendServerName.IsNull() && !data.AppendServerName.IsUnknown() && !data.ServerName.IsNull() && !data.ServerName.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("append_server_name"),
 			"Conflicting Configuration",
@@ -3080,7 +3245,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			if !data.Authentication.CookieParams.CookieRefreshInterval.IsNull() && !data.Authentication.CookieParams.CookieRefreshInterval.IsUnknown() {
 				AuthenticationCookieParamsMap["cookie_refresh_interval"] = data.Authentication.CookieParams.CookieRefreshInterval.ValueInt64()
 			}
-			if data.Authentication.CookieParams.KmsKeyHMAC != nil {
+			if !data.Authentication.CookieParams.KmsKeyHMAC.IsNull() && !data.Authentication.CookieParams.KmsKeyHMAC.IsUnknown() {
 				AuthenticationCookieParamsMap["kms_key_hmac"] = map[string]interface{}{}
 			}
 			if !data.Authentication.CookieParams.SessionExpiry.IsNull() && !data.Authentication.CookieParams.SessionExpiry.IsUnknown() {
@@ -3088,13 +3253,13 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			}
 			AuthenticationMap["cookie_params"] = AuthenticationCookieParamsMap
 		}
-		if data.Authentication.RedirectDynamic != nil {
+		if !data.Authentication.RedirectDynamic.IsNull() && !data.Authentication.RedirectDynamic.IsUnknown() {
 			AuthenticationMap["redirect_dynamic"] = map[string]interface{}{}
 		}
 		if !data.Authentication.RedirectURL.IsNull() && !data.Authentication.RedirectURL.IsUnknown() {
 			AuthenticationMap["redirect_url"] = data.Authentication.RedirectURL.ValueString()
 		}
-		if data.Authentication.UseAuthObjectConfig != nil {
+		if !data.Authentication.UseAuthObjectConfig.IsNull() && !data.Authentication.UseAuthObjectConfig.IsUnknown() {
 			AuthenticationMap["use_auth_object_config"] = map[string]interface{}{}
 		}
 		createReq.Spec["authentication"] = AuthenticationMap
@@ -3121,10 +3286,10 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	}
 	if data.CoalescingOptions != nil {
 		CoalescingOptionsMap := make(map[string]interface{})
-		if data.CoalescingOptions.DefaultCoalescing != nil {
+		if !data.CoalescingOptions.DefaultCoalescing.IsNull() && !data.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 			CoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
 		}
-		if data.CoalescingOptions.StrictCoalescing != nil {
+		if !data.CoalescingOptions.StrictCoalescing.IsNull() && !data.CoalescingOptions.StrictCoalescing.IsUnknown() {
 			CoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
 		}
 		createReq.Spec["coalescing_options"] = CoalescingOptionsMap
@@ -3190,7 +3355,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	}
 	if data.CSRFPolicy != nil {
 		CSRFPolicyMap := make(map[string]interface{})
-		if data.CSRFPolicy.AllLoadBalancerDomains != nil {
+		if !data.CSRFPolicy.AllLoadBalancerDomains.IsNull() && !data.CSRFPolicy.AllLoadBalancerDomains.IsUnknown() {
 			CSRFPolicyMap["all_load_balancer_domains"] = map[string]interface{}{}
 		}
 		if data.CSRFPolicy.CustomDomainList != nil {
@@ -3205,7 +3370,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			}
 			CSRFPolicyMap["custom_domain_list"] = CSRFPolicyCustomDomainListMap
 		}
-		if data.CSRFPolicy.Disabled != nil {
+		if !data.CSRFPolicy.Disabled.IsNull() && !data.CSRFPolicy.Disabled.IsUnknown() {
 			CSRFPolicyMap["disabled"] = map[string]interface{}{}
 		}
 		createReq.Spec["csrf_policy"] = CSRFPolicyMap
@@ -3218,13 +3383,13 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			createReq.Spec["custom_errors"] = CustomErrorsMap
 		}
 	}
-	if data.DefaultHeader != nil {
+	if !data.DefaultHeader.IsNull() && !data.DefaultHeader.IsUnknown() {
 		createReq.Spec["default_header"] = map[string]interface{}{}
 	}
-	if data.DefaultLoadBalancer != nil {
+	if !data.DefaultLoadBalancer.IsNull() && !data.DefaultLoadBalancer.IsUnknown() {
 		createReq.Spec["default_loadbalancer"] = map[string]interface{}{}
 	}
-	if data.DisablePathNormalize != nil {
+	if !data.DisablePathNormalize.IsNull() && !data.DisablePathNormalize.IsUnknown() {
 		createReq.Spec["disable_path_normalize"] = map[string]interface{}{}
 	}
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
@@ -3267,7 +3432,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		}
 		createReq.Spec["dynamic_reverse_proxy"] = DynamicReverseProxyMap
 	}
-	if data.EnablePathNormalize != nil {
+	if !data.EnablePathNormalize.IsNull() && !data.EnablePathNormalize.IsUnknown() {
 		createReq.Spec["enable_path_normalize"] = map[string]interface{}{}
 	}
 	if data.HTTPProtocolOptions != nil {
@@ -3276,23 +3441,23 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			HTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
 			if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 				HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
-				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
+				if !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsNull() && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 				}
-				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+				if !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsNull() && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 				}
-				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+				if !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsNull() && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 				}
 				HTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap["header_transformation"] = HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap
 			}
 			HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap
 		}
-		if data.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
+		if !data.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsNull() && !data.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 			HTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
 		}
-		if data.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
+		if !data.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsNull() && !data.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 			HTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
 		}
 		createReq.Spec["http_protocol_options"] = HTTPProtocolOptionsMap
@@ -3310,19 +3475,19 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		}
 		createReq.Spec["js_challenge"] = JsChallengeMap
 	}
-	if data.NoAuthentication != nil {
+	if !data.NoAuthentication.IsNull() && !data.NoAuthentication.IsUnknown() {
 		createReq.Spec["no_authentication"] = map[string]interface{}{}
 	}
-	if data.NoChallenge != nil {
+	if !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
 		createReq.Spec["no_challenge"] = map[string]interface{}{}
 	}
-	if data.NoRequestLimitPerConnection != nil {
+	if !data.NoRequestLimitPerConnection.IsNull() && !data.NoRequestLimitPerConnection.IsUnknown() {
 		createReq.Spec["no_request_limit_per_connection"] = map[string]interface{}{}
 	}
-	if data.NonDefaultLoadBalancer != nil {
+	if !data.NonDefaultLoadBalancer.IsNull() && !data.NonDefaultLoadBalancer.IsUnknown() {
 		createReq.Spec["non_default_loadbalancer"] = map[string]interface{}{}
 	}
-	if data.PassThrough != nil {
+	if !data.PassThrough.IsNull() && !data.PassThrough.IsUnknown() {
 		createReq.Spec["pass_through"] = map[string]interface{}{}
 	}
 	if !data.RateLimiterAllowedPrefixes.IsNull() && !data.RateLimiterAllowedPrefixes.IsUnknown() {
@@ -3472,43 +3637,43 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
 					ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
 				}
-				if ResponseCookiesToAddItem.AddHttponly != nil {
+				if !ResponseCookiesToAddItem.AddHttponly.IsNull() && !ResponseCookiesToAddItem.AddHttponly.IsUnknown() {
 					ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.AddPartitioned != nil {
+				if !ResponseCookiesToAddItem.AddPartitioned.IsNull() && !ResponseCookiesToAddItem.AddPartitioned.IsUnknown() {
 					ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
 				}
 				if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
 					ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
 				}
-				if ResponseCookiesToAddItem.AddSecure != nil {
+				if !ResponseCookiesToAddItem.AddSecure.IsNull() && !ResponseCookiesToAddItem.AddSecure.IsUnknown() {
 					ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreDomain != nil {
+				if !ResponseCookiesToAddItem.IgnoreDomain.IsNull() && !ResponseCookiesToAddItem.IgnoreDomain.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+				if !ResponseCookiesToAddItem.IgnoreExpiry.IsNull() && !ResponseCookiesToAddItem.IgnoreExpiry.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+				if !ResponseCookiesToAddItem.IgnoreHttponly.IsNull() && !ResponseCookiesToAddItem.IgnoreHttponly.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+				if !ResponseCookiesToAddItem.IgnoreMaxAge.IsNull() && !ResponseCookiesToAddItem.IgnoreMaxAge.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+				if !ResponseCookiesToAddItem.IgnorePartitioned.IsNull() && !ResponseCookiesToAddItem.IgnorePartitioned.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnorePath != nil {
+				if !ResponseCookiesToAddItem.IgnorePath.IsNull() && !ResponseCookiesToAddItem.IgnorePath.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+				if !ResponseCookiesToAddItem.IgnoreSamesite.IsNull() && !ResponseCookiesToAddItem.IgnoreSamesite.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreSecure != nil {
+				if !ResponseCookiesToAddItem.IgnoreSecure.IsNull() && !ResponseCookiesToAddItem.IgnoreSecure.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreValue != nil {
+				if !ResponseCookiesToAddItem.IgnoreValue.IsNull() && !ResponseCookiesToAddItem.IgnoreValue.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
 				}
 				if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
@@ -3520,13 +3685,13 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
 					ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
 				}
-				if ResponseCookiesToAddItem.SamesiteLax != nil {
+				if !ResponseCookiesToAddItem.SamesiteLax.IsNull() && !ResponseCookiesToAddItem.SamesiteLax.IsUnknown() {
 					ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.SamesiteNone != nil {
+				if !ResponseCookiesToAddItem.SamesiteNone.IsNull() && !ResponseCookiesToAddItem.SamesiteNone.IsUnknown() {
 					ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.SamesiteStrict != nil {
+				if !ResponseCookiesToAddItem.SamesiteStrict.IsNull() && !ResponseCookiesToAddItem.SamesiteStrict.IsUnknown() {
 					ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
 				}
 				if ResponseCookiesToAddItem.SecretValue != nil {
@@ -3705,7 +3870,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	}
 	if data.SlowDDOSMitigation != nil {
 		SlowDDOSMitigationMap := make(map[string]interface{})
-		if data.SlowDDOSMitigation.DisableRequestTimeout != nil {
+		if !data.SlowDDOSMitigation.DisableRequestTimeout.IsNull() && !data.SlowDDOSMitigation.DisableRequestTimeout.IsUnknown() {
 			SlowDDOSMitigationMap["disable_request_timeout"] = map[string]interface{}{}
 		}
 		if !data.SlowDDOSMitigation.RequestHeadersTimeout.IsNull() && !data.SlowDDOSMitigation.RequestHeadersTimeout.IsUnknown() {
@@ -3745,10 +3910,10 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				TLSCertParamsMap["cipher_suites"] = CipherSuitesItems
 			}
 		}
-		if data.TLSCertParams.ClientCertificateOptional != nil {
+		if !data.TLSCertParams.ClientCertificateOptional.IsNull() && !data.TLSCertParams.ClientCertificateOptional.IsUnknown() {
 			TLSCertParamsMap["client_certificate_optional"] = map[string]interface{}{}
 		}
-		if data.TLSCertParams.ClientCertificateRequired != nil {
+		if !data.TLSCertParams.ClientCertificateRequired.IsNull() && !data.TLSCertParams.ClientCertificateRequired.IsUnknown() {
 			TLSCertParamsMap["client_certificate_required"] = map[string]interface{}{}
 		}
 		if !data.TLSCertParams.MaximumProtocolVersion.IsNull() && !data.TLSCertParams.MaximumProtocolVersion.IsUnknown() {
@@ -3757,7 +3922,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.TLSCertParams.MinimumProtocolVersion.IsNull() && !data.TLSCertParams.MinimumProtocolVersion.IsUnknown() {
 			TLSCertParamsMap["minimum_protocol_version"] = data.TLSCertParams.MinimumProtocolVersion.ValueString()
 		}
-		if data.TLSCertParams.NoClientCertificate != nil {
+		if !data.TLSCertParams.NoClientCertificate.IsNull() && !data.TLSCertParams.NoClientCertificate.IsUnknown() {
 			TLSCertParamsMap["no_client_certificate"] = map[string]interface{}{}
 		}
 		if data.TLSCertParams.ValidationParams != nil {
@@ -3813,10 +3978,10 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	}
 	if data.TLSParameters != nil {
 		TLSParametersMap := make(map[string]interface{})
-		if data.TLSParameters.ClientCertificateOptional != nil {
+		if !data.TLSParameters.ClientCertificateOptional.IsNull() && !data.TLSParameters.ClientCertificateOptional.IsUnknown() {
 			TLSParametersMap["client_certificate_optional"] = map[string]interface{}{}
 		}
-		if data.TLSParameters.ClientCertificateRequired != nil {
+		if !data.TLSParameters.ClientCertificateRequired.IsNull() && !data.TLSParameters.ClientCertificateRequired.IsUnknown() {
 			TLSParametersMap["client_certificate_required"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.CommonParams != nil {
@@ -3861,7 +4026,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
+						if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
@@ -3891,7 +4056,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							}
 							TLSCertificatesItemMap["private_key"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyMap
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
+						if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -3942,7 +4107,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			}
 			TLSParametersMap["common_params"] = TLSParametersCommonParamsMap
 		}
-		if data.TLSParameters.NoClientCertificate != nil {
+		if !data.TLSParameters.NoClientCertificate.IsNull() && !data.TLSParameters.NoClientCertificate.IsUnknown() {
 			TLSParametersMap["no_client_certificate"] = map[string]interface{}{}
 		}
 		if !data.TLSParameters.XfccHeaderElements.IsNull() && !data.TLSParameters.XfccHeaderElements.IsUnknown() {
@@ -3999,10 +4164,10 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			}
 			WAFTypeMap["app_firewall"] = WAFTypeAppFirewallMap
 		}
-		if data.WAFType.DisableWAF != nil {
+		if !data.WAFType.DisableWAF.IsNull() && !data.WAFType.DisableWAF.IsUnknown() {
 			WAFTypeMap["disable_waf"] = map[string]interface{}{}
 		}
-		if data.WAFType.InheritWAF != nil {
+		if !data.WAFType.InheritWAF.IsNull() && !data.WAFType.InheritWAF.IsUnknown() {
 			WAFTypeMap["inherit_waf"] = map[string]interface{}{}
 		}
 		createReq.Spec["waf_type"] = WAFTypeMap
@@ -4349,14 +4514,14 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							}
 							return types.Int64Null()
 						}(),
-						KmsKeyHMAC: func() *VirtualHostEmptyModel {
-							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil {
+						KmsKeyHMAC: func() types.Object {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.KmsKeyHMAC.IsUnknown() {
 								return data.Authentication.CookieParams.KmsKeyHMAC
 							}
 							if _, ok := CookieParamsData["kms_key_hmac"].(map[string]interface{}); ok {
-								return &VirtualHostEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						SessionExpiry: func() types.Int64 {
 							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.SessionExpiry.IsUnknown() {
@@ -4371,14 +4536,14 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return nil
 			}(),
-			RedirectDynamic: func() *VirtualHostEmptyModel {
-				if !isImport && data.Authentication != nil {
+			RedirectDynamic: func() types.Object {
+				if !isImport && data.Authentication != nil && !data.Authentication.RedirectDynamic.IsUnknown() {
 					return data.Authentication.RedirectDynamic
 				}
 				if _, ok := blockData["redirect_dynamic"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			RedirectURL: func() types.String {
 				if v, ok := blockData["redirect_url"].(string); ok && v != "" {
@@ -4386,14 +4551,14 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return types.StringNull()
 			}(),
-			UseAuthObjectConfig: func() *VirtualHostEmptyModel {
-				if !isImport && data.Authentication != nil {
+			UseAuthObjectConfig: func() types.Object {
+				if !isImport && data.Authentication != nil && !data.Authentication.UseAuthObjectConfig.IsUnknown() {
 					return data.Authentication.UseAuthObjectConfig
 				}
 				if _, ok := blockData["use_auth_object_config"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -4440,23 +4605,23 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	}
 	if blockData, ok := apiResource.Spec["coalescing_options"].(map[string]interface{}); ok && (isImport || data.CoalescingOptions != nil) {
 		data.CoalescingOptions = &VirtualHostCoalescingOptionsModel{
-			DefaultCoalescing: func() *VirtualHostEmptyModel {
-				if !isImport && data.CoalescingOptions != nil {
+			DefaultCoalescing: func() types.Object {
+				if !isImport && data.CoalescingOptions != nil && !data.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 					return data.CoalescingOptions.DefaultCoalescing
 				}
 				if _, ok := blockData["default_coalescing"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			StrictCoalescing: func() *VirtualHostEmptyModel {
-				if !isImport && data.CoalescingOptions != nil {
+			StrictCoalescing: func() types.Object {
+				if !isImport && data.CoalescingOptions != nil && !data.CoalescingOptions.StrictCoalescing.IsUnknown() {
 					return data.CoalescingOptions.StrictCoalescing
 				}
 				if _, ok := blockData["strict_coalescing"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -4584,14 +4749,14 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	}
 	if blockData, ok := apiResource.Spec["csrf_policy"].(map[string]interface{}); ok && (isImport || data.CSRFPolicy != nil) {
 		data.CSRFPolicy = &VirtualHostCSRFPolicyModel{
-			AllLoadBalancerDomains: func() *VirtualHostEmptyModel {
-				if !isImport && data.CSRFPolicy != nil {
+			AllLoadBalancerDomains: func() types.Object {
+				if !isImport && data.CSRFPolicy != nil && !data.CSRFPolicy.AllLoadBalancerDomains.IsUnknown() {
 					return data.CSRFPolicy.AllLoadBalancerDomains
 				}
 				if _, ok := blockData["all_load_balancer_domains"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CustomDomainList: func() *VirtualHostCSRFPolicyCustomDomainListModel {
 				if !isImport && data.CSRFPolicy != nil && data.CSRFPolicy.CustomDomainList != nil {
@@ -4617,26 +4782,38 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return nil
 			}(),
-			Disabled: func() *VirtualHostEmptyModel {
-				if !isImport && data.CSRFPolicy != nil {
+			Disabled: func() types.Object {
+				if !isImport && data.CSRFPolicy != nil && !data.CSRFPolicy.Disabled.IsUnknown() {
 					return data.CSRFPolicy.Disabled
 				}
 				if _, ok := blockData["disabled"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	data.CustomErrors = UnmarshalStringMapForRead(ctx, apiResource.Spec["custom_errors"], data.CustomErrors, "custom_errors", isImport, &resp.Diagnostics)
-	if _, ok := apiResource.Spec["default_header"].(map[string]interface{}); ok && isImport && data.DefaultHeader == nil {
-		data.DefaultHeader = &VirtualHostEmptyModel{}
+	if !isImport && !data.DefaultHeader.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_header"].(map[string]interface{}); ok {
+		data.DefaultHeader = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultHeader = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["default_loadbalancer"].(map[string]interface{}); ok && isImport && data.DefaultLoadBalancer == nil {
-		data.DefaultLoadBalancer = &VirtualHostEmptyModel{}
+	if !isImport && !data.DefaultLoadBalancer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_loadbalancer"].(map[string]interface{}); ok {
+		data.DefaultLoadBalancer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultLoadBalancer = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_path_normalize"].(map[string]interface{}); ok && isImport && data.DisablePathNormalize == nil {
-		data.DisablePathNormalize = &VirtualHostEmptyModel{}
+	if !isImport && !data.DisablePathNormalize.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_path_normalize"].(map[string]interface{}); ok {
+		data.DisablePathNormalize = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisablePathNormalize = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
 		domainsList := make([]string, 0, len(v))
@@ -4733,8 +4910,12 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["enable_path_normalize"].(map[string]interface{}); ok && isImport && data.EnablePathNormalize == nil {
-		data.EnablePathNormalize = &VirtualHostEmptyModel{}
+	if !isImport && !data.EnablePathNormalize.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_path_normalize"].(map[string]interface{}); ok {
+		data.EnablePathNormalize = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnablePathNormalize = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["http_protocol_options"].(map[string]interface{}); ok && (isImport || data.HTTPProtocolOptions != nil) {
 		data.HTTPProtocolOptions = &VirtualHostHTTPProtocolOptionsModel{
@@ -4750,32 +4931,32 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							}
 							if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
 								return &VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
-									DefaultHeaderTransformation: func() *VirtualHostEmptyModel {
-										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+									DefaultHeaderTransformation: func() types.Object {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-											return &VirtualHostEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									PreserveCaseHeaderTransformation: func() *VirtualHostEmptyModel {
-										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+									PreserveCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-											return &VirtualHostEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									ProperCaseHeaderTransformation: func() *VirtualHostEmptyModel {
-										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+									ProperCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-											return &VirtualHostEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -4785,23 +4966,23 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return nil
 			}(),
-			HTTPProtocolEnableV1V2: func() *VirtualHostEmptyModel {
-				if !isImport && data.HTTPProtocolOptions != nil {
+			HTTPProtocolEnableV1V2: func() types.Object {
+				if !isImport && data.HTTPProtocolOptions != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 					return data.HTTPProtocolOptions.HTTPProtocolEnableV1V2
 				}
 				if _, ok := blockData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			HTTPProtocolEnableV2Only: func() *VirtualHostEmptyModel {
-				if !isImport && data.HTTPProtocolOptions != nil {
+			HTTPProtocolEnableV2Only: func() types.Object {
+				if !isImport && data.HTTPProtocolOptions != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 					return data.HTTPProtocolOptions.HTTPProtocolEnableV2Only
 				}
 				if _, ok := blockData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -4833,20 +5014,40 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["no_authentication"].(map[string]interface{}); ok && isImport && data.NoAuthentication == nil {
-		data.NoAuthentication = &VirtualHostEmptyModel{}
+	if !isImport && !data.NoAuthentication.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_authentication"].(map[string]interface{}); ok {
+		data.NoAuthentication = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoAuthentication = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_challenge"].(map[string]interface{}); ok && isImport && data.NoChallenge == nil {
-		data.NoChallenge = &VirtualHostEmptyModel{}
+	if !isImport && !data.NoChallenge.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_challenge"].(map[string]interface{}); ok {
+		data.NoChallenge = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoChallenge = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok && isImport && data.NoRequestLimitPerConnection == nil {
-		data.NoRequestLimitPerConnection = &VirtualHostEmptyModel{}
+	if !isImport && !data.NoRequestLimitPerConnection.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok {
+		data.NoRequestLimitPerConnection = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoRequestLimitPerConnection = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["non_default_loadbalancer"].(map[string]interface{}); ok && isImport && data.NonDefaultLoadBalancer == nil {
-		data.NonDefaultLoadBalancer = &VirtualHostEmptyModel{}
+	if !isImport && !data.NonDefaultLoadBalancer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["non_default_loadbalancer"].(map[string]interface{}); ok {
+		data.NonDefaultLoadBalancer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NonDefaultLoadBalancer = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["pass_through"].(map[string]interface{}); ok && isImport && data.PassThrough == nil {
-		data.PassThrough = &VirtualHostEmptyModel{}
+	if !isImport && !data.PassThrough.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["pass_through"].(map[string]interface{}); ok {
+		data.PassThrough = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.PassThrough = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.RateLimiterAllowedPrefixes.IsNull() || len(data.RateLimiterAllowedPrefixes.Elements()) == 0) {
 		data.RateLimiterAllowedPrefixes = types.ListNull(types.ObjectType{AttrTypes: VirtualHostRateLimiterAllowedPrefixesModelAttrTypes})
@@ -5151,23 +5352,23 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						}
 						return types.StringNull()
 					}(),
-					AddHttponly: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					AddHttponly: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].AddHttponly.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].AddHttponly
 						}
 						if _, ok := itemMap["add_httponly"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					AddPartitioned: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					AddPartitioned: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].AddPartitioned.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].AddPartitioned
 						}
 						if _, ok := itemMap["add_partitioned"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					AddPath: func() types.String {
 						if v, ok := itemMap["add_path"].(string); ok && v != "" {
@@ -5175,95 +5376,95 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						}
 						return types.StringNull()
 					}(),
-					AddSecure: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					AddSecure: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].AddSecure.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].AddSecure
 						}
 						if _, ok := itemMap["add_secure"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreDomain: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreDomain: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreDomain.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreDomain
 						}
 						if _, ok := itemMap["ignore_domain"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreExpiry: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreExpiry: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreExpiry.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreExpiry
 						}
 						if _, ok := itemMap["ignore_expiry"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreHttponly: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreHttponly: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreHttponly.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreHttponly
 						}
 						if _, ok := itemMap["ignore_httponly"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreMaxAge: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreMaxAge: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreMaxAge.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreMaxAge
 						}
 						if _, ok := itemMap["ignore_max_age"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnorePartitioned: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnorePartitioned: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnorePartitioned.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnorePartitioned
 						}
 						if _, ok := itemMap["ignore_partitioned"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnorePath: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnorePath: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnorePath.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnorePath
 						}
 						if _, ok := itemMap["ignore_path"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreSamesite: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreSamesite: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreSamesite.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreSamesite
 						}
 						if _, ok := itemMap["ignore_samesite"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreSecure: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreSecure: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreSecure.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreSecure
 						}
 						if _, ok := itemMap["ignore_secure"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreValue: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreValue: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreValue.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreValue
 						}
 						if _, ok := itemMap["ignore_value"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					MaxAgeValue: func() types.Int64 {
 						if v, ok := itemMap["max_age_value"].(float64); ok && v != 0 {
@@ -5283,32 +5484,32 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						}
 						return types.BoolNull()
 					}(),
-					SamesiteLax: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					SamesiteLax: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].SamesiteLax.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].SamesiteLax
 						}
 						if _, ok := itemMap["samesite_lax"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					SamesiteNone: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					SamesiteNone: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].SamesiteNone.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].SamesiteNone
 						}
 						if _, ok := itemMap["samesite_none"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					SamesiteStrict: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					SamesiteStrict: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].SamesiteStrict.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].SamesiteStrict
 						}
 						if _, ok := itemMap["samesite_strict"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					SecretValue: func() *VirtualHostResponseCookiesToAddSecretValueModel {
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
@@ -5698,14 +5899,14 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	}
 	if blockData, ok := apiResource.Spec["slow_ddos_mitigation"].(map[string]interface{}); ok && (isImport || data.SlowDDOSMitigation != nil) {
 		data.SlowDDOSMitigation = &VirtualHostSlowDDOSMitigationModel{
-			DisableRequestTimeout: func() *VirtualHostEmptyModel {
-				if !isImport && data.SlowDDOSMitigation != nil {
+			DisableRequestTimeout: func() types.Object {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.DisableRequestTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.DisableRequestTimeout
 				}
 				if _, ok := blockData["disable_request_timeout"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			RequestHeadersTimeout: func() types.Int64 {
 				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestHeadersTimeout.IsUnknown() {
@@ -5795,23 +5996,23 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			ClientCertificateOptional: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSCertParams != nil {
+			ClientCertificateOptional: func() types.Object {
+				if !isImport && data.TLSCertParams != nil && !data.TLSCertParams.ClientCertificateOptional.IsUnknown() {
 					return data.TLSCertParams.ClientCertificateOptional
 				}
 				if _, ok := blockData["client_certificate_optional"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ClientCertificateRequired: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSCertParams != nil {
+			ClientCertificateRequired: func() types.Object {
+				if !isImport && data.TLSCertParams != nil && !data.TLSCertParams.ClientCertificateRequired.IsUnknown() {
 					return data.TLSCertParams.ClientCertificateRequired
 				}
 				if _, ok := blockData["client_certificate_required"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			MaximumProtocolVersion: func() types.String {
 				if v, ok := blockData["maximum_protocol_version"].(string); ok && v != "" {
@@ -5825,14 +6026,14 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return types.StringNull()
 			}(),
-			NoClientCertificate: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSCertParams != nil {
+			NoClientCertificate: func() types.Object {
+				if !isImport && data.TLSCertParams != nil && !data.TLSCertParams.NoClientCertificate.IsUnknown() {
 					return data.TLSCertParams.NoClientCertificate
 				}
 				if _, ok := blockData["no_client_certificate"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			ValidationParams: func() *VirtualHostTLSCertParamsValidationParamsModel {
 				if ValidationParamsData, ok := blockData["validation_params"].(map[string]interface{}); ok {
@@ -5947,23 +6148,23 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &VirtualHostTLSParametersModel{
-			ClientCertificateOptional: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			ClientCertificateOptional: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateOptional.IsUnknown() {
 					return data.TLSParameters.ClientCertificateOptional
 				}
 				if _, ok := blockData["client_certificate_optional"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ClientCertificateRequired: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			ClientCertificateRequired: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateRequired.IsUnknown() {
 					return data.TLSParameters.ClientCertificateRequired
 				}
 				if _, ok := blockData["client_certificate_required"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CommonParams: func() *VirtualHostTLSParametersCommonParamsModel {
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
@@ -6041,14 +6242,14 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *VirtualHostEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &VirtualHostEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -6107,14 +6308,14 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *VirtualHostEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &VirtualHostEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -6223,14 +6424,14 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return nil
 			}(),
-			NoClientCertificate: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			NoClientCertificate: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.NoClientCertificate.IsUnknown() {
 					return data.TLSParameters.NoClientCertificate
 				}
 				if _, ok := blockData["no_client_certificate"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			XfccHeaderElements: func() types.List {
 				if v, ok := blockData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
@@ -6362,23 +6563,23 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return nil
 			}(),
-			DisableWAF: func() *VirtualHostEmptyModel {
-				if !isImport && data.WAFType != nil {
+			DisableWAF: func() types.Object {
+				if !isImport && data.WAFType != nil && !data.WAFType.DisableWAF.IsUnknown() {
 					return data.WAFType.DisableWAF
 				}
 				if _, ok := blockData["disable_waf"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			InheritWAF: func() *VirtualHostEmptyModel {
-				if !isImport && data.WAFType != nil {
+			InheritWAF: func() types.Object {
+				if !isImport && data.WAFType != nil && !data.WAFType.InheritWAF.IsUnknown() {
 					return data.WAFType.InheritWAF
 				}
 				if _, ok := blockData["inherit_waf"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -6851,14 +7052,14 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							}
 							return types.Int64Null()
 						}(),
-						KmsKeyHMAC: func() *VirtualHostEmptyModel {
-							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil {
+						KmsKeyHMAC: func() types.Object {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.KmsKeyHMAC.IsUnknown() {
 								return data.Authentication.CookieParams.KmsKeyHMAC
 							}
 							if _, ok := CookieParamsData["kms_key_hmac"].(map[string]interface{}); ok {
-								return &VirtualHostEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						SessionExpiry: func() types.Int64 {
 							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.SessionExpiry.IsUnknown() {
@@ -6873,14 +7074,14 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return nil
 			}(),
-			RedirectDynamic: func() *VirtualHostEmptyModel {
-				if !isImport && data.Authentication != nil {
+			RedirectDynamic: func() types.Object {
+				if !isImport && data.Authentication != nil && !data.Authentication.RedirectDynamic.IsUnknown() {
 					return data.Authentication.RedirectDynamic
 				}
 				if _, ok := blockData["redirect_dynamic"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			RedirectURL: func() types.String {
 				if v, ok := blockData["redirect_url"].(string); ok && v != "" {
@@ -6888,14 +7089,14 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return types.StringNull()
 			}(),
-			UseAuthObjectConfig: func() *VirtualHostEmptyModel {
-				if !isImport && data.Authentication != nil {
+			UseAuthObjectConfig: func() types.Object {
+				if !isImport && data.Authentication != nil && !data.Authentication.UseAuthObjectConfig.IsUnknown() {
 					return data.Authentication.UseAuthObjectConfig
 				}
 				if _, ok := blockData["use_auth_object_config"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -6942,23 +7143,23 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	}
 	if blockData, ok := apiResource.Spec["coalescing_options"].(map[string]interface{}); ok && (isImport || data.CoalescingOptions != nil) {
 		data.CoalescingOptions = &VirtualHostCoalescingOptionsModel{
-			DefaultCoalescing: func() *VirtualHostEmptyModel {
-				if !isImport && data.CoalescingOptions != nil {
+			DefaultCoalescing: func() types.Object {
+				if !isImport && data.CoalescingOptions != nil && !data.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 					return data.CoalescingOptions.DefaultCoalescing
 				}
 				if _, ok := blockData["default_coalescing"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			StrictCoalescing: func() *VirtualHostEmptyModel {
-				if !isImport && data.CoalescingOptions != nil {
+			StrictCoalescing: func() types.Object {
+				if !isImport && data.CoalescingOptions != nil && !data.CoalescingOptions.StrictCoalescing.IsUnknown() {
 					return data.CoalescingOptions.StrictCoalescing
 				}
 				if _, ok := blockData["strict_coalescing"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -7086,14 +7287,14 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	}
 	if blockData, ok := apiResource.Spec["csrf_policy"].(map[string]interface{}); ok && (isImport || data.CSRFPolicy != nil) {
 		data.CSRFPolicy = &VirtualHostCSRFPolicyModel{
-			AllLoadBalancerDomains: func() *VirtualHostEmptyModel {
-				if !isImport && data.CSRFPolicy != nil {
+			AllLoadBalancerDomains: func() types.Object {
+				if !isImport && data.CSRFPolicy != nil && !data.CSRFPolicy.AllLoadBalancerDomains.IsUnknown() {
 					return data.CSRFPolicy.AllLoadBalancerDomains
 				}
 				if _, ok := blockData["all_load_balancer_domains"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CustomDomainList: func() *VirtualHostCSRFPolicyCustomDomainListModel {
 				if !isImport && data.CSRFPolicy != nil && data.CSRFPolicy.CustomDomainList != nil {
@@ -7119,26 +7320,38 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return nil
 			}(),
-			Disabled: func() *VirtualHostEmptyModel {
-				if !isImport && data.CSRFPolicy != nil {
+			Disabled: func() types.Object {
+				if !isImport && data.CSRFPolicy != nil && !data.CSRFPolicy.Disabled.IsUnknown() {
 					return data.CSRFPolicy.Disabled
 				}
 				if _, ok := blockData["disabled"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	data.CustomErrors = UnmarshalStringMapForRead(ctx, apiResource.Spec["custom_errors"], data.CustomErrors, "custom_errors", isImport, &resp.Diagnostics)
-	if _, ok := apiResource.Spec["default_header"].(map[string]interface{}); ok && isImport && data.DefaultHeader == nil {
-		data.DefaultHeader = &VirtualHostEmptyModel{}
+	if !isImport && !data.DefaultHeader.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_header"].(map[string]interface{}); ok {
+		data.DefaultHeader = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultHeader = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["default_loadbalancer"].(map[string]interface{}); ok && isImport && data.DefaultLoadBalancer == nil {
-		data.DefaultLoadBalancer = &VirtualHostEmptyModel{}
+	if !isImport && !data.DefaultLoadBalancer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_loadbalancer"].(map[string]interface{}); ok {
+		data.DefaultLoadBalancer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultLoadBalancer = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_path_normalize"].(map[string]interface{}); ok && isImport && data.DisablePathNormalize == nil {
-		data.DisablePathNormalize = &VirtualHostEmptyModel{}
+	if !isImport && !data.DisablePathNormalize.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_path_normalize"].(map[string]interface{}); ok {
+		data.DisablePathNormalize = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisablePathNormalize = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
 		domainsList := make([]string, 0, len(v))
@@ -7235,8 +7448,12 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["enable_path_normalize"].(map[string]interface{}); ok && isImport && data.EnablePathNormalize == nil {
-		data.EnablePathNormalize = &VirtualHostEmptyModel{}
+	if !isImport && !data.EnablePathNormalize.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_path_normalize"].(map[string]interface{}); ok {
+		data.EnablePathNormalize = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnablePathNormalize = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["http_protocol_options"].(map[string]interface{}); ok && (isImport || data.HTTPProtocolOptions != nil) {
 		data.HTTPProtocolOptions = &VirtualHostHTTPProtocolOptionsModel{
@@ -7252,32 +7469,32 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 							}
 							if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
 								return &VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
-									DefaultHeaderTransformation: func() *VirtualHostEmptyModel {
-										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+									DefaultHeaderTransformation: func() types.Object {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-											return &VirtualHostEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									PreserveCaseHeaderTransformation: func() *VirtualHostEmptyModel {
-										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+									PreserveCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-											return &VirtualHostEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									ProperCaseHeaderTransformation: func() *VirtualHostEmptyModel {
-										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+									ProperCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-											return &VirtualHostEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -7287,23 +7504,23 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return nil
 			}(),
-			HTTPProtocolEnableV1V2: func() *VirtualHostEmptyModel {
-				if !isImport && data.HTTPProtocolOptions != nil {
+			HTTPProtocolEnableV1V2: func() types.Object {
+				if !isImport && data.HTTPProtocolOptions != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 					return data.HTTPProtocolOptions.HTTPProtocolEnableV1V2
 				}
 				if _, ok := blockData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			HTTPProtocolEnableV2Only: func() *VirtualHostEmptyModel {
-				if !isImport && data.HTTPProtocolOptions != nil {
+			HTTPProtocolEnableV2Only: func() types.Object {
+				if !isImport && data.HTTPProtocolOptions != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 					return data.HTTPProtocolOptions.HTTPProtocolEnableV2Only
 				}
 				if _, ok := blockData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -7335,20 +7552,40 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["no_authentication"].(map[string]interface{}); ok && isImport && data.NoAuthentication == nil {
-		data.NoAuthentication = &VirtualHostEmptyModel{}
+	if !isImport && !data.NoAuthentication.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_authentication"].(map[string]interface{}); ok {
+		data.NoAuthentication = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoAuthentication = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_challenge"].(map[string]interface{}); ok && isImport && data.NoChallenge == nil {
-		data.NoChallenge = &VirtualHostEmptyModel{}
+	if !isImport && !data.NoChallenge.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_challenge"].(map[string]interface{}); ok {
+		data.NoChallenge = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoChallenge = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok && isImport && data.NoRequestLimitPerConnection == nil {
-		data.NoRequestLimitPerConnection = &VirtualHostEmptyModel{}
+	if !isImport && !data.NoRequestLimitPerConnection.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok {
+		data.NoRequestLimitPerConnection = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoRequestLimitPerConnection = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["non_default_loadbalancer"].(map[string]interface{}); ok && isImport && data.NonDefaultLoadBalancer == nil {
-		data.NonDefaultLoadBalancer = &VirtualHostEmptyModel{}
+	if !isImport && !data.NonDefaultLoadBalancer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["non_default_loadbalancer"].(map[string]interface{}); ok {
+		data.NonDefaultLoadBalancer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NonDefaultLoadBalancer = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["pass_through"].(map[string]interface{}); ok && isImport && data.PassThrough == nil {
-		data.PassThrough = &VirtualHostEmptyModel{}
+	if !isImport && !data.PassThrough.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["pass_through"].(map[string]interface{}); ok {
+		data.PassThrough = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.PassThrough = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.RateLimiterAllowedPrefixes.IsNull() || len(data.RateLimiterAllowedPrefixes.Elements()) == 0) {
 		data.RateLimiterAllowedPrefixes = types.ListNull(types.ObjectType{AttrTypes: VirtualHostRateLimiterAllowedPrefixesModelAttrTypes})
@@ -7653,23 +7890,23 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						}
 						return types.StringNull()
 					}(),
-					AddHttponly: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					AddHttponly: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].AddHttponly.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].AddHttponly
 						}
 						if _, ok := itemMap["add_httponly"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					AddPartitioned: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					AddPartitioned: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].AddPartitioned.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].AddPartitioned
 						}
 						if _, ok := itemMap["add_partitioned"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					AddPath: func() types.String {
 						if v, ok := itemMap["add_path"].(string); ok && v != "" {
@@ -7677,95 +7914,95 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						}
 						return types.StringNull()
 					}(),
-					AddSecure: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					AddSecure: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].AddSecure.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].AddSecure
 						}
 						if _, ok := itemMap["add_secure"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreDomain: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreDomain: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreDomain.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreDomain
 						}
 						if _, ok := itemMap["ignore_domain"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreExpiry: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreExpiry: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreExpiry.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreExpiry
 						}
 						if _, ok := itemMap["ignore_expiry"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreHttponly: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreHttponly: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreHttponly.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreHttponly
 						}
 						if _, ok := itemMap["ignore_httponly"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreMaxAge: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreMaxAge: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreMaxAge.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreMaxAge
 						}
 						if _, ok := itemMap["ignore_max_age"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnorePartitioned: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnorePartitioned: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnorePartitioned.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnorePartitioned
 						}
 						if _, ok := itemMap["ignore_partitioned"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnorePath: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnorePath: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnorePath.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnorePath
 						}
 						if _, ok := itemMap["ignore_path"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreSamesite: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreSamesite: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreSamesite.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreSamesite
 						}
 						if _, ok := itemMap["ignore_samesite"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreSecure: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreSecure: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreSecure.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreSecure
 						}
 						if _, ok := itemMap["ignore_secure"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreValue: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreValue: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreValue.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreValue
 						}
 						if _, ok := itemMap["ignore_value"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					MaxAgeValue: func() types.Int64 {
 						if v, ok := itemMap["max_age_value"].(float64); ok && v != 0 {
@@ -7785,32 +8022,32 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 						}
 						return types.BoolNull()
 					}(),
-					SamesiteLax: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					SamesiteLax: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].SamesiteLax.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].SamesiteLax
 						}
 						if _, ok := itemMap["samesite_lax"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					SamesiteNone: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					SamesiteNone: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].SamesiteNone.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].SamesiteNone
 						}
 						if _, ok := itemMap["samesite_none"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					SamesiteStrict: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					SamesiteStrict: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].SamesiteStrict.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].SamesiteStrict
 						}
 						if _, ok := itemMap["samesite_strict"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					SecretValue: func() *VirtualHostResponseCookiesToAddSecretValueModel {
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
@@ -8200,14 +8437,14 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	}
 	if blockData, ok := apiResource.Spec["slow_ddos_mitigation"].(map[string]interface{}); ok && (isImport || data.SlowDDOSMitigation != nil) {
 		data.SlowDDOSMitigation = &VirtualHostSlowDDOSMitigationModel{
-			DisableRequestTimeout: func() *VirtualHostEmptyModel {
-				if !isImport && data.SlowDDOSMitigation != nil {
+			DisableRequestTimeout: func() types.Object {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.DisableRequestTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.DisableRequestTimeout
 				}
 				if _, ok := blockData["disable_request_timeout"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			RequestHeadersTimeout: func() types.Int64 {
 				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestHeadersTimeout.IsUnknown() {
@@ -8297,23 +8534,23 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			ClientCertificateOptional: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSCertParams != nil {
+			ClientCertificateOptional: func() types.Object {
+				if !isImport && data.TLSCertParams != nil && !data.TLSCertParams.ClientCertificateOptional.IsUnknown() {
 					return data.TLSCertParams.ClientCertificateOptional
 				}
 				if _, ok := blockData["client_certificate_optional"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ClientCertificateRequired: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSCertParams != nil {
+			ClientCertificateRequired: func() types.Object {
+				if !isImport && data.TLSCertParams != nil && !data.TLSCertParams.ClientCertificateRequired.IsUnknown() {
 					return data.TLSCertParams.ClientCertificateRequired
 				}
 				if _, ok := blockData["client_certificate_required"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			MaximumProtocolVersion: func() types.String {
 				if v, ok := blockData["maximum_protocol_version"].(string); ok && v != "" {
@@ -8327,14 +8564,14 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return types.StringNull()
 			}(),
-			NoClientCertificate: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSCertParams != nil {
+			NoClientCertificate: func() types.Object {
+				if !isImport && data.TLSCertParams != nil && !data.TLSCertParams.NoClientCertificate.IsUnknown() {
 					return data.TLSCertParams.NoClientCertificate
 				}
 				if _, ok := blockData["no_client_certificate"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			ValidationParams: func() *VirtualHostTLSCertParamsValidationParamsModel {
 				if ValidationParamsData, ok := blockData["validation_params"].(map[string]interface{}); ok {
@@ -8449,23 +8686,23 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &VirtualHostTLSParametersModel{
-			ClientCertificateOptional: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			ClientCertificateOptional: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateOptional.IsUnknown() {
 					return data.TLSParameters.ClientCertificateOptional
 				}
 				if _, ok := blockData["client_certificate_optional"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ClientCertificateRequired: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			ClientCertificateRequired: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateRequired.IsUnknown() {
 					return data.TLSParameters.ClientCertificateRequired
 				}
 				if _, ok := blockData["client_certificate_required"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CommonParams: func() *VirtualHostTLSParametersCommonParamsModel {
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
@@ -8543,14 +8780,14 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *VirtualHostEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &VirtualHostEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -8609,14 +8846,14 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *VirtualHostEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &VirtualHostEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -8725,14 +8962,14 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return nil
 			}(),
-			NoClientCertificate: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			NoClientCertificate: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.NoClientCertificate.IsUnknown() {
 					return data.TLSParameters.NoClientCertificate
 				}
 				if _, ok := blockData["no_client_certificate"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			XfccHeaderElements: func() types.List {
 				if v, ok := blockData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
@@ -8864,23 +9101,23 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return nil
 			}(),
-			DisableWAF: func() *VirtualHostEmptyModel {
-				if !isImport && data.WAFType != nil {
+			DisableWAF: func() types.Object {
+				if !isImport && data.WAFType != nil && !data.WAFType.DisableWAF.IsUnknown() {
 					return data.WAFType.DisableWAF
 				}
 				if _, ok := blockData["disable_waf"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			InheritWAF: func() *VirtualHostEmptyModel {
-				if !isImport && data.WAFType != nil {
+			InheritWAF: func() types.Object {
+				if !isImport && data.WAFType != nil && !data.WAFType.InheritWAF.IsUnknown() {
 					return data.WAFType.InheritWAF
 				}
 				if _, ok := blockData["inherit_waf"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -9155,7 +9392,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			if !data.Authentication.CookieParams.CookieRefreshInterval.IsNull() && !data.Authentication.CookieParams.CookieRefreshInterval.IsUnknown() {
 				AuthenticationCookieParamsMap["cookie_refresh_interval"] = data.Authentication.CookieParams.CookieRefreshInterval.ValueInt64()
 			}
-			if data.Authentication.CookieParams.KmsKeyHMAC != nil {
+			if !data.Authentication.CookieParams.KmsKeyHMAC.IsNull() && !data.Authentication.CookieParams.KmsKeyHMAC.IsUnknown() {
 				AuthenticationCookieParamsMap["kms_key_hmac"] = map[string]interface{}{}
 			}
 			if !data.Authentication.CookieParams.SessionExpiry.IsNull() && !data.Authentication.CookieParams.SessionExpiry.IsUnknown() {
@@ -9163,13 +9400,13 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			}
 			AuthenticationMap["cookie_params"] = AuthenticationCookieParamsMap
 		}
-		if data.Authentication.RedirectDynamic != nil {
+		if !data.Authentication.RedirectDynamic.IsNull() && !data.Authentication.RedirectDynamic.IsUnknown() {
 			AuthenticationMap["redirect_dynamic"] = map[string]interface{}{}
 		}
 		if !data.Authentication.RedirectURL.IsNull() && !data.Authentication.RedirectURL.IsUnknown() {
 			AuthenticationMap["redirect_url"] = data.Authentication.RedirectURL.ValueString()
 		}
-		if data.Authentication.UseAuthObjectConfig != nil {
+		if !data.Authentication.UseAuthObjectConfig.IsNull() && !data.Authentication.UseAuthObjectConfig.IsUnknown() {
 			AuthenticationMap["use_auth_object_config"] = map[string]interface{}{}
 		}
 		apiResource.Spec["authentication"] = AuthenticationMap
@@ -9196,10 +9433,10 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 	if data.CoalescingOptions != nil {
 		CoalescingOptionsMap := make(map[string]interface{})
-		if data.CoalescingOptions.DefaultCoalescing != nil {
+		if !data.CoalescingOptions.DefaultCoalescing.IsNull() && !data.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 			CoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
 		}
-		if data.CoalescingOptions.StrictCoalescing != nil {
+		if !data.CoalescingOptions.StrictCoalescing.IsNull() && !data.CoalescingOptions.StrictCoalescing.IsUnknown() {
 			CoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
 		}
 		apiResource.Spec["coalescing_options"] = CoalescingOptionsMap
@@ -9265,7 +9502,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 	if data.CSRFPolicy != nil {
 		CSRFPolicyMap := make(map[string]interface{})
-		if data.CSRFPolicy.AllLoadBalancerDomains != nil {
+		if !data.CSRFPolicy.AllLoadBalancerDomains.IsNull() && !data.CSRFPolicy.AllLoadBalancerDomains.IsUnknown() {
 			CSRFPolicyMap["all_load_balancer_domains"] = map[string]interface{}{}
 		}
 		if data.CSRFPolicy.CustomDomainList != nil {
@@ -9280,7 +9517,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			}
 			CSRFPolicyMap["custom_domain_list"] = CSRFPolicyCustomDomainListMap
 		}
-		if data.CSRFPolicy.Disabled != nil {
+		if !data.CSRFPolicy.Disabled.IsNull() && !data.CSRFPolicy.Disabled.IsUnknown() {
 			CSRFPolicyMap["disabled"] = map[string]interface{}{}
 		}
 		apiResource.Spec["csrf_policy"] = CSRFPolicyMap
@@ -9293,13 +9530,13 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			apiResource.Spec["custom_errors"] = CustomErrorsMap
 		}
 	}
-	if data.DefaultHeader != nil {
+	if !data.DefaultHeader.IsNull() && !data.DefaultHeader.IsUnknown() {
 		apiResource.Spec["default_header"] = map[string]interface{}{}
 	}
-	if data.DefaultLoadBalancer != nil {
+	if !data.DefaultLoadBalancer.IsNull() && !data.DefaultLoadBalancer.IsUnknown() {
 		apiResource.Spec["default_loadbalancer"] = map[string]interface{}{}
 	}
-	if data.DisablePathNormalize != nil {
+	if !data.DisablePathNormalize.IsNull() && !data.DisablePathNormalize.IsUnknown() {
 		apiResource.Spec["disable_path_normalize"] = map[string]interface{}{}
 	}
 	if !data.Domains.IsNull() && !data.Domains.IsUnknown() {
@@ -9342,7 +9579,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		}
 		apiResource.Spec["dynamic_reverse_proxy"] = DynamicReverseProxyMap
 	}
-	if data.EnablePathNormalize != nil {
+	if !data.EnablePathNormalize.IsNull() && !data.EnablePathNormalize.IsUnknown() {
 		apiResource.Spec["enable_path_normalize"] = map[string]interface{}{}
 	}
 	if data.HTTPProtocolOptions != nil {
@@ -9351,23 +9588,23 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			HTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
 			if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
 				HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
-				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
+				if !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsNull() && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 				}
-				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
+				if !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsNull() && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 				}
-				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
+				if !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsNull() && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 				}
 				HTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap["header_transformation"] = HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap
 			}
 			HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap
 		}
-		if data.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
+		if !data.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsNull() && !data.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 			HTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
 		}
-		if data.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
+		if !data.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsNull() && !data.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 			HTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
 		}
 		apiResource.Spec["http_protocol_options"] = HTTPProtocolOptionsMap
@@ -9385,19 +9622,19 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		}
 		apiResource.Spec["js_challenge"] = JsChallengeMap
 	}
-	if data.NoAuthentication != nil {
+	if !data.NoAuthentication.IsNull() && !data.NoAuthentication.IsUnknown() {
 		apiResource.Spec["no_authentication"] = map[string]interface{}{}
 	}
-	if data.NoChallenge != nil {
+	if !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
 		apiResource.Spec["no_challenge"] = map[string]interface{}{}
 	}
-	if data.NoRequestLimitPerConnection != nil {
+	if !data.NoRequestLimitPerConnection.IsNull() && !data.NoRequestLimitPerConnection.IsUnknown() {
 		apiResource.Spec["no_request_limit_per_connection"] = map[string]interface{}{}
 	}
-	if data.NonDefaultLoadBalancer != nil {
+	if !data.NonDefaultLoadBalancer.IsNull() && !data.NonDefaultLoadBalancer.IsUnknown() {
 		apiResource.Spec["non_default_loadbalancer"] = map[string]interface{}{}
 	}
-	if data.PassThrough != nil {
+	if !data.PassThrough.IsNull() && !data.PassThrough.IsUnknown() {
 		apiResource.Spec["pass_through"] = map[string]interface{}{}
 	}
 	if !data.RateLimiterAllowedPrefixes.IsNull() && !data.RateLimiterAllowedPrefixes.IsUnknown() {
@@ -9547,43 +9784,43 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				if !ResponseCookiesToAddItem.AddExpiry.IsNull() && !ResponseCookiesToAddItem.AddExpiry.IsUnknown() {
 					ResponseCookiesToAddItemMap["add_expiry"] = ResponseCookiesToAddItem.AddExpiry.ValueString()
 				}
-				if ResponseCookiesToAddItem.AddHttponly != nil {
+				if !ResponseCookiesToAddItem.AddHttponly.IsNull() && !ResponseCookiesToAddItem.AddHttponly.IsUnknown() {
 					ResponseCookiesToAddItemMap["add_httponly"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.AddPartitioned != nil {
+				if !ResponseCookiesToAddItem.AddPartitioned.IsNull() && !ResponseCookiesToAddItem.AddPartitioned.IsUnknown() {
 					ResponseCookiesToAddItemMap["add_partitioned"] = map[string]interface{}{}
 				}
 				if !ResponseCookiesToAddItem.AddPath.IsNull() && !ResponseCookiesToAddItem.AddPath.IsUnknown() {
 					ResponseCookiesToAddItemMap["add_path"] = ResponseCookiesToAddItem.AddPath.ValueString()
 				}
-				if ResponseCookiesToAddItem.AddSecure != nil {
+				if !ResponseCookiesToAddItem.AddSecure.IsNull() && !ResponseCookiesToAddItem.AddSecure.IsUnknown() {
 					ResponseCookiesToAddItemMap["add_secure"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreDomain != nil {
+				if !ResponseCookiesToAddItem.IgnoreDomain.IsNull() && !ResponseCookiesToAddItem.IgnoreDomain.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_domain"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreExpiry != nil {
+				if !ResponseCookiesToAddItem.IgnoreExpiry.IsNull() && !ResponseCookiesToAddItem.IgnoreExpiry.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_expiry"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreHttponly != nil {
+				if !ResponseCookiesToAddItem.IgnoreHttponly.IsNull() && !ResponseCookiesToAddItem.IgnoreHttponly.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_httponly"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreMaxAge != nil {
+				if !ResponseCookiesToAddItem.IgnoreMaxAge.IsNull() && !ResponseCookiesToAddItem.IgnoreMaxAge.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_max_age"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnorePartitioned != nil {
+				if !ResponseCookiesToAddItem.IgnorePartitioned.IsNull() && !ResponseCookiesToAddItem.IgnorePartitioned.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_partitioned"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnorePath != nil {
+				if !ResponseCookiesToAddItem.IgnorePath.IsNull() && !ResponseCookiesToAddItem.IgnorePath.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_path"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreSamesite != nil {
+				if !ResponseCookiesToAddItem.IgnoreSamesite.IsNull() && !ResponseCookiesToAddItem.IgnoreSamesite.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_samesite"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreSecure != nil {
+				if !ResponseCookiesToAddItem.IgnoreSecure.IsNull() && !ResponseCookiesToAddItem.IgnoreSecure.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_secure"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.IgnoreValue != nil {
+				if !ResponseCookiesToAddItem.IgnoreValue.IsNull() && !ResponseCookiesToAddItem.IgnoreValue.IsUnknown() {
 					ResponseCookiesToAddItemMap["ignore_value"] = map[string]interface{}{}
 				}
 				if !ResponseCookiesToAddItem.MaxAgeValue.IsNull() && !ResponseCookiesToAddItem.MaxAgeValue.IsUnknown() {
@@ -9595,13 +9832,13 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				if !ResponseCookiesToAddItem.Overwrite.IsNull() && !ResponseCookiesToAddItem.Overwrite.IsUnknown() {
 					ResponseCookiesToAddItemMap["overwrite"] = ResponseCookiesToAddItem.Overwrite.ValueBool()
 				}
-				if ResponseCookiesToAddItem.SamesiteLax != nil {
+				if !ResponseCookiesToAddItem.SamesiteLax.IsNull() && !ResponseCookiesToAddItem.SamesiteLax.IsUnknown() {
 					ResponseCookiesToAddItemMap["samesite_lax"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.SamesiteNone != nil {
+				if !ResponseCookiesToAddItem.SamesiteNone.IsNull() && !ResponseCookiesToAddItem.SamesiteNone.IsUnknown() {
 					ResponseCookiesToAddItemMap["samesite_none"] = map[string]interface{}{}
 				}
-				if ResponseCookiesToAddItem.SamesiteStrict != nil {
+				if !ResponseCookiesToAddItem.SamesiteStrict.IsNull() && !ResponseCookiesToAddItem.SamesiteStrict.IsUnknown() {
 					ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
 				}
 				if ResponseCookiesToAddItem.SecretValue != nil {
@@ -9780,7 +10017,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 	if data.SlowDDOSMitigation != nil {
 		SlowDDOSMitigationMap := make(map[string]interface{})
-		if data.SlowDDOSMitigation.DisableRequestTimeout != nil {
+		if !data.SlowDDOSMitigation.DisableRequestTimeout.IsNull() && !data.SlowDDOSMitigation.DisableRequestTimeout.IsUnknown() {
 			SlowDDOSMitigationMap["disable_request_timeout"] = map[string]interface{}{}
 		}
 		if !data.SlowDDOSMitigation.RequestHeadersTimeout.IsNull() && !data.SlowDDOSMitigation.RequestHeadersTimeout.IsUnknown() {
@@ -9820,10 +10057,10 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				TLSCertParamsMap["cipher_suites"] = CipherSuitesItems
 			}
 		}
-		if data.TLSCertParams.ClientCertificateOptional != nil {
+		if !data.TLSCertParams.ClientCertificateOptional.IsNull() && !data.TLSCertParams.ClientCertificateOptional.IsUnknown() {
 			TLSCertParamsMap["client_certificate_optional"] = map[string]interface{}{}
 		}
-		if data.TLSCertParams.ClientCertificateRequired != nil {
+		if !data.TLSCertParams.ClientCertificateRequired.IsNull() && !data.TLSCertParams.ClientCertificateRequired.IsUnknown() {
 			TLSCertParamsMap["client_certificate_required"] = map[string]interface{}{}
 		}
 		if !data.TLSCertParams.MaximumProtocolVersion.IsNull() && !data.TLSCertParams.MaximumProtocolVersion.IsUnknown() {
@@ -9832,7 +10069,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.TLSCertParams.MinimumProtocolVersion.IsNull() && !data.TLSCertParams.MinimumProtocolVersion.IsUnknown() {
 			TLSCertParamsMap["minimum_protocol_version"] = data.TLSCertParams.MinimumProtocolVersion.ValueString()
 		}
-		if data.TLSCertParams.NoClientCertificate != nil {
+		if !data.TLSCertParams.NoClientCertificate.IsNull() && !data.TLSCertParams.NoClientCertificate.IsUnknown() {
 			TLSCertParamsMap["no_client_certificate"] = map[string]interface{}{}
 		}
 		if data.TLSCertParams.ValidationParams != nil {
@@ -9888,10 +10125,10 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 	if data.TLSParameters != nil {
 		TLSParametersMap := make(map[string]interface{})
-		if data.TLSParameters.ClientCertificateOptional != nil {
+		if !data.TLSParameters.ClientCertificateOptional.IsNull() && !data.TLSParameters.ClientCertificateOptional.IsUnknown() {
 			TLSParametersMap["client_certificate_optional"] = map[string]interface{}{}
 		}
-		if data.TLSParameters.ClientCertificateRequired != nil {
+		if !data.TLSParameters.ClientCertificateRequired.IsNull() && !data.TLSParameters.ClientCertificateRequired.IsUnknown() {
 			TLSParametersMap["client_certificate_required"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.CommonParams != nil {
@@ -9936,7 +10173,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 						}
-						if TLSCertificatesItem.DisableOCSPStapling != nil {
+						if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
@@ -9966,7 +10203,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							}
 							TLSCertificatesItemMap["private_key"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyMap
 						}
-						if TLSCertificatesItem.UseSystemDefaults != nil {
+						if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -10017,7 +10254,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			}
 			TLSParametersMap["common_params"] = TLSParametersCommonParamsMap
 		}
-		if data.TLSParameters.NoClientCertificate != nil {
+		if !data.TLSParameters.NoClientCertificate.IsNull() && !data.TLSParameters.NoClientCertificate.IsUnknown() {
 			TLSParametersMap["no_client_certificate"] = map[string]interface{}{}
 		}
 		if !data.TLSParameters.XfccHeaderElements.IsNull() && !data.TLSParameters.XfccHeaderElements.IsUnknown() {
@@ -10074,10 +10311,10 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			}
 			WAFTypeMap["app_firewall"] = WAFTypeAppFirewallMap
 		}
-		if data.WAFType.DisableWAF != nil {
+		if !data.WAFType.DisableWAF.IsNull() && !data.WAFType.DisableWAF.IsUnknown() {
 			WAFTypeMap["disable_waf"] = map[string]interface{}{}
 		}
-		if data.WAFType.InheritWAF != nil {
+		if !data.WAFType.InheritWAF.IsNull() && !data.WAFType.InheritWAF.IsUnknown() {
 			WAFTypeMap["inherit_waf"] = map[string]interface{}{}
 		}
 		apiResource.Spec["waf_type"] = WAFTypeMap
@@ -10514,14 +10751,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							}
 							return types.Int64Null()
 						}(),
-						KmsKeyHMAC: func() *VirtualHostEmptyModel {
-							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil {
+						KmsKeyHMAC: func() types.Object {
+							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.KmsKeyHMAC.IsUnknown() {
 								return data.Authentication.CookieParams.KmsKeyHMAC
 							}
 							if _, ok := CookieParamsData["kms_key_hmac"].(map[string]interface{}); ok {
-								return &VirtualHostEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						SessionExpiry: func() types.Int64 {
 							if !isImport && data.Authentication != nil && data.Authentication.CookieParams != nil && !data.Authentication.CookieParams.SessionExpiry.IsUnknown() {
@@ -10536,14 +10773,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return nil
 			}(),
-			RedirectDynamic: func() *VirtualHostEmptyModel {
-				if !isImport && data.Authentication != nil {
+			RedirectDynamic: func() types.Object {
+				if !isImport && data.Authentication != nil && !data.Authentication.RedirectDynamic.IsUnknown() {
 					return data.Authentication.RedirectDynamic
 				}
 				if _, ok := blockData["redirect_dynamic"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			RedirectURL: func() types.String {
 				if v, ok := blockData["redirect_url"].(string); ok && v != "" {
@@ -10551,14 +10788,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return types.StringNull()
 			}(),
-			UseAuthObjectConfig: func() *VirtualHostEmptyModel {
-				if !isImport && data.Authentication != nil {
+			UseAuthObjectConfig: func() types.Object {
+				if !isImport && data.Authentication != nil && !data.Authentication.UseAuthObjectConfig.IsUnknown() {
 					return data.Authentication.UseAuthObjectConfig
 				}
 				if _, ok := blockData["use_auth_object_config"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -10605,23 +10842,23 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 	if blockData, ok := apiResource.Spec["coalescing_options"].(map[string]interface{}); ok && (isImport || data.CoalescingOptions != nil) {
 		data.CoalescingOptions = &VirtualHostCoalescingOptionsModel{
-			DefaultCoalescing: func() *VirtualHostEmptyModel {
-				if !isImport && data.CoalescingOptions != nil {
+			DefaultCoalescing: func() types.Object {
+				if !isImport && data.CoalescingOptions != nil && !data.CoalescingOptions.DefaultCoalescing.IsUnknown() {
 					return data.CoalescingOptions.DefaultCoalescing
 				}
 				if _, ok := blockData["default_coalescing"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			StrictCoalescing: func() *VirtualHostEmptyModel {
-				if !isImport && data.CoalescingOptions != nil {
+			StrictCoalescing: func() types.Object {
+				if !isImport && data.CoalescingOptions != nil && !data.CoalescingOptions.StrictCoalescing.IsUnknown() {
 					return data.CoalescingOptions.StrictCoalescing
 				}
 				if _, ok := blockData["strict_coalescing"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -10749,14 +10986,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 	if blockData, ok := apiResource.Spec["csrf_policy"].(map[string]interface{}); ok && (isImport || data.CSRFPolicy != nil) {
 		data.CSRFPolicy = &VirtualHostCSRFPolicyModel{
-			AllLoadBalancerDomains: func() *VirtualHostEmptyModel {
-				if !isImport && data.CSRFPolicy != nil {
+			AllLoadBalancerDomains: func() types.Object {
+				if !isImport && data.CSRFPolicy != nil && !data.CSRFPolicy.AllLoadBalancerDomains.IsUnknown() {
 					return data.CSRFPolicy.AllLoadBalancerDomains
 				}
 				if _, ok := blockData["all_load_balancer_domains"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CustomDomainList: func() *VirtualHostCSRFPolicyCustomDomainListModel {
 				if !isImport && data.CSRFPolicy != nil && data.CSRFPolicy.CustomDomainList != nil {
@@ -10782,26 +11019,38 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return nil
 			}(),
-			Disabled: func() *VirtualHostEmptyModel {
-				if !isImport && data.CSRFPolicy != nil {
+			Disabled: func() types.Object {
+				if !isImport && data.CSRFPolicy != nil && !data.CSRFPolicy.Disabled.IsUnknown() {
 					return data.CSRFPolicy.Disabled
 				}
 				if _, ok := blockData["disabled"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	data.CustomErrors = UnmarshalStringMapForRead(ctx, apiResource.Spec["custom_errors"], data.CustomErrors, "custom_errors", isImport, &resp.Diagnostics)
-	if _, ok := apiResource.Spec["default_header"].(map[string]interface{}); ok && isImport && data.DefaultHeader == nil {
-		data.DefaultHeader = &VirtualHostEmptyModel{}
+	if !isImport && !data.DefaultHeader.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_header"].(map[string]interface{}); ok {
+		data.DefaultHeader = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultHeader = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["default_loadbalancer"].(map[string]interface{}); ok && isImport && data.DefaultLoadBalancer == nil {
-		data.DefaultLoadBalancer = &VirtualHostEmptyModel{}
+	if !isImport && !data.DefaultLoadBalancer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_loadbalancer"].(map[string]interface{}); ok {
+		data.DefaultLoadBalancer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultLoadBalancer = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_path_normalize"].(map[string]interface{}); ok && isImport && data.DisablePathNormalize == nil {
-		data.DisablePathNormalize = &VirtualHostEmptyModel{}
+	if !isImport && !data.DisablePathNormalize.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_path_normalize"].(map[string]interface{}); ok {
+		data.DisablePathNormalize = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisablePathNormalize = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["domains"].([]interface{}); ok && (len(v) > 0 || isImport || data.Domains.IsUnknown()) {
 		domainsList := make([]string, 0, len(v))
@@ -10898,8 +11147,12 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["enable_path_normalize"].(map[string]interface{}); ok && isImport && data.EnablePathNormalize == nil {
-		data.EnablePathNormalize = &VirtualHostEmptyModel{}
+	if !isImport && !data.EnablePathNormalize.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_path_normalize"].(map[string]interface{}); ok {
+		data.EnablePathNormalize = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnablePathNormalize = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["http_protocol_options"].(map[string]interface{}); ok && (isImport || data.HTTPProtocolOptions != nil) {
 		data.HTTPProtocolOptions = &VirtualHostHTTPProtocolOptionsModel{
@@ -10915,32 +11168,32 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							}
 							if HeaderTransformationData, ok := HTTPProtocolEnableV1OnlyData["header_transformation"].(map[string]interface{}); ok {
 								return &VirtualHostHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationModel{
-									DefaultHeaderTransformation: func() *VirtualHostEmptyModel {
-										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+									DefaultHeaderTransformation: func() types.Object {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation.IsUnknown() {
 											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["default_header_transformation"].(map[string]interface{}); ok {
-											return &VirtualHostEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									PreserveCaseHeaderTransformation: func() *VirtualHostEmptyModel {
-										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+									PreserveCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation.IsUnknown() {
 											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["preserve_case_header_transformation"].(map[string]interface{}); ok {
-											return &VirtualHostEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
-									ProperCaseHeaderTransformation: func() *VirtualHostEmptyModel {
-										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
+									ProperCaseHeaderTransformation: func() types.Object {
+										if !isImport && data.HTTPProtocolOptions != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil && data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation.IsUnknown() {
 											return data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation
 										}
 										if _, ok := HeaderTransformationData["proper_case_header_transformation"].(map[string]interface{}); ok {
-											return &VirtualHostEmptyModel{}
+											return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 										}
-										return nil
+										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 								}
 							}
@@ -10950,23 +11203,23 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return nil
 			}(),
-			HTTPProtocolEnableV1V2: func() *VirtualHostEmptyModel {
-				if !isImport && data.HTTPProtocolOptions != nil {
+			HTTPProtocolEnableV1V2: func() types.Object {
+				if !isImport && data.HTTPProtocolOptions != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV1V2.IsUnknown() {
 					return data.HTTPProtocolOptions.HTTPProtocolEnableV1V2
 				}
 				if _, ok := blockData["http_protocol_enable_v1_v2"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			HTTPProtocolEnableV2Only: func() *VirtualHostEmptyModel {
-				if !isImport && data.HTTPProtocolOptions != nil {
+			HTTPProtocolEnableV2Only: func() types.Object {
+				if !isImport && data.HTTPProtocolOptions != nil && !data.HTTPProtocolOptions.HTTPProtocolEnableV2Only.IsUnknown() {
 					return data.HTTPProtocolOptions.HTTPProtocolEnableV2Only
 				}
 				if _, ok := blockData["http_protocol_enable_v2_only"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -10998,20 +11251,40 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["no_authentication"].(map[string]interface{}); ok && isImport && data.NoAuthentication == nil {
-		data.NoAuthentication = &VirtualHostEmptyModel{}
+	if !isImport && !data.NoAuthentication.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_authentication"].(map[string]interface{}); ok {
+		data.NoAuthentication = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoAuthentication = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_challenge"].(map[string]interface{}); ok && isImport && data.NoChallenge == nil {
-		data.NoChallenge = &VirtualHostEmptyModel{}
+	if !isImport && !data.NoChallenge.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_challenge"].(map[string]interface{}); ok {
+		data.NoChallenge = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoChallenge = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok && isImport && data.NoRequestLimitPerConnection == nil {
-		data.NoRequestLimitPerConnection = &VirtualHostEmptyModel{}
+	if !isImport && !data.NoRequestLimitPerConnection.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_request_limit_per_connection"].(map[string]interface{}); ok {
+		data.NoRequestLimitPerConnection = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoRequestLimitPerConnection = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["non_default_loadbalancer"].(map[string]interface{}); ok && isImport && data.NonDefaultLoadBalancer == nil {
-		data.NonDefaultLoadBalancer = &VirtualHostEmptyModel{}
+	if !isImport && !data.NonDefaultLoadBalancer.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["non_default_loadbalancer"].(map[string]interface{}); ok {
+		data.NonDefaultLoadBalancer = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NonDefaultLoadBalancer = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["pass_through"].(map[string]interface{}); ok && isImport && data.PassThrough == nil {
-		data.PassThrough = &VirtualHostEmptyModel{}
+	if !isImport && !data.PassThrough.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["pass_through"].(map[string]interface{}); ok {
+		data.PassThrough = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.PassThrough = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.RateLimiterAllowedPrefixes.IsNull() || len(data.RateLimiterAllowedPrefixes.Elements()) == 0) {
 		data.RateLimiterAllowedPrefixes = types.ListNull(types.ObjectType{AttrTypes: VirtualHostRateLimiterAllowedPrefixesModelAttrTypes})
@@ -11316,23 +11589,23 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						}
 						return types.StringNull()
 					}(),
-					AddHttponly: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					AddHttponly: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].AddHttponly.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].AddHttponly
 						}
 						if _, ok := itemMap["add_httponly"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					AddPartitioned: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					AddPartitioned: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].AddPartitioned.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].AddPartitioned
 						}
 						if _, ok := itemMap["add_partitioned"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					AddPath: func() types.String {
 						if v, ok := itemMap["add_path"].(string); ok && v != "" {
@@ -11340,95 +11613,95 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						}
 						return types.StringNull()
 					}(),
-					AddSecure: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					AddSecure: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].AddSecure.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].AddSecure
 						}
 						if _, ok := itemMap["add_secure"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreDomain: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreDomain: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreDomain.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreDomain
 						}
 						if _, ok := itemMap["ignore_domain"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreExpiry: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreExpiry: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreExpiry.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreExpiry
 						}
 						if _, ok := itemMap["ignore_expiry"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreHttponly: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreHttponly: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreHttponly.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreHttponly
 						}
 						if _, ok := itemMap["ignore_httponly"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreMaxAge: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreMaxAge: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreMaxAge.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreMaxAge
 						}
 						if _, ok := itemMap["ignore_max_age"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnorePartitioned: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnorePartitioned: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnorePartitioned.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnorePartitioned
 						}
 						if _, ok := itemMap["ignore_partitioned"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnorePath: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnorePath: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnorePath.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnorePath
 						}
 						if _, ok := itemMap["ignore_path"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreSamesite: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreSamesite: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreSamesite.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreSamesite
 						}
 						if _, ok := itemMap["ignore_samesite"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreSecure: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreSecure: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreSecure.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreSecure
 						}
 						if _, ok := itemMap["ignore_secure"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					IgnoreValue: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					IgnoreValue: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].IgnoreValue.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].IgnoreValue
 						}
 						if _, ok := itemMap["ignore_value"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					MaxAgeValue: func() types.Int64 {
 						if v, ok := itemMap["max_age_value"].(float64); ok && v != 0 {
@@ -11448,32 +11721,32 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						}
 						return types.BoolNull()
 					}(),
-					SamesiteLax: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					SamesiteLax: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].SamesiteLax.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].SamesiteLax
 						}
 						if _, ok := itemMap["samesite_lax"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					SamesiteNone: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					SamesiteNone: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].SamesiteNone.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].SamesiteNone
 						}
 						if _, ok := itemMap["samesite_none"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					SamesiteStrict: func() *VirtualHostEmptyModel {
-						if !isImport && len(existingResponseCookiesToAddItems) > listIdx {
+					SamesiteStrict: func() types.Object {
+						if !isImport && len(existingResponseCookiesToAddItems) > listIdx && !existingResponseCookiesToAddItems[listIdx].SamesiteStrict.IsUnknown() {
 							return existingResponseCookiesToAddItems[listIdx].SamesiteStrict
 						}
 						if _, ok := itemMap["samesite_strict"].(map[string]interface{}); ok {
-							return &VirtualHostEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					SecretValue: func() *VirtualHostResponseCookiesToAddSecretValueModel {
 						if SecretValueData, ok := itemMap["secret_value"].(map[string]interface{}); ok {
@@ -11863,14 +12136,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 	if blockData, ok := apiResource.Spec["slow_ddos_mitigation"].(map[string]interface{}); ok && (isImport || data.SlowDDOSMitigation != nil) {
 		data.SlowDDOSMitigation = &VirtualHostSlowDDOSMitigationModel{
-			DisableRequestTimeout: func() *VirtualHostEmptyModel {
-				if !isImport && data.SlowDDOSMitigation != nil {
+			DisableRequestTimeout: func() types.Object {
+				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.DisableRequestTimeout.IsUnknown() {
 					return data.SlowDDOSMitigation.DisableRequestTimeout
 				}
 				if _, ok := blockData["disable_request_timeout"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			RequestHeadersTimeout: func() types.Int64 {
 				if !isImport && data.SlowDDOSMitigation != nil && !data.SlowDDOSMitigation.RequestHeadersTimeout.IsUnknown() {
@@ -11960,23 +12233,23 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			ClientCertificateOptional: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSCertParams != nil {
+			ClientCertificateOptional: func() types.Object {
+				if !isImport && data.TLSCertParams != nil && !data.TLSCertParams.ClientCertificateOptional.IsUnknown() {
 					return data.TLSCertParams.ClientCertificateOptional
 				}
 				if _, ok := blockData["client_certificate_optional"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ClientCertificateRequired: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSCertParams != nil {
+			ClientCertificateRequired: func() types.Object {
+				if !isImport && data.TLSCertParams != nil && !data.TLSCertParams.ClientCertificateRequired.IsUnknown() {
 					return data.TLSCertParams.ClientCertificateRequired
 				}
 				if _, ok := blockData["client_certificate_required"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			MaximumProtocolVersion: func() types.String {
 				if v, ok := blockData["maximum_protocol_version"].(string); ok && v != "" {
@@ -11990,14 +12263,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return types.StringNull()
 			}(),
-			NoClientCertificate: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSCertParams != nil {
+			NoClientCertificate: func() types.Object {
+				if !isImport && data.TLSCertParams != nil && !data.TLSCertParams.NoClientCertificate.IsUnknown() {
 					return data.TLSCertParams.NoClientCertificate
 				}
 				if _, ok := blockData["no_client_certificate"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			ValidationParams: func() *VirtualHostTLSCertParamsValidationParamsModel {
 				if ValidationParamsData, ok := blockData["validation_params"].(map[string]interface{}); ok {
@@ -12112,23 +12385,23 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 	if blockData, ok := apiResource.Spec["tls_parameters"].(map[string]interface{}); ok && (isImport || data.TLSParameters != nil) {
 		data.TLSParameters = &VirtualHostTLSParametersModel{
-			ClientCertificateOptional: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			ClientCertificateOptional: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateOptional.IsUnknown() {
 					return data.TLSParameters.ClientCertificateOptional
 				}
 				if _, ok := blockData["client_certificate_optional"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ClientCertificateRequired: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			ClientCertificateRequired: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.ClientCertificateRequired.IsUnknown() {
 					return data.TLSParameters.ClientCertificateRequired
 				}
 				if _, ok := blockData["client_certificate_required"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CommonParams: func() *VirtualHostTLSParametersCommonParamsModel {
 				if CommonParamsData, ok := blockData["common_params"].(map[string]interface{}); ok {
@@ -12206,14 +12479,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 												}
 												return types.StringNull()
 											}(),
-											DisableOCSPStapling: func() *VirtualHostEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											DisableOCSPStapling: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-													return &VirtualHostEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											PrivateKey: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyModel {
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -12272,14 +12545,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 												}
 												return nil
 											}(),
-											UseSystemDefaults: func() *VirtualHostEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+											UseSystemDefaults: func() types.Object {
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-													return &VirtualHostEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										})
 									}
@@ -12388,14 +12661,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return nil
 			}(),
-			NoClientCertificate: func() *VirtualHostEmptyModel {
-				if !isImport && data.TLSParameters != nil {
+			NoClientCertificate: func() types.Object {
+				if !isImport && data.TLSParameters != nil && !data.TLSParameters.NoClientCertificate.IsUnknown() {
 					return data.TLSParameters.NoClientCertificate
 				}
 				if _, ok := blockData["no_client_certificate"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			XfccHeaderElements: func() types.List {
 				if v, ok := blockData["xfcc_header_elements"].([]interface{}); ok && len(v) > 0 {
@@ -12527,23 +12800,23 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return nil
 			}(),
-			DisableWAF: func() *VirtualHostEmptyModel {
-				if !isImport && data.WAFType != nil {
+			DisableWAF: func() types.Object {
+				if !isImport && data.WAFType != nil && !data.WAFType.DisableWAF.IsUnknown() {
 					return data.WAFType.DisableWAF
 				}
 				if _, ok := blockData["disable_waf"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			InheritWAF: func() *VirtualHostEmptyModel {
-				if !isImport && data.WAFType != nil {
+			InheritWAF: func() types.Object {
+				if !isImport && data.WAFType != nil && !data.WAFType.InheritWAF.IsUnknown() {
 					return data.WAFType.InheritWAF
 				}
 				if _, ok := blockData["inherit_waf"].(map[string]interface{}); ok {
-					return &VirtualHostEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

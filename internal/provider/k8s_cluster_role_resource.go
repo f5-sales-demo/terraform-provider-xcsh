@@ -223,6 +223,7 @@ func (r *K8SClusterRoleResource) Schema(ctx context.Context, req resource.Schema
 				Blocks: map[string]schema.Block{
 					"policy_rule": schema.ListNestedBlock{
 						MarkdownDescription: "Policy Rules. List of rules for role permissions.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("non_resource_url_list", "resource_list")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{

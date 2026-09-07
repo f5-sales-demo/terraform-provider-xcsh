@@ -73,7 +73,7 @@ resource "xcsh_subnet" "test" {
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
 
-  isolated_nw {}
+  isolated_nw = {}
 }
 `, nsName, name))
 }

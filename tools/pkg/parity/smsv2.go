@@ -5,9 +5,11 @@
 package parity
 
 import (
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"os"
+	"regexp"
 	"sort"
 	"strings"
 
@@ -15,12 +17,13 @@ import (
 )
 
 type LegacyManifest struct {
-	Version      string        `json:"version"`
-	Resource     string        `json:"resource"`
-	SourceURL    string        `json:"source_url"`
-	SourceSHA256 string        `json:"source_sha256"`
-	PathCount    int           `json:"path_count"`
-	Paths        []LegacyField `json:"paths"`
+	Version               string        `json:"version"`
+	Resource              string        `json:"resource"`
+	SourceURL             string        `json:"source_url"`
+	SourceSHA256          string        `json:"source_sha256"`
+	InstalledSchemaSHA256 string        `json:"installed_schema_sha256"`
+	PathCount             int           `json:"path_count"`
+	Paths                 []LegacyField `json:"paths"`
 }
 
 type LegacyField struct {
@@ -38,13 +41,28 @@ type LegacyField struct {
 }
 
 type CurrentManifest struct {
-	Version                 string              `json:"version"`
-	Resource                string              `json:"resource"`
-	PathCount               int                 `json:"path_count"`
-	Paths                   []CurrentField      `json:"paths"`
-	ChoiceGroups            map[string][]string `json:"choice_groups"`
-	DeprecatedExclusions    []string            `json:"deprecated_exclusions"`
-	CurrentPlatformRemovals []string            `json:"current_platform_removals"`
+	Version                 string                     `json:"version"`
+	Resource                string                     `json:"resource"`
+	PathCount               int                        `json:"path_count"`
+	Paths                   []CurrentField             `json:"paths"`
+	ChoiceGroups            map[string][]string        `json:"choice_groups"`
+	DeprecatedExclusions    []string                   `json:"deprecated_exclusions"`
+	PlatformRemovalEvidence map[string]RemovalEvidence `json:"platform_removal_evidence"`
+	CurrentPlatformRemovals []string                   `json:"current_platform_removals"`
+	VerifiedRemovalEvidence map[string]RemovalEvidence `json:"verified_removal_evidence"`
+	VerifiedRemovals        []string                   `json:"verified_removals"`
+}
+
+type RemovalEvidence struct {
+	ProofKind           string `json:"proof_kind"`
+	HTTPStatus          int    `json:"http_status"`
+	CreateStatus        int    `json:"create_status"`
+	GetStatus           int    `json:"get_status"`
+	ServerMessage       string `json:"server_message"`
+	ServerBehavior      string `json:"server_behavior"`
+	ObservedDate        string `json:"observed_date"`
+	LegacyFixtureSHA256 string `json:"legacy_fixture_sha256"`
+	ProbeReceiptSHA256  string `json:"probe_receipt_sha256"`
 }
 
 type CurrentField struct {
@@ -74,26 +92,30 @@ type FieldSemantics struct {
 }
 
 type MatrixEntry struct {
-	LegacyPath     string          `json:"legacy_path,omitempty"`
-	CurrentPath    string          `json:"current_path,omitempty"`
-	Classification string          `json:"classification"`
-	Reason         string          `json:"reason"`
-	Legacy         *FieldSemantics `json:"legacy,omitempty"`
-	Current        *FieldSemantics `json:"current,omitempty"`
+	RemovalEvidence  *RemovalEvidence `json:"removal_evidence,omitempty"`
+	LegacyPath       string           `json:"legacy_path,omitempty"`
+	CurrentPath      string           `json:"current_path,omitempty"`
+	Classification   string           `json:"classification"`
+	Reason           string           `json:"reason"`
+	OwningRepository string           `json:"owning_repository,omitempty"`
+	RequiredTests    []string         `json:"required_tests,omitempty"`
+	Legacy           *FieldSemantics  `json:"legacy,omitempty"`
+	Current          *FieldSemantics  `json:"current,omitempty"`
 }
 
 type Matrix struct {
-	LegacyVersion    string         `json:"legacy_version"`
-	CurrentVersion   string         `json:"current_version"`
-	LegacySourceURL  string         `json:"legacy_source_url"`
-	LegacySourceSHA  string         `json:"legacy_source_sha256"`
-	LegacyPathCount  int            `json:"legacy_path_count"`
-	CurrentPathCount int            `json:"current_path_count"`
-	GeneratedPaths   int            `json:"generated_path_count,omitempty"`
-	ClassifiedLegacy int            `json:"classified_legacy_paths"`
-	Unclassified     []string       `json:"unclassified_legacy_paths"`
-	Classification   map[string]int `json:"classification_counts"`
-	Entries          []MatrixEntry  `json:"entries"`
+	LegacyVersion            string         `json:"legacy_version"`
+	CurrentVersion           string         `json:"current_version"`
+	LegacySourceURL          string         `json:"legacy_source_url"`
+	LegacySourceSHA          string         `json:"legacy_source_sha256"`
+	LegacyInstalledSchemaSHA string         `json:"legacy_installed_schema_sha256"`
+	LegacyPathCount          int            `json:"legacy_path_count"`
+	CurrentPathCount         int            `json:"current_path_count"`
+	GeneratedPaths           int            `json:"generated_path_count,omitempty"`
+	ClassifiedLegacy         int            `json:"classified_legacy_paths"`
+	Unclassified             []string       `json:"unclassified_legacy_paths"`
+	Classification           map[string]int `json:"classification_counts"`
+	Entries                  []MatrixEntry  `json:"entries"`
 }
 
 func LoadLegacy(path string) (*LegacyManifest, error) {
@@ -101,10 +123,20 @@ func LoadLegacy(path string) (*LegacyManifest, error) {
 	if err := load(path, &value); err != nil {
 		return nil, err
 	}
-	if value.PathCount != len(value.Paths) || value.Version != "0.11.49" || value.SourceSHA256 == "" {
+	if value.PathCount != len(value.Paths) || value.Version != "0.12.2" || value.SourceSHA256 != "sha256:521cab3e85928669b461fc2ccb541c324c6d0518607d9f54e1c70df446202aea" ||
+		!validSHA256(value.InstalledSchemaSHA256) || value.Resource != "volterra_securemesh_site_v2" ||
+		value.SourceURL != "https://github.com/volterraedge/terraform-provider-volterra/blob/22f029dbf14412c99502fe1daba829f7c3261017/volterra/resource_auto_volterra_securemesh_site_v2.go" {
 		return nil, fmt.Errorf("invalid legacy SMSv2 manifest metadata")
 	}
 	return &value, nil
+}
+
+func validSHA256(value string) bool {
+	if !strings.HasPrefix(value, "sha256:") || len(value) != 71 {
+		return false
+	}
+	_, err := hex.DecodeString(strings.TrimPrefix(value, "sha256:"))
+	return err == nil
 }
 
 func LoadCurrent(path string) (*CurrentManifest, error) {
@@ -160,15 +192,16 @@ func buildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest, generate
 	}
 
 	matrix := &Matrix{
-		LegacyVersion:    legacy.Version,
-		CurrentVersion:   current.Version,
-		LegacySourceURL:  legacy.SourceURL,
-		LegacySourceSHA:  legacy.SourceSHA256,
-		LegacyPathCount:  legacy.PathCount,
-		CurrentPathCount: current.PathCount,
-		Classification:   map[string]int{},
-		Unclassified:     make([]string, 0),
-		Entries:          make([]MatrixEntry, 0, len(legacy.Paths)+len(current.Paths)),
+		LegacyVersion:            legacy.Version,
+		CurrentVersion:           current.Version,
+		LegacySourceURL:          legacy.SourceURL,
+		LegacySourceSHA:          legacy.SourceSHA256,
+		LegacyInstalledSchemaSHA: legacy.InstalledSchemaSHA256,
+		LegacyPathCount:          legacy.PathCount,
+		CurrentPathCount:         current.PathCount,
+		Classification:           map[string]int{},
+		Unclassified:             make([]string, 0),
+		Entries:                  make([]MatrixEntry, 0, len(legacy.Paths)+len(current.Paths)),
 	}
 	if generated != nil {
 		for path := range generated {
@@ -181,7 +214,27 @@ func buildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest, generate
 	for _, field := range legacy.Paths {
 		entry := classifyLegacyField(field, currentByPath, conflicts, generated)
 		if entry.Classification == "" {
+			if proof := verifiedRemoval(apiPath(field.Path), current); proof != nil {
+				entry.Classification = "current_platform_removal"
+				entry.Reason = proof.ServerMessage
+				entry.RemovalEvidence = proof
+				entry.OwningRepository = "f5-sales-demo/api-specs-enriched"
+				entry.RequiredTests = []string{"explicit platform rejection", "legacy fixture and live receipt digest verification"}
+				if proof.ProofKind == "create_read_normalization" {
+					entry.Classification = "current_feature_removal"
+					entry.Reason = "current API create/read normalization removes the legacy field"
+					entry.RequiredTests = []string{"create/read normalization and cleanup", "legacy fixture and live receipt digest verification"}
+				}
+			}
+		}
+		if entry.Classification == "" {
+			entry.Classification = "missing"
+			entry.Reason = "legacy capability has no independently verified current mapping or platform-removal evidence"
+			entry.OwningRepository = "f5-sales-demo/api-specs-enriched"
+			entry.RequiredTests = []string{"legacy request mapping", "current request and response round trip", "import, refresh and drift", "platform capability evidence"}
 			matrix.Unclassified = append(matrix.Unclassified, field.Path)
+			matrix.Classification[entry.Classification]++
+			matrix.Entries = append(matrix.Entries, entry)
 			continue
 		}
 		if entry.CurrentPath != "" {
@@ -189,14 +242,18 @@ func buildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest, generate
 		}
 		matrix.Classification[entry.Classification]++
 		matrix.Entries = append(matrix.Entries, entry)
-		matrix.ClassifiedLegacy++
+		if entry.Classification == "generator_gap" {
+			matrix.Unclassified = append(matrix.Unclassified, field.Path)
+		} else {
+			matrix.ClassifiedLegacy++
+		}
 	}
 	for _, field := range current.Paths {
 		if field.Path == "metadata" || field.Path == "spec" || consumedCurrent[field.Path] {
 			continue
 		}
 		classification := "current_only"
-		reason := "capability added after legacy v0.11.49"
+		reason := "capability added after legacy v0.12.2"
 		if generated != nil {
 			if _, present := generated[field.Path]; !present {
 				classification = "source_only_not_generated"
@@ -226,11 +283,6 @@ func buildSMSv2Matrix(legacy *LegacyManifest, current *CurrentManifest, generate
 
 func classifyLegacyField(field LegacyField, current map[string]CurrentField, conflicts map[string][]string, generated map[string]openapi.TerraformAttribute) MatrixEntry {
 	entry := MatrixEntry{LegacyPath: field.Path, Legacy: legacySemantics(field)}
-	if field.Deprecated || hasPathPrefix(field.Path, "log_receiver") || hasPathPrefix(field.Path, "private_adn") || hasPathPrefix(field.Path, "rseries") {
-		entry.Classification = "deprecated_exclusion"
-		entry.Reason = "legacy field is deprecated and intentionally not restored"
-		return entry
-	}
 
 	target, reason, classification := mappedCurrentPath(field.Path)
 	if target == "" {
@@ -242,16 +294,22 @@ func classifyLegacyField(field LegacyField, current map[string]CurrentField, con
 		_, generatedFieldPresent := generated[target]
 		if generated != nil && !generatedFieldPresent {
 			entry.Classification = "generator_gap"
+			entry.OwningRepository = "f5-sales-demo/terraform-provider-xcsh"
+			entry.RequiredTests = []string{"generated schema", "request serialization", "response handling", "resource lifecycle"}
 			entry.Reason = "legacy capability exists in the current API but is absent from the generated Terraform schema"
 		} else if classification != "" {
 			entry.Classification = classification
 			entry.Reason = reason
+			entry.OwningRepository = "f5-sales-demo/terraform-provider-xcsh"
+			entry.RequiredTests = []string{"current schema mapping", "request serialization", "response handling", "import, refresh and drift"}
 		} else if semanticallyEqual(entry.Legacy, entry.Current) {
 			entry.Classification = "current_parity"
 			entry.Reason = "path and normalized Terraform semantics match"
 		} else {
 			entry.Classification = "modernized_semantics"
 			entry.Reason = "capability retained with enriched requiredness, validation, cardinality, default, conflict, or wire semantics"
+			entry.OwningRepository = "f5-sales-demo/terraform-provider-xcsh"
+			entry.RequiredTests = []string{"generated schema", "request serialization", "response handling", "import, refresh and drift"}
 		}
 		return entry
 	}
@@ -260,25 +318,58 @@ func classifyLegacyField(field LegacyField, current map[string]CurrentField, con
 		entry.Reason = reason
 		return entry
 	}
-	if strings.HasPrefix(field.Path, "aws.managed") {
-		entry.Classification = "modernized_semantics"
-		entry.Reason = "provider-managed AWS lifecycle is represented by xcsh_aws_vpc_site"
-		return entry
-	}
-	if strings.HasPrefix(field.Path, "azure.managed") {
-		entry.Classification = "modernized_semantics"
-		entry.Reason = "provider-managed Azure lifecycle is represented by xcsh_azure_vnet_site"
-		return entry
-	}
-	if strings.HasPrefix(field.Path, "gcp.managed") {
-		entry.Classification = "modernized_semantics"
-		entry.Reason = "provider-managed GCP lifecycle is represented by xcsh_gcp_vpc_site"
-		return entry
-	}
+
 	return entry
 }
 
 func mappedCurrentPath(path string) (string, string, string) {
+	if path == "log_receiver" || strings.HasPrefix(path, "log_receiver.") {
+		return apiPath(strings.Replace(path, "log_receiver", "log_receiver_with_net.log_receiver", 1)), "legacy logging receiver selection is nested with an explicit payload-network choice", "modernized_semantics"
+	}
+	if strings.Contains(path, ".blindfold_secret_info_internal") {
+		return apiPath(strings.Replace(path, ".blindfold_secret_info_internal", ".blindfold_secret_info", 1)), "legacy internal blindfold naming is represented by the current blindfold secret contract", "modernized_semantics"
+	}
+	for _, legacySecret := range []string{".vault_secret_info", ".wingman_secret_info", ".secret_encoding_type"} {
+		if index := strings.Index(path, legacySecret); index >= 0 {
+			return apiPath(path[:index] + ".blindfold_secret_info"), "legacy backend-specific secret configuration is represented by the current blindfold or clear-secret contract", "modernized_semantics"
+		}
+	}
+	if strings.Contains(path, ".ipv6_auto_config.router.stateful.dhcp_networks[].pools[].exclude") {
+		return apiPath(strings.Replace(path, ".pools[].exclude", ".pool_settings", 1)), "per-pool exclusion is represented by the current DHCP pool inclusion policy", "modernized_semantics"
+	}
+	if index := strings.Index(path, ".static_ipv6_address.fleet_static_ip"); index >= 0 {
+		prefix := path[:index] + ".static_ipv6_address"
+		tail := strings.TrimPrefix(path[index+len(".static_ipv6_address.fleet_static_ip"):], ".")
+		switch tail {
+		case "default_gw", "dns_server":
+			return apiPath(prefix + ".node_static_ip." + tail), "fleet-assigned addressing is represented by explicit node or cluster static IPv6 configuration", "modernized_semantics"
+		case "", "network_prefix_allocator", "network_prefix_allocator.name", "network_prefix_allocator.namespace", "network_prefix_allocator.tenant":
+			target := prefix + ".cluster_static_ip"
+			if tail != "" {
+				target += ".interface_ip_map"
+			}
+			return apiPath(target), "fleet-assigned addressing is represented by explicit node or cluster static IPv6 configuration", "modernized_semantics"
+		}
+	}
+	if index := strings.Index(path, ".network_prefix_allocator"); index >= 0 {
+		return apiPath(path[:index] + ".network_prefix"), "legacy allocator references are represented by an explicit current network prefix", "modernized_semantics"
+	}
+	if index := strings.Index(path, ".static_routes.static_routes[].interface"); index >= 0 {
+		prefix := path[:index] + ".static_routes.static_routes[].node_interface"
+		tail := strings.TrimPrefix(path[index+len(".static_routes.static_routes[].interface"):], ".")
+		if tail == "" {
+			return apiPath(prefix), "single interface references are represented by the current node-aware interface list", "modernized_semantics"
+		}
+		return apiPath(prefix + ".list[].interface[]." + tail), "single interface references are represented by the current node-aware interface list", "modernized_semantics"
+	}
+	if index := strings.Index(path, ".static_v6_routes.static_routes[].interface"); index >= 0 {
+		prefix := path[:index] + ".static_v6_routes.static_routes[].node_interface"
+		tail := strings.TrimPrefix(path[index+len(".static_v6_routes.static_routes[].interface"):], ".")
+		if tail == "" {
+			return apiPath(prefix), "single interface references are represented by the current node-aware interface list", "modernized_semantics"
+		}
+		return apiPath(prefix + ".list[].interface[]." + tail), "single interface references are represented by the current node-aware interface list", "modernized_semantics"
+	}
 	if strings.Contains(path, ".network_option.segment_network") {
 		return "spec.segment_vrf[].segment_network", "per-interface Segment selection is represented by the named top-level Segment VRF contract", "modernized_semantics"
 	}
@@ -290,20 +381,20 @@ func mappedCurrentPath(path string) (string, string, string) {
 		return apiPath(strings.Replace(path, "blocked_sevice", "blocked_service", 1)), "corrected legacy blocked_sevice spelling while preserving the current blocked_service wire key", "modernized_semantics"
 	}
 	for legacy, current := range map[string]string{
-		"local_vrf.sli_config.nameserver_v6":           "local_vrf.sli_config.nameserver",
-		"local_vrf.sli_config.secondary_nameserver_v6": "local_vrf.sli_config.secondary_nameserver",
-		"local_vrf.sli_config.vip_v6":                  "local_vrf.sli_config.vip",
-		"local_vrf.slo_config.nameserver_v6":           "local_vrf.slo_config.nameserver",
-		"local_vrf.slo_config.secondary_nameserver_v6": "local_vrf.slo_config.secondary_nameserver",
-		"local_vrf.slo_config.vip_v6":                  "local_vrf.slo_config.vip",
+		"local_vrf.sli_config.nameserver_v6":                   "local_vrf.sli_config.nameserver",
+		"local_vrf.sli_config.secondary_nameserver_v6":         "local_vrf.sli_config.secondary_nameserver",
+		"local_vrf.sli_config.vip_v6":                          "local_vrf.sli_config.vip",
+		"local_vrf.slo_config.nameserver_v6":                   "local_vrf.slo_config.nameserver",
+		"local_vrf.slo_config.secondary_nameserver_v6":         "local_vrf.slo_config.secondary_nameserver",
+		"local_vrf.slo_config.vip_v6":                          "local_vrf.slo_config.vip",
+		"segment_vrf[].segment_config.nameserver_v6":           "segment_vrf[].segment_config.nameserver",
+		"segment_vrf[].segment_config.secondary_nameserver_v6": "segment_vrf[].segment_config.secondary_nameserver",
 	} {
 		if path == legacy {
 			return apiPath(current), "address-family-specific field is represented by the current IP-address field", "modernized_semantics"
 		}
 	}
-	if path == "segment_vrf[].segment_config.nameserver_v6" || path == "segment_vrf[].segment_config.secondary_nameserver_v6" {
-		return "", "controlled current-platform probe accepted but stripped the field; the release evidence records the removal", "current_platform_removal"
-	}
+
 	return "", "", ""
 }
 
@@ -374,12 +465,14 @@ func flattenTerraformAttributes(attrs []openapi.TerraformAttribute) map[string]o
 	var walk func([]openapi.TerraformAttribute, string)
 	walk = func(fields []openapi.TerraformAttribute, prefix string) {
 		for _, attr := range fields {
-			name := attr.JsonName
+			// Manifest paths identify enriched properties; JsonName preserves the
+			// outgoing API key, which can differ after a deliberate rename.
+			name := attr.Name
 			if name == "" {
-				name = attr.TfsdkTag
+				name = attr.JsonName
 			}
 			if name == "" {
-				name = attr.Name
+				name = attr.TfsdkTag
 			}
 			if name == "" {
 				continue
@@ -441,6 +534,56 @@ func terraformPath(api string) string {
 	return strings.TrimPrefix(strings.TrimPrefix(api, "metadata."), "spec.")
 }
 
-func hasPathPrefix(path, prefix string) bool {
-	return path == prefix || strings.HasPrefix(path, prefix+".") || strings.HasPrefix(path, prefix+"[]")
+var platformRemovalRoot = regexp.MustCompile(`^spec\.([a-z][a-z0-9_]*)$`)
+
+func explicitPlatformRejection(root, message string) bool {
+	platform := platformRemovalRoot.FindStringSubmatch(root)
+	return len(platform) == 2 && strings.EqualFold(strings.TrimSpace(message), platform[1]+" provider is not supported for SecureMeshSite")
+}
+
+// verifiedRemoval requires scoped evidence; a deprecated annotation or a bare
+// exclusion list cannot establish platform removal.
+func verifiedRemoval(path string, current *CurrentManifest) *RemovalEvidence {
+	for _, root := range current.CurrentPlatformRemovals {
+		if path != root && !strings.HasPrefix(path, root+".") {
+			continue
+		}
+		proof, ok := current.PlatformRemovalEvidence[root]
+		if !ok || proof.ProofKind != "explicit_api_rejection" || !explicitPlatformRejection(root, proof.ServerMessage) || proof.ObservedDate == "" || !validSHA256(proof.LegacyFixtureSHA256) || !validSHA256(proof.ProbeReceiptSHA256) {
+			continue
+		}
+		if proof.HTTPStatus != 400 && proof.HTTPStatus != 410 && proof.HTTPStatus != 422 {
+			continue
+		}
+		present := false
+		for _, field := range current.Paths {
+			if field.Path == root || strings.HasPrefix(field.Path, root+".") {
+				present = true
+				break
+			}
+		}
+		if !present {
+			return &proof
+		}
+	}
+	for _, root := range current.VerifiedRemovals {
+		if path != root && !strings.HasPrefix(path, root+".") {
+			continue
+		}
+		proof, ok := current.VerifiedRemovalEvidence[root]
+		if !ok || proof.ProofKind != "create_read_normalization" || proof.CreateStatus != 200 || proof.GetStatus != 200 || proof.ServerBehavior != "silently_removed" || proof.ObservedDate == "" || !validSHA256(proof.LegacyFixtureSHA256) || !validSHA256(proof.ProbeReceiptSHA256) {
+			continue
+		}
+		present := false
+		for _, field := range current.Paths {
+			if field.Path == root || strings.HasPrefix(field.Path, root+".") {
+				present = true
+				break
+			}
+		}
+		if !present {
+			return &proof
+		}
+	}
+	return nil
 }

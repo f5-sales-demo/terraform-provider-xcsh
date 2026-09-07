@@ -15,12 +15,12 @@ resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
 
-  default_detection_settings {}
-  allow_all_response_codes {}
-  blocking {}
-  use_default_blocking_page {}
-  default_bot_setting {}
-  default_anonymization {}
+  default_detection_settings = {}
+  allow_all_response_codes   = {}
+  blocking                   = {}
+  use_default_blocking_page  = {}
+  default_bot_setting        = {}
+  default_anonymization      = {}
 }
 
 resource "xcsh_http_loadbalancer" "test" {
@@ -38,5 +38,5 @@ resource "xcsh_http_loadbalancer" "test" {
     namespace = "system"
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }

@@ -51,7 +51,7 @@ type ProtocolInspectionEmptyModel struct {
 
 // ProtocolInspectionEnableDisableComplianceChecksModel represents enable_disable_compliance_checks block
 type ProtocolInspectionEnableDisableComplianceChecksModel struct {
-	DisableComplianceChecks *ProtocolInspectionEmptyModel                                               `tfsdk:"disable_compliance_checks"`
+	DisableComplianceChecks types.Object                                                                `tfsdk:"disable_compliance_checks"`
 	EnableComplianceChecks  *ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel `tfsdk:"enable_compliance_checks"`
 }
 
@@ -77,8 +77,8 @@ var ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModelAt
 
 // ProtocolInspectionEnableDisableSignaturesModel represents enable_disable_signatures block
 type ProtocolInspectionEnableDisableSignaturesModel struct {
-	DisableSignature *ProtocolInspectionEmptyModel `tfsdk:"disable_signature"`
-	EnableSignature  *ProtocolInspectionEmptyModel `tfsdk:"enable_signature"`
+	DisableSignature types.Object `tfsdk:"disable_signature"`
+	EnableSignature  types.Object `tfsdk:"enable_signature"`
 }
 
 // ProtocolInspectionEnableDisableSignaturesModelAttrTypes defines the attribute types for ProtocolInspectionEnableDisableSignaturesModel
@@ -175,12 +175,16 @@ func (r *ProtocolInspectionResource) Schema(ctx context.Context, req resource.Sc
 			}),
 			"enable_disable_compliance_checks": schema.SingleNestedBlock{
 				MarkdownDescription: "Enable Disable Compliance Checks Choice.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_compliance_checks", "enable_compliance_checks")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_compliance_checks": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_compliance_checks": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for disable compliance checks.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+				},
+				Blocks: map[string]schema.Block{
 					"enable_compliance_checks": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -216,14 +220,18 @@ func (r *ProtocolInspectionResource) Schema(ctx context.Context, req resource.Sc
 			},
 			"enable_disable_signatures": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for enable disable signatures.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_signature", "enable_signature")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_signature": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_signature": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for disable signature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"enable_signature": schema.SingleNestedBlock{
+					"enable_signature": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for enable signature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
@@ -355,7 +363,7 @@ func (r *ProtocolInspectionResource) Create(ctx context.Context, req resource.Cr
 	// Marshal spec fields from Terraform state to API struct
 	if data.EnableDisableComplianceChecks != nil {
 		EnableDisableComplianceChecksMap := make(map[string]interface{})
-		if data.EnableDisableComplianceChecks.DisableComplianceChecks != nil {
+		if !data.EnableDisableComplianceChecks.DisableComplianceChecks.IsNull() && !data.EnableDisableComplianceChecks.DisableComplianceChecks.IsUnknown() {
 			EnableDisableComplianceChecksMap["disable_compliance_checks"] = map[string]interface{}{}
 		}
 		if data.EnableDisableComplianceChecks.EnableComplianceChecks != nil {
@@ -372,10 +380,10 @@ func (r *ProtocolInspectionResource) Create(ctx context.Context, req resource.Cr
 	}
 	if data.EnableDisableSignatures != nil {
 		EnableDisableSignaturesMap := make(map[string]interface{})
-		if data.EnableDisableSignatures.DisableSignature != nil {
+		if !data.EnableDisableSignatures.DisableSignature.IsNull() && !data.EnableDisableSignatures.DisableSignature.IsUnknown() {
 			EnableDisableSignaturesMap["disable_signature"] = map[string]interface{}{}
 		}
-		if data.EnableDisableSignatures.EnableSignature != nil {
+		if !data.EnableDisableSignatures.EnableSignature.IsNull() && !data.EnableDisableSignatures.EnableSignature.IsUnknown() {
 			EnableDisableSignaturesMap["enable_signature"] = map[string]interface{}{}
 		}
 		createReq.Spec["enable_disable_signatures"] = EnableDisableSignaturesMap
@@ -424,14 +432,14 @@ func (r *ProtocolInspectionResource) Create(ctx context.Context, req resource.Cr
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["enable_disable_compliance_checks"].(map[string]interface{}); ok && (isImport || data.EnableDisableComplianceChecks != nil) {
 		data.EnableDisableComplianceChecks = &ProtocolInspectionEnableDisableComplianceChecksModel{
-			DisableComplianceChecks: func() *ProtocolInspectionEmptyModel {
-				if !isImport && data.EnableDisableComplianceChecks != nil {
+			DisableComplianceChecks: func() types.Object {
+				if !isImport && data.EnableDisableComplianceChecks != nil && !data.EnableDisableComplianceChecks.DisableComplianceChecks.IsUnknown() {
 					return data.EnableDisableComplianceChecks.DisableComplianceChecks
 				}
 				if _, ok := blockData["disable_compliance_checks"].(map[string]interface{}); ok {
-					return &ProtocolInspectionEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableComplianceChecks: func() *ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel {
 				if EnableComplianceChecksData, ok := blockData["enable_compliance_checks"].(map[string]interface{}); ok {
@@ -462,23 +470,23 @@ func (r *ProtocolInspectionResource) Create(ctx context.Context, req resource.Cr
 	}
 	if blockData, ok := apiResource.Spec["enable_disable_signatures"].(map[string]interface{}); ok && (isImport || data.EnableDisableSignatures != nil) {
 		data.EnableDisableSignatures = &ProtocolInspectionEnableDisableSignaturesModel{
-			DisableSignature: func() *ProtocolInspectionEmptyModel {
-				if !isImport && data.EnableDisableSignatures != nil {
+			DisableSignature: func() types.Object {
+				if !isImport && data.EnableDisableSignatures != nil && !data.EnableDisableSignatures.DisableSignature.IsUnknown() {
 					return data.EnableDisableSignatures.DisableSignature
 				}
 				if _, ok := blockData["disable_signature"].(map[string]interface{}); ok {
-					return &ProtocolInspectionEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableSignature: func() *ProtocolInspectionEmptyModel {
-				if !isImport && data.EnableDisableSignatures != nil {
+			EnableSignature: func() types.Object {
+				if !isImport && data.EnableDisableSignatures != nil && !data.EnableDisableSignatures.EnableSignature.IsUnknown() {
 					return data.EnableDisableSignatures.EnableSignature
 				}
 				if _, ok := blockData["enable_signature"].(map[string]interface{}); ok {
-					return &ProtocolInspectionEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -620,14 +628,14 @@ func (r *ProtocolInspectionResource) Read(ctx context.Context, req resource.Read
 	_ = isImport // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["enable_disable_compliance_checks"].(map[string]interface{}); ok && (isImport || data.EnableDisableComplianceChecks != nil) {
 		data.EnableDisableComplianceChecks = &ProtocolInspectionEnableDisableComplianceChecksModel{
-			DisableComplianceChecks: func() *ProtocolInspectionEmptyModel {
-				if !isImport && data.EnableDisableComplianceChecks != nil {
+			DisableComplianceChecks: func() types.Object {
+				if !isImport && data.EnableDisableComplianceChecks != nil && !data.EnableDisableComplianceChecks.DisableComplianceChecks.IsUnknown() {
 					return data.EnableDisableComplianceChecks.DisableComplianceChecks
 				}
 				if _, ok := blockData["disable_compliance_checks"].(map[string]interface{}); ok {
-					return &ProtocolInspectionEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableComplianceChecks: func() *ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel {
 				if EnableComplianceChecksData, ok := blockData["enable_compliance_checks"].(map[string]interface{}); ok {
@@ -658,23 +666,23 @@ func (r *ProtocolInspectionResource) Read(ctx context.Context, req resource.Read
 	}
 	if blockData, ok := apiResource.Spec["enable_disable_signatures"].(map[string]interface{}); ok && (isImport || data.EnableDisableSignatures != nil) {
 		data.EnableDisableSignatures = &ProtocolInspectionEnableDisableSignaturesModel{
-			DisableSignature: func() *ProtocolInspectionEmptyModel {
-				if !isImport && data.EnableDisableSignatures != nil {
+			DisableSignature: func() types.Object {
+				if !isImport && data.EnableDisableSignatures != nil && !data.EnableDisableSignatures.DisableSignature.IsUnknown() {
 					return data.EnableDisableSignatures.DisableSignature
 				}
 				if _, ok := blockData["disable_signature"].(map[string]interface{}); ok {
-					return &ProtocolInspectionEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableSignature: func() *ProtocolInspectionEmptyModel {
-				if !isImport && data.EnableDisableSignatures != nil {
+			EnableSignature: func() types.Object {
+				if !isImport && data.EnableDisableSignatures != nil && !data.EnableDisableSignatures.EnableSignature.IsUnknown() {
 					return data.EnableDisableSignatures.EnableSignature
 				}
 				if _, ok := blockData["enable_signature"].(map[string]interface{}); ok {
-					return &ProtocolInspectionEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -779,7 +787,7 @@ func (r *ProtocolInspectionResource) Update(ctx context.Context, req resource.Up
 	// Marshal spec fields from Terraform state to API struct
 	if data.EnableDisableComplianceChecks != nil {
 		EnableDisableComplianceChecksMap := make(map[string]interface{})
-		if data.EnableDisableComplianceChecks.DisableComplianceChecks != nil {
+		if !data.EnableDisableComplianceChecks.DisableComplianceChecks.IsNull() && !data.EnableDisableComplianceChecks.DisableComplianceChecks.IsUnknown() {
 			EnableDisableComplianceChecksMap["disable_compliance_checks"] = map[string]interface{}{}
 		}
 		if data.EnableDisableComplianceChecks.EnableComplianceChecks != nil {
@@ -796,10 +804,10 @@ func (r *ProtocolInspectionResource) Update(ctx context.Context, req resource.Up
 	}
 	if data.EnableDisableSignatures != nil {
 		EnableDisableSignaturesMap := make(map[string]interface{})
-		if data.EnableDisableSignatures.DisableSignature != nil {
+		if !data.EnableDisableSignatures.DisableSignature.IsNull() && !data.EnableDisableSignatures.DisableSignature.IsUnknown() {
 			EnableDisableSignaturesMap["disable_signature"] = map[string]interface{}{}
 		}
-		if data.EnableDisableSignatures.EnableSignature != nil {
+		if !data.EnableDisableSignatures.EnableSignature.IsNull() && !data.EnableDisableSignatures.EnableSignature.IsUnknown() {
 			EnableDisableSignaturesMap["enable_signature"] = map[string]interface{}{}
 		}
 		apiResource.Spec["enable_disable_signatures"] = EnableDisableSignaturesMap
@@ -875,14 +883,14 @@ func (r *ProtocolInspectionResource) Update(ctx context.Context, req resource.Up
 	_ = isImport      // May be unused if resource has no blocks needing import detection
 	if blockData, ok := apiResource.Spec["enable_disable_compliance_checks"].(map[string]interface{}); ok && (isImport || data.EnableDisableComplianceChecks != nil) {
 		data.EnableDisableComplianceChecks = &ProtocolInspectionEnableDisableComplianceChecksModel{
-			DisableComplianceChecks: func() *ProtocolInspectionEmptyModel {
-				if !isImport && data.EnableDisableComplianceChecks != nil {
+			DisableComplianceChecks: func() types.Object {
+				if !isImport && data.EnableDisableComplianceChecks != nil && !data.EnableDisableComplianceChecks.DisableComplianceChecks.IsUnknown() {
 					return data.EnableDisableComplianceChecks.DisableComplianceChecks
 				}
 				if _, ok := blockData["disable_compliance_checks"].(map[string]interface{}); ok {
-					return &ProtocolInspectionEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableComplianceChecks: func() *ProtocolInspectionEnableDisableComplianceChecksEnableComplianceChecksModel {
 				if EnableComplianceChecksData, ok := blockData["enable_compliance_checks"].(map[string]interface{}); ok {
@@ -913,23 +921,23 @@ func (r *ProtocolInspectionResource) Update(ctx context.Context, req resource.Up
 	}
 	if blockData, ok := apiResource.Spec["enable_disable_signatures"].(map[string]interface{}); ok && (isImport || data.EnableDisableSignatures != nil) {
 		data.EnableDisableSignatures = &ProtocolInspectionEnableDisableSignaturesModel{
-			DisableSignature: func() *ProtocolInspectionEmptyModel {
-				if !isImport && data.EnableDisableSignatures != nil {
+			DisableSignature: func() types.Object {
+				if !isImport && data.EnableDisableSignatures != nil && !data.EnableDisableSignatures.DisableSignature.IsUnknown() {
 					return data.EnableDisableSignatures.DisableSignature
 				}
 				if _, ok := blockData["disable_signature"].(map[string]interface{}); ok {
-					return &ProtocolInspectionEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableSignature: func() *ProtocolInspectionEmptyModel {
-				if !isImport && data.EnableDisableSignatures != nil {
+			EnableSignature: func() types.Object {
+				if !isImport && data.EnableDisableSignatures != nil && !data.EnableDisableSignatures.EnableSignature.IsUnknown() {
 					return data.EnableDisableSignatures.EnableSignature
 				}
 				if _, ok := blockData["enable_signature"].(map[string]interface{}); ok {
-					return &ProtocolInspectionEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

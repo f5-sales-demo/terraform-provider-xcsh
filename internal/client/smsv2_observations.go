@@ -55,7 +55,7 @@ func (c *Client) GetSMSv2SimplifiedRoutes(ctx context.Context, namespace, site, 
 	return result, err
 }
 
-func (c *Client) GetSMSv2SiteUpgradeStatus(ctx context.Context, namespace, site string) (SMSv2Observation, error) {
+func (c *Client) GetSMSv2SiteStatus(ctx context.Context, namespace, site string) (SMSv2Observation, error) {
 	var result SMSv2Observation
 	path := fmt.Sprintf("/api/config/namespaces/%s/sites/%s", escapeSMSv2Path(namespace), escapeSMSv2Path(site))
 	err := c.Get(ctx, path, &result)
@@ -83,6 +83,15 @@ func (c *Client) GetSMSv2PreUpgradeCheck(ctx context.Context, namespace, site, s
 func (c *Client) GetSMSv2UpgradeProgress(ctx context.Context, namespace, site string) (SMSv2Observation, error) {
 	var result SMSv2Observation
 	path := fmt.Sprintf("/api/maurice/namespaces/%s/sites/%s/upgrade_status", escapeSMSv2Path(namespace), escapeSMSv2Path(site))
+	err := c.Get(ctx, path, &result)
+	return result, err
+}
+
+// ListSMSv2NetworkInterfaces requests realized interface configuration and owner
+// references. Callers must correlate owners; names are not a platform contract.
+func (c *Client) ListSMSv2NetworkInterfaces(ctx context.Context, namespace string) (SMSv2Observation, error) {
+	var result SMSv2Observation
+	path := fmt.Sprintf("/api/config/namespaces/%s/network_interfaces?report_fields=get_spec&report_fields=system_metadata", escapeSMSv2Path(namespace))
 	err := c.Get(ctx, path, &result)
 	return result, err
 }

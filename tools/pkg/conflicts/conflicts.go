@@ -38,7 +38,7 @@ func GenerateChecks(attrs []Attr, goNameLookup map[string]string) string {
 			}
 			seen[pairKey] = true
 
-			sb.WriteString(fmt.Sprintf("\tif !data.%s.IsNull() && !data.%s.IsNull() {\n", attr.GoName, conflictGoName))
+			sb.WriteString(fmt.Sprintf("\tif !data.%s.IsNull() && !data.%s.IsUnknown() && !data.%s.IsNull() && !data.%s.IsUnknown() {\n", attr.GoName, attr.GoName, conflictGoName, conflictGoName))
 			sb.WriteString("\t\tresp.Diagnostics.AddAttributeError(\n")
 			sb.WriteString(fmt.Sprintf("\t\t\tpath.Root(%q),\n", attr.TfsdkTag))
 			sb.WriteString("\t\t\t\"Conflicting Configuration\",\n")

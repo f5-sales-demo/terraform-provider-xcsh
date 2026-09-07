@@ -39,7 +39,7 @@ resource "xcsh_ike2" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -62,7 +62,7 @@ resource "xcsh_ike2" "example" {
 -> **One of the following:**
 &#x2022; <a id="dh-group-set"></a>[`dh_group_set`](#dh-group-set) - Optional Block<br>Choose the acceptable Diffie Hellman(DH) Group or Groups that you are willing to accept as part of this profile<br>See [Dh Group Set](#dh-group-set) below for details.
 
-<a id="disable-pfs"></a>&#x2022; [`disable_pfs`](#disable-pfs) - Optional Block<br>Configuration parameter for disable pfs
+<a id="disable-pfs"></a>&#x2022; [`disable_pfs`](#disable-pfs) - Optional Object<br>Configuration parameter for disable pfs
 
 -> **One of the following:**
 &#x2022; <a id="ike-keylifetime-hours"></a>[`ike_keylifetime_hours`](#ike-keylifetime-hours) - Optional Block<br>Configuration parameter for IKE keylifetime hours<br>See [IKE Keylifetime Hours](#ike-keylifetime-hours) below for details.
@@ -70,7 +70,7 @@ resource "xcsh_ike2" "example" {
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="use-default-keylifetime"></a>&#x2022; [`use_default_keylifetime`](#use-default-keylifetime) - Optional Block<br>Configuration parameter for use default keylifetime
+<a id="use-default-keylifetime"></a>&#x2022; [`use_default_keylifetime`](#use-default-keylifetime) - Optional Object<br>Configuration parameter for use default keylifetime
 
 ### Attributes Reference
 
@@ -86,6 +86,10 @@ A [`dh_group_set`](#dh-group-set) block supports the following:
 
 <a id="dh-group-set-dh-groups"></a>&#x2022; [`dh_groups`](#dh-group-set-dh-groups) - Optional List  Defaults to `DH_GROUP_DEFAULT`<br>Possible values are `DH_GROUP_DEFAULT`, `DH_GROUP_14`, `DH_GROUP_15`, `DH_GROUP_16`, `DH_GROUP_17`, `DH_GROUP_18`, `DH_GROUP_19`, `DH_GROUP_20`, `DH_GROUP_21`, `DH_GROUP_26`<br>[Enum:
 DH_GROUP_DEFAULT|DH_GROUP_14|DH_GROUP_15|DH_GROUP_16|DH_GROUP_17|DH_GROUP_18|DH_GROUP_19|DH_GROUP_20|DH_GROUP_21|DH_GROUP_26] Diffie Hellman Groups. Group or collection configuration
+
+#### Disable Pfs
+
+A [`disable_pfs`](#disable-pfs) block supports the following:
 
 #### IKE Keylifetime Hours
 
@@ -110,6 +114,10 @@ A [`timeouts`](#timeouts) block supports the following:
 <a id="timeouts-read"></a>&#x2022; [`read`](#timeouts-read) - Optional String (Defaults to `5 minutes`)<br>Used when retrieving the resource
 
 <a id="timeouts-update"></a>&#x2022; [`update`](#timeouts-update) - Optional String (Defaults to `10 minutes`)<br>Used when updating the resource
+
+#### Use Default Keylifetime
+
+An [`use_default_keylifetime`](#use-default-keylifetime) block supports the following:
 
 ---
 

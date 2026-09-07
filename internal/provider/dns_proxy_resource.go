@@ -54,8 +54,8 @@ type DNSProxyEmptyModel struct {
 
 // DNSProxyCacheProfileModel represents cache_profile block
 type DNSProxyCacheProfileModel struct {
-	CacheSize           types.Int64         `tfsdk:"cache_size"`
-	DisableCacheProfile *DNSProxyEmptyModel `tfsdk:"disable_cache_profile"`
+	CacheSize           types.Int64  `tfsdk:"cache_size"`
+	DisableCacheProfile types.Object `tfsdk:"disable_cache_profile"`
 }
 
 // DNSProxyCacheProfileModelAttrTypes defines the attribute types for DNSProxyCacheProfileModel
@@ -66,8 +66,8 @@ var DNSProxyCacheProfileModelAttrTypes = map[string]attr.Type{
 
 // DNSProxyDDOSProfileModel represents ddos_profile block
 type DNSProxyDDOSProfileModel struct {
-	DisableDDOSMitigation *DNSProxyEmptyModel `tfsdk:"disable_ddos_mitigation"`
-	EnableDDOSMitigation  *DNSProxyEmptyModel `tfsdk:"enable_ddos_mitigation"`
+	DisableDDOSMitigation types.Object `tfsdk:"disable_ddos_mitigation"`
+	EnableDDOSMitigation  types.Object `tfsdk:"enable_ddos_mitigation"`
 }
 
 // DNSProxyDDOSProfileModelAttrTypes defines the attribute types for DNSProxyDDOSProfileModel
@@ -132,15 +132,15 @@ var DNSProxyOriginServersHealthChecksModelAttrTypes = map[string]attr.Type{
 
 // DNSProxyOriginServersHealthChecksHealthCheckModel represents health_check block
 type DNSProxyOriginServersHealthChecksHealthCheckModel struct {
+	ICMPHealthCheck types.Object                                                     `tfsdk:"icmp_health_check"`
 	DNSHealthCheck  *DNSProxyOriginServersHealthChecksHealthCheckDNSHealthCheckModel `tfsdk:"dns_health_check"`
-	ICMPHealthCheck *DNSProxyEmptyModel                                              `tfsdk:"icmp_health_check"`
 	TCPHealthCheck  *DNSProxyOriginServersHealthChecksHealthCheckTCPHealthCheckModel `tfsdk:"tcp_health_check"`
 }
 
 // DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes defines the attribute types for DNSProxyOriginServersHealthChecksHealthCheckModel
 var DNSProxyOriginServersHealthChecksHealthCheckModelAttrTypes = map[string]attr.Type{
-	"dns_health_check":  types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckDNSHealthCheckModelAttrTypes},
 	"icmp_health_check": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dns_health_check":  types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckDNSHealthCheckModelAttrTypes},
 	"tcp_health_check":  types.ObjectType{AttrTypes: DNSProxyOriginServersHealthChecksHealthCheckTCPHealthCheckModelAttrTypes},
 }
 
@@ -178,8 +178,8 @@ var DNSProxyOriginServersHealthChecksHealthCheckTCPHealthCheckModelAttrTypes = m
 
 // DNSProxyOriginServersOriginServersModel represents origin_servers block
 type DNSProxyOriginServersOriginServersModel struct {
+	NoPreference    types.Object                                            `tfsdk:"no_preference"`
 	K8SService      *DNSProxyOriginServersOriginServersK8SServiceModel      `tfsdk:"k8s_service"`
-	NoPreference    *DNSProxyEmptyModel                                     `tfsdk:"no_preference"`
 	PublicIP        *DNSProxyOriginServersOriginServersPublicIPModel        `tfsdk:"public_ip"`
 	PublicName      *DNSProxyOriginServersOriginServersPublicNameModel      `tfsdk:"public_name"`
 	SitePreferences *DNSProxyOriginServersOriginServersSitePreferencesModel `tfsdk:"site_preferences"`
@@ -187,8 +187,8 @@ type DNSProxyOriginServersOriginServersModel struct {
 
 // DNSProxyOriginServersOriginServersModelAttrTypes defines the attribute types for DNSProxyOriginServersOriginServersModel
 var DNSProxyOriginServersOriginServersModelAttrTypes = map[string]attr.Type{
-	"k8s_service":      types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersK8SServiceModelAttrTypes},
 	"no_preference":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"k8s_service":      types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersK8SServiceModelAttrTypes},
 	"public_ip":        types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersPublicIPModelAttrTypes},
 	"public_name":      types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersPublicNameModelAttrTypes},
 	"site_preferences": types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersSitePreferencesModelAttrTypes},
@@ -196,24 +196,24 @@ var DNSProxyOriginServersOriginServersModelAttrTypes = map[string]attr.Type{
 
 // DNSProxyOriginServersOriginServersK8SServiceModel represents k8s_service block
 type DNSProxyOriginServersOriginServersK8SServiceModel struct {
+	InsideNetwork  types.Object                                                  `tfsdk:"inside_network"`
+	OutsideNetwork types.Object                                                  `tfsdk:"outside_network"`
 	Protocol       types.String                                                  `tfsdk:"protocol"`
 	ServiceName    types.String                                                  `tfsdk:"service_name"`
-	InsideNetwork  *DNSProxyEmptyModel                                           `tfsdk:"inside_network"`
-	OutsideNetwork *DNSProxyEmptyModel                                           `tfsdk:"outside_network"`
+	Vk8sNetworks   types.Object                                                  `tfsdk:"vk8s_networks"`
 	SiteLocator    *DNSProxyOriginServersOriginServersK8SServiceSiteLocatorModel `tfsdk:"site_locator"`
 	SnatPool       *DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel    `tfsdk:"snat_pool"`
-	Vk8sNetworks   *DNSProxyEmptyModel                                           `tfsdk:"vk8s_networks"`
 }
 
 // DNSProxyOriginServersOriginServersK8SServiceModelAttrTypes defines the attribute types for DNSProxyOriginServersOriginServersK8SServiceModel
 var DNSProxyOriginServersOriginServersK8SServiceModelAttrTypes = map[string]attr.Type{
-	"protocol":        types.StringType,
-	"service_name":    types.StringType,
 	"inside_network":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"outside_network": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"protocol":        types.StringType,
+	"service_name":    types.StringType,
+	"vk8s_networks":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"site_locator":    types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersK8SServiceSiteLocatorModelAttrTypes},
 	"snat_pool":       types.ObjectType{AttrTypes: DNSProxyOriginServersOriginServersK8SServiceSnatPoolModelAttrTypes},
-	"vk8s_networks":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // DNSProxyOriginServersOriginServersK8SServiceSiteLocatorModel represents site_locator block
@@ -258,7 +258,7 @@ var DNSProxyOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteModelAttrT
 
 // DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel represents snat_pool block
 type DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel struct {
-	NoSnatPool *DNSProxyEmptyModel                                                `tfsdk:"no_snat_pool"`
+	NoSnatPool types.Object                                                       `tfsdk:"no_snat_pool"`
 	SnatPool   *DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel `tfsdk:"snat_pool"`
 }
 
@@ -340,18 +340,18 @@ var DNSProxyProtocolInspectionModelAttrTypes = map[string]attr.Type{
 
 // DNSProxyProxyAdvertisementModel represents proxy_advertisement block
 type DNSProxyProxyAdvertisementModel struct {
+	AdvertiseOnPublicDefaultVIP types.Object                                      `tfsdk:"advertise_on_public_default_vip"`
+	DoNotAdvertise              types.Object                                      `tfsdk:"do_not_advertise"`
 	AdvertiseCustom             *DNSProxyProxyAdvertisementAdvertiseCustomModel   `tfsdk:"advertise_custom"`
 	AdvertiseOnPublic           *DNSProxyProxyAdvertisementAdvertiseOnPublicModel `tfsdk:"advertise_on_public"`
-	AdvertiseOnPublicDefaultVIP *DNSProxyEmptyModel                               `tfsdk:"advertise_on_public_default_vip"`
-	DoNotAdvertise              *DNSProxyEmptyModel                               `tfsdk:"do_not_advertise"`
 }
 
 // DNSProxyProxyAdvertisementModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementModel
 var DNSProxyProxyAdvertisementModelAttrTypes = map[string]attr.Type{
-	"advertise_custom":                types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomModelAttrTypes},
-	"advertise_on_public":             types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseOnPublicModelAttrTypes},
 	"advertise_on_public_default_vip": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"do_not_advertise":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"advertise_custom":                types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomModelAttrTypes},
+	"advertise_on_public":             types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseOnPublicModelAttrTypes},
 }
 
 // DNSProxyProxyAdvertisementAdvertiseCustomModel represents advertise_custom block
@@ -368,9 +368,9 @@ var DNSProxyProxyAdvertisementAdvertiseCustomModelAttrTypes = map[string]attr.Ty
 type DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel struct {
 	Port               types.Int64                                                                     `tfsdk:"port"`
 	PortRanges         types.String                                                                    `tfsdk:"port_ranges"`
+	UseDefaultPort     types.Object                                                                    `tfsdk:"use_default_port"`
 	AdvertiseOnPublic  *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModel  `tfsdk:"advertise_on_public"`
 	Site               *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModel               `tfsdk:"site"`
-	UseDefaultPort     *DNSProxyEmptyModel                                                             `tfsdk:"use_default_port"`
 	VirtualNetwork     *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel     `tfsdk:"virtual_network"`
 	VirtualSite        *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModel        `tfsdk:"virtual_site"`
 	VirtualSiteWithVIP *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModel `tfsdk:"virtual_site_with_vip"`
@@ -381,9 +381,9 @@ type DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel struct {
 var DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModelAttrTypes = map[string]attr.Type{
 	"port":                  types.Int64Type,
 	"port_ranges":           types.StringType,
+	"use_default_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"advertise_on_public":   types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicModelAttrTypes},
 	"site":                  types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteModelAttrTypes},
-	"use_default_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"virtual_network":       types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes},
 	"virtual_site":          types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteModelAttrTypes},
 	"virtual_site_with_vip": types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPModelAttrTypes},
@@ -444,19 +444,19 @@ var DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteModelAttrType
 
 // DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel represents virtual_network block
 type DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel struct {
+	DefaultV6VIP   types.Object                                                                              `tfsdk:"default_v6_vip"`
+	DefaultVIP     types.Object                                                                              `tfsdk:"default_vip"`
 	SpecificV6VIP  types.String                                                                              `tfsdk:"specific_v6_vip"`
 	SpecificVIP    types.String                                                                              `tfsdk:"specific_vip"`
-	DefaultV6VIP   *DNSProxyEmptyModel                                                                       `tfsdk:"default_v6_vip"`
-	DefaultVIP     *DNSProxyEmptyModel                                                                       `tfsdk:"default_vip"`
 	VirtualNetwork *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModel `tfsdk:"virtual_network"`
 }
 
 // DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes defines the attribute types for DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel
 var DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModelAttrTypes = map[string]attr.Type{
-	"specific_v6_vip": types.StringType,
-	"specific_vip":    types.StringType,
 	"default_v6_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"default_vip":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"specific_v6_vip": types.StringType,
+	"specific_vip":    types.StringType,
 	"virtual_network": types.ObjectType{AttrTypes: DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkModelAttrTypes},
 }
 
@@ -688,6 +688,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			}),
 			"cache_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "DNS Cache specifies cache configuration.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("cache_size", "disable_cache_profile")},
 
 				Attributes: map[string]schema.Attribute{
 					"cache_size": schema.Int64Attribute{
@@ -697,23 +698,27 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 							int64validator.Between(1, 10240),
 						},
 					},
-				},
-				Blocks: map[string]schema.Block{
-					"disable_cache_profile": schema.SingleNestedBlock{
+					"disable_cache_profile": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for disable cache profile.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
 			"ddos_profile": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for ddos profile.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_ddos_mitigation", "enable_ddos_mitigation")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_ddos_mitigation": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_ddos_mitigation": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"enable_ddos_mitigation": schema.SingleNestedBlock{
+					"enable_ddos_mitigation": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
@@ -803,8 +808,15 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 						Blocks: map[string]schema.Block{
 							"health_check": schema.ListNestedBlock{
 								MarkdownDescription: "List of Health Checks. List of Health Checks.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("dns_health_check", "icmp_health_check"), validators.ConflictingListObjectAttributes("dns_health_check", "tcp_health_check"), validators.ConflictingListObjectAttributes("icmp_health_check", "tcp_health_check")},
 								NestedObject: schema.NestedBlockObject{
-									Attributes: map[string]schema.Attribute{},
+									Attributes: map[string]schema.Attribute{
+										"icmp_health_check": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for icmp health check.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+									},
 									Blocks: map[string]schema.Block{
 										"dns_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "DNS health check reports healthy if DNS query is successful and response header and answer matches the given value.",
@@ -851,9 +863,6 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 											},
 										},
-										"icmp_health_check": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for icmp health check.",
-										},
 										"tcp_health_check": schema.SingleNestedBlock{
 											MarkdownDescription: "Monitor reports healthy status if UDP connection is successful and response payload matches expected response pattern.",
 											Validators:          []validator.Object{validators.RequiredObjectAttributes("expected_response", "send_payload")},
@@ -881,12 +890,30 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 					},
 					"origin_servers": schema.ListNestedBlock{
 						MarkdownDescription: "List Of Origin Servers. List of origin servers for Proxy.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("k8s_service", "public_ip"), validators.ConflictingListObjectAttributes("k8s_service", "public_name"), validators.ConflictingListObjectAttributes("no_preference", "site_preferences"), validators.ConflictingListObjectAttributes("public_ip", "public_name")},
 						NestedObject: schema.NestedBlockObject{
-							Attributes: map[string]schema.Attribute{},
+							Attributes: map[string]schema.Attribute{
+								"no_preference": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for no preference.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+							},
 							Blocks: map[string]schema.Block{
 								"k8s_service": schema.SingleNestedBlock{
 									MarkdownDescription: "Specify origin server with K8s service name and site information.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside_network", "outside_network"), validators.ConflictingObjectAttributes("inside_network", "vk8s_networks"), validators.ConflictingObjectAttributes("outside_network", "vk8s_networks")},
 									Attributes: map[string]schema.Attribute{
+										"inside_network": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for inside network.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
+										"outside_network": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for outside network.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"protocol": schema.StringAttribute{
 											MarkdownDescription: "[Enum: PROTOCOL_TCP|PROTOCOL_UDP] Type of protocol - PROTOCOL_TCP: TCP - PROTOCOL_UDP: UDP. Possible values are `PROTOCOL_TCP`, `PROTOCOL_UDP`. Defaults to `PROTOCOL_TCP`.",
 											Optional:            true,
@@ -898,16 +925,16 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 											MarkdownDescription: "Exclusive with [] K8s service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:example-namespace'frontend', namespace is 'speedtest' and cluster-ID is 'prod', then you will enter..",
 											Optional:            true,
 										},
+										"vk8s_networks": schema.ObjectAttribute{
+											MarkdownDescription: "Configuration parameter for vk8s networks.",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 									},
 									Blocks: map[string]schema.Block{
-										"inside_network": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for inside network.",
-										},
-										"outside_network": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for outside network.",
-										},
 										"site_locator": schema.SingleNestedBlock{
 											MarkdownDescription: "Message defines a reference to a site or virtual site object.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"site": schema.SingleNestedBlock{
@@ -976,11 +1003,15 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"snat_pool": schema.SingleNestedBlock{
 											MarkdownDescription: "SNAT Pool. SNAT Pool configuration.",
-											Attributes:          map[string]schema.Attribute{},
-											Blocks: map[string]schema.Block{
-												"no_snat_pool": schema.SingleNestedBlock{
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool", "snat_pool")},
+											Attributes: map[string]schema.Attribute{
+												"no_snat_pool": schema.ObjectAttribute{
 													MarkdownDescription: "Configuration parameter for no snat pool.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
+											},
+											Blocks: map[string]schema.Block{
 												"snat_pool": schema.SingleNestedBlock{
 													MarkdownDescription: "List of IPv4 prefixes that represent an endpoint.",
 													Attributes: map[string]schema.Attribute{
@@ -996,13 +1027,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 											},
 										},
-										"vk8s_networks": schema.SingleNestedBlock{
-											MarkdownDescription: "Configuration parameter for vk8s networks.",
-										},
 									},
-								},
-								"no_preference": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for no preference.",
 								},
 								"public_ip": schema.SingleNestedBlock{
 									MarkdownDescription: "Specify origin server with public IP address.",
@@ -1118,8 +1143,20 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 			},
 			"proxy_advertisement": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for proxy advertisement.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("advertise_custom", "advertise_on_public"), validators.ConflictingObjectAttributes("advertise_custom", "advertise_on_public_default_vip"), validators.ConflictingObjectAttributes("advertise_custom", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_on_public", "advertise_on_public_default_vip"), validators.ConflictingObjectAttributes("advertise_on_public", "do_not_advertise"), validators.ConflictingObjectAttributes("advertise_on_public_default_vip", "do_not_advertise")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"advertise_on_public_default_vip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"do_not_advertise": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for do not advertise.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
 					"advertise_custom": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines a way to advertise a VIP on specific sites.",
@@ -1128,6 +1165,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 						Blocks: map[string]schema.Block{
 							"advertise_where": schema.ListNestedBlock{
 								MarkdownDescription: "Where should this load balancer be available.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("advertise_on_public", "site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_network"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site"), validators.ConflictingListObjectAttributes("advertise_on_public", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("advertise_on_public", "vk8s_service"), validators.ConflictingListObjectAttributes("port", "port_ranges"), validators.ConflictingListObjectAttributes("port", "use_default_port"), validators.ConflictingListObjectAttributes("port_ranges", "use_default_port"), validators.ConflictingListObjectAttributes("site", "virtual_network"), validators.ConflictingListObjectAttributes("site", "virtual_site"), validators.ConflictingListObjectAttributes("site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site"), validators.ConflictingListObjectAttributes("virtual_network", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_network", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site", "virtual_site_with_vip"), validators.ConflictingListObjectAttributes("virtual_site", "vk8s_service"), validators.ConflictingListObjectAttributes("virtual_site_with_vip", "vk8s_service")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"port": schema.Int64Attribute{
@@ -1143,6 +1181,11 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(1, 512),
 											},
+										},
+										"use_default_port": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -1236,12 +1279,20 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 											},
 										},
-										"use_default_port": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
 										"virtual_network": schema.SingleNestedBlock{
 											MarkdownDescription: "Parameters to advertise on a given virtual network.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_v6_vip", "specific_v6_vip"), validators.ConflictingObjectAttributes("default_vip", "specific_vip")},
 											Attributes: map[string]schema.Attribute{
+												"default_v6_vip": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"default_vip": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"specific_v6_vip": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [default_v6_vip] Use given IPv6 address as VIP on virtual Network.",
 													Optional:            true,
@@ -1260,12 +1311,6 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 												},
 											},
 											Blocks: map[string]schema.Block{
-												"default_v6_vip": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
-												"default_vip": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
 												"virtual_network": schema.SingleNestedBlock{
 													MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 													Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -1399,6 +1444,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 										},
 										"vk8s_service": schema.SingleNestedBlock{
 											MarkdownDescription: "Defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_site")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"site": schema.SingleNestedBlock{
@@ -1506,12 +1552,6 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 							},
 						},
-					},
-					"advertise_on_public_default_vip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"do_not_advertise": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for do not advertise.",
 					},
 				},
 			},
@@ -1646,17 +1686,17 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 		if !data.CacheProfile.CacheSize.IsNull() && !data.CacheProfile.CacheSize.IsUnknown() {
 			CacheProfileMap["cache_size"] = data.CacheProfile.CacheSize.ValueInt64()
 		}
-		if data.CacheProfile.DisableCacheProfile != nil {
+		if !data.CacheProfile.DisableCacheProfile.IsNull() && !data.CacheProfile.DisableCacheProfile.IsUnknown() {
 			CacheProfileMap["disable_cache_profile"] = map[string]interface{}{}
 		}
 		createReq.Spec["cache_profile"] = CacheProfileMap
 	}
 	if data.DDOSProfile != nil {
 		DDOSProfileMap := make(map[string]interface{})
-		if data.DDOSProfile.DisableDDOSMitigation != nil {
+		if !data.DDOSProfile.DisableDDOSMitigation.IsNull() && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 			DDOSProfileMap["disable_ddos_mitigation"] = map[string]interface{}{}
 		}
-		if data.DDOSProfile.EnableDDOSMitigation != nil {
+		if !data.DDOSProfile.EnableDDOSMitigation.IsNull() && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 			DDOSProfileMap["enable_ddos_mitigation"] = map[string]interface{}{}
 		}
 		createReq.Spec["ddos_profile"] = DDOSProfileMap
@@ -1721,7 +1761,7 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 							}
 							HealthCheckItemMap["dns_health_check"] = OriginServersHealthChecksHealthCheckDNSHealthCheckMap
 						}
-						if HealthCheckItem.ICMPHealthCheck != nil {
+						if !HealthCheckItem.ICMPHealthCheck.IsNull() && !HealthCheckItem.ICMPHealthCheck.IsUnknown() {
 							HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
 						}
 						if HealthCheckItem.TCPHealthCheck != nil {
@@ -1763,10 +1803,10 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 					OriginServersItemMap := make(map[string]interface{})
 					if OriginServersItem.K8SService != nil {
 						OriginServersOriginServersK8SServiceMap := make(map[string]interface{})
-						if OriginServersItem.K8SService.InsideNetwork != nil {
+						if !OriginServersItem.K8SService.InsideNetwork.IsNull() && !OriginServersItem.K8SService.InsideNetwork.IsUnknown() {
 							OriginServersOriginServersK8SServiceMap["inside_network"] = map[string]interface{}{}
 						}
-						if OriginServersItem.K8SService.OutsideNetwork != nil {
+						if !OriginServersItem.K8SService.OutsideNetwork.IsNull() && !OriginServersItem.K8SService.OutsideNetwork.IsUnknown() {
 							OriginServersOriginServersK8SServiceMap["outside_network"] = map[string]interface{}{}
 						}
 						if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
@@ -1801,7 +1841,7 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 						}
 						if OriginServersItem.K8SService.SnatPool != nil {
 							OriginServersOriginServersK8SServiceSnatPoolMap := make(map[string]interface{})
-							if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
+							if !OriginServersItem.K8SService.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.K8SService.SnatPool.NoSnatPool.IsUnknown() {
 								OriginServersOriginServersK8SServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 							}
 							if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
@@ -1818,12 +1858,12 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 							}
 							OriginServersOriginServersK8SServiceMap["snat_pool"] = OriginServersOriginServersK8SServiceSnatPoolMap
 						}
-						if OriginServersItem.K8SService.Vk8sNetworks != nil {
+						if !OriginServersItem.K8SService.Vk8sNetworks.IsNull() && !OriginServersItem.K8SService.Vk8sNetworks.IsUnknown() {
 							OriginServersOriginServersK8SServiceMap["vk8s_networks"] = map[string]interface{}{}
 						}
 						OriginServersItemMap["k8s_service"] = OriginServersOriginServersK8SServiceMap
 					}
-					if OriginServersItem.NoPreference != nil {
+					if !OriginServersItem.NoPreference.IsNull() && !OriginServersItem.NoPreference.IsUnknown() {
 						OriginServersItemMap["no_preference"] = map[string]interface{}{}
 					}
 					if OriginServersItem.PublicIP != nil {
@@ -1935,15 +1975,15 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 							}
 							AdvertiseWhereItemMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap
 						}
-						if AdvertiseWhereItem.UseDefaultPort != nil {
+						if !AdvertiseWhereItem.UseDefaultPort.IsNull() && !AdvertiseWhereItem.UseDefaultPort.IsUnknown() {
 							AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 						}
 						if AdvertiseWhereItem.VirtualNetwork != nil {
 							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
-							if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+							if !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsUnknown() {
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 							}
-							if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+							if !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsUnknown() {
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
@@ -2046,10 +2086,10 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 			}
 			ProxyAdvertisementMap["advertise_on_public"] = ProxyAdvertisementAdvertiseOnPublicMap
 		}
-		if data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP != nil {
+		if !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 			ProxyAdvertisementMap["advertise_on_public_default_vip"] = map[string]interface{}{}
 		}
-		if data.ProxyAdvertisement.DoNotAdvertise != nil {
+		if !data.ProxyAdvertisement.DoNotAdvertise.IsNull() && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
 			ProxyAdvertisementMap["do_not_advertise"] = map[string]interface{}{}
 		}
 		createReq.Spec["proxy_advertisement"] = ProxyAdvertisementMap
@@ -2107,36 +2147,36 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				}
 				return types.Int64Null()
 			}(),
-			DisableCacheProfile: func() *DNSProxyEmptyModel {
-				if !isImport && data.CacheProfile != nil {
+			DisableCacheProfile: func() types.Object {
+				if !isImport && data.CacheProfile != nil && !data.CacheProfile.DisableCacheProfile.IsUnknown() {
 					return data.CacheProfile.DisableCacheProfile
 				}
 				if _, ok := blockData["disable_cache_profile"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
 		data.DDOSProfile = &DNSProxyDDOSProfileModel{
-			DisableDDOSMitigation: func() *DNSProxyEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			DisableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.DisableDDOSMitigation
 				}
 				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableDDOSMitigation: func() *DNSProxyEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			EnableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.EnableDDOSMitigation
 				}
 				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -2262,14 +2302,14 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												return nil
 											}(),
-											ICMPHealthCheck: func() *DNSProxyEmptyModel {
-												if !isImport && len(HealthCheckExisting) > HealthCheckIdx {
+											ICMPHealthCheck: func() types.Object {
+												if !isImport && len(HealthCheckExisting) > HealthCheckIdx && !HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck.IsUnknown() {
 													return HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck
 												}
 												if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											TCPHealthCheck: func() *DNSProxyOriginServersHealthChecksHealthCheckTCPHealthCheckModel {
 												if TCPHealthCheckData, ok := HealthCheckItemMap["tcp_health_check"].(map[string]interface{}); ok {
@@ -2355,23 +2395,23 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 								K8SService: func() *DNSProxyOriginServersOriginServersK8SServiceModel {
 									if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersK8SServiceModel{
-											InsideNetwork: func() *DNSProxyEmptyModel {
-												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+											InsideNetwork: func() types.Object {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork.IsUnknown() {
 													return OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork
 												}
 												if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											OutsideNetwork: func() *DNSProxyEmptyModel {
-												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+											OutsideNetwork: func() types.Object {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork.IsUnknown() {
 													return OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork
 												}
 												if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Protocol: func() types.String {
 												if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
@@ -2448,14 +2488,14 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
 													return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel{
-														NoSnatPool: func() *DNSProxyEmptyModel {
-															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil {
+														NoSnatPool: func() types.Object {
+															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && !OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool.IsUnknown() {
 																return OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool
 															}
 															if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-																return &DNSProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
 															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool.SnatPool != nil {
@@ -2485,27 +2525,27 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												return nil
 											}(),
-											Vk8sNetworks: func() *DNSProxyEmptyModel {
-												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+											Vk8sNetworks: func() types.Object {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks.IsUnknown() {
 													return OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks
 												}
 												if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										}
 									}
 									return nil
 								}(),
-								NoPreference: func() *DNSProxyEmptyModel {
-									if !isImport && len(OriginServersExisting) > OriginServersIdx {
+								NoPreference: func() types.Object {
+									if !isImport && len(OriginServersExisting) > OriginServersIdx && !OriginServersExisting[OriginServersIdx].NoPreference.IsUnknown() {
 										return OriginServersExisting[OriginServersIdx].NoPreference
 									}
 									if _, ok := OriginServersItemMap["no_preference"].(map[string]interface{}); ok {
-										return &DNSProxyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								PublicIP: func() *DNSProxyOriginServersOriginServersPublicIPModel {
 									if PublicIPData, ok := OriginServersItemMap["public_ip"].(map[string]interface{}); ok {
@@ -2728,35 +2768,35 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 												}
 												return nil
 											}(),
-											UseDefaultPort: func() *DNSProxyEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+											UseDefaultPort: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VirtualNetwork: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
 												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
-														DefaultV6VIP: func() *DNSProxyEmptyModel {
-															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+														DefaultV6VIP: func() types.Object {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP.IsUnknown() {
 																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
 															}
 															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
-																return &DNSProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														DefaultVIP: func() *DNSProxyEmptyModel {
-															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+														DefaultVIP: func() types.Object {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP.IsUnknown() {
 																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
 															}
 															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
-																return &DNSProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SpecificV6VIP: func() types.String {
 															if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
@@ -2982,23 +3022,23 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				}
 				return nil
 			}(),
-			AdvertiseOnPublicDefaultVIP: func() *DNSProxyEmptyModel {
-				if !isImport && data.ProxyAdvertisement != nil {
+			AdvertiseOnPublicDefaultVIP: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP
 				}
 				if _, ok := blockData["advertise_on_public_default_vip"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DoNotAdvertise: func() *DNSProxyEmptyModel {
-				if !isImport && data.ProxyAdvertisement != nil {
+			DoNotAdvertise: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
 					return data.ProxyAdvertisement.DoNotAdvertise
 				}
 				if _, ok := blockData["do_not_advertise"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -3149,36 +3189,36 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 				}
 				return types.Int64Null()
 			}(),
-			DisableCacheProfile: func() *DNSProxyEmptyModel {
-				if !isImport && data.CacheProfile != nil {
+			DisableCacheProfile: func() types.Object {
+				if !isImport && data.CacheProfile != nil && !data.CacheProfile.DisableCacheProfile.IsUnknown() {
 					return data.CacheProfile.DisableCacheProfile
 				}
 				if _, ok := blockData["disable_cache_profile"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
 		data.DDOSProfile = &DNSProxyDDOSProfileModel{
-			DisableDDOSMitigation: func() *DNSProxyEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			DisableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.DisableDDOSMitigation
 				}
 				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableDDOSMitigation: func() *DNSProxyEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			EnableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.EnableDDOSMitigation
 				}
 				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -3304,14 +3344,14 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												return nil
 											}(),
-											ICMPHealthCheck: func() *DNSProxyEmptyModel {
-												if !isImport && len(HealthCheckExisting) > HealthCheckIdx {
+											ICMPHealthCheck: func() types.Object {
+												if !isImport && len(HealthCheckExisting) > HealthCheckIdx && !HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck.IsUnknown() {
 													return HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck
 												}
 												if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											TCPHealthCheck: func() *DNSProxyOriginServersHealthChecksHealthCheckTCPHealthCheckModel {
 												if TCPHealthCheckData, ok := HealthCheckItemMap["tcp_health_check"].(map[string]interface{}); ok {
@@ -3397,23 +3437,23 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 								K8SService: func() *DNSProxyOriginServersOriginServersK8SServiceModel {
 									if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersK8SServiceModel{
-											InsideNetwork: func() *DNSProxyEmptyModel {
-												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+											InsideNetwork: func() types.Object {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork.IsUnknown() {
 													return OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork
 												}
 												if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											OutsideNetwork: func() *DNSProxyEmptyModel {
-												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+											OutsideNetwork: func() types.Object {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork.IsUnknown() {
 													return OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork
 												}
 												if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Protocol: func() types.String {
 												if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
@@ -3490,14 +3530,14 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
 													return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel{
-														NoSnatPool: func() *DNSProxyEmptyModel {
-															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil {
+														NoSnatPool: func() types.Object {
+															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && !OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool.IsUnknown() {
 																return OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool
 															}
 															if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-																return &DNSProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
 															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool.SnatPool != nil {
@@ -3527,27 +3567,27 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												return nil
 											}(),
-											Vk8sNetworks: func() *DNSProxyEmptyModel {
-												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+											Vk8sNetworks: func() types.Object {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks.IsUnknown() {
 													return OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks
 												}
 												if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										}
 									}
 									return nil
 								}(),
-								NoPreference: func() *DNSProxyEmptyModel {
-									if !isImport && len(OriginServersExisting) > OriginServersIdx {
+								NoPreference: func() types.Object {
+									if !isImport && len(OriginServersExisting) > OriginServersIdx && !OriginServersExisting[OriginServersIdx].NoPreference.IsUnknown() {
 										return OriginServersExisting[OriginServersIdx].NoPreference
 									}
 									if _, ok := OriginServersItemMap["no_preference"].(map[string]interface{}); ok {
-										return &DNSProxyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								PublicIP: func() *DNSProxyOriginServersOriginServersPublicIPModel {
 									if PublicIPData, ok := OriginServersItemMap["public_ip"].(map[string]interface{}); ok {
@@ -3770,35 +3810,35 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 												}
 												return nil
 											}(),
-											UseDefaultPort: func() *DNSProxyEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+											UseDefaultPort: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VirtualNetwork: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
 												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
-														DefaultV6VIP: func() *DNSProxyEmptyModel {
-															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+														DefaultV6VIP: func() types.Object {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP.IsUnknown() {
 																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
 															}
 															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
-																return &DNSProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														DefaultVIP: func() *DNSProxyEmptyModel {
-															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+														DefaultVIP: func() types.Object {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP.IsUnknown() {
 																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
 															}
 															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
-																return &DNSProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SpecificV6VIP: func() types.String {
 															if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
@@ -4024,23 +4064,23 @@ func (r *DNSProxyResource) Read(ctx context.Context, req resource.ReadRequest, r
 				}
 				return nil
 			}(),
-			AdvertiseOnPublicDefaultVIP: func() *DNSProxyEmptyModel {
-				if !isImport && data.ProxyAdvertisement != nil {
+			AdvertiseOnPublicDefaultVIP: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP
 				}
 				if _, ok := blockData["advertise_on_public_default_vip"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DoNotAdvertise: func() *DNSProxyEmptyModel {
-				if !isImport && data.ProxyAdvertisement != nil {
+			DoNotAdvertise: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
 					return data.ProxyAdvertisement.DoNotAdvertise
 				}
 				if _, ok := blockData["do_not_advertise"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -4148,17 +4188,17 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 		if !data.CacheProfile.CacheSize.IsNull() && !data.CacheProfile.CacheSize.IsUnknown() {
 			CacheProfileMap["cache_size"] = data.CacheProfile.CacheSize.ValueInt64()
 		}
-		if data.CacheProfile.DisableCacheProfile != nil {
+		if !data.CacheProfile.DisableCacheProfile.IsNull() && !data.CacheProfile.DisableCacheProfile.IsUnknown() {
 			CacheProfileMap["disable_cache_profile"] = map[string]interface{}{}
 		}
 		apiResource.Spec["cache_profile"] = CacheProfileMap
 	}
 	if data.DDOSProfile != nil {
 		DDOSProfileMap := make(map[string]interface{})
-		if data.DDOSProfile.DisableDDOSMitigation != nil {
+		if !data.DDOSProfile.DisableDDOSMitigation.IsNull() && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 			DDOSProfileMap["disable_ddos_mitigation"] = map[string]interface{}{}
 		}
-		if data.DDOSProfile.EnableDDOSMitigation != nil {
+		if !data.DDOSProfile.EnableDDOSMitigation.IsNull() && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 			DDOSProfileMap["enable_ddos_mitigation"] = map[string]interface{}{}
 		}
 		apiResource.Spec["ddos_profile"] = DDOSProfileMap
@@ -4223,7 +4263,7 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 							}
 							HealthCheckItemMap["dns_health_check"] = OriginServersHealthChecksHealthCheckDNSHealthCheckMap
 						}
-						if HealthCheckItem.ICMPHealthCheck != nil {
+						if !HealthCheckItem.ICMPHealthCheck.IsNull() && !HealthCheckItem.ICMPHealthCheck.IsUnknown() {
 							HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
 						}
 						if HealthCheckItem.TCPHealthCheck != nil {
@@ -4265,10 +4305,10 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 					OriginServersItemMap := make(map[string]interface{})
 					if OriginServersItem.K8SService != nil {
 						OriginServersOriginServersK8SServiceMap := make(map[string]interface{})
-						if OriginServersItem.K8SService.InsideNetwork != nil {
+						if !OriginServersItem.K8SService.InsideNetwork.IsNull() && !OriginServersItem.K8SService.InsideNetwork.IsUnknown() {
 							OriginServersOriginServersK8SServiceMap["inside_network"] = map[string]interface{}{}
 						}
-						if OriginServersItem.K8SService.OutsideNetwork != nil {
+						if !OriginServersItem.K8SService.OutsideNetwork.IsNull() && !OriginServersItem.K8SService.OutsideNetwork.IsUnknown() {
 							OriginServersOriginServersK8SServiceMap["outside_network"] = map[string]interface{}{}
 						}
 						if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
@@ -4303,7 +4343,7 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 						}
 						if OriginServersItem.K8SService.SnatPool != nil {
 							OriginServersOriginServersK8SServiceSnatPoolMap := make(map[string]interface{})
-							if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
+							if !OriginServersItem.K8SService.SnatPool.NoSnatPool.IsNull() && !OriginServersItem.K8SService.SnatPool.NoSnatPool.IsUnknown() {
 								OriginServersOriginServersK8SServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 							}
 							if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
@@ -4320,12 +4360,12 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 							}
 							OriginServersOriginServersK8SServiceMap["snat_pool"] = OriginServersOriginServersK8SServiceSnatPoolMap
 						}
-						if OriginServersItem.K8SService.Vk8sNetworks != nil {
+						if !OriginServersItem.K8SService.Vk8sNetworks.IsNull() && !OriginServersItem.K8SService.Vk8sNetworks.IsUnknown() {
 							OriginServersOriginServersK8SServiceMap["vk8s_networks"] = map[string]interface{}{}
 						}
 						OriginServersItemMap["k8s_service"] = OriginServersOriginServersK8SServiceMap
 					}
-					if OriginServersItem.NoPreference != nil {
+					if !OriginServersItem.NoPreference.IsNull() && !OriginServersItem.NoPreference.IsUnknown() {
 						OriginServersItemMap["no_preference"] = map[string]interface{}{}
 					}
 					if OriginServersItem.PublicIP != nil {
@@ -4437,15 +4477,15 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 							}
 							AdvertiseWhereItemMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap
 						}
-						if AdvertiseWhereItem.UseDefaultPort != nil {
+						if !AdvertiseWhereItem.UseDefaultPort.IsNull() && !AdvertiseWhereItem.UseDefaultPort.IsUnknown() {
 							AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 						}
 						if AdvertiseWhereItem.VirtualNetwork != nil {
 							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
-							if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
+							if !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP.IsUnknown() {
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 							}
-							if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
+							if !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.DefaultVIP.IsUnknown() {
 								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
@@ -4548,10 +4588,10 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 			}
 			ProxyAdvertisementMap["advertise_on_public"] = ProxyAdvertisementAdvertiseOnPublicMap
 		}
-		if data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP != nil {
+		if !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 			ProxyAdvertisementMap["advertise_on_public_default_vip"] = map[string]interface{}{}
 		}
-		if data.ProxyAdvertisement.DoNotAdvertise != nil {
+		if !data.ProxyAdvertisement.DoNotAdvertise.IsNull() && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
 			ProxyAdvertisementMap["do_not_advertise"] = map[string]interface{}{}
 		}
 		apiResource.Spec["proxy_advertisement"] = ProxyAdvertisementMap
@@ -4636,36 +4676,36 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				}
 				return types.Int64Null()
 			}(),
-			DisableCacheProfile: func() *DNSProxyEmptyModel {
-				if !isImport && data.CacheProfile != nil {
+			DisableCacheProfile: func() types.Object {
+				if !isImport && data.CacheProfile != nil && !data.CacheProfile.DisableCacheProfile.IsUnknown() {
 					return data.CacheProfile.DisableCacheProfile
 				}
 				if _, ok := blockData["disable_cache_profile"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["ddos_profile"].(map[string]interface{}); ok && (isImport || data.DDOSProfile != nil) {
 		data.DDOSProfile = &DNSProxyDDOSProfileModel{
-			DisableDDOSMitigation: func() *DNSProxyEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			DisableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.DisableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.DisableDDOSMitigation
 				}
 				if _, ok := blockData["disable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			EnableDDOSMitigation: func() *DNSProxyEmptyModel {
-				if !isImport && data.DDOSProfile != nil {
+			EnableDDOSMitigation: func() types.Object {
+				if !isImport && data.DDOSProfile != nil && !data.DDOSProfile.EnableDDOSMitigation.IsUnknown() {
 					return data.DDOSProfile.EnableDDOSMitigation
 				}
 				if _, ok := blockData["enable_ddos_mitigation"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -4791,14 +4831,14 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												return nil
 											}(),
-											ICMPHealthCheck: func() *DNSProxyEmptyModel {
-												if !isImport && len(HealthCheckExisting) > HealthCheckIdx {
+											ICMPHealthCheck: func() types.Object {
+												if !isImport && len(HealthCheckExisting) > HealthCheckIdx && !HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck.IsUnknown() {
 													return HealthCheckExisting[HealthCheckIdx].ICMPHealthCheck
 												}
 												if _, ok := HealthCheckItemMap["icmp_health_check"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											TCPHealthCheck: func() *DNSProxyOriginServersHealthChecksHealthCheckTCPHealthCheckModel {
 												if TCPHealthCheckData, ok := HealthCheckItemMap["tcp_health_check"].(map[string]interface{}); ok {
@@ -4884,23 +4924,23 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 								K8SService: func() *DNSProxyOriginServersOriginServersK8SServiceModel {
 									if K8SServiceData, ok := OriginServersItemMap["k8s_service"].(map[string]interface{}); ok {
 										return &DNSProxyOriginServersOriginServersK8SServiceModel{
-											InsideNetwork: func() *DNSProxyEmptyModel {
-												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+											InsideNetwork: func() types.Object {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork.IsUnknown() {
 													return OriginServersExisting[OriginServersIdx].K8SService.InsideNetwork
 												}
 												if _, ok := K8SServiceData["inside_network"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											OutsideNetwork: func() *DNSProxyEmptyModel {
-												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+											OutsideNetwork: func() types.Object {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork.IsUnknown() {
 													return OriginServersExisting[OriginServersIdx].K8SService.OutsideNetwork
 												}
 												if _, ok := K8SServiceData["outside_network"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Protocol: func() types.String {
 												if v, ok := K8SServiceData["protocol"].(string); ok && v != "" {
@@ -4977,14 +5017,14 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												if SnatPoolData, ok := K8SServiceData["snat_pool"].(map[string]interface{}); ok {
 													return &DNSProxyOriginServersOriginServersK8SServiceSnatPoolModel{
-														NoSnatPool: func() *DNSProxyEmptyModel {
-															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil {
+														NoSnatPool: func() types.Object {
+															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && !OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool.IsUnknown() {
 																return OriginServersExisting[OriginServersIdx].K8SService.SnatPool.NoSnatPool
 															}
 															if _, ok := SnatPoolData["no_snat_pool"].(map[string]interface{}); ok {
-																return &DNSProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SnatPool: func() *DNSProxyOriginServersOriginServersK8SServiceSnatPoolSnatPoolModel {
 															if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool != nil && OriginServersExisting[OriginServersIdx].K8SService.SnatPool.SnatPool != nil {
@@ -5014,27 +5054,27 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												return nil
 											}(),
-											Vk8sNetworks: func() *DNSProxyEmptyModel {
-												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil {
+											Vk8sNetworks: func() types.Object {
+												if !isImport && len(OriginServersExisting) > OriginServersIdx && OriginServersExisting[OriginServersIdx].K8SService != nil && !OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks.IsUnknown() {
 													return OriginServersExisting[OriginServersIdx].K8SService.Vk8sNetworks
 												}
 												if _, ok := K8SServiceData["vk8s_networks"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 										}
 									}
 									return nil
 								}(),
-								NoPreference: func() *DNSProxyEmptyModel {
-									if !isImport && len(OriginServersExisting) > OriginServersIdx {
+								NoPreference: func() types.Object {
+									if !isImport && len(OriginServersExisting) > OriginServersIdx && !OriginServersExisting[OriginServersIdx].NoPreference.IsUnknown() {
 										return OriginServersExisting[OriginServersIdx].NoPreference
 									}
 									if _, ok := OriginServersItemMap["no_preference"].(map[string]interface{}); ok {
-										return &DNSProxyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								PublicIP: func() *DNSProxyOriginServersOriginServersPublicIPModel {
 									if PublicIPData, ok := OriginServersItemMap["public_ip"].(map[string]interface{}); ok {
@@ -5257,35 +5297,35 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 												}
 												return nil
 											}(),
-											UseDefaultPort: func() *DNSProxyEmptyModel {
-												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+											UseDefaultPort: func() types.Object {
+												if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && !AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort.IsUnknown() {
 													return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 												}
 												if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
-													return &DNSProxyEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VirtualNetwork: func() *DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel {
 												if VirtualNetworkData, ok := AdvertiseWhereItemMap["virtual_network"].(map[string]interface{}); ok {
 													return &DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkModel{
-														DefaultV6VIP: func() *DNSProxyEmptyModel {
-															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+														DefaultV6VIP: func() types.Object {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP.IsUnknown() {
 																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultV6VIP
 															}
 															if _, ok := VirtualNetworkData["default_v6_vip"].(map[string]interface{}); ok {
-																return &DNSProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
-														DefaultVIP: func() *DNSProxyEmptyModel {
-															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil {
+														DefaultVIP: func() types.Object {
+															if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork != nil && !AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP.IsUnknown() {
 																return AdvertiseWhereExisting[AdvertiseWhereIdx].VirtualNetwork.DefaultVIP
 															}
 															if _, ok := VirtualNetworkData["default_vip"].(map[string]interface{}); ok {
-																return &DNSProxyEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														SpecificV6VIP: func() types.String {
 															if v, ok := VirtualNetworkData["specific_v6_vip"].(string); ok && v != "" {
@@ -5511,23 +5551,23 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				}
 				return nil
 			}(),
-			AdvertiseOnPublicDefaultVIP: func() *DNSProxyEmptyModel {
-				if !isImport && data.ProxyAdvertisement != nil {
+			AdvertiseOnPublicDefaultVIP: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP.IsUnknown() {
 					return data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP
 				}
 				if _, ok := blockData["advertise_on_public_default_vip"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DoNotAdvertise: func() *DNSProxyEmptyModel {
-				if !isImport && data.ProxyAdvertisement != nil {
+			DoNotAdvertise: func() types.Object {
+				if !isImport && data.ProxyAdvertisement != nil && !data.ProxyAdvertisement.DoNotAdvertise.IsUnknown() {
 					return data.ProxyAdvertisement.DoNotAdvertise
 				}
 				if _, ok := blockData["do_not_advertise"].(map[string]interface{}); ok {
-					return &DNSProxyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

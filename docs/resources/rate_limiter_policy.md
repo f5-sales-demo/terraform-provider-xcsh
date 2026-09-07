@@ -39,7 +39,7 @@ resource "xcsh_rate_limiter_policy" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -83,7 +83,7 @@ spec:
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="any-server"></a>[`any_server`](#any-server) - Optional Block<br>Enable this option
+&#x2022; <a id="any-server"></a>[`any_server`](#any-server) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="server-name"></a>[`server_name`](#server-name) - Optional String<br>The expected name of the server. The actual names for the server are extracted from the HTTP Host header and the name of the virtual_host for the request
 <br><br>&#x2022; <a id="server-name-matcher"></a>[`server_name_matcher`](#server-name-matcher) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See [Server Name
 Matcher](#server-name-matcher) below for details.
@@ -123,19 +123,19 @@ A [`metadata`](#rules-metadata) block (within [`rules`](#rules)) supports the fo
 
 A [`spec`](#rules-spec) block (within [`rules`](#rules)) supports the following:
 
-<a id="rules-spec-any-asn"></a>&#x2022; [`any_asn`](#rules-spec-any-asn) - Optional Block<br>Enable this option
+<a id="rules-spec-any-asn"></a>&#x2022; [`any_asn`](#rules-spec-any-asn) - Optional Object<br>Enable this option
 
-<a id="rules-spec-any-country"></a>&#x2022; [`any_country`](#rules-spec-any-country) - Optional Block<br>Configuration parameter for any country
+<a id="rules-spec-any-country"></a>&#x2022; [`any_country`](#rules-spec-any-country) - Optional Object<br>Configuration parameter for any country
 
-<a id="rules-spec-any-ip"></a>&#x2022; [`any_ip`](#rules-spec-any-ip) - Optional Block<br>Enable this option
+<a id="rules-spec-any-ip"></a>&#x2022; [`any_ip`](#rules-spec-any-ip) - Optional Object<br>Enable this option
 
-<a id="rules-spec-apply-rate-limiter"></a>&#x2022; [`apply_rate_limiter`](#rules-spec-apply-rate-limiter) - Optional Block<br>Configuration parameter for apply rate limiter
+<a id="rules-spec-apply-rate-limiter"></a>&#x2022; [`apply_rate_limiter`](#rules-spec-apply-rate-limiter) - Optional Object<br>Configuration parameter for apply rate limiter
 
 <a id="rules-spec-asn-list"></a>&#x2022; [`asn_list`](#rules-spec-asn-list) - Optional Block<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer<br>See [Asn List](#rules-spec-asn-list) below.
 
 <a id="rules-spec-asn-matcher"></a>&#x2022; [`asn_matcher`](#rules-spec-asn-matcher) - Optional Block<br>Match any AS number contained in the list of bgp_asn_sets<br>See [Asn Matcher](#rules-spec-asn-matcher) below.
 
-<a id="rules-spec-bypass-rate-limiter"></a>&#x2022; [`bypass_rate_limiter`](#rules-spec-bypass-rate-limiter) - Optional Block<br>Configuration parameter for bypass rate limiter
+<a id="rules-spec-bypass-rate-limiter"></a>&#x2022; [`bypass_rate_limiter`](#rules-spec-bypass-rate-limiter) - Optional Object<br>Configuration parameter for bypass rate limiter
 
 <a id="rules-spec-country-list"></a>&#x2022; [`country_list`](#rules-spec-country-list) - Optional Block<br>Country Codes List. List of Country Codes to match against<br>See [Country List](#rules-spec-country-list) below.
 
@@ -158,6 +158,22 @@ below.
 below.
 
 <a id="rules-spec-segment-policy"></a>&#x2022; [`segment_policy`](#rules-spec-segment-policy) - Optional Block<br>Configure source and destination segment for policy<br>See [Segment Policy](#rules-spec-segment-policy) below.
+
+#### Rules Spec Any Asn
+
+An [`any_asn`](#rules-spec-any-asn) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+#### Rules Spec Any Country
+
+An [`any_country`](#rules-spec-any-country) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+#### Rules Spec Any IP
+
+An [`any_ip`](#rules-spec-any-ip) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+#### Rules Spec Apply Rate Limiter
+
+An [`apply_rate_limiter`](#rules-spec-apply-rate-limiter) block (within [`rules.spec`](#rules-spec)) supports the following:
 
 #### Rules Spec Asn List
 
@@ -184,6 +200,10 @@ An [`asn_sets`](#rules-spec-asn-matcher-asn-sets) block (within [`rules.spec.asn
 <a id="rules-spec-asn-matcher-asn-sets-tenant"></a>&#x2022; [`tenant`](#rules-spec-asn-matcher-asn-sets-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 <a id="rules-spec-asn-matcher-asn-sets-uid"></a>&#x2022; [`uid`](#rules-spec-asn-matcher-asn-sets-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Rules Spec Bypass Rate Limiter
+
+A [`bypass_rate_limiter`](#rules-spec-bypass-rate-limiter) block (within [`rules.spec`](#rules-spec)) supports the following:
 
 #### Rules Spec Country List
 
@@ -226,15 +246,23 @@ A [`domain_matcher`](#rules-spec-domain-matcher) block (within [`rules.spec`](#r
 
 A [`headers`](#rules-spec-headers) block (within [`rules.spec`](#rules-spec)) supports the following:
 
-<a id="rules-spec-headers-check-not-present"></a>&#x2022; [`check_not_present`](#rules-spec-headers-check-not-present) - Optional Block<br>Configuration parameter for check not present
+<a id="rules-spec-headers-check-not-present"></a>&#x2022; [`check_not_present`](#rules-spec-headers-check-not-present) - Optional Object<br>Configuration parameter for check not present
 
-<a id="rules-spec-headers-check-present"></a>&#x2022; [`check_present`](#rules-spec-headers-check-present) - Optional Block<br>Configuration parameter for check present
+<a id="rules-spec-headers-check-present"></a>&#x2022; [`check_present`](#rules-spec-headers-check-present) - Optional Object<br>Configuration parameter for check present
 
 <a id="rules-spec-headers-invert-matcher"></a>&#x2022; [`invert_matcher`](#rules-spec-headers-invert-matcher) - Optional Bool<br>Invert Header Matcher. Invert the match result
 
 <a id="rules-spec-headers-item"></a>&#x2022; [`item`](#rules-spec-headers-item) - Optional Block<br>Matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions<br>See [Item](#rules-spec-headers-item) below.
 
 <a id="rules-spec-headers-name"></a>&#x2022; [`name`](#rules-spec-headers-name) - Optional String<br>Header Name. A case-insensitive HTTP header name
+
+#### Rules Spec Headers Check Not Present
+
+A [`check_not_present`](#rules-spec-headers-check-not-present) block (within [`rules.spec.headers`](#rules-spec-headers)) supports the following:
+
+#### Rules Spec Headers Check Present
+
+A [`check_present`](#rules-spec-headers-check-present) block (within [`rules.spec.headers`](#rules-spec-headers)) supports the following:
 
 #### Rules Spec Headers Item
 
@@ -306,15 +334,19 @@ A [`path`](#rules-spec-path) block (within [`rules.spec`](#rules-spec)) supports
 
 A [`segment_policy`](#rules-spec-segment-policy) block (within [`rules.spec`](#rules-spec)) supports the following:
 
-<a id="rules-spec-segment-policy-dst-any"></a>&#x2022; [`dst_any`](#rules-spec-segment-policy-dst-any) - Optional Block<br>Enable this option
+<a id="rules-spec-segment-policy-dst-any"></a>&#x2022; [`dst_any`](#rules-spec-segment-policy-dst-any) - Optional Object<br>Enable this option
 
 <a id="rules-spec-segment-policy-dst-segments"></a>&#x2022; [`dst_segments`](#rules-spec-segment-policy-dst-segments) - Optional Block<br>Configuration parameter for dst segments<br>See [Dst Segments](#rules-spec-segment-policy-dst-segments) below.
 
-<a id="rules-spec-segment-policy-intra-segment"></a>&#x2022; [`intra_segment`](#rules-spec-segment-policy-intra-segment) - Optional Block<br>Configuration parameter for intra segment
+<a id="rules-spec-segment-policy-intra-segment"></a>&#x2022; [`intra_segment`](#rules-spec-segment-policy-intra-segment) - Optional Object<br>Configuration parameter for intra segment
 
-<a id="rules-spec-segment-policy-src-any"></a>&#x2022; [`src_any`](#rules-spec-segment-policy-src-any) - Optional Block<br>Enable this option
+<a id="rules-spec-segment-policy-src-any"></a>&#x2022; [`src_any`](#rules-spec-segment-policy-src-any) - Optional Object<br>Enable this option
 
 <a id="rules-spec-segment-policy-src-segments"></a>&#x2022; [`src_segments`](#rules-spec-segment-policy-src-segments) - Optional Block<br>Configuration parameter for src segments<br>See [Src Segments](#rules-spec-segment-policy-src-segments) below.
+
+#### Rules Spec Segment Policy Dst Any
+
+A [`dst_any`](#rules-spec-segment-policy-dst-any) block (within [`rules.spec.segment_policy`](#rules-spec-segment-policy)) supports the following:
 
 #### Rules Spec Segment Policy Dst Segments
 
@@ -331,6 +363,14 @@ A [`segments`](#segments-bebd2d) block (within [`rules.spec.segment_policy.dst_s
 <a id="namespace-dbb362"></a>&#x2022; [`namespace`](#namespace-dbb362) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="tenant-da28d3"></a>&#x2022; [`tenant`](#tenant-da28d3) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Rules Spec Segment Policy Intra Segment
+
+An [`intra_segment`](#rules-spec-segment-policy-intra-segment) block (within [`rules.spec.segment_policy`](#rules-spec-segment-policy)) supports the following:
+
+#### Rules Spec Segment Policy Src Any
+
+A [`src_any`](#rules-spec-segment-policy-src-any) block (within [`rules.spec.segment_policy`](#rules-spec-segment-policy)) supports the following:
 
 #### Rules Spec Segment Policy Src Segments
 

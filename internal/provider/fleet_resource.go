@@ -55,16 +55,16 @@ type FleetEmptyModel struct {
 
 // FleetBlockedServicesModel represents blocked_services block
 type FleetBlockedServicesModel struct {
-	NetworkType      types.String     `tfsdk:"network_type"`
-	DNS              *FleetEmptyModel `tfsdk:"dns"`
-	SSH              *FleetEmptyModel `tfsdk:"ssh"`
-	WebUserInterface *FleetEmptyModel `tfsdk:"web_user_interface"`
+	DNS              types.Object `tfsdk:"dns"`
+	NetworkType      types.String `tfsdk:"network_type"`
+	SSH              types.Object `tfsdk:"ssh"`
+	WebUserInterface types.Object `tfsdk:"web_user_interface"`
 }
 
 // FleetBlockedServicesModelAttrTypes defines the attribute types for FleetBlockedServicesModel
 var FleetBlockedServicesModelAttrTypes = map[string]attr.Type{
-	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"network_type":       types.StringType,
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"web_user_interface": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -81,21 +81,21 @@ var FleetBondDeviceListModelAttrTypes = map[string]attr.Type{
 
 // FleetBondDeviceListBondDevicesModel represents bond_devices block
 type FleetBondDeviceListBondDevicesModel struct {
+	ActiveBackup        types.Object                             `tfsdk:"active_backup"`
 	Devices             types.List                               `tfsdk:"devices"`
 	LinkPollingInterval types.Int64                              `tfsdk:"link_polling_interval"`
 	LinkUpDelay         types.Int64                              `tfsdk:"link_up_delay"`
 	Name                types.String                             `tfsdk:"name"`
-	ActiveBackup        *FleetEmptyModel                         `tfsdk:"active_backup"`
 	Lacp                *FleetBondDeviceListBondDevicesLacpModel `tfsdk:"lacp"`
 }
 
 // FleetBondDeviceListBondDevicesModelAttrTypes defines the attribute types for FleetBondDeviceListBondDevicesModel
 var FleetBondDeviceListBondDevicesModelAttrTypes = map[string]attr.Type{
+	"active_backup":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"devices":               types.ListType{ElemType: types.StringType},
 	"link_polling_interval": types.Int64Type,
 	"link_up_delay":         types.Int64Type,
 	"name":                  types.StringType,
-	"active_backup":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"lacp":                  types.ObjectType{AttrTypes: FleetBondDeviceListBondDevicesLacpModelAttrTypes},
 }
 
@@ -249,7 +249,7 @@ var FleetInterfaceListInterfacesModelAttrTypes = map[string]attr.Type{
 
 // FleetKubernetesUpgradeDrainModel represents kubernetes_upgrade_drain block
 type FleetKubernetesUpgradeDrainModel struct {
-	DisableUpgradeDrain *FleetEmptyModel                                    `tfsdk:"disable_upgrade_drain"`
+	DisableUpgradeDrain types.Object                                        `tfsdk:"disable_upgrade_drain"`
 	EnableUpgradeDrain  *FleetKubernetesUpgradeDrainEnableUpgradeDrainModel `tfsdk:"enable_upgrade_drain"`
 }
 
@@ -261,18 +261,20 @@ var FleetKubernetesUpgradeDrainModelAttrTypes = map[string]attr.Type{
 
 // FleetKubernetesUpgradeDrainEnableUpgradeDrainModel represents enable_upgrade_drain block
 type FleetKubernetesUpgradeDrainEnableUpgradeDrainModel struct {
-	DrainMaxUnavailableNodeCount types.Int64      `tfsdk:"drain_max_unavailable_node_count"`
-	DrainNodeTimeout             types.Int64      `tfsdk:"drain_node_timeout"`
-	DisableVegaUpgradeMode       *FleetEmptyModel `tfsdk:"disable_vega_upgrade_mode"`
-	EnableVegaUpgradeMode        *FleetEmptyModel `tfsdk:"enable_vega_upgrade_mode"`
+	DisableVegaUpgradeMode            types.Object `tfsdk:"disable_vega_upgrade_mode"`
+	DrainMaxUnavailableNodeCount      types.Int64  `tfsdk:"drain_max_unavailable_node_count"`
+	DrainMaxUnavailableNodePercentage types.Int64  `tfsdk:"drain_max_unavailable_node_percentage"`
+	DrainNodeTimeout                  types.Int64  `tfsdk:"drain_node_timeout"`
+	EnableVegaUpgradeMode             types.Object `tfsdk:"enable_vega_upgrade_mode"`
 }
 
 // FleetKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes defines the attribute types for FleetKubernetesUpgradeDrainEnableUpgradeDrainModel
 var FleetKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes = map[string]attr.Type{
-	"drain_max_unavailable_node_count": types.Int64Type,
-	"drain_node_timeout":               types.Int64Type,
-	"disable_vega_upgrade_mode":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable_vega_upgrade_mode":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disable_vega_upgrade_mode":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"drain_max_unavailable_node_count":      types.Int64Type,
+	"drain_max_unavailable_node_percentage": types.Int64Type,
+	"drain_node_timeout":                    types.Int64Type,
+	"enable_vega_upgrade_mode":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // FleetLogReceiverModel represents log_receiver block
@@ -357,8 +359,8 @@ var FleetPerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 
 // FleetPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
 type FleetPerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *FleetEmptyModel `tfsdk:"jumbo"`
-	NoJumbo *FleetEmptyModel `tfsdk:"no_jumbo"`
+	Jumbo   types.Object `tfsdk:"jumbo"`
+	NoJumbo types.Object `tfsdk:"no_jumbo"`
 }
 
 // FleetPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for FleetPerformanceEnhancementModePerfModeL3EnhancedModel
@@ -369,8 +371,8 @@ var FleetPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string
 
 // FleetPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
 type FleetPerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *FleetEmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *FleetEmptyModel `tfsdk:"jumbo_enabled"`
+	JumboDisabled types.Object `tfsdk:"jumbo_disabled"`
+	JumboEnabled  types.Object `tfsdk:"jumbo_enabled"`
 }
 
 // FleetPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for FleetPerformanceEnhancementModePerfModeL7EnhancedModel
@@ -532,8 +534,8 @@ var FleetStorageDeviceListModelAttrTypes = map[string]attr.Type{
 // FleetStorageDeviceListStorageDevicesModel represents storage_devices block
 type FleetStorageDeviceListStorageDevicesModel struct {
 	AdvancedAdvancedParameters types.Map                                                         `tfsdk:"advanced_advanced_parameters"`
+	CustomStorage              types.Object                                                      `tfsdk:"custom_storage"`
 	StorageDevice              types.String                                                      `tfsdk:"storage_device"`
-	CustomStorage              *FleetEmptyModel                                                  `tfsdk:"custom_storage"`
 	HpeStorage                 *FleetStorageDeviceListStorageDevicesHpeStorageModel              `tfsdk:"hpe_storage"`
 	NetappTrident              *FleetStorageDeviceListStorageDevicesNetappTridentModel           `tfsdk:"netapp_trident"`
 	PureServiceOrchestrator    *FleetStorageDeviceListStorageDevicesPureServiceOrchestratorModel `tfsdk:"pure_service_orchestrator"`
@@ -542,8 +544,8 @@ type FleetStorageDeviceListStorageDevicesModel struct {
 // FleetStorageDeviceListStorageDevicesModelAttrTypes defines the attribute types for FleetStorageDeviceListStorageDevicesModel
 var FleetStorageDeviceListStorageDevicesModelAttrTypes = map[string]attr.Type{
 	"advanced_advanced_parameters": types.MapType{ElemType: types.StringType},
-	"storage_device":               types.StringType,
 	"custom_storage":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"storage_device":               types.StringType,
 	"hpe_storage":                  types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesHpeStorageModelAttrTypes},
 	"netapp_trident":               types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentModelAttrTypes},
 	"pure_service_orchestrator":    types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesPureServiceOrchestratorModelAttrTypes},
@@ -813,19 +815,19 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorag
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel represents volume_defaults block
 type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel struct {
-	AdaptiveQOSPolicy types.String     `tfsdk:"adaptive_qos_policy"`
-	Encryption        types.Bool       `tfsdk:"encryption"`
-	ExportPolicy      types.String     `tfsdk:"export_policy"`
-	QOSPolicy         types.String     `tfsdk:"qos_policy"`
-	SecurityStyle     types.String     `tfsdk:"security_style"`
-	SnapshotDir       types.Bool       `tfsdk:"snapshot_dir"`
-	SnapshotPolicy    types.String     `tfsdk:"snapshot_policy"`
-	SnapshotReserve   types.String     `tfsdk:"snapshot_reserve"`
-	SpaceReserve      types.String     `tfsdk:"space_reserve"`
-	SplitOnClone      types.Bool       `tfsdk:"split_on_clone"`
-	TieringPolicy     types.String     `tfsdk:"tiering_policy"`
-	UnixPermissions   types.Int64      `tfsdk:"unix_permissions"`
-	NoQOS             *FleetEmptyModel `tfsdk:"no_qos"`
+	AdaptiveQOSPolicy types.String `tfsdk:"adaptive_qos_policy"`
+	Encryption        types.Bool   `tfsdk:"encryption"`
+	ExportPolicy      types.String `tfsdk:"export_policy"`
+	NoQOS             types.Object `tfsdk:"no_qos"`
+	QOSPolicy         types.String `tfsdk:"qos_policy"`
+	SecurityStyle     types.String `tfsdk:"security_style"`
+	SnapshotDir       types.Bool   `tfsdk:"snapshot_dir"`
+	SnapshotPolicy    types.String `tfsdk:"snapshot_policy"`
+	SnapshotReserve   types.String `tfsdk:"snapshot_reserve"`
+	SpaceReserve      types.String `tfsdk:"space_reserve"`
+	SplitOnClone      types.Bool   `tfsdk:"split_on_clone"`
+	TieringPolicy     types.String `tfsdk:"tiering_policy"`
+	UnixPermissions   types.Int64  `tfsdk:"unix_permissions"`
 }
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModelAttrTypes defines the attribute types for FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel
@@ -833,6 +835,7 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorag
 	"adaptive_qos_policy": types.StringType,
 	"encryption":          types.BoolType,
 	"export_policy":       types.StringType,
+	"no_qos":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"qos_policy":          types.StringType,
 	"security_style":      types.StringType,
 	"snapshot_dir":        types.BoolType,
@@ -842,24 +845,23 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorag
 	"split_on_clone":      types.BoolType,
 	"tiering_policy":      types.StringType,
 	"unix_permissions":    types.Int64Type,
-	"no_qos":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel represents volume_defaults block
 type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel struct {
-	AdaptiveQOSPolicy types.String     `tfsdk:"adaptive_qos_policy"`
-	Encryption        types.Bool       `tfsdk:"encryption"`
-	ExportPolicy      types.String     `tfsdk:"export_policy"`
-	QOSPolicy         types.String     `tfsdk:"qos_policy"`
-	SecurityStyle     types.String     `tfsdk:"security_style"`
-	SnapshotDir       types.Bool       `tfsdk:"snapshot_dir"`
-	SnapshotPolicy    types.String     `tfsdk:"snapshot_policy"`
-	SnapshotReserve   types.String     `tfsdk:"snapshot_reserve"`
-	SpaceReserve      types.String     `tfsdk:"space_reserve"`
-	SplitOnClone      types.Bool       `tfsdk:"split_on_clone"`
-	TieringPolicy     types.String     `tfsdk:"tiering_policy"`
-	UnixPermissions   types.Int64      `tfsdk:"unix_permissions"`
-	NoQOS             *FleetEmptyModel `tfsdk:"no_qos"`
+	AdaptiveQOSPolicy types.String `tfsdk:"adaptive_qos_policy"`
+	Encryption        types.Bool   `tfsdk:"encryption"`
+	ExportPolicy      types.String `tfsdk:"export_policy"`
+	NoQOS             types.Object `tfsdk:"no_qos"`
+	QOSPolicy         types.String `tfsdk:"qos_policy"`
+	SecurityStyle     types.String `tfsdk:"security_style"`
+	SnapshotDir       types.Bool   `tfsdk:"snapshot_dir"`
+	SnapshotPolicy    types.String `tfsdk:"snapshot_policy"`
+	SnapshotReserve   types.String `tfsdk:"snapshot_reserve"`
+	SpaceReserve      types.String `tfsdk:"space_reserve"`
+	SplitOnClone      types.Bool   `tfsdk:"split_on_clone"`
+	TieringPolicy     types.String `tfsdk:"tiering_policy"`
+	UnixPermissions   types.Int64  `tfsdk:"unix_permissions"`
 }
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModelAttrTypes defines the attribute types for FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsModel
@@ -867,6 +869,7 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolume
 	"adaptive_qos_policy": types.StringType,
 	"encryption":          types.BoolType,
 	"export_policy":       types.StringType,
+	"no_qos":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"qos_policy":          types.StringType,
 	"security_style":      types.StringType,
 	"snapshot_dir":        types.BoolType,
@@ -876,7 +879,6 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolume
 	"split_on_clone":      types.BoolType,
 	"tiering_policy":      types.StringType,
 	"unix_permissions":    types.Int64Type,
-	"no_qos":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel represents netapp_backend_ontap_san block
@@ -890,6 +892,7 @@ type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel
 	LimitVolumeSize      types.Int64                                                                                  `tfsdk:"limit_volume_size"`
 	ManagementLifDNSName types.String                                                                                 `tfsdk:"management_lif_dns_name"`
 	ManagementLifIP      types.String                                                                                 `tfsdk:"management_lif_ip"`
+	NoChap               types.Object                                                                                 `tfsdk:"no_chap"`
 	Region               types.String                                                                                 `tfsdk:"region"`
 	StorageDriverName    types.String                                                                                 `tfsdk:"storage_driver_name"`
 	StoragePrefix        types.String                                                                                 `tfsdk:"storage_prefix"`
@@ -897,7 +900,6 @@ type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModel
 	TrustedCACertificate types.String                                                                                 `tfsdk:"trusted_ca_certificate"`
 	Username             types.String                                                                                 `tfsdk:"username"`
 	ClientPrivateKey     *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel `tfsdk:"client_private_key"`
-	NoChap               *FleetEmptyModel                                                                             `tfsdk:"no_chap"`
 	Password             *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel         `tfsdk:"password"`
 	Storage              types.List                                                                                   `tfsdk:"storage"`
 	UseChap              *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel          `tfsdk:"use_chap"`
@@ -915,6 +917,7 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModelA
 	"limit_volume_size":       types.Int64Type,
 	"management_lif_dns_name": types.StringType,
 	"management_lif_ip":       types.StringType,
+	"no_chap":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"region":                  types.StringType,
 	"storage_driver_name":     types.StringType,
 	"storage_prefix":          types.StringType,
@@ -922,7 +925,6 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanModelA
 	"trusted_ca_certificate":  types.StringType,
 	"username":                types.StringType,
 	"client_private_key":      types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModelAttrTypes},
-	"no_chap":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"password":                types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModelAttrTypes},
 	"storage":                 types.ListType{ElemType: types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModelAttrTypes}},
 	"use_chap":                types.ObjectType{AttrTypes: FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModelAttrTypes},
@@ -1021,19 +1023,19 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorag
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel represents volume_defaults block
 type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel struct {
-	AdaptiveQOSPolicy types.String     `tfsdk:"adaptive_qos_policy"`
-	Encryption        types.Bool       `tfsdk:"encryption"`
-	ExportPolicy      types.String     `tfsdk:"export_policy"`
-	QOSPolicy         types.String     `tfsdk:"qos_policy"`
-	SecurityStyle     types.String     `tfsdk:"security_style"`
-	SnapshotDir       types.Bool       `tfsdk:"snapshot_dir"`
-	SnapshotPolicy    types.String     `tfsdk:"snapshot_policy"`
-	SnapshotReserve   types.String     `tfsdk:"snapshot_reserve"`
-	SpaceReserve      types.String     `tfsdk:"space_reserve"`
-	SplitOnClone      types.Bool       `tfsdk:"split_on_clone"`
-	TieringPolicy     types.String     `tfsdk:"tiering_policy"`
-	UnixPermissions   types.Int64      `tfsdk:"unix_permissions"`
-	NoQOS             *FleetEmptyModel `tfsdk:"no_qos"`
+	AdaptiveQOSPolicy types.String `tfsdk:"adaptive_qos_policy"`
+	Encryption        types.Bool   `tfsdk:"encryption"`
+	ExportPolicy      types.String `tfsdk:"export_policy"`
+	NoQOS             types.Object `tfsdk:"no_qos"`
+	QOSPolicy         types.String `tfsdk:"qos_policy"`
+	SecurityStyle     types.String `tfsdk:"security_style"`
+	SnapshotDir       types.Bool   `tfsdk:"snapshot_dir"`
+	SnapshotPolicy    types.String `tfsdk:"snapshot_policy"`
+	SnapshotReserve   types.String `tfsdk:"snapshot_reserve"`
+	SpaceReserve      types.String `tfsdk:"space_reserve"`
+	SplitOnClone      types.Bool   `tfsdk:"split_on_clone"`
+	TieringPolicy     types.String `tfsdk:"tiering_policy"`
+	UnixPermissions   types.Int64  `tfsdk:"unix_permissions"`
 }
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModelAttrTypes defines the attribute types for FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel
@@ -1041,6 +1043,7 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorag
 	"adaptive_qos_policy": types.StringType,
 	"encryption":          types.BoolType,
 	"export_policy":       types.StringType,
+	"no_qos":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"qos_policy":          types.StringType,
 	"security_style":      types.StringType,
 	"snapshot_dir":        types.BoolType,
@@ -1050,7 +1053,6 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorag
 	"split_on_clone":      types.BoolType,
 	"tiering_policy":      types.StringType,
 	"unix_permissions":    types.Int64Type,
-	"no_qos":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapModel represents use_chap block
@@ -1147,19 +1149,19 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseCha
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel represents volume_defaults block
 type FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel struct {
-	AdaptiveQOSPolicy types.String     `tfsdk:"adaptive_qos_policy"`
-	Encryption        types.Bool       `tfsdk:"encryption"`
-	ExportPolicy      types.String     `tfsdk:"export_policy"`
-	QOSPolicy         types.String     `tfsdk:"qos_policy"`
-	SecurityStyle     types.String     `tfsdk:"security_style"`
-	SnapshotDir       types.Bool       `tfsdk:"snapshot_dir"`
-	SnapshotPolicy    types.String     `tfsdk:"snapshot_policy"`
-	SnapshotReserve   types.String     `tfsdk:"snapshot_reserve"`
-	SpaceReserve      types.String     `tfsdk:"space_reserve"`
-	SplitOnClone      types.Bool       `tfsdk:"split_on_clone"`
-	TieringPolicy     types.String     `tfsdk:"tiering_policy"`
-	UnixPermissions   types.Int64      `tfsdk:"unix_permissions"`
-	NoQOS             *FleetEmptyModel `tfsdk:"no_qos"`
+	AdaptiveQOSPolicy types.String `tfsdk:"adaptive_qos_policy"`
+	Encryption        types.Bool   `tfsdk:"encryption"`
+	ExportPolicy      types.String `tfsdk:"export_policy"`
+	NoQOS             types.Object `tfsdk:"no_qos"`
+	QOSPolicy         types.String `tfsdk:"qos_policy"`
+	SecurityStyle     types.String `tfsdk:"security_style"`
+	SnapshotDir       types.Bool   `tfsdk:"snapshot_dir"`
+	SnapshotPolicy    types.String `tfsdk:"snapshot_policy"`
+	SnapshotReserve   types.String `tfsdk:"snapshot_reserve"`
+	SpaceReserve      types.String `tfsdk:"space_reserve"`
+	SplitOnClone      types.Bool   `tfsdk:"split_on_clone"`
+	TieringPolicy     types.String `tfsdk:"tiering_policy"`
+	UnixPermissions   types.Int64  `tfsdk:"unix_permissions"`
 }
 
 // FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModelAttrTypes defines the attribute types for FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel
@@ -1167,6 +1169,7 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolume
 	"adaptive_qos_policy": types.StringType,
 	"encryption":          types.BoolType,
 	"export_policy":       types.StringType,
+	"no_qos":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"qos_policy":          types.StringType,
 	"security_style":      types.StringType,
 	"snapshot_dir":        types.BoolType,
@@ -1176,7 +1179,6 @@ var FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolume
 	"split_on_clone":      types.BoolType,
 	"tiering_policy":      types.StringType,
 	"unix_permissions":    types.Int64Type,
-	"no_qos":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // FleetStorageDeviceListStorageDevicesPureServiceOrchestratorModel represents pure_service_orchestrator block
@@ -1523,44 +1525,44 @@ type FleetResourceModel struct {
 	Name                             types.String                          `tfsdk:"name"`
 	Namespace                        types.String                          `tfsdk:"namespace"`
 	FleetLabel                       types.String                          `tfsdk:"fleet_label"`
+	AllowAllUsb                      types.Object                          `tfsdk:"allow_all_usb"`
 	Annotations                      types.Map                             `tfsdk:"annotations"`
+	DefaultConfig                    types.Object                          `tfsdk:"default_config"`
+	DefaultSriovInterface            types.Object                          `tfsdk:"default_sriov_interface"`
+	DefaultStorageClass              types.Object                          `tfsdk:"default_storage_class"`
+	DenyAllUsb                       types.Object                          `tfsdk:"deny_all_usb"`
 	Description                      types.String                          `tfsdk:"description"`
 	Disable                          types.Bool                            `tfsdk:"disable"`
+	DisableGPU                       types.Object                          `tfsdk:"disable_gpu"`
+	DisableLogAnonymization          types.Object                          `tfsdk:"disable_log_anonymization"`
+	DisableVM                        types.Object                          `tfsdk:"disable_vm"`
+	EnableGPU                        types.Object                          `tfsdk:"enable_gpu"`
+	EnableLogAnonymization           types.Object                          `tfsdk:"enable_log_anonymization"`
+	EnableVM                         types.Object                          `tfsdk:"enable_vm"`
 	Labels                           types.Map                             `tfsdk:"labels"`
+	LogsStreamingDisabled            types.Object                          `tfsdk:"logs_streaming_disabled"`
+	NoBondDevices                    types.Object                          `tfsdk:"no_bond_devices"`
+	NoDcClusterGroup                 types.Object                          `tfsdk:"no_dc_cluster_group"`
+	NoStorageDevice                  types.Object                          `tfsdk:"no_storage_device"`
+	NoStorageInterfaces              types.Object                          `tfsdk:"no_storage_interfaces"`
+	NoStorageStaticRoutes            types.Object                          `tfsdk:"no_storage_static_routes"`
 	ID                               types.String                          `tfsdk:"id"`
 	EnableDefaultFleetConfigDownload types.Bool                            `tfsdk:"enable_default_fleet_config_download"`
 	OperatingSystemVersion           types.String                          `tfsdk:"operating_system_version"`
 	VolterraSoftwareVersion          types.String                          `tfsdk:"volterra_software_version"`
 	Timeouts                         timeouts.Value                        `tfsdk:"timeouts"`
-	AllowAllUsb                      *FleetEmptyModel                      `tfsdk:"allow_all_usb"`
 	BlockedServices                  types.List                            `tfsdk:"blocked_services"`
 	BondDeviceList                   *FleetBondDeviceListModel             `tfsdk:"bond_device_list"`
 	DcClusterGroup                   *FleetDcClusterGroupModel             `tfsdk:"dc_cluster_group"`
 	DcClusterGroupInside             *FleetDcClusterGroupInsideModel       `tfsdk:"dc_cluster_group_inside"`
-	DefaultConfig                    *FleetEmptyModel                      `tfsdk:"default_config"`
-	DefaultSriovInterface            *FleetEmptyModel                      `tfsdk:"default_sriov_interface"`
-	DefaultStorageClass              *FleetEmptyModel                      `tfsdk:"default_storage_class"`
-	DenyAllUsb                       *FleetEmptyModel                      `tfsdk:"deny_all_usb"`
 	DeviceList                       *FleetDeviceListModel                 `tfsdk:"device_list"`
-	DisableGPU                       *FleetEmptyModel                      `tfsdk:"disable_gpu"`
-	DisableLogAnonymization          *FleetEmptyModel                      `tfsdk:"disable_log_anonymization"`
-	DisableVM                        *FleetEmptyModel                      `tfsdk:"disable_vm"`
-	EnableGPU                        *FleetEmptyModel                      `tfsdk:"enable_gpu"`
-	EnableLogAnonymization           *FleetEmptyModel                      `tfsdk:"enable_log_anonymization"`
 	EnableVgpu                       *FleetEnableVgpuModel                 `tfsdk:"enable_vgpu"`
-	EnableVM                         *FleetEmptyModel                      `tfsdk:"enable_vm"`
 	InsideVirtualNetwork             types.List                            `tfsdk:"inside_virtual_network"`
 	InterfaceList                    *FleetInterfaceListModel              `tfsdk:"interface_list"`
 	KubernetesUpgradeDrain           *FleetKubernetesUpgradeDrainModel     `tfsdk:"kubernetes_upgrade_drain"`
 	LogReceiver                      *FleetLogReceiverModel                `tfsdk:"log_receiver"`
-	LogsStreamingDisabled            *FleetEmptyModel                      `tfsdk:"logs_streaming_disabled"`
 	NetworkConnectors                types.List                            `tfsdk:"network_connectors"`
 	NetworkFirewall                  types.List                            `tfsdk:"network_firewall"`
-	NoBondDevices                    *FleetEmptyModel                      `tfsdk:"no_bond_devices"`
-	NoDcClusterGroup                 *FleetEmptyModel                      `tfsdk:"no_dc_cluster_group"`
-	NoStorageDevice                  *FleetEmptyModel                      `tfsdk:"no_storage_device"`
-	NoStorageInterfaces              *FleetEmptyModel                      `tfsdk:"no_storage_interfaces"`
-	NoStorageStaticRoutes            *FleetEmptyModel                      `tfsdk:"no_storage_static_routes"`
 	OutsideVirtualNetwork            types.List                            `tfsdk:"outside_virtual_network"`
 	PerformanceEnhancementMode       *FleetPerformanceEnhancementModeModel `tfsdk:"performance_enhancement_mode"`
 	SriovInterfaces                  *FleetSriovInterfacesModel            `tfsdk:"sriov_interfaces"`
@@ -1603,10 +1605,35 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				MarkdownDescription: "Fleet_label value is used to create known_label 'F5 XC/fleet=<fleet_label>' The known_label is created in the 'shared' namespace for the tenant. A virtual_site object with name <fleet_label> is also created in 'shared' namespace for tenant. The virtual_site object will select all sites..",
 				Required:            true,
 			},
+			"allow_all_usb": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: allow_all_usb, deny_all_usb, usb_policy] Configuration parameter for allow all usb.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"annotations": schema.MapAttribute{
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"default_config": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: default_config, device_list, interface_list; Default: default_config] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"default_sriov_interface": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: default_sriov_interface, sriov_interfaces; Default: default_sriov_interface] Configuration parameter for default sriov interface.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"default_storage_class": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: default_storage_class, storage_class_list; Default: default_storage_class] Configuration parameter for default storage class.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"deny_all_usb": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for deny all usb.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
@@ -1616,10 +1643,70 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"disable_gpu": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable_gpu, enable_gpu, enable_vgpu; Default: disable_gpu] Configuration parameter for disable gpu.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"disable_log_anonymization": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable_log_anonymization, enable_log_anonymization; Default: disable_log_anonymization] Configuration parameter for disable log anonymization.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"disable_vm": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable_vm, enable_vm; Default: disable_vm] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"enable_gpu": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"enable_log_anonymization": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for enable log anonymization.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"enable_vm": schema.ObjectAttribute{
+				MarkdownDescription: "VM Configuration. VMs support configuration.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"logs_streaming_disabled": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_bond_devices": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for no bond devices.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_dc_cluster_group": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_storage_device": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: no_storage_device, storage_device_list; Default: no_storage_device] Configuration parameter for no storage device.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_storage_interfaces": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: no_storage_interfaces, storage_interface_list; Default: no_storage_interfaces] Configuration parameter for no storage interfaces.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"no_storage_static_routes": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: no_storage_static_routes, storage_static_routes; Default: no_storage_static_routes] Configuration parameter for no storage static routes.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -1666,14 +1753,17 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Update: true,
 				Delete: true,
 			}),
-			"allow_all_usb": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: allow_all_usb, deny_all_usb, usb_policy] Configuration parameter for allow all usb.",
-			},
 			"blocked_services": schema.ListNestedBlock{
 				MarkdownDescription: "Disable node local services on this site.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("dns", "ssh"), validators.ConflictingListObjectAttributes("dns", "web_user_interface"), validators.ConflictingListObjectAttributes("ssh", "web_user_interface")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
+						"dns": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
 						"network_type": schema.StringAttribute{
 							MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
 							Optional:            true,
@@ -1681,16 +1771,15 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								stringvalidator.OneOf("VIRTUAL_NETWORK_SITE_LOCAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE", "VIRTUAL_NETWORK_PER_SITE", "VIRTUAL_NETWORK_PUBLIC", "VIRTUAL_NETWORK_GLOBAL", "VIRTUAL_NETWORK_SITE_SERVICE", "VIRTUAL_NETWORK_VER_INTERNAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE", "VIRTUAL_NETWORK_IP_AUTO", "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK", "VIRTUAL_NETWORK_SRV6_NETWORK", "VIRTUAL_NETWORK_IP_FABRIC", "VIRTUAL_NETWORK_SEGMENT", "VIRTUAL_NETWORK_MANAGEMENT"),
 							},
 						},
-					},
-					Blocks: map[string]schema.Block{
-						"dns": schema.SingleNestedBlock{
+						"ssh": schema.ObjectAttribute{
 							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
 						},
-						"ssh": schema.SingleNestedBlock{
+						"web_user_interface": schema.ObjectAttribute{
 							MarkdownDescription: "Enable this option",
-						},
-						"web_user_interface": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
 						},
 					},
 				},
@@ -1703,9 +1792,14 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Blocks: map[string]schema.Block{
 					"bond_devices": schema.ListNestedBlock{
 						MarkdownDescription: "Bond Devices. List of bond devices.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("devices", "link_polling_interval", "link_up_delay", "name"), validators.ConflictingListObjectAttributes("active_backup", "lacp")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
+								"active_backup": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for active backup.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"devices": schema.ListAttribute{
 									MarkdownDescription: "Ethernet devices that will make up this bond.",
 									Optional:            true,
@@ -1737,9 +1831,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 							},
 							Blocks: map[string]schema.Block{
-								"active_backup": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for active backup.",
-								},
 								"lacp": schema.SingleNestedBlock{
 									MarkdownDescription: "LACP parameters. LACP parameters for the bond device.",
 									Validators:          []validator.Object{validators.RequiredObjectAttributes("rate")},
@@ -1822,18 +1913,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					},
 				},
 			},
-			"default_config": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: default_config, device_list, interface_list; Default: default_config] Enable this option",
-			},
-			"default_sriov_interface": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: default_sriov_interface, sriov_interfaces; Default: default_sriov_interface] Configuration parameter for default sriov interface.",
-			},
-			"default_storage_class": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: default_storage_class, storage_class_list; Default: default_storage_class] Configuration parameter for default storage class.",
-			},
-			"deny_all_usb": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for deny all usb.",
-			},
 			"device_list": schema.SingleNestedBlock{
 				MarkdownDescription: "Add device for all interfaces belonging to this fleet.",
 
@@ -1915,21 +1994,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					},
 				},
 			},
-			"disable_gpu": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disable_gpu, enable_gpu, enable_vgpu; Default: disable_gpu] Configuration parameter for disable gpu.",
-			},
-			"disable_log_anonymization": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disable_log_anonymization, enable_log_anonymization; Default: disable_log_anonymization] Configuration parameter for disable log anonymization.",
-			},
-			"disable_vm": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disable_vm, enable_vm; Default: disable_vm] Enable this option",
-			},
-			"enable_gpu": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"enable_log_anonymization": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for enable log anonymization.",
-			},
 			"enable_vgpu": schema.SingleNestedBlock{
 				MarkdownDescription: "Licensing configuration for NVIDIA vGPU.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("server_port")},
@@ -1954,9 +2018,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 					},
 				},
-			},
-			"enable_vm": schema.SingleNestedBlock{
-				MarkdownDescription: "VM Configuration. VMs support configuration.",
 			},
 			"inside_virtual_network": schema.ListNestedBlock{
 				MarkdownDescription: "Default inside (site local) virtual network for the fleet.",
@@ -2037,22 +2098,35 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_upgrade_drain", "enable_upgrade_drain")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_upgrade_drain": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_upgrade_drain": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for disable upgrade drain.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+				},
+				Blocks: map[string]schema.Block{
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout"), validators.ConflictingObjectAttributes("disable_vega_upgrade_mode", "enable_vega_upgrade_mode"), validators.ConflictingObjectAttributes("drain_max_unavailable_node_count", "drain_max_unavailable_node_percentage")},
 						Attributes: map[string]schema.Attribute{
+							"disable_vega_upgrade_mode": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable vega upgrade mode.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
 								Optional:            true,
 								Validators: []validator.Int64{
 									int64validator.Between(1, 5000),
 								},
+							},
+							"drain_max_unavailable_node_percentage": schema.Int64Attribute{
+								MarkdownDescription: "Maximum percentage of nodes unavailable during upgrade draining.",
+								Optional:            true,
 							},
 							"drain_node_timeout": schema.Int64Attribute{
 								MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
@@ -2061,13 +2135,10 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									int64validator.Between(0, 900),
 								},
 							},
-						},
-						Blocks: map[string]schema.Block{
-							"disable_vega_upgrade_mode": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for disable vega upgrade mode.",
-							},
-							"enable_vega_upgrade_mode": schema.SingleNestedBlock{
+							"enable_vega_upgrade_mode": schema.ObjectAttribute{
 								MarkdownDescription: "Configuration parameter for enable vega upgrade mode.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -2104,9 +2175,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 						},
 					},
 				},
-			},
-			"logs_streaming_disabled": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
 			},
 			"network_connectors": schema.ListNestedBlock{
 				MarkdownDescription: "Network Connector defines connection between two virtual networks in a given site. Fleet defines one or more such network connectors. The network connectors configuration is applied on all sites that are member of the fleet.",
@@ -2180,21 +2248,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					},
 				},
 			},
-			"no_bond_devices": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for no bond devices.",
-			},
-			"no_dc_cluster_group": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"no_storage_device": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: no_storage_device, storage_device_list; Default: no_storage_device] Configuration parameter for no storage device.",
-			},
-			"no_storage_interfaces": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: no_storage_interfaces, storage_interface_list; Default: no_storage_interfaces] Configuration parameter for no storage interfaces.",
-			},
-			"no_storage_static_routes": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: no_storage_static_routes, storage_static_routes; Default: no_storage_static_routes] Configuration parameter for no storage static routes.",
-			},
 			"outside_virtual_network": schema.ListNestedBlock{
 				MarkdownDescription: "Default outside (site local) virtual network for the fleet.",
 
@@ -2233,30 +2286,39 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"performance_enhancement_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"jumbo": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
+						Attributes: map[string]schema.Attribute{
+							"jumbo": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"no_jumbo": schema.SingleNestedBlock{
+							"no_jumbo": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
 					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"jumbo_disabled": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
+						Attributes: map[string]schema.Attribute{
+							"jumbo_disabled": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"jumbo_enabled": schema.SingleNestedBlock{
+							"jumbo_enabled": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -2296,7 +2358,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Blocks: map[string]schema.Block{
 					"storage_classes": schema.ListNestedBlock{
 						MarkdownDescription: "List of Storage Classes. List of custom storage classes.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_class_name", "storage_device")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_class_name", "storage_device"), validators.ConflictingListObjectAttributes("custom_storage", "hpe_storage"), validators.ConflictingListObjectAttributes("custom_storage", "netapp_trident"), validators.ConflictingListObjectAttributes("custom_storage", "pure_service_orchestrator"), validators.ConflictingListObjectAttributes("hpe_storage", "netapp_trident"), validators.ConflictingListObjectAttributes("hpe_storage", "pure_service_orchestrator"), validators.ConflictingListObjectAttributes("netapp_trident", "pure_service_orchestrator")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"advanced_storage_parameters": schema.MapAttribute{
@@ -2508,13 +2570,18 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				Blocks: map[string]schema.Block{
 					"storage_devices": schema.ListNestedBlock{
 						MarkdownDescription: "List of Storage Devices. List of custom storage devices.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_device")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("storage_device"), validators.ConflictingListObjectAttributes("custom_storage", "hpe_storage"), validators.ConflictingListObjectAttributes("custom_storage", "netapp_trident"), validators.ConflictingListObjectAttributes("custom_storage", "pure_service_orchestrator"), validators.ConflictingListObjectAttributes("hpe_storage", "netapp_trident"), validators.ConflictingListObjectAttributes("hpe_storage", "pure_service_orchestrator"), validators.ConflictingListObjectAttributes("netapp_trident", "pure_service_orchestrator")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"advanced_advanced_parameters": schema.MapAttribute{
 									MarkdownDescription: "Advanced Parameters. Map of parameter name and string value.",
 									Optional:            true,
 									ElementType:         types.StringType,
+								},
+								"custom_storage": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for custom storage.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
 								"storage_device": schema.StringAttribute{
 									MarkdownDescription: "Storage Device. Storage device and device unit.",
@@ -2525,9 +2592,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 							},
 							Blocks: map[string]schema.Block{
-								"custom_storage": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for custom storage.",
-								},
 								"hpe_storage": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for hpe storage.",
 									Validators:          []validator.Object{validators.RequiredObjectAttributes("api_server_port", "username")},
@@ -2572,6 +2636,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									Blocks: map[string]schema.Block{
 										"iscsi_chap_password": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2616,6 +2681,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 										"password": schema.SingleNestedBlock{
 											MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2662,11 +2728,12 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"netapp_trident": schema.SingleNestedBlock{
 									MarkdownDescription: "Device configuration for NetApp Trident Storage.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("netapp_backend_ontap_nas", "netapp_backend_ontap_san")},
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"netapp_backend_ontap_nas": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration of storage backend for NetApp ONTAP NAS.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username"), validators.ConflictingObjectAttributes("data_lif_dns_name", "data_lif_ip"), validators.ConflictingObjectAttributes("management_lif_dns_name", "management_lif_ip")},
 											Attributes: map[string]schema.Attribute{
 												"auto_export_policy": schema.BoolAttribute{
 													MarkdownDescription: "Policy configuration for this feature.",
@@ -2786,6 +2853,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"client_private_key": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2830,6 +2898,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"password": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -2889,6 +2958,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														Blocks: map[string]schema.Block{
 															"volume_defaults": schema.SingleNestedBlock{
 																MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("adaptive_qos_policy", "no_qos"), validators.ConflictingObjectAttributes("adaptive_qos_policy", "qos_policy"), validators.ConflictingObjectAttributes("no_qos", "qos_policy")},
 																Attributes: map[string]schema.Attribute{
 																	"adaptive_qos_policy": schema.StringAttribute{
 																		MarkdownDescription: "Policy configuration for this feature.",
@@ -2904,6 +2974,11 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	"export_policy": schema.StringAttribute{
 																		MarkdownDescription: "Policy configuration for this feature.",
 																		Optional:            true,
+																	},
+																	"no_qos": schema.ObjectAttribute{
+																		MarkdownDescription: "Enable this option",
+																		Optional:            true,
+																		AttributeTypes:      map[string]attr.Type{},
 																	},
 																	"qos_policy": schema.StringAttribute{
 																		MarkdownDescription: "Policy configuration for this feature.",
@@ -2948,17 +3023,13 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																		Optional:            true,
 																	},
 																},
-																Blocks: map[string]schema.Block{
-																	"no_qos": schema.SingleNestedBlock{
-																		MarkdownDescription: "Enable this option",
-																	},
-																},
 															},
 														},
 													},
 												},
 												"volume_defaults": schema.SingleNestedBlock{
 													MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("adaptive_qos_policy", "no_qos"), validators.ConflictingObjectAttributes("adaptive_qos_policy", "qos_policy"), validators.ConflictingObjectAttributes("no_qos", "qos_policy")},
 													Attributes: map[string]schema.Attribute{
 														"adaptive_qos_policy": schema.StringAttribute{
 															MarkdownDescription: "Policy configuration for this feature.",
@@ -2974,6 +3045,11 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														"export_policy": schema.StringAttribute{
 															MarkdownDescription: "Policy configuration for this feature.",
 															Optional:            true,
+														},
+														"no_qos": schema.ObjectAttribute{
+															MarkdownDescription: "Enable this option",
+															Optional:            true,
+															AttributeTypes:      map[string]attr.Type{},
 														},
 														"qos_policy": schema.StringAttribute{
 															MarkdownDescription: "Policy configuration for this feature.",
@@ -3018,17 +3094,12 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															Optional:            true,
 														},
 													},
-													Blocks: map[string]schema.Block{
-														"no_qos": schema.SingleNestedBlock{
-															MarkdownDescription: "Enable this option",
-														},
-													},
 												},
 											},
 										},
 										"netapp_backend_ontap_san": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration of storage backend for NetApp ONTAP SAN.",
-											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username")},
+											Validators:          []validator.Object{validators.RequiredObjectAttributes("storage_driver_name", "username"), validators.ConflictingObjectAttributes("data_lif_dns_name", "data_lif_ip"), validators.ConflictingObjectAttributes("management_lif_dns_name", "management_lif_ip"), validators.ConflictingObjectAttributes("no_chap", "use_chap")},
 											Attributes: map[string]schema.Attribute{
 												"client_certificate": schema.StringAttribute{
 													MarkdownDescription: "Please Enter Base64-encoded value of client certificate. Used for certificate-based auth.",
@@ -3090,6 +3161,11 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														validators.IPValidator(),
 													},
 												},
+												"no_chap": schema.ObjectAttribute{
+													MarkdownDescription: "Enable this option",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
 												"region": schema.StringAttribute{
 													MarkdownDescription: "Backend Region. Virtual Pool Region.",
 													Optional:            true,
@@ -3133,6 +3209,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Blocks: map[string]schema.Block{
 												"client_private_key": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3175,11 +3252,9 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 													},
 												},
-												"no_chap": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
 												"password": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3239,6 +3314,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														Blocks: map[string]schema.Block{
 															"volume_defaults": schema.SingleNestedBlock{
 																MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
+																Validators:          []validator.Object{validators.ConflictingObjectAttributes("adaptive_qos_policy", "no_qos"), validators.ConflictingObjectAttributes("adaptive_qos_policy", "qos_policy"), validators.ConflictingObjectAttributes("no_qos", "qos_policy")},
 																Attributes: map[string]schema.Attribute{
 																	"adaptive_qos_policy": schema.StringAttribute{
 																		MarkdownDescription: "Policy configuration for this feature.",
@@ -3254,6 +3330,11 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																	"export_policy": schema.StringAttribute{
 																		MarkdownDescription: "Policy configuration for this feature.",
 																		Optional:            true,
+																	},
+																	"no_qos": schema.ObjectAttribute{
+																		MarkdownDescription: "Enable this option",
+																		Optional:            true,
+																		AttributeTypes:      map[string]attr.Type{},
 																	},
 																	"qos_policy": schema.StringAttribute{
 																		MarkdownDescription: "Policy configuration for this feature.",
@@ -3298,11 +3379,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																		Optional:            true,
 																	},
 																},
-																Blocks: map[string]schema.Block{
-																	"no_qos": schema.SingleNestedBlock{
-																		MarkdownDescription: "Enable this option",
-																	},
-																},
 															},
 														},
 													},
@@ -3328,6 +3404,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"chap_initiator_secret": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3372,6 +3449,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														},
 														"chap_target_initiator_secret": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3418,6 +3496,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												},
 												"volume_defaults": schema.SingleNestedBlock{
 													MarkdownDescription: "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("adaptive_qos_policy", "no_qos"), validators.ConflictingObjectAttributes("adaptive_qos_policy", "qos_policy"), validators.ConflictingObjectAttributes("no_qos", "qos_policy")},
 													Attributes: map[string]schema.Attribute{
 														"adaptive_qos_policy": schema.StringAttribute{
 															MarkdownDescription: "Policy configuration for this feature.",
@@ -3433,6 +3512,11 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														"export_policy": schema.StringAttribute{
 															MarkdownDescription: "Policy configuration for this feature.",
 															Optional:            true,
+														},
+														"no_qos": schema.ObjectAttribute{
+															MarkdownDescription: "Enable this option",
+															Optional:            true,
+															AttributeTypes:      map[string]attr.Type{},
 														},
 														"qos_policy": schema.StringAttribute{
 															MarkdownDescription: "Policy configuration for this feature.",
@@ -3475,11 +3559,6 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														"unix_permissions": schema.Int64Attribute{
 															MarkdownDescription: "Unix permission mode for new volumes. All allowed 777.",
 															Optional:            true,
-														},
-													},
-													Blocks: map[string]schema.Block{
-														"no_qos": schema.SingleNestedBlock{
-															MarkdownDescription: "Enable this option",
 														},
 													},
 												},
@@ -3560,6 +3639,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"flash_arrays": schema.ListNestedBlock{
 															MarkdownDescription: "For FlashArrays you must set the 'mgmt_endpoint' and 'api_token'.",
+															Validators:          []validator.List{validators.ConflictingListObjectAttributes("mgmt_dns_name", "mgmt_ip")},
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"labels": schema.MapAttribute{
@@ -3586,6 +3666,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																Blocks: map[string]schema.Block{
 																	"api_token": schema.SingleNestedBlock{
 																		MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3652,6 +3733,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													Blocks: map[string]schema.Block{
 														"flash_blades": schema.ListNestedBlock{
 															MarkdownDescription: "For FlashBlades you must set the 'mgmt_endpoint', 'api_token' and nfs_endpoint.",
+															Validators:          []validator.List{validators.ConflictingListObjectAttributes("mgmt_dns_name", "mgmt_ip"), validators.ConflictingListObjectAttributes("nfs_endpoint_dns_name", "nfs_endpoint_ip")},
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"labels": schema.MapAttribute{
@@ -3693,6 +3775,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 																Blocks: map[string]schema.Block{
 																	"api_token": schema.SingleNestedBlock{
 																		MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+																		Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 																		Attributes:          map[string]schema.Attribute{},
 																		Blocks: map[string]schema.Block{
 																			"blindfold_secret_info": schema.SingleNestedBlock{
@@ -3863,6 +3946,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										},
 										"nexthop_address": schema.SingleNestedBlock{
 											MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+											Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"ipv4": schema.SingleNestedBlock{
@@ -3897,6 +3981,7 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								},
 								"subnets": schema.ListNestedBlock{
 									MarkdownDescription: "Subnets. List of route prefixes.",
+									Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
@@ -4006,6 +4091,35 @@ func (r *FleetResource) ValidateConfig(ctx context.Context, req resource.Validat
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.AllowAllUsb.IsNull() && !data.AllowAllUsb.IsUnknown() && !data.DenyAllUsb.IsNull() && !data.DenyAllUsb.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("allow_all_usb"),
+			"Conflicting Configuration",
+			"allow_all_usb and deny_all_usb are mutually exclusive.",
+		)
+	}
+	if !data.DisableGPU.IsNull() && !data.DisableGPU.IsUnknown() && !data.EnableGPU.IsNull() && !data.EnableGPU.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_gpu"),
+			"Conflicting Configuration",
+			"disable_gpu and enable_gpu are mutually exclusive.",
+		)
+	}
+	if !data.DisableLogAnonymization.IsNull() && !data.DisableLogAnonymization.IsUnknown() && !data.EnableLogAnonymization.IsNull() && !data.EnableLogAnonymization.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_log_anonymization"),
+			"Conflicting Configuration",
+			"disable_log_anonymization and enable_log_anonymization are mutually exclusive.",
+		)
+	}
+	if !data.DisableVM.IsNull() && !data.DisableVM.IsUnknown() && !data.EnableVM.IsNull() && !data.EnableVM.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_vm"),
+			"Conflicting Configuration",
+			"disable_vm and enable_vm are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -4109,7 +4223,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	if !data.FleetLabel.IsNull() && !data.FleetLabel.IsUnknown() {
 		createReq.Spec["fleet_label"] = data.FleetLabel.ValueString()
 	}
-	if data.AllowAllUsb != nil {
+	if !data.AllowAllUsb.IsNull() && !data.AllowAllUsb.IsUnknown() {
 		createReq.Spec["allow_all_usb"] = map[string]interface{}{}
 	}
 	if !data.BlockedServices.IsNull() && !data.BlockedServices.IsUnknown() {
@@ -4120,16 +4234,16 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			var BlockedServicesList []map[string]interface{}
 			for _, BlockedServicesItem := range BlockedServicesElems {
 				BlockedServicesItemMap := make(map[string]interface{})
-				if BlockedServicesItem.DNS != nil {
+				if !BlockedServicesItem.DNS.IsNull() && !BlockedServicesItem.DNS.IsUnknown() {
 					BlockedServicesItemMap["dns"] = map[string]interface{}{}
 				}
 				if !BlockedServicesItem.NetworkType.IsNull() && !BlockedServicesItem.NetworkType.IsUnknown() {
 					BlockedServicesItemMap["network_type"] = BlockedServicesItem.NetworkType.ValueString()
 				}
-				if BlockedServicesItem.SSH != nil {
+				if !BlockedServicesItem.SSH.IsNull() && !BlockedServicesItem.SSH.IsUnknown() {
 					BlockedServicesItemMap["ssh"] = map[string]interface{}{}
 				}
-				if BlockedServicesItem.WebUserInterface != nil {
+				if !BlockedServicesItem.WebUserInterface.IsNull() && !BlockedServicesItem.WebUserInterface.IsUnknown() {
 					BlockedServicesItemMap["web_user_interface"] = map[string]interface{}{}
 				}
 				BlockedServicesList = append(BlockedServicesList, BlockedServicesItemMap)
@@ -4147,7 +4261,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				var BondDevicesList []map[string]interface{}
 				for _, BondDevicesItem := range BondDevicesElems {
 					BondDevicesItemMap := make(map[string]interface{})
-					if BondDevicesItem.ActiveBackup != nil {
+					if !BondDevicesItem.ActiveBackup.IsNull() && !BondDevicesItem.ActiveBackup.IsUnknown() {
 						BondDevicesItemMap["active_backup"] = map[string]interface{}{}
 					}
 					if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
@@ -4201,16 +4315,16 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		}
 		createReq.Spec["dc_cluster_group_inside"] = DcClusterGroupInsideMap
 	}
-	if data.DefaultConfig != nil {
+	if !data.DefaultConfig.IsNull() && !data.DefaultConfig.IsUnknown() {
 		createReq.Spec["default_config"] = map[string]interface{}{}
 	}
-	if data.DefaultSriovInterface != nil {
+	if !data.DefaultSriovInterface.IsNull() && !data.DefaultSriovInterface.IsUnknown() {
 		createReq.Spec["default_sriov_interface"] = map[string]interface{}{}
 	}
-	if data.DefaultStorageClass != nil {
+	if !data.DefaultStorageClass.IsNull() && !data.DefaultStorageClass.IsUnknown() {
 		createReq.Spec["default_storage_class"] = map[string]interface{}{}
 	}
-	if data.DenyAllUsb != nil {
+	if !data.DenyAllUsb.IsNull() && !data.DenyAllUsb.IsUnknown() {
 		createReq.Spec["deny_all_usb"] = map[string]interface{}{}
 	}
 	if data.DeviceList != nil {
@@ -4262,19 +4376,19 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		}
 		createReq.Spec["device_list"] = DeviceListMap
 	}
-	if data.DisableGPU != nil {
+	if !data.DisableGPU.IsNull() && !data.DisableGPU.IsUnknown() {
 		createReq.Spec["disable_gpu"] = map[string]interface{}{}
 	}
-	if data.DisableLogAnonymization != nil {
+	if !data.DisableLogAnonymization.IsNull() && !data.DisableLogAnonymization.IsUnknown() {
 		createReq.Spec["disable_log_anonymization"] = map[string]interface{}{}
 	}
-	if data.DisableVM != nil {
+	if !data.DisableVM.IsNull() && !data.DisableVM.IsUnknown() {
 		createReq.Spec["disable_vm"] = map[string]interface{}{}
 	}
-	if data.EnableGPU != nil {
+	if !data.EnableGPU.IsNull() && !data.EnableGPU.IsUnknown() {
 		createReq.Spec["enable_gpu"] = map[string]interface{}{}
 	}
-	if data.EnableLogAnonymization != nil {
+	if !data.EnableLogAnonymization.IsNull() && !data.EnableLogAnonymization.IsUnknown() {
 		createReq.Spec["enable_log_anonymization"] = map[string]interface{}{}
 	}
 	if data.EnableVgpu != nil {
@@ -4290,7 +4404,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		}
 		createReq.Spec["enable_vgpu"] = EnableVgpuMap
 	}
-	if data.EnableVM != nil {
+	if !data.EnableVM.IsNull() && !data.EnableVM.IsUnknown() {
 		createReq.Spec["enable_vm"] = map[string]interface{}{}
 	}
 	if !data.InsideVirtualNetwork.IsNull() && !data.InsideVirtualNetwork.IsUnknown() {
@@ -4337,21 +4451,24 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	}
 	if data.KubernetesUpgradeDrain != nil {
 		KubernetesUpgradeDrainMap := make(map[string]interface{})
-		if data.KubernetesUpgradeDrain.DisableUpgradeDrain != nil {
+		if !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsNull() && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
 			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
+			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
@@ -4368,7 +4485,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		}
 		createReq.Spec["log_receiver"] = LogReceiverMap
 	}
-	if data.LogsStreamingDisabled != nil {
+	if !data.LogsStreamingDisabled.IsNull() && !data.LogsStreamingDisabled.IsUnknown() {
 		createReq.Spec["logs_streaming_disabled"] = map[string]interface{}{}
 	}
 	if !data.NetworkConnectors.IsNull() && !data.NetworkConnectors.IsUnknown() {
@@ -4409,19 +4526,19 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			createReq.Spec["network_firewall"] = NetworkFirewallList
 		}
 	}
-	if data.NoBondDevices != nil {
+	if !data.NoBondDevices.IsNull() && !data.NoBondDevices.IsUnknown() {
 		createReq.Spec["no_bond_devices"] = map[string]interface{}{}
 	}
-	if data.NoDcClusterGroup != nil {
+	if !data.NoDcClusterGroup.IsNull() && !data.NoDcClusterGroup.IsUnknown() {
 		createReq.Spec["no_dc_cluster_group"] = map[string]interface{}{}
 	}
-	if data.NoStorageDevice != nil {
+	if !data.NoStorageDevice.IsNull() && !data.NoStorageDevice.IsUnknown() {
 		createReq.Spec["no_storage_device"] = map[string]interface{}{}
 	}
-	if data.NoStorageInterfaces != nil {
+	if !data.NoStorageInterfaces.IsNull() && !data.NoStorageInterfaces.IsUnknown() {
 		createReq.Spec["no_storage_interfaces"] = map[string]interface{}{}
 	}
-	if data.NoStorageStaticRoutes != nil {
+	if !data.NoStorageStaticRoutes.IsNull() && !data.NoStorageStaticRoutes.IsUnknown() {
 		createReq.Spec["no_storage_static_routes"] = map[string]interface{}{}
 	}
 	if !data.OutsideVirtualNetwork.IsNull() && !data.OutsideVirtualNetwork.IsUnknown() {
@@ -4447,20 +4564,20 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 		PerformanceEnhancementModeMap := make(map[string]interface{})
 		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 			}
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 			}
 			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 			}
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 			}
 			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
@@ -4636,7 +4753,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							StorageDevicesItemMap["advanced_advanced_parameters"] = AdvancedAdvancedParametersMap
 						}
 					}
-					if StorageDevicesItem.CustomStorage != nil {
+					if !StorageDevicesItem.CustomStorage.IsNull() && !StorageDevicesItem.CustomStorage.IsUnknown() {
 						StorageDevicesItemMap["custom_storage"] = map[string]interface{}{}
 					}
 					if StorageDevicesItem.HpeStorage != nil {
@@ -4850,7 +4967,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 											if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
 												StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
 											}
-											if StorageItem.VolumeDefaults.NoQOS != nil {
+											if !StorageItem.VolumeDefaults.NoQOS.IsNull() && !StorageItem.VolumeDefaults.NoQOS.IsUnknown() {
 												StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsMap["no_qos"] = map[string]interface{}{}
 											}
 											if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
@@ -4916,7 +5033,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsUnknown() {
 									StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.ValueString()
 								}
-								if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS != nil {
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS.IsUnknown() {
 									StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsMap["no_qos"] = map[string]interface{}{}
 								}
 								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsUnknown() {
@@ -5011,7 +5128,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsUnknown() {
 								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.ValueString()
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.NoChap != nil {
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.NoChap.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.NoChap.IsUnknown() {
 								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["no_chap"] = map[string]interface{}{}
 							}
 							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password != nil {
@@ -5071,7 +5188,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 											if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
 												StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
 											}
-											if StorageItem.VolumeDefaults.NoQOS != nil {
+											if !StorageItem.VolumeDefaults.NoQOS.IsNull() && !StorageItem.VolumeDefaults.NoQOS.IsUnknown() {
 												StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsMap["no_qos"] = map[string]interface{}{}
 											}
 											if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
@@ -5201,7 +5318,7 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsUnknown() {
 									StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.ValueString()
 								}
-								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS != nil {
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS.IsUnknown() {
 									StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsMap["no_qos"] = map[string]interface{}{}
 								}
 								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsUnknown() {
@@ -5606,8 +5723,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	} else {
 		data.FleetLabel = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["allow_all_usb"].(map[string]interface{}); ok && isImport && data.AllowAllUsb == nil {
-		data.AllowAllUsb = &FleetEmptyModel{}
+	if !isImport && !data.AllowAllUsb.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all_usb"].(map[string]interface{}); ok {
+		data.AllowAllUsb = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAllUsb = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.BlockedServices.IsNull() || len(data.BlockedServices.Elements()) == 0) {
 		data.BlockedServices = types.ListNull(types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes})
@@ -5621,14 +5742,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				BlockedServicesList = append(BlockedServicesList, FleetBlockedServicesModel{
-					DNS: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx {
+					DNS: func() types.Object {
+						if !isImport && len(existingBlockedServicesItems) > listIdx && !existingBlockedServicesItems[listIdx].DNS.IsUnknown() {
 							return existingBlockedServicesItems[listIdx].DNS
 						}
 						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
-							return &FleetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					NetworkType: func() types.String {
 						if v, ok := itemMap["network_type"].(string); ok && v != "" {
@@ -5636,23 +5757,23 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						}
 						return types.StringNull()
 					}(),
-					SSH: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx {
+					SSH: func() types.Object {
+						if !isImport && len(existingBlockedServicesItems) > listIdx && !existingBlockedServicesItems[listIdx].SSH.IsUnknown() {
 							return existingBlockedServicesItems[listIdx].SSH
 						}
 						if _, ok := itemMap["ssh"].(map[string]interface{}); ok {
-							return &FleetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					WebUserInterface: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx {
+					WebUserInterface: func() types.Object {
+						if !isImport && len(existingBlockedServicesItems) > listIdx && !existingBlockedServicesItems[listIdx].WebUserInterface.IsUnknown() {
 							return existingBlockedServicesItems[listIdx].WebUserInterface
 						}
 						if _, ok := itemMap["web_user_interface"].(map[string]interface{}); ok {
-							return &FleetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 				})
 			}
@@ -5681,14 +5802,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						_ = BondDevicesIdx
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, FleetBondDeviceListBondDevicesModel{
-								ActiveBackup: func() *FleetEmptyModel {
-									if !isImport && len(BondDevicesExisting) > BondDevicesIdx {
+								ActiveBackup: func() types.Object {
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && !BondDevicesExisting[BondDevicesIdx].ActiveBackup.IsUnknown() {
 										return BondDevicesExisting[BondDevicesIdx].ActiveBackup
 									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Devices: func() types.List {
 									if v, ok := BondDevicesItemMap["devices"].([]interface{}); ok && len(v) > 0 {
@@ -5792,17 +5913,33 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_config"].(map[string]interface{}); ok && isImport && data.DefaultConfig == nil {
-		data.DefaultConfig = &FleetEmptyModel{}
+	if !isImport && !data.DefaultConfig.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_config"].(map[string]interface{}); ok {
+		data.DefaultConfig = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultConfig = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["default_sriov_interface"].(map[string]interface{}); ok && isImport && data.DefaultSriovInterface == nil {
-		data.DefaultSriovInterface = &FleetEmptyModel{}
+	if !isImport && !data.DefaultSriovInterface.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_sriov_interface"].(map[string]interface{}); ok {
+		data.DefaultSriovInterface = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultSriovInterface = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["default_storage_class"].(map[string]interface{}); ok && isImport && data.DefaultStorageClass == nil {
-		data.DefaultStorageClass = &FleetEmptyModel{}
+	if !isImport && !data.DefaultStorageClass.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_storage_class"].(map[string]interface{}); ok {
+		data.DefaultStorageClass = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultStorageClass = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["deny_all_usb"].(map[string]interface{}); ok && isImport && data.DenyAllUsb == nil {
-		data.DenyAllUsb = &FleetEmptyModel{}
+	if !isImport && !data.DenyAllUsb.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["deny_all_usb"].(map[string]interface{}); ok {
+		data.DenyAllUsb = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DenyAllUsb = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["device_list"].(map[string]interface{}); ok && (isImport || data.DeviceList != nil) {
 		data.DeviceList = &FleetDeviceListModel{
@@ -5907,20 +6044,40 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_gpu"].(map[string]interface{}); ok && isImport && data.DisableGPU == nil {
-		data.DisableGPU = &FleetEmptyModel{}
+	if !isImport && !data.DisableGPU.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_gpu"].(map[string]interface{}); ok {
+		data.DisableGPU = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableGPU = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_log_anonymization"].(map[string]interface{}); ok && isImport && data.DisableLogAnonymization == nil {
-		data.DisableLogAnonymization = &FleetEmptyModel{}
+	if !isImport && !data.DisableLogAnonymization.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_log_anonymization"].(map[string]interface{}); ok {
+		data.DisableLogAnonymization = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableLogAnonymization = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_vm"].(map[string]interface{}); ok && isImport && data.DisableVM == nil {
-		data.DisableVM = &FleetEmptyModel{}
+	if !isImport && !data.DisableVM.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_vm"].(map[string]interface{}); ok {
+		data.DisableVM = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableVM = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["enable_gpu"].(map[string]interface{}); ok && isImport && data.EnableGPU == nil {
-		data.EnableGPU = &FleetEmptyModel{}
+	if !isImport && !data.EnableGPU.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_gpu"].(map[string]interface{}); ok {
+		data.EnableGPU = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableGPU = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["enable_log_anonymization"].(map[string]interface{}); ok && isImport && data.EnableLogAnonymization == nil {
-		data.EnableLogAnonymization = &FleetEmptyModel{}
+	if !isImport && !data.EnableLogAnonymization.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_log_anonymization"].(map[string]interface{}); ok {
+		data.EnableLogAnonymization = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableLogAnonymization = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_vgpu"].(map[string]interface{}); ok && (isImport || data.EnableVgpu != nil) {
 		data.EnableVgpu = &FleetEnableVgpuModel{
@@ -5947,8 +6104,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["enable_vm"].(map[string]interface{}); ok && isImport && data.EnableVM == nil {
-		data.EnableVM = &FleetEmptyModel{}
+	if !isImport && !data.EnableVM.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_vm"].(map[string]interface{}); ok {
+		data.EnableVM = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableVM = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.InsideVirtualNetwork.IsNull() || len(data.InsideVirtualNetwork.Elements()) == 0) {
 		data.InsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes})
@@ -6049,14 +6210,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &FleetKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *FleetEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &FleetEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *FleetKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -6064,20 +6225,29 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &FleetKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *FleetEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -6091,14 +6261,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *FleetEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -6128,8 +6298,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &FleetEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.NetworkConnectors.IsNull() || len(data.NetworkConnectors.Elements()) == 0) {
 		data.NetworkConnectors = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes})
@@ -6237,20 +6411,40 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	} else {
 		data.NetworkFirewall = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["no_bond_devices"].(map[string]interface{}); ok && isImport && data.NoBondDevices == nil {
-		data.NoBondDevices = &FleetEmptyModel{}
+	if !isImport && !data.NoBondDevices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_bond_devices"].(map[string]interface{}); ok {
+		data.NoBondDevices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoBondDevices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_dc_cluster_group"].(map[string]interface{}); ok && isImport && data.NoDcClusterGroup == nil {
-		data.NoDcClusterGroup = &FleetEmptyModel{}
+	if !isImport && !data.NoDcClusterGroup.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_dc_cluster_group"].(map[string]interface{}); ok {
+		data.NoDcClusterGroup = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoDcClusterGroup = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_storage_device"].(map[string]interface{}); ok && isImport && data.NoStorageDevice == nil {
-		data.NoStorageDevice = &FleetEmptyModel{}
+	if !isImport && !data.NoStorageDevice.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_storage_device"].(map[string]interface{}); ok {
+		data.NoStorageDevice = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoStorageDevice = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_storage_interfaces"].(map[string]interface{}); ok && isImport && data.NoStorageInterfaces == nil {
-		data.NoStorageInterfaces = &FleetEmptyModel{}
+	if !isImport && !data.NoStorageInterfaces.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_storage_interfaces"].(map[string]interface{}); ok {
+		data.NoStorageInterfaces = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoStorageInterfaces = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_storage_static_routes"].(map[string]interface{}); ok && isImport && data.NoStorageStaticRoutes == nil {
-		data.NoStorageStaticRoutes = &FleetEmptyModel{}
+	if !isImport && !data.NoStorageStaticRoutes.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_storage_static_routes"].(map[string]interface{}); ok {
+		data.NoStorageStaticRoutes = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoStorageStaticRoutes = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.OutsideVirtualNetwork.IsNull() || len(data.OutsideVirtualNetwork.Elements()) == 0) {
 		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
@@ -6313,23 +6507,23 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				}
 				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+						Jumbo: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 							}
 							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						NoJumbo: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+						NoJumbo: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 							}
 							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -6341,23 +6535,23 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				}
 				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 					return &FleetPerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+						JumboDisabled: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 							}
 							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						JumboEnabled: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+						JumboEnabled: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 							}
 							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -6680,14 +6874,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return types.MapNull(types.StringType)
 								}(), "advanced_advanced_parameters", isImport, &resp.Diagnostics),
-								CustomStorage: func() *FleetEmptyModel {
-									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+								CustomStorage: func() types.Object {
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && !StorageDevicesExisting[StorageDevicesIdx].CustomStorage.IsUnknown() {
 										return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
 									}
 									if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								HpeStorage: func() *FleetStorageDeviceListStorageDevicesHpeStorageModel {
 									if HpeStorageData, ok := StorageDevicesItemMap["hpe_storage"].(map[string]interface{}); ok {
@@ -7121,14 +7315,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							}
 																							return types.StringNull()
 																						}(),
-																						NoQOS: func() *FleetEmptyModel {
-																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																						NoQOS: func() types.Object {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.NoQOS.IsUnknown() {
 																								return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
 																							}
 																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
-																								return &FleetEmptyModel{}
+																								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																							}
-																							return nil
+																							return types.ObjectNull(map[string]attr.Type{})
 																						}(),
 																						QOSPolicy: func() types.String {
 																							if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
@@ -7268,14 +7462,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		}
 																		return types.StringNull()
 																	}(),
-																	NoQOS: func() *FleetEmptyModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																	NoQOS: func() types.Object {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS.IsUnknown() {
 																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS
 																		}
 																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
-																			return &FleetEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
 																	QOSPolicy: func() types.String {
 																		if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
@@ -7474,14 +7668,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														NoChap: func() *FleetEmptyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+														NoChap: func() types.Object {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.NoChap.IsUnknown() {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.NoChap
 															}
 															if _, ok := NetappBackendOntapSanData["no_chap"].(map[string]interface{}); ok {
-																return &FleetEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel {
 															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil {
@@ -7593,14 +7787,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							}
 																							return types.StringNull()
 																						}(),
-																						NoQOS: func() *FleetEmptyModel {
-																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																						NoQOS: func() types.Object {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.NoQOS.IsUnknown() {
 																								return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
 																							}
 																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
-																								return &FleetEmptyModel{}
+																								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																							}
-																							return nil
+																							return types.ObjectNull(map[string]attr.Type{})
 																						}(),
 																						QOSPolicy: func() types.String {
 																							if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
@@ -7882,14 +8076,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		}
 																		return types.StringNull()
 																	}(),
-																	NoQOS: func() *FleetEmptyModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																	NoQOS: func() types.Object {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS.IsUnknown() {
 																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS
 																		}
 																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
-																			return &FleetEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
 																	QOSPolicy: func() types.String {
 																		if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
@@ -8758,8 +8952,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	} else {
 		data.FleetLabel = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["allow_all_usb"].(map[string]interface{}); ok && isImport && data.AllowAllUsb == nil {
-		data.AllowAllUsb = &FleetEmptyModel{}
+	if !isImport && !data.AllowAllUsb.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all_usb"].(map[string]interface{}); ok {
+		data.AllowAllUsb = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAllUsb = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.BlockedServices.IsNull() || len(data.BlockedServices.Elements()) == 0) {
 		data.BlockedServices = types.ListNull(types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes})
@@ -8773,14 +8971,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				BlockedServicesList = append(BlockedServicesList, FleetBlockedServicesModel{
-					DNS: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx {
+					DNS: func() types.Object {
+						if !isImport && len(existingBlockedServicesItems) > listIdx && !existingBlockedServicesItems[listIdx].DNS.IsUnknown() {
 							return existingBlockedServicesItems[listIdx].DNS
 						}
 						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
-							return &FleetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					NetworkType: func() types.String {
 						if v, ok := itemMap["network_type"].(string); ok && v != "" {
@@ -8788,23 +8986,23 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						}
 						return types.StringNull()
 					}(),
-					SSH: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx {
+					SSH: func() types.Object {
+						if !isImport && len(existingBlockedServicesItems) > listIdx && !existingBlockedServicesItems[listIdx].SSH.IsUnknown() {
 							return existingBlockedServicesItems[listIdx].SSH
 						}
 						if _, ok := itemMap["ssh"].(map[string]interface{}); ok {
-							return &FleetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					WebUserInterface: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx {
+					WebUserInterface: func() types.Object {
+						if !isImport && len(existingBlockedServicesItems) > listIdx && !existingBlockedServicesItems[listIdx].WebUserInterface.IsUnknown() {
 							return existingBlockedServicesItems[listIdx].WebUserInterface
 						}
 						if _, ok := itemMap["web_user_interface"].(map[string]interface{}); ok {
-							return &FleetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 				})
 			}
@@ -8833,14 +9031,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						_ = BondDevicesIdx
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, FleetBondDeviceListBondDevicesModel{
-								ActiveBackup: func() *FleetEmptyModel {
-									if !isImport && len(BondDevicesExisting) > BondDevicesIdx {
+								ActiveBackup: func() types.Object {
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && !BondDevicesExisting[BondDevicesIdx].ActiveBackup.IsUnknown() {
 										return BondDevicesExisting[BondDevicesIdx].ActiveBackup
 									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Devices: func() types.List {
 									if v, ok := BondDevicesItemMap["devices"].([]interface{}); ok && len(v) > 0 {
@@ -8944,17 +9142,33 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_config"].(map[string]interface{}); ok && isImport && data.DefaultConfig == nil {
-		data.DefaultConfig = &FleetEmptyModel{}
+	if !isImport && !data.DefaultConfig.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_config"].(map[string]interface{}); ok {
+		data.DefaultConfig = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultConfig = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["default_sriov_interface"].(map[string]interface{}); ok && isImport && data.DefaultSriovInterface == nil {
-		data.DefaultSriovInterface = &FleetEmptyModel{}
+	if !isImport && !data.DefaultSriovInterface.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_sriov_interface"].(map[string]interface{}); ok {
+		data.DefaultSriovInterface = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultSriovInterface = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["default_storage_class"].(map[string]interface{}); ok && isImport && data.DefaultStorageClass == nil {
-		data.DefaultStorageClass = &FleetEmptyModel{}
+	if !isImport && !data.DefaultStorageClass.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_storage_class"].(map[string]interface{}); ok {
+		data.DefaultStorageClass = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultStorageClass = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["deny_all_usb"].(map[string]interface{}); ok && isImport && data.DenyAllUsb == nil {
-		data.DenyAllUsb = &FleetEmptyModel{}
+	if !isImport && !data.DenyAllUsb.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["deny_all_usb"].(map[string]interface{}); ok {
+		data.DenyAllUsb = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DenyAllUsb = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["device_list"].(map[string]interface{}); ok && (isImport || data.DeviceList != nil) {
 		data.DeviceList = &FleetDeviceListModel{
@@ -9059,20 +9273,40 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_gpu"].(map[string]interface{}); ok && isImport && data.DisableGPU == nil {
-		data.DisableGPU = &FleetEmptyModel{}
+	if !isImport && !data.DisableGPU.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_gpu"].(map[string]interface{}); ok {
+		data.DisableGPU = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableGPU = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_log_anonymization"].(map[string]interface{}); ok && isImport && data.DisableLogAnonymization == nil {
-		data.DisableLogAnonymization = &FleetEmptyModel{}
+	if !isImport && !data.DisableLogAnonymization.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_log_anonymization"].(map[string]interface{}); ok {
+		data.DisableLogAnonymization = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableLogAnonymization = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_vm"].(map[string]interface{}); ok && isImport && data.DisableVM == nil {
-		data.DisableVM = &FleetEmptyModel{}
+	if !isImport && !data.DisableVM.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_vm"].(map[string]interface{}); ok {
+		data.DisableVM = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableVM = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["enable_gpu"].(map[string]interface{}); ok && isImport && data.EnableGPU == nil {
-		data.EnableGPU = &FleetEmptyModel{}
+	if !isImport && !data.EnableGPU.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_gpu"].(map[string]interface{}); ok {
+		data.EnableGPU = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableGPU = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["enable_log_anonymization"].(map[string]interface{}); ok && isImport && data.EnableLogAnonymization == nil {
-		data.EnableLogAnonymization = &FleetEmptyModel{}
+	if !isImport && !data.EnableLogAnonymization.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_log_anonymization"].(map[string]interface{}); ok {
+		data.EnableLogAnonymization = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableLogAnonymization = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_vgpu"].(map[string]interface{}); ok && (isImport || data.EnableVgpu != nil) {
 		data.EnableVgpu = &FleetEnableVgpuModel{
@@ -9099,8 +9333,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["enable_vm"].(map[string]interface{}); ok && isImport && data.EnableVM == nil {
-		data.EnableVM = &FleetEmptyModel{}
+	if !isImport && !data.EnableVM.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_vm"].(map[string]interface{}); ok {
+		data.EnableVM = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableVM = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.InsideVirtualNetwork.IsNull() || len(data.InsideVirtualNetwork.Elements()) == 0) {
 		data.InsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes})
@@ -9201,14 +9439,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &FleetKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *FleetEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &FleetEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *FleetKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -9216,20 +9454,29 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &FleetKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *FleetEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -9243,14 +9490,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *FleetEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -9280,8 +9527,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &FleetEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.NetworkConnectors.IsNull() || len(data.NetworkConnectors.Elements()) == 0) {
 		data.NetworkConnectors = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes})
@@ -9389,20 +9640,40 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	} else {
 		data.NetworkFirewall = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["no_bond_devices"].(map[string]interface{}); ok && isImport && data.NoBondDevices == nil {
-		data.NoBondDevices = &FleetEmptyModel{}
+	if !isImport && !data.NoBondDevices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_bond_devices"].(map[string]interface{}); ok {
+		data.NoBondDevices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoBondDevices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_dc_cluster_group"].(map[string]interface{}); ok && isImport && data.NoDcClusterGroup == nil {
-		data.NoDcClusterGroup = &FleetEmptyModel{}
+	if !isImport && !data.NoDcClusterGroup.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_dc_cluster_group"].(map[string]interface{}); ok {
+		data.NoDcClusterGroup = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoDcClusterGroup = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_storage_device"].(map[string]interface{}); ok && isImport && data.NoStorageDevice == nil {
-		data.NoStorageDevice = &FleetEmptyModel{}
+	if !isImport && !data.NoStorageDevice.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_storage_device"].(map[string]interface{}); ok {
+		data.NoStorageDevice = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoStorageDevice = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_storage_interfaces"].(map[string]interface{}); ok && isImport && data.NoStorageInterfaces == nil {
-		data.NoStorageInterfaces = &FleetEmptyModel{}
+	if !isImport && !data.NoStorageInterfaces.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_storage_interfaces"].(map[string]interface{}); ok {
+		data.NoStorageInterfaces = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoStorageInterfaces = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_storage_static_routes"].(map[string]interface{}); ok && isImport && data.NoStorageStaticRoutes == nil {
-		data.NoStorageStaticRoutes = &FleetEmptyModel{}
+	if !isImport && !data.NoStorageStaticRoutes.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_storage_static_routes"].(map[string]interface{}); ok {
+		data.NoStorageStaticRoutes = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoStorageStaticRoutes = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.OutsideVirtualNetwork.IsNull() || len(data.OutsideVirtualNetwork.Elements()) == 0) {
 		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
@@ -9465,23 +9736,23 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				}
 				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+						Jumbo: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 							}
 							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						NoJumbo: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+						NoJumbo: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 							}
 							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -9493,23 +9764,23 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				}
 				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 					return &FleetPerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+						JumboDisabled: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 							}
 							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						JumboEnabled: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+						JumboEnabled: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 							}
 							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -9832,14 +10103,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return types.MapNull(types.StringType)
 								}(), "advanced_advanced_parameters", isImport, &resp.Diagnostics),
-								CustomStorage: func() *FleetEmptyModel {
-									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+								CustomStorage: func() types.Object {
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && !StorageDevicesExisting[StorageDevicesIdx].CustomStorage.IsUnknown() {
 										return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
 									}
 									if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								HpeStorage: func() *FleetStorageDeviceListStorageDevicesHpeStorageModel {
 									if HpeStorageData, ok := StorageDevicesItemMap["hpe_storage"].(map[string]interface{}); ok {
@@ -10273,14 +10544,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							}
 																							return types.StringNull()
 																						}(),
-																						NoQOS: func() *FleetEmptyModel {
-																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																						NoQOS: func() types.Object {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.NoQOS.IsUnknown() {
 																								return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
 																							}
 																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
-																								return &FleetEmptyModel{}
+																								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																							}
-																							return nil
+																							return types.ObjectNull(map[string]attr.Type{})
 																						}(),
 																						QOSPolicy: func() types.String {
 																							if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
@@ -10420,14 +10691,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		}
 																		return types.StringNull()
 																	}(),
-																	NoQOS: func() *FleetEmptyModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																	NoQOS: func() types.Object {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS.IsUnknown() {
 																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS
 																		}
 																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
-																			return &FleetEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
 																	QOSPolicy: func() types.String {
 																		if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
@@ -10626,14 +10897,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.StringNull()
 														}(),
-														NoChap: func() *FleetEmptyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+														NoChap: func() types.Object {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.NoChap.IsUnknown() {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.NoChap
 															}
 															if _, ok := NetappBackendOntapSanData["no_chap"].(map[string]interface{}); ok {
-																return &FleetEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel {
 															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil {
@@ -10745,14 +11016,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							}
 																							return types.StringNull()
 																						}(),
-																						NoQOS: func() *FleetEmptyModel {
-																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																						NoQOS: func() types.Object {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.NoQOS.IsUnknown() {
 																								return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
 																							}
 																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
-																								return &FleetEmptyModel{}
+																								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																							}
-																							return nil
+																							return types.ObjectNull(map[string]attr.Type{})
 																						}(),
 																						QOSPolicy: func() types.String {
 																							if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
@@ -11034,14 +11305,14 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		}
 																		return types.StringNull()
 																	}(),
-																	NoQOS: func() *FleetEmptyModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																	NoQOS: func() types.Object {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS.IsUnknown() {
 																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS
 																		}
 																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
-																			return &FleetEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
 																	QOSPolicy: func() types.String {
 																		if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
@@ -11871,7 +12142,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	if !data.FleetLabel.IsNull() && !data.FleetLabel.IsUnknown() {
 		apiResource.Spec["fleet_label"] = data.FleetLabel.ValueString()
 	}
-	if data.AllowAllUsb != nil {
+	if !data.AllowAllUsb.IsNull() && !data.AllowAllUsb.IsUnknown() {
 		apiResource.Spec["allow_all_usb"] = map[string]interface{}{}
 	}
 	if !data.BlockedServices.IsNull() && !data.BlockedServices.IsUnknown() {
@@ -11882,16 +12153,16 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			var BlockedServicesList []map[string]interface{}
 			for _, BlockedServicesItem := range BlockedServicesElems {
 				BlockedServicesItemMap := make(map[string]interface{})
-				if BlockedServicesItem.DNS != nil {
+				if !BlockedServicesItem.DNS.IsNull() && !BlockedServicesItem.DNS.IsUnknown() {
 					BlockedServicesItemMap["dns"] = map[string]interface{}{}
 				}
 				if !BlockedServicesItem.NetworkType.IsNull() && !BlockedServicesItem.NetworkType.IsUnknown() {
 					BlockedServicesItemMap["network_type"] = BlockedServicesItem.NetworkType.ValueString()
 				}
-				if BlockedServicesItem.SSH != nil {
+				if !BlockedServicesItem.SSH.IsNull() && !BlockedServicesItem.SSH.IsUnknown() {
 					BlockedServicesItemMap["ssh"] = map[string]interface{}{}
 				}
-				if BlockedServicesItem.WebUserInterface != nil {
+				if !BlockedServicesItem.WebUserInterface.IsNull() && !BlockedServicesItem.WebUserInterface.IsUnknown() {
 					BlockedServicesItemMap["web_user_interface"] = map[string]interface{}{}
 				}
 				BlockedServicesList = append(BlockedServicesList, BlockedServicesItemMap)
@@ -11909,7 +12180,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				var BondDevicesList []map[string]interface{}
 				for _, BondDevicesItem := range BondDevicesElems {
 					BondDevicesItemMap := make(map[string]interface{})
-					if BondDevicesItem.ActiveBackup != nil {
+					if !BondDevicesItem.ActiveBackup.IsNull() && !BondDevicesItem.ActiveBackup.IsUnknown() {
 						BondDevicesItemMap["active_backup"] = map[string]interface{}{}
 					}
 					if !BondDevicesItem.Devices.IsNull() && !BondDevicesItem.Devices.IsUnknown() {
@@ -11963,16 +12234,16 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		}
 		apiResource.Spec["dc_cluster_group_inside"] = DcClusterGroupInsideMap
 	}
-	if data.DefaultConfig != nil {
+	if !data.DefaultConfig.IsNull() && !data.DefaultConfig.IsUnknown() {
 		apiResource.Spec["default_config"] = map[string]interface{}{}
 	}
-	if data.DefaultSriovInterface != nil {
+	if !data.DefaultSriovInterface.IsNull() && !data.DefaultSriovInterface.IsUnknown() {
 		apiResource.Spec["default_sriov_interface"] = map[string]interface{}{}
 	}
-	if data.DefaultStorageClass != nil {
+	if !data.DefaultStorageClass.IsNull() && !data.DefaultStorageClass.IsUnknown() {
 		apiResource.Spec["default_storage_class"] = map[string]interface{}{}
 	}
-	if data.DenyAllUsb != nil {
+	if !data.DenyAllUsb.IsNull() && !data.DenyAllUsb.IsUnknown() {
 		apiResource.Spec["deny_all_usb"] = map[string]interface{}{}
 	}
 	if data.DeviceList != nil {
@@ -12024,19 +12295,19 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		}
 		apiResource.Spec["device_list"] = DeviceListMap
 	}
-	if data.DisableGPU != nil {
+	if !data.DisableGPU.IsNull() && !data.DisableGPU.IsUnknown() {
 		apiResource.Spec["disable_gpu"] = map[string]interface{}{}
 	}
-	if data.DisableLogAnonymization != nil {
+	if !data.DisableLogAnonymization.IsNull() && !data.DisableLogAnonymization.IsUnknown() {
 		apiResource.Spec["disable_log_anonymization"] = map[string]interface{}{}
 	}
-	if data.DisableVM != nil {
+	if !data.DisableVM.IsNull() && !data.DisableVM.IsUnknown() {
 		apiResource.Spec["disable_vm"] = map[string]interface{}{}
 	}
-	if data.EnableGPU != nil {
+	if !data.EnableGPU.IsNull() && !data.EnableGPU.IsUnknown() {
 		apiResource.Spec["enable_gpu"] = map[string]interface{}{}
 	}
-	if data.EnableLogAnonymization != nil {
+	if !data.EnableLogAnonymization.IsNull() && !data.EnableLogAnonymization.IsUnknown() {
 		apiResource.Spec["enable_log_anonymization"] = map[string]interface{}{}
 	}
 	if data.EnableVgpu != nil {
@@ -12052,7 +12323,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		}
 		apiResource.Spec["enable_vgpu"] = EnableVgpuMap
 	}
-	if data.EnableVM != nil {
+	if !data.EnableVM.IsNull() && !data.EnableVM.IsUnknown() {
 		apiResource.Spec["enable_vm"] = map[string]interface{}{}
 	}
 	if !data.InsideVirtualNetwork.IsNull() && !data.InsideVirtualNetwork.IsUnknown() {
@@ -12099,21 +12370,24 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	}
 	if data.KubernetesUpgradeDrain != nil {
 		KubernetesUpgradeDrainMap := make(map[string]interface{})
-		if data.KubernetesUpgradeDrain.DisableUpgradeDrain != nil {
+		if !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsNull() && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
 			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
+			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
@@ -12130,7 +12404,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		}
 		apiResource.Spec["log_receiver"] = LogReceiverMap
 	}
-	if data.LogsStreamingDisabled != nil {
+	if !data.LogsStreamingDisabled.IsNull() && !data.LogsStreamingDisabled.IsUnknown() {
 		apiResource.Spec["logs_streaming_disabled"] = map[string]interface{}{}
 	}
 	if !data.NetworkConnectors.IsNull() && !data.NetworkConnectors.IsUnknown() {
@@ -12171,19 +12445,19 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			apiResource.Spec["network_firewall"] = NetworkFirewallList
 		}
 	}
-	if data.NoBondDevices != nil {
+	if !data.NoBondDevices.IsNull() && !data.NoBondDevices.IsUnknown() {
 		apiResource.Spec["no_bond_devices"] = map[string]interface{}{}
 	}
-	if data.NoDcClusterGroup != nil {
+	if !data.NoDcClusterGroup.IsNull() && !data.NoDcClusterGroup.IsUnknown() {
 		apiResource.Spec["no_dc_cluster_group"] = map[string]interface{}{}
 	}
-	if data.NoStorageDevice != nil {
+	if !data.NoStorageDevice.IsNull() && !data.NoStorageDevice.IsUnknown() {
 		apiResource.Spec["no_storage_device"] = map[string]interface{}{}
 	}
-	if data.NoStorageInterfaces != nil {
+	if !data.NoStorageInterfaces.IsNull() && !data.NoStorageInterfaces.IsUnknown() {
 		apiResource.Spec["no_storage_interfaces"] = map[string]interface{}{}
 	}
-	if data.NoStorageStaticRoutes != nil {
+	if !data.NoStorageStaticRoutes.IsNull() && !data.NoStorageStaticRoutes.IsUnknown() {
 		apiResource.Spec["no_storage_static_routes"] = map[string]interface{}{}
 	}
 	if !data.OutsideVirtualNetwork.IsNull() && !data.OutsideVirtualNetwork.IsUnknown() {
@@ -12209,20 +12483,20 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		PerformanceEnhancementModeMap := make(map[string]interface{})
 		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 			}
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 			}
 			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 			}
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 			}
 			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
@@ -12398,7 +12672,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							StorageDevicesItemMap["advanced_advanced_parameters"] = AdvancedAdvancedParametersMap
 						}
 					}
-					if StorageDevicesItem.CustomStorage != nil {
+					if !StorageDevicesItem.CustomStorage.IsNull() && !StorageDevicesItem.CustomStorage.IsUnknown() {
 						StorageDevicesItemMap["custom_storage"] = map[string]interface{}{}
 					}
 					if StorageDevicesItem.HpeStorage != nil {
@@ -12612,7 +12886,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
 												StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
 											}
-											if StorageItem.VolumeDefaults.NoQOS != nil {
+											if !StorageItem.VolumeDefaults.NoQOS.IsNull() && !StorageItem.VolumeDefaults.NoQOS.IsUnknown() {
 												StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsMap["no_qos"] = map[string]interface{}{}
 											}
 											if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
@@ -12678,7 +12952,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.IsUnknown() {
 									StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.ExportPolicy.ValueString()
 								}
-								if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS != nil {
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS.IsUnknown() {
 									StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasVolumeDefaultsMap["no_qos"] = map[string]interface{}{}
 								}
 								if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.VolumeDefaults.QOSPolicy.IsUnknown() {
@@ -12773,7 +13047,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.IsUnknown() {
 								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["management_lif_ip"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ManagementLifIP.ValueString()
 							}
-							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.NoChap != nil {
+							if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.NoChap.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.NoChap.IsUnknown() {
 								StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["no_chap"] = map[string]interface{}{}
 							}
 							if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password != nil {
@@ -12833,7 +13107,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											if !StorageItem.VolumeDefaults.ExportPolicy.IsNull() && !StorageItem.VolumeDefaults.ExportPolicy.IsUnknown() {
 												StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsMap["export_policy"] = StorageItem.VolumeDefaults.ExportPolicy.ValueString()
 											}
-											if StorageItem.VolumeDefaults.NoQOS != nil {
+											if !StorageItem.VolumeDefaults.NoQOS.IsNull() && !StorageItem.VolumeDefaults.NoQOS.IsUnknown() {
 												StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsMap["no_qos"] = map[string]interface{}{}
 											}
 											if !StorageItem.VolumeDefaults.QOSPolicy.IsNull() && !StorageItem.VolumeDefaults.QOSPolicy.IsUnknown() {
@@ -12963,7 +13237,7 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.IsUnknown() {
 									StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsMap["export_policy"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.ExportPolicy.ValueString()
 								}
-								if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS != nil {
+								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS.IsUnknown() {
 									StorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsMap["no_qos"] = map[string]interface{}{}
 								}
 								if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.VolumeDefaults.QOSPolicy.IsUnknown() {
@@ -13409,8 +13683,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	} else {
 		data.FleetLabel = types.StringNull()
 	}
-	if _, ok := apiResource.Spec["allow_all_usb"].(map[string]interface{}); ok && isImport && data.AllowAllUsb == nil {
-		data.AllowAllUsb = &FleetEmptyModel{}
+	if !isImport && !data.AllowAllUsb.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all_usb"].(map[string]interface{}); ok {
+		data.AllowAllUsb = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAllUsb = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.BlockedServices.IsNull() || len(data.BlockedServices.Elements()) == 0) {
 		data.BlockedServices = types.ListNull(types.ObjectType{AttrTypes: FleetBlockedServicesModelAttrTypes})
@@ -13424,14 +13702,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				BlockedServicesList = append(BlockedServicesList, FleetBlockedServicesModel{
-					DNS: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx {
+					DNS: func() types.Object {
+						if !isImport && len(existingBlockedServicesItems) > listIdx && !existingBlockedServicesItems[listIdx].DNS.IsUnknown() {
 							return existingBlockedServicesItems[listIdx].DNS
 						}
 						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
-							return &FleetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					NetworkType: func() types.String {
 						if v, ok := itemMap["network_type"].(string); ok && v != "" {
@@ -13439,23 +13717,23 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						}
 						return types.StringNull()
 					}(),
-					SSH: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx {
+					SSH: func() types.Object {
+						if !isImport && len(existingBlockedServicesItems) > listIdx && !existingBlockedServicesItems[listIdx].SSH.IsUnknown() {
 							return existingBlockedServicesItems[listIdx].SSH
 						}
 						if _, ok := itemMap["ssh"].(map[string]interface{}); ok {
-							return &FleetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					WebUserInterface: func() *FleetEmptyModel {
-						if !isImport && len(existingBlockedServicesItems) > listIdx {
+					WebUserInterface: func() types.Object {
+						if !isImport && len(existingBlockedServicesItems) > listIdx && !existingBlockedServicesItems[listIdx].WebUserInterface.IsUnknown() {
 							return existingBlockedServicesItems[listIdx].WebUserInterface
 						}
 						if _, ok := itemMap["web_user_interface"].(map[string]interface{}); ok {
-							return &FleetEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 				})
 			}
@@ -13484,14 +13762,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						_ = BondDevicesIdx
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, FleetBondDeviceListBondDevicesModel{
-								ActiveBackup: func() *FleetEmptyModel {
-									if !isImport && len(BondDevicesExisting) > BondDevicesIdx {
+								ActiveBackup: func() types.Object {
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && !BondDevicesExisting[BondDevicesIdx].ActiveBackup.IsUnknown() {
 										return BondDevicesExisting[BondDevicesIdx].ActiveBackup
 									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Devices: func() types.List {
 									if v, ok := BondDevicesItemMap["devices"].([]interface{}); ok && len(v) > 0 {
@@ -13595,17 +13873,33 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_config"].(map[string]interface{}); ok && isImport && data.DefaultConfig == nil {
-		data.DefaultConfig = &FleetEmptyModel{}
+	if !isImport && !data.DefaultConfig.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_config"].(map[string]interface{}); ok {
+		data.DefaultConfig = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultConfig = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["default_sriov_interface"].(map[string]interface{}); ok && isImport && data.DefaultSriovInterface == nil {
-		data.DefaultSriovInterface = &FleetEmptyModel{}
+	if !isImport && !data.DefaultSriovInterface.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_sriov_interface"].(map[string]interface{}); ok {
+		data.DefaultSriovInterface = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultSriovInterface = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["default_storage_class"].(map[string]interface{}); ok && isImport && data.DefaultStorageClass == nil {
-		data.DefaultStorageClass = &FleetEmptyModel{}
+	if !isImport && !data.DefaultStorageClass.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_storage_class"].(map[string]interface{}); ok {
+		data.DefaultStorageClass = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultStorageClass = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["deny_all_usb"].(map[string]interface{}); ok && isImport && data.DenyAllUsb == nil {
-		data.DenyAllUsb = &FleetEmptyModel{}
+	if !isImport && !data.DenyAllUsb.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["deny_all_usb"].(map[string]interface{}); ok {
+		data.DenyAllUsb = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DenyAllUsb = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["device_list"].(map[string]interface{}); ok && (isImport || data.DeviceList != nil) {
 		data.DeviceList = &FleetDeviceListModel{
@@ -13710,20 +14004,40 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_gpu"].(map[string]interface{}); ok && isImport && data.DisableGPU == nil {
-		data.DisableGPU = &FleetEmptyModel{}
+	if !isImport && !data.DisableGPU.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_gpu"].(map[string]interface{}); ok {
+		data.DisableGPU = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableGPU = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_log_anonymization"].(map[string]interface{}); ok && isImport && data.DisableLogAnonymization == nil {
-		data.DisableLogAnonymization = &FleetEmptyModel{}
+	if !isImport && !data.DisableLogAnonymization.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_log_anonymization"].(map[string]interface{}); ok {
+		data.DisableLogAnonymization = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableLogAnonymization = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_vm"].(map[string]interface{}); ok && isImport && data.DisableVM == nil {
-		data.DisableVM = &FleetEmptyModel{}
+	if !isImport && !data.DisableVM.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_vm"].(map[string]interface{}); ok {
+		data.DisableVM = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableVM = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["enable_gpu"].(map[string]interface{}); ok && isImport && data.EnableGPU == nil {
-		data.EnableGPU = &FleetEmptyModel{}
+	if !isImport && !data.EnableGPU.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_gpu"].(map[string]interface{}); ok {
+		data.EnableGPU = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableGPU = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["enable_log_anonymization"].(map[string]interface{}); ok && isImport && data.EnableLogAnonymization == nil {
-		data.EnableLogAnonymization = &FleetEmptyModel{}
+	if !isImport && !data.EnableLogAnonymization.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_log_anonymization"].(map[string]interface{}); ok {
+		data.EnableLogAnonymization = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableLogAnonymization = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["enable_vgpu"].(map[string]interface{}); ok && (isImport || data.EnableVgpu != nil) {
 		data.EnableVgpu = &FleetEnableVgpuModel{
@@ -13750,8 +14064,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["enable_vm"].(map[string]interface{}); ok && isImport && data.EnableVM == nil {
-		data.EnableVM = &FleetEmptyModel{}
+	if !isImport && !data.EnableVM.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_vm"].(map[string]interface{}); ok {
+		data.EnableVM = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableVM = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.InsideVirtualNetwork.IsNull() || len(data.InsideVirtualNetwork.Elements()) == 0) {
 		data.InsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetInsideVirtualNetworkModelAttrTypes})
@@ -13852,14 +14170,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &FleetKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *FleetEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &FleetEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *FleetKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -13867,20 +14185,29 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &FleetKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *FleetEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -13894,14 +14221,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *FleetEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -13931,8 +14258,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &FleetEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.NetworkConnectors.IsNull() || len(data.NetworkConnectors.Elements()) == 0) {
 		data.NetworkConnectors = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkConnectorsModelAttrTypes})
@@ -14040,20 +14371,40 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	} else {
 		data.NetworkFirewall = types.ListNull(types.ObjectType{AttrTypes: FleetNetworkFirewallModelAttrTypes})
 	}
-	if _, ok := apiResource.Spec["no_bond_devices"].(map[string]interface{}); ok && isImport && data.NoBondDevices == nil {
-		data.NoBondDevices = &FleetEmptyModel{}
+	if !isImport && !data.NoBondDevices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_bond_devices"].(map[string]interface{}); ok {
+		data.NoBondDevices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoBondDevices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_dc_cluster_group"].(map[string]interface{}); ok && isImport && data.NoDcClusterGroup == nil {
-		data.NoDcClusterGroup = &FleetEmptyModel{}
+	if !isImport && !data.NoDcClusterGroup.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_dc_cluster_group"].(map[string]interface{}); ok {
+		data.NoDcClusterGroup = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoDcClusterGroup = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_storage_device"].(map[string]interface{}); ok && isImport && data.NoStorageDevice == nil {
-		data.NoStorageDevice = &FleetEmptyModel{}
+	if !isImport && !data.NoStorageDevice.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_storage_device"].(map[string]interface{}); ok {
+		data.NoStorageDevice = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoStorageDevice = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_storage_interfaces"].(map[string]interface{}); ok && isImport && data.NoStorageInterfaces == nil {
-		data.NoStorageInterfaces = &FleetEmptyModel{}
+	if !isImport && !data.NoStorageInterfaces.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_storage_interfaces"].(map[string]interface{}); ok {
+		data.NoStorageInterfaces = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoStorageInterfaces = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["no_storage_static_routes"].(map[string]interface{}); ok && isImport && data.NoStorageStaticRoutes == nil {
-		data.NoStorageStaticRoutes = &FleetEmptyModel{}
+	if !isImport && !data.NoStorageStaticRoutes.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["no_storage_static_routes"].(map[string]interface{}); ok {
+		data.NoStorageStaticRoutes = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.NoStorageStaticRoutes = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.OutsideVirtualNetwork.IsNull() || len(data.OutsideVirtualNetwork.Elements()) == 0) {
 		data.OutsideVirtualNetwork = types.ListNull(types.ObjectType{AttrTypes: FleetOutsideVirtualNetworkModelAttrTypes})
@@ -14116,23 +14467,23 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				}
 				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 					return &FleetPerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+						Jumbo: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 							}
 							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						NoJumbo: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+						NoJumbo: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 							}
 							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -14144,23 +14495,23 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				}
 				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 					return &FleetPerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+						JumboDisabled: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 							}
 							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						JumboEnabled: func() *FleetEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+						JumboEnabled: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 							}
 							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &FleetEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -14483,14 +14834,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return types.MapNull(types.StringType)
 								}(), "advanced_advanced_parameters", isImport, &resp.Diagnostics),
-								CustomStorage: func() *FleetEmptyModel {
-									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
+								CustomStorage: func() types.Object {
+									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && !StorageDevicesExisting[StorageDevicesIdx].CustomStorage.IsUnknown() {
 										return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
 									}
 									if _, ok := StorageDevicesItemMap["custom_storage"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								HpeStorage: func() *FleetStorageDeviceListStorageDevicesHpeStorageModel {
 									if HpeStorageData, ok := StorageDevicesItemMap["hpe_storage"].(map[string]interface{}); ok {
@@ -14924,14 +15275,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							}
 																							return types.StringNull()
 																						}(),
-																						NoQOS: func() *FleetEmptyModel {
-																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																						NoQOS: func() types.Object {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.NoQOS.IsUnknown() {
 																								return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
 																							}
 																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
-																								return &FleetEmptyModel{}
+																								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																							}
-																							return nil
+																							return types.ObjectNull(map[string]attr.Type{})
 																						}(),
 																						QOSPolicy: func() types.String {
 																							if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
@@ -15071,14 +15422,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		}
 																		return types.StringNull()
 																	}(),
-																	NoQOS: func() *FleetEmptyModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil {
+																	NoQOS: func() types.Object {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS.IsUnknown() {
 																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.VolumeDefaults.NoQOS
 																		}
 																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
-																			return &FleetEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
 																	QOSPolicy: func() types.String {
 																		if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
@@ -15277,14 +15628,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														NoChap: func() *FleetEmptyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
+														NoChap: func() types.Object {
+															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.NoChap.IsUnknown() {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.NoChap
 															}
 															if _, ok := NetappBackendOntapSanData["no_chap"].(map[string]interface{}); ok {
-																return &FleetEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														Password: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel {
 															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil {
@@ -15396,14 +15747,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							}
 																							return types.StringNull()
 																						}(),
-																						NoQOS: func() *FleetEmptyModel {
-																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil {
+																						NoQOS: func() types.Object {
+																							if !isImport && len(StorageExisting) > StorageIdx && StorageExisting[StorageIdx].VolumeDefaults != nil && !StorageExisting[StorageIdx].VolumeDefaults.NoQOS.IsUnknown() {
 																								return StorageExisting[StorageIdx].VolumeDefaults.NoQOS
 																							}
 																							if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
-																								return &FleetEmptyModel{}
+																								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																							}
-																							return nil
+																							return types.ObjectNull(map[string]attr.Type{})
 																						}(),
 																						QOSPolicy: func() types.String {
 																							if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {
@@ -15685,14 +16036,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		}
 																		return types.StringNull()
 																	}(),
-																	NoQOS: func() *FleetEmptyModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil {
+																	NoQOS: func() types.Object {
+																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS.IsUnknown() {
 																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.VolumeDefaults.NoQOS
 																		}
 																		if _, ok := VolumeDefaultsData["no_qos"].(map[string]interface{}); ok {
-																			return &FleetEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
 																	QOSPolicy: func() types.String {
 																		if v, ok := VolumeDefaultsData["qos_policy"].(string); ok && v != "" {

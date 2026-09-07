@@ -39,7 +39,7 @@ resource "xcsh_forward_proxy_policy" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -60,14 +60,14 @@ resource "xcsh_forward_proxy_policy" "example" {
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="allow-all"></a>[`allow_all`](#allow-all) - Optional Block<br>Enable this option
+&#x2022; <a id="allow-all"></a>[`allow_all`](#allow-all) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="allow-list"></a>[`allow_list`](#allow-list) - Optional Block<br>URL(s) and domains policy for forward proxy for a connection type (TLS or HTTP)<br>See [Allow List](#allow-list) below for details.
 <br><br>&#x2022; <a id="deny-list"></a>[`deny_list`](#deny-list) - Optional Block<br>URL(s) and domains policy for forward proxy for a connection type (TLS or HTTP)<br>See [Deny List](#deny-list) below for details.
 <br><br>&#x2022; <a id="rule-list"></a>[`rule_list`](#rule-list) - Optional Block<br>Custom Rule List. List of custom rules<br>See [Rule List](#rule-list) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="any-proxy"></a>[`any_proxy`](#any-proxy) - Optional Block<br>Enable this option
-<br><br>&#x2022; <a id="drp-http-connect"></a>[`drp_http_connect`](#drp-http-connect) - Optional Block<br>Configuration parameter for drp HTTP connect
+&#x2022; <a id="any-proxy"></a>[`any_proxy`](#any-proxy) - Optional Object<br>Enable this option
+<br><br>&#x2022; <a id="drp-http-connect"></a>[`drp_http_connect`](#drp-http-connect) - Optional Object<br>Configuration parameter for drp HTTP connect
 <br><br>&#x2022; <a id="network-connector"></a>[`network_connector`](#network-connector) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Network Connector](#network-connector) below for details.
 <br><br>&#x2022; <a id="proxy-label-selector"></a>[`proxy_label_selector`](#proxy-label-selector) - Optional Block<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects<br>See [Proxy
 Label Selector](#proxy-label-selector) below for details.
@@ -86,17 +86,29 @@ In addition to all arguments above, the following attributes are exported:
 
 An [`allow_list`](#allow-list) block supports the following:
 
-<a id="allow-list-default-action-allow"></a>&#x2022; [`default_action_allow`](#allow-list-default-action-allow) - Optional Block<br>Enable this option
+<a id="allow-list-default-action-allow"></a>&#x2022; [`default_action_allow`](#allow-list-default-action-allow) - Optional Object<br>Enable this option
 
-<a id="allow-list-default-action-deny"></a>&#x2022; [`default_action_deny`](#allow-list-default-action-deny) - Optional Block<br>Enable this option
+<a id="allow-list-default-action-deny"></a>&#x2022; [`default_action_deny`](#allow-list-default-action-deny) - Optional Object<br>Enable this option
 
-<a id="allow-list-default-action-next-policy"></a>&#x2022; [`default_action_next_policy`](#allow-list-default-action-next-policy) - Optional Block<br>Policy configuration for this feature
+<a id="allow-list-default-action-next-policy"></a>&#x2022; [`default_action_next_policy`](#allow-list-default-action-next-policy) - Optional Object<br>Policy configuration for this feature
 
 <a id="allow-list-dest-list"></a>&#x2022; [`dest_list`](#allow-list-dest-list) - Optional Block<br>L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI<br>See [Dest List](#allow-list-dest-list) below.
 
 <a id="allow-list-http-list"></a>&#x2022; [`http_list`](#allow-list-http-list) - Optional Block<br>HTTP URLs. URLs for HTTP connections<br>See [HTTP List](#allow-list-http-list) below.
 
 <a id="allow-list-tls-list"></a>&#x2022; [`tls_list`](#allow-list-tls-list) - Optional Block<br>TLS Domains. Domains in SNI for TLS connections<br>See [TLS List](#allow-list-tls-list) below.
+
+#### Allow List Default Action Allow
+
+A [`default_action_allow`](#allow-list-default-action-allow) block (within [`allow_list`](#allow-list)) supports the following:
+
+#### Allow List Default Action Deny
+
+A [`default_action_deny`](#allow-list-default-action-deny) block (within [`allow_list`](#allow-list)) supports the following:
+
+#### Allow List Default Action Next Policy
+
+A [`default_action_next_policy`](#allow-list-default-action-next-policy) block (within [`allow_list`](#allow-list)) supports the following:
 
 #### Allow List Dest List
 
@@ -112,7 +124,7 @@ A [`dest_list`](#allow-list-dest-list) block (within [`allow_list`](#allow-list)
 
 A [`http_list`](#allow-list-http-list) block (within [`allow_list`](#allow-list)) supports the following:
 
-<a id="allow-list-http-list-any-path"></a>&#x2022; [`any_path`](#allow-list-http-list-any-path) - Optional Block<br>Enable this option
+<a id="allow-list-http-list-any-path"></a>&#x2022; [`any_path`](#allow-list-http-list-any-path) - Optional Object<br>Enable this option
 
 <a id="allow-list-http-list-exact-value"></a>&#x2022; [`exact_value`](#allow-list-http-list-exact-value) - Optional String<br>Exact domain name
 
@@ -126,6 +138,10 @@ A [`http_list`](#allow-list-http-list) block (within [`allow_list`](#allow-list)
 
 <a id="allow-list-http-list-suffix-value"></a>&#x2022; [`suffix_value`](#allow-list-http-list-suffix-value) - Optional String<br>Suffix of domain names e.g 'xyz.com' will match '*.xyz.com'
 
+#### Allow List HTTP List Any Path
+
+An [`any_path`](#allow-list-http-list-any-path) block (within [`allow_list.http_list`](#allow-list-http-list)) supports the following:
+
 #### Allow List TLS List
 
 A [`tls_list`](#allow-list-tls-list) block (within [`allow_list`](#allow-list)) supports the following:
@@ -136,21 +152,37 @@ A [`tls_list`](#allow-list-tls-list) block (within [`allow_list`](#allow-list)) 
 
 <a id="allow-list-tls-list-suffix-value"></a>&#x2022; [`suffix_value`](#allow-list-tls-list-suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
 
+#### Any Proxy
+
+An [`any_proxy`](#any-proxy) block supports the following:
+
 #### Deny List
 
 A [`deny_list`](#deny-list) block supports the following:
 
-<a id="deny-list-default-action-allow"></a>&#x2022; [`default_action_allow`](#deny-list-default-action-allow) - Optional Block<br>Enable this option
+<a id="deny-list-default-action-allow"></a>&#x2022; [`default_action_allow`](#deny-list-default-action-allow) - Optional Object<br>Enable this option
 
-<a id="deny-list-default-action-deny"></a>&#x2022; [`default_action_deny`](#deny-list-default-action-deny) - Optional Block<br>Enable this option
+<a id="deny-list-default-action-deny"></a>&#x2022; [`default_action_deny`](#deny-list-default-action-deny) - Optional Object<br>Enable this option
 
-<a id="deny-list-default-action-next-policy"></a>&#x2022; [`default_action_next_policy`](#deny-list-default-action-next-policy) - Optional Block<br>Policy configuration for this feature
+<a id="deny-list-default-action-next-policy"></a>&#x2022; [`default_action_next_policy`](#deny-list-default-action-next-policy) - Optional Object<br>Policy configuration for this feature
 
 <a id="deny-list-dest-list"></a>&#x2022; [`dest_list`](#deny-list-dest-list) - Optional Block<br>L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI<br>See [Dest List](#deny-list-dest-list) below.
 
 <a id="deny-list-http-list"></a>&#x2022; [`http_list`](#deny-list-http-list) - Optional Block<br>HTTP URLs. URLs for HTTP connections<br>See [HTTP List](#deny-list-http-list) below.
 
 <a id="deny-list-tls-list"></a>&#x2022; [`tls_list`](#deny-list-tls-list) - Optional Block<br>TLS Domains. Domains in SNI for TLS connections<br>See [TLS List](#deny-list-tls-list) below.
+
+#### Deny List Default Action Allow
+
+A [`default_action_allow`](#deny-list-default-action-allow) block (within [`deny_list`](#deny-list)) supports the following:
+
+#### Deny List Default Action Deny
+
+A [`default_action_deny`](#deny-list-default-action-deny) block (within [`deny_list`](#deny-list)) supports the following:
+
+#### Deny List Default Action Next Policy
+
+A [`default_action_next_policy`](#deny-list-default-action-next-policy) block (within [`deny_list`](#deny-list)) supports the following:
 
 #### Deny List Dest List
 
@@ -166,7 +198,7 @@ A [`dest_list`](#deny-list-dest-list) block (within [`deny_list`](#deny-list)) s
 
 A [`http_list`](#deny-list-http-list) block (within [`deny_list`](#deny-list)) supports the following:
 
-<a id="deny-list-http-list-any-path"></a>&#x2022; [`any_path`](#deny-list-http-list-any-path) - Optional Block<br>Enable this option
+<a id="deny-list-http-list-any-path"></a>&#x2022; [`any_path`](#deny-list-http-list-any-path) - Optional Object<br>Enable this option
 
 <a id="deny-list-http-list-exact-value"></a>&#x2022; [`exact_value`](#deny-list-http-list-exact-value) - Optional String<br>Exact domain name
 
@@ -180,6 +212,10 @@ A [`http_list`](#deny-list-http-list) block (within [`deny_list`](#deny-list)) s
 
 <a id="deny-list-http-list-suffix-value"></a>&#x2022; [`suffix_value`](#deny-list-http-list-suffix-value) - Optional String<br>Suffix of domain names e.g 'xyz.com' will match '*.xyz.com'
 
+#### Deny List HTTP List Any Path
+
+An [`any_path`](#deny-list-http-list-any-path) block (within [`deny_list.http_list`](#deny-list-http-list)) supports the following:
+
 #### Deny List TLS List
 
 A [`tls_list`](#deny-list-tls-list) block (within [`deny_list`](#deny-list)) supports the following:
@@ -189,6 +225,10 @@ A [`tls_list`](#deny-list-tls-list) block (within [`deny_list`](#deny-list)) sup
 <a id="deny-list-tls-list-regex-value"></a>&#x2022; [`regex_value`](#deny-list-tls-list-regex-value) - Optional String<br>Regular Expression value for the domain name
 
 <a id="deny-list-tls-list-suffix-value"></a>&#x2022; [`suffix_value`](#deny-list-tls-list-suffix-value) - Optional String<br>Suffix of domain name e.g 'xyz.com' will match '*.xyz.com' and 'xyz.com'
+
+#### Drp HTTP Connect
+
+A [`drp_http_connect`](#drp-http-connect) block supports the following:
 
 #### Network Connector
 
@@ -219,9 +259,9 @@ A [`rules`](#rule-list-rules) block (within [`rule_list`](#rule-list)) supports 
 <a id="rule-list-rules-action"></a>&#x2022; [`action`](#rule-list-rules-action) - Optional String  Defaults to `DENY`<br>Possible values are `DENY`, `ALLOW`, `NEXT_POLICY`<br>[Enum: DENY|ALLOW|NEXT_POLICY] The rule action determines the disposition of the input request API. If a policy matches a rule with an ALLOW action, the processing of the request proceeds forward. If it matches a rule with a
 DENY action, the processing of the request is terminated and an appropriate message/code returned to
 
-<a id="rule-list-rules-all-destinations"></a>&#x2022; [`all_destinations`](#rule-list-rules-all-destinations) - Optional Block<br>Configuration parameter for all destinations
+<a id="rule-list-rules-all-destinations"></a>&#x2022; [`all_destinations`](#rule-list-rules-all-destinations) - Optional Object<br>Configuration parameter for all destinations
 
-<a id="rule-list-rules-all-sources"></a>&#x2022; [`all_sources`](#rule-list-rules-all-sources) - Optional Block<br>Configuration parameter for all sources
+<a id="rule-list-rules-all-sources"></a>&#x2022; [`all_sources`](#rule-list-rules-all-sources) - Optional Object<br>Configuration parameter for all sources
 
 <a id="rule-list-rules-dst-asn-list"></a>&#x2022; [`dst_asn_list`](#rule-list-rules-dst-asn-list) - Optional Block<br>Unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer<br>See [Dst Asn List](#rule-list-rules-dst-asn-list) below.
 
@@ -244,7 +284,7 @@ objects<br>See [Dst Label Selector](#rule-list-rules-dst-label-selector) below.
 <a id="rule-list-rules-metadata"></a>&#x2022; [`metadata`](#rule-list-rules-metadata) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during
 create<br>See [Metadata](#rule-list-rules-metadata) below.
 
-<a id="rule-list-rules-no-http-connect-port"></a>&#x2022; [`no_http_connect_port`](#rule-list-rules-no-http-connect-port) - Optional Block<br>Enable this option
+<a id="rule-list-rules-no-http-connect-port"></a>&#x2022; [`no_http_connect_port`](#rule-list-rules-no-http-connect-port) - Optional Object<br>Enable this option
 
 <a id="rule-list-rules-port-matcher"></a>&#x2022; [`port_matcher`](#rule-list-rules-port-matcher) - Optional Block<br>Port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true<br>See [Port Matcher](#rule-list-rules-port-matcher) below.
 
@@ -253,6 +293,14 @@ create<br>See [Metadata](#rule-list-rules-metadata) below.
 <a id="rule-list-rules-tls-list"></a>&#x2022; [`tls_list`](#rule-list-rules-tls-list) - Optional Block<br>DomainListType<br>See [TLS List](#rule-list-rules-tls-list) below.
 
 <a id="rule-list-rules-url-category-list"></a>&#x2022; [`url_category_list`](#rule-list-rules-url-category-list) - Optional Block<br>URL Category List Type. List of URL categories<br>See [URL Category List](#rule-list-rules-url-category-list) below.
+
+#### Rule List Rules All Destinations
+
+An [`all_destinations`](#rule-list-rules-all-destinations) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
+
+#### Rule List Rules All Sources
+
+An [`all_sources`](#rule-list-rules-all-sources) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
 
 #### Rule List Rules Dst Asn List
 
@@ -302,7 +350,7 @@ A [`http_list`](#rule-list-rules-http-list) block (within [`rule_list.rules`](#r
 
 A [`http_list`](#rule-list-rules-http-list-http-list) block (within [`rule_list.rules.http_list`](#rule-list-rules-http-list)) supports the following:
 
-<a id="path-5eabfe"></a>&#x2022; [`any_path`](#path-5eabfe) - Optional Block<br>Enable this option
+<a id="path-5eabfe"></a>&#x2022; [`any_path`](#path-5eabfe) - Optional Object<br>Enable this option
 
 <a id="value-d667cb"></a>&#x2022; [`exact_value`](#value-d667cb) - Optional String<br>Exact domain name
 
@@ -315,6 +363,10 @@ A [`http_list`](#rule-list-rules-http-list-http-list) block (within [`rule_list.
 <a id="value-663d1f"></a>&#x2022; [`regex_value`](#value-663d1f) - Optional String<br>Regular Expression value for the domain name
 
 <a id="value-acf087"></a>&#x2022; [`suffix_value`](#value-acf087) - Optional String<br>Suffix of domain names e.g 'xyz.com' will match '*.xyz.com'
+
+#### Rule List Rules HTTP List HTTP List Any Path
+
+<a id="deep-dd2eb9"></a>Deeply nested **Path** block collapsed for readability.
 
 #### Rule List Rules IP Prefix Set
 
@@ -339,6 +391,10 @@ A [`metadata`](#rule-list-rules-metadata) block (within [`rule_list.rules`](#rul
 <a id="spec-118a99"></a>&#x2022; [`description_spec`](#spec-118a99) - Optional String<br>Description. Human readable description
 
 <a id="rule-list-rules-metadata-name"></a>&#x2022; [`name`](#rule-list-rules-metadata-name) - Optional String<br>Name of the message. The value of name has to follow DNS-1035 format
+
+#### Rule List Rules No HTTP Connect Port
+
+A [`no_http_connect_port`](#rule-list-rules-no-http-connect-port) block (within [`rule_list.rules`](#rule-list-rules)) supports the following:
 
 #### Rule List Rules Port Matcher
 

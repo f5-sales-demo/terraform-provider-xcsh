@@ -17,6 +17,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -103,28 +104,28 @@ var EnhancedFirewallPolicyRuleListModelAttrTypes = map[string]attr.Type{
 
 // EnhancedFirewallPolicyRuleListRulesModel represents rules block
 type EnhancedFirewallPolicyRuleListRulesModel struct {
+	AllDestinations          types.Object                                                      `tfsdk:"all_destinations"`
+	AllSLIVips               types.Object                                                      `tfsdk:"all_sli_vips"`
+	AllSloVips               types.Object                                                      `tfsdk:"all_slo_vips"`
+	AllSources               types.Object                                                      `tfsdk:"all_sources"`
+	AllTCPTraffic            types.Object                                                      `tfsdk:"all_tcp_traffic"`
+	AllTraffic               types.Object                                                      `tfsdk:"all_traffic"`
+	AllUDPTraffic            types.Object                                                      `tfsdk:"all_udp_traffic"`
+	Allow                    types.Object                                                      `tfsdk:"allow"`
+	Deny                     types.Object                                                      `tfsdk:"deny"`
+	InsideDestinations       types.Object                                                      `tfsdk:"inside_destinations"`
+	InsideSources            types.Object                                                      `tfsdk:"inside_sources"`
+	OutsideDestinations      types.Object                                                      `tfsdk:"outside_destinations"`
+	OutsideSources           types.Object                                                      `tfsdk:"outside_sources"`
 	AdvancedAction           *EnhancedFirewallPolicyRuleListRulesAdvancedActionModel           `tfsdk:"advanced_action"`
-	AllDestinations          *EnhancedFirewallPolicyEmptyModel                                 `tfsdk:"all_destinations"`
-	AllSLIVips               *EnhancedFirewallPolicyEmptyModel                                 `tfsdk:"all_sli_vips"`
-	AllSloVips               *EnhancedFirewallPolicyEmptyModel                                 `tfsdk:"all_slo_vips"`
-	AllSources               *EnhancedFirewallPolicyEmptyModel                                 `tfsdk:"all_sources"`
-	AllTCPTraffic            *EnhancedFirewallPolicyEmptyModel                                 `tfsdk:"all_tcp_traffic"`
-	AllTraffic               *EnhancedFirewallPolicyEmptyModel                                 `tfsdk:"all_traffic"`
-	AllUDPTraffic            *EnhancedFirewallPolicyEmptyModel                                 `tfsdk:"all_udp_traffic"`
-	Allow                    *EnhancedFirewallPolicyEmptyModel                                 `tfsdk:"allow"`
 	Applications             *EnhancedFirewallPolicyRuleListRulesApplicationsModel             `tfsdk:"applications"`
-	Deny                     *EnhancedFirewallPolicyEmptyModel                                 `tfsdk:"deny"`
 	DestinationAWSVPCIds     *EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel     `tfsdk:"destination_aws_vpc_ids"`
 	DestinationIPPrefixSet   *EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModel   `tfsdk:"destination_ip_prefix_set"`
 	DestinationLabelSelector *EnhancedFirewallPolicyRuleListRulesDestinationLabelSelectorModel `tfsdk:"destination_label_selector"`
 	DestinationPrefixList    *EnhancedFirewallPolicyRuleListRulesDestinationPrefixListModel    `tfsdk:"destination_prefix_list"`
 	InsertService            *EnhancedFirewallPolicyRuleListRulesInsertServiceModel            `tfsdk:"insert_service"`
-	InsideDestinations       *EnhancedFirewallPolicyEmptyModel                                 `tfsdk:"inside_destinations"`
-	InsideSources            *EnhancedFirewallPolicyEmptyModel                                 `tfsdk:"inside_sources"`
 	LabelMatcher             *EnhancedFirewallPolicyRuleListRulesLabelMatcherModel             `tfsdk:"label_matcher"`
 	Metadata                 *EnhancedFirewallPolicyRuleListRulesMetadataModel                 `tfsdk:"metadata"`
-	OutsideDestinations      *EnhancedFirewallPolicyEmptyModel                                 `tfsdk:"outside_destinations"`
-	OutsideSources           *EnhancedFirewallPolicyEmptyModel                                 `tfsdk:"outside_sources"`
 	ProtocolPortRange        *EnhancedFirewallPolicyRuleListRulesProtocolPortRangeModel        `tfsdk:"protocol_port_range"`
 	SourceAWSVPCIds          *EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModel          `tfsdk:"source_aws_vpc_ids"`
 	SourceIPPrefixSet        *EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModel        `tfsdk:"source_ip_prefix_set"`
@@ -134,7 +135,6 @@ type EnhancedFirewallPolicyRuleListRulesModel struct {
 
 // EnhancedFirewallPolicyRuleListRulesModelAttrTypes defines the attribute types for EnhancedFirewallPolicyRuleListRulesModel
 var EnhancedFirewallPolicyRuleListRulesModelAttrTypes = map[string]attr.Type{
-	"advanced_action":            types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesAdvancedActionModelAttrTypes},
 	"all_destinations":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"all_sli_vips":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"all_slo_vips":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -143,19 +143,20 @@ var EnhancedFirewallPolicyRuleListRulesModelAttrTypes = map[string]attr.Type{
 	"all_traffic":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"all_udp_traffic":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"allow":                      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"applications":               types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesApplicationsModelAttrTypes},
 	"deny":                       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"inside_destinations":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"inside_sources":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"outside_destinations":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"outside_sources":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"advanced_action":            types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesAdvancedActionModelAttrTypes},
+	"applications":               types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesApplicationsModelAttrTypes},
 	"destination_aws_vpc_ids":    types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModelAttrTypes},
 	"destination_ip_prefix_set":  types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetModelAttrTypes},
 	"destination_label_selector": types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationLabelSelectorModelAttrTypes},
 	"destination_prefix_list":    types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesDestinationPrefixListModelAttrTypes},
 	"insert_service":             types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesInsertServiceModelAttrTypes},
-	"inside_destinations":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"inside_sources":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"label_matcher":              types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesLabelMatcherModelAttrTypes},
 	"metadata":                   types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesMetadataModelAttrTypes},
-	"outside_destinations":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"outside_sources":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"protocol_port_range":        types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesProtocolPortRangeModelAttrTypes},
 	"source_aws_vpc_ids":         types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceAWSVPCIdsModelAttrTypes},
 	"source_ip_prefix_set":       types.ObjectType{AttrTypes: EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetModelAttrTypes},
@@ -361,18 +362,18 @@ type EnhancedFirewallPolicyResourceModel struct {
 	Name                types.String                                    `tfsdk:"name"`
 	Namespace           types.String                                    `tfsdk:"namespace"`
 	Annotations         types.Map                                       `tfsdk:"annotations"`
+	DenyAll             types.Object                                    `tfsdk:"deny_all"`
 	Description         types.String                                    `tfsdk:"description"`
 	Disable             types.Bool                                      `tfsdk:"disable"`
 	Labels              types.Map                                       `tfsdk:"labels"`
 	ID                  types.String                                    `tfsdk:"id"`
+	AllowAll            types.Object                                    `tfsdk:"allow_all"`
 	Timeouts            timeouts.Value                                  `tfsdk:"timeouts"`
 	AllowedDestinations *EnhancedFirewallPolicyAllowedDestinationsModel `tfsdk:"allowed_destinations"`
 	AllowedSources      *EnhancedFirewallPolicyAllowedSourcesModel      `tfsdk:"allowed_sources"`
 	DeniedDestinations  *EnhancedFirewallPolicyDeniedDestinationsModel  `tfsdk:"denied_destinations"`
 	DeniedSources       *EnhancedFirewallPolicyDeniedSourcesModel       `tfsdk:"denied_sources"`
-	DenyAll             *EnhancedFirewallPolicyEmptyModel               `tfsdk:"deny_all"`
 	RuleList            *EnhancedFirewallPolicyRuleListModel            `tfsdk:"rule_list"`
-	AllowAll            *EnhancedFirewallPolicyEmptyModel               `tfsdk:"allow_all"`
 }
 
 func (r *EnhancedFirewallPolicyResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -408,6 +409,11 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"deny_all": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
@@ -426,6 +432,15 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"allow_all": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: allow_all, allowed_destinations, allowed_sources, denied_destinations, denied_sources, deny_all, rule_list] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
 		},
@@ -492,9 +507,6 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 					},
 				},
 			},
-			"deny_all": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
 			"rule_list": schema.SingleNestedBlock{
 				MarkdownDescription: "Custom Enhanced Firewall Policy Rules. Custom Enhanced Firewall Policy Rules.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("rules")},
@@ -503,8 +515,75 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 				Blocks: map[string]schema.Block{
 					"rules": schema.ListNestedBlock{
 						MarkdownDescription: "Ordered List of Enhanced Firewall Policy Rules.",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("all_destinations", "all_sli_vips"), validators.ConflictingListObjectAttributes("all_destinations", "all_slo_vips"), validators.ConflictingListObjectAttributes("all_destinations", "destination_aws_vpc_ids"), validators.ConflictingListObjectAttributes("all_destinations", "destination_ip_prefix_set"), validators.ConflictingListObjectAttributes("all_destinations", "destination_label_selector"), validators.ConflictingListObjectAttributes("all_destinations", "destination_prefix_list"), validators.ConflictingListObjectAttributes("all_destinations", "inside_destinations"), validators.ConflictingListObjectAttributes("all_destinations", "outside_destinations"), validators.ConflictingListObjectAttributes("all_sli_vips", "all_slo_vips"), validators.ConflictingListObjectAttributes("all_sli_vips", "destination_aws_vpc_ids"), validators.ConflictingListObjectAttributes("all_sli_vips", "destination_ip_prefix_set"), validators.ConflictingListObjectAttributes("all_sli_vips", "destination_label_selector"), validators.ConflictingListObjectAttributes("all_sli_vips", "destination_prefix_list"), validators.ConflictingListObjectAttributes("all_sli_vips", "inside_destinations"), validators.ConflictingListObjectAttributes("all_sli_vips", "outside_destinations"), validators.ConflictingListObjectAttributes("all_slo_vips", "destination_aws_vpc_ids"), validators.ConflictingListObjectAttributes("all_slo_vips", "destination_ip_prefix_set"), validators.ConflictingListObjectAttributes("all_slo_vips", "destination_label_selector"), validators.ConflictingListObjectAttributes("all_slo_vips", "destination_prefix_list"), validators.ConflictingListObjectAttributes("all_slo_vips", "inside_destinations"), validators.ConflictingListObjectAttributes("all_slo_vips", "outside_destinations"), validators.ConflictingListObjectAttributes("all_sources", "inside_sources"), validators.ConflictingListObjectAttributes("all_sources", "outside_sources"), validators.ConflictingListObjectAttributes("all_sources", "source_aws_vpc_ids"), validators.ConflictingListObjectAttributes("all_sources", "source_ip_prefix_set"), validators.ConflictingListObjectAttributes("all_sources", "source_label_selector"), validators.ConflictingListObjectAttributes("all_sources", "source_prefix_list"), validators.ConflictingListObjectAttributes("all_tcp_traffic", "all_traffic"), validators.ConflictingListObjectAttributes("all_tcp_traffic", "all_udp_traffic"), validators.ConflictingListObjectAttributes("all_tcp_traffic", "applications"), validators.ConflictingListObjectAttributes("all_tcp_traffic", "protocol_port_range"), validators.ConflictingListObjectAttributes("all_traffic", "all_udp_traffic"), validators.ConflictingListObjectAttributes("all_traffic", "applications"), validators.ConflictingListObjectAttributes("all_traffic", "protocol_port_range"), validators.ConflictingListObjectAttributes("all_udp_traffic", "applications"), validators.ConflictingListObjectAttributes("all_udp_traffic", "protocol_port_range"), validators.ConflictingListObjectAttributes("allow", "deny"), validators.ConflictingListObjectAttributes("allow", "insert_service"), validators.ConflictingListObjectAttributes("applications", "protocol_port_range"), validators.ConflictingListObjectAttributes("deny", "insert_service"), validators.ConflictingListObjectAttributes("destination_aws_vpc_ids", "destination_ip_prefix_set"), validators.ConflictingListObjectAttributes("destination_aws_vpc_ids", "destination_label_selector"), validators.ConflictingListObjectAttributes("destination_aws_vpc_ids", "destination_prefix_list"), validators.ConflictingListObjectAttributes("destination_aws_vpc_ids", "inside_destinations"), validators.ConflictingListObjectAttributes("destination_aws_vpc_ids", "outside_destinations"), validators.ConflictingListObjectAttributes("destination_ip_prefix_set", "destination_label_selector"), validators.ConflictingListObjectAttributes("destination_ip_prefix_set", "destination_prefix_list"), validators.ConflictingListObjectAttributes("destination_ip_prefix_set", "inside_destinations"), validators.ConflictingListObjectAttributes("destination_ip_prefix_set", "outside_destinations"), validators.ConflictingListObjectAttributes("destination_label_selector", "destination_prefix_list"), validators.ConflictingListObjectAttributes("destination_label_selector", "inside_destinations"), validators.ConflictingListObjectAttributes("destination_label_selector", "outside_destinations"), validators.ConflictingListObjectAttributes("destination_prefix_list", "inside_destinations"), validators.ConflictingListObjectAttributes("destination_prefix_list", "outside_destinations"), validators.ConflictingListObjectAttributes("inside_destinations", "outside_destinations"), validators.ConflictingListObjectAttributes("inside_sources", "outside_sources"), validators.ConflictingListObjectAttributes("inside_sources", "source_aws_vpc_ids"), validators.ConflictingListObjectAttributes("inside_sources", "source_ip_prefix_set"), validators.ConflictingListObjectAttributes("inside_sources", "source_label_selector"), validators.ConflictingListObjectAttributes("inside_sources", "source_prefix_list"), validators.ConflictingListObjectAttributes("outside_sources", "source_aws_vpc_ids"), validators.ConflictingListObjectAttributes("outside_sources", "source_ip_prefix_set"), validators.ConflictingListObjectAttributes("outside_sources", "source_label_selector"), validators.ConflictingListObjectAttributes("outside_sources", "source_prefix_list"), validators.ConflictingListObjectAttributes("source_aws_vpc_ids", "source_ip_prefix_set"), validators.ConflictingListObjectAttributes("source_aws_vpc_ids", "source_label_selector"), validators.ConflictingListObjectAttributes("source_aws_vpc_ids", "source_prefix_list"), validators.ConflictingListObjectAttributes("source_ip_prefix_set", "source_label_selector"), validators.ConflictingListObjectAttributes("source_ip_prefix_set", "source_prefix_list"), validators.ConflictingListObjectAttributes("source_label_selector", "source_prefix_list")},
 						NestedObject: schema.NestedBlockObject{
-							Attributes: map[string]schema.Attribute{},
+							Attributes: map[string]schema.Attribute{
+								"all_destinations": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all destinations.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_sli_vips": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_slo_vips": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_sources": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all sources.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_tcp_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all tcp traffic.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all traffic.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"all_udp_traffic": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for all udp traffic.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"allow": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"deny": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"inside_destinations": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for inside destinations.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"inside_sources": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for inside sources.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"outside_destinations": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for outside destinations.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+								"outside_sources": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for outside sources.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
+							},
 							Blocks: map[string]schema.Block{
 								"advanced_action": schema.SingleNestedBlock{
 									MarkdownDescription: "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
@@ -518,30 +597,6 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 										},
 									},
 								},
-								"all_destinations": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for all destinations.",
-								},
-								"all_sli_vips": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
-								"all_slo_vips": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
-								"all_sources": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for all sources.",
-								},
-								"all_tcp_traffic": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for all tcp traffic.",
-								},
-								"all_traffic": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for all traffic.",
-								},
-								"all_udp_traffic": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for all udp traffic.",
-								},
-								"allow": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
 								"applications": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for applications.",
 									Attributes: map[string]schema.Attribute{
@@ -551,9 +606,6 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 											ElementType:         types.StringType,
 										},
 									},
-								},
-								"deny": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
 								},
 								"destination_aws_vpc_ids": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for destination aws vpc ids.",
@@ -674,12 +726,6 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 										},
 									},
 								},
-								"inside_destinations": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for inside destinations.",
-								},
-								"inside_sources": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for inside sources.",
-								},
 								"label_matcher": schema.SingleNestedBlock{
 									MarkdownDescription: "Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
 									Attributes: map[string]schema.Attribute{
@@ -712,12 +758,6 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 											},
 										},
 									},
-								},
-								"outside_destinations": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for outside destinations.",
-								},
-								"outside_sources": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for outside sources.",
 								},
 								"protocol_port_range": schema.SingleNestedBlock{
 									MarkdownDescription: "Protocol and Port. Protocol and Port ranges.",
@@ -826,9 +866,6 @@ func (r *EnhancedFirewallPolicyResource) Schema(ctx context.Context, req resourc
 					},
 				},
 			},
-			"allow_all": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: allow_all, allowed_destinations, allowed_sources, denied_destinations, denied_sources, deny_all, rule_list] Enable this option. Defaults to `map[]`. Server applies default when omitted.",
-			},
 		},
 	}
 }
@@ -855,6 +892,14 @@ func (r *EnhancedFirewallPolicyResource) ValidateConfig(ctx context.Context, req
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() && !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("deny_all"),
+			"Conflicting Configuration",
+			"deny_all and allow_all are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -1003,7 +1048,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 		}
 		createReq.Spec["denied_sources"] = DeniedSourcesMap
 	}
-	if data.DenyAll != nil {
+	if !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
 		createReq.Spec["deny_all"] = map[string]interface{}{}
 	}
 	if data.RuleList != nil {
@@ -1023,28 +1068,28 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						}
 						RulesItemMap["advanced_action"] = RuleListRulesAdvancedActionMap
 					}
-					if RulesItem.AllDestinations != nil {
+					if !RulesItem.AllDestinations.IsNull() && !RulesItem.AllDestinations.IsUnknown() {
 						RulesItemMap["all_destinations"] = map[string]interface{}{}
 					}
-					if RulesItem.AllSLIVips != nil {
+					if !RulesItem.AllSLIVips.IsNull() && !RulesItem.AllSLIVips.IsUnknown() {
 						RulesItemMap["all_sli_vips"] = map[string]interface{}{}
 					}
-					if RulesItem.AllSloVips != nil {
+					if !RulesItem.AllSloVips.IsNull() && !RulesItem.AllSloVips.IsUnknown() {
 						RulesItemMap["all_slo_vips"] = map[string]interface{}{}
 					}
-					if RulesItem.AllSources != nil {
+					if !RulesItem.AllSources.IsNull() && !RulesItem.AllSources.IsUnknown() {
 						RulesItemMap["all_sources"] = map[string]interface{}{}
 					}
-					if RulesItem.AllTCPTraffic != nil {
+					if !RulesItem.AllTCPTraffic.IsNull() && !RulesItem.AllTCPTraffic.IsUnknown() {
 						RulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
 					}
-					if RulesItem.AllTraffic != nil {
+					if !RulesItem.AllTraffic.IsNull() && !RulesItem.AllTraffic.IsUnknown() {
 						RulesItemMap["all_traffic"] = map[string]interface{}{}
 					}
-					if RulesItem.AllUDPTraffic != nil {
+					if !RulesItem.AllUDPTraffic.IsNull() && !RulesItem.AllUDPTraffic.IsUnknown() {
 						RulesItemMap["all_udp_traffic"] = map[string]interface{}{}
 					}
-					if RulesItem.Allow != nil {
+					if !RulesItem.Allow.IsNull() && !RulesItem.Allow.IsUnknown() {
 						RulesItemMap["allow"] = map[string]interface{}{}
 					}
 					if RulesItem.Applications != nil {
@@ -1059,7 +1104,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						}
 						RulesItemMap["applications"] = RuleListRulesApplicationsMap
 					}
-					if RulesItem.Deny != nil {
+					if !RulesItem.Deny.IsNull() && !RulesItem.Deny.IsUnknown() {
 						RulesItemMap["deny"] = map[string]interface{}{}
 					}
 					if RulesItem.DestinationAWSVPCIds != nil {
@@ -1135,10 +1180,10 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						}
 						RulesItemMap["insert_service"] = RuleListRulesInsertServiceMap
 					}
-					if RulesItem.InsideDestinations != nil {
+					if !RulesItem.InsideDestinations.IsNull() && !RulesItem.InsideDestinations.IsUnknown() {
 						RulesItemMap["inside_destinations"] = map[string]interface{}{}
 					}
-					if RulesItem.InsideSources != nil {
+					if !RulesItem.InsideSources.IsNull() && !RulesItem.InsideSources.IsUnknown() {
 						RulesItemMap["inside_sources"] = map[string]interface{}{}
 					}
 					if RulesItem.LabelMatcher != nil {
@@ -1163,10 +1208,10 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						}
 						RulesItemMap["metadata"] = RuleListRulesMetadataMap
 					}
-					if RulesItem.OutsideDestinations != nil {
+					if !RulesItem.OutsideDestinations.IsNull() && !RulesItem.OutsideDestinations.IsUnknown() {
 						RulesItemMap["outside_destinations"] = map[string]interface{}{}
 					}
-					if RulesItem.OutsideSources != nil {
+					if !RulesItem.OutsideSources.IsNull() && !RulesItem.OutsideSources.IsUnknown() {
 						RulesItemMap["outside_sources"] = map[string]interface{}{}
 					}
 					if RulesItem.ProtocolPortRange != nil {
@@ -1250,7 +1295,7 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 		}
 		createReq.Spec["rule_list"] = RuleListMap
 	}
-	if data.AllowAll != nil {
+	if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() {
 		createReq.Spec["allow_all"] = map[string]interface{}{}
 	}
 
@@ -1364,8 +1409,12 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["deny_all"].(map[string]interface{}); ok && isImport && data.DenyAll == nil {
-		data.DenyAll = &EnhancedFirewallPolicyEmptyModel{}
+	if !isImport && !data.DenyAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["deny_all"].(map[string]interface{}); ok {
+		data.DenyAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DenyAll = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["rule_list"].(map[string]interface{}); ok && (isImport || data.RuleList != nil) {
 		data.RuleList = &EnhancedFirewallPolicyRuleListModel{
@@ -1396,77 +1445,77 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									}
 									return nil
 								}(),
-								AllDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllDestinations.IsUnknown() {
 										return RulesExisting[RulesIdx].AllDestinations
 									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllSLIVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllSLIVips: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSLIVips.IsUnknown() {
 										return RulesExisting[RulesIdx].AllSLIVips
 									}
 									if _, ok := RulesItemMap["all_sli_vips"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllSloVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllSloVips: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSloVips.IsUnknown() {
 										return RulesExisting[RulesIdx].AllSloVips
 									}
 									if _, ok := RulesItemMap["all_slo_vips"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSources.IsUnknown() {
 										return RulesExisting[RulesIdx].AllSources
 									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllTCPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllTCPTraffic: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllTCPTraffic.IsUnknown() {
 										return RulesExisting[RulesIdx].AllTCPTraffic
 									}
 									if _, ok := RulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllTraffic: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllTraffic.IsUnknown() {
 										return RulesExisting[RulesIdx].AllTraffic
 									}
 									if _, ok := RulesItemMap["all_traffic"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllUDPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllUDPTraffic: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllUDPTraffic.IsUnknown() {
 										return RulesExisting[RulesIdx].AllUDPTraffic
 									}
 									if _, ok := RulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								Allow: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								Allow: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].Allow.IsUnknown() {
 										return RulesExisting[RulesIdx].Allow
 									}
 									if _, ok := RulesItemMap["allow"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Applications: func() *EnhancedFirewallPolicyRuleListRulesApplicationsModel {
 									if ApplicationsData, ok := RulesItemMap["applications"].(map[string]interface{}); ok {
@@ -1489,14 +1538,14 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									}
 									return nil
 								}(),
-								Deny: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								Deny: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].Deny.IsUnknown() {
 										return RulesExisting[RulesIdx].Deny
 									}
 									if _, ok := RulesItemMap["deny"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								DestinationAWSVPCIds: func() *EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel {
 									if DestinationAWSVPCIdsData, ok := RulesItemMap["destination_aws_vpc_ids"].(map[string]interface{}); ok {
@@ -1652,23 +1701,23 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									}
 									return nil
 								}(),
-								InsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								InsideDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].InsideDestinations.IsUnknown() {
 										return RulesExisting[RulesIdx].InsideDestinations
 									}
 									if _, ok := RulesItemMap["inside_destinations"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								InsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								InsideSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].InsideSources.IsUnknown() {
 										return RulesExisting[RulesIdx].InsideSources
 									}
 									if _, ok := RulesItemMap["inside_sources"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								LabelMatcher: func() *EnhancedFirewallPolicyRuleListRulesLabelMatcherModel {
 									if LabelMatcherData, ok := RulesItemMap["label_matcher"].(map[string]interface{}); ok {
@@ -1710,23 +1759,23 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									}
 									return nil
 								}(),
-								OutsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								OutsideDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].OutsideDestinations.IsUnknown() {
 										return RulesExisting[RulesIdx].OutsideDestinations
 									}
 									if _, ok := RulesItemMap["outside_destinations"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								OutsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								OutsideSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].OutsideSources.IsUnknown() {
 										return RulesExisting[RulesIdx].OutsideSources
 									}
 									if _, ok := RulesItemMap["outside_sources"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ProtocolPortRange: func() *EnhancedFirewallPolicyRuleListRulesProtocolPortRangeModel {
 									if ProtocolPortRangeData, ok := RulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
@@ -1887,8 +1936,12 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok && isImport && data.AllowAll == nil {
-		data.AllowAll = &EnhancedFirewallPolicyEmptyModel{}
+	if !isImport && !data.AllowAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok {
+		data.AllowAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAll = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	tflog.Trace(ctx, "created EnhancedFirewallPolicy resource")
@@ -2093,8 +2146,12 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["deny_all"].(map[string]interface{}); ok && isImport && data.DenyAll == nil {
-		data.DenyAll = &EnhancedFirewallPolicyEmptyModel{}
+	if !isImport && !data.DenyAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["deny_all"].(map[string]interface{}); ok {
+		data.DenyAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DenyAll = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["rule_list"].(map[string]interface{}); ok && (isImport || data.RuleList != nil) {
 		data.RuleList = &EnhancedFirewallPolicyRuleListModel{
@@ -2125,77 +2182,77 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									}
 									return nil
 								}(),
-								AllDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllDestinations.IsUnknown() {
 										return RulesExisting[RulesIdx].AllDestinations
 									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllSLIVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllSLIVips: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSLIVips.IsUnknown() {
 										return RulesExisting[RulesIdx].AllSLIVips
 									}
 									if _, ok := RulesItemMap["all_sli_vips"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllSloVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllSloVips: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSloVips.IsUnknown() {
 										return RulesExisting[RulesIdx].AllSloVips
 									}
 									if _, ok := RulesItemMap["all_slo_vips"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSources.IsUnknown() {
 										return RulesExisting[RulesIdx].AllSources
 									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllTCPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllTCPTraffic: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllTCPTraffic.IsUnknown() {
 										return RulesExisting[RulesIdx].AllTCPTraffic
 									}
 									if _, ok := RulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllTraffic: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllTraffic.IsUnknown() {
 										return RulesExisting[RulesIdx].AllTraffic
 									}
 									if _, ok := RulesItemMap["all_traffic"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllUDPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllUDPTraffic: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllUDPTraffic.IsUnknown() {
 										return RulesExisting[RulesIdx].AllUDPTraffic
 									}
 									if _, ok := RulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								Allow: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								Allow: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].Allow.IsUnknown() {
 										return RulesExisting[RulesIdx].Allow
 									}
 									if _, ok := RulesItemMap["allow"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Applications: func() *EnhancedFirewallPolicyRuleListRulesApplicationsModel {
 									if ApplicationsData, ok := RulesItemMap["applications"].(map[string]interface{}); ok {
@@ -2218,14 +2275,14 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									}
 									return nil
 								}(),
-								Deny: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								Deny: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].Deny.IsUnknown() {
 										return RulesExisting[RulesIdx].Deny
 									}
 									if _, ok := RulesItemMap["deny"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								DestinationAWSVPCIds: func() *EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel {
 									if DestinationAWSVPCIdsData, ok := RulesItemMap["destination_aws_vpc_ids"].(map[string]interface{}); ok {
@@ -2381,23 +2438,23 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									}
 									return nil
 								}(),
-								InsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								InsideDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].InsideDestinations.IsUnknown() {
 										return RulesExisting[RulesIdx].InsideDestinations
 									}
 									if _, ok := RulesItemMap["inside_destinations"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								InsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								InsideSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].InsideSources.IsUnknown() {
 										return RulesExisting[RulesIdx].InsideSources
 									}
 									if _, ok := RulesItemMap["inside_sources"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								LabelMatcher: func() *EnhancedFirewallPolicyRuleListRulesLabelMatcherModel {
 									if LabelMatcherData, ok := RulesItemMap["label_matcher"].(map[string]interface{}); ok {
@@ -2439,23 +2496,23 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									}
 									return nil
 								}(),
-								OutsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								OutsideDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].OutsideDestinations.IsUnknown() {
 										return RulesExisting[RulesIdx].OutsideDestinations
 									}
 									if _, ok := RulesItemMap["outside_destinations"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								OutsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								OutsideSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].OutsideSources.IsUnknown() {
 										return RulesExisting[RulesIdx].OutsideSources
 									}
 									if _, ok := RulesItemMap["outside_sources"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ProtocolPortRange: func() *EnhancedFirewallPolicyRuleListRulesProtocolPortRangeModel {
 									if ProtocolPortRangeData, ok := RulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
@@ -2616,8 +2673,12 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok && isImport && data.AllowAll == nil {
-		data.AllowAll = &EnhancedFirewallPolicyEmptyModel{}
+	if !isImport && !data.AllowAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok {
+		data.AllowAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAll = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -2761,7 +2822,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 		}
 		apiResource.Spec["denied_sources"] = DeniedSourcesMap
 	}
-	if data.DenyAll != nil {
+	if !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
 		apiResource.Spec["deny_all"] = map[string]interface{}{}
 	}
 	if data.RuleList != nil {
@@ -2781,28 +2842,28 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						}
 						RulesItemMap["advanced_action"] = RuleListRulesAdvancedActionMap
 					}
-					if RulesItem.AllDestinations != nil {
+					if !RulesItem.AllDestinations.IsNull() && !RulesItem.AllDestinations.IsUnknown() {
 						RulesItemMap["all_destinations"] = map[string]interface{}{}
 					}
-					if RulesItem.AllSLIVips != nil {
+					if !RulesItem.AllSLIVips.IsNull() && !RulesItem.AllSLIVips.IsUnknown() {
 						RulesItemMap["all_sli_vips"] = map[string]interface{}{}
 					}
-					if RulesItem.AllSloVips != nil {
+					if !RulesItem.AllSloVips.IsNull() && !RulesItem.AllSloVips.IsUnknown() {
 						RulesItemMap["all_slo_vips"] = map[string]interface{}{}
 					}
-					if RulesItem.AllSources != nil {
+					if !RulesItem.AllSources.IsNull() && !RulesItem.AllSources.IsUnknown() {
 						RulesItemMap["all_sources"] = map[string]interface{}{}
 					}
-					if RulesItem.AllTCPTraffic != nil {
+					if !RulesItem.AllTCPTraffic.IsNull() && !RulesItem.AllTCPTraffic.IsUnknown() {
 						RulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
 					}
-					if RulesItem.AllTraffic != nil {
+					if !RulesItem.AllTraffic.IsNull() && !RulesItem.AllTraffic.IsUnknown() {
 						RulesItemMap["all_traffic"] = map[string]interface{}{}
 					}
-					if RulesItem.AllUDPTraffic != nil {
+					if !RulesItem.AllUDPTraffic.IsNull() && !RulesItem.AllUDPTraffic.IsUnknown() {
 						RulesItemMap["all_udp_traffic"] = map[string]interface{}{}
 					}
-					if RulesItem.Allow != nil {
+					if !RulesItem.Allow.IsNull() && !RulesItem.Allow.IsUnknown() {
 						RulesItemMap["allow"] = map[string]interface{}{}
 					}
 					if RulesItem.Applications != nil {
@@ -2817,7 +2878,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						}
 						RulesItemMap["applications"] = RuleListRulesApplicationsMap
 					}
-					if RulesItem.Deny != nil {
+					if !RulesItem.Deny.IsNull() && !RulesItem.Deny.IsUnknown() {
 						RulesItemMap["deny"] = map[string]interface{}{}
 					}
 					if RulesItem.DestinationAWSVPCIds != nil {
@@ -2893,10 +2954,10 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						}
 						RulesItemMap["insert_service"] = RuleListRulesInsertServiceMap
 					}
-					if RulesItem.InsideDestinations != nil {
+					if !RulesItem.InsideDestinations.IsNull() && !RulesItem.InsideDestinations.IsUnknown() {
 						RulesItemMap["inside_destinations"] = map[string]interface{}{}
 					}
-					if RulesItem.InsideSources != nil {
+					if !RulesItem.InsideSources.IsNull() && !RulesItem.InsideSources.IsUnknown() {
 						RulesItemMap["inside_sources"] = map[string]interface{}{}
 					}
 					if RulesItem.LabelMatcher != nil {
@@ -2921,10 +2982,10 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						}
 						RulesItemMap["metadata"] = RuleListRulesMetadataMap
 					}
-					if RulesItem.OutsideDestinations != nil {
+					if !RulesItem.OutsideDestinations.IsNull() && !RulesItem.OutsideDestinations.IsUnknown() {
 						RulesItemMap["outside_destinations"] = map[string]interface{}{}
 					}
-					if RulesItem.OutsideSources != nil {
+					if !RulesItem.OutsideSources.IsNull() && !RulesItem.OutsideSources.IsUnknown() {
 						RulesItemMap["outside_sources"] = map[string]interface{}{}
 					}
 					if RulesItem.ProtocolPortRange != nil {
@@ -3008,7 +3069,7 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 		}
 		apiResource.Spec["rule_list"] = RuleListMap
 	}
-	if data.AllowAll != nil {
+	if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() {
 		apiResource.Spec["allow_all"] = map[string]interface{}{}
 	}
 
@@ -3142,8 +3203,12 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["deny_all"].(map[string]interface{}); ok && isImport && data.DenyAll == nil {
-		data.DenyAll = &EnhancedFirewallPolicyEmptyModel{}
+	if !isImport && !data.DenyAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["deny_all"].(map[string]interface{}); ok {
+		data.DenyAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DenyAll = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["rule_list"].(map[string]interface{}); ok && (isImport || data.RuleList != nil) {
 		data.RuleList = &EnhancedFirewallPolicyRuleListModel{
@@ -3174,77 +3239,77 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									}
 									return nil
 								}(),
-								AllDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllDestinations.IsUnknown() {
 										return RulesExisting[RulesIdx].AllDestinations
 									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllSLIVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllSLIVips: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSLIVips.IsUnknown() {
 										return RulesExisting[RulesIdx].AllSLIVips
 									}
 									if _, ok := RulesItemMap["all_sli_vips"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllSloVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllSloVips: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSloVips.IsUnknown() {
 										return RulesExisting[RulesIdx].AllSloVips
 									}
 									if _, ok := RulesItemMap["all_slo_vips"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllSources.IsUnknown() {
 										return RulesExisting[RulesIdx].AllSources
 									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllTCPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllTCPTraffic: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllTCPTraffic.IsUnknown() {
 										return RulesExisting[RulesIdx].AllTCPTraffic
 									}
 									if _, ok := RulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllTraffic: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllTraffic.IsUnknown() {
 										return RulesExisting[RulesIdx].AllTraffic
 									}
 									if _, ok := RulesItemMap["all_traffic"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								AllUDPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								AllUDPTraffic: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].AllUDPTraffic.IsUnknown() {
 										return RulesExisting[RulesIdx].AllUDPTraffic
 									}
 									if _, ok := RulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								Allow: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								Allow: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].Allow.IsUnknown() {
 										return RulesExisting[RulesIdx].Allow
 									}
 									if _, ok := RulesItemMap["allow"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								Applications: func() *EnhancedFirewallPolicyRuleListRulesApplicationsModel {
 									if ApplicationsData, ok := RulesItemMap["applications"].(map[string]interface{}); ok {
@@ -3267,14 +3332,14 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									}
 									return nil
 								}(),
-								Deny: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								Deny: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].Deny.IsUnknown() {
 										return RulesExisting[RulesIdx].Deny
 									}
 									if _, ok := RulesItemMap["deny"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								DestinationAWSVPCIds: func() *EnhancedFirewallPolicyRuleListRulesDestinationAWSVPCIdsModel {
 									if DestinationAWSVPCIdsData, ok := RulesItemMap["destination_aws_vpc_ids"].(map[string]interface{}); ok {
@@ -3430,23 +3495,23 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									}
 									return nil
 								}(),
-								InsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								InsideDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].InsideDestinations.IsUnknown() {
 										return RulesExisting[RulesIdx].InsideDestinations
 									}
 									if _, ok := RulesItemMap["inside_destinations"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								InsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								InsideSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].InsideSources.IsUnknown() {
 										return RulesExisting[RulesIdx].InsideSources
 									}
 									if _, ok := RulesItemMap["inside_sources"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								LabelMatcher: func() *EnhancedFirewallPolicyRuleListRulesLabelMatcherModel {
 									if LabelMatcherData, ok := RulesItemMap["label_matcher"].(map[string]interface{}); ok {
@@ -3488,23 +3553,23 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									}
 									return nil
 								}(),
-								OutsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								OutsideDestinations: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].OutsideDestinations.IsUnknown() {
 										return RulesExisting[RulesIdx].OutsideDestinations
 									}
 									if _, ok := RulesItemMap["outside_destinations"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								OutsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx {
+								OutsideSources: func() types.Object {
+									if !isImport && len(RulesExisting) > RulesIdx && !RulesExisting[RulesIdx].OutsideSources.IsUnknown() {
 										return RulesExisting[RulesIdx].OutsideSources
 									}
 									if _, ok := RulesItemMap["outside_sources"].(map[string]interface{}); ok {
-										return &EnhancedFirewallPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								ProtocolPortRange: func() *EnhancedFirewallPolicyRuleListRulesProtocolPortRangeModel {
 									if ProtocolPortRangeData, ok := RulesItemMap["protocol_port_range"].(map[string]interface{}); ok {
@@ -3665,8 +3730,12 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok && isImport && data.AllowAll == nil {
-		data.AllowAll = &EnhancedFirewallPolicyEmptyModel{}
+	if !isImport && !data.AllowAll.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["allow_all"].(map[string]interface{}); ok {
+		data.AllowAll = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.AllowAll = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

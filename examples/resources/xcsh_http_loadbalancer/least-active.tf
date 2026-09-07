@@ -20,7 +20,7 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  least_active {}
+  least_active = {}
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }

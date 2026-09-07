@@ -20,5 +20,5 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
   }
 
-  do_not_advertise {}
+  do_not_advertise = {}
 }

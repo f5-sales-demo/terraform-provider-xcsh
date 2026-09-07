@@ -39,7 +39,7 @@ resource "xcsh_api_testing" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -64,9 +64,9 @@ resource "xcsh_api_testing" "example" {
 <a id="domains"></a>&#x2022; [`domains`](#domains) - Optional Block<br>Add and configure testing domains and credentials<br>See [Domains](#domains) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="every-day"></a>[`every_day`](#every-day) - Optional Block<br>Enable this option
-<br><br>&#x2022; <a id="every-month"></a>[`every_month`](#every-month) - Optional Block<br>Configuration parameter for every month
-<br><br>&#x2022; <a id="every-week"></a>[`every_week`](#every-week) - Optional Block<br>Enable this option
+&#x2022; <a id="every-day"></a>[`every_day`](#every-day) - Optional Object<br>Enable this option
+<br><br>&#x2022; <a id="every-month"></a>[`every_month`](#every-month) - Optional Object<br>Configuration parameter for every month
+<br><br>&#x2022; <a id="every-week"></a>[`every_week`](#every-week) - Optional Object<br>Enable this option
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
@@ -92,7 +92,7 @@ A [`domains`](#domains) block supports the following:
 
 A [`credentials`](#domains-credentials) block (within [`domains`](#domains)) supports the following:
 
-<a id="domains-credentials-admin"></a>&#x2022; [`admin`](#domains-credentials-admin) - Optional Block<br>Enable this option
+<a id="domains-credentials-admin"></a>&#x2022; [`admin`](#domains-credentials-admin) - Optional Object<br>Enable this option
 
 <a id="domains-credentials-api-key"></a>&#x2022; [`api_key`](#domains-credentials-api-key) - Optional Block<br>API Key<br>See [API Key](#domains-credentials-api-key) below.
 
@@ -104,7 +104,7 @@ A [`credentials`](#domains-credentials) block (within [`domains`](#domains)) sup
 
 <a id="domains-credentials-login-endpoint"></a>&#x2022; [`login_endpoint`](#domains-credentials-login-endpoint) - Optional Block<br>Login Endpoint<br>See [Login Endpoint](#domains-credentials-login-endpoint) below.
 
-<a id="domains-credentials-standard"></a>&#x2022; [`standard`](#domains-credentials-standard) - Optional Block<br>Enable this option
+<a id="domains-credentials-standard"></a>&#x2022; [`standard`](#domains-credentials-standard) - Optional Object<br>Enable this option
 
 #### Domains Credentials API Key
 

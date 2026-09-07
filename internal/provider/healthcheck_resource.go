@@ -22,6 +22,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/listplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -57,14 +58,14 @@ type HealthcheckEmptyModel struct {
 
 // HealthcheckHTTPHealthCheckModel represents http_health_check block
 type HealthcheckHTTPHealthCheckModel struct {
-	ExpectedResponse       types.String           `tfsdk:"expected_response"`
-	ExpectedStatusCodes    types.List             `tfsdk:"expected_status_codes"`
-	Headers                types.Map              `tfsdk:"headers"`
-	HostHeader             types.String           `tfsdk:"host_header"`
-	Path                   types.String           `tfsdk:"path"`
-	RequestHeadersToRemove types.List             `tfsdk:"request_headers_to_remove"`
-	UseHttp2               types.Bool             `tfsdk:"use_http2"`
-	UseOriginServerName    *HealthcheckEmptyModel `tfsdk:"use_origin_server_name"`
+	ExpectedResponse       types.String `tfsdk:"expected_response"`
+	ExpectedStatusCodes    types.List   `tfsdk:"expected_status_codes"`
+	Headers                types.Map    `tfsdk:"headers"`
+	HostHeader             types.String `tfsdk:"host_header"`
+	Path                   types.String `tfsdk:"path"`
+	RequestHeadersToRemove types.List   `tfsdk:"request_headers_to_remove"`
+	UseHttp2               types.Bool   `tfsdk:"use_http2"`
+	UseOriginServerName    types.Object `tfsdk:"use_origin_server_name"`
 }
 
 // HealthcheckHTTPHealthCheckModelAttrTypes defines the attribute types for HealthcheckHTTPHealthCheckModel
@@ -102,12 +103,12 @@ type HealthcheckResourceModel struct {
 	Description        types.String                     `tfsdk:"description"`
 	Disable            types.Bool                       `tfsdk:"disable"`
 	Labels             types.Map                        `tfsdk:"labels"`
+	UDPICMPHealthCheck types.Object                     `tfsdk:"udp_icmp_health_check"`
 	ID                 types.String                     `tfsdk:"id"`
 	JitterPercent      types.Int64                      `tfsdk:"jitter_percent"`
 	Timeouts           timeouts.Value                   `tfsdk:"timeouts"`
 	HTTPHealthCheck    *HealthcheckHTTPHealthCheckModel `tfsdk:"http_health_check"`
 	TCPHealthCheck     *HealthcheckTCPHealthCheckModel  `tfsdk:"tcp_health_check"`
-	UDPICMPHealthCheck *HealthcheckEmptyModel           `tfsdk:"udp_icmp_health_check"`
 }
 
 func (r *HealthcheckResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -184,6 +185,11 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"udp_icmp_health_check": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for udp icmp health check.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
 				Computed:            true,
@@ -215,7 +221,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"http_health_check": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: http_health_check, tcp_health_check, udp_icmp_health_check] Healthy if 'GET' method on URL 'HTTP(s)://<host>/<path>' with optional '<header>' returns success. 'host' is not used for DNS resolution. It is used as HTTP Header in the request.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("path")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("path"), validators.ConflictingObjectAttributes("host_header", "use_origin_server_name")},
 
 				Attributes: map[string]schema.Attribute{
 					"expected_response": schema.StringAttribute{
@@ -284,10 +290,14 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 							boolplanmodifier.UseStateForUnknown(),
 						},
 					},
-				},
-				Blocks: map[string]schema.Block{
-					"use_origin_server_name": schema.SingleNestedBlock{
+					"use_origin_server_name": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.Object{
+							objectplanmodifier.UseStateForUnknown(),
+						},
+						AttributeTypes: map[string]attr.Type{},
 					},
 				},
 			},
@@ -310,9 +320,6 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 						},
 					},
 				},
-			},
-			"udp_icmp_health_check": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for udp icmp health check.",
 			},
 		},
 	}
@@ -490,7 +497,7 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.HTTPHealthCheck.UseHttp2.IsNull() && !data.HTTPHealthCheck.UseHttp2.IsUnknown() {
 			HTTPHealthCheckMap["use_http2"] = data.HTTPHealthCheck.UseHttp2.ValueBool()
 		}
-		if data.HTTPHealthCheck.UseOriginServerName != nil {
+		if !data.HTTPHealthCheck.UseOriginServerName.IsNull() && !data.HTTPHealthCheck.UseOriginServerName.IsUnknown() {
 			HTTPHealthCheckMap["use_origin_server_name"] = map[string]interface{}{}
 		}
 		createReq.Spec["http_health_check"] = HTTPHealthCheckMap
@@ -505,7 +512,7 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 		}
 		createReq.Spec["tcp_health_check"] = TCPHealthCheckMap
 	}
-	if data.UDPICMPHealthCheck != nil {
+	if !data.UDPICMPHealthCheck.IsNull() && !data.UDPICMPHealthCheck.IsUnknown() {
 		createReq.Spec["udp_icmp_health_check"] = map[string]interface{}{}
 	}
 	if !data.JitterPercent.IsNull() && !data.JitterPercent.IsUnknown() {
@@ -638,14 +645,14 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return types.BoolNull()
 			}(),
-			UseOriginServerName: func() *HealthcheckEmptyModel {
-				if !isImport && data.HTTPHealthCheck != nil {
+			UseOriginServerName: func() types.Object {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.UseOriginServerName.IsUnknown() {
 					return data.HTTPHealthCheck.UseOriginServerName
 				}
 				if _, ok := blockData["use_origin_server_name"].(map[string]interface{}); ok {
-					return &HealthcheckEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -665,8 +672,12 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["udp_icmp_health_check"].(map[string]interface{}); ok && isImport && data.UDPICMPHealthCheck == nil {
-		data.UDPICMPHealthCheck = &HealthcheckEmptyModel{}
+	if !isImport && !data.UDPICMPHealthCheck.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["udp_icmp_health_check"].(map[string]interface{}); ok {
+		data.UDPICMPHealthCheck = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UDPICMPHealthCheck = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["jitter_percent"].(float64); ok {
 		data.JitterPercent = types.Int64Value(int64(v))
@@ -892,14 +903,14 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return types.BoolNull()
 			}(),
-			UseOriginServerName: func() *HealthcheckEmptyModel {
-				if !isImport && data.HTTPHealthCheck != nil {
+			UseOriginServerName: func() types.Object {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.UseOriginServerName.IsUnknown() {
 					return data.HTTPHealthCheck.UseOriginServerName
 				}
 				if _, ok := blockData["use_origin_server_name"].(map[string]interface{}); ok {
-					return &HealthcheckEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -919,8 +930,12 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["udp_icmp_health_check"].(map[string]interface{}); ok && isImport && data.UDPICMPHealthCheck == nil {
-		data.UDPICMPHealthCheck = &HealthcheckEmptyModel{}
+	if !isImport && !data.UDPICMPHealthCheck.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["udp_icmp_health_check"].(map[string]interface{}); ok {
+		data.UDPICMPHealthCheck = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UDPICMPHealthCheck = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["jitter_percent"].(float64); ok {
 		data.JitterPercent = types.Int64Value(int64(v))
@@ -1071,7 +1086,7 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.HTTPHealthCheck.UseHttp2.IsNull() && !data.HTTPHealthCheck.UseHttp2.IsUnknown() {
 			HTTPHealthCheckMap["use_http2"] = data.HTTPHealthCheck.UseHttp2.ValueBool()
 		}
-		if data.HTTPHealthCheck.UseOriginServerName != nil {
+		if !data.HTTPHealthCheck.UseOriginServerName.IsNull() && !data.HTTPHealthCheck.UseOriginServerName.IsUnknown() {
 			HTTPHealthCheckMap["use_origin_server_name"] = map[string]interface{}{}
 		}
 		apiResource.Spec["http_health_check"] = HTTPHealthCheckMap
@@ -1086,7 +1101,7 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 		}
 		apiResource.Spec["tcp_health_check"] = TCPHealthCheckMap
 	}
-	if data.UDPICMPHealthCheck != nil {
+	if !data.UDPICMPHealthCheck.IsNull() && !data.UDPICMPHealthCheck.IsUnknown() {
 		apiResource.Spec["udp_icmp_health_check"] = map[string]interface{}{}
 	}
 	if !data.JitterPercent.IsNull() && !data.JitterPercent.IsUnknown() {
@@ -1246,14 +1261,14 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return types.BoolNull()
 			}(),
-			UseOriginServerName: func() *HealthcheckEmptyModel {
-				if !isImport && data.HTTPHealthCheck != nil {
+			UseOriginServerName: func() types.Object {
+				if !isImport && data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.UseOriginServerName.IsUnknown() {
 					return data.HTTPHealthCheck.UseOriginServerName
 				}
 				if _, ok := blockData["use_origin_server_name"].(map[string]interface{}); ok {
-					return &HealthcheckEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -1273,8 +1288,12 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["udp_icmp_health_check"].(map[string]interface{}); ok && isImport && data.UDPICMPHealthCheck == nil {
-		data.UDPICMPHealthCheck = &HealthcheckEmptyModel{}
+	if !isImport && !data.UDPICMPHealthCheck.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["udp_icmp_health_check"].(map[string]interface{}); ok {
+		data.UDPICMPHealthCheck = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.UDPICMPHealthCheck = types.ObjectNull(map[string]attr.Type{})
 	}
 	if v, ok := apiResource.Spec["jitter_percent"].(float64); ok {
 		data.JitterPercent = types.Int64Value(int64(v))

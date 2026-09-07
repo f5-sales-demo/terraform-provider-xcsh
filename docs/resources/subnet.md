@@ -39,7 +39,7 @@ resource "xcsh_subnet" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -61,8 +61,8 @@ resource "xcsh_subnet" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="connect-to-layer2"></a>[`connect_to_layer2`](#connect-to-layer2) - Optional Block<br>Configuration parameter for connect to layer2<br>See [Connect To Layer2](#connect-to-layer2) below for details.
-<br><br>&#x2022; <a id="connect-to-slo"></a>[`connect_to_slo`](#connect-to-slo) - Optional Block<br>Configuration parameter for connect to slo
-<br><br>&#x2022; <a id="isolated-nw"></a>[`isolated_nw`](#isolated-nw) - Optional Block<br>Configuration parameter for isolated nw
+<br><br>&#x2022; <a id="connect-to-slo"></a>[`connect_to_slo`](#connect-to-slo) - Optional Object<br>Configuration parameter for connect to slo
+<br><br>&#x2022; <a id="isolated-nw"></a>[`isolated_nw`](#isolated-nw) - Optional Object<br>Configuration parameter for isolated nw
 
 <a id="site-subnet-params"></a>&#x2022; [`site_subnet_params`](#site-subnet-params) - Optional Block<br>Site Subnet Parameters. Configure subnet parameters per site<br>See [Site Subnet Params](#site-subnet-params) below for details.
 
@@ -92,17 +92,29 @@ A [`layer2_intf_ref`](#connect-to-layer2-layer2-intf-ref) block (within [`connec
 
 <a id="tenant-0fab0d"></a>&#x2022; [`tenant`](#tenant-0fab0d) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Connect To Slo
+
+A [`connect_to_slo`](#connect-to-slo) block supports the following:
+
+#### Isolated Nw
+
+An [`isolated_nw`](#isolated-nw) block supports the following:
+
 #### Site Subnet Params
 
 A [`site_subnet_params`](#site-subnet-params) block supports the following:
 
-<a id="site-subnet-params-dhcp"></a>&#x2022; [`dhcp`](#site-subnet-params-dhcp) - Optional Block<br>Enable this option
+<a id="site-subnet-params-dhcp"></a>&#x2022; [`dhcp`](#site-subnet-params-dhcp) - Optional Object<br>Enable this option
 
 <a id="site-subnet-params-site"></a>&#x2022; [`site`](#site-subnet-params-site) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Site](#site-subnet-params-site) below.
 
-<a id="site-subnet-params-static-ip"></a>&#x2022; [`static_ip`](#site-subnet-params-static-ip) - Optional Block<br>Enable this option
+<a id="site-subnet-params-static-ip"></a>&#x2022; [`static_ip`](#site-subnet-params-static-ip) - Optional Object<br>Enable this option
 
 <a id="params-2a5102"></a>&#x2022; [`subnet_dhcp_server_params`](#params-2a5102) - Optional Block<br>Subnet DHCP parameters will be a subset of network_interface.dhcpserverparameterstype as all features in network_interface.dhcpserverparameterstype may not be supported in a subnet<br>See [Subnet DHCP Server Params](#params-2a5102) below.
+
+#### Site Subnet Params DHCP
+
+A [`dhcp`](#site-subnet-params-dhcp) block (within [`site_subnet_params`](#site-subnet-params)) supports the following:
 
 #### Site Subnet Params Site
 
@@ -113,6 +125,10 @@ A [`site`](#site-subnet-params-site) block (within [`site_subnet_params`](#site-
 <a id="site-subnet-params-site-namespace"></a>&#x2022; [`namespace`](#site-subnet-params-site-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="site-subnet-params-site-tenant"></a>&#x2022; [`tenant`](#site-subnet-params-site-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Site Subnet Params Static IP
+
+A [`static_ip`](#site-subnet-params-static-ip) block (within [`site_subnet_params`](#site-subnet-params)) supports the following:
 
 #### Site Subnet Params Subnet DHCP Server Params
 

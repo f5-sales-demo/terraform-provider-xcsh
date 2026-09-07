@@ -22,8 +22,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls                = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_http_loadbalancer" "test" {
@@ -45,5 +45,5 @@ resource "xcsh_http_loadbalancer" "test" {
     priority = 1
   }
 
-  advertise_on_public_default_vip {}
+  advertise_on_public_default_vip = {}
 }

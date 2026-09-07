@@ -44,7 +44,7 @@ resource "xcsh_ike_phase1_profile" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -80,13 +80,13 @@ encryption algorithms
 <a id="prf"></a>&#x2022; [`prf`](#prf) - Required List  Defaults to `PRF_DEFAULT`<br>Possible values are `PRF_DEFAULT`, `PRFSHA256`, `PRFSHA384`, `PRFSHA512`<br>[Enum: PRF_DEFAULT|PRFSHA256|PRFSHA384|PRFSHA512] PseudoRandomFunction. Select PseudoRandomFunction for IKE SA
 
 -> **One of the following:**
-&#x2022; <a id="reauth-disabled"></a>[`reauth_disabled`](#reauth-disabled) - Optional Block<br>Enable this option
+&#x2022; <a id="reauth-disabled"></a>[`reauth_disabled`](#reauth-disabled) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="reauth-timeout-days"></a>[`reauth_timeout_days`](#reauth-timeout-days) - Optional Block<br>Configuration parameter for reauth timeout days<br>See [Reauth Timeout Days](#reauth-timeout-days) below for details.
 <br><br>&#x2022; <a id="reauth-timeout-hours"></a>[`reauth_timeout_hours`](#reauth-timeout-hours) - Optional Block<br>Configuration parameter for reauth timeout hours<br>See [Reauth Timeout Hours](#reauth-timeout-hours) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="use-default-keylifetime"></a>&#x2022; [`use_default_keylifetime`](#use-default-keylifetime) - Optional Block<br>Configuration parameter for use default keylifetime
+<a id="use-default-keylifetime"></a>&#x2022; [`use_default_keylifetime`](#use-default-keylifetime) - Optional Object<br>Configuration parameter for use default keylifetime
 
 ### Attributes Reference
 
@@ -107,6 +107,10 @@ An [`ike_keylifetime_hours`](#ike-keylifetime-hours) block supports the followin
 An [`ike_keylifetime_minutes`](#ike-keylifetime-minutes) block supports the following:
 
 <a id="ike-keylifetime-minutes-duration"></a>&#x2022; [`duration`](#ike-keylifetime-minutes-duration) - Optional Number<br>Duration. Configuration parameter for duration
+
+#### Reauth Disabled
+
+A [`reauth_disabled`](#reauth-disabled) block supports the following:
 
 #### Reauth Timeout Days
 
@@ -131,6 +135,10 @@ A [`timeouts`](#timeouts) block supports the following:
 <a id="timeouts-read"></a>&#x2022; [`read`](#timeouts-read) - Optional String (Defaults to `5 minutes`)<br>Used when retrieving the resource
 
 <a id="timeouts-update"></a>&#x2022; [`update`](#timeouts-update) - Optional String (Defaults to `10 minutes`)<br>Used when updating the resource
+
+#### Use Default Keylifetime
+
+An [`use_default_keylifetime`](#use-default-keylifetime) block supports the following:
 
 ---
 

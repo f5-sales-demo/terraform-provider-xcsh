@@ -90,6 +90,12 @@ func TestNormalizeDocumentProseIsIdempotent(t *testing.T) {
 	}
 }
 
+func TestExtractSimpleTypePreservesEmptyObjectAttributes(t *testing.T) {
+	if got := extractSimpleType("Object"); got != "Object" {
+		t.Fatalf("extractSimpleType(Object) = %q, want Object", got)
+	}
+}
+
 func TestDescriptionDeduplicationPreservesCollapsedSection(t *testing.T) {
 	input := strings.Join([]string{
 		"#### One Two Three Four Five Six Seven JavaScript",
@@ -133,7 +139,7 @@ func TestSecuremeshSiteV2DocumentationIsExhaustiveAndCurrent(t *testing.T) {
 		"[`aws`]", "[`azure`]", "[`baremetal`]", "[`equinix`]", "[`gcp`]",
 		"[`kvm`]", "[`nutanix`]", "[`oci`]", "[`openshift_virtualization`]",
 		"[`openstack`]", "[`vmware`]", "[`segment_network`]", "[`is_management`]",
-		"[`is_primary`]",
+		"[`is_primary`]", "[`disable_ha`](#disable-ha) - Optional Object",
 	} {
 		if !strings.Contains(document, required) {
 			t.Errorf("SecureMesh v2 documentation is missing %q", required)

@@ -16,6 +16,6 @@ resource "xcsh_user_identification" "test" {
   namespace = "system"
 
   rules {
-    tls_fingerprint {}
+    tls_fingerprint = {}
   }
 }

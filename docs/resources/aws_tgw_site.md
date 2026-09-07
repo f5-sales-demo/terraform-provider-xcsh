@@ -39,7 +39,7 @@ resource "xcsh_aws_tgw_site" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -62,17 +62,17 @@ resource "xcsh_aws_tgw_site" "example" {
 <a id="aws-parameters"></a>&#x2022; [`aws_parameters`](#aws-parameters) - Optional Block<br>Setup AWS services VPC, transit gateway and site<br>See [AWS Parameters](#aws-parameters) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="block-all-services"></a>[`block_all_services`](#block-all-services) - Optional Block<br>Enable this option
+&#x2022; <a id="block-all-services"></a>[`block_all_services`](#block-all-services) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="blocked-services"></a>[`blocked_services`](#blocked-services) - Optional Block<br>Disable node local services on this site<br>See [Blocked Services](#blocked-services) below for details.
 
 <a id="coordinates"></a>&#x2022; [`coordinates`](#coordinates) - Optional Block<br>Coordinates of the site which provides the site physical location<br>See [Coordinates](#coordinates) below for details.
 
 <a id="custom-dns"></a>&#x2022; [`custom_dns`](#custom-dns) - Optional Block<br>Custom DNS is the configured for specify CE site<br>See [Custom DNS](#custom-dns) below for details.
 
-<a id="default-blocked-services"></a>&#x2022; [`default_blocked_services`](#default-blocked-services) - Optional Block<br>Enable this option
+<a id="default-blocked-services"></a>&#x2022; [`default_blocked_services`](#default-blocked-services) - Optional Object<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="direct-connect-disabled"></a>[`direct_connect_disabled`](#direct-connect-disabled) - Optional Block<br>Enable this option
+&#x2022; <a id="direct-connect-disabled"></a>[`direct_connect_disabled`](#direct-connect-disabled) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="direct-connect-enabled"></a>[`direct_connect_enabled`](#direct-connect-enabled) - Optional Block<br>Direct Connect Configuration. Direct Connect Configuration<br>See [Direct Connect Enabled](#direct-connect-enabled) below for details.
 <br><br>&#x2022; <a id="private-connectivity"></a>[`private_connectivity`](#private-connectivity) - Optional Block<br>Configuration parameter for private connectivity
 
@@ -80,7 +80,7 @@ resource "xcsh_aws_tgw_site" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="log-receiver"></a>[`log_receiver`](#log-receiver) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Log Receiver](#log-receiver) below for details.
-<br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Block<br>Enable this option
+<br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Object<br>Enable this option
 
 <a id="offline-survivability-mode"></a>&#x2022; [`offline_survivability_mode`](#offline-survivability-mode) - Optional Block<br>Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing
 configuration for upto 7<br>See [Offline Survivability Mode](#offline-survivability-mode) below for details.
@@ -123,19 +123,19 @@ An [`aws_parameters`](#aws-parameters) block supports the following:
 
 <a id="aws-parameters-custom-security-group"></a>&#x2022; [`custom_security_group`](#aws-parameters-custom-security-group) - Optional Block<br>Enter pre created security groups for slo(Site Local Outside) and SLI(Site Local Inside) interface. Supported only for sites deployed on existing VPC<br>See [Custom Security Group](#aws-parameters-custom-security-group) below.
 
-<a id="aws-parameters-disable-encryption"></a>&#x2022; [`disable_encryption`](#aws-parameters-disable-encryption) - Optional Block<br>Configuration parameter for disable encryption
+<a id="aws-parameters-disable-encryption"></a>&#x2022; [`disable_encryption`](#aws-parameters-disable-encryption) - Optional Object<br>Configuration parameter for disable encryption
 
-<a id="aws-parameters-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#aws-parameters-disable-internet-vip) - Optional Block<br>Enable this option
+<a id="aws-parameters-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#aws-parameters-disable-internet-vip) - Optional Object<br>Enable this option
 
 <a id="aws-parameters-disk-size"></a>&#x2022; [`disk_size`](#aws-parameters-disk-size) - Optional Number<br>Node disk size for all node in the F5XC site. Unit is GiB
 
 <a id="aws-parameters-enable-encryption"></a>&#x2022; [`enable_encryption`](#aws-parameters-enable-encryption) - Optional Block<br>Configuration parameter for enable encryption<br>See [Enable Encryption](#aws-parameters-enable-encryption) below.
 
-<a id="aws-parameters-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#aws-parameters-enable-internet-vip) - Optional Block<br>Enable this option
+<a id="aws-parameters-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#aws-parameters-enable-internet-vip) - Optional Object<br>Enable this option
 
 <a id="aws-parameters-existing-tgw"></a>&#x2022; [`existing_tgw`](#aws-parameters-existing-tgw) - Optional Block<br>Configuration parameter for existing TGW<br>See [Existing TGW](#aws-parameters-existing-tgw) below.
 
-<a id="aws-parameters-f5xc-security-group"></a>&#x2022; [`f5xc_security_group`](#aws-parameters-f5xc-security-group) - Optional Block<br>Enable this option
+<a id="aws-parameters-f5xc-security-group"></a>&#x2022; [`f5xc_security_group`](#aws-parameters-f5xc-security-group) - Optional Object<br>Enable this option
 
 <a id="aws-parameters-instance-type"></a>&#x2022; [`instance_type`](#aws-parameters-instance-type) - Optional String<br>AWS Instance Type for Node. Instance size based on the performance
 
@@ -143,11 +143,11 @@ An [`aws_parameters`](#aws-parameters) block supports the following:
 
 <a id="aws-parameters-new-vpc"></a>&#x2022; [`new_vpc`](#aws-parameters-new-vpc) - Optional Block<br>AWS VPC Parameters. Parameters to create new AWS VPC<br>See [New VPC](#aws-parameters-new-vpc) below.
 
-<a id="aws-parameters-no-worker-nodes"></a>&#x2022; [`no_worker_nodes`](#aws-parameters-no-worker-nodes) - Optional Block<br>Configuration parameter for no worker nodes
+<a id="aws-parameters-no-worker-nodes"></a>&#x2022; [`no_worker_nodes`](#aws-parameters-no-worker-nodes) - Optional Object<br>Configuration parameter for no worker nodes
 
 <a id="aws-parameters-nodes-per-az"></a>&#x2022; [`nodes_per_az`](#aws-parameters-nodes-per-az) - Optional Number<br>Desired Worker Nodes Per AZ. Max limit is up to 21
 
-<a id="aws-parameters-reserved-tgw-cidr"></a>&#x2022; [`reserved_tgw_cidr`](#aws-parameters-reserved-tgw-cidr) - Optional Block<br>Configuration parameter for reserved TGW CIDR
+<a id="aws-parameters-reserved-tgw-cidr"></a>&#x2022; [`reserved_tgw_cidr`](#aws-parameters-reserved-tgw-cidr) - Optional Object<br>Configuration parameter for reserved TGW CIDR
 
 <a id="aws-parameters-ssh-key"></a>&#x2022; [`ssh_key`](#aws-parameters-ssh-key) - Optional String<br>Public SSH key for accessing nodes of the site
 
@@ -203,7 +203,7 @@ An [`az_nodes`](#aws-parameters-az-nodes) block (within [`aws_parameters`](#aws-
 
 <a id="aws-parameters-az-nodes-outside-subnet"></a>&#x2022; [`outside_subnet`](#aws-parameters-az-nodes-outside-subnet) - Optional Block<br>Configuration parameter for outside subnet<br>See [Outside Subnet](#aws-parameters-az-nodes-outside-subnet) below.
 
-<a id="subnet-54f20b"></a>&#x2022; [`reserved_inside_subnet`](#subnet-54f20b) - Optional Block<br>Configuration parameter for reserved inside subnet
+<a id="subnet-54f20b"></a>&#x2022; [`reserved_inside_subnet`](#subnet-54f20b) - Optional Object<br>Configuration parameter for reserved inside subnet
 
 <a id="aws-parameters-az-nodes-workload-subnet"></a>&#x2022; [`workload_subnet`](#aws-parameters-az-nodes-workload-subnet) - Optional Block<br>Configuration parameter for workload subnet<br>See [Workload Subnet](#aws-parameters-az-nodes-workload-subnet) below.
 
@@ -231,6 +231,10 @@ An [`outside_subnet`](#aws-parameters-az-nodes-outside-subnet) block (within [`a
 
 <a id="deep-4c5e7a"></a>Deeply nested **Param** block collapsed for readability.
 
+#### AWS Parameters Az Nodes Reserved Inside Subnet
+
+A [`reserved_inside_subnet`](#subnet-54f20b) block (within [`aws_parameters.az_nodes`](#aws-parameters-az-nodes)) supports the following:
+
 #### AWS Parameters Az Nodes Workload Subnet
 
 A [`workload_subnet`](#aws-parameters-az-nodes-workload-subnet) block (within [`aws_parameters.az_nodes`](#aws-parameters-az-nodes)) supports the following:
@@ -251,11 +255,23 @@ A [`custom_security_group`](#aws-parameters-custom-security-group) block (within
 
 <a id="group-id-53cd44"></a>&#x2022; [`outside_security_group_id`](#group-id-53cd44) - Optional String<br>Security Group ID to be attached to SLO(Site Local Outside) Interface
 
+#### AWS Parameters Disable Encryption
+
+A [`disable_encryption`](#aws-parameters-disable-encryption) block (within [`aws_parameters`](#aws-parameters)) supports the following:
+
+#### AWS Parameters Disable internet VIP
+
+A [`disable_internet_vip`](#aws-parameters-disable-internet-vip) block (within [`aws_parameters`](#aws-parameters)) supports the following:
+
 #### AWS Parameters Enable Encryption
 
 An [`enable_encryption`](#aws-parameters-enable-encryption) block (within [`aws_parameters`](#aws-parameters)) supports the following:
 
 <a id="key-id-ed3d9f"></a>&#x2022; [`kms_key_id`](#key-id-ed3d9f) - Optional String<br>AWS KMS Key to be used to encrypt the disk attached to the VM
+
+#### AWS Parameters Enable internet VIP
+
+An [`enable_internet_vip`](#aws-parameters-enable-internet-vip) block (within [`aws_parameters`](#aws-parameters)) supports the following:
 
 #### AWS Parameters Existing TGW
 
@@ -267,13 +283,21 @@ An [`existing_tgw`](#aws-parameters-existing-tgw) block (within [`aws_parameters
 
 <a id="asn-c966c9"></a>&#x2022; [`volterra_site_asn`](#asn-c966c9) - Optional Number<br>Enter F5XC Site ASN. F5XC Site ASN
 
+#### AWS Parameters F5xc Security Group
+
+A [`f5xc_security_group`](#aws-parameters-f5xc-security-group) block (within [`aws_parameters`](#aws-parameters)) supports the following:
+
 #### AWS Parameters New TGW
 
 A [`new_tgw`](#aws-parameters-new-tgw) block (within [`aws_parameters`](#aws-parameters)) supports the following:
 
-<a id="aws-parameters-new-tgw-system-generated"></a>&#x2022; [`system_generated`](#aws-parameters-new-tgw-system-generated) - Optional Block<br>Configuration parameter for system generated
+<a id="aws-parameters-new-tgw-system-generated"></a>&#x2022; [`system_generated`](#aws-parameters-new-tgw-system-generated) - Optional Object<br>Configuration parameter for system generated
 
 <a id="aws-parameters-new-tgw-user-assigned"></a>&#x2022; [`user_assigned`](#aws-parameters-new-tgw-user-assigned) - Optional Block<br>Information needed when ASNs are assigned by the user<br>See [User Assigned](#aws-parameters-new-tgw-user-assigned) below.
+
+#### AWS Parameters New TGW System Generated
+
+A [`system_generated`](#aws-parameters-new-tgw-system-generated) block (within [`aws_parameters.new_tgw`](#aws-parameters-new-tgw)) supports the following:
 
 #### AWS Parameters New TGW User Assigned
 
@@ -287,17 +311,33 @@ An [`user_assigned`](#aws-parameters-new-tgw-user-assigned) block (within [`aws_
 
 A [`new_vpc`](#aws-parameters-new-vpc) block (within [`aws_parameters`](#aws-parameters)) supports the following:
 
-<a id="aws-parameters-new-vpc-autogenerate"></a>&#x2022; [`autogenerate`](#aws-parameters-new-vpc-autogenerate) - Optional Block<br>Configuration parameter for autogenerate
+<a id="aws-parameters-new-vpc-autogenerate"></a>&#x2022; [`autogenerate`](#aws-parameters-new-vpc-autogenerate) - Optional Object<br>Configuration parameter for autogenerate
 
 <a id="aws-parameters-new-vpc-name-tag"></a>&#x2022; [`name_tag`](#aws-parameters-new-vpc-name-tag) - Optional String<br>Specify the VPC Name
 
 <a id="aws-parameters-new-vpc-primary-ipv4"></a>&#x2022; [`primary_ipv4`](#aws-parameters-new-vpc-primary-ipv4) - Optional String<br>IPv4 CIDR block for this VPC. It has to be private address space. The Primary IPv4 block cannot be modified. All subnets prefixes in this VPC must be part of this CIDR block
+
+#### AWS Parameters New VPC Autogenerate
+
+An [`autogenerate`](#aws-parameters-new-vpc-autogenerate) block (within [`aws_parameters.new_vpc`](#aws-parameters-new-vpc)) supports the following:
+
+#### AWS Parameters No Worker Nodes
+
+A [`no_worker_nodes`](#aws-parameters-no-worker-nodes) block (within [`aws_parameters`](#aws-parameters)) supports the following:
+
+#### AWS Parameters Reserved TGW CIDR
+
+A [`reserved_tgw_cidr`](#aws-parameters-reserved-tgw-cidr) block (within [`aws_parameters`](#aws-parameters)) supports the following:
 
 #### AWS Parameters TGW CIDR
 
 A [`tgw_cidr`](#aws-parameters-tgw-cidr) block (within [`aws_parameters`](#aws-parameters)) supports the following:
 
 <a id="aws-parameters-tgw-cidr-ipv4"></a>&#x2022; [`ipv4`](#aws-parameters-tgw-cidr-ipv4) - Optional String<br>IPv4 Subnet. IPv4 subnet prefix for this subnet
+
+#### Block All Services
+
+A [`block_all_services`](#block-all-services) block supports the following:
 
 #### Blocked Services
 
@@ -309,16 +349,28 @@ A [`blocked_services`](#blocked-services) block supports the following:
 
 A [`blocked_service`](#blocked-services-blocked-service) block (within [`blocked_services`](#blocked-services)) supports the following:
 
-<a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Block<br>Enable this option
+<a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Object<br>Enable this option
 
 <a id="type-5b1d65"></a>&#x2022; [`network_type`](#type-5b1d65) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
-<a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Block<br>Enable this option
+<a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Object<br>Enable this option
 
-<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Block<br>Enable this option
+<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Object<br>Enable this option
+
+#### Blocked Services Blocked Service DNS
+
+A [`dns`](#blocked-services-blocked-service-dns) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
+
+#### Blocked Services Blocked Service SSH
+
+A [`ssh`](#blocked-services-blocked-service-ssh) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
+
+#### Blocked Services Blocked Service Web User Interface
+
+A [`web_user_interface`](#interface-1ff33c) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
 
 #### Coordinates
 
@@ -336,17 +388,29 @@ A [`custom_dns`](#custom-dns) block supports the following:
 
 <a id="custom-dns-outside-nameserver"></a>&#x2022; [`outside_nameserver`](#custom-dns-outside-nameserver) - Optional String<br>Optional DNS server IP to be used for name resolution in outside network
 
+#### Default Blocked Services
+
+A [`default_blocked_services`](#default-blocked-services) block supports the following:
+
+#### Direct Connect Disabled
+
+A [`direct_connect_disabled`](#direct-connect-disabled) block supports the following:
+
 #### Direct Connect Enabled
 
 A [`direct_connect_enabled`](#direct-connect-enabled) block supports the following:
 
-<a id="direct-connect-enabled-auto-asn"></a>&#x2022; [`auto_asn`](#direct-connect-enabled-auto-asn) - Optional Block<br>Enable this option
+<a id="direct-connect-enabled-auto-asn"></a>&#x2022; [`auto_asn`](#direct-connect-enabled-auto-asn) - Optional Object<br>Enable this option
 
 <a id="direct-connect-enabled-custom-asn"></a>&#x2022; [`custom_asn`](#direct-connect-enabled-custom-asn) - Optional Number<br>Custom Autonomous System Number
 
 <a id="direct-connect-enabled-hosted-vifs"></a>&#x2022; [`hosted_vifs`](#direct-connect-enabled-hosted-vifs) - Optional Block<br>AWS Direct Connect Hosted VIF Configuration<br>See [Hosted Vifs](#direct-connect-enabled-hosted-vifs) below.
 
-<a id="direct-connect-enabled-standard-vifs"></a>&#x2022; [`standard_vifs`](#direct-connect-enabled-standard-vifs) - Optional Block<br>Configuration parameter for standard vifs
+<a id="direct-connect-enabled-standard-vifs"></a>&#x2022; [`standard_vifs`](#direct-connect-enabled-standard-vifs) - Optional Object<br>Configuration parameter for standard vifs
+
+#### Direct Connect Enabled Auto Asn
+
+An [`auto_asn`](#direct-connect-enabled-auto-asn) block (within [`direct_connect_enabled`](#direct-connect-enabled)) supports the following:
 
 #### Direct Connect Enabled Hosted Vifs
 
@@ -354,13 +418,17 @@ A [`hosted_vifs`](#direct-connect-enabled-hosted-vifs) block (within [`direct_co
 
 <a id="connect-b8275e"></a>&#x2022; [`site_registration_over_direct_connect`](#connect-b8275e) - Optional Block<br>CloudLink ADN Network Config<br>See [Site Registration Over Direct Connect](#connect-b8275e) below.
 
-<a id="internet-6028e0"></a>&#x2022; [`site_registration_over_internet`](#internet-6028e0) - Optional Block<br>Enable this option
+<a id="internet-6028e0"></a>&#x2022; [`site_registration_over_internet`](#internet-6028e0) - Optional Object<br>Enable this option
 
 <a id="list-d6c323"></a>&#x2022; [`vif_list`](#list-d6c323) - Optional Block<br>List of Hosted VIF Config. List of Hosted VIF Config<br>See [Vif List](#list-d6c323) below.
 
 #### Direct Connect Enabled Hosted Vifs Site Registration Over Direct Connect
 
 <a id="deep-3f196d"></a>Deeply nested **Connect** block collapsed for readability.
+
+#### Direct Connect Enabled Hosted Vifs Site Registration Over internet
+
+<a id="deep-41c016"></a>Deeply nested **internet** block collapsed for readability.
 
 #### Direct Connect Enabled Hosted Vifs Vif List
 
@@ -369,29 +437,51 @@ A [`vif_list`](#list-d6c323) block (within [`direct_connect_enabled.hosted_vifs`
 <a id="region-3f105f"></a>&#x2022; [`other_region`](#region-3f105f) - Optional String<br>Possible values are `af-south-1`, `ap-east-1`, `ap-northeast-1`, `ap-northeast-2`, `ap-south-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-southeast-3`, `CA-central-1`, `eu-central-1`, `eu-north-1`, `eu-south-1`, `eu-west-1`, `eu-west-2`, `eu-west-3`, `me-south-1`, `sa-east-1`, `us-east-1`, `us-east-2`,
 `us-west-1`, `us-west-2`<br>[Enum: af-south-1|ap-east-1|ap-northeast-1|ap-northeast-2|ap-south-1|ap-southeast-1|ap-southeast-2|ap-southeast-3|CA-central-1|eu-central-1|eu-north-1|eu-south-1|eu-west-1|eu-west-2|eu-west-3|me-south-1|sa-east-1|us-east-1|us-east-2|us-west-1|us-west-2] Other Region
 
-<a id="region-3435ff"></a>&#x2022; [`same_as_site_region`](#region-3435ff) - Optional Block<br>Enable this option
+<a id="region-3435ff"></a>&#x2022; [`same_as_site_region`](#region-3435ff) - Optional Object<br>Enable this option
 
 <a id="vif-id-4f330c"></a>&#x2022; [`vif_id`](#vif-id-4f330c) - Optional String<br>AWS Direct Connect VIF ID that needs to be connected to the site
+
+#### Direct Connect Enabled Hosted Vifs Vif List Same As Site Region
+
+<a id="deep-138913"></a>Deeply nested **Region** block collapsed for readability.
+
+#### Direct Connect Enabled Standard Vifs
+
+A [`standard_vifs`](#direct-connect-enabled-standard-vifs) block (within [`direct_connect_enabled`](#direct-connect-enabled)) supports the following:
 
 #### Kubernetes Upgrade Drain
 
 A [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain) block supports the following:
 
-<a id="drain-0d0936"></a>&#x2022; [`disable_upgrade_drain`](#drain-0d0936) - Optional Block<br>Configuration parameter for disable upgrade drain
+<a id="drain-0d0936"></a>&#x2022; [`disable_upgrade_drain`](#drain-0d0936) - Optional Object<br>Configuration parameter for disable upgrade drain
 
 <a id="drain-7e30d4"></a>&#x2022; [`enable_upgrade_drain`](#drain-7e30d4) - Optional Block<br>Specify batch upgrade settings for worker nodes within a site<br>See [Enable Upgrade Drain](#drain-7e30d4) below.
+
+#### Kubernetes Upgrade Drain Disable Upgrade Drain
+
+A [`disable_upgrade_drain`](#drain-0d0936) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
 
 #### Kubernetes Upgrade Drain Enable Upgrade Drain
 
 An [`enable_upgrade_drain`](#drain-7e30d4) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
 
-<a id="mode-668699"></a>&#x2022; [`disable_vega_upgrade_mode`](#mode-668699) - Optional Block<br>Configuration parameter for disable vega upgrade mode
+<a id="mode-668699"></a>&#x2022; [`disable_vega_upgrade_mode`](#mode-668699) - Optional Object<br>Configuration parameter for disable vega upgrade mode
 
 <a id="count-3aa796"></a>&#x2022; [`drain_max_unavailable_node_count`](#count-3aa796) - Optional Number<br>Node Batch Size Count
 
+<a id="percentage-7723a9"></a>&#x2022; [`drain_max_unavailable_node_percentage`](#percentage-7723a9) - Optional Number<br>Maximum percentage of nodes unavailable during upgrade draining
+
 <a id="timeout-ac4ee9"></a>&#x2022; [`drain_node_timeout`](#timeout-ac4ee9) - Optional Number<br>Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is
 
-<a id="mode-9c557b"></a>&#x2022; [`enable_vega_upgrade_mode`](#mode-9c557b) - Optional Block<br>Configuration parameter for enable vega upgrade mode
+<a id="mode-9c557b"></a>&#x2022; [`enable_vega_upgrade_mode`](#mode-9c557b) - Optional Object<br>Configuration parameter for enable vega upgrade mode
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Disable Vega Upgrade Mode
+
+<a id="deep-6040f2"></a>Deeply nested **Mode** block collapsed for readability.
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Enable Vega Upgrade Mode
+
+<a id="deep-ea033c"></a>Deeply nested **Mode** block collapsed for readability.
 
 #### Log Receiver
 
@@ -403,21 +493,37 @@ A [`log_receiver`](#log-receiver) block supports the following:
 
 <a id="log-receiver-tenant"></a>&#x2022; [`tenant`](#log-receiver-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Logs Streaming Disabled
+
+A [`logs_streaming_disabled`](#logs-streaming-disabled) block supports the following:
+
 #### Offline Survivability Mode
 
 An [`offline_survivability_mode`](#offline-survivability-mode) block supports the following:
 
-<a id="mode-565021"></a>&#x2022; [`enable_offline_survivability_mode`](#mode-565021) - Optional Block<br>Configuration parameter for enable offline survivability mode
+<a id="mode-565021"></a>&#x2022; [`enable_offline_survivability_mode`](#mode-565021) - Optional Object<br>Configuration parameter for enable offline survivability mode
 
-<a id="mode-02f0c8"></a>&#x2022; [`no_offline_survivability_mode`](#mode-02f0c8) - Optional Block<br>Configuration parameter for no offline survivability mode
+<a id="mode-02f0c8"></a>&#x2022; [`no_offline_survivability_mode`](#mode-02f0c8) - Optional Object<br>Configuration parameter for no offline survivability mode
+
+#### Offline Survivability Mode Enable Offline Survivability Mode
+
+An [`enable_offline_survivability_mode`](#mode-565021) block (within [`offline_survivability_mode`](#offline-survivability-mode)) supports the following:
+
+#### Offline Survivability Mode No Offline Survivability Mode
+
+A [`no_offline_survivability_mode`](#mode-02f0c8) block (within [`offline_survivability_mode`](#offline-survivability-mode)) supports the following:
 
 #### OS
 
 An [`os`](#os) block supports the following:
 
-<a id="os-default-os-version"></a>&#x2022; [`default_os_version`](#os-default-os-version) - Optional Block<br>Enable this option
+<a id="os-default-os-version"></a>&#x2022; [`default_os_version`](#os-default-os-version) - Optional Object<br>Enable this option
 
 <a id="os-operating-system-version"></a>&#x2022; [`operating_system_version`](#os-operating-system-version) - Optional String<br>Specify a OS version to be used e.g. 9.2024.6
+
+#### OS Default OS Version
+
+A [`default_os_version`](#os-default-os-version) block (within [`os`](#os)) supports the following:
 
 #### Performance Enhancement Mode
 
@@ -431,17 +537,33 @@ A [`performance_enhancement_mode`](#performance-enhancement-mode) block supports
 
 A [`perf_mode_l3_enhanced`](#enhanced-31b8ac) block (within [`performance_enhancement_mode`](#performance-enhancement-mode)) supports the following:
 
-<a id="jumbo-7ba5b8"></a>&#x2022; [`jumbo`](#jumbo-7ba5b8) - Optional Block<br>Enable this option
+<a id="jumbo-7ba5b8"></a>&#x2022; [`jumbo`](#jumbo-7ba5b8) - Optional Object<br>Enable this option
 
-<a id="jumbo-95338e"></a>&#x2022; [`no_jumbo`](#jumbo-95338e) - Optional Block<br>Enable this option
+<a id="jumbo-95338e"></a>&#x2022; [`no_jumbo`](#jumbo-95338e) - Optional Object<br>Enable this option
+
+#### Performance Enhancement Mode Perf Mode L3 Enhanced Jumbo
+
+<a id="deep-fc6f31"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Performance Enhancement Mode Perf Mode L3 Enhanced No Jumbo
+
+<a id="deep-7b763f"></a>Deeply nested **Jumbo** block collapsed for readability.
 
 #### Performance Enhancement Mode Perf Mode L7 Enhanced
 
 A [`perf_mode_l7_enhanced`](#enhanced-38f174) block (within [`performance_enhancement_mode`](#performance-enhancement-mode)) supports the following:
 
-<a id="disabled-0c2193"></a>&#x2022; [`jumbo_disabled`](#disabled-0c2193) - Optional Block<br>Enable this option
+<a id="disabled-0c2193"></a>&#x2022; [`jumbo_disabled`](#disabled-0c2193) - Optional Object<br>Enable this option
 
-<a id="enabled-a434b3"></a>&#x2022; [`jumbo_enabled`](#enabled-a434b3) - Optional Block<br>Enable this option
+<a id="enabled-a434b3"></a>&#x2022; [`jumbo_enabled`](#enabled-a434b3) - Optional Object<br>Enable this option
+
+#### Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Disabled
+
+<a id="deep-d34d62"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Enabled
+
+<a id="deep-b16dbd"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Private Connectivity
 
@@ -449,9 +571,9 @@ A [`private_connectivity`](#private-connectivity) block supports the following:
 
 <a id="private-connectivity-cloud-link"></a>&#x2022; [`cloud_link`](#private-connectivity-cloud-link) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Cloud Link](#private-connectivity-cloud-link) below.
 
-<a id="private-connectivity-inside"></a>&#x2022; [`inside`](#private-connectivity-inside) - Optional Block<br>Enable this option
+<a id="private-connectivity-inside"></a>&#x2022; [`inside`](#private-connectivity-inside) - Optional Object<br>Enable this option
 
-<a id="private-connectivity-outside"></a>&#x2022; [`outside`](#private-connectivity-outside) - Optional Block<br>Enable this option
+<a id="private-connectivity-outside"></a>&#x2022; [`outside`](#private-connectivity-outside) - Optional Object<br>Enable this option
 
 #### Private Connectivity Cloud Link
 
@@ -463,13 +585,25 @@ A [`cloud_link`](#private-connectivity-cloud-link) block (within [`private_conne
 
 <a id="private-connectivity-cloud-link-tenant"></a>&#x2022; [`tenant`](#private-connectivity-cloud-link-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Private Connectivity Inside
+
+An [`inside`](#private-connectivity-inside) block (within [`private_connectivity`](#private-connectivity)) supports the following:
+
+#### Private Connectivity Outside
+
+An [`outside`](#private-connectivity-outside) block (within [`private_connectivity`](#private-connectivity)) supports the following:
+
 #### Sw
 
 A [`sw`](#sw) block supports the following:
 
-<a id="sw-default-sw-version"></a>&#x2022; [`default_sw_version`](#sw-default-sw-version) - Optional Block<br>Enable this option
+<a id="sw-default-sw-version"></a>&#x2022; [`default_sw_version`](#sw-default-sw-version) - Optional Object<br>Enable this option
 
 <a id="sw-volterra-software-version"></a>&#x2022; [`volterra_software_version`](#sw-volterra-software-version) - Optional String<br>Specify a F5XC Software Version to be used e.g. Crt-20210329-1002
+
+#### Sw Default Sw Version
+
+A [`default_sw_version`](#sw-default-sw-version) block (within [`sw`](#sw)) supports the following:
 
 #### TGW Security
 
@@ -483,15 +617,15 @@ A [`tgw_security`](#tgw-security) block supports the following:
 
 <a id="tgw-security-active-network-policies"></a>&#x2022; [`active_network_policies`](#tgw-security-active-network-policies) - Optional Block<br>Configuration parameter for active network policies<br>See [Active Network Policies](#tgw-security-active-network-policies) below.
 
-<a id="all-b3bd41"></a>&#x2022; [`east_west_service_policy_allow_all`](#all-b3bd41) - Optional Block<br>Configuration parameter for east west service policy allow all
+<a id="all-b3bd41"></a>&#x2022; [`east_west_service_policy_allow_all`](#all-b3bd41) - Optional Object<br>Configuration parameter for east west service policy allow all
 
-<a id="tgw-security-forward-proxy-allow-all"></a>&#x2022; [`forward_proxy_allow_all`](#tgw-security-forward-proxy-allow-all) - Optional Block<br>Configuration parameter for forward proxy allow all
+<a id="tgw-security-forward-proxy-allow-all"></a>&#x2022; [`forward_proxy_allow_all`](#tgw-security-forward-proxy-allow-all) - Optional Object<br>Configuration parameter for forward proxy allow all
 
-<a id="tgw-security-no-east-west-policy"></a>&#x2022; [`no_east_west_policy`](#tgw-security-no-east-west-policy) - Optional Block<br>Policy configuration for this feature
+<a id="tgw-security-no-east-west-policy"></a>&#x2022; [`no_east_west_policy`](#tgw-security-no-east-west-policy) - Optional Object<br>Policy configuration for this feature
 
-<a id="tgw-security-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#tgw-security-no-forward-proxy) - Optional Block<br>Configuration parameter for no forward proxy
+<a id="tgw-security-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#tgw-security-no-forward-proxy) - Optional Object<br>Configuration parameter for no forward proxy
 
-<a id="tgw-security-no-network-policy"></a>&#x2022; [`no_network_policy`](#tgw-security-no-network-policy) - Optional Block<br>Policy configuration for this feature
+<a id="tgw-security-no-network-policy"></a>&#x2022; [`no_network_policy`](#tgw-security-no-network-policy) - Optional Object<br>Policy configuration for this feature
 
 #### TGW Security Active East West Service Policies
 
@@ -539,6 +673,26 @@ A [`network_policies`](#policies-2df1c5) block (within [`tgw_security.active_net
 
 <a id="tenant-50eb46"></a>&#x2022; [`tenant`](#tenant-50eb46) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### TGW Security East West Service Policy Allow All
+
+<a id="deep-ea833e"></a>Deeply nested **All** block collapsed for readability.
+
+#### TGW Security Forward Proxy Allow All
+
+A [`forward_proxy_allow_all`](#tgw-security-forward-proxy-allow-all) block (within [`tgw_security`](#tgw-security)) supports the following:
+
+#### TGW Security No East West Policy
+
+A [`no_east_west_policy`](#tgw-security-no-east-west-policy) block (within [`tgw_security`](#tgw-security)) supports the following:
+
+#### TGW Security No Forward Proxy
+
+A [`no_forward_proxy`](#tgw-security-no-forward-proxy) block (within [`tgw_security`](#tgw-security)) supports the following:
+
+#### TGW Security No Network Policy
+
+A [`no_network_policy`](#tgw-security-no-network-policy) block (within [`tgw_security`](#tgw-security)) supports the following:
+
 #### Timeouts
 
 A [`timeouts`](#timeouts) block supports the following:
@@ -567,19 +721,19 @@ A [`vn_config`](#vn-config) block supports the following:
 
 <a id="vn-config-inside-static-routes"></a>&#x2022; [`inside_static_routes`](#vn-config-inside-static-routes) - Optional Block<br>Configuration parameter for inside static routes<br>See [Inside Static Routes](#vn-config-inside-static-routes) below.
 
-<a id="vn-config-no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#vn-config-no-dc-cluster-group) - Optional Block<br>Enable this option
+<a id="vn-config-no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#vn-config-no-dc-cluster-group) - Optional Object<br>Enable this option
 
-<a id="vn-config-no-global-network"></a>&#x2022; [`no_global_network`](#vn-config-no-global-network) - Optional Block<br>Configuration parameter for no global network
+<a id="vn-config-no-global-network"></a>&#x2022; [`no_global_network`](#vn-config-no-global-network) - Optional Object<br>Configuration parameter for no global network
 
-<a id="vn-config-no-inside-static-routes"></a>&#x2022; [`no_inside_static_routes`](#vn-config-no-inside-static-routes) - Optional Block<br>Configuration parameter for no inside static routes
+<a id="vn-config-no-inside-static-routes"></a>&#x2022; [`no_inside_static_routes`](#vn-config-no-inside-static-routes) - Optional Object<br>Configuration parameter for no inside static routes
 
-<a id="vn-config-no-outside-static-routes"></a>&#x2022; [`no_outside_static_routes`](#vn-config-no-outside-static-routes) - Optional Block<br>Configuration parameter for no outside static routes
+<a id="vn-config-no-outside-static-routes"></a>&#x2022; [`no_outside_static_routes`](#vn-config-no-outside-static-routes) - Optional Object<br>Configuration parameter for no outside static routes
 
 <a id="vn-config-outside-static-routes"></a>&#x2022; [`outside_static_routes`](#vn-config-outside-static-routes) - Optional Block<br>Configuration parameter for outside static routes<br>See [Outside Static Routes](#vn-config-outside-static-routes) below.
 
-<a id="vn-config-sm-connection-public-ip"></a>&#x2022; [`sm_connection_public_ip`](#vn-config-sm-connection-public-ip) - Optional Block<br>Enable this option
+<a id="vn-config-sm-connection-public-ip"></a>&#x2022; [`sm_connection_public_ip`](#vn-config-sm-connection-public-ip) - Optional Object<br>Enable this option
 
-<a id="vn-config-sm-connection-pvt-ip"></a>&#x2022; [`sm_connection_pvt_ip`](#vn-config-sm-connection-pvt-ip) - Optional Block<br>Enable this option
+<a id="vn-config-sm-connection-pvt-ip"></a>&#x2022; [`sm_connection_pvt_ip`](#vn-config-sm-connection-pvt-ip) - Optional Object<br>Enable this option
 
 #### Vn Config Allowed VIP Port
 
@@ -587,13 +741,13 @@ An [`allowed_vip_port`](#vn-config-allowed-vip-port) block (within [`vn_config`]
 
 <a id="vn-config-allowed-vip-port-custom-ports"></a>&#x2022; [`custom_ports`](#vn-config-allowed-vip-port-custom-ports) - Optional Block<br>Custom Ports. List of Custom port<br>See [Custom Ports](#vn-config-allowed-vip-port-custom-ports) below.
 
-<a id="port-4fd6f6"></a>&#x2022; [`disable_allowed_vip_port`](#port-4fd6f6) - Optional Block<br>Enable this option
+<a id="port-4fd6f6"></a>&#x2022; [`disable_allowed_vip_port`](#port-4fd6f6) - Optional Object<br>Enable this option
 
-<a id="port-24fa15"></a>&#x2022; [`use_http_https_port`](#port-24fa15) - Optional Block<br>Enable this option
+<a id="port-24fa15"></a>&#x2022; [`use_http_https_port`](#port-24fa15) - Optional Object<br>Enable this option
 
-<a id="port-f93401"></a>&#x2022; [`use_http_port`](#port-f93401) - Optional Block<br>Enable this option
+<a id="port-f93401"></a>&#x2022; [`use_http_port`](#port-f93401) - Optional Object<br>Enable this option
 
-<a id="port-b7f3d5"></a>&#x2022; [`use_https_port`](#port-b7f3d5) - Optional Block<br>Enable this option
+<a id="port-b7f3d5"></a>&#x2022; [`use_https_port`](#port-b7f3d5) - Optional Object<br>Enable this option
 
 #### Vn Config Allowed VIP Port Custom Ports
 
@@ -601,23 +755,55 @@ A [`custom_ports`](#vn-config-allowed-vip-port-custom-ports) block (within [`vn_
 
 <a id="ranges-2ba8d3"></a>&#x2022; [`port_ranges`](#ranges-2ba8d3) - Optional String<br>Port Ranges. Port Ranges
 
+#### Vn Config Allowed VIP Port Disable Allowed VIP Port
+
+<a id="deep-35b586"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Vn Config Allowed VIP Port Use HTTP HTTPS Port
+
+<a id="deep-89c0db"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Vn Config Allowed VIP Port Use HTTP Port
+
+<a id="deep-4fcc92"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Vn Config Allowed VIP Port Use HTTPS Port
+
+<a id="deep-2907e6"></a>Deeply nested **Port** block collapsed for readability.
+
 #### Vn Config Allowed VIP Port SLI
 
 An [`allowed_vip_port_sli`](#vn-config-allowed-vip-port-sli) block (within [`vn_config`](#vn-config)) supports the following:
 
 <a id="ports-0633b5"></a>&#x2022; [`custom_ports`](#ports-0633b5) - Optional Block<br>Custom Ports. List of Custom port<br>See [Custom Ports](#ports-0633b5) below.
 
-<a id="port-5a1653"></a>&#x2022; [`disable_allowed_vip_port`](#port-5a1653) - Optional Block<br>Enable this option
+<a id="port-5a1653"></a>&#x2022; [`disable_allowed_vip_port`](#port-5a1653) - Optional Object<br>Enable this option
 
-<a id="port-c09009"></a>&#x2022; [`use_http_https_port`](#port-c09009) - Optional Block<br>Enable this option
+<a id="port-c09009"></a>&#x2022; [`use_http_https_port`](#port-c09009) - Optional Object<br>Enable this option
 
-<a id="port-819a53"></a>&#x2022; [`use_http_port`](#port-819a53) - Optional Block<br>Enable this option
+<a id="port-819a53"></a>&#x2022; [`use_http_port`](#port-819a53) - Optional Object<br>Enable this option
 
-<a id="port-e5b518"></a>&#x2022; [`use_https_port`](#port-e5b518) - Optional Block<br>Enable this option
+<a id="port-e5b518"></a>&#x2022; [`use_https_port`](#port-e5b518) - Optional Object<br>Enable this option
 
 #### Vn Config Allowed VIP Port SLI Custom Ports
 
 <a id="deep-10d15b"></a>Deeply nested **Ports** block collapsed for readability.
+
+#### Vn Config Allowed VIP Port SLI Disable Allowed VIP Port
+
+<a id="deep-65cfa5"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Vn Config Allowed VIP Port SLI Use HTTP HTTPS Port
+
+<a id="deep-08340c"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Vn Config Allowed VIP Port SLI Use HTTP Port
+
+<a id="deep-e1b418"></a>Deeply nested **Port** block collapsed for readability.
+
+#### Vn Config Allowed VIP Port SLI Use HTTPS Port
+
+<a id="deep-ade8de"></a>Deeply nested **Port** block collapsed for readability.
 
 #### Vn Config Dc Cluster Group Inside Vn
 
@@ -711,6 +897,22 @@ An [`inside_static_routes`](#vn-config-inside-static-routes) block (within [`vn_
 
 <a id="deep-6cd6b4"></a>Deeply nested **IPv6** block collapsed for readability.
 
+#### Vn Config No Dc Cluster Group
+
+A [`no_dc_cluster_group`](#vn-config-no-dc-cluster-group) block (within [`vn_config`](#vn-config)) supports the following:
+
+#### Vn Config No Global Network
+
+A [`no_global_network`](#vn-config-no-global-network) block (within [`vn_config`](#vn-config)) supports the following:
+
+#### Vn Config No Inside Static Routes
+
+A [`no_inside_static_routes`](#vn-config-no-inside-static-routes) block (within [`vn_config`](#vn-config)) supports the following:
+
+#### Vn Config No Outside Static Routes
+
+A [`no_outside_static_routes`](#vn-config-no-outside-static-routes) block (within [`vn_config`](#vn-config)) supports the following:
+
 #### Vn Config Outside Static Routes
 
 An [`outside_static_routes`](#vn-config-outside-static-routes) block (within [`vn_config`](#vn-config)) supports the following:
@@ -756,6 +958,14 @@ An [`outside_static_routes`](#vn-config-outside-static-routes) block (within [`v
 #### Vn Config Outside Static Routes Static Route List Custom Static Route Subnets IPv6
 
 <a id="deep-19a2f4"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Vn Config Sm Connection Public IP
+
+A [`sm_connection_public_ip`](#vn-config-sm-connection-public-ip) block (within [`vn_config`](#vn-config)) supports the following:
+
+#### Vn Config Sm Connection Pvt IP
+
+A [`sm_connection_pvt_ip`](#vn-config-sm-connection-pvt-ip) block (within [`vn_config`](#vn-config)) supports the following:
 
 #### VPC Attachments
 

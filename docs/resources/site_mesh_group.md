@@ -39,7 +39,7 @@ resource "xcsh_site_mesh_group" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -62,13 +62,13 @@ resource "xcsh_site_mesh_group" "example" {
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="bfd-disabled"></a>[`bfd_disabled`](#bfd-disabled) - Optional Block<br>Enable this option
+&#x2022; <a id="bfd-disabled"></a>[`bfd_disabled`](#bfd-disabled) - Optional Object<br>Enable this option
 <br><br>&#x2022; <a id="bfd-enabled"></a>[`bfd_enabled`](#bfd-enabled) - Optional Block<br>BFD. BFD parameters<br>See [Bfd Enabled](#bfd-enabled) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="disable-re-fallback"></a>[`disable_re_fallback`](#disable-re-fallback) - Optional Block<br>Configuration parameter for disable RE fallback
+&#x2022; <a id="disable-re-fallback"></a>[`disable_re_fallback`](#disable-re-fallback) - Optional Object<br>Configuration parameter for disable RE fallback
 
-<a id="enable-re-fallback"></a>&#x2022; [`enable_re_fallback`](#enable-re-fallback) - Optional Block<br>Configuration parameter for enable RE fallback
+<a id="enable-re-fallback"></a>&#x2022; [`enable_re_fallback`](#enable-re-fallback) - Optional Object<br>Configuration parameter for enable RE fallback
 
 -> **One of the following:**
 &#x2022; <a id="full-mesh"></a>[`full_mesh`](#full-mesh) - Optional Block<br>Full Mesh. Details of Full Mesh Group Type<br>See [Full Mesh](#full-mesh) below for details.
@@ -97,31 +97,63 @@ A [`bfd_enabled`](#bfd-enabled) block supports the following:
 
 <a id="milliseconds-e429b7"></a>&#x2022; [`transmit_interval_milliseconds`](#milliseconds-e429b7) - Optional Number<br>BFD transmit interval timer, in milliseconds
 
+#### Disable RE Fallback
+
+A [`disable_re_fallback`](#disable-re-fallback) block supports the following:
+
+#### Enable RE Fallback
+
+An [`enable_re_fallback`](#enable-re-fallback) block supports the following:
+
 #### Full Mesh
 
 A [`full_mesh`](#full-mesh) block supports the following:
 
-<a id="full-mesh-control-and-data-plane-mesh"></a>&#x2022; [`control_and_data_plane_mesh`](#full-mesh-control-and-data-plane-mesh) - Optional Block<br>Enable this option
+<a id="full-mesh-control-and-data-plane-mesh"></a>&#x2022; [`control_and_data_plane_mesh`](#full-mesh-control-and-data-plane-mesh) - Optional Object<br>Enable this option
 
-<a id="full-mesh-data-plane-mesh"></a>&#x2022; [`data_plane_mesh`](#full-mesh-data-plane-mesh) - Optional Block<br>Enable this option
+<a id="full-mesh-data-plane-mesh"></a>&#x2022; [`data_plane_mesh`](#full-mesh-data-plane-mesh) - Optional Object<br>Enable this option
+
+#### Full Mesh Control And Data Plane Mesh
+
+A [`control_and_data_plane_mesh`](#full-mesh-control-and-data-plane-mesh) block (within [`full_mesh`](#full-mesh)) supports the following:
+
+#### Full Mesh Data Plane Mesh
+
+A [`data_plane_mesh`](#full-mesh-data-plane-mesh) block (within [`full_mesh`](#full-mesh)) supports the following:
 
 #### Hub Mesh
 
 A [`hub_mesh`](#hub-mesh) block supports the following:
 
-<a id="hub-mesh-control-and-data-plane-mesh"></a>&#x2022; [`control_and_data_plane_mesh`](#hub-mesh-control-and-data-plane-mesh) - Optional Block<br>Enable this option
+<a id="hub-mesh-control-and-data-plane-mesh"></a>&#x2022; [`control_and_data_plane_mesh`](#hub-mesh-control-and-data-plane-mesh) - Optional Object<br>Enable this option
 
-<a id="hub-mesh-data-plane-mesh"></a>&#x2022; [`data_plane_mesh`](#hub-mesh-data-plane-mesh) - Optional Block<br>Enable this option
+<a id="hub-mesh-data-plane-mesh"></a>&#x2022; [`data_plane_mesh`](#hub-mesh-data-plane-mesh) - Optional Object<br>Enable this option
+
+#### Hub Mesh Control And Data Plane Mesh
+
+A [`control_and_data_plane_mesh`](#hub-mesh-control-and-data-plane-mesh) block (within [`hub_mesh`](#hub-mesh)) supports the following:
+
+#### Hub Mesh Data Plane Mesh
+
+A [`data_plane_mesh`](#hub-mesh-data-plane-mesh) block (within [`hub_mesh`](#hub-mesh)) supports the following:
 
 #### Spoke Mesh
 
 A [`spoke_mesh`](#spoke-mesh) block supports the following:
 
-<a id="spoke-mesh-control-and-data-plane-mesh"></a>&#x2022; [`control_and_data_plane_mesh`](#spoke-mesh-control-and-data-plane-mesh) - Optional Block<br>Enable this option
+<a id="spoke-mesh-control-and-data-plane-mesh"></a>&#x2022; [`control_and_data_plane_mesh`](#spoke-mesh-control-and-data-plane-mesh) - Optional Object<br>Enable this option
 
-<a id="spoke-mesh-data-plane-mesh"></a>&#x2022; [`data_plane_mesh`](#spoke-mesh-data-plane-mesh) - Optional Block<br>Enable this option
+<a id="spoke-mesh-data-plane-mesh"></a>&#x2022; [`data_plane_mesh`](#spoke-mesh-data-plane-mesh) - Optional Object<br>Enable this option
 
 <a id="spoke-mesh-hub-mesh-group"></a>&#x2022; [`hub_mesh_group`](#spoke-mesh-hub-mesh-group) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Hub Mesh Group](#spoke-mesh-hub-mesh-group) below.
+
+#### Spoke Mesh Control And Data Plane Mesh
+
+A [`control_and_data_plane_mesh`](#spoke-mesh-control-and-data-plane-mesh) block (within [`spoke_mesh`](#spoke-mesh)) supports the following:
+
+#### Spoke Mesh Data Plane Mesh
+
+A [`data_plane_mesh`](#spoke-mesh-data-plane-mesh) block (within [`spoke_mesh`](#spoke-mesh)) supports the following:
 
 #### Spoke Mesh Hub Mesh Group
 

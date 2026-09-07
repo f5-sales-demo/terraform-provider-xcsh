@@ -21,6 +21,7 @@ func TestSMSv2ObservationEndpoints(t *testing.T) {
 		{http.MethodGet, "/api/maurice/upgradable_sw_versions"},
 		{http.MethodGet, "/api/maurice/namespaces/system/sites/lab-site/pre_upgrade_check"},
 		{http.MethodGet, "/api/maurice/namespaces/system/sites/lab-site/upgrade_status"},
+		{http.MethodGet, "/api/config/namespaces/system/network_interfaces"},
 	}
 	index := 0
 	server := httptest.NewServer(http.HandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
@@ -33,6 +34,12 @@ func TestSMSv2ObservationEndpoints(t *testing.T) {
 		index++
 		if request.Method != want.method || request.URL.Path != want.path {
 			t.Errorf("request = %s %s, want %s %s", request.Method, request.URL.Path, want.method, want.path)
+		}
+		if request.URL.Path == "/api/config/namespaces/system/network_interfaces" {
+			fields := request.URL.Query()["report_fields"]
+			if len(fields) != 2 || fields[0] != "get_spec" || fields[1] != "system_metadata" {
+				t.Error("interface discovery omitted realized specification or ownership metadata")
+			}
 		}
 		if request.Method == http.MethodPost {
 			var body map[string]interface{}
@@ -64,7 +71,7 @@ func TestSMSv2ObservationEndpoints(t *testing.T) {
 	if _, err := c.GetSMSv2SimplifiedRoutes(ctx, "system", "lab-site", "slo"); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := c.GetSMSv2SiteUpgradeStatus(ctx, "system", "lab-site"); err != nil {
+	if _, err := c.GetSMSv2SiteStatus(ctx, "system", "lab-site"); err != nil {
 		t.Fatal(err)
 	}
 	if _, err := c.GetSMSv2UpgradableSoftwareVersions(ctx, "9.2026.10", "crt-20251002-0027"); err != nil {
@@ -74,6 +81,9 @@ func TestSMSv2ObservationEndpoints(t *testing.T) {
 		t.Fatal(err)
 	}
 	if _, err := c.GetSMSv2UpgradeProgress(ctx, "system", "lab-site"); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := c.ListSMSv2NetworkInterfaces(ctx, "system"); err != nil {
 		t.Fatal(err)
 	}
 	if index != len(requests) {

@@ -43,7 +43,7 @@ resource "xcsh_user_identification" "test" {
   name      = %[1]q
   namespace = "system"
   rules {
-    client_ip {}
+    client_ip = {}
   }
 }
 

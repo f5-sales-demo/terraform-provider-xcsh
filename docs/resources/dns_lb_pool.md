@@ -39,7 +39,7 @@ resource "xcsh_dns_lb_pool" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -73,7 +73,7 @@ RATIO_MEMBER: Ratio-Member Ratio-Member performs load balancing of requests acro
 
 -> **One of the following:**
 &#x2022; <a id="ttl"></a>[`ttl`](#ttl) - Optional Number<br>Custom TTL in seconds (default 30) for responses from this pool
-<br><br>&#x2022; <a id="use-rrset-ttl"></a>[`use_rrset_ttl`](#use-rrset-ttl) - Optional Block<br>Configuration parameter for use rrset TTL
+<br><br>&#x2022; <a id="use-rrset-ttl"></a>[`use_rrset_ttl`](#use-rrset-ttl) - Optional Object<br>Configuration parameter for use rrset TTL
 
 ### Attributes Reference
 
@@ -87,13 +87,17 @@ In addition to all arguments above, the following attributes are exported:
 
 An [`a_pool`](#a-pool) block supports the following:
 
-<a id="a-pool-disable-health-check"></a>&#x2022; [`disable_health_check`](#a-pool-disable-health-check) - Optional Block<br>Configuration parameter for disable health check
+<a id="a-pool-disable-health-check"></a>&#x2022; [`disable_health_check`](#a-pool-disable-health-check) - Optional Object<br>Configuration parameter for disable health check
 
 <a id="a-pool-health-check"></a>&#x2022; [`health_check`](#a-pool-health-check) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Health Check](#a-pool-health-check) below.
 
 <a id="a-pool-max-answers"></a>&#x2022; [`max_answers`](#a-pool-max-answers) - Optional Number<br>Limit on number of Resource Records to be included in the response to query
 
 <a id="a-pool-members"></a>&#x2022; [`members`](#a-pool-members) - Optional Block<br>Pool Members. Configuration parameter for members<br>See [Members](#a-pool-members) below.
+
+#### A Pool Disable Health Check
+
+A [`disable_health_check`](#a-pool-disable-health-check) block (within [`a_pool`](#a-pool)) supports the following:
 
 #### A Pool Health Check
 
@@ -145,11 +149,15 @@ A [`members`](#aaaa-pool-members) block (within [`aaaa_pool`](#aaaa-pool)) suppo
 
 A [`cname_pool`](#cname-pool) block supports the following:
 
-<a id="cname-pool-disable-health-check"></a>&#x2022; [`disable_health_check`](#cname-pool-disable-health-check) - Optional Block<br>Configuration parameter for disable health check
+<a id="cname-pool-disable-health-check"></a>&#x2022; [`disable_health_check`](#cname-pool-disable-health-check) - Optional Object<br>Configuration parameter for disable health check
 
 <a id="cname-pool-health-check"></a>&#x2022; [`health_check`](#cname-pool-health-check) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Health Check](#cname-pool-health-check) below.
 
 <a id="cname-pool-members"></a>&#x2022; [`members`](#cname-pool-members) - Optional Block<br>Pool Members. Configuration parameter for members<br>See [Members](#cname-pool-members) below.
+
+#### Cname Pool Disable Health Check
+
+A [`disable_health_check`](#cname-pool-disable-health-check) block (within [`cname_pool`](#cname-pool)) supports the following:
 
 #### Cname Pool Health Check
 
@@ -232,6 +240,10 @@ A [`timeouts`](#timeouts) block supports the following:
 <a id="timeouts-read"></a>&#x2022; [`read`](#timeouts-read) - Optional String (Defaults to `5 minutes`)<br>Used when retrieving the resource
 
 <a id="timeouts-update"></a>&#x2022; [`update`](#timeouts-update) - Optional String (Defaults to `10 minutes`)<br>Used when updating the resource
+
+#### Use Rrset TTL
+
+An [`use_rrset_ttl`](#use-rrset-ttl) block supports the following:
 
 ---
 

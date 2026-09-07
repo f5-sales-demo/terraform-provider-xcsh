@@ -20,9 +20,9 @@ resource "xcsh_service_policy" "test" {
     prefix_list {
       prefixes = ["10.0.0.0/8", "192.168.0.0/16"]
     }
-    default_action_deny {}
+    default_action_deny = {}
   }
 
   # Apply to any server
-  any_server {}
+  any_server = {}
 }

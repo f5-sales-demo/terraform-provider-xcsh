@@ -73,12 +73,12 @@ var AlertPolicyReceiversModelAttrTypes = map[string]attr.Type{
 type AlertPolicyRoutesModel struct {
 	Alertname              types.String                                  `tfsdk:"alertname"`
 	AlertnameRegex         types.String                                  `tfsdk:"alertname_regex"`
-	Any                    *AlertPolicyEmptyModel                        `tfsdk:"any"`
+	Any                    types.Object                                  `tfsdk:"any"`
+	DontSend               types.Object                                  `tfsdk:"dont_send"`
+	Send                   types.Object                                  `tfsdk:"send"`
 	Custom                 *AlertPolicyRoutesCustomModel                 `tfsdk:"custom"`
-	DontSend               *AlertPolicyEmptyModel                        `tfsdk:"dont_send"`
 	Group                  *AlertPolicyRoutesGroupModel                  `tfsdk:"group"`
 	NotificationParameters *AlertPolicyRoutesNotificationParametersModel `tfsdk:"notification_parameters"`
-	Send                   *AlertPolicyEmptyModel                        `tfsdk:"send"`
 	Severity               *AlertPolicyRoutesSeverityModel               `tfsdk:"severity"`
 }
 
@@ -87,11 +87,11 @@ var AlertPolicyRoutesModelAttrTypes = map[string]attr.Type{
 	"alertname":               types.StringType,
 	"alertname_regex":         types.StringType,
 	"any":                     types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"custom":                  types.ObjectType{AttrTypes: AlertPolicyRoutesCustomModelAttrTypes},
 	"dont_send":               types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"send":                    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom":                  types.ObjectType{AttrTypes: AlertPolicyRoutesCustomModelAttrTypes},
 	"group":                   types.ObjectType{AttrTypes: AlertPolicyRoutesGroupModelAttrTypes},
 	"notification_parameters": types.ObjectType{AttrTypes: AlertPolicyRoutesNotificationParametersModelAttrTypes},
-	"send":                    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"severity":                types.ObjectType{AttrTypes: AlertPolicyRoutesSeverityModelAttrTypes},
 }
 
@@ -159,24 +159,24 @@ var AlertPolicyRoutesGroupModelAttrTypes = map[string]attr.Type{
 
 // AlertPolicyRoutesNotificationParametersModel represents notification_parameters block
 type AlertPolicyRoutesNotificationParametersModel struct {
+	Default        types.Object                                        `tfsdk:"default"`
 	GroupInterval  types.String                                        `tfsdk:"group_interval"`
 	GroupWait      types.String                                        `tfsdk:"group_wait"`
+	Individual     types.Object                                        `tfsdk:"individual"`
 	RepeatInterval types.String                                        `tfsdk:"repeat_interval"`
+	VesIoGroup     types.Object                                        `tfsdk:"ves_io_group"`
 	Custom         *AlertPolicyRoutesNotificationParametersCustomModel `tfsdk:"custom"`
-	Default        *AlertPolicyEmptyModel                              `tfsdk:"default"`
-	Individual     *AlertPolicyEmptyModel                              `tfsdk:"individual"`
-	VesIoGroup     *AlertPolicyEmptyModel                              `tfsdk:"ves_io_group"`
 }
 
 // AlertPolicyRoutesNotificationParametersModelAttrTypes defines the attribute types for AlertPolicyRoutesNotificationParametersModel
 var AlertPolicyRoutesNotificationParametersModelAttrTypes = map[string]attr.Type{
+	"default":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"group_interval":  types.StringType,
 	"group_wait":      types.StringType,
-	"repeat_interval": types.StringType,
-	"custom":          types.ObjectType{AttrTypes: AlertPolicyRoutesNotificationParametersCustomModelAttrTypes},
-	"default":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"individual":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"repeat_interval": types.StringType,
 	"ves_io_group":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom":          types.ObjectType{AttrTypes: AlertPolicyRoutesNotificationParametersCustomModelAttrTypes},
 }
 
 // AlertPolicyRoutesNotificationParametersCustomModel represents custom block
@@ -201,24 +201,24 @@ var AlertPolicyRoutesSeverityModelAttrTypes = map[string]attr.Type{
 
 // AlertPolicyNotificationParametersModel represents notification_parameters block
 type AlertPolicyNotificationParametersModel struct {
+	Default        types.Object                                  `tfsdk:"default"`
 	GroupInterval  types.String                                  `tfsdk:"group_interval"`
 	GroupWait      types.String                                  `tfsdk:"group_wait"`
+	Individual     types.Object                                  `tfsdk:"individual"`
 	RepeatInterval types.String                                  `tfsdk:"repeat_interval"`
+	VesIoGroup     types.Object                                  `tfsdk:"ves_io_group"`
 	Custom         *AlertPolicyNotificationParametersCustomModel `tfsdk:"custom"`
-	Default        *AlertPolicyEmptyModel                        `tfsdk:"default"`
-	Individual     *AlertPolicyEmptyModel                        `tfsdk:"individual"`
-	VesIoGroup     *AlertPolicyEmptyModel                        `tfsdk:"ves_io_group"`
 }
 
 // AlertPolicyNotificationParametersModelAttrTypes defines the attribute types for AlertPolicyNotificationParametersModel
 var AlertPolicyNotificationParametersModelAttrTypes = map[string]attr.Type{
+	"default":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"group_interval":  types.StringType,
 	"group_wait":      types.StringType,
-	"repeat_interval": types.StringType,
-	"custom":          types.ObjectType{AttrTypes: AlertPolicyNotificationParametersCustomModelAttrTypes},
-	"default":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"individual":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"repeat_interval": types.StringType,
 	"ves_io_group":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom":          types.ObjectType{AttrTypes: AlertPolicyNotificationParametersCustomModelAttrTypes},
 }
 
 // AlertPolicyNotificationParametersCustomModel represents custom block
@@ -344,6 +344,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"routes": schema.ListNestedBlock{
 				MarkdownDescription: "Set of routes to match the incoming alert. The routes are evaluated in the specified order and terminates on the first match.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("alertname", "alertname_regex"), validators.ConflictingListObjectAttributes("alertname", "any"), validators.ConflictingListObjectAttributes("alertname", "custom"), validators.ConflictingListObjectAttributes("alertname", "group"), validators.ConflictingListObjectAttributes("alertname", "severity"), validators.ConflictingListObjectAttributes("alertname_regex", "any"), validators.ConflictingListObjectAttributes("alertname_regex", "custom"), validators.ConflictingListObjectAttributes("alertname_regex", "group"), validators.ConflictingListObjectAttributes("alertname_regex", "severity"), validators.ConflictingListObjectAttributes("any", "custom"), validators.ConflictingListObjectAttributes("any", "group"), validators.ConflictingListObjectAttributes("any", "severity"), validators.ConflictingListObjectAttributes("custom", "group"), validators.ConflictingListObjectAttributes("custom", "severity"), validators.ConflictingListObjectAttributes("dont_send", "send"), validators.ConflictingListObjectAttributes("group", "severity")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -358,11 +359,23 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 							MarkdownDescription: "Exclusive with [alertname any custom group severity] Regular Expression match for the alertname.",
 							Optional:            true,
 						},
+						"any": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"dont_send": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"send": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
 					},
 					Blocks: map[string]schema.Block{
-						"any": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
 						"custom": schema.SingleNestedBlock{
 							MarkdownDescription: "Set of matchers an alert has to fulfill to match the route.",
 							Attributes:          map[string]schema.Attribute{},
@@ -372,6 +385,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 								"alertname": schema.SingleNestedBlock{
 									MarkdownDescription: "Label Matcher.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_match", "regex_match")},
 									Attributes: map[string]schema.Attribute{
 										"exact_match": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [regex_match] Equality match value for the label.",
@@ -385,6 +399,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 								"group": schema.SingleNestedBlock{
 									MarkdownDescription: "Label Matcher.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_match", "regex_match")},
 									Attributes: map[string]schema.Attribute{
 										"exact_match": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [regex_match] Equality match value for the label.",
@@ -398,6 +413,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 								"severity": schema.SingleNestedBlock{
 									MarkdownDescription: "Label Matcher.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("exact_match", "regex_match")},
 									Attributes: map[string]schema.Attribute{
 										"exact_match": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [regex_match] Equality match value for the label.",
@@ -411,9 +427,6 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 							},
 						},
-						"dont_send": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
 						"group": schema.SingleNestedBlock{
 							MarkdownDescription: "Select one or more known group names to match the incoming alert.",
 							Attributes: map[string]schema.Attribute{
@@ -426,7 +439,13 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 						},
 						"notification_parameters": schema.SingleNestedBlock{
 							MarkdownDescription: "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
+							Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom", "default"), validators.ConflictingObjectAttributes("custom", "individual"), validators.ConflictingObjectAttributes("custom", "ves_io_group"), validators.ConflictingObjectAttributes("default", "individual"), validators.ConflictingObjectAttributes("default", "ves_io_group"), validators.ConflictingObjectAttributes("individual", "ves_io_group")},
 							Attributes: map[string]schema.Attribute{
+								"default": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"group_interval": schema.StringAttribute{
 									MarkdownDescription: "Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: [0-9][smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval..",
 									Optional:            true,
@@ -435,9 +454,19 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 									MarkdownDescription: "Time value used to specify how long to initially wait for an inhibiting alert to arrive or collect more alerts for the same group. Format: [0-9][smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_wait defaults to '30s'.",
 									Optional:            true,
 								},
+								"individual": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"repeat_interval": schema.StringAttribute{
 									MarkdownDescription: "Repeat Interval is used to specify how long to wait before sending a notification again if it has already been sent successfully. Format: [0-9][smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to '4h'.",
 									Optional:            true,
+								},
+								"ves_io_group": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for ves io group.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
 							},
 							Blocks: map[string]schema.Block{
@@ -454,19 +483,7 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 										},
 									},
 								},
-								"default": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
-								"individual": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
-								"ves_io_group": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for ves io group.",
-								},
 							},
-						},
-						"send": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
 						},
 						"severity": schema.SingleNestedBlock{
 							MarkdownDescription: "Select one or more severity levels to match the incoming alert.",
@@ -483,8 +500,14 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 			},
 			"notification_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom", "default"), validators.ConflictingObjectAttributes("custom", "individual"), validators.ConflictingObjectAttributes("custom", "ves_io_group"), validators.ConflictingObjectAttributes("default", "individual"), validators.ConflictingObjectAttributes("default", "ves_io_group"), validators.ConflictingObjectAttributes("individual", "ves_io_group")},
 
 				Attributes: map[string]schema.Attribute{
+					"default": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"group_interval": schema.StringAttribute{
 						MarkdownDescription: "Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: [0-9][smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval..",
 						Optional:            true,
@@ -493,9 +516,19 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 						MarkdownDescription: "Time value used to specify how long to initially wait for an inhibiting alert to arrive or collect more alerts for the same group. Format: [0-9][smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_wait defaults to '30s'.",
 						Optional:            true,
 					},
+					"individual": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"repeat_interval": schema.StringAttribute{
 						MarkdownDescription: "Repeat Interval is used to specify how long to wait before sending a notification again if it has already been sent successfully. Format: [0-9][smhd], where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to '4h'.",
 						Optional:            true,
+					},
+					"ves_io_group": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for ves io group.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -511,15 +544,6 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 								},
 							},
 						},
-					},
-					"default": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"individual": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"ves_io_group": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for ves io group.",
 					},
 				},
 			},
@@ -682,7 +706,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 				if !RoutesItem.AlertnameRegex.IsNull() && !RoutesItem.AlertnameRegex.IsUnknown() {
 					RoutesItemMap["alertname_regex"] = RoutesItem.AlertnameRegex.ValueString()
 				}
-				if RoutesItem.Any != nil {
+				if !RoutesItem.Any.IsNull() && !RoutesItem.Any.IsUnknown() {
 					RoutesItemMap["any"] = map[string]interface{}{}
 				}
 				if RoutesItem.Custom != nil {
@@ -722,7 +746,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 					}
 					RoutesItemMap["custom"] = RoutesCustomMap
 				}
-				if RoutesItem.DontSend != nil {
+				if !RoutesItem.DontSend.IsNull() && !RoutesItem.DontSend.IsUnknown() {
 					RoutesItemMap["dont_send"] = map[string]interface{}{}
 				}
 				if RoutesItem.Group != nil {
@@ -751,7 +775,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						}
 						RoutesNotificationParametersMap["custom"] = RoutesNotificationParametersCustomMap
 					}
-					if RoutesItem.NotificationParameters.Default != nil {
+					if !RoutesItem.NotificationParameters.Default.IsNull() && !RoutesItem.NotificationParameters.Default.IsUnknown() {
 						RoutesNotificationParametersMap["default"] = map[string]interface{}{}
 					}
 					if !RoutesItem.NotificationParameters.GroupInterval.IsNull() && !RoutesItem.NotificationParameters.GroupInterval.IsUnknown() {
@@ -760,18 +784,18 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 					if !RoutesItem.NotificationParameters.GroupWait.IsNull() && !RoutesItem.NotificationParameters.GroupWait.IsUnknown() {
 						RoutesNotificationParametersMap["group_wait"] = RoutesItem.NotificationParameters.GroupWait.ValueString()
 					}
-					if RoutesItem.NotificationParameters.Individual != nil {
+					if !RoutesItem.NotificationParameters.Individual.IsNull() && !RoutesItem.NotificationParameters.Individual.IsUnknown() {
 						RoutesNotificationParametersMap["individual"] = map[string]interface{}{}
 					}
 					if !RoutesItem.NotificationParameters.RepeatInterval.IsNull() && !RoutesItem.NotificationParameters.RepeatInterval.IsUnknown() {
 						RoutesNotificationParametersMap["repeat_interval"] = RoutesItem.NotificationParameters.RepeatInterval.ValueString()
 					}
-					if RoutesItem.NotificationParameters.VesIoGroup != nil {
+					if !RoutesItem.NotificationParameters.VesIoGroup.IsNull() && !RoutesItem.NotificationParameters.VesIoGroup.IsUnknown() {
 						RoutesNotificationParametersMap["ves_io_group"] = map[string]interface{}{}
 					}
 					RoutesItemMap["notification_parameters"] = RoutesNotificationParametersMap
 				}
-				if RoutesItem.Send != nil {
+				if !RoutesItem.Send.IsNull() && !RoutesItem.Send.IsUnknown() {
 					RoutesItemMap["send"] = map[string]interface{}{}
 				}
 				if RoutesItem.Severity != nil {
@@ -805,7 +829,7 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 			}
 			NotificationParametersMap["custom"] = NotificationParametersCustomMap
 		}
-		if data.NotificationParameters.Default != nil {
+		if !data.NotificationParameters.Default.IsNull() && !data.NotificationParameters.Default.IsUnknown() {
 			NotificationParametersMap["default"] = map[string]interface{}{}
 		}
 		if !data.NotificationParameters.GroupInterval.IsNull() && !data.NotificationParameters.GroupInterval.IsUnknown() {
@@ -814,13 +838,13 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 		if !data.NotificationParameters.GroupWait.IsNull() && !data.NotificationParameters.GroupWait.IsUnknown() {
 			NotificationParametersMap["group_wait"] = data.NotificationParameters.GroupWait.ValueString()
 		}
-		if data.NotificationParameters.Individual != nil {
+		if !data.NotificationParameters.Individual.IsNull() && !data.NotificationParameters.Individual.IsUnknown() {
 			NotificationParametersMap["individual"] = map[string]interface{}{}
 		}
 		if !data.NotificationParameters.RepeatInterval.IsNull() && !data.NotificationParameters.RepeatInterval.IsUnknown() {
 			NotificationParametersMap["repeat_interval"] = data.NotificationParameters.RepeatInterval.ValueString()
 		}
-		if data.NotificationParameters.VesIoGroup != nil {
+		if !data.NotificationParameters.VesIoGroup.IsNull() && !data.NotificationParameters.VesIoGroup.IsUnknown() {
 			NotificationParametersMap["ves_io_group"] = map[string]interface{}{}
 		}
 		createReq.Spec["notification_parameters"] = NotificationParametersMap
@@ -941,14 +965,14 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						}
 						return types.StringNull()
 					}(),
-					Any: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					Any: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].Any.IsUnknown() {
 							return existingRoutesItems[listIdx].Any
 						}
 						if _, ok := itemMap["any"].(map[string]interface{}); ok {
-							return &AlertPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Custom: func() *AlertPolicyRoutesCustomModel {
 						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
@@ -1032,14 +1056,14 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						}
 						return nil
 					}(),
-					DontSend: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					DontSend: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].DontSend.IsUnknown() {
 							return existingRoutesItems[listIdx].DontSend
 						}
 						if _, ok := itemMap["dont_send"].(map[string]interface{}); ok {
-							return &AlertPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Group: func() *AlertPolicyRoutesGroupModel {
 						if GroupData, ok := itemMap["group"].(map[string]interface{}); ok {
@@ -1089,14 +1113,14 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 									}
 									return nil
 								}(),
-								Default: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+								Default: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && !existingRoutesItems[listIdx].NotificationParameters.Default.IsUnknown() {
 										return existingRoutesItems[listIdx].NotificationParameters.Default
 									}
 									if _, ok := NotificationParametersData["default"].(map[string]interface{}); ok {
-										return &AlertPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								GroupInterval: func() types.String {
 									if v, ok := NotificationParametersData["group_interval"].(string); ok && v != "" {
@@ -1110,14 +1134,14 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 									}
 									return types.StringNull()
 								}(),
-								Individual: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+								Individual: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && !existingRoutesItems[listIdx].NotificationParameters.Individual.IsUnknown() {
 										return existingRoutesItems[listIdx].NotificationParameters.Individual
 									}
 									if _, ok := NotificationParametersData["individual"].(map[string]interface{}); ok {
-										return &AlertPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								RepeatInterval: func() types.String {
 									if v, ok := NotificationParametersData["repeat_interval"].(string); ok && v != "" {
@@ -1125,27 +1149,27 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 									}
 									return types.StringNull()
 								}(),
-								VesIoGroup: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+								VesIoGroup: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && !existingRoutesItems[listIdx].NotificationParameters.VesIoGroup.IsUnknown() {
 										return existingRoutesItems[listIdx].NotificationParameters.VesIoGroup
 									}
 									if _, ok := NotificationParametersData["ves_io_group"].(map[string]interface{}); ok {
-										return &AlertPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}
 						return nil
 					}(),
-					Send: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					Send: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].Send.IsUnknown() {
 							return existingRoutesItems[listIdx].Send
 						}
 						if _, ok := itemMap["send"].(map[string]interface{}); ok {
-							return &AlertPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Severity: func() *AlertPolicyRoutesSeverityModel {
 						if SeverityData, ok := itemMap["severity"].(map[string]interface{}); ok {
@@ -1205,14 +1229,14 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return nil
 			}(),
-			Default: func() *AlertPolicyEmptyModel {
-				if !isImport && data.NotificationParameters != nil {
+			Default: func() types.Object {
+				if !isImport && data.NotificationParameters != nil && !data.NotificationParameters.Default.IsUnknown() {
 					return data.NotificationParameters.Default
 				}
 				if _, ok := blockData["default"].(map[string]interface{}); ok {
-					return &AlertPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GroupInterval: func() types.String {
 				if v, ok := blockData["group_interval"].(string); ok && v != "" {
@@ -1226,14 +1250,14 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return types.StringNull()
 			}(),
-			Individual: func() *AlertPolicyEmptyModel {
-				if !isImport && data.NotificationParameters != nil {
+			Individual: func() types.Object {
+				if !isImport && data.NotificationParameters != nil && !data.NotificationParameters.Individual.IsUnknown() {
 					return data.NotificationParameters.Individual
 				}
 				if _, ok := blockData["individual"].(map[string]interface{}); ok {
-					return &AlertPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			RepeatInterval: func() types.String {
 				if v, ok := blockData["repeat_interval"].(string); ok && v != "" {
@@ -1241,14 +1265,14 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return types.StringNull()
 			}(),
-			VesIoGroup: func() *AlertPolicyEmptyModel {
-				if !isImport && data.NotificationParameters != nil {
+			VesIoGroup: func() types.Object {
+				if !isImport && data.NotificationParameters != nil && !data.NotificationParameters.VesIoGroup.IsUnknown() {
 					return data.NotificationParameters.VesIoGroup
 				}
 				if _, ok := blockData["ves_io_group"].(map[string]interface{}); ok {
-					return &AlertPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -1460,14 +1484,14 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 						}
 						return types.StringNull()
 					}(),
-					Any: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					Any: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].Any.IsUnknown() {
 							return existingRoutesItems[listIdx].Any
 						}
 						if _, ok := itemMap["any"].(map[string]interface{}); ok {
-							return &AlertPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Custom: func() *AlertPolicyRoutesCustomModel {
 						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
@@ -1551,14 +1575,14 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 						}
 						return nil
 					}(),
-					DontSend: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					DontSend: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].DontSend.IsUnknown() {
 							return existingRoutesItems[listIdx].DontSend
 						}
 						if _, ok := itemMap["dont_send"].(map[string]interface{}); ok {
-							return &AlertPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Group: func() *AlertPolicyRoutesGroupModel {
 						if GroupData, ok := itemMap["group"].(map[string]interface{}); ok {
@@ -1608,14 +1632,14 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 									}
 									return nil
 								}(),
-								Default: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+								Default: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && !existingRoutesItems[listIdx].NotificationParameters.Default.IsUnknown() {
 										return existingRoutesItems[listIdx].NotificationParameters.Default
 									}
 									if _, ok := NotificationParametersData["default"].(map[string]interface{}); ok {
-										return &AlertPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								GroupInterval: func() types.String {
 									if v, ok := NotificationParametersData["group_interval"].(string); ok && v != "" {
@@ -1629,14 +1653,14 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 									}
 									return types.StringNull()
 								}(),
-								Individual: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+								Individual: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && !existingRoutesItems[listIdx].NotificationParameters.Individual.IsUnknown() {
 										return existingRoutesItems[listIdx].NotificationParameters.Individual
 									}
 									if _, ok := NotificationParametersData["individual"].(map[string]interface{}); ok {
-										return &AlertPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								RepeatInterval: func() types.String {
 									if v, ok := NotificationParametersData["repeat_interval"].(string); ok && v != "" {
@@ -1644,27 +1668,27 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 									}
 									return types.StringNull()
 								}(),
-								VesIoGroup: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+								VesIoGroup: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && !existingRoutesItems[listIdx].NotificationParameters.VesIoGroup.IsUnknown() {
 										return existingRoutesItems[listIdx].NotificationParameters.VesIoGroup
 									}
 									if _, ok := NotificationParametersData["ves_io_group"].(map[string]interface{}); ok {
-										return &AlertPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}
 						return nil
 					}(),
-					Send: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					Send: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].Send.IsUnknown() {
 							return existingRoutesItems[listIdx].Send
 						}
 						if _, ok := itemMap["send"].(map[string]interface{}); ok {
-							return &AlertPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Severity: func() *AlertPolicyRoutesSeverityModel {
 						if SeverityData, ok := itemMap["severity"].(map[string]interface{}); ok {
@@ -1724,14 +1748,14 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return nil
 			}(),
-			Default: func() *AlertPolicyEmptyModel {
-				if !isImport && data.NotificationParameters != nil {
+			Default: func() types.Object {
+				if !isImport && data.NotificationParameters != nil && !data.NotificationParameters.Default.IsUnknown() {
 					return data.NotificationParameters.Default
 				}
 				if _, ok := blockData["default"].(map[string]interface{}); ok {
-					return &AlertPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GroupInterval: func() types.String {
 				if v, ok := blockData["group_interval"].(string); ok && v != "" {
@@ -1745,14 +1769,14 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return types.StringNull()
 			}(),
-			Individual: func() *AlertPolicyEmptyModel {
-				if !isImport && data.NotificationParameters != nil {
+			Individual: func() types.Object {
+				if !isImport && data.NotificationParameters != nil && !data.NotificationParameters.Individual.IsUnknown() {
 					return data.NotificationParameters.Individual
 				}
 				if _, ok := blockData["individual"].(map[string]interface{}); ok {
-					return &AlertPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			RepeatInterval: func() types.String {
 				if v, ok := blockData["repeat_interval"].(string); ok && v != "" {
@@ -1760,14 +1784,14 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return types.StringNull()
 			}(),
-			VesIoGroup: func() *AlertPolicyEmptyModel {
-				if !isImport && data.NotificationParameters != nil {
+			VesIoGroup: func() types.Object {
+				if !isImport && data.NotificationParameters != nil && !data.NotificationParameters.VesIoGroup.IsUnknown() {
 					return data.NotificationParameters.VesIoGroup
 				}
 				if _, ok := blockData["ves_io_group"].(map[string]interface{}); ok {
-					return &AlertPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -1898,7 +1922,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 				if !RoutesItem.AlertnameRegex.IsNull() && !RoutesItem.AlertnameRegex.IsUnknown() {
 					RoutesItemMap["alertname_regex"] = RoutesItem.AlertnameRegex.ValueString()
 				}
-				if RoutesItem.Any != nil {
+				if !RoutesItem.Any.IsNull() && !RoutesItem.Any.IsUnknown() {
 					RoutesItemMap["any"] = map[string]interface{}{}
 				}
 				if RoutesItem.Custom != nil {
@@ -1938,7 +1962,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 					}
 					RoutesItemMap["custom"] = RoutesCustomMap
 				}
-				if RoutesItem.DontSend != nil {
+				if !RoutesItem.DontSend.IsNull() && !RoutesItem.DontSend.IsUnknown() {
 					RoutesItemMap["dont_send"] = map[string]interface{}{}
 				}
 				if RoutesItem.Group != nil {
@@ -1967,7 +1991,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						}
 						RoutesNotificationParametersMap["custom"] = RoutesNotificationParametersCustomMap
 					}
-					if RoutesItem.NotificationParameters.Default != nil {
+					if !RoutesItem.NotificationParameters.Default.IsNull() && !RoutesItem.NotificationParameters.Default.IsUnknown() {
 						RoutesNotificationParametersMap["default"] = map[string]interface{}{}
 					}
 					if !RoutesItem.NotificationParameters.GroupInterval.IsNull() && !RoutesItem.NotificationParameters.GroupInterval.IsUnknown() {
@@ -1976,18 +2000,18 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 					if !RoutesItem.NotificationParameters.GroupWait.IsNull() && !RoutesItem.NotificationParameters.GroupWait.IsUnknown() {
 						RoutesNotificationParametersMap["group_wait"] = RoutesItem.NotificationParameters.GroupWait.ValueString()
 					}
-					if RoutesItem.NotificationParameters.Individual != nil {
+					if !RoutesItem.NotificationParameters.Individual.IsNull() && !RoutesItem.NotificationParameters.Individual.IsUnknown() {
 						RoutesNotificationParametersMap["individual"] = map[string]interface{}{}
 					}
 					if !RoutesItem.NotificationParameters.RepeatInterval.IsNull() && !RoutesItem.NotificationParameters.RepeatInterval.IsUnknown() {
 						RoutesNotificationParametersMap["repeat_interval"] = RoutesItem.NotificationParameters.RepeatInterval.ValueString()
 					}
-					if RoutesItem.NotificationParameters.VesIoGroup != nil {
+					if !RoutesItem.NotificationParameters.VesIoGroup.IsNull() && !RoutesItem.NotificationParameters.VesIoGroup.IsUnknown() {
 						RoutesNotificationParametersMap["ves_io_group"] = map[string]interface{}{}
 					}
 					RoutesItemMap["notification_parameters"] = RoutesNotificationParametersMap
 				}
-				if RoutesItem.Send != nil {
+				if !RoutesItem.Send.IsNull() && !RoutesItem.Send.IsUnknown() {
 					RoutesItemMap["send"] = map[string]interface{}{}
 				}
 				if RoutesItem.Severity != nil {
@@ -2021,7 +2045,7 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 			}
 			NotificationParametersMap["custom"] = NotificationParametersCustomMap
 		}
-		if data.NotificationParameters.Default != nil {
+		if !data.NotificationParameters.Default.IsNull() && !data.NotificationParameters.Default.IsUnknown() {
 			NotificationParametersMap["default"] = map[string]interface{}{}
 		}
 		if !data.NotificationParameters.GroupInterval.IsNull() && !data.NotificationParameters.GroupInterval.IsUnknown() {
@@ -2030,13 +2054,13 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 		if !data.NotificationParameters.GroupWait.IsNull() && !data.NotificationParameters.GroupWait.IsUnknown() {
 			NotificationParametersMap["group_wait"] = data.NotificationParameters.GroupWait.ValueString()
 		}
-		if data.NotificationParameters.Individual != nil {
+		if !data.NotificationParameters.Individual.IsNull() && !data.NotificationParameters.Individual.IsUnknown() {
 			NotificationParametersMap["individual"] = map[string]interface{}{}
 		}
 		if !data.NotificationParameters.RepeatInterval.IsNull() && !data.NotificationParameters.RepeatInterval.IsUnknown() {
 			NotificationParametersMap["repeat_interval"] = data.NotificationParameters.RepeatInterval.ValueString()
 		}
-		if data.NotificationParameters.VesIoGroup != nil {
+		if !data.NotificationParameters.VesIoGroup.IsNull() && !data.NotificationParameters.VesIoGroup.IsUnknown() {
 			NotificationParametersMap["ves_io_group"] = map[string]interface{}{}
 		}
 		apiResource.Spec["notification_parameters"] = NotificationParametersMap
@@ -2177,14 +2201,14 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						}
 						return types.StringNull()
 					}(),
-					Any: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					Any: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].Any.IsUnknown() {
 							return existingRoutesItems[listIdx].Any
 						}
 						if _, ok := itemMap["any"].(map[string]interface{}); ok {
-							return &AlertPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Custom: func() *AlertPolicyRoutesCustomModel {
 						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
@@ -2268,14 +2292,14 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						}
 						return nil
 					}(),
-					DontSend: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					DontSend: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].DontSend.IsUnknown() {
 							return existingRoutesItems[listIdx].DontSend
 						}
 						if _, ok := itemMap["dont_send"].(map[string]interface{}); ok {
-							return &AlertPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Group: func() *AlertPolicyRoutesGroupModel {
 						if GroupData, ok := itemMap["group"].(map[string]interface{}); ok {
@@ -2325,14 +2349,14 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 									}
 									return nil
 								}(),
-								Default: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+								Default: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && !existingRoutesItems[listIdx].NotificationParameters.Default.IsUnknown() {
 										return existingRoutesItems[listIdx].NotificationParameters.Default
 									}
 									if _, ok := NotificationParametersData["default"].(map[string]interface{}); ok {
-										return &AlertPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								GroupInterval: func() types.String {
 									if v, ok := NotificationParametersData["group_interval"].(string); ok && v != "" {
@@ -2346,14 +2370,14 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 									}
 									return types.StringNull()
 								}(),
-								Individual: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+								Individual: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && !existingRoutesItems[listIdx].NotificationParameters.Individual.IsUnknown() {
 										return existingRoutesItems[listIdx].NotificationParameters.Individual
 									}
 									if _, ok := NotificationParametersData["individual"].(map[string]interface{}); ok {
-										return &AlertPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								RepeatInterval: func() types.String {
 									if v, ok := NotificationParametersData["repeat_interval"].(string); ok && v != "" {
@@ -2361,27 +2385,27 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 									}
 									return types.StringNull()
 								}(),
-								VesIoGroup: func() *AlertPolicyEmptyModel {
-									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil {
+								VesIoGroup: func() types.Object {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].NotificationParameters != nil && !existingRoutesItems[listIdx].NotificationParameters.VesIoGroup.IsUnknown() {
 										return existingRoutesItems[listIdx].NotificationParameters.VesIoGroup
 									}
 									if _, ok := NotificationParametersData["ves_io_group"].(map[string]interface{}); ok {
-										return &AlertPolicyEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							}
 						}
 						return nil
 					}(),
-					Send: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx {
+					Send: func() types.Object {
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].Send.IsUnknown() {
 							return existingRoutesItems[listIdx].Send
 						}
 						if _, ok := itemMap["send"].(map[string]interface{}); ok {
-							return &AlertPolicyEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					Severity: func() *AlertPolicyRoutesSeverityModel {
 						if SeverityData, ok := itemMap["severity"].(map[string]interface{}); ok {
@@ -2441,14 +2465,14 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return nil
 			}(),
-			Default: func() *AlertPolicyEmptyModel {
-				if !isImport && data.NotificationParameters != nil {
+			Default: func() types.Object {
+				if !isImport && data.NotificationParameters != nil && !data.NotificationParameters.Default.IsUnknown() {
 					return data.NotificationParameters.Default
 				}
 				if _, ok := blockData["default"].(map[string]interface{}); ok {
-					return &AlertPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			GroupInterval: func() types.String {
 				if v, ok := blockData["group_interval"].(string); ok && v != "" {
@@ -2462,14 +2486,14 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return types.StringNull()
 			}(),
-			Individual: func() *AlertPolicyEmptyModel {
-				if !isImport && data.NotificationParameters != nil {
+			Individual: func() types.Object {
+				if !isImport && data.NotificationParameters != nil && !data.NotificationParameters.Individual.IsUnknown() {
 					return data.NotificationParameters.Individual
 				}
 				if _, ok := blockData["individual"].(map[string]interface{}); ok {
-					return &AlertPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			RepeatInterval: func() types.String {
 				if v, ok := blockData["repeat_interval"].(string); ok && v != "" {
@@ -2477,14 +2501,14 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return types.StringNull()
 			}(),
-			VesIoGroup: func() *AlertPolicyEmptyModel {
-				if !isImport && data.NotificationParameters != nil {
+			VesIoGroup: func() types.Object {
+				if !isImport && data.NotificationParameters != nil && !data.NotificationParameters.VesIoGroup.IsUnknown() {
 					return data.NotificationParameters.VesIoGroup
 				}
 				if _, ok := blockData["ves_io_group"].(map[string]interface{}); ok {
-					return &AlertPolicyEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

@@ -84,7 +84,7 @@ resource "xcsh_dc_cluster_group" "test" {
   namespace  = xcsh_namespace.test.name
 
   type {
-    data_plane_mesh {}
+    data_plane_mesh = {}
   }
 }
 `, nsName, name))

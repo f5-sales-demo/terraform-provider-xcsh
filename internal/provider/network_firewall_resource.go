@@ -16,6 +16,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
@@ -154,14 +155,14 @@ type NetworkFirewallResourceModel struct {
 	Disable                        types.Bool                                          `tfsdk:"disable"`
 	Labels                         types.Map                                           `tfsdk:"labels"`
 	ID                             types.String                                        `tfsdk:"id"`
+	DisableFastACL                 types.Object                                        `tfsdk:"disable_fast_acl"`
+	DisableForwardProxyPolicy      types.Object                                        `tfsdk:"disable_forward_proxy_policy"`
+	DisableNetworkPolicy           types.Object                                        `tfsdk:"disable_network_policy"`
 	Timeouts                       timeouts.Value                                      `tfsdk:"timeouts"`
 	ActiveEnhancedFirewallPolicies *NetworkFirewallActiveEnhancedFirewallPoliciesModel `tfsdk:"active_enhanced_firewall_policies"`
 	ActiveFastAcls                 *NetworkFirewallActiveFastAclsModel                 `tfsdk:"active_fast_acls"`
 	ActiveForwardProxyPolicies     *NetworkFirewallActiveForwardProxyPoliciesModel     `tfsdk:"active_forward_proxy_policies"`
 	ActiveNetworkPolicies          *NetworkFirewallActiveNetworkPoliciesModel          `tfsdk:"active_network_policies"`
-	DisableFastACL                 *NetworkFirewallEmptyModel                          `tfsdk:"disable_fast_acl"`
-	DisableForwardProxyPolicy      *NetworkFirewallEmptyModel                          `tfsdk:"disable_forward_proxy_policy"`
-	DisableNetworkPolicy           *NetworkFirewallEmptyModel                          `tfsdk:"disable_network_policy"`
 }
 
 func (r *NetworkFirewallResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -218,6 +219,33 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"disable_fast_acl": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for disable fast acl. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"disable_forward_proxy_policy": schema.ObjectAttribute{
+				MarkdownDescription: "Policy configuration for this feature. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"disable_network_policy": schema.ObjectAttribute{
+				MarkdownDescription: "Policy configuration for this feature. Defaults to `map[]`. Server applies default when omitted.",
+				Optional:            true,
+				Computed:            true,
+				AttributeTypes:      map[string]attr.Type{},
+				PlanModifiers: []planmodifier.Object{
+					objectplanmodifier.UseStateForUnknown(),
 				},
 			},
 		},
@@ -391,15 +419,6 @@ func (r *NetworkFirewallResource) Schema(ctx context.Context, req resource.Schem
 						},
 					},
 				},
-			},
-			"disable_fast_acl": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for disable fast acl. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"disable_forward_proxy_policy": schema.SingleNestedBlock{
-				MarkdownDescription: "Policy configuration for this feature. Defaults to `map[]`. Server applies default when omitted.",
-			},
-			"disable_network_policy": schema.SingleNestedBlock{
-				MarkdownDescription: "Policy configuration for this feature. Defaults to `map[]`. Server applies default when omitted.",
 			},
 		},
 	}
@@ -619,13 +638,13 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 		}
 		createReq.Spec["active_network_policies"] = ActiveNetworkPoliciesMap
 	}
-	if data.DisableFastACL != nil {
+	if !data.DisableFastACL.IsNull() && !data.DisableFastACL.IsUnknown() {
 		createReq.Spec["disable_fast_acl"] = map[string]interface{}{}
 	}
-	if data.DisableForwardProxyPolicy != nil {
+	if !data.DisableForwardProxyPolicy.IsNull() && !data.DisableForwardProxyPolicy.IsUnknown() {
 		createReq.Spec["disable_forward_proxy_policy"] = map[string]interface{}{}
 	}
-	if data.DisableNetworkPolicy != nil {
+	if !data.DisableNetworkPolicy.IsNull() && !data.DisableNetworkPolicy.IsUnknown() {
 		createReq.Spec["disable_network_policy"] = map[string]interface{}{}
 	}
 
@@ -843,14 +862,26 @@ func (r *NetworkFirewallResource) Create(ctx context.Context, req resource.Creat
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_fast_acl"].(map[string]interface{}); ok && isImport && data.DisableFastACL == nil {
-		data.DisableFastACL = &NetworkFirewallEmptyModel{}
+	if !isImport && !data.DisableFastACL.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_fast_acl"].(map[string]interface{}); ok {
+		data.DisableFastACL = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableFastACL = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_forward_proxy_policy"].(map[string]interface{}); ok && isImport && data.DisableForwardProxyPolicy == nil {
-		data.DisableForwardProxyPolicy = &NetworkFirewallEmptyModel{}
+	if !isImport && !data.DisableForwardProxyPolicy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_forward_proxy_policy"].(map[string]interface{}); ok {
+		data.DisableForwardProxyPolicy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableForwardProxyPolicy = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_network_policy"].(map[string]interface{}); ok && isImport && data.DisableNetworkPolicy == nil {
-		data.DisableNetworkPolicy = &NetworkFirewallEmptyModel{}
+	if !isImport && !data.DisableNetworkPolicy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_network_policy"].(map[string]interface{}); ok {
+		data.DisableNetworkPolicy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableNetworkPolicy = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	tflog.Trace(ctx, "created NetworkFirewall resource")
@@ -1159,14 +1190,26 @@ func (r *NetworkFirewallResource) Read(ctx context.Context, req resource.ReadReq
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_fast_acl"].(map[string]interface{}); ok && isImport && data.DisableFastACL == nil {
-		data.DisableFastACL = &NetworkFirewallEmptyModel{}
+	if !isImport && !data.DisableFastACL.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_fast_acl"].(map[string]interface{}); ok {
+		data.DisableFastACL = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableFastACL = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_forward_proxy_policy"].(map[string]interface{}); ok && isImport && data.DisableForwardProxyPolicy == nil {
-		data.DisableForwardProxyPolicy = &NetworkFirewallEmptyModel{}
+	if !isImport && !data.DisableForwardProxyPolicy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_forward_proxy_policy"].(map[string]interface{}); ok {
+		data.DisableForwardProxyPolicy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableForwardProxyPolicy = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_network_policy"].(map[string]interface{}); ok && isImport && data.DisableNetworkPolicy == nil {
-		data.DisableNetworkPolicy = &NetworkFirewallEmptyModel{}
+	if !isImport && !data.DisableNetworkPolicy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_network_policy"].(map[string]interface{}); ok {
+		data.DisableNetworkPolicy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableNetworkPolicy = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
@@ -1354,13 +1397,13 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 		}
 		apiResource.Spec["active_network_policies"] = ActiveNetworkPoliciesMap
 	}
-	if data.DisableFastACL != nil {
+	if !data.DisableFastACL.IsNull() && !data.DisableFastACL.IsUnknown() {
 		apiResource.Spec["disable_fast_acl"] = map[string]interface{}{}
 	}
-	if data.DisableForwardProxyPolicy != nil {
+	if !data.DisableForwardProxyPolicy.IsNull() && !data.DisableForwardProxyPolicy.IsUnknown() {
 		apiResource.Spec["disable_forward_proxy_policy"] = map[string]interface{}{}
 	}
-	if data.DisableNetworkPolicy != nil {
+	if !data.DisableNetworkPolicy.IsNull() && !data.DisableNetworkPolicy.IsUnknown() {
 		apiResource.Spec["disable_network_policy"] = map[string]interface{}{}
 	}
 
@@ -1598,14 +1641,26 @@ func (r *NetworkFirewallResource) Update(ctx context.Context, req resource.Updat
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_fast_acl"].(map[string]interface{}); ok && isImport && data.DisableFastACL == nil {
-		data.DisableFastACL = &NetworkFirewallEmptyModel{}
+	if !isImport && !data.DisableFastACL.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_fast_acl"].(map[string]interface{}); ok {
+		data.DisableFastACL = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableFastACL = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_forward_proxy_policy"].(map[string]interface{}); ok && isImport && data.DisableForwardProxyPolicy == nil {
-		data.DisableForwardProxyPolicy = &NetworkFirewallEmptyModel{}
+	if !isImport && !data.DisableForwardProxyPolicy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_forward_proxy_policy"].(map[string]interface{}); ok {
+		data.DisableForwardProxyPolicy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableForwardProxyPolicy = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["disable_network_policy"].(map[string]interface{}); ok && isImport && data.DisableNetworkPolicy == nil {
-		data.DisableNetworkPolicy = &NetworkFirewallEmptyModel{}
+	if !isImport && !data.DisableNetworkPolicy.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_network_policy"].(map[string]interface{}); ok {
+		data.DisableNetworkPolicy = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableNetworkPolicy = types.ObjectNull(map[string]attr.Type{})
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

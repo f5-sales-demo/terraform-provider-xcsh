@@ -39,7 +39,7 @@ resource "xcsh_dns_proxy" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -91,15 +91,27 @@ A [`cache_profile`](#cache-profile) block supports the following:
 
 <a id="cache-profile-cache-size"></a>&#x2022; [`cache_size`](#cache-profile-cache-size) - Optional Number<br>cache size
 
-<a id="cache-profile-disable-cache-profile"></a>&#x2022; [`disable_cache_profile`](#cache-profile-disable-cache-profile) - Optional Block<br>Configuration parameter for disable cache profile
+<a id="cache-profile-disable-cache-profile"></a>&#x2022; [`disable_cache_profile`](#cache-profile-disable-cache-profile) - Optional Object<br>Configuration parameter for disable cache profile
+
+#### Cache Profile Disable Cache Profile
+
+A [`disable_cache_profile`](#cache-profile-disable-cache-profile) block (within [`cache_profile`](#cache-profile)) supports the following:
 
 #### DDOS Profile
 
 A [`ddos_profile`](#ddos-profile) block supports the following:
 
-<a id="ddos-profile-disable-ddos-mitigation"></a>&#x2022; [`disable_ddos_mitigation`](#ddos-profile-disable-ddos-mitigation) - Optional Block<br>Enable this option
+<a id="ddos-profile-disable-ddos-mitigation"></a>&#x2022; [`disable_ddos_mitigation`](#ddos-profile-disable-ddos-mitigation) - Optional Object<br>Enable this option
 
-<a id="ddos-profile-enable-ddos-mitigation"></a>&#x2022; [`enable_ddos_mitigation`](#ddos-profile-enable-ddos-mitigation) - Optional Block<br>Enable this option
+<a id="ddos-profile-enable-ddos-mitigation"></a>&#x2022; [`enable_ddos_mitigation`](#ddos-profile-enable-ddos-mitigation) - Optional Object<br>Enable this option
+
+#### DDOS Profile Disable DDOS Mitigation
+
+A [`disable_ddos_mitigation`](#ddos-profile-disable-ddos-mitigation) block (within [`ddos_profile`](#ddos-profile)) supports the following:
+
+#### DDOS Profile Enable DDOS Mitigation
+
+An [`enable_ddos_mitigation`](#ddos-profile-enable-ddos-mitigation) block (within [`ddos_profile`](#ddos-profile)) supports the following:
 
 #### Irules
 
@@ -145,13 +157,17 @@ A [`health_check`](#check-deb7c4) block (within [`origin_servers.health_checks`]
 
 <a id="check-e7e853"></a>&#x2022; [`dns_health_check`](#check-e7e853) - Optional Block<br>DNS health check reports healthy if DNS query is successful and response header and answer matches the given value<br>See [DNS Health Check](#check-e7e853) below.
 
-<a id="check-5d4a3f"></a>&#x2022; [`icmp_health_check`](#check-5d4a3f) - Optional Block<br>Configuration parameter for ICMP health check
+<a id="check-5d4a3f"></a>&#x2022; [`icmp_health_check`](#check-5d4a3f) - Optional Object<br>Configuration parameter for ICMP health check
 
 <a id="check-a39c2c"></a>&#x2022; [`tcp_health_check`](#check-a39c2c) - Optional Block<br>Monitor reports healthy status if UDP connection is successful and response payload matches expected response pattern<br>See [TCP Health Check](#check-a39c2c) below.
 
 #### Origin Servers Health Checks Health Check DNS Health Check
 
 <a id="deep-fd849a"></a>Deeply nested **Check** block collapsed for readability.
+
+#### Origin Servers Health Checks Health Check ICMP Health Check
+
+<a id="deep-e67214"></a>Deeply nested **Check** block collapsed for readability.
 
 #### Origin Servers Health Checks Health Check TCP Health Check
 
@@ -163,7 +179,7 @@ An [`origin_servers`](#origin-servers-origin-servers) block (within [`origin_ser
 
 <a id="service-496024"></a>&#x2022; [`k8s_service`](#service-496024) - Optional Block<br>Specify origin server with K8S service name and site information<br>See [K8S Service](#service-496024) below.
 
-<a id="preference-d02b94"></a>&#x2022; [`no_preference`](#preference-d02b94) - Optional Block<br>Configuration parameter for no preference
+<a id="preference-d02b94"></a>&#x2022; [`no_preference`](#preference-d02b94) - Optional Object<br>Configuration parameter for no preference
 
 <a id="origin-servers-origin-servers-public-ip"></a>&#x2022; [`public_ip`](#origin-servers-origin-servers-public-ip) - Optional Block<br>Specify origin server with public IP address<br>See [Public IP](#origin-servers-origin-servers-public-ip) below.
 
@@ -175,9 +191,9 @@ An [`origin_servers`](#origin-servers-origin-servers) block (within [`origin_ser
 
 A [`k8s_service`](#service-496024) block (within [`origin_servers.origin_servers`](#origin-servers-origin-servers)) supports the following:
 
-<a id="network-dd9237"></a>&#x2022; [`inside_network`](#network-dd9237) - Optional Block<br>Configuration parameter for inside network
+<a id="network-dd9237"></a>&#x2022; [`inside_network`](#network-dd9237) - Optional Object<br>Configuration parameter for inside network
 
-<a id="network-2d18f6"></a>&#x2022; [`outside_network`](#network-2d18f6) - Optional Block<br>Configuration parameter for outside network
+<a id="network-2d18f6"></a>&#x2022; [`outside_network`](#network-2d18f6) - Optional Object<br>Configuration parameter for outside network
 
 <a id="protocol-878ba3"></a>&#x2022; [`protocol`](#protocol-878ba3) - Optional String  Defaults to `PROTOCOL_TCP`<br>Possible values are `PROTOCOL_TCP`, `PROTOCOL_UDP`<br>[Enum: PROTOCOL_TCP|PROTOCOL_UDP] Type of protocol - PROTOCOL_TCP: TCP - PROTOCOL_UDP: UDP
 
@@ -187,7 +203,15 @@ A [`k8s_service`](#service-496024) block (within [`origin_servers.origin_servers
 
 <a id="pool-a17602"></a>&#x2022; [`snat_pool`](#pool-a17602) - Optional Block<br>SNAT Pool. SNAT Pool configuration<br>See [Snat Pool](#pool-a17602) below.
 
-<a id="networks-dedcba"></a>&#x2022; [`vk8s_networks`](#networks-dedcba) - Optional Block<br>Configuration parameter for vk8s networks
+<a id="networks-dedcba"></a>&#x2022; [`vk8s_networks`](#networks-dedcba) - Optional Object<br>Configuration parameter for vk8s networks
+
+#### Origin Servers Origin Servers K8S Service Inside Network
+
+<a id="deep-4a1739"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Origin Servers Origin Servers K8S Service Outside Network
+
+<a id="deep-1b09f3"></a>Deeply nested **Network** block collapsed for readability.
 
 #### Origin Servers Origin Servers K8S Service Site Locator
 
@@ -205,9 +229,21 @@ A [`k8s_service`](#service-496024) block (within [`origin_servers.origin_servers
 
 <a id="deep-d84ae1"></a>Deeply nested **Pool** block collapsed for readability.
 
+#### Origin Servers Origin Servers K8S Service Snat Pool No Snat Pool
+
+<a id="deep-34ee58"></a>Deeply nested **Pool** block collapsed for readability.
+
 #### Origin Servers Origin Servers K8S Service Snat Pool Snat Pool
 
 <a id="deep-1010b5"></a>Deeply nested **Pool** block collapsed for readability.
+
+#### Origin Servers Origin Servers K8S Service Vk8s Networks
+
+<a id="deep-714912"></a>Deeply nested **Networks** block collapsed for readability.
+
+#### Origin Servers Origin Servers No Preference
+
+A [`no_preference`](#preference-d02b94) block (within [`origin_servers.origin_servers`](#origin-servers-origin-servers)) supports the following:
 
 #### Origin Servers Origin Servers Public IP
 
@@ -257,9 +293,9 @@ A [`proxy_advertisement`](#proxy-advertisement) block supports the following:
 
 <a id="proxy-advertisement-advertise-on-public"></a>&#x2022; [`advertise_on_public`](#proxy-advertisement-advertise-on-public) - Optional Block<br>Defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available<br>See [Advertise On Public](#proxy-advertisement-advertise-on-public) below.
 
-<a id="vip-8af300"></a>&#x2022; [`advertise_on_public_default_vip`](#vip-8af300) - Optional Block<br>Enable this option
+<a id="vip-8af300"></a>&#x2022; [`advertise_on_public_default_vip`](#vip-8af300) - Optional Object<br>Enable this option
 
-<a id="proxy-advertisement-do-not-advertise"></a>&#x2022; [`do_not_advertise`](#proxy-advertisement-do-not-advertise) - Optional Block<br>Configuration parameter for do not advertise
+<a id="proxy-advertisement-do-not-advertise"></a>&#x2022; [`do_not_advertise`](#proxy-advertisement-do-not-advertise) - Optional Object<br>Configuration parameter for do not advertise
 
 #### Proxy Advertisement Advertise Custom
 
@@ -279,7 +315,7 @@ An [`advertise_where`](#where-1b1a33) block (within [`proxy_advertisement.advert
 
 <a id="site-35864e"></a>&#x2022; [`site`](#site-35864e) - Optional Block<br>Defines a reference to a CE site along with network type and an optional IP address where a load balancer could be advertised<br>See [Site](#site-35864e) below.
 
-<a id="port-82cb10"></a>&#x2022; [`use_default_port`](#port-82cb10) - Optional Block<br>Enable this option
+<a id="port-82cb10"></a>&#x2022; [`use_default_port`](#port-82cb10) - Optional Object<br>Enable this option
 
 <a id="network-6b99fa"></a>&#x2022; [`virtual_network`](#network-6b99fa) - Optional Block<br>Parameters to advertise on a given virtual network<br>See [Virtual Network](#network-6b99fa) below.
 
@@ -312,9 +348,21 @@ SITE_NETWORK_INSIDE_AND_OUTSIDE|SITE_NETWORK_INSIDE|SITE_NETWORK_OUTSIDE|SITE_NE
 
 <a id="deep-9bd8ed"></a>Deeply nested **Site** block collapsed for readability.
 
+#### Proxy Advertisement Advertise Custom Advertise Where Use Default Port
+
+<a id="deep-4755f5"></a>Deeply nested **Port** block collapsed for readability.
+
 #### Proxy Advertisement Advertise Custom Advertise Where Virtual Network
 
 <a id="deep-7a2b81"></a>Deeply nested **Network** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Virtual Network Default V6 VIP
+
+<a id="deep-7dccec"></a>Deeply nested **VIP** block collapsed for readability.
+
+#### Proxy Advertisement Advertise Custom Advertise Where Virtual Network Default VIP
+
+<a id="deep-3de75e"></a>Deeply nested **VIP** block collapsed for readability.
 
 #### Proxy Advertisement Advertise Custom Advertise Where Virtual Network Virtual Network
 
@@ -363,6 +411,14 @@ A [`public_ip`](#public-ip-132a4f) block (within [`proxy_advertisement.advertise
 <a id="namespace-0aa621"></a>&#x2022; [`namespace`](#namespace-0aa621) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="tenant-90fb64"></a>&#x2022; [`tenant`](#tenant-90fb64) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Proxy Advertisement Advertise On Public Default VIP
+
+An [`advertise_on_public_default_vip`](#vip-8af300) block (within [`proxy_advertisement`](#proxy-advertisement)) supports the following:
+
+#### Proxy Advertisement Do Not Advertise
+
+A [`do_not_advertise`](#proxy-advertisement-do-not-advertise) block (within [`proxy_advertisement`](#proxy-advertisement)) supports the following:
 
 #### Timeouts
 

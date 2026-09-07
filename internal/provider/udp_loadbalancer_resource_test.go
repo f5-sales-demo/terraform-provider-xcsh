@@ -494,8 +494,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_udp_loadbalancer" "test" {
@@ -520,7 +520,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  do_not_advertise {}
+  do_not_advertise = {}
 }
 `, name)
 }
@@ -538,8 +538,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_udp_loadbalancer" "test" {
@@ -570,7 +570,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  do_not_advertise {}
+  do_not_advertise = {}
 }
 `, name)
 }
@@ -588,8 +588,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_udp_loadbalancer" "test" {
@@ -614,7 +614,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  do_not_advertise {}
+  do_not_advertise = {}
 }
 `, name, env, managedBy)
 }
@@ -632,8 +632,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_udp_loadbalancer" "test" {
@@ -659,7 +659,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  do_not_advertise {}
+  do_not_advertise = {}
 }
 `, name, description)
 }
@@ -677,8 +677,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_udp_loadbalancer" "test" {
@@ -707,7 +707,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  do_not_advertise {}
+  do_not_advertise = {}
 }
 `, name, value)
 }
@@ -725,8 +725,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 
 resource "xcsh_udp_loadbalancer" "test" {
@@ -751,7 +751,7 @@ resource "xcsh_udp_loadbalancer" "test" {
     weight = 1
   }
 
-  do_not_advertise {}
+  do_not_advertise = {}
 }
 `, name, port)
 }

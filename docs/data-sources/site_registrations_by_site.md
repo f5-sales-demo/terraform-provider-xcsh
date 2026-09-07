@@ -40,7 +40,7 @@ output "site_registrations_by_site_result" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 ### Metadata Argument Reference
 
@@ -431,9 +431,9 @@ A [`passport`](#items-get-spec-passport) block (within [`items.get_spec`](#items
 
 <a id="type-1d3b09"></a>&#x2022; [`cluster_type`](#type-1d3b09) - Optional String<br>Cluster Type. Cluster or grouping configuration
 
-<a id="version-bc4e3e"></a>&#x2022; [`default_os_version`](#version-bc4e3e) - Optional String<br>Enable this option
+<a id="version-bc4e3e"></a>&#x2022; [`default_os_version`](#version-bc4e3e) - Optional Object<br>Enable this option
 
-<a id="version-0d9b7f"></a>&#x2022; [`default_sw_version`](#version-0d9b7f) - Optional String<br>Enable this option
+<a id="version-0d9b7f"></a>&#x2022; [`default_sw_version`](#version-0d9b7f) - Optional Object<br>Enable this option
 
 <a id="nestedatt--items--annotations-latitude"></a>&#x2022; [`latitude`](#nestedatt--items--annotations-latitude) - Optional Number<br>Latitude. Geographic location of this site
 
@@ -642,9 +642,9 @@ A [`passport`](#items-object-spec-gc-spec-passport) block (within [`items.object
 
 <a id="type-8c27dc"></a>&#x2022; [`cluster_type`](#type-8c27dc) - Optional String<br>Cluster Type. Cluster or grouping configuration
 
-<a id="version-f35e99"></a>&#x2022; [`default_os_version`](#version-f35e99) - Optional String<br>Enable this option
+<a id="version-f35e99"></a>&#x2022; [`default_os_version`](#version-f35e99) - Optional Object<br>Enable this option
 
-<a id="version-dcace0"></a>&#x2022; [`default_sw_version`](#version-dcace0) - Optional String<br>Enable this option
+<a id="version-dcace0"></a>&#x2022; [`default_sw_version`](#version-dcace0) - Optional Object<br>Enable this option
 
 <a id="nestedatt--items--object--spec-latitude"></a>&#x2022; [`latitude`](#nestedatt--items--object--spec-latitude) - Optional Number<br>Latitude. Geographic location of this site
 

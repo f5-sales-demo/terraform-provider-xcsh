@@ -55,18 +55,18 @@ type VirtualNetworkEmptyModel struct {
 // VirtualNetworkStaticRoutesModel represents static_routes block
 type VirtualNetworkStaticRoutesModel struct {
 	Attrs          types.List                                    `tfsdk:"attrs"`
+	DefaultGateway types.Object                                  `tfsdk:"default_gateway"`
 	IPAddress      types.String                                  `tfsdk:"ip_address"`
 	IPPrefixes     types.List                                    `tfsdk:"ip_prefixes"`
-	DefaultGateway *VirtualNetworkEmptyModel                     `tfsdk:"default_gateway"`
 	NodeInterface  *VirtualNetworkStaticRoutesNodeInterfaceModel `tfsdk:"node_interface"`
 }
 
 // VirtualNetworkStaticRoutesModelAttrTypes defines the attribute types for VirtualNetworkStaticRoutesModel
 var VirtualNetworkStaticRoutesModelAttrTypes = map[string]attr.Type{
 	"attrs":           types.ListType{ElemType: types.StringType},
+	"default_gateway": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ip_address":      types.StringType,
 	"ip_prefixes":     types.ListType{ElemType: types.StringType},
-	"default_gateway": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"node_interface":  types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesNodeInterfaceModelAttrTypes},
 }
 
@@ -111,18 +111,18 @@ var VirtualNetworkStaticRoutesNodeInterfaceListInterfaceModelAttrTypes = map[str
 }
 
 type VirtualNetworkResourceModel struct {
-	Name                   types.String              `tfsdk:"name"`
-	Namespace              types.String              `tfsdk:"namespace"`
-	Annotations            types.Map                 `tfsdk:"annotations"`
-	Description            types.String              `tfsdk:"description"`
-	Disable                types.Bool                `tfsdk:"disable"`
-	Labels                 types.Map                 `tfsdk:"labels"`
-	ID                     types.String              `tfsdk:"id"`
-	Timeouts               timeouts.Value            `tfsdk:"timeouts"`
-	GlobalNetwork          *VirtualNetworkEmptyModel `tfsdk:"global_network"`
-	SiteLocalInsideNetwork *VirtualNetworkEmptyModel `tfsdk:"site_local_inside_network"`
-	SiteLocalNetwork       *VirtualNetworkEmptyModel `tfsdk:"site_local_network"`
-	StaticRoutes           types.List                `tfsdk:"static_routes"`
+	Name                   types.String   `tfsdk:"name"`
+	Namespace              types.String   `tfsdk:"namespace"`
+	Annotations            types.Map      `tfsdk:"annotations"`
+	Description            types.String   `tfsdk:"description"`
+	Disable                types.Bool     `tfsdk:"disable"`
+	GlobalNetwork          types.Object   `tfsdk:"global_network"`
+	Labels                 types.Map      `tfsdk:"labels"`
+	SiteLocalInsideNetwork types.Object   `tfsdk:"site_local_inside_network"`
+	SiteLocalNetwork       types.Object   `tfsdk:"site_local_network"`
+	ID                     types.String   `tfsdk:"id"`
+	Timeouts               timeouts.Value `tfsdk:"timeouts"`
+	StaticRoutes           types.List     `tfsdk:"static_routes"`
 }
 
 func (r *VirtualNetworkResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -169,10 +169,25 @@ func (r *VirtualNetworkResource) Schema(ctx context.Context, req resource.Schema
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
 			},
+			"global_network": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: global_network, site_local_inside_network, site_local_network] Select the global virtual-network scope for connectivity across participating sites.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"site_local_inside_network": schema.ObjectAttribute{
+				MarkdownDescription: "Select the site-local inside network for site-internal connectivity.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"site_local_network": schema.ObjectAttribute{
+				MarkdownDescription: "Select a site-local virtual network when connectivity must remain within one site.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -189,18 +204,9 @@ func (r *VirtualNetworkResource) Schema(ctx context.Context, req resource.Schema
 				Update: true,
 				Delete: true,
 			}),
-			"global_network": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: global_network, site_local_inside_network, site_local_network] Select the global virtual-network scope for connectivity across participating sites.",
-			},
-			"site_local_inside_network": schema.SingleNestedBlock{
-				MarkdownDescription: "Select the site-local inside network for site-internal connectivity.",
-			},
-			"site_local_network": schema.SingleNestedBlock{
-				MarkdownDescription: "Select a site-local virtual network when connectivity must remain within one site.",
-			},
 			"static_routes": schema.ListNestedBlock{
 				MarkdownDescription: "List of static routes on the virtual network.",
-				Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes")},
+				Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
@@ -211,6 +217,11 @@ func (r *VirtualNetworkResource) Schema(ctx context.Context, req resource.Schema
 							Validators: []validator.List{
 								listvalidator.SizeAtMost(4),
 							},
+						},
+						"default_gateway": schema.ObjectAttribute{
+							MarkdownDescription: "Configuration parameter for default gateway.",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
 						},
 						"ip_address": schema.StringAttribute{
 							MarkdownDescription: "Exclusive with [default_gateway node_interface] Traffic matching the IP prefixes is sent to this IP Address.",
@@ -230,9 +241,6 @@ func (r *VirtualNetworkResource) Schema(ctx context.Context, req resource.Schema
 						},
 					},
 					Blocks: map[string]schema.Block{
-						"default_gateway": schema.SingleNestedBlock{
-							MarkdownDescription: "Configuration parameter for default gateway.",
-						},
 						"node_interface": schema.SingleNestedBlock{
 							MarkdownDescription: "On multinode site, this type holds the information about per node interfaces.",
 							Attributes:          map[string]schema.Attribute{},
@@ -316,6 +324,28 @@ func (r *VirtualNetworkResource) ValidateConfig(ctx context.Context, req resourc
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.GlobalNetwork.IsNull() && !data.GlobalNetwork.IsUnknown() && !data.SiteLocalInsideNetwork.IsNull() && !data.SiteLocalInsideNetwork.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("global_network"),
+			"Conflicting Configuration",
+			"global_network and site_local_inside_network are mutually exclusive.",
+		)
+	}
+	if !data.GlobalNetwork.IsNull() && !data.GlobalNetwork.IsUnknown() && !data.SiteLocalNetwork.IsNull() && !data.SiteLocalNetwork.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("global_network"),
+			"Conflicting Configuration",
+			"global_network and site_local_network are mutually exclusive.",
+		)
+	}
+	if !data.SiteLocalInsideNetwork.IsNull() && !data.SiteLocalInsideNetwork.IsUnknown() && !data.SiteLocalNetwork.IsNull() && !data.SiteLocalNetwork.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("site_local_inside_network"),
+			"Conflicting Configuration",
+			"site_local_inside_network and site_local_network are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -416,13 +446,13 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.GlobalNetwork != nil {
+	if !data.GlobalNetwork.IsNull() && !data.GlobalNetwork.IsUnknown() {
 		createReq.Spec["global_network"] = map[string]interface{}{}
 	}
-	if data.SiteLocalInsideNetwork != nil {
+	if !data.SiteLocalInsideNetwork.IsNull() && !data.SiteLocalInsideNetwork.IsUnknown() {
 		createReq.Spec["site_local_inside_network"] = map[string]interface{}{}
 	}
-	if data.SiteLocalNetwork != nil {
+	if !data.SiteLocalNetwork.IsNull() && !data.SiteLocalNetwork.IsUnknown() {
 		createReq.Spec["site_local_network"] = map[string]interface{}{}
 	}
 	if !data.StaticRoutes.IsNull() && !data.StaticRoutes.IsUnknown() {
@@ -441,7 +471,7 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 						StaticRoutesItemMap["attrs"] = AttrsItems
 					}
 				}
-				if StaticRoutesItem.DefaultGateway != nil {
+				if !StaticRoutesItem.DefaultGateway.IsNull() && !StaticRoutesItem.DefaultGateway.IsUnknown() {
 					StaticRoutesItemMap["default_gateway"] = map[string]interface{}{}
 				}
 				if !StaticRoutesItem.IPAddress.IsNull() && !StaticRoutesItem.IPAddress.IsUnknown() {
@@ -538,14 +568,26 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["global_network"].(map[string]interface{}); ok && isImport && data.GlobalNetwork == nil {
-		data.GlobalNetwork = &VirtualNetworkEmptyModel{}
+	if !isImport && !data.GlobalNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["global_network"].(map[string]interface{}); ok {
+		data.GlobalNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.GlobalNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok && isImport && data.SiteLocalInsideNetwork == nil {
-		data.SiteLocalInsideNetwork = &VirtualNetworkEmptyModel{}
+	if !isImport && !data.SiteLocalInsideNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok {
+		data.SiteLocalInsideNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SiteLocalInsideNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok && isImport && data.SiteLocalNetwork == nil {
-		data.SiteLocalNetwork = &VirtualNetworkEmptyModel{}
+	if !isImport && !data.SiteLocalNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok {
+		data.SiteLocalNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SiteLocalNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.StaticRoutes.IsNull() || len(data.StaticRoutes.Elements()) == 0) {
 		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
@@ -573,14 +615,14 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 						}
 						return types.ListNull(types.StringType)
 					}(),
-					DefaultGateway: func() *VirtualNetworkEmptyModel {
-						if !isImport && len(existingStaticRoutesItems) > listIdx {
+					DefaultGateway: func() types.Object {
+						if !isImport && len(existingStaticRoutesItems) > listIdx && !existingStaticRoutesItems[listIdx].DefaultGateway.IsUnknown() {
 							return existingStaticRoutesItems[listIdx].DefaultGateway
 						}
 						if _, ok := itemMap["default_gateway"].(map[string]interface{}); ok {
-							return &VirtualNetworkEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					IPAddress: func() types.String {
 						if v, ok := itemMap["ip_address"].(string); ok && v != "" {
@@ -831,14 +873,26 @@ func (r *VirtualNetworkResource) Read(ctx context.Context, req resource.ReadRequ
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["global_network"].(map[string]interface{}); ok && isImport && data.GlobalNetwork == nil {
-		data.GlobalNetwork = &VirtualNetworkEmptyModel{}
+	if !isImport && !data.GlobalNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["global_network"].(map[string]interface{}); ok {
+		data.GlobalNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.GlobalNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok && isImport && data.SiteLocalInsideNetwork == nil {
-		data.SiteLocalInsideNetwork = &VirtualNetworkEmptyModel{}
+	if !isImport && !data.SiteLocalInsideNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok {
+		data.SiteLocalInsideNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SiteLocalInsideNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok && isImport && data.SiteLocalNetwork == nil {
-		data.SiteLocalNetwork = &VirtualNetworkEmptyModel{}
+	if !isImport && !data.SiteLocalNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok {
+		data.SiteLocalNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SiteLocalNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.StaticRoutes.IsNull() || len(data.StaticRoutes.Elements()) == 0) {
 		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
@@ -866,14 +920,14 @@ func (r *VirtualNetworkResource) Read(ctx context.Context, req resource.ReadRequ
 						}
 						return types.ListNull(types.StringType)
 					}(),
-					DefaultGateway: func() *VirtualNetworkEmptyModel {
-						if !isImport && len(existingStaticRoutesItems) > listIdx {
+					DefaultGateway: func() types.Object {
+						if !isImport && len(existingStaticRoutesItems) > listIdx && !existingStaticRoutesItems[listIdx].DefaultGateway.IsUnknown() {
 							return existingStaticRoutesItems[listIdx].DefaultGateway
 						}
 						if _, ok := itemMap["default_gateway"].(map[string]interface{}); ok {
-							return &VirtualNetworkEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					IPAddress: func() types.String {
 						if v, ok := itemMap["ip_address"].(string); ok && v != "" {
@@ -1087,13 +1141,13 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.GlobalNetwork != nil {
+	if !data.GlobalNetwork.IsNull() && !data.GlobalNetwork.IsUnknown() {
 		apiResource.Spec["global_network"] = map[string]interface{}{}
 	}
-	if data.SiteLocalInsideNetwork != nil {
+	if !data.SiteLocalInsideNetwork.IsNull() && !data.SiteLocalInsideNetwork.IsUnknown() {
 		apiResource.Spec["site_local_inside_network"] = map[string]interface{}{}
 	}
-	if data.SiteLocalNetwork != nil {
+	if !data.SiteLocalNetwork.IsNull() && !data.SiteLocalNetwork.IsUnknown() {
 		apiResource.Spec["site_local_network"] = map[string]interface{}{}
 	}
 	if !data.StaticRoutes.IsNull() && !data.StaticRoutes.IsUnknown() {
@@ -1112,7 +1166,7 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 						StaticRoutesItemMap["attrs"] = AttrsItems
 					}
 				}
-				if StaticRoutesItem.DefaultGateway != nil {
+				if !StaticRoutesItem.DefaultGateway.IsNull() && !StaticRoutesItem.DefaultGateway.IsUnknown() {
 					StaticRoutesItemMap["default_gateway"] = map[string]interface{}{}
 				}
 				if !StaticRoutesItem.IPAddress.IsNull() && !StaticRoutesItem.IPAddress.IsUnknown() {
@@ -1229,14 +1283,26 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["global_network"].(map[string]interface{}); ok && isImport && data.GlobalNetwork == nil {
-		data.GlobalNetwork = &VirtualNetworkEmptyModel{}
+	if !isImport && !data.GlobalNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["global_network"].(map[string]interface{}); ok {
+		data.GlobalNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.GlobalNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok && isImport && data.SiteLocalInsideNetwork == nil {
-		data.SiteLocalInsideNetwork = &VirtualNetworkEmptyModel{}
+	if !isImport && !data.SiteLocalInsideNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["site_local_inside_network"].(map[string]interface{}); ok {
+		data.SiteLocalInsideNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SiteLocalInsideNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok && isImport && data.SiteLocalNetwork == nil {
-		data.SiteLocalNetwork = &VirtualNetworkEmptyModel{}
+	if !isImport && !data.SiteLocalNetwork.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["site_local_network"].(map[string]interface{}); ok {
+		data.SiteLocalNetwork = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.SiteLocalNetwork = types.ObjectNull(map[string]attr.Type{})
 	}
 	if !isImport && (data.StaticRoutes.IsNull() || len(data.StaticRoutes.Elements()) == 0) {
 		data.StaticRoutes = types.ListNull(types.ObjectType{AttrTypes: VirtualNetworkStaticRoutesModelAttrTypes})
@@ -1264,14 +1330,14 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 						}
 						return types.ListNull(types.StringType)
 					}(),
-					DefaultGateway: func() *VirtualNetworkEmptyModel {
-						if !isImport && len(existingStaticRoutesItems) > listIdx {
+					DefaultGateway: func() types.Object {
+						if !isImport && len(existingStaticRoutesItems) > listIdx && !existingStaticRoutesItems[listIdx].DefaultGateway.IsUnknown() {
 							return existingStaticRoutesItems[listIdx].DefaultGateway
 						}
 						if _, ok := itemMap["default_gateway"].(map[string]interface{}); ok {
-							return &VirtualNetworkEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					IPAddress: func() types.String {
 						if v, ok := itemMap["ip_address"].(string); ok && v != "" {

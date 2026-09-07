@@ -156,26 +156,26 @@ var SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModelAttrTypes = 
 
 // SecretManagementAccessAccessInfoTLSConfigModel represents tls_config block
 type SecretManagementAccessAccessInfoTLSConfigModel struct {
+	DefaultSessionKeyCaching types.Object                                                `tfsdk:"default_session_key_caching"`
+	DisableSessionKeyCaching types.Object                                                `tfsdk:"disable_session_key_caching"`
+	DisableSni               types.Object                                                `tfsdk:"disable_sni"`
 	MaxSessionKeys           types.Int64                                                 `tfsdk:"max_session_keys"`
 	Sni                      types.String                                                `tfsdk:"sni"`
+	UseHostHeaderAsSni       types.Object                                                `tfsdk:"use_host_header_as_sni"`
 	CertParams               *SecretManagementAccessAccessInfoTLSConfigCertParamsModel   `tfsdk:"cert_params"`
 	CommonParams             *SecretManagementAccessAccessInfoTLSConfigCommonParamsModel `tfsdk:"common_params"`
-	DefaultSessionKeyCaching *SecretManagementAccessEmptyModel                           `tfsdk:"default_session_key_caching"`
-	DisableSessionKeyCaching *SecretManagementAccessEmptyModel                           `tfsdk:"disable_session_key_caching"`
-	DisableSni               *SecretManagementAccessEmptyModel                           `tfsdk:"disable_sni"`
-	UseHostHeaderAsSni       *SecretManagementAccessEmptyModel                           `tfsdk:"use_host_header_as_sni"`
 }
 
 // SecretManagementAccessAccessInfoTLSConfigModelAttrTypes defines the attribute types for SecretManagementAccessAccessInfoTLSConfigModel
 var SecretManagementAccessAccessInfoTLSConfigModelAttrTypes = map[string]attr.Type{
-	"max_session_keys":            types.Int64Type,
-	"sni":                         types.StringType,
-	"cert_params":                 types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsModelAttrTypes},
-	"common_params":               types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsModelAttrTypes},
 	"default_session_key_caching": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_session_key_caching": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_sni":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"max_session_keys":            types.Int64Type,
+	"sni":                         types.StringType,
 	"use_host_header_as_sni":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"cert_params":                 types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCertParamsModelAttrTypes},
+	"common_params":               types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsModelAttrTypes},
 }
 
 // SecretManagementAccessAccessInfoTLSConfigCertParamsModel represents cert_params block
@@ -280,20 +280,20 @@ var SecretManagementAccessAccessInfoTLSConfigCommonParamsModelAttrTypes = map[st
 type SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel struct {
 	CertificateURL       types.String                                                                                   `tfsdk:"certificate_url"`
 	DescriptionSpec      types.String                                                                                   `tfsdk:"description_spec"`
+	DisableOCSPStapling  types.Object                                                                                   `tfsdk:"disable_ocsp_stapling"`
+	UseSystemDefaults    types.Object                                                                                   `tfsdk:"use_system_defaults"`
 	CustomHashAlgorithms *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsModel `tfsdk:"custom_hash_algorithms"`
-	DisableOCSPStapling  *SecretManagementAccessEmptyModel                                                              `tfsdk:"disable_ocsp_stapling"`
 	PrivateKey           *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel           `tfsdk:"private_key"`
-	UseSystemDefaults    *SecretManagementAccessEmptyModel                                                              `tfsdk:"use_system_defaults"`
 }
 
 // SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModelAttrTypes defines the attribute types for SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel
 var SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModelAttrTypes = map[string]attr.Type{
 	"certificate_url":        types.StringType,
 	"description_spec":       types.StringType,
-	"custom_hash_algorithms": types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
 	"disable_ocsp_stapling":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"private_key":            types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModelAttrTypes},
 	"use_system_defaults":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_hash_algorithms": types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsModelAttrTypes},
+	"private_key":            types.ObjectType{AttrTypes: SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModelAttrTypes},
 }
 
 // SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsModel represents custom_hash_algorithms block
@@ -504,17 +504,17 @@ var SecretManagementAccessWhereModelAttrTypes = map[string]attr.Type{
 
 // SecretManagementAccessWhereSiteModel represents site block
 type SecretManagementAccessWhereSiteModel struct {
-	NetworkType        types.String                      `tfsdk:"network_type"`
-	DisableInternetVIP *SecretManagementAccessEmptyModel `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *SecretManagementAccessEmptyModel `tfsdk:"enable_internet_vip"`
-	Ref                types.List                        `tfsdk:"ref"`
+	DisableInternetVIP types.Object `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  types.Object `tfsdk:"enable_internet_vip"`
+	NetworkType        types.String `tfsdk:"network_type"`
+	Ref                types.List   `tfsdk:"ref"`
 }
 
 // SecretManagementAccessWhereSiteModelAttrTypes defines the attribute types for SecretManagementAccessWhereSiteModel
 var SecretManagementAccessWhereSiteModelAttrTypes = map[string]attr.Type{
-	"network_type":         types.StringType,
 	"disable_internet_vip": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_internet_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"network_type":         types.StringType,
 	"ref":                  types.ListType{ElemType: types.ObjectType{AttrTypes: SecretManagementAccessWhereSiteRefModelAttrTypes}},
 }
 
@@ -566,17 +566,17 @@ var SecretManagementAccessWhereVirtualNetworkRefModelAttrTypes = map[string]attr
 
 // SecretManagementAccessWhereVirtualSiteModel represents virtual_site block
 type SecretManagementAccessWhereVirtualSiteModel struct {
-	NetworkType        types.String                      `tfsdk:"network_type"`
-	DisableInternetVIP *SecretManagementAccessEmptyModel `tfsdk:"disable_internet_vip"`
-	EnableInternetVIP  *SecretManagementAccessEmptyModel `tfsdk:"enable_internet_vip"`
-	Ref                types.List                        `tfsdk:"ref"`
+	DisableInternetVIP types.Object `tfsdk:"disable_internet_vip"`
+	EnableInternetVIP  types.Object `tfsdk:"enable_internet_vip"`
+	NetworkType        types.String `tfsdk:"network_type"`
+	Ref                types.List   `tfsdk:"ref"`
 }
 
 // SecretManagementAccessWhereVirtualSiteModelAttrTypes defines the attribute types for SecretManagementAccessWhereVirtualSiteModel
 var SecretManagementAccessWhereVirtualSiteModelAttrTypes = map[string]attr.Type{
-	"network_type":         types.StringType,
 	"disable_internet_vip": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_internet_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"network_type":         types.StringType,
 	"ref":                  types.ListType{ElemType: types.ObjectType{AttrTypes: SecretManagementAccessWhereVirtualSiteRefModelAttrTypes}},
 }
 
@@ -682,7 +682,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 			}),
 			"access_info": schema.SingleNestedBlock{
 				MarkdownDescription: "HostAccessInfoType contains the information about how to connect to the remote host.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("server_endpoint")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("server_endpoint"), validators.ConflictingObjectAttributes("rest_auth_info", "vault_auth_info")},
 
 				Attributes: map[string]schema.Attribute{
 					"scheme": schema.StringAttribute{
@@ -703,6 +703,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 				Blocks: map[string]schema.Block{
 					"rest_auth_info": schema.SingleNestedBlock{
 						MarkdownDescription: "Authentication parameters for REST based hosts.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("basic_auth", "headers_auth"), validators.ConflictingObjectAttributes("basic_auth", "query_params_auth"), validators.ConflictingObjectAttributes("headers_auth", "query_params_auth")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"basic_auth": schema.SingleNestedBlock{
@@ -716,6 +717,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 								Blocks: map[string]schema.Block{
 									"password": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -782,7 +784,23 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 					},
 					"tls_config": schema.SingleNestedBlock{
 						MarkdownDescription: "TLS configuration for upstream connections.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("cert_params", "common_params"), validators.ConflictingObjectAttributes("default_session_key_caching", "disable_session_key_caching"), validators.ConflictingObjectAttributes("default_session_key_caching", "max_session_keys"), validators.ConflictingObjectAttributes("disable_session_key_caching", "max_session_keys"), validators.ConflictingObjectAttributes("disable_sni", "sni"), validators.ConflictingObjectAttributes("disable_sni", "use_host_header_as_sni"), validators.ConflictingObjectAttributes("sni", "use_host_header_as_sni")},
 						Attributes: map[string]schema.Attribute{
+							"default_session_key_caching": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for default session key caching.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"disable_session_key_caching": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable session key caching.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"disable_sni": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable sni.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"max_session_keys": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [default_session_key_caching disable_session_key_caching] Number of session keys that are cached.",
 								Optional:            true,
@@ -796,6 +814,11 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(256),
 								},
+							},
+							"use_host_header_as_sni": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -861,6 +884,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 									},
 									"validation_params": schema.SingleNestedBlock{
 										MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url")},
 										Attributes: map[string]schema.Attribute{
 											"skip_hostname_verification": schema.BoolAttribute{
 												MarkdownDescription: "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
@@ -951,7 +975,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 								Blocks: map[string]schema.Block{
 									"tls_certificates": schema.ListNestedBlock{
 										MarkdownDescription: "TLS Certificates. Set of TLS certificates.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("certificate_url"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "disable_ocsp_stapling"), validators.ConflictingListObjectAttributes("custom_hash_algorithms", "use_system_defaults"), validators.ConflictingListObjectAttributes("disable_ocsp_stapling", "use_system_defaults")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"certificate_url": schema.StringAttribute{
@@ -964,6 +988,16 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 												"description_spec": schema.StringAttribute{
 													MarkdownDescription: "Description. Description for the certificate.",
 													Optional:            true,
+												},
+												"disable_ocsp_stapling": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
+												},
+												"use_system_defaults": schema.ObjectAttribute{
+													MarkdownDescription: "Configuration parameter for use system defaults.",
+													Optional:            true,
+													AttributeTypes:      map[string]attr.Type{},
 												},
 											},
 											Blocks: map[string]schema.Block{
@@ -981,11 +1015,9 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 														},
 													},
 												},
-												"disable_ocsp_stapling": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for disable ocsp stapling.",
-												},
 												"private_key": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+													Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1028,14 +1060,12 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 														},
 													},
 												},
-												"use_system_defaults": schema.SingleNestedBlock{
-													MarkdownDescription: "Configuration parameter for use system defaults.",
-												},
 											},
 										},
 									},
 									"validation_params": schema.SingleNestedBlock{
 										MarkdownDescription: "Includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("trusted_ca", "trusted_ca_url")},
 										Attributes: map[string]schema.Attribute{
 											"skip_hostname_verification": schema.BoolAttribute{
 												MarkdownDescription: "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
@@ -1100,22 +1130,11 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 									},
 								},
 							},
-							"default_session_key_caching": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for default session key caching.",
-							},
-							"disable_session_key_caching": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for disable session key caching.",
-							},
-							"disable_sni": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for disable sni.",
-							},
-							"use_host_header_as_sni": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 						},
 					},
 					"vault_auth_info": schema.SingleNestedBlock{
 						MarkdownDescription: "Authentication parameters for Hashicorp Vault hosts.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("app_role_auth", "token")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"app_role_auth": schema.SingleNestedBlock{
@@ -1129,6 +1148,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 								Blocks: map[string]schema.Block{
 									"secret_id": schema.SingleNestedBlock{
 										MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+										Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 										Attributes:          map[string]schema.Attribute{},
 										Blocks: map[string]schema.Block{
 											"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1175,6 +1195,7 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 							},
 							"token": schema.SingleNestedBlock{
 								MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+								Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1223,13 +1244,24 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 			},
 			"where": schema.SingleNestedBlock{
 				MarkdownDescription: "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("site", "virtual_network"), validators.ConflictingObjectAttributes("site", "virtual_site"), validators.ConflictingObjectAttributes("virtual_network", "virtual_site")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"site": schema.SingleNestedBlock{
 						MarkdownDescription: "Specifies a direct reference to a site configuration object.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
+							"disable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
 								Optional:            true,
@@ -1239,12 +1271,6 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 							},
 						},
 						Blocks: map[string]schema.Block{
-							"disable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"enable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"ref": schema.ListNestedBlock{
 								MarkdownDescription: "Reference. A site direct reference.",
 								NestedObject: schema.NestedBlockObject{
@@ -1326,8 +1352,18 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 					},
 					"virtual_site": schema.SingleNestedBlock{
 						MarkdownDescription: "Virtual Site. A reference to virtual_site object.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("ref"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip")},
 						Attributes: map[string]schema.Attribute{
+							"disable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"enable_internet_vip": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"network_type": schema.StringAttribute{
 								MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
 								Optional:            true,
@@ -1337,12 +1373,6 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 							},
 						},
 						Blocks: map[string]schema.Block{
-							"disable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"enable_internet_vip": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"ref": schema.ListNestedBlock{
 								MarkdownDescription: "Reference. A virtual_site direct reference.",
 								NestedObject: schema.NestedBlockObject{
@@ -1693,7 +1723,7 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 							}
-							if TLSCertificatesItem.DisableOCSPStapling != nil {
+							if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 							}
 							if TLSCertificatesItem.PrivateKey != nil {
@@ -1723,7 +1753,7 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 								}
 								TLSCertificatesItemMap["private_key"] = AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyMap
 							}
-							if TLSCertificatesItem.UseSystemDefaults != nil {
+							if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 							}
 							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -1774,13 +1804,13 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 				}
 				AccessInfoTLSConfigMap["common_params"] = AccessInfoTLSConfigCommonParamsMap
 			}
-			if data.AccessInfo.TLSConfig.DefaultSessionKeyCaching != nil {
+			if !data.AccessInfo.TLSConfig.DefaultSessionKeyCaching.IsNull() && !data.AccessInfo.TLSConfig.DefaultSessionKeyCaching.IsUnknown() {
 				AccessInfoTLSConfigMap["default_session_key_caching"] = map[string]interface{}{}
 			}
-			if data.AccessInfo.TLSConfig.DisableSessionKeyCaching != nil {
+			if !data.AccessInfo.TLSConfig.DisableSessionKeyCaching.IsNull() && !data.AccessInfo.TLSConfig.DisableSessionKeyCaching.IsUnknown() {
 				AccessInfoTLSConfigMap["disable_session_key_caching"] = map[string]interface{}{}
 			}
-			if data.AccessInfo.TLSConfig.DisableSni != nil {
+			if !data.AccessInfo.TLSConfig.DisableSni.IsNull() && !data.AccessInfo.TLSConfig.DisableSni.IsUnknown() {
 				AccessInfoTLSConfigMap["disable_sni"] = map[string]interface{}{}
 			}
 			if !data.AccessInfo.TLSConfig.MaxSessionKeys.IsNull() && !data.AccessInfo.TLSConfig.MaxSessionKeys.IsUnknown() {
@@ -1789,7 +1819,7 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 			if !data.AccessInfo.TLSConfig.Sni.IsNull() && !data.AccessInfo.TLSConfig.Sni.IsUnknown() {
 				AccessInfoTLSConfigMap["sni"] = data.AccessInfo.TLSConfig.Sni.ValueString()
 			}
-			if data.AccessInfo.TLSConfig.UseHostHeaderAsSni != nil {
+			if !data.AccessInfo.TLSConfig.UseHostHeaderAsSni.IsNull() && !data.AccessInfo.TLSConfig.UseHostHeaderAsSni.IsUnknown() {
 				AccessInfoTLSConfigMap["use_host_header_as_sni"] = map[string]interface{}{}
 			}
 			AccessInfoMap["tls_config"] = AccessInfoTLSConfigMap
@@ -1865,10 +1895,10 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
 			WhereSiteMap := make(map[string]interface{})
-			if data.Where.Site.DisableInternetVIP != nil {
+			if !data.Where.Site.DisableInternetVIP.IsNull() && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.Site.EnableInternetVIP != nil {
+			if !data.Where.Site.EnableInternetVIP.IsNull() && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
@@ -1920,10 +1950,10 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 		}
 		if data.Where.VirtualSite != nil {
 			WhereVirtualSiteMap := make(map[string]interface{})
-			if data.Where.VirtualSite.DisableInternetVIP != nil {
+			if !data.Where.VirtualSite.DisableInternetVIP.IsNull() && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.VirtualSite.EnableInternetVIP != nil {
+			if !data.Where.VirtualSite.EnableInternetVIP.IsNull() && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
@@ -2393,14 +2423,14 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 															}
 															return types.StringNull()
 														}(),
-														DisableOCSPStapling: func() *SecretManagementAccessEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														DisableOCSPStapling: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-																return &SecretManagementAccessEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														PrivateKey: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel {
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -2459,14 +2489,14 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 															}
 															return nil
 														}(),
-														UseSystemDefaults: func() *SecretManagementAccessEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														UseSystemDefaults: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-																return &SecretManagementAccessEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													})
 												}
@@ -2575,32 +2605,32 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							}
 							return nil
 						}(),
-						DefaultSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+						DefaultSessionKeyCaching: func() types.Object {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.DefaultSessionKeyCaching.IsUnknown() {
 								return data.AccessInfo.TLSConfig.DefaultSessionKeyCaching
 							}
 							if _, ok := TLSConfigData["default_session_key_caching"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DisableSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+						DisableSessionKeyCaching: func() types.Object {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.DisableSessionKeyCaching.IsUnknown() {
 								return data.AccessInfo.TLSConfig.DisableSessionKeyCaching
 							}
 							if _, ok := TLSConfigData["disable_session_key_caching"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DisableSni: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+						DisableSni: func() types.Object {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.DisableSni.IsUnknown() {
 								return data.AccessInfo.TLSConfig.DisableSni
 							}
 							if _, ok := TLSConfigData["disable_sni"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						MaxSessionKeys: func() types.Int64 {
 							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.MaxSessionKeys.IsUnknown() {
@@ -2617,14 +2647,14 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							}
 							return types.StringNull()
 						}(),
-						UseHostHeaderAsSni: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+						UseHostHeaderAsSni: func() types.Object {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.UseHostHeaderAsSni.IsUnknown() {
 								return data.AccessInfo.TLSConfig.UseHostHeaderAsSni
 							}
 							if _, ok := TLSConfigData["use_host_header_as_sni"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -2783,23 +2813,23 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 			Site: func() *SecretManagementAccessWhereSiteModel {
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereSiteModel{
-						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 								return data.Where.Site.DisableInternetVIP
 							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 								return data.Where.Site.EnableInternetVIP
 							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := SiteData["network_type"].(string); ok && v != "" {
@@ -2925,23 +2955,23 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 			VirtualSite: func() *SecretManagementAccessWhereVirtualSiteModel {
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualSiteModel{
-						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.DisableInternetVIP
 							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.EnableInternetVIP
 							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
@@ -3540,14 +3570,14 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 															}
 															return types.StringNull()
 														}(),
-														DisableOCSPStapling: func() *SecretManagementAccessEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														DisableOCSPStapling: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-																return &SecretManagementAccessEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														PrivateKey: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel {
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -3606,14 +3636,14 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 															}
 															return nil
 														}(),
-														UseSystemDefaults: func() *SecretManagementAccessEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														UseSystemDefaults: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-																return &SecretManagementAccessEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													})
 												}
@@ -3722,32 +3752,32 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 							}
 							return nil
 						}(),
-						DefaultSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+						DefaultSessionKeyCaching: func() types.Object {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.DefaultSessionKeyCaching.IsUnknown() {
 								return data.AccessInfo.TLSConfig.DefaultSessionKeyCaching
 							}
 							if _, ok := TLSConfigData["default_session_key_caching"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DisableSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+						DisableSessionKeyCaching: func() types.Object {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.DisableSessionKeyCaching.IsUnknown() {
 								return data.AccessInfo.TLSConfig.DisableSessionKeyCaching
 							}
 							if _, ok := TLSConfigData["disable_session_key_caching"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DisableSni: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+						DisableSni: func() types.Object {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.DisableSni.IsUnknown() {
 								return data.AccessInfo.TLSConfig.DisableSni
 							}
 							if _, ok := TLSConfigData["disable_sni"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						MaxSessionKeys: func() types.Int64 {
 							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.MaxSessionKeys.IsUnknown() {
@@ -3764,14 +3794,14 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 							}
 							return types.StringNull()
 						}(),
-						UseHostHeaderAsSni: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+						UseHostHeaderAsSni: func() types.Object {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.UseHostHeaderAsSni.IsUnknown() {
 								return data.AccessInfo.TLSConfig.UseHostHeaderAsSni
 							}
 							if _, ok := TLSConfigData["use_host_header_as_sni"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -3930,23 +3960,23 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 			Site: func() *SecretManagementAccessWhereSiteModel {
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereSiteModel{
-						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 								return data.Where.Site.DisableInternetVIP
 							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 								return data.Where.Site.EnableInternetVIP
 							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := SiteData["network_type"].(string); ok && v != "" {
@@ -4072,23 +4102,23 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 			VirtualSite: func() *SecretManagementAccessWhereVirtualSiteModel {
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualSiteModel{
-						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.DisableInternetVIP
 							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.EnableInternetVIP
 							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {
@@ -4433,7 +4463,7 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
 							}
-							if TLSCertificatesItem.DisableOCSPStapling != nil {
+							if !TLSCertificatesItem.DisableOCSPStapling.IsNull() && !TLSCertificatesItem.DisableOCSPStapling.IsUnknown() {
 								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 							}
 							if TLSCertificatesItem.PrivateKey != nil {
@@ -4463,7 +4493,7 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 								}
 								TLSCertificatesItemMap["private_key"] = AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyMap
 							}
-							if TLSCertificatesItem.UseSystemDefaults != nil {
+							if !TLSCertificatesItem.UseSystemDefaults.IsNull() && !TLSCertificatesItem.UseSystemDefaults.IsUnknown() {
 								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 							}
 							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
@@ -4514,13 +4544,13 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 				}
 				AccessInfoTLSConfigMap["common_params"] = AccessInfoTLSConfigCommonParamsMap
 			}
-			if data.AccessInfo.TLSConfig.DefaultSessionKeyCaching != nil {
+			if !data.AccessInfo.TLSConfig.DefaultSessionKeyCaching.IsNull() && !data.AccessInfo.TLSConfig.DefaultSessionKeyCaching.IsUnknown() {
 				AccessInfoTLSConfigMap["default_session_key_caching"] = map[string]interface{}{}
 			}
-			if data.AccessInfo.TLSConfig.DisableSessionKeyCaching != nil {
+			if !data.AccessInfo.TLSConfig.DisableSessionKeyCaching.IsNull() && !data.AccessInfo.TLSConfig.DisableSessionKeyCaching.IsUnknown() {
 				AccessInfoTLSConfigMap["disable_session_key_caching"] = map[string]interface{}{}
 			}
-			if data.AccessInfo.TLSConfig.DisableSni != nil {
+			if !data.AccessInfo.TLSConfig.DisableSni.IsNull() && !data.AccessInfo.TLSConfig.DisableSni.IsUnknown() {
 				AccessInfoTLSConfigMap["disable_sni"] = map[string]interface{}{}
 			}
 			if !data.AccessInfo.TLSConfig.MaxSessionKeys.IsNull() && !data.AccessInfo.TLSConfig.MaxSessionKeys.IsUnknown() {
@@ -4529,7 +4559,7 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 			if !data.AccessInfo.TLSConfig.Sni.IsNull() && !data.AccessInfo.TLSConfig.Sni.IsUnknown() {
 				AccessInfoTLSConfigMap["sni"] = data.AccessInfo.TLSConfig.Sni.ValueString()
 			}
-			if data.AccessInfo.TLSConfig.UseHostHeaderAsSni != nil {
+			if !data.AccessInfo.TLSConfig.UseHostHeaderAsSni.IsNull() && !data.AccessInfo.TLSConfig.UseHostHeaderAsSni.IsUnknown() {
 				AccessInfoTLSConfigMap["use_host_header_as_sni"] = map[string]interface{}{}
 			}
 			AccessInfoMap["tls_config"] = AccessInfoTLSConfigMap
@@ -4605,10 +4635,10 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
 			WhereSiteMap := make(map[string]interface{})
-			if data.Where.Site.DisableInternetVIP != nil {
+			if !data.Where.Site.DisableInternetVIP.IsNull() && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.Site.EnableInternetVIP != nil {
+			if !data.Where.Site.EnableInternetVIP.IsNull() && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
@@ -4660,10 +4690,10 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 		}
 		if data.Where.VirtualSite != nil {
 			WhereVirtualSiteMap := make(map[string]interface{})
-			if data.Where.VirtualSite.DisableInternetVIP != nil {
+			if !data.Where.VirtualSite.DisableInternetVIP.IsNull() && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
-			if data.Where.VirtualSite.EnableInternetVIP != nil {
+			if !data.Where.VirtualSite.EnableInternetVIP.IsNull() && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
@@ -5153,14 +5183,14 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 															}
 															return types.StringNull()
 														}(),
-														DisableOCSPStapling: func() *SecretManagementAccessEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														DisableOCSPStapling: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
-																return &SecretManagementAccessEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 														PrivateKey: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel {
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
@@ -5219,14 +5249,14 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 															}
 															return nil
 														}(),
-														UseSystemDefaults: func() *SecretManagementAccessEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+														UseSystemDefaults: func() types.Object {
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && !TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults.IsUnknown() {
 																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
-																return &SecretManagementAccessEmptyModel{}
+																return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 															}
-															return nil
+															return types.ObjectNull(map[string]attr.Type{})
 														}(),
 													})
 												}
@@ -5335,32 +5365,32 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							}
 							return nil
 						}(),
-						DefaultSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+						DefaultSessionKeyCaching: func() types.Object {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.DefaultSessionKeyCaching.IsUnknown() {
 								return data.AccessInfo.TLSConfig.DefaultSessionKeyCaching
 							}
 							if _, ok := TLSConfigData["default_session_key_caching"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DisableSessionKeyCaching: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+						DisableSessionKeyCaching: func() types.Object {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.DisableSessionKeyCaching.IsUnknown() {
 								return data.AccessInfo.TLSConfig.DisableSessionKeyCaching
 							}
 							if _, ok := TLSConfigData["disable_session_key_caching"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						DisableSni: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+						DisableSni: func() types.Object {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.DisableSni.IsUnknown() {
 								return data.AccessInfo.TLSConfig.DisableSni
 							}
 							if _, ok := TLSConfigData["disable_sni"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						MaxSessionKeys: func() types.Int64 {
 							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.MaxSessionKeys.IsUnknown() {
@@ -5377,14 +5407,14 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							}
 							return types.StringNull()
 						}(),
-						UseHostHeaderAsSni: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil {
+						UseHostHeaderAsSni: func() types.Object {
+							if !isImport && data.AccessInfo != nil && data.AccessInfo.TLSConfig != nil && !data.AccessInfo.TLSConfig.UseHostHeaderAsSni.IsUnknown() {
 								return data.AccessInfo.TLSConfig.UseHostHeaderAsSni
 							}
 							if _, ok := TLSConfigData["use_host_header_as_sni"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -5543,23 +5573,23 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 			Site: func() *SecretManagementAccessWhereSiteModel {
 				if SiteData, ok := blockData["site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereSiteModel{
-						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.DisableInternetVIP.IsUnknown() {
 								return data.Where.Site.DisableInternetVIP
 							}
 							if _, ok := SiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.Where != nil && data.Where.Site != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.Site != nil && !data.Where.Site.EnableInternetVIP.IsUnknown() {
 								return data.Where.Site.EnableInternetVIP
 							}
 							if _, ok := SiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := SiteData["network_type"].(string); ok && v != "" {
@@ -5685,23 +5715,23 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 			VirtualSite: func() *SecretManagementAccessWhereVirtualSiteModel {
 				if VirtualSiteData, ok := blockData["virtual_site"].(map[string]interface{}); ok {
 					return &SecretManagementAccessWhereVirtualSiteModel{
-						DisableInternetVIP: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						DisableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.DisableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.DisableInternetVIP
 							}
 							if _, ok := VirtualSiteData["disable_internet_vip"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						EnableInternetVIP: func() *SecretManagementAccessEmptyModel {
-							if !isImport && data.Where != nil && data.Where.VirtualSite != nil {
+						EnableInternetVIP: func() types.Object {
+							if !isImport && data.Where != nil && data.Where.VirtualSite != nil && !data.Where.VirtualSite.EnableInternetVIP.IsUnknown() {
 								return data.Where.VirtualSite.EnableInternetVIP
 							}
 							if _, ok := VirtualSiteData["enable_internet_vip"].(map[string]interface{}); ok {
-								return &SecretManagementAccessEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NetworkType: func() types.String {
 							if v, ok := VirtualSiteData["network_type"].(string); ok && v != "" {

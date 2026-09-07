@@ -39,7 +39,7 @@ resource "xcsh_api_discovery" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -123,7 +123,7 @@ An [`user_defined_api_discovery_policy`](#user-defined-api-discovery-policy) blo
 
 <a id="exclusive-4742bd"></a>&#x2022; [`exclusive`](#exclusive-4742bd) - Optional Block<br>Exclusion Configuration. Configuration for exclusion action<br>See [Exclusive](#exclusive-4742bd) below.
 
-<a id="inclusive-21d99e"></a>&#x2022; [`inclusive`](#inclusive-21d99e) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<a id="inclusive-21d99e"></a>&#x2022; [`inclusive`](#inclusive-21d99e) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 #### User Defined API Discovery Policy Discovery Rules
 
@@ -148,17 +148,41 @@ A [`discovery_rules`](#rules-dd76e5) block (within [`user_defined_api_discovery_
 
 <a id="deep-f734f9"></a>Deeply nested **Exclusion** block collapsed for readability.
 
+#### User Defined API Discovery Policy Discovery Rules Rule Properties Exclusion Archive
+
+<a id="deep-0140f4"></a>Deeply nested **Archive** block collapsed for readability.
+
+#### User Defined API Discovery Policy Discovery Rules Rule Properties Exclusion Ignore
+
+<a id="deep-5081f3"></a>Deeply nested **Ignore** block collapsed for readability.
+
 #### User Defined API Discovery Policy Discovery Rules Rule Properties HTTP Header Criteria
 
 <a id="deep-0a42b6"></a>Deeply nested **Criteria** block collapsed for readability.
+
+#### User Defined API Discovery Policy Discovery Rules Rule Properties Inclusion
+
+<a id="deep-8cf564"></a>Deeply nested **Inclusion** block collapsed for readability.
 
 #### User Defined API Discovery Policy Exclusive
 
 An [`exclusive`](#exclusive-4742bd) block (within [`user_defined_api_discovery_policy`](#user-defined-api-discovery-policy)) supports the following:
 
-<a id="archive-d99f10"></a>&#x2022; [`archive`](#archive-d99f10) - Optional Block<br>Enable this option
+<a id="archive-d99f10"></a>&#x2022; [`archive`](#archive-d99f10) - Optional Object<br>Enable this option
 
-<a id="ignore-7880ba"></a>&#x2022; [`ignore`](#ignore-7880ba) - Optional Block<br>Enable this option
+<a id="ignore-7880ba"></a>&#x2022; [`ignore`](#ignore-7880ba) - Optional Object<br>Enable this option
+
+#### User Defined API Discovery Policy Exclusive Archive
+
+An [`archive`](#archive-d99f10) block (within [`user_defined_api_discovery_policy.exclusive`](#exclusive-4742bd)) supports the following:
+
+#### User Defined API Discovery Policy Exclusive Ignore
+
+An [`ignore`](#ignore-7880ba) block (within [`user_defined_api_discovery_policy.exclusive`](#exclusive-4742bd)) supports the following:
+
+#### User Defined API Discovery Policy Inclusive
+
+An [`inclusive`](#inclusive-21d99e) block (within [`user_defined_api_discovery_policy`](#user-defined-api-discovery-policy)) supports the following:
 
 ---
 

@@ -55,9 +55,15 @@ type AWSTGWSiteEmptyModel struct {
 // AWSTGWSiteAWSParametersModel represents aws_parameters block
 type AWSTGWSiteAWSParametersModel struct {
 	AWSRegion           types.String                                     `tfsdk:"aws_region"`
+	DisableEncryption   types.Object                                     `tfsdk:"disable_encryption"`
+	DisableInternetVIP  types.Object                                     `tfsdk:"disable_internet_vip"`
 	DiskSize            types.Int64                                      `tfsdk:"disk_size"`
+	EnableInternetVIP   types.Object                                     `tfsdk:"enable_internet_vip"`
+	F5xcSecurityGroup   types.Object                                     `tfsdk:"f5xc_security_group"`
 	InstanceType        types.String                                     `tfsdk:"instance_type"`
+	NoWorkerNodes       types.Object                                     `tfsdk:"no_worker_nodes"`
 	NodesPerAz          types.Int64                                      `tfsdk:"nodes_per_az"`
+	ReservedTGWCIDR     types.Object                                     `tfsdk:"reserved_tgw_cidr"`
 	SSHKey              types.String                                     `tfsdk:"ssh_key"`
 	TotalNodes          types.Int64                                      `tfsdk:"total_nodes"`
 	VPCID               types.String                                     `tfsdk:"vpc_id"`
@@ -65,25 +71,25 @@ type AWSTGWSiteAWSParametersModel struct {
 	AWSCred             *AWSTGWSiteAWSParametersAWSCredModel             `tfsdk:"aws_cred"`
 	AzNodes             types.List                                       `tfsdk:"az_nodes"`
 	CustomSecurityGroup *AWSTGWSiteAWSParametersCustomSecurityGroupModel `tfsdk:"custom_security_group"`
-	DisableEncryption   *AWSTGWSiteEmptyModel                            `tfsdk:"disable_encryption"`
-	DisableInternetVIP  *AWSTGWSiteEmptyModel                            `tfsdk:"disable_internet_vip"`
 	EnableEncryption    *AWSTGWSiteAWSParametersEnableEncryptionModel    `tfsdk:"enable_encryption"`
-	EnableInternetVIP   *AWSTGWSiteEmptyModel                            `tfsdk:"enable_internet_vip"`
 	ExistingTGW         *AWSTGWSiteAWSParametersExistingTGWModel         `tfsdk:"existing_tgw"`
-	F5xcSecurityGroup   *AWSTGWSiteEmptyModel                            `tfsdk:"f5xc_security_group"`
 	NewTGW              *AWSTGWSiteAWSParametersNewTGWModel              `tfsdk:"new_tgw"`
 	NewVPC              *AWSTGWSiteAWSParametersNewVPCModel              `tfsdk:"new_vpc"`
-	NoWorkerNodes       *AWSTGWSiteEmptyModel                            `tfsdk:"no_worker_nodes"`
-	ReservedTGWCIDR     *AWSTGWSiteEmptyModel                            `tfsdk:"reserved_tgw_cidr"`
 	TGWCIDR             *AWSTGWSiteAWSParametersTGWCIDRModel             `tfsdk:"tgw_cidr"`
 }
 
 // AWSTGWSiteAWSParametersModelAttrTypes defines the attribute types for AWSTGWSiteAWSParametersModel
 var AWSTGWSiteAWSParametersModelAttrTypes = map[string]attr.Type{
 	"aws_region":            types.StringType,
+	"disable_encryption":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disable_internet_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disk_size":             types.Int64Type,
+	"enable_internet_vip":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"f5xc_security_group":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"instance_type":         types.StringType,
+	"no_worker_nodes":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"nodes_per_az":          types.Int64Type,
+	"reserved_tgw_cidr":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ssh_key":               types.StringType,
 	"total_nodes":           types.Int64Type,
 	"vpc_id":                types.StringType,
@@ -91,16 +97,10 @@ var AWSTGWSiteAWSParametersModelAttrTypes = map[string]attr.Type{
 	"aws_cred":              types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersAWSCredModelAttrTypes},
 	"az_nodes":              types.ListType{ElemType: types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersAzNodesModelAttrTypes}},
 	"custom_security_group": types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersCustomSecurityGroupModelAttrTypes},
-	"disable_encryption":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"disable_internet_vip":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_encryption":     types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersEnableEncryptionModelAttrTypes},
-	"enable_internet_vip":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"existing_tgw":          types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersExistingTGWModelAttrTypes},
-	"f5xc_security_group":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"new_tgw":               types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersNewTGWModelAttrTypes},
 	"new_vpc":               types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersNewVPCModelAttrTypes},
-	"no_worker_nodes":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"reserved_tgw_cidr":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"tgw_cidr":              types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersTGWCIDRModelAttrTypes},
 }
 
@@ -159,18 +159,18 @@ var AWSTGWSiteAWSParametersAWSCredModelAttrTypes = map[string]attr.Type{
 // AWSTGWSiteAWSParametersAzNodesModel represents az_nodes block
 type AWSTGWSiteAWSParametersAzNodesModel struct {
 	AWSAzName            types.String                                       `tfsdk:"aws_az_name"`
+	ReservedInsideSubnet types.Object                                       `tfsdk:"reserved_inside_subnet"`
 	InsideSubnet         *AWSTGWSiteAWSParametersAzNodesInsideSubnetModel   `tfsdk:"inside_subnet"`
 	OutsideSubnet        *AWSTGWSiteAWSParametersAzNodesOutsideSubnetModel  `tfsdk:"outside_subnet"`
-	ReservedInsideSubnet *AWSTGWSiteEmptyModel                              `tfsdk:"reserved_inside_subnet"`
 	WorkloadSubnet       *AWSTGWSiteAWSParametersAzNodesWorkloadSubnetModel `tfsdk:"workload_subnet"`
 }
 
 // AWSTGWSiteAWSParametersAzNodesModelAttrTypes defines the attribute types for AWSTGWSiteAWSParametersAzNodesModel
 var AWSTGWSiteAWSParametersAzNodesModelAttrTypes = map[string]attr.Type{
 	"aws_az_name":            types.StringType,
+	"reserved_inside_subnet": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"inside_subnet":          types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersAzNodesInsideSubnetModelAttrTypes},
 	"outside_subnet":         types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersAzNodesOutsideSubnetModelAttrTypes},
-	"reserved_inside_subnet": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"workload_subnet":        types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersAzNodesWorkloadSubnetModelAttrTypes},
 }
 
@@ -278,7 +278,7 @@ var AWSTGWSiteAWSParametersExistingTGWModelAttrTypes = map[string]attr.Type{
 
 // AWSTGWSiteAWSParametersNewTGWModel represents new_tgw block
 type AWSTGWSiteAWSParametersNewTGWModel struct {
-	SystemGenerated *AWSTGWSiteEmptyModel                           `tfsdk:"system_generated"`
+	SystemGenerated types.Object                                    `tfsdk:"system_generated"`
 	UserAssigned    *AWSTGWSiteAWSParametersNewTGWUserAssignedModel `tfsdk:"user_assigned"`
 }
 
@@ -302,16 +302,16 @@ var AWSTGWSiteAWSParametersNewTGWUserAssignedModelAttrTypes = map[string]attr.Ty
 
 // AWSTGWSiteAWSParametersNewVPCModel represents new_vpc block
 type AWSTGWSiteAWSParametersNewVPCModel struct {
-	NameTag      types.String          `tfsdk:"name_tag"`
-	PrimaryIpv4  types.String          `tfsdk:"primary_ipv4"`
-	Autogenerate *AWSTGWSiteEmptyModel `tfsdk:"autogenerate"`
+	Autogenerate types.Object `tfsdk:"autogenerate"`
+	NameTag      types.String `tfsdk:"name_tag"`
+	PrimaryIpv4  types.String `tfsdk:"primary_ipv4"`
 }
 
 // AWSTGWSiteAWSParametersNewVPCModelAttrTypes defines the attribute types for AWSTGWSiteAWSParametersNewVPCModel
 var AWSTGWSiteAWSParametersNewVPCModelAttrTypes = map[string]attr.Type{
+	"autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"name_tag":     types.StringType,
 	"primary_ipv4": types.StringType,
-	"autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AWSTGWSiteAWSParametersTGWCIDRModel represents tgw_cidr block
@@ -336,16 +336,16 @@ var AWSTGWSiteBlockedServicesModelAttrTypes = map[string]attr.Type{
 
 // AWSTGWSiteBlockedServicesBlockedServiceModel represents blocked_service block
 type AWSTGWSiteBlockedServicesBlockedServiceModel struct {
-	NetworkType      types.String          `tfsdk:"network_type"`
-	DNS              *AWSTGWSiteEmptyModel `tfsdk:"dns"`
-	SSH              *AWSTGWSiteEmptyModel `tfsdk:"ssh"`
-	WebUserInterface *AWSTGWSiteEmptyModel `tfsdk:"web_user_interface"`
+	DNS              types.Object `tfsdk:"dns"`
+	NetworkType      types.String `tfsdk:"network_type"`
+	SSH              types.Object `tfsdk:"ssh"`
+	WebUserInterface types.Object `tfsdk:"web_user_interface"`
 }
 
 // AWSTGWSiteBlockedServicesBlockedServiceModelAttrTypes defines the attribute types for AWSTGWSiteBlockedServicesBlockedServiceModel
 var AWSTGWSiteBlockedServicesBlockedServiceModelAttrTypes = map[string]attr.Type{
-	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"network_type":       types.StringType,
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"web_user_interface": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -376,31 +376,31 @@ var AWSTGWSiteCustomDNSModelAttrTypes = map[string]attr.Type{
 
 // AWSTGWSiteDirectConnectEnabledModel represents direct_connect_enabled block
 type AWSTGWSiteDirectConnectEnabledModel struct {
+	AutoAsn      types.Object                                   `tfsdk:"auto_asn"`
 	CustomAsn    types.Int64                                    `tfsdk:"custom_asn"`
-	AutoAsn      *AWSTGWSiteEmptyModel                          `tfsdk:"auto_asn"`
+	StandardVifs types.Object                                   `tfsdk:"standard_vifs"`
 	HostedVifs   *AWSTGWSiteDirectConnectEnabledHostedVifsModel `tfsdk:"hosted_vifs"`
-	StandardVifs *AWSTGWSiteEmptyModel                          `tfsdk:"standard_vifs"`
 }
 
 // AWSTGWSiteDirectConnectEnabledModelAttrTypes defines the attribute types for AWSTGWSiteDirectConnectEnabledModel
 var AWSTGWSiteDirectConnectEnabledModelAttrTypes = map[string]attr.Type{
-	"custom_asn":    types.Int64Type,
 	"auto_asn":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"hosted_vifs":   types.ObjectType{AttrTypes: AWSTGWSiteDirectConnectEnabledHostedVifsModelAttrTypes},
+	"custom_asn":    types.Int64Type,
 	"standard_vifs": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"hosted_vifs":   types.ObjectType{AttrTypes: AWSTGWSiteDirectConnectEnabledHostedVifsModelAttrTypes},
 }
 
 // AWSTGWSiteDirectConnectEnabledHostedVifsModel represents hosted_vifs block
 type AWSTGWSiteDirectConnectEnabledHostedVifsModel struct {
+	SiteRegistrationOverInternet      types.Object                                                                    `tfsdk:"site_registration_over_internet"`
 	SiteRegistrationOverDirectConnect *AWSTGWSiteDirectConnectEnabledHostedVifsSiteRegistrationOverDirectConnectModel `tfsdk:"site_registration_over_direct_connect"`
-	SiteRegistrationOverInternet      *AWSTGWSiteEmptyModel                                                           `tfsdk:"site_registration_over_internet"`
 	VifList                           types.List                                                                      `tfsdk:"vif_list"`
 }
 
 // AWSTGWSiteDirectConnectEnabledHostedVifsModelAttrTypes defines the attribute types for AWSTGWSiteDirectConnectEnabledHostedVifsModel
 var AWSTGWSiteDirectConnectEnabledHostedVifsModelAttrTypes = map[string]attr.Type{
-	"site_registration_over_direct_connect": types.ObjectType{AttrTypes: AWSTGWSiteDirectConnectEnabledHostedVifsSiteRegistrationOverDirectConnectModelAttrTypes},
 	"site_registration_over_internet":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"site_registration_over_direct_connect": types.ObjectType{AttrTypes: AWSTGWSiteDirectConnectEnabledHostedVifsSiteRegistrationOverDirectConnectModelAttrTypes},
 	"vif_list":                              types.ListType{ElemType: types.ObjectType{AttrTypes: AWSTGWSiteDirectConnectEnabledHostedVifsVifListModelAttrTypes}},
 }
 
@@ -416,21 +416,21 @@ var AWSTGWSiteDirectConnectEnabledHostedVifsSiteRegistrationOverDirectConnectMod
 
 // AWSTGWSiteDirectConnectEnabledHostedVifsVifListModel represents vif_list block
 type AWSTGWSiteDirectConnectEnabledHostedVifsVifListModel struct {
-	OtherRegion      types.String          `tfsdk:"other_region"`
-	VifID            types.String          `tfsdk:"vif_id"`
-	SameAsSiteRegion *AWSTGWSiteEmptyModel `tfsdk:"same_as_site_region"`
+	OtherRegion      types.String `tfsdk:"other_region"`
+	SameAsSiteRegion types.Object `tfsdk:"same_as_site_region"`
+	VifID            types.String `tfsdk:"vif_id"`
 }
 
 // AWSTGWSiteDirectConnectEnabledHostedVifsVifListModelAttrTypes defines the attribute types for AWSTGWSiteDirectConnectEnabledHostedVifsVifListModel
 var AWSTGWSiteDirectConnectEnabledHostedVifsVifListModelAttrTypes = map[string]attr.Type{
 	"other_region":        types.StringType,
-	"vif_id":              types.StringType,
 	"same_as_site_region": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"vif_id":              types.StringType,
 }
 
 // AWSTGWSiteKubernetesUpgradeDrainModel represents kubernetes_upgrade_drain block
 type AWSTGWSiteKubernetesUpgradeDrainModel struct {
-	DisableUpgradeDrain *AWSTGWSiteEmptyModel                                    `tfsdk:"disable_upgrade_drain"`
+	DisableUpgradeDrain types.Object                                             `tfsdk:"disable_upgrade_drain"`
 	EnableUpgradeDrain  *AWSTGWSiteKubernetesUpgradeDrainEnableUpgradeDrainModel `tfsdk:"enable_upgrade_drain"`
 }
 
@@ -442,18 +442,20 @@ var AWSTGWSiteKubernetesUpgradeDrainModelAttrTypes = map[string]attr.Type{
 
 // AWSTGWSiteKubernetesUpgradeDrainEnableUpgradeDrainModel represents enable_upgrade_drain block
 type AWSTGWSiteKubernetesUpgradeDrainEnableUpgradeDrainModel struct {
-	DrainMaxUnavailableNodeCount types.Int64           `tfsdk:"drain_max_unavailable_node_count"`
-	DrainNodeTimeout             types.Int64           `tfsdk:"drain_node_timeout"`
-	DisableVegaUpgradeMode       *AWSTGWSiteEmptyModel `tfsdk:"disable_vega_upgrade_mode"`
-	EnableVegaUpgradeMode        *AWSTGWSiteEmptyModel `tfsdk:"enable_vega_upgrade_mode"`
+	DisableVegaUpgradeMode            types.Object `tfsdk:"disable_vega_upgrade_mode"`
+	DrainMaxUnavailableNodeCount      types.Int64  `tfsdk:"drain_max_unavailable_node_count"`
+	DrainMaxUnavailableNodePercentage types.Int64  `tfsdk:"drain_max_unavailable_node_percentage"`
+	DrainNodeTimeout                  types.Int64  `tfsdk:"drain_node_timeout"`
+	EnableVegaUpgradeMode             types.Object `tfsdk:"enable_vega_upgrade_mode"`
 }
 
 // AWSTGWSiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes defines the attribute types for AWSTGWSiteKubernetesUpgradeDrainEnableUpgradeDrainModel
 var AWSTGWSiteKubernetesUpgradeDrainEnableUpgradeDrainModelAttrTypes = map[string]attr.Type{
-	"drain_max_unavailable_node_count": types.Int64Type,
-	"drain_node_timeout":               types.Int64Type,
-	"disable_vega_upgrade_mode":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable_vega_upgrade_mode":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disable_vega_upgrade_mode":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"drain_max_unavailable_node_count":      types.Int64Type,
+	"drain_max_unavailable_node_percentage": types.Int64Type,
+	"drain_node_timeout":                    types.Int64Type,
+	"enable_vega_upgrade_mode":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AWSTGWSiteLogReceiverModel represents log_receiver block
@@ -472,8 +474,8 @@ var AWSTGWSiteLogReceiverModelAttrTypes = map[string]attr.Type{
 
 // AWSTGWSiteOfflineSurvivabilityModeModel represents offline_survivability_mode block
 type AWSTGWSiteOfflineSurvivabilityModeModel struct {
-	EnableOfflineSurvivabilityMode *AWSTGWSiteEmptyModel `tfsdk:"enable_offline_survivability_mode"`
-	NoOfflineSurvivabilityMode     *AWSTGWSiteEmptyModel `tfsdk:"no_offline_survivability_mode"`
+	EnableOfflineSurvivabilityMode types.Object `tfsdk:"enable_offline_survivability_mode"`
+	NoOfflineSurvivabilityMode     types.Object `tfsdk:"no_offline_survivability_mode"`
 }
 
 // AWSTGWSiteOfflineSurvivabilityModeModelAttrTypes defines the attribute types for AWSTGWSiteOfflineSurvivabilityModeModel
@@ -484,14 +486,14 @@ var AWSTGWSiteOfflineSurvivabilityModeModelAttrTypes = map[string]attr.Type{
 
 // AWSTGWSiteOSModel represents os block
 type AWSTGWSiteOSModel struct {
-	OperatingSystemVersion types.String          `tfsdk:"operating_system_version"`
-	DefaultOSVersion       *AWSTGWSiteEmptyModel `tfsdk:"default_os_version"`
+	DefaultOSVersion       types.Object `tfsdk:"default_os_version"`
+	OperatingSystemVersion types.String `tfsdk:"operating_system_version"`
 }
 
 // AWSTGWSiteOSModelAttrTypes defines the attribute types for AWSTGWSiteOSModel
 var AWSTGWSiteOSModelAttrTypes = map[string]attr.Type{
-	"operating_system_version": types.StringType,
 	"default_os_version":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"operating_system_version": types.StringType,
 }
 
 // AWSTGWSitePerformanceEnhancementModeModel represents performance_enhancement_mode block
@@ -508,8 +510,8 @@ var AWSTGWSitePerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 
 // AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
 type AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel struct {
-	Jumbo   *AWSTGWSiteEmptyModel `tfsdk:"jumbo"`
-	NoJumbo *AWSTGWSiteEmptyModel `tfsdk:"no_jumbo"`
+	Jumbo   types.Object `tfsdk:"jumbo"`
+	NoJumbo types.Object `tfsdk:"no_jumbo"`
 }
 
 // AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes defines the attribute types for AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel
@@ -520,8 +522,8 @@ var AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[s
 
 // AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
 type AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel struct {
-	JumboDisabled *AWSTGWSiteEmptyModel `tfsdk:"jumbo_disabled"`
-	JumboEnabled  *AWSTGWSiteEmptyModel `tfsdk:"jumbo_enabled"`
+	JumboDisabled types.Object `tfsdk:"jumbo_disabled"`
+	JumboEnabled  types.Object `tfsdk:"jumbo_enabled"`
 }
 
 // AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel
@@ -532,16 +534,16 @@ var AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[s
 
 // AWSTGWSitePrivateConnectivityModel represents private_connectivity block
 type AWSTGWSitePrivateConnectivityModel struct {
+	Inside    types.Object                                 `tfsdk:"inside"`
+	Outside   types.Object                                 `tfsdk:"outside"`
 	CloudLink *AWSTGWSitePrivateConnectivityCloudLinkModel `tfsdk:"cloud_link"`
-	Inside    *AWSTGWSiteEmptyModel                        `tfsdk:"inside"`
-	Outside   *AWSTGWSiteEmptyModel                        `tfsdk:"outside"`
 }
 
 // AWSTGWSitePrivateConnectivityModelAttrTypes defines the attribute types for AWSTGWSitePrivateConnectivityModel
 var AWSTGWSitePrivateConnectivityModelAttrTypes = map[string]attr.Type{
-	"cloud_link": types.ObjectType{AttrTypes: AWSTGWSitePrivateConnectivityCloudLinkModelAttrTypes},
 	"inside":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"outside":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"cloud_link": types.ObjectType{AttrTypes: AWSTGWSitePrivateConnectivityCloudLinkModelAttrTypes},
 }
 
 // AWSTGWSitePrivateConnectivityCloudLinkModel represents cloud_link block
@@ -560,40 +562,40 @@ var AWSTGWSitePrivateConnectivityCloudLinkModelAttrTypes = map[string]attr.Type{
 
 // AWSTGWSiteSwModel represents sw block
 type AWSTGWSiteSwModel struct {
-	VolterraSoftwareVersion types.String          `tfsdk:"volterra_software_version"`
-	DefaultSwVersion        *AWSTGWSiteEmptyModel `tfsdk:"default_sw_version"`
+	DefaultSwVersion        types.Object `tfsdk:"default_sw_version"`
+	VolterraSoftwareVersion types.String `tfsdk:"volterra_software_version"`
 }
 
 // AWSTGWSiteSwModelAttrTypes defines the attribute types for AWSTGWSiteSwModel
 var AWSTGWSiteSwModelAttrTypes = map[string]attr.Type{
-	"volterra_software_version": types.StringType,
 	"default_sw_version":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"volterra_software_version": types.StringType,
 }
 
 // AWSTGWSiteTGWSecurityModel represents tgw_security block
 type AWSTGWSiteTGWSecurityModel struct {
+	EastWestServicePolicyAllowAll  types.Object                                              `tfsdk:"east_west_service_policy_allow_all"`
+	ForwardProxyAllowAll           types.Object                                              `tfsdk:"forward_proxy_allow_all"`
+	NoEastWestPolicy               types.Object                                              `tfsdk:"no_east_west_policy"`
+	NoForwardProxy                 types.Object                                              `tfsdk:"no_forward_proxy"`
+	NoNetworkPolicy                types.Object                                              `tfsdk:"no_network_policy"`
 	ActiveEastWestServicePolicies  *AWSTGWSiteTGWSecurityActiveEastWestServicePoliciesModel  `tfsdk:"active_east_west_service_policies"`
 	ActiveEnhancedFirewallPolicies *AWSTGWSiteTGWSecurityActiveEnhancedFirewallPoliciesModel `tfsdk:"active_enhanced_firewall_policies"`
 	ActiveForwardProxyPolicies     *AWSTGWSiteTGWSecurityActiveForwardProxyPoliciesModel     `tfsdk:"active_forward_proxy_policies"`
 	ActiveNetworkPolicies          *AWSTGWSiteTGWSecurityActiveNetworkPoliciesModel          `tfsdk:"active_network_policies"`
-	EastWestServicePolicyAllowAll  *AWSTGWSiteEmptyModel                                     `tfsdk:"east_west_service_policy_allow_all"`
-	ForwardProxyAllowAll           *AWSTGWSiteEmptyModel                                     `tfsdk:"forward_proxy_allow_all"`
-	NoEastWestPolicy               *AWSTGWSiteEmptyModel                                     `tfsdk:"no_east_west_policy"`
-	NoForwardProxy                 *AWSTGWSiteEmptyModel                                     `tfsdk:"no_forward_proxy"`
-	NoNetworkPolicy                *AWSTGWSiteEmptyModel                                     `tfsdk:"no_network_policy"`
 }
 
 // AWSTGWSiteTGWSecurityModelAttrTypes defines the attribute types for AWSTGWSiteTGWSecurityModel
 var AWSTGWSiteTGWSecurityModelAttrTypes = map[string]attr.Type{
-	"active_east_west_service_policies":  types.ObjectType{AttrTypes: AWSTGWSiteTGWSecurityActiveEastWestServicePoliciesModelAttrTypes},
-	"active_enhanced_firewall_policies":  types.ObjectType{AttrTypes: AWSTGWSiteTGWSecurityActiveEnhancedFirewallPoliciesModelAttrTypes},
-	"active_forward_proxy_policies":      types.ObjectType{AttrTypes: AWSTGWSiteTGWSecurityActiveForwardProxyPoliciesModelAttrTypes},
-	"active_network_policies":            types.ObjectType{AttrTypes: AWSTGWSiteTGWSecurityActiveNetworkPoliciesModelAttrTypes},
 	"east_west_service_policy_allow_all": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"forward_proxy_allow_all":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_east_west_policy":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_forward_proxy":                   types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_network_policy":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"active_east_west_service_policies":  types.ObjectType{AttrTypes: AWSTGWSiteTGWSecurityActiveEastWestServicePoliciesModelAttrTypes},
+	"active_enhanced_firewall_policies":  types.ObjectType{AttrTypes: AWSTGWSiteTGWSecurityActiveEnhancedFirewallPoliciesModelAttrTypes},
+	"active_forward_proxy_policies":      types.ObjectType{AttrTypes: AWSTGWSiteTGWSecurityActiveForwardProxyPoliciesModelAttrTypes},
+	"active_network_policies":            types.ObjectType{AttrTypes: AWSTGWSiteTGWSecurityActiveNetworkPoliciesModelAttrTypes},
 }
 
 // AWSTGWSiteTGWSecurityActiveEastWestServicePoliciesModel represents active_east_west_service_policies block
@@ -694,54 +696,54 @@ var AWSTGWSiteTGWSecurityActiveNetworkPoliciesNetworkPoliciesModelAttrTypes = ma
 
 // AWSTGWSiteVnConfigModel represents vn_config block
 type AWSTGWSiteVnConfigModel struct {
+	NoDcClusterGroup        types.Object                                    `tfsdk:"no_dc_cluster_group"`
+	NoGlobalNetwork         types.Object                                    `tfsdk:"no_global_network"`
+	NoInsideStaticRoutes    types.Object                                    `tfsdk:"no_inside_static_routes"`
+	NoOutsideStaticRoutes   types.Object                                    `tfsdk:"no_outside_static_routes"`
+	SmConnectionPublicIP    types.Object                                    `tfsdk:"sm_connection_public_ip"`
+	SmConnectionPvtIP       types.Object                                    `tfsdk:"sm_connection_pvt_ip"`
 	AllowedVIPPort          *AWSTGWSiteVnConfigAllowedVIPPortModel          `tfsdk:"allowed_vip_port"`
 	AllowedVIPPortSLI       *AWSTGWSiteVnConfigAllowedVIPPortSLIModel       `tfsdk:"allowed_vip_port_sli"`
 	DcClusterGroupInsideVn  *AWSTGWSiteVnConfigDcClusterGroupInsideVnModel  `tfsdk:"dc_cluster_group_inside_vn"`
 	DcClusterGroupOutsideVn *AWSTGWSiteVnConfigDcClusterGroupOutsideVnModel `tfsdk:"dc_cluster_group_outside_vn"`
 	GlobalNetworkList       *AWSTGWSiteVnConfigGlobalNetworkListModel       `tfsdk:"global_network_list"`
 	InsideStaticRoutes      *AWSTGWSiteVnConfigInsideStaticRoutesModel      `tfsdk:"inside_static_routes"`
-	NoDcClusterGroup        *AWSTGWSiteEmptyModel                           `tfsdk:"no_dc_cluster_group"`
-	NoGlobalNetwork         *AWSTGWSiteEmptyModel                           `tfsdk:"no_global_network"`
-	NoInsideStaticRoutes    *AWSTGWSiteEmptyModel                           `tfsdk:"no_inside_static_routes"`
-	NoOutsideStaticRoutes   *AWSTGWSiteEmptyModel                           `tfsdk:"no_outside_static_routes"`
 	OutsideStaticRoutes     *AWSTGWSiteVnConfigOutsideStaticRoutesModel     `tfsdk:"outside_static_routes"`
-	SmConnectionPublicIP    *AWSTGWSiteEmptyModel                           `tfsdk:"sm_connection_public_ip"`
-	SmConnectionPvtIP       *AWSTGWSiteEmptyModel                           `tfsdk:"sm_connection_pvt_ip"`
 }
 
 // AWSTGWSiteVnConfigModelAttrTypes defines the attribute types for AWSTGWSiteVnConfigModel
 var AWSTGWSiteVnConfigModelAttrTypes = map[string]attr.Type{
+	"no_dc_cluster_group":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_global_network":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_inside_static_routes":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"no_outside_static_routes":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"sm_connection_public_ip":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"sm_connection_pvt_ip":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"allowed_vip_port":            types.ObjectType{AttrTypes: AWSTGWSiteVnConfigAllowedVIPPortModelAttrTypes},
 	"allowed_vip_port_sli":        types.ObjectType{AttrTypes: AWSTGWSiteVnConfigAllowedVIPPortSLIModelAttrTypes},
 	"dc_cluster_group_inside_vn":  types.ObjectType{AttrTypes: AWSTGWSiteVnConfigDcClusterGroupInsideVnModelAttrTypes},
 	"dc_cluster_group_outside_vn": types.ObjectType{AttrTypes: AWSTGWSiteVnConfigDcClusterGroupOutsideVnModelAttrTypes},
 	"global_network_list":         types.ObjectType{AttrTypes: AWSTGWSiteVnConfigGlobalNetworkListModelAttrTypes},
 	"inside_static_routes":        types.ObjectType{AttrTypes: AWSTGWSiteVnConfigInsideStaticRoutesModelAttrTypes},
-	"no_dc_cluster_group":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_global_network":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_inside_static_routes":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"no_outside_static_routes":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"outside_static_routes":       types.ObjectType{AttrTypes: AWSTGWSiteVnConfigOutsideStaticRoutesModelAttrTypes},
-	"sm_connection_public_ip":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"sm_connection_pvt_ip":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AWSTGWSiteVnConfigAllowedVIPPortModel represents allowed_vip_port block
 type AWSTGWSiteVnConfigAllowedVIPPortModel struct {
+	DisableAllowedVIPPort types.Object                                      `tfsdk:"disable_allowed_vip_port"`
+	UseHTTPHTTPSPort      types.Object                                      `tfsdk:"use_http_https_port"`
+	UseHTTPPort           types.Object                                      `tfsdk:"use_http_port"`
+	UseHTTPSPort          types.Object                                      `tfsdk:"use_https_port"`
 	CustomPorts           *AWSTGWSiteVnConfigAllowedVIPPortCustomPortsModel `tfsdk:"custom_ports"`
-	DisableAllowedVIPPort *AWSTGWSiteEmptyModel                             `tfsdk:"disable_allowed_vip_port"`
-	UseHTTPHTTPSPort      *AWSTGWSiteEmptyModel                             `tfsdk:"use_http_https_port"`
-	UseHTTPPort           *AWSTGWSiteEmptyModel                             `tfsdk:"use_http_port"`
-	UseHTTPSPort          *AWSTGWSiteEmptyModel                             `tfsdk:"use_https_port"`
 }
 
 // AWSTGWSiteVnConfigAllowedVIPPortModelAttrTypes defines the attribute types for AWSTGWSiteVnConfigAllowedVIPPortModel
 var AWSTGWSiteVnConfigAllowedVIPPortModelAttrTypes = map[string]attr.Type{
-	"custom_ports":             types.ObjectType{AttrTypes: AWSTGWSiteVnConfigAllowedVIPPortCustomPortsModelAttrTypes},
 	"disable_allowed_vip_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_http_https_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_http_port":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_https_port":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_ports":             types.ObjectType{AttrTypes: AWSTGWSiteVnConfigAllowedVIPPortCustomPortsModelAttrTypes},
 }
 
 // AWSTGWSiteVnConfigAllowedVIPPortCustomPortsModel represents custom_ports block
@@ -756,20 +758,20 @@ var AWSTGWSiteVnConfigAllowedVIPPortCustomPortsModelAttrTypes = map[string]attr.
 
 // AWSTGWSiteVnConfigAllowedVIPPortSLIModel represents allowed_vip_port_sli block
 type AWSTGWSiteVnConfigAllowedVIPPortSLIModel struct {
+	DisableAllowedVIPPort types.Object                                         `tfsdk:"disable_allowed_vip_port"`
+	UseHTTPHTTPSPort      types.Object                                         `tfsdk:"use_http_https_port"`
+	UseHTTPPort           types.Object                                         `tfsdk:"use_http_port"`
+	UseHTTPSPort          types.Object                                         `tfsdk:"use_https_port"`
 	CustomPorts           *AWSTGWSiteVnConfigAllowedVIPPortSLICustomPortsModel `tfsdk:"custom_ports"`
-	DisableAllowedVIPPort *AWSTGWSiteEmptyModel                                `tfsdk:"disable_allowed_vip_port"`
-	UseHTTPHTTPSPort      *AWSTGWSiteEmptyModel                                `tfsdk:"use_http_https_port"`
-	UseHTTPPort           *AWSTGWSiteEmptyModel                                `tfsdk:"use_http_port"`
-	UseHTTPSPort          *AWSTGWSiteEmptyModel                                `tfsdk:"use_https_port"`
 }
 
 // AWSTGWSiteVnConfigAllowedVIPPortSLIModelAttrTypes defines the attribute types for AWSTGWSiteVnConfigAllowedVIPPortSLIModel
 var AWSTGWSiteVnConfigAllowedVIPPortSLIModelAttrTypes = map[string]attr.Type{
-	"custom_ports":             types.ObjectType{AttrTypes: AWSTGWSiteVnConfigAllowedVIPPortSLICustomPortsModelAttrTypes},
 	"disable_allowed_vip_port": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_http_https_port":      types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_http_port":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"use_https_port":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"custom_ports":             types.ObjectType{AttrTypes: AWSTGWSiteVnConfigAllowedVIPPortSLICustomPortsModelAttrTypes},
 }
 
 // AWSTGWSiteVnConfigAllowedVIPPortSLICustomPortsModel represents custom_ports block
@@ -1182,23 +1184,23 @@ type AWSTGWSiteResourceModel struct {
 	Name                       types.String                               `tfsdk:"name"`
 	Namespace                  types.String                               `tfsdk:"namespace"`
 	Annotations                types.Map                                  `tfsdk:"annotations"`
+	BlockAllServices           types.Object                               `tfsdk:"block_all_services"`
+	DefaultBlockedServices     types.Object                               `tfsdk:"default_blocked_services"`
 	Description                types.String                               `tfsdk:"description"`
+	DirectConnectDisabled      types.Object                               `tfsdk:"direct_connect_disabled"`
 	Disable                    types.Bool                                 `tfsdk:"disable"`
 	Labels                     types.Map                                  `tfsdk:"labels"`
+	LogsStreamingDisabled      types.Object                               `tfsdk:"logs_streaming_disabled"`
 	Tags                       types.Map                                  `tfsdk:"tags"`
 	ID                         types.String                               `tfsdk:"id"`
 	Timeouts                   timeouts.Value                             `tfsdk:"timeouts"`
 	AWSParameters              *AWSTGWSiteAWSParametersModel              `tfsdk:"aws_parameters"`
-	BlockAllServices           *AWSTGWSiteEmptyModel                      `tfsdk:"block_all_services"`
 	BlockedServices            *AWSTGWSiteBlockedServicesModel            `tfsdk:"blocked_services"`
 	Coordinates                *AWSTGWSiteCoordinatesModel                `tfsdk:"coordinates"`
 	CustomDNS                  *AWSTGWSiteCustomDNSModel                  `tfsdk:"custom_dns"`
-	DefaultBlockedServices     *AWSTGWSiteEmptyModel                      `tfsdk:"default_blocked_services"`
-	DirectConnectDisabled      *AWSTGWSiteEmptyModel                      `tfsdk:"direct_connect_disabled"`
 	DirectConnectEnabled       *AWSTGWSiteDirectConnectEnabledModel       `tfsdk:"direct_connect_enabled"`
 	KubernetesUpgradeDrain     *AWSTGWSiteKubernetesUpgradeDrainModel     `tfsdk:"kubernetes_upgrade_drain"`
 	LogReceiver                *AWSTGWSiteLogReceiverModel                `tfsdk:"log_receiver"`
-	LogsStreamingDisabled      *AWSTGWSiteEmptyModel                      `tfsdk:"logs_streaming_disabled"`
 	OfflineSurvivabilityMode   *AWSTGWSiteOfflineSurvivabilityModeModel   `tfsdk:"offline_survivability_mode"`
 	OS                         *AWSTGWSiteOSModel                         `tfsdk:"os"`
 	PerformanceEnhancementMode *AWSTGWSitePerformanceEnhancementModeModel `tfsdk:"performance_enhancement_mode"`
@@ -1242,9 +1244,24 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"block_all_services": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: block_all_services, blocked_services, default_blocked_services; Default: default_blocked_services] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"default_blocked_services": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
+			},
+			"direct_connect_disabled": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: direct_connect_disabled, direct_connect_enabled, private_connectivity] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
@@ -1254,6 +1271,11 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+			},
+			"logs_streaming_disabled": schema.ObjectAttribute{
+				MarkdownDescription: "Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"tags": schema.MapAttribute{
 				MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console.",
@@ -1277,12 +1299,22 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			}),
 			"aws_parameters": schema.SingleNestedBlock{
 				MarkdownDescription: "Setup AWS services VPC, transit gateway and site.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("aws_region", "az_nodes", "instance_type", "ssh_key")},
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("aws_region", "az_nodes", "instance_type", "ssh_key"), validators.ConflictingObjectAttributes("custom_security_group", "f5xc_security_group"), validators.ConflictingObjectAttributes("disable_encryption", "enable_encryption"), validators.ConflictingObjectAttributes("disable_internet_vip", "enable_internet_vip"), validators.ConflictingObjectAttributes("existing_tgw", "new_tgw"), validators.ConflictingObjectAttributes("new_vpc", "vpc_id"), validators.ConflictingObjectAttributes("no_worker_nodes", "nodes_per_az"), validators.ConflictingObjectAttributes("no_worker_nodes", "total_nodes"), validators.ConflictingObjectAttributes("nodes_per_az", "total_nodes"), validators.ConflictingObjectAttributes("reserved_tgw_cidr", "tgw_cidr")},
 
 				Attributes: map[string]schema.Attribute{
 					"aws_region": schema.StringAttribute{
 						MarkdownDescription: "AWS Region of your services VPC, where F5XC site will be deployed.",
 						Optional:            true,
+					},
+					"disable_encryption": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for disable encryption.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"disable_internet_vip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 					"disk_size": schema.Int64Attribute{
 						MarkdownDescription: "Node disk size for all node in the F5XC site. Unit is GiB.",
@@ -1291,6 +1323,16 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							int64validator.AtMost(64000),
 						},
 					},
+					"enable_internet_vip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"f5xc_security_group": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"instance_type": schema.StringAttribute{
 						MarkdownDescription: "AWS Instance Type for Node. Instance size based on the performance.",
 						Optional:            true,
@@ -1298,12 +1340,22 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							stringvalidator.LengthAtMost(64),
 						},
 					},
+					"no_worker_nodes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no worker nodes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"nodes_per_az": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [no_worker_nodes total_nodes] Desired Worker Nodes Per AZ. Max limit is up to 21.",
 						Optional:            true,
 						Validators: []validator.Int64{
 							int64validator.Between(0, 21),
 						},
+					},
+					"reserved_tgw_cidr": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for reserved tgw cidr.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 					"ssh_key": schema.StringAttribute{
 						MarkdownDescription: "Public SSH key for accessing nodes of the site.",
@@ -1330,6 +1382,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Blocks: map[string]schema.Block{
 					"admin_password": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info", "clear_secret_info")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
@@ -1405,17 +1458,23 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"az_nodes": schema.ListNestedBlock{
 						MarkdownDescription: "Only Single AZ or Three AZ(s) nodes are supported currently.",
-						Validators:          []validator.List{validators.RequiredListObjectAttributes("aws_az_name")},
+						Validators:          []validator.List{validators.RequiredListObjectAttributes("aws_az_name"), validators.ConflictingListObjectAttributes("inside_subnet", "reserved_inside_subnet")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"aws_az_name": schema.StringAttribute{
 									MarkdownDescription: "AWS availability zone, must be consistent with the selected AWS region.",
 									Optional:            true,
 								},
+								"reserved_inside_subnet": schema.ObjectAttribute{
+									MarkdownDescription: "Configuration parameter for reserved inside subnet.",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 							},
 							Blocks: map[string]schema.Block{
 								"inside_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for inside subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet_id", "subnet_param")},
 									Attributes: map[string]schema.Attribute{
 										"existing_subnet_id": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [subnet_param] Information about existing subnet ID.",
@@ -1440,6 +1499,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 								"outside_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for outside subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet_id", "subnet_param")},
 									Attributes: map[string]schema.Attribute{
 										"existing_subnet_id": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [subnet_param] Information about existing subnet ID.",
@@ -1462,11 +1522,9 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 									},
 								},
-								"reserved_inside_subnet": schema.SingleNestedBlock{
-									MarkdownDescription: "Configuration parameter for reserved inside subnet.",
-								},
 								"workload_subnet": schema.SingleNestedBlock{
 									MarkdownDescription: "Configuration parameter for workload subnet.",
+									Validators:          []validator.Object{validators.ConflictingObjectAttributes("existing_subnet_id", "subnet_param")},
 									Attributes: map[string]schema.Attribute{
 										"existing_subnet_id": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [subnet_param] Information about existing subnet ID.",
@@ -1511,12 +1569,6 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"disable_encryption": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for disable encryption.",
-					},
-					"disable_internet_vip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"enable_encryption": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for enable encryption.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("kms_key_id")},
@@ -1526,9 +1578,6 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								Optional:            true,
 							},
 						},
-					},
-					"enable_internet_vip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 					"existing_tgw": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for existing tgw.",
@@ -1556,16 +1605,17 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"f5xc_security_group": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"new_tgw": schema.SingleNestedBlock{
 						MarkdownDescription: "TGWParamsType.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"system_generated": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("system_generated", "user_assigned")},
+						Attributes: map[string]schema.Attribute{
+							"system_generated": schema.ObjectAttribute{
 								MarkdownDescription: "Configuration parameter for system generated.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
+						},
+						Blocks: map[string]schema.Block{
 							"user_assigned": schema.SingleNestedBlock{
 								MarkdownDescription: "Information needed when ASNs are assigned by the user.",
 								Attributes: map[string]schema.Attribute{
@@ -1589,8 +1639,13 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"new_vpc": schema.SingleNestedBlock{
 						MarkdownDescription: "AWS VPC Parameters. Parameters to create new AWS VPC.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("primary_ipv4")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("primary_ipv4"), validators.ConflictingObjectAttributes("autogenerate", "name_tag")},
 						Attributes: map[string]schema.Attribute{
+							"autogenerate": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for autogenerate.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"name_tag": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [autogenerate] Specify the VPC Name.",
 								Optional:            true,
@@ -1603,17 +1658,6 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								Optional:            true,
 							},
 						},
-						Blocks: map[string]schema.Block{
-							"autogenerate": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for autogenerate.",
-							},
-						},
-					},
-					"no_worker_nodes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no worker nodes.",
-					},
-					"reserved_tgw_cidr": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for reserved tgw cidr.",
 					},
 					"tgw_cidr": schema.SingleNestedBlock{
 						MarkdownDescription: "Parameters for creating a new cloud subnet.",
@@ -1627,9 +1671,6 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
-			"block_all_services": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: block_all_services, blocked_services, default_blocked_services; Default: default_blocked_services] Enable this option",
-			},
 			"blocked_services": schema.SingleNestedBlock{
 				MarkdownDescription: "Disable node local services on this site.",
 
@@ -1637,8 +1678,14 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Blocks: map[string]schema.Block{
 					"blocked_service": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
+						Validators:          []validator.List{validators.ConflictingListObjectAttributes("dns", "ssh"), validators.ConflictingListObjectAttributes("dns", "web_user_interface"), validators.ConflictingListObjectAttributes("ssh", "web_user_interface")},
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
+								"dns": schema.ObjectAttribute{
+									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
+								},
 								"network_type": schema.StringAttribute{
 									MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
 									Optional:            true,
@@ -1646,16 +1693,15 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										stringvalidator.OneOf("VIRTUAL_NETWORK_SITE_LOCAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE", "VIRTUAL_NETWORK_PER_SITE", "VIRTUAL_NETWORK_PUBLIC", "VIRTUAL_NETWORK_GLOBAL", "VIRTUAL_NETWORK_SITE_SERVICE", "VIRTUAL_NETWORK_VER_INTERNAL", "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE", "VIRTUAL_NETWORK_IP_AUTO", "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK", "VIRTUAL_NETWORK_SRV6_NETWORK", "VIRTUAL_NETWORK_IP_FABRIC", "VIRTUAL_NETWORK_SEGMENT", "VIRTUAL_NETWORK_MANAGEMENT"),
 									},
 								},
-							},
-							Blocks: map[string]schema.Block{
-								"dns": schema.SingleNestedBlock{
+								"ssh": schema.ObjectAttribute{
 									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
-								"ssh": schema.SingleNestedBlock{
+								"web_user_interface": schema.ObjectAttribute{
 									MarkdownDescription: "Enable this option",
-								},
-								"web_user_interface": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
+									Optional:            true,
+									AttributeTypes:      map[string]attr.Type{},
 								},
 							},
 						},
@@ -1698,16 +1744,16 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
-			"default_blocked_services": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
-			"direct_connect_disabled": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: direct_connect_disabled, direct_connect_enabled, private_connectivity] Enable this option",
-			},
 			"direct_connect_enabled": schema.SingleNestedBlock{
 				MarkdownDescription: "Direct Connect Configuration. Direct Connect Configuration.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("auto_asn", "custom_asn"), validators.ConflictingObjectAttributes("hosted_vifs", "standard_vifs")},
 
 				Attributes: map[string]schema.Attribute{
+					"auto_asn": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"custom_asn": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [auto_asn] Custom Autonomous System Number.",
 						Optional:            true,
@@ -1715,14 +1761,23 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							int64validator.AtLeast(1),
 						},
 					},
+					"standard_vifs": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for standard vifs.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 				},
 				Blocks: map[string]schema.Block{
-					"auto_asn": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"hosted_vifs": schema.SingleNestedBlock{
 						MarkdownDescription: "AWS Direct Connect Hosted VIF Configuration.",
-						Attributes:          map[string]schema.Attribute{},
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("site_registration_over_direct_connect", "site_registration_over_internet")},
+						Attributes: map[string]schema.Attribute{
+							"site_registration_over_internet": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"site_registration_over_direct_connect": schema.SingleNestedBlock{
 								MarkdownDescription: "CloudLink ADN Network Config.",
@@ -1737,12 +1792,9 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									},
 								},
 							},
-							"site_registration_over_internet": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
 							"vif_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Hosted VIF Config. List of Hosted VIF Config.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("vif_id")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("vif_id"), validators.ConflictingListObjectAttributes("other_region", "same_as_site_region")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"other_region": schema.StringAttribute{
@@ -1752,6 +1804,11 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 												stringvalidator.OneOf("af-south-1", "ap-east-1", "ap-northeast-1", "ap-northeast-2", "ap-south-1", "ap-southeast-1", "ap-southeast-2", "ap-southeast-3", "ca-central-1", "eu-central-1", "eu-north-1", "eu-south-1", "eu-west-1", "eu-west-2", "eu-west-3", "me-south-1", "sa-east-1", "us-east-1", "us-east-2", "us-west-1", "us-west-2"),
 											},
 										},
+										"same_as_site_region": schema.ObjectAttribute{
+											MarkdownDescription: "Enable this option",
+											Optional:            true,
+											AttributeTypes:      map[string]attr.Type{},
+										},
 										"vif_id": schema.StringAttribute{
 											MarkdownDescription: "AWS Direct Connect VIF ID that needs to be connected to the site.",
 											Optional:            true,
@@ -1760,38 +1817,43 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 											},
 										},
 									},
-									Blocks: map[string]schema.Block{
-										"same_as_site_region": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
-										},
-									},
 								},
 							},
 						},
-					},
-					"standard_vifs": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for standard vifs.",
 					},
 				},
 			},
 			"kubernetes_upgrade_drain": schema.SingleNestedBlock{
 				MarkdownDescription: "Specify how worker nodes within a site will be upgraded.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("disable_upgrade_drain", "enable_upgrade_drain")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"disable_upgrade_drain": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"disable_upgrade_drain": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for disable upgrade drain.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
+				},
+				Blocks: map[string]schema.Block{
 					"enable_upgrade_drain": schema.SingleNestedBlock{
 						MarkdownDescription: "Specify batch upgrade settings for worker nodes within a site.",
-						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout")},
+						Validators:          []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout"), validators.ConflictingObjectAttributes("disable_vega_upgrade_mode", "enable_vega_upgrade_mode"), validators.ConflictingObjectAttributes("drain_max_unavailable_node_count", "drain_max_unavailable_node_percentage")},
 						Attributes: map[string]schema.Attribute{
+							"disable_vega_upgrade_mode": schema.ObjectAttribute{
+								MarkdownDescription: "Configuration parameter for disable vega upgrade mode.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
 								Optional:            true,
 								Validators: []validator.Int64{
 									int64validator.Between(1, 5000),
 								},
+							},
+							"drain_max_unavailable_node_percentage": schema.Int64Attribute{
+								MarkdownDescription: "Maximum percentage of nodes unavailable during upgrade draining.",
+								Optional:            true,
 							},
 							"drain_node_timeout": schema.Int64Attribute{
 								MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
@@ -1800,13 +1862,10 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									int64validator.Between(0, 900),
 								},
 							},
-						},
-						Blocks: map[string]schema.Block{
-							"disable_vega_upgrade_mode": schema.SingleNestedBlock{
-								MarkdownDescription: "Configuration parameter for disable vega upgrade mode.",
-							},
-							"enable_vega_upgrade_mode": schema.SingleNestedBlock{
+							"enable_vega_upgrade_mode": schema.ObjectAttribute{
 								MarkdownDescription: "Configuration parameter for enable vega upgrade mode.",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -1844,26 +1903,33 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 				},
 			},
-			"logs_streaming_disabled": schema.SingleNestedBlock{
-				MarkdownDescription: "Enable this option",
-			},
 			"offline_survivability_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing configuration for upto 7..",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("enable_offline_survivability_mode", "no_offline_survivability_mode")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"enable_offline_survivability_mode": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"enable_offline_survivability_mode": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for enable offline survivability mode.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"no_offline_survivability_mode": schema.SingleNestedBlock{
+					"no_offline_survivability_mode": schema.ObjectAttribute{
 						MarkdownDescription: "Configuration parameter for no offline survivability mode.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
 			"os": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_os_version", "operating_system_version")},
 
 				Attributes: map[string]schema.Attribute{
+					"default_os_version": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"operating_system_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_os_version] Specify a OS version to be used e.g. 9.2024.6.",
 						Optional:            true,
@@ -1872,38 +1938,42 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 					},
 				},
-				Blocks: map[string]schema.Block{
-					"default_os_version": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-				},
 			},
 			"performance_enhancement_mode": schema.SingleNestedBlock{
 				MarkdownDescription: "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced", "perf_mode_l7_enhanced")},
 
 				Attributes: map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"perf_mode_l3_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l3 enhanced.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"jumbo": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo", "no_jumbo")},
+						Attributes: map[string]schema.Attribute{
+							"jumbo": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"no_jumbo": schema.SingleNestedBlock{
+							"no_jumbo": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
 					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
-						Attributes:          map[string]schema.Attribute{},
-						Blocks: map[string]schema.Block{
-							"jumbo_disabled": schema.SingleNestedBlock{
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled", "jumbo_enabled")},
+						Attributes: map[string]schema.Attribute{
+							"jumbo_disabled": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
-							"jumbo_enabled": schema.SingleNestedBlock{
+							"jumbo_enabled": schema.ObjectAttribute{
 								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
 							},
 						},
 					},
@@ -1911,8 +1981,20 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			},
 			"private_connectivity": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for private connectivity.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("inside", "outside")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"inside": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"outside": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
 					"cloud_link": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
@@ -1945,18 +2027,18 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"inside": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"outside": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 				},
 			},
 			"sw": schema.SingleNestedBlock{
 				MarkdownDescription: "Select the F5XC Software Version for the site. By default, latest available F5XC Software Version will be used. Refer to release notes to find required released SW versions.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("default_sw_version", "volterra_software_version")},
 
 				Attributes: map[string]schema.Attribute{
+					"default_sw_version": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
 					"volterra_software_version": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [default_sw_version] Specify a F5XC Software Version to be used e.g. Crt-20210329-1002.",
 						Optional:            true,
@@ -1965,16 +2047,38 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 					},
 				},
-				Blocks: map[string]schema.Block{
-					"default_sw_version": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-				},
 			},
 			"tgw_security": schema.SingleNestedBlock{
 				MarkdownDescription: "Security Configuration for transit gateway.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("active_east_west_service_policies", "east_west_service_policy_allow_all"), validators.ConflictingObjectAttributes("active_east_west_service_policies", "no_east_west_policy"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "active_network_policies"), validators.ConflictingObjectAttributes("active_enhanced_firewall_policies", "no_network_policy"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "forward_proxy_allow_all"), validators.ConflictingObjectAttributes("active_forward_proxy_policies", "no_forward_proxy"), validators.ConflictingObjectAttributes("active_network_policies", "no_network_policy"), validators.ConflictingObjectAttributes("east_west_service_policy_allow_all", "no_east_west_policy"), validators.ConflictingObjectAttributes("forward_proxy_allow_all", "no_forward_proxy")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"east_west_service_policy_allow_all": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for east west service policy allow all.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"forward_proxy_allow_all": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_east_west_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_forward_proxy": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no forward proxy.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_network_policy": schema.ObjectAttribute{
+						MarkdownDescription: "Policy configuration for this feature.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
 					"active_east_west_service_policies": schema.SingleNestedBlock{
 						MarkdownDescription: "Active service policies for the east-west proxy.",
@@ -2135,31 +2239,70 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 					},
-					"east_west_service_policy_allow_all": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for east west service policy allow all.",
-					},
-					"forward_proxy_allow_all": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for forward proxy allow all.",
-					},
-					"no_east_west_policy": schema.SingleNestedBlock{
-						MarkdownDescription: "Policy configuration for this feature.",
-					},
-					"no_forward_proxy": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no forward proxy.",
-					},
-					"no_network_policy": schema.SingleNestedBlock{
-						MarkdownDescription: "Policy configuration for this feature.",
-					},
 				},
 			},
 			"vn_config": schema.SingleNestedBlock{
 				MarkdownDescription: "Virtual Network Configuration. Virtual Network Configuration.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "dc_cluster_group_outside_vn"), validators.ConflictingObjectAttributes("dc_cluster_group_inside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("dc_cluster_group_outside_vn", "no_dc_cluster_group"), validators.ConflictingObjectAttributes("global_network_list", "no_global_network"), validators.ConflictingObjectAttributes("inside_static_routes", "no_inside_static_routes"), validators.ConflictingObjectAttributes("no_outside_static_routes", "outside_static_routes"), validators.ConflictingObjectAttributes("sm_connection_public_ip", "sm_connection_pvt_ip")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"no_dc_cluster_group": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_global_network": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no global network.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_inside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no inside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"no_outside_static_routes": schema.ObjectAttribute{
+						MarkdownDescription: "Configuration parameter for no outside static routes.",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_public_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"sm_connection_pvt_ip": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
 					"allowed_vip_port": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.",
-						Attributes:          map[string]schema.Attribute{},
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_ports", "disable_allowed_vip_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_https_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_port"), validators.ConflictingObjectAttributes("custom_ports", "use_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_http_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_port", "use_https_port")},
+						Attributes: map[string]schema.Attribute{
+							"disable_allowed_vip_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_http_https_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_http_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_https_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"custom_ports": schema.SingleNestedBlock{
 								MarkdownDescription: "Custom Ports. List of Custom port.",
@@ -2173,24 +2316,34 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 									},
 								},
-							},
-							"disable_allowed_vip_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_http_https_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_http_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_https_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
 							},
 						},
 					},
 					"allowed_vip_port_sli": schema.SingleNestedBlock{
 						MarkdownDescription: "Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.",
-						Attributes:          map[string]schema.Attribute{},
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("custom_ports", "disable_allowed_vip_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_https_port"), validators.ConflictingObjectAttributes("custom_ports", "use_http_port"), validators.ConflictingObjectAttributes("custom_ports", "use_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_https_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_http_port"), validators.ConflictingObjectAttributes("disable_allowed_vip_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_http_port"), validators.ConflictingObjectAttributes("use_http_https_port", "use_https_port"), validators.ConflictingObjectAttributes("use_http_port", "use_https_port")},
+						Attributes: map[string]schema.Attribute{
+							"disable_allowed_vip_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_http_https_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_http_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+							"use_https_port": schema.ObjectAttribute{
+								MarkdownDescription: "Enable this option",
+								Optional:            true,
+								AttributeTypes:      map[string]attr.Type{},
+							},
+						},
 						Blocks: map[string]schema.Block{
 							"custom_ports": schema.SingleNestedBlock{
 								MarkdownDescription: "Custom Ports. List of Custom port.",
@@ -2204,18 +2357,6 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										},
 									},
 								},
-							},
-							"disable_allowed_vip_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_http_https_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_http_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
-							},
-							"use_https_port": schema.SingleNestedBlock{
-								MarkdownDescription: "Enable this option",
 							},
 						},
 					},
@@ -2288,6 +2429,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"global_network_connections": schema.ListNestedBlock{
 								MarkdownDescription: "Global Network Connections. Global network connections.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("sli_to_global_dr", "slo_to_global_dr")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
@@ -2377,6 +2519,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -2451,6 +2594,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -2485,6 +2629,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -2537,18 +2682,6 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 							},
 						},
-					},
-					"no_dc_cluster_group": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"no_global_network": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no global network.",
-					},
-					"no_inside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no inside static routes.",
-					},
-					"no_outside_static_routes": schema.SingleNestedBlock{
-						MarkdownDescription: "Configuration parameter for no outside static routes.",
 					},
 					"outside_static_routes": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for outside static routes.",
@@ -2557,6 +2690,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Blocks: map[string]schema.Block{
 							"static_route_list": schema.ListNestedBlock{
 								MarkdownDescription: "List of Static Routes. List of Static routes.",
+								Validators:          []validator.List{validators.ConflictingListObjectAttributes("custom_static_route", "simple_static_route")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"simple_static_route": schema.StringAttribute{
@@ -2631,6 +2765,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 														},
 														"nexthop_address": schema.SingleNestedBlock{
 															MarkdownDescription: "IP Address used to specify an IPv4 or IPv6 address.",
+															Validators:          []validator.Object{validators.ConflictingObjectAttributes("ipv4", "ipv6")},
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"ipv4": schema.SingleNestedBlock{
@@ -2665,6 +2800,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"subnets": schema.ListNestedBlock{
 													MarkdownDescription: "Subnets. List of route prefixes.",
+													Validators:          []validator.List{validators.ConflictingListObjectAttributes("ipv4", "ipv6")},
 													NestedObject: schema.NestedBlockObject{
 														Attributes: map[string]schema.Attribute{},
 														Blocks: map[string]schema.Block{
@@ -2717,12 +2853,6 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 							},
 						},
-					},
-					"sm_connection_public_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"sm_connection_pvt_ip": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
 					},
 				},
 			},
@@ -2777,6 +2907,13 @@ func (r *AWSTGWSiteResource) ValidateConfig(ctx context.Context, req resource.Va
 	resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
 		return
+	}
+	if !data.BlockAllServices.IsNull() && !data.BlockAllServices.IsUnknown() && !data.DefaultBlockedServices.IsNull() && !data.DefaultBlockedServices.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("block_all_services"),
+			"Conflicting Configuration",
+			"block_all_services and default_blocked_services are mutually exclusive.",
+		)
 	}
 
 	// #1391: F5 XC authors these six labels on this object itself, and the Read filters
@@ -2996,7 +3133,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						AzNodesItemMap["outside_subnet"] = AWSParametersAzNodesOutsideSubnetMap
 					}
-					if AzNodesItem.ReservedInsideSubnet != nil {
+					if !AzNodesItem.ReservedInsideSubnet.IsNull() && !AzNodesItem.ReservedInsideSubnet.IsUnknown() {
 						AzNodesItemMap["reserved_inside_subnet"] = map[string]interface{}{}
 					}
 					if AzNodesItem.WorkloadSubnet != nil {
@@ -3028,10 +3165,10 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			AWSParametersMap["custom_security_group"] = AWSParametersCustomSecurityGroupMap
 		}
-		if data.AWSParameters.DisableEncryption != nil {
+		if !data.AWSParameters.DisableEncryption.IsNull() && !data.AWSParameters.DisableEncryption.IsUnknown() {
 			AWSParametersMap["disable_encryption"] = map[string]interface{}{}
 		}
-		if data.AWSParameters.DisableInternetVIP != nil {
+		if !data.AWSParameters.DisableInternetVIP.IsNull() && !data.AWSParameters.DisableInternetVIP.IsUnknown() {
 			AWSParametersMap["disable_internet_vip"] = map[string]interface{}{}
 		}
 		if !data.AWSParameters.DiskSize.IsNull() && !data.AWSParameters.DiskSize.IsUnknown() {
@@ -3044,7 +3181,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			AWSParametersMap["enable_encryption"] = AWSParametersEnableEncryptionMap
 		}
-		if data.AWSParameters.EnableInternetVIP != nil {
+		if !data.AWSParameters.EnableInternetVIP.IsNull() && !data.AWSParameters.EnableInternetVIP.IsUnknown() {
 			AWSParametersMap["enable_internet_vip"] = map[string]interface{}{}
 		}
 		if data.AWSParameters.ExistingTGW != nil {
@@ -3060,7 +3197,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			AWSParametersMap["existing_tgw"] = AWSParametersExistingTGWMap
 		}
-		if data.AWSParameters.F5xcSecurityGroup != nil {
+		if !data.AWSParameters.F5xcSecurityGroup.IsNull() && !data.AWSParameters.F5xcSecurityGroup.IsUnknown() {
 			AWSParametersMap["f5xc_security_group"] = map[string]interface{}{}
 		}
 		if !data.AWSParameters.InstanceType.IsNull() && !data.AWSParameters.InstanceType.IsUnknown() {
@@ -3068,7 +3205,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		if data.AWSParameters.NewTGW != nil {
 			AWSParametersNewTGWMap := make(map[string]interface{})
-			if data.AWSParameters.NewTGW.SystemGenerated != nil {
+			if !data.AWSParameters.NewTGW.SystemGenerated.IsNull() && !data.AWSParameters.NewTGW.SystemGenerated.IsUnknown() {
 				AWSParametersNewTGWMap["system_generated"] = map[string]interface{}{}
 			}
 			if data.AWSParameters.NewTGW.UserAssigned != nil {
@@ -3085,7 +3222,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		if data.AWSParameters.NewVPC != nil {
 			AWSParametersNewVPCMap := make(map[string]interface{})
-			if data.AWSParameters.NewVPC.Autogenerate != nil {
+			if !data.AWSParameters.NewVPC.Autogenerate.IsNull() && !data.AWSParameters.NewVPC.Autogenerate.IsUnknown() {
 				AWSParametersNewVPCMap["autogenerate"] = map[string]interface{}{}
 			}
 			if !data.AWSParameters.NewVPC.NameTag.IsNull() && !data.AWSParameters.NewVPC.NameTag.IsUnknown() {
@@ -3096,13 +3233,13 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			AWSParametersMap["new_vpc"] = AWSParametersNewVPCMap
 		}
-		if data.AWSParameters.NoWorkerNodes != nil {
+		if !data.AWSParameters.NoWorkerNodes.IsNull() && !data.AWSParameters.NoWorkerNodes.IsUnknown() {
 			AWSParametersMap["no_worker_nodes"] = map[string]interface{}{}
 		}
 		if !data.AWSParameters.NodesPerAz.IsNull() && !data.AWSParameters.NodesPerAz.IsUnknown() {
 			AWSParametersMap["nodes_per_az"] = data.AWSParameters.NodesPerAz.ValueInt64()
 		}
-		if data.AWSParameters.ReservedTGWCIDR != nil {
+		if !data.AWSParameters.ReservedTGWCIDR.IsNull() && !data.AWSParameters.ReservedTGWCIDR.IsUnknown() {
 			AWSParametersMap["reserved_tgw_cidr"] = map[string]interface{}{}
 		}
 		if !data.AWSParameters.SSHKey.IsNull() && !data.AWSParameters.SSHKey.IsUnknown() {
@@ -3123,7 +3260,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["aws_parameters"] = AWSParametersMap
 	}
-	if data.BlockAllServices != nil {
+	if !data.BlockAllServices.IsNull() && !data.BlockAllServices.IsUnknown() {
 		createReq.Spec["block_all_services"] = map[string]interface{}{}
 	}
 	if data.BlockedServices != nil {
@@ -3136,16 +3273,16 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				var BlockedServiceList []map[string]interface{}
 				for _, BlockedServiceItem := range BlockedServiceElems {
 					BlockedServiceItemMap := make(map[string]interface{})
-					if BlockedServiceItem.DNS != nil {
+					if !BlockedServiceItem.DNS.IsNull() && !BlockedServiceItem.DNS.IsUnknown() {
 						BlockedServiceItemMap["dns"] = map[string]interface{}{}
 					}
 					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
 						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
 					}
-					if BlockedServiceItem.SSH != nil {
+					if !BlockedServiceItem.SSH.IsNull() && !BlockedServiceItem.SSH.IsUnknown() {
 						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
 					}
-					if BlockedServiceItem.WebUserInterface != nil {
+					if !BlockedServiceItem.WebUserInterface.IsNull() && !BlockedServiceItem.WebUserInterface.IsUnknown() {
 						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
@@ -3175,15 +3312,15 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["custom_dns"] = CustomDNSMap
 	}
-	if data.DefaultBlockedServices != nil {
+	if !data.DefaultBlockedServices.IsNull() && !data.DefaultBlockedServices.IsUnknown() {
 		createReq.Spec["default_blocked_services"] = map[string]interface{}{}
 	}
-	if data.DirectConnectDisabled != nil {
+	if !data.DirectConnectDisabled.IsNull() && !data.DirectConnectDisabled.IsUnknown() {
 		createReq.Spec["direct_connect_disabled"] = map[string]interface{}{}
 	}
 	if data.DirectConnectEnabled != nil {
 		DirectConnectEnabledMap := make(map[string]interface{})
-		if data.DirectConnectEnabled.AutoAsn != nil {
+		if !data.DirectConnectEnabled.AutoAsn.IsNull() && !data.DirectConnectEnabled.AutoAsn.IsUnknown() {
 			DirectConnectEnabledMap["auto_asn"] = map[string]interface{}{}
 		}
 		if !data.DirectConnectEnabled.CustomAsn.IsNull() && !data.DirectConnectEnabled.CustomAsn.IsUnknown() {
@@ -3198,7 +3335,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				DirectConnectEnabledHostedVifsMap["site_registration_over_direct_connect"] = DirectConnectEnabledHostedVifsSiteRegistrationOverDirectConnectMap
 			}
-			if data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet != nil {
+			if !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsNull() && !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsUnknown() {
 				DirectConnectEnabledHostedVifsMap["site_registration_over_internet"] = map[string]interface{}{}
 			}
 			if !data.DirectConnectEnabled.HostedVifs.VifList.IsNull() && !data.DirectConnectEnabled.HostedVifs.VifList.IsUnknown() {
@@ -3212,7 +3349,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						if !VifListItem.OtherRegion.IsNull() && !VifListItem.OtherRegion.IsUnknown() {
 							VifListItemMap["other_region"] = VifListItem.OtherRegion.ValueString()
 						}
-						if VifListItem.SameAsSiteRegion != nil {
+						if !VifListItem.SameAsSiteRegion.IsNull() && !VifListItem.SameAsSiteRegion.IsUnknown() {
 							VifListItemMap["same_as_site_region"] = map[string]interface{}{}
 						}
 						if !VifListItem.VifID.IsNull() && !VifListItem.VifID.IsUnknown() {
@@ -3225,28 +3362,31 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			DirectConnectEnabledMap["hosted_vifs"] = DirectConnectEnabledHostedVifsMap
 		}
-		if data.DirectConnectEnabled.StandardVifs != nil {
+		if !data.DirectConnectEnabled.StandardVifs.IsNull() && !data.DirectConnectEnabled.StandardVifs.IsUnknown() {
 			DirectConnectEnabledMap["standard_vifs"] = map[string]interface{}{}
 		}
 		createReq.Spec["direct_connect_enabled"] = DirectConnectEnabledMap
 	}
 	if data.KubernetesUpgradeDrain != nil {
 		KubernetesUpgradeDrainMap := make(map[string]interface{})
-		if data.KubernetesUpgradeDrain.DisableUpgradeDrain != nil {
+		if !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsNull() && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
 			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
+			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
@@ -3263,22 +3403,22 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		createReq.Spec["log_receiver"] = LogReceiverMap
 	}
-	if data.LogsStreamingDisabled != nil {
+	if !data.LogsStreamingDisabled.IsNull() && !data.LogsStreamingDisabled.IsUnknown() {
 		createReq.Spec["logs_streaming_disabled"] = map[string]interface{}{}
 	}
 	if data.OfflineSurvivabilityMode != nil {
 		OfflineSurvivabilityModeMap := make(map[string]interface{})
-		if data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["enable_offline_survivability_mode"] = map[string]interface{}{}
 		}
-		if data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["no_offline_survivability_mode"] = map[string]interface{}{}
 		}
 		createReq.Spec["offline_survivability_mode"] = OfflineSurvivabilityModeMap
 	}
 	if data.OS != nil {
 		OSMap := make(map[string]interface{})
-		if data.OS.DefaultOSVersion != nil {
+		if !data.OS.DefaultOSVersion.IsNull() && !data.OS.DefaultOSVersion.IsUnknown() {
 			OSMap["default_os_version"] = map[string]interface{}{}
 		}
 		if !data.OS.OperatingSystemVersion.IsNull() && !data.OS.OperatingSystemVersion.IsUnknown() {
@@ -3290,20 +3430,20 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		PerformanceEnhancementModeMap := make(map[string]interface{})
 		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 			}
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 			}
 			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 			}
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 			}
 			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
@@ -3322,17 +3462,17 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			PrivateConnectivityMap["cloud_link"] = PrivateConnectivityCloudLinkMap
 		}
-		if data.PrivateConnectivity.Inside != nil {
+		if !data.PrivateConnectivity.Inside.IsNull() && !data.PrivateConnectivity.Inside.IsUnknown() {
 			PrivateConnectivityMap["inside"] = map[string]interface{}{}
 		}
-		if data.PrivateConnectivity.Outside != nil {
+		if !data.PrivateConnectivity.Outside.IsNull() && !data.PrivateConnectivity.Outside.IsUnknown() {
 			PrivateConnectivityMap["outside"] = map[string]interface{}{}
 		}
 		createReq.Spec["private_connectivity"] = PrivateConnectivityMap
 	}
 	if data.Sw != nil {
 		SwMap := make(map[string]interface{})
-		if data.Sw.DefaultSwVersion != nil {
+		if !data.Sw.DefaultSwVersion.IsNull() && !data.Sw.DefaultSwVersion.IsUnknown() {
 			SwMap["default_sw_version"] = map[string]interface{}{}
 		}
 		if !data.Sw.VolterraSoftwareVersion.IsNull() && !data.Sw.VolterraSoftwareVersion.IsUnknown() {
@@ -3442,19 +3582,19 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			TGWSecurityMap["active_network_policies"] = TGWSecurityActiveNetworkPoliciesMap
 		}
-		if data.TGWSecurity.EastWestServicePolicyAllowAll != nil {
+		if !data.TGWSecurity.EastWestServicePolicyAllowAll.IsNull() && !data.TGWSecurity.EastWestServicePolicyAllowAll.IsUnknown() {
 			TGWSecurityMap["east_west_service_policy_allow_all"] = map[string]interface{}{}
 		}
-		if data.TGWSecurity.ForwardProxyAllowAll != nil {
+		if !data.TGWSecurity.ForwardProxyAllowAll.IsNull() && !data.TGWSecurity.ForwardProxyAllowAll.IsUnknown() {
 			TGWSecurityMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
-		if data.TGWSecurity.NoEastWestPolicy != nil {
+		if !data.TGWSecurity.NoEastWestPolicy.IsNull() && !data.TGWSecurity.NoEastWestPolicy.IsUnknown() {
 			TGWSecurityMap["no_east_west_policy"] = map[string]interface{}{}
 		}
-		if data.TGWSecurity.NoForwardProxy != nil {
+		if !data.TGWSecurity.NoForwardProxy.IsNull() && !data.TGWSecurity.NoForwardProxy.IsUnknown() {
 			TGWSecurityMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.TGWSecurity.NoNetworkPolicy != nil {
+		if !data.TGWSecurity.NoNetworkPolicy.IsNull() && !data.TGWSecurity.NoNetworkPolicy.IsUnknown() {
 			TGWSecurityMap["no_network_policy"] = map[string]interface{}{}
 		}
 		createReq.Spec["tgw_security"] = TGWSecurityMap
@@ -3470,16 +3610,16 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				VnConfigAllowedVIPPortMap["custom_ports"] = VnConfigAllowedVIPPortCustomPortsMap
 			}
-			if data.VnConfig.AllowedVIPPort.DisableAllowedVIPPort != nil {
+			if !data.VnConfig.AllowedVIPPort.DisableAllowedVIPPort.IsNull() && !data.VnConfig.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 				VnConfigAllowedVIPPortMap["disable_allowed_vip_port"] = map[string]interface{}{}
 			}
-			if data.VnConfig.AllowedVIPPort.UseHTTPHTTPSPort != nil {
+			if !data.VnConfig.AllowedVIPPort.UseHTTPHTTPSPort.IsNull() && !data.VnConfig.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 				VnConfigAllowedVIPPortMap["use_http_https_port"] = map[string]interface{}{}
 			}
-			if data.VnConfig.AllowedVIPPort.UseHTTPPort != nil {
+			if !data.VnConfig.AllowedVIPPort.UseHTTPPort.IsNull() && !data.VnConfig.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 				VnConfigAllowedVIPPortMap["use_http_port"] = map[string]interface{}{}
 			}
-			if data.VnConfig.AllowedVIPPort.UseHTTPSPort != nil {
+			if !data.VnConfig.AllowedVIPPort.UseHTTPSPort.IsNull() && !data.VnConfig.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 				VnConfigAllowedVIPPortMap["use_https_port"] = map[string]interface{}{}
 			}
 			VnConfigMap["allowed_vip_port"] = VnConfigAllowedVIPPortMap
@@ -3493,16 +3633,16 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				VnConfigAllowedVIPPortSLIMap["custom_ports"] = VnConfigAllowedVIPPortSLICustomPortsMap
 			}
-			if data.VnConfig.AllowedVIPPortSLI.DisableAllowedVIPPort != nil {
+			if !data.VnConfig.AllowedVIPPortSLI.DisableAllowedVIPPort.IsNull() && !data.VnConfig.AllowedVIPPortSLI.DisableAllowedVIPPort.IsUnknown() {
 				VnConfigAllowedVIPPortSLIMap["disable_allowed_vip_port"] = map[string]interface{}{}
 			}
-			if data.VnConfig.AllowedVIPPortSLI.UseHTTPHTTPSPort != nil {
+			if !data.VnConfig.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsNull() && !data.VnConfig.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsUnknown() {
 				VnConfigAllowedVIPPortSLIMap["use_http_https_port"] = map[string]interface{}{}
 			}
-			if data.VnConfig.AllowedVIPPortSLI.UseHTTPPort != nil {
+			if !data.VnConfig.AllowedVIPPortSLI.UseHTTPPort.IsNull() && !data.VnConfig.AllowedVIPPortSLI.UseHTTPPort.IsUnknown() {
 				VnConfigAllowedVIPPortSLIMap["use_http_port"] = map[string]interface{}{}
 			}
-			if data.VnConfig.AllowedVIPPortSLI.UseHTTPSPort != nil {
+			if !data.VnConfig.AllowedVIPPortSLI.UseHTTPSPort.IsNull() && !data.VnConfig.AllowedVIPPortSLI.UseHTTPSPort.IsUnknown() {
 				VnConfigAllowedVIPPortSLIMap["use_https_port"] = map[string]interface{}{}
 			}
 			VnConfigMap["allowed_vip_port_sli"] = VnConfigAllowedVIPPortSLIMap
@@ -3684,16 +3824,16 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			VnConfigMap["inside_static_routes"] = VnConfigInsideStaticRoutesMap
 		}
-		if data.VnConfig.NoDcClusterGroup != nil {
+		if !data.VnConfig.NoDcClusterGroup.IsNull() && !data.VnConfig.NoDcClusterGroup.IsUnknown() {
 			VnConfigMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.VnConfig.NoGlobalNetwork != nil {
+		if !data.VnConfig.NoGlobalNetwork.IsNull() && !data.VnConfig.NoGlobalNetwork.IsUnknown() {
 			VnConfigMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.VnConfig.NoInsideStaticRoutes != nil {
+		if !data.VnConfig.NoInsideStaticRoutes.IsNull() && !data.VnConfig.NoInsideStaticRoutes.IsUnknown() {
 			VnConfigMap["no_inside_static_routes"] = map[string]interface{}{}
 		}
-		if data.VnConfig.NoOutsideStaticRoutes != nil {
+		if !data.VnConfig.NoOutsideStaticRoutes.IsNull() && !data.VnConfig.NoOutsideStaticRoutes.IsUnknown() {
 			VnConfigMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.VnConfig.OutsideStaticRoutes != nil {
@@ -3808,10 +3948,10 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			VnConfigMap["outside_static_routes"] = VnConfigOutsideStaticRoutesMap
 		}
-		if data.VnConfig.SmConnectionPublicIP != nil {
+		if !data.VnConfig.SmConnectionPublicIP.IsNull() && !data.VnConfig.SmConnectionPublicIP.IsUnknown() {
 			VnConfigMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.VnConfig.SmConnectionPvtIP != nil {
+		if !data.VnConfig.SmConnectionPvtIP.IsNull() && !data.VnConfig.SmConnectionPvtIP.IsUnknown() {
 			VnConfigMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		createReq.Spec["vn_config"] = VnConfigMap
@@ -4049,14 +4189,14 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									return nil
 								}(),
-								ReservedInsideSubnet: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(AzNodesExisting) > AzNodesIdx {
+								ReservedInsideSubnet: func() types.Object {
+									if !isImport && len(AzNodesExisting) > AzNodesIdx && !AzNodesExisting[AzNodesIdx].ReservedInsideSubnet.IsUnknown() {
 										return AzNodesExisting[AzNodesIdx].ReservedInsideSubnet
 									}
 									if _, ok := AzNodesItemMap["reserved_inside_subnet"].(map[string]interface{}); ok {
-										return &AWSTGWSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								WorkloadSubnet: func() *AWSTGWSiteAWSParametersAzNodesWorkloadSubnetModel {
 									if WorkloadSubnetData, ok := AzNodesItemMap["workload_subnet"].(map[string]interface{}); ok {
@@ -4117,23 +4257,23 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			DisableEncryption: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			DisableEncryption: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.DisableEncryption.IsUnknown() {
 					return data.AWSParameters.DisableEncryption
 				}
 				if _, ok := blockData["disable_encryption"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableInternetVIP: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			DisableInternetVIP: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.DisableInternetVIP.IsUnknown() {
 					return data.AWSParameters.DisableInternetVIP
 				}
 				if _, ok := blockData["disable_internet_vip"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DiskSize: func() types.Int64 {
 				if !isImport && data.AWSParameters != nil && !data.AWSParameters.DiskSize.IsUnknown() {
@@ -4160,14 +4300,14 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			EnableInternetVIP: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			EnableInternetVIP: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.EnableInternetVIP.IsUnknown() {
 					return data.AWSParameters.EnableInternetVIP
 				}
 				if _, ok := blockData["enable_internet_vip"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			ExistingTGW: func() *AWSTGWSiteAWSParametersExistingTGWModel {
 				if !isImport && data.AWSParameters != nil && data.AWSParameters.ExistingTGW != nil {
@@ -4203,14 +4343,14 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			F5xcSecurityGroup: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			F5xcSecurityGroup: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.F5xcSecurityGroup.IsUnknown() {
 					return data.AWSParameters.F5xcSecurityGroup
 				}
 				if _, ok := blockData["f5xc_security_group"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			InstanceType: func() types.String {
 				if v, ok := blockData["instance_type"].(string); ok && v != "" {
@@ -4224,14 +4364,14 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if NewTGWData, ok := blockData["new_tgw"].(map[string]interface{}); ok {
 					return &AWSTGWSiteAWSParametersNewTGWModel{
-						SystemGenerated: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewTGW != nil {
+						SystemGenerated: func() types.Object {
+							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewTGW != nil && !data.AWSParameters.NewTGW.SystemGenerated.IsUnknown() {
 								return data.AWSParameters.NewTGW.SystemGenerated
 							}
 							if _, ok := NewTGWData["system_generated"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						UserAssigned: func() *AWSTGWSiteAWSParametersNewTGWUserAssignedModel {
 							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewTGW != nil && data.AWSParameters.NewTGW.UserAssigned != nil {
@@ -4271,14 +4411,14 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if NewVPCData, ok := blockData["new_vpc"].(map[string]interface{}); ok {
 					return &AWSTGWSiteAWSParametersNewVPCModel{
-						Autogenerate: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewVPC != nil {
+						Autogenerate: func() types.Object {
+							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewVPC != nil && !data.AWSParameters.NewVPC.Autogenerate.IsUnknown() {
 								return data.AWSParameters.NewVPC.Autogenerate
 							}
 							if _, ok := NewVPCData["autogenerate"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NameTag: func() types.String {
 							if v, ok := NewVPCData["name_tag"].(string); ok && v != "" {
@@ -4296,14 +4436,14 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			NoWorkerNodes: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			NoWorkerNodes: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.NoWorkerNodes.IsUnknown() {
 					return data.AWSParameters.NoWorkerNodes
 				}
 				if _, ok := blockData["no_worker_nodes"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NodesPerAz: func() types.Int64 {
 				if !isImport && data.AWSParameters != nil && !data.AWSParameters.NodesPerAz.IsUnknown() {
@@ -4314,14 +4454,14 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.Int64Null()
 			}(),
-			ReservedTGWCIDR: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			ReservedTGWCIDR: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.ReservedTGWCIDR.IsUnknown() {
 					return data.AWSParameters.ReservedTGWCIDR
 				}
 				if _, ok := blockData["reserved_tgw_cidr"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SSHKey: func() types.String {
 				if v, ok := blockData["ssh_key"].(string); ok && v != "" {
@@ -4362,8 +4502,12 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok && isImport && data.BlockAllServices == nil {
-		data.BlockAllServices = &AWSTGWSiteEmptyModel{}
+	if !isImport && !data.BlockAllServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok {
+		data.BlockAllServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BlockAllServices = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSTGWSiteBlockedServicesModel{
@@ -4381,14 +4525,14 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AWSTGWSiteBlockedServicesBlockedServiceModel{
-								DNS: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								DNS: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].DNS.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
-										return &AWSTGWSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								NetworkType: func() types.String {
 									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
@@ -4396,23 +4540,23 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									return types.StringNull()
 								}(),
-								SSH: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								SSH: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].SSH.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
-										return &AWSTGWSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								WebUserInterface: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								WebUserInterface: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].WebUserInterface.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
-										return &AWSTGWSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -4462,22 +4606,30 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok && isImport && data.DefaultBlockedServices == nil {
-		data.DefaultBlockedServices = &AWSTGWSiteEmptyModel{}
+	if !isImport && !data.DefaultBlockedServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok {
+		data.DefaultBlockedServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBlockedServices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["direct_connect_disabled"].(map[string]interface{}); ok && isImport && data.DirectConnectDisabled == nil {
-		data.DirectConnectDisabled = &AWSTGWSiteEmptyModel{}
+	if !isImport && !data.DirectConnectDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["direct_connect_disabled"].(map[string]interface{}); ok {
+		data.DirectConnectDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DirectConnectDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["direct_connect_enabled"].(map[string]interface{}); ok && (isImport || data.DirectConnectEnabled != nil) {
 		data.DirectConnectEnabled = &AWSTGWSiteDirectConnectEnabledModel{
-			AutoAsn: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.DirectConnectEnabled != nil {
+			AutoAsn: func() types.Object {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.AutoAsn.IsUnknown() {
 					return data.DirectConnectEnabled.AutoAsn
 				}
 				if _, ok := blockData["auto_asn"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CustomAsn: func() types.Int64 {
 				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.CustomAsn.IsUnknown() {
@@ -4510,14 +4662,14 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						SiteRegistrationOverInternet: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil {
+						SiteRegistrationOverInternet: func() types.Object {
+							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil && !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsUnknown() {
 								return data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet
 							}
 							if _, ok := HostedVifsData["site_registration_over_internet"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						VifList: func() types.List {
 							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil && (data.DirectConnectEnabled.HostedVifs.VifList.IsNull() || len(data.DirectConnectEnabled.HostedVifs.VifList.Elements()) == 0) {
@@ -4539,14 +4691,14 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 												}
 												return types.StringNull()
 											}(),
-											SameAsSiteRegion: func() *AWSTGWSiteEmptyModel {
-												if !isImport && len(VifListExisting) > VifListIdx {
+											SameAsSiteRegion: func() types.Object {
+												if !isImport && len(VifListExisting) > VifListIdx && !VifListExisting[VifListIdx].SameAsSiteRegion.IsUnknown() {
 													return VifListExisting[VifListIdx].SameAsSiteRegion
 												}
 												if _, ok := VifListItemMap["same_as_site_region"].(map[string]interface{}); ok {
-													return &AWSTGWSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VifID: func() types.String {
 												if v, ok := VifListItemMap["vif_id"].(string); ok && v != "" {
@@ -4566,27 +4718,27 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			StandardVifs: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.DirectConnectEnabled != nil {
+			StandardVifs: func() types.Object {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.StandardVifs.IsUnknown() {
 					return data.DirectConnectEnabled.StandardVifs
 				}
 				if _, ok := blockData["standard_vifs"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &AWSTGWSiteKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *AWSTGWSiteKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -4594,20 +4746,29 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &AWSTGWSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -4621,14 +4782,14 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -4658,41 +4819,45 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &AWSTGWSiteEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["offline_survivability_mode"].(map[string]interface{}); ok && (isImport || data.OfflineSurvivabilityMode != nil) {
 		data.OfflineSurvivabilityMode = &AWSTGWSiteOfflineSurvivabilityModeModel{
-			EnableOfflineSurvivabilityMode: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			EnableOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["enable_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOfflineSurvivabilityMode: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			NoOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["no_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["os"].(map[string]interface{}); ok && (isImport || data.OS != nil) {
 		data.OS = &AWSTGWSiteOSModel{
-			DefaultOSVersion: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.OS != nil {
+			DefaultOSVersion: func() types.Object {
+				if !isImport && data.OS != nil && !data.OS.DefaultOSVersion.IsUnknown() {
 					return data.OS.DefaultOSVersion
 				}
 				if _, ok := blockData["default_os_version"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OperatingSystemVersion: func() types.String {
 				if v, ok := blockData["operating_system_version"].(string); ok && v != "" {
@@ -4710,23 +4875,23 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 					return &AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+						Jumbo: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 							}
 							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						NoJumbo: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+						NoJumbo: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 							}
 							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -4738,23 +4903,23 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 					return &AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+						JumboDisabled: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 							}
 							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						JumboEnabled: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+						JumboEnabled: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 							}
 							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -4789,36 +4954,36 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			Inside: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Inside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Inside.IsUnknown() {
 					return data.PrivateConnectivity.Inside
 				}
 				if _, ok := blockData["inside"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			Outside: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Outside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Outside.IsUnknown() {
 					return data.PrivateConnectivity.Outside
 				}
 				if _, ok := blockData["outside"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &AWSTGWSiteSwModel{
-			DefaultSwVersion: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.Sw != nil {
+			DefaultSwVersion: func() types.Object {
+				if !isImport && data.Sw != nil && !data.Sw.DefaultSwVersion.IsUnknown() {
 					return data.Sw.DefaultSwVersion
 				}
 				if _, ok := blockData["default_sw_version"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			VolterraSoftwareVersion: func() types.String {
 				if v, ok := blockData["volterra_software_version"].(string); ok && v != "" {
@@ -5019,50 +5184,50 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			EastWestServicePolicyAllowAll: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			EastWestServicePolicyAllowAll: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.EastWestServicePolicyAllowAll.IsUnknown() {
 					return data.TGWSecurity.EastWestServicePolicyAllowAll
 				}
 				if _, ok := blockData["east_west_service_policy_allow_all"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.ForwardProxyAllowAll.IsUnknown() {
 					return data.TGWSecurity.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoEastWestPolicy: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			NoEastWestPolicy: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.NoEastWestPolicy.IsUnknown() {
 					return data.TGWSecurity.NoEastWestPolicy
 				}
 				if _, ok := blockData["no_east_west_policy"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.NoForwardProxy.IsUnknown() {
 					return data.TGWSecurity.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.NoNetworkPolicy.IsUnknown() {
 					return data.TGWSecurity.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -5090,41 +5255,41 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil && !data.VnConfig.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPort.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil && !data.VnConfig.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPort.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil && !data.VnConfig.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPort.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil && !data.VnConfig.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPort.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -5152,41 +5317,41 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil && !data.VnConfig.AllowedVIPPortSLI.DisableAllowedVIPPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPortSLI.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortSLIData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil && !data.VnConfig.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPortSLI.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil && !data.VnConfig.AllowedVIPPortSLI.UseHTTPPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPortSLI.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil && !data.VnConfig.AllowedVIPPortSLI.UseHTTPSPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPortSLI.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -5573,41 +5738,41 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.NoDcClusterGroup.IsUnknown() {
 					return data.VnConfig.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.NoGlobalNetwork.IsUnknown() {
 					return data.VnConfig.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.NoInsideStaticRoutes.IsUnknown() {
 					return data.VnConfig.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VnConfig.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AWSTGWSiteVnConfigOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -5847,23 +6012,23 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.SmConnectionPublicIP.IsUnknown() {
 					return data.VnConfig.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.SmConnectionPvtIP.IsUnknown() {
 					return data.VnConfig.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -6210,14 +6375,14 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									}
 									return nil
 								}(),
-								ReservedInsideSubnet: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(AzNodesExisting) > AzNodesIdx {
+								ReservedInsideSubnet: func() types.Object {
+									if !isImport && len(AzNodesExisting) > AzNodesIdx && !AzNodesExisting[AzNodesIdx].ReservedInsideSubnet.IsUnknown() {
 										return AzNodesExisting[AzNodesIdx].ReservedInsideSubnet
 									}
 									if _, ok := AzNodesItemMap["reserved_inside_subnet"].(map[string]interface{}); ok {
-										return &AWSTGWSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								WorkloadSubnet: func() *AWSTGWSiteAWSParametersAzNodesWorkloadSubnetModel {
 									if WorkloadSubnetData, ok := AzNodesItemMap["workload_subnet"].(map[string]interface{}); ok {
@@ -6278,23 +6443,23 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			DisableEncryption: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			DisableEncryption: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.DisableEncryption.IsUnknown() {
 					return data.AWSParameters.DisableEncryption
 				}
 				if _, ok := blockData["disable_encryption"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableInternetVIP: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			DisableInternetVIP: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.DisableInternetVIP.IsUnknown() {
 					return data.AWSParameters.DisableInternetVIP
 				}
 				if _, ok := blockData["disable_internet_vip"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DiskSize: func() types.Int64 {
 				if !isImport && data.AWSParameters != nil && !data.AWSParameters.DiskSize.IsUnknown() {
@@ -6321,14 +6486,14 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			EnableInternetVIP: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			EnableInternetVIP: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.EnableInternetVIP.IsUnknown() {
 					return data.AWSParameters.EnableInternetVIP
 				}
 				if _, ok := blockData["enable_internet_vip"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			ExistingTGW: func() *AWSTGWSiteAWSParametersExistingTGWModel {
 				if !isImport && data.AWSParameters != nil && data.AWSParameters.ExistingTGW != nil {
@@ -6364,14 +6529,14 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			F5xcSecurityGroup: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			F5xcSecurityGroup: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.F5xcSecurityGroup.IsUnknown() {
 					return data.AWSParameters.F5xcSecurityGroup
 				}
 				if _, ok := blockData["f5xc_security_group"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			InstanceType: func() types.String {
 				if v, ok := blockData["instance_type"].(string); ok && v != "" {
@@ -6385,14 +6550,14 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if NewTGWData, ok := blockData["new_tgw"].(map[string]interface{}); ok {
 					return &AWSTGWSiteAWSParametersNewTGWModel{
-						SystemGenerated: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewTGW != nil {
+						SystemGenerated: func() types.Object {
+							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewTGW != nil && !data.AWSParameters.NewTGW.SystemGenerated.IsUnknown() {
 								return data.AWSParameters.NewTGW.SystemGenerated
 							}
 							if _, ok := NewTGWData["system_generated"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						UserAssigned: func() *AWSTGWSiteAWSParametersNewTGWUserAssignedModel {
 							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewTGW != nil && data.AWSParameters.NewTGW.UserAssigned != nil {
@@ -6432,14 +6597,14 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if NewVPCData, ok := blockData["new_vpc"].(map[string]interface{}); ok {
 					return &AWSTGWSiteAWSParametersNewVPCModel{
-						Autogenerate: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewVPC != nil {
+						Autogenerate: func() types.Object {
+							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewVPC != nil && !data.AWSParameters.NewVPC.Autogenerate.IsUnknown() {
 								return data.AWSParameters.NewVPC.Autogenerate
 							}
 							if _, ok := NewVPCData["autogenerate"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NameTag: func() types.String {
 							if v, ok := NewVPCData["name_tag"].(string); ok && v != "" {
@@ -6457,14 +6622,14 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			NoWorkerNodes: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			NoWorkerNodes: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.NoWorkerNodes.IsUnknown() {
 					return data.AWSParameters.NoWorkerNodes
 				}
 				if _, ok := blockData["no_worker_nodes"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NodesPerAz: func() types.Int64 {
 				if !isImport && data.AWSParameters != nil && !data.AWSParameters.NodesPerAz.IsUnknown() {
@@ -6475,14 +6640,14 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.Int64Null()
 			}(),
-			ReservedTGWCIDR: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			ReservedTGWCIDR: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.ReservedTGWCIDR.IsUnknown() {
 					return data.AWSParameters.ReservedTGWCIDR
 				}
 				if _, ok := blockData["reserved_tgw_cidr"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SSHKey: func() types.String {
 				if v, ok := blockData["ssh_key"].(string); ok && v != "" {
@@ -6523,8 +6688,12 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok && isImport && data.BlockAllServices == nil {
-		data.BlockAllServices = &AWSTGWSiteEmptyModel{}
+	if !isImport && !data.BlockAllServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok {
+		data.BlockAllServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BlockAllServices = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSTGWSiteBlockedServicesModel{
@@ -6542,14 +6711,14 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AWSTGWSiteBlockedServicesBlockedServiceModel{
-								DNS: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								DNS: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].DNS.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
-										return &AWSTGWSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								NetworkType: func() types.String {
 									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
@@ -6557,23 +6726,23 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									}
 									return types.StringNull()
 								}(),
-								SSH: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								SSH: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].SSH.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
-										return &AWSTGWSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								WebUserInterface: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								WebUserInterface: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].WebUserInterface.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
-										return &AWSTGWSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -6623,22 +6792,30 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok && isImport && data.DefaultBlockedServices == nil {
-		data.DefaultBlockedServices = &AWSTGWSiteEmptyModel{}
+	if !isImport && !data.DefaultBlockedServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok {
+		data.DefaultBlockedServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBlockedServices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["direct_connect_disabled"].(map[string]interface{}); ok && isImport && data.DirectConnectDisabled == nil {
-		data.DirectConnectDisabled = &AWSTGWSiteEmptyModel{}
+	if !isImport && !data.DirectConnectDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["direct_connect_disabled"].(map[string]interface{}); ok {
+		data.DirectConnectDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DirectConnectDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["direct_connect_enabled"].(map[string]interface{}); ok && (isImport || data.DirectConnectEnabled != nil) {
 		data.DirectConnectEnabled = &AWSTGWSiteDirectConnectEnabledModel{
-			AutoAsn: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.DirectConnectEnabled != nil {
+			AutoAsn: func() types.Object {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.AutoAsn.IsUnknown() {
 					return data.DirectConnectEnabled.AutoAsn
 				}
 				if _, ok := blockData["auto_asn"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CustomAsn: func() types.Int64 {
 				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.CustomAsn.IsUnknown() {
@@ -6671,14 +6848,14 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						SiteRegistrationOverInternet: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil {
+						SiteRegistrationOverInternet: func() types.Object {
+							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil && !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsUnknown() {
 								return data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet
 							}
 							if _, ok := HostedVifsData["site_registration_over_internet"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						VifList: func() types.List {
 							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil && (data.DirectConnectEnabled.HostedVifs.VifList.IsNull() || len(data.DirectConnectEnabled.HostedVifs.VifList.Elements()) == 0) {
@@ -6700,14 +6877,14 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 												}
 												return types.StringNull()
 											}(),
-											SameAsSiteRegion: func() *AWSTGWSiteEmptyModel {
-												if !isImport && len(VifListExisting) > VifListIdx {
+											SameAsSiteRegion: func() types.Object {
+												if !isImport && len(VifListExisting) > VifListIdx && !VifListExisting[VifListIdx].SameAsSiteRegion.IsUnknown() {
 													return VifListExisting[VifListIdx].SameAsSiteRegion
 												}
 												if _, ok := VifListItemMap["same_as_site_region"].(map[string]interface{}); ok {
-													return &AWSTGWSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VifID: func() types.String {
 												if v, ok := VifListItemMap["vif_id"].(string); ok && v != "" {
@@ -6727,27 +6904,27 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			StandardVifs: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.DirectConnectEnabled != nil {
+			StandardVifs: func() types.Object {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.StandardVifs.IsUnknown() {
 					return data.DirectConnectEnabled.StandardVifs
 				}
 				if _, ok := blockData["standard_vifs"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &AWSTGWSiteKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *AWSTGWSiteKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -6755,20 +6932,29 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &AWSTGWSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -6782,14 +6968,14 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -6819,41 +7005,45 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &AWSTGWSiteEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["offline_survivability_mode"].(map[string]interface{}); ok && (isImport || data.OfflineSurvivabilityMode != nil) {
 		data.OfflineSurvivabilityMode = &AWSTGWSiteOfflineSurvivabilityModeModel{
-			EnableOfflineSurvivabilityMode: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			EnableOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["enable_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOfflineSurvivabilityMode: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			NoOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["no_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["os"].(map[string]interface{}); ok && (isImport || data.OS != nil) {
 		data.OS = &AWSTGWSiteOSModel{
-			DefaultOSVersion: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.OS != nil {
+			DefaultOSVersion: func() types.Object {
+				if !isImport && data.OS != nil && !data.OS.DefaultOSVersion.IsUnknown() {
 					return data.OS.DefaultOSVersion
 				}
 				if _, ok := blockData["default_os_version"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OperatingSystemVersion: func() types.String {
 				if v, ok := blockData["operating_system_version"].(string); ok && v != "" {
@@ -6871,23 +7061,23 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 					return &AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+						Jumbo: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 							}
 							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						NoJumbo: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+						NoJumbo: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 							}
 							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -6899,23 +7089,23 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 					return &AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+						JumboDisabled: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 							}
 							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						JumboEnabled: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+						JumboEnabled: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 							}
 							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -6950,36 +7140,36 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			Inside: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Inside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Inside.IsUnknown() {
 					return data.PrivateConnectivity.Inside
 				}
 				if _, ok := blockData["inside"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			Outside: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Outside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Outside.IsUnknown() {
 					return data.PrivateConnectivity.Outside
 				}
 				if _, ok := blockData["outside"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &AWSTGWSiteSwModel{
-			DefaultSwVersion: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.Sw != nil {
+			DefaultSwVersion: func() types.Object {
+				if !isImport && data.Sw != nil && !data.Sw.DefaultSwVersion.IsUnknown() {
 					return data.Sw.DefaultSwVersion
 				}
 				if _, ok := blockData["default_sw_version"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			VolterraSoftwareVersion: func() types.String {
 				if v, ok := blockData["volterra_software_version"].(string); ok && v != "" {
@@ -7180,50 +7370,50 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			EastWestServicePolicyAllowAll: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			EastWestServicePolicyAllowAll: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.EastWestServicePolicyAllowAll.IsUnknown() {
 					return data.TGWSecurity.EastWestServicePolicyAllowAll
 				}
 				if _, ok := blockData["east_west_service_policy_allow_all"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.ForwardProxyAllowAll.IsUnknown() {
 					return data.TGWSecurity.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoEastWestPolicy: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			NoEastWestPolicy: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.NoEastWestPolicy.IsUnknown() {
 					return data.TGWSecurity.NoEastWestPolicy
 				}
 				if _, ok := blockData["no_east_west_policy"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.NoForwardProxy.IsUnknown() {
 					return data.TGWSecurity.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.NoNetworkPolicy.IsUnknown() {
 					return data.TGWSecurity.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -7251,41 +7441,41 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil && !data.VnConfig.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPort.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil && !data.VnConfig.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPort.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil && !data.VnConfig.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPort.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil && !data.VnConfig.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPort.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -7313,41 +7503,41 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil && !data.VnConfig.AllowedVIPPortSLI.DisableAllowedVIPPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPortSLI.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortSLIData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil && !data.VnConfig.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPortSLI.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil && !data.VnConfig.AllowedVIPPortSLI.UseHTTPPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPortSLI.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil && !data.VnConfig.AllowedVIPPortSLI.UseHTTPSPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPortSLI.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -7734,41 +7924,41 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.NoDcClusterGroup.IsUnknown() {
 					return data.VnConfig.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.NoGlobalNetwork.IsUnknown() {
 					return data.VnConfig.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.NoInsideStaticRoutes.IsUnknown() {
 					return data.VnConfig.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VnConfig.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AWSTGWSiteVnConfigOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -8008,23 +8198,23 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.SmConnectionPublicIP.IsUnknown() {
 					return data.VnConfig.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.SmConnectionPvtIP.IsUnknown() {
 					return data.VnConfig.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -8281,7 +8471,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						AzNodesItemMap["outside_subnet"] = AWSParametersAzNodesOutsideSubnetMap
 					}
-					if AzNodesItem.ReservedInsideSubnet != nil {
+					if !AzNodesItem.ReservedInsideSubnet.IsNull() && !AzNodesItem.ReservedInsideSubnet.IsUnknown() {
 						AzNodesItemMap["reserved_inside_subnet"] = map[string]interface{}{}
 					}
 					if AzNodesItem.WorkloadSubnet != nil {
@@ -8313,10 +8503,10 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			AWSParametersMap["custom_security_group"] = AWSParametersCustomSecurityGroupMap
 		}
-		if data.AWSParameters.DisableEncryption != nil {
+		if !data.AWSParameters.DisableEncryption.IsNull() && !data.AWSParameters.DisableEncryption.IsUnknown() {
 			AWSParametersMap["disable_encryption"] = map[string]interface{}{}
 		}
-		if data.AWSParameters.DisableInternetVIP != nil {
+		if !data.AWSParameters.DisableInternetVIP.IsNull() && !data.AWSParameters.DisableInternetVIP.IsUnknown() {
 			AWSParametersMap["disable_internet_vip"] = map[string]interface{}{}
 		}
 		if !data.AWSParameters.DiskSize.IsNull() && !data.AWSParameters.DiskSize.IsUnknown() {
@@ -8329,7 +8519,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			AWSParametersMap["enable_encryption"] = AWSParametersEnableEncryptionMap
 		}
-		if data.AWSParameters.EnableInternetVIP != nil {
+		if !data.AWSParameters.EnableInternetVIP.IsNull() && !data.AWSParameters.EnableInternetVIP.IsUnknown() {
 			AWSParametersMap["enable_internet_vip"] = map[string]interface{}{}
 		}
 		if data.AWSParameters.ExistingTGW != nil {
@@ -8345,7 +8535,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			AWSParametersMap["existing_tgw"] = AWSParametersExistingTGWMap
 		}
-		if data.AWSParameters.F5xcSecurityGroup != nil {
+		if !data.AWSParameters.F5xcSecurityGroup.IsNull() && !data.AWSParameters.F5xcSecurityGroup.IsUnknown() {
 			AWSParametersMap["f5xc_security_group"] = map[string]interface{}{}
 		}
 		if !data.AWSParameters.InstanceType.IsNull() && !data.AWSParameters.InstanceType.IsUnknown() {
@@ -8353,7 +8543,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		if data.AWSParameters.NewTGW != nil {
 			AWSParametersNewTGWMap := make(map[string]interface{})
-			if data.AWSParameters.NewTGW.SystemGenerated != nil {
+			if !data.AWSParameters.NewTGW.SystemGenerated.IsNull() && !data.AWSParameters.NewTGW.SystemGenerated.IsUnknown() {
 				AWSParametersNewTGWMap["system_generated"] = map[string]interface{}{}
 			}
 			if data.AWSParameters.NewTGW.UserAssigned != nil {
@@ -8370,7 +8560,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		if data.AWSParameters.NewVPC != nil {
 			AWSParametersNewVPCMap := make(map[string]interface{})
-			if data.AWSParameters.NewVPC.Autogenerate != nil {
+			if !data.AWSParameters.NewVPC.Autogenerate.IsNull() && !data.AWSParameters.NewVPC.Autogenerate.IsUnknown() {
 				AWSParametersNewVPCMap["autogenerate"] = map[string]interface{}{}
 			}
 			if !data.AWSParameters.NewVPC.NameTag.IsNull() && !data.AWSParameters.NewVPC.NameTag.IsUnknown() {
@@ -8381,13 +8571,13 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			AWSParametersMap["new_vpc"] = AWSParametersNewVPCMap
 		}
-		if data.AWSParameters.NoWorkerNodes != nil {
+		if !data.AWSParameters.NoWorkerNodes.IsNull() && !data.AWSParameters.NoWorkerNodes.IsUnknown() {
 			AWSParametersMap["no_worker_nodes"] = map[string]interface{}{}
 		}
 		if !data.AWSParameters.NodesPerAz.IsNull() && !data.AWSParameters.NodesPerAz.IsUnknown() {
 			AWSParametersMap["nodes_per_az"] = data.AWSParameters.NodesPerAz.ValueInt64()
 		}
-		if data.AWSParameters.ReservedTGWCIDR != nil {
+		if !data.AWSParameters.ReservedTGWCIDR.IsNull() && !data.AWSParameters.ReservedTGWCIDR.IsUnknown() {
 			AWSParametersMap["reserved_tgw_cidr"] = map[string]interface{}{}
 		}
 		if !data.AWSParameters.SSHKey.IsNull() && !data.AWSParameters.SSHKey.IsUnknown() {
@@ -8408,7 +8598,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["aws_parameters"] = AWSParametersMap
 	}
-	if data.BlockAllServices != nil {
+	if !data.BlockAllServices.IsNull() && !data.BlockAllServices.IsUnknown() {
 		apiResource.Spec["block_all_services"] = map[string]interface{}{}
 	}
 	if data.BlockedServices != nil {
@@ -8421,16 +8611,16 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				var BlockedServiceList []map[string]interface{}
 				for _, BlockedServiceItem := range BlockedServiceElems {
 					BlockedServiceItemMap := make(map[string]interface{})
-					if BlockedServiceItem.DNS != nil {
+					if !BlockedServiceItem.DNS.IsNull() && !BlockedServiceItem.DNS.IsUnknown() {
 						BlockedServiceItemMap["dns"] = map[string]interface{}{}
 					}
 					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
 						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
 					}
-					if BlockedServiceItem.SSH != nil {
+					if !BlockedServiceItem.SSH.IsNull() && !BlockedServiceItem.SSH.IsUnknown() {
 						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
 					}
-					if BlockedServiceItem.WebUserInterface != nil {
+					if !BlockedServiceItem.WebUserInterface.IsNull() && !BlockedServiceItem.WebUserInterface.IsUnknown() {
 						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
@@ -8460,15 +8650,15 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["custom_dns"] = CustomDNSMap
 	}
-	if data.DefaultBlockedServices != nil {
+	if !data.DefaultBlockedServices.IsNull() && !data.DefaultBlockedServices.IsUnknown() {
 		apiResource.Spec["default_blocked_services"] = map[string]interface{}{}
 	}
-	if data.DirectConnectDisabled != nil {
+	if !data.DirectConnectDisabled.IsNull() && !data.DirectConnectDisabled.IsUnknown() {
 		apiResource.Spec["direct_connect_disabled"] = map[string]interface{}{}
 	}
 	if data.DirectConnectEnabled != nil {
 		DirectConnectEnabledMap := make(map[string]interface{})
-		if data.DirectConnectEnabled.AutoAsn != nil {
+		if !data.DirectConnectEnabled.AutoAsn.IsNull() && !data.DirectConnectEnabled.AutoAsn.IsUnknown() {
 			DirectConnectEnabledMap["auto_asn"] = map[string]interface{}{}
 		}
 		if !data.DirectConnectEnabled.CustomAsn.IsNull() && !data.DirectConnectEnabled.CustomAsn.IsUnknown() {
@@ -8483,7 +8673,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				DirectConnectEnabledHostedVifsMap["site_registration_over_direct_connect"] = DirectConnectEnabledHostedVifsSiteRegistrationOverDirectConnectMap
 			}
-			if data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet != nil {
+			if !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsNull() && !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsUnknown() {
 				DirectConnectEnabledHostedVifsMap["site_registration_over_internet"] = map[string]interface{}{}
 			}
 			if !data.DirectConnectEnabled.HostedVifs.VifList.IsNull() && !data.DirectConnectEnabled.HostedVifs.VifList.IsUnknown() {
@@ -8497,7 +8687,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !VifListItem.OtherRegion.IsNull() && !VifListItem.OtherRegion.IsUnknown() {
 							VifListItemMap["other_region"] = VifListItem.OtherRegion.ValueString()
 						}
-						if VifListItem.SameAsSiteRegion != nil {
+						if !VifListItem.SameAsSiteRegion.IsNull() && !VifListItem.SameAsSiteRegion.IsUnknown() {
 							VifListItemMap["same_as_site_region"] = map[string]interface{}{}
 						}
 						if !VifListItem.VifID.IsNull() && !VifListItem.VifID.IsUnknown() {
@@ -8510,28 +8700,31 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			DirectConnectEnabledMap["hosted_vifs"] = DirectConnectEnabledHostedVifsMap
 		}
-		if data.DirectConnectEnabled.StandardVifs != nil {
+		if !data.DirectConnectEnabled.StandardVifs.IsNull() && !data.DirectConnectEnabled.StandardVifs.IsUnknown() {
 			DirectConnectEnabledMap["standard_vifs"] = map[string]interface{}{}
 		}
 		apiResource.Spec["direct_connect_enabled"] = DirectConnectEnabledMap
 	}
 	if data.KubernetesUpgradeDrain != nil {
 		KubernetesUpgradeDrainMap := make(map[string]interface{})
-		if data.KubernetesUpgradeDrain.DisableUpgradeDrain != nil {
+		if !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsNull() && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
 			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_percentage"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.ValueInt64()
+			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
-			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
+			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
@@ -8548,22 +8741,22 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		apiResource.Spec["log_receiver"] = LogReceiverMap
 	}
-	if data.LogsStreamingDisabled != nil {
+	if !data.LogsStreamingDisabled.IsNull() && !data.LogsStreamingDisabled.IsUnknown() {
 		apiResource.Spec["logs_streaming_disabled"] = map[string]interface{}{}
 	}
 	if data.OfflineSurvivabilityMode != nil {
 		OfflineSurvivabilityModeMap := make(map[string]interface{})
-		if data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["enable_offline_survivability_mode"] = map[string]interface{}{}
 		}
-		if data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode != nil {
+		if !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsNull() && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 			OfflineSurvivabilityModeMap["no_offline_survivability_mode"] = map[string]interface{}{}
 		}
 		apiResource.Spec["offline_survivability_mode"] = OfflineSurvivabilityModeMap
 	}
 	if data.OS != nil {
 		OSMap := make(map[string]interface{})
-		if data.OS.DefaultOSVersion != nil {
+		if !data.OS.DefaultOSVersion.IsNull() && !data.OS.DefaultOSVersion.IsUnknown() {
 			OSMap["default_os_version"] = map[string]interface{}{}
 		}
 		if !data.OS.OperatingSystemVersion.IsNull() && !data.OS.OperatingSystemVersion.IsUnknown() {
@@ -8575,20 +8768,20 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		PerformanceEnhancementModeMap := make(map[string]interface{})
 		if data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
 			PerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsNull() && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 				PerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 			}
-			if data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsNull() && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 				PerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 			}
 			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsNull() && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
 			}
-			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+			if !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsNull() && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
 			}
 			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
@@ -8607,17 +8800,17 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			PrivateConnectivityMap["cloud_link"] = PrivateConnectivityCloudLinkMap
 		}
-		if data.PrivateConnectivity.Inside != nil {
+		if !data.PrivateConnectivity.Inside.IsNull() && !data.PrivateConnectivity.Inside.IsUnknown() {
 			PrivateConnectivityMap["inside"] = map[string]interface{}{}
 		}
-		if data.PrivateConnectivity.Outside != nil {
+		if !data.PrivateConnectivity.Outside.IsNull() && !data.PrivateConnectivity.Outside.IsUnknown() {
 			PrivateConnectivityMap["outside"] = map[string]interface{}{}
 		}
 		apiResource.Spec["private_connectivity"] = PrivateConnectivityMap
 	}
 	if data.Sw != nil {
 		SwMap := make(map[string]interface{})
-		if data.Sw.DefaultSwVersion != nil {
+		if !data.Sw.DefaultSwVersion.IsNull() && !data.Sw.DefaultSwVersion.IsUnknown() {
 			SwMap["default_sw_version"] = map[string]interface{}{}
 		}
 		if !data.Sw.VolterraSoftwareVersion.IsNull() && !data.Sw.VolterraSoftwareVersion.IsUnknown() {
@@ -8727,19 +8920,19 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			TGWSecurityMap["active_network_policies"] = TGWSecurityActiveNetworkPoliciesMap
 		}
-		if data.TGWSecurity.EastWestServicePolicyAllowAll != nil {
+		if !data.TGWSecurity.EastWestServicePolicyAllowAll.IsNull() && !data.TGWSecurity.EastWestServicePolicyAllowAll.IsUnknown() {
 			TGWSecurityMap["east_west_service_policy_allow_all"] = map[string]interface{}{}
 		}
-		if data.TGWSecurity.ForwardProxyAllowAll != nil {
+		if !data.TGWSecurity.ForwardProxyAllowAll.IsNull() && !data.TGWSecurity.ForwardProxyAllowAll.IsUnknown() {
 			TGWSecurityMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
-		if data.TGWSecurity.NoEastWestPolicy != nil {
+		if !data.TGWSecurity.NoEastWestPolicy.IsNull() && !data.TGWSecurity.NoEastWestPolicy.IsUnknown() {
 			TGWSecurityMap["no_east_west_policy"] = map[string]interface{}{}
 		}
-		if data.TGWSecurity.NoForwardProxy != nil {
+		if !data.TGWSecurity.NoForwardProxy.IsNull() && !data.TGWSecurity.NoForwardProxy.IsUnknown() {
 			TGWSecurityMap["no_forward_proxy"] = map[string]interface{}{}
 		}
-		if data.TGWSecurity.NoNetworkPolicy != nil {
+		if !data.TGWSecurity.NoNetworkPolicy.IsNull() && !data.TGWSecurity.NoNetworkPolicy.IsUnknown() {
 			TGWSecurityMap["no_network_policy"] = map[string]interface{}{}
 		}
 		apiResource.Spec["tgw_security"] = TGWSecurityMap
@@ -8755,16 +8948,16 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				VnConfigAllowedVIPPortMap["custom_ports"] = VnConfigAllowedVIPPortCustomPortsMap
 			}
-			if data.VnConfig.AllowedVIPPort.DisableAllowedVIPPort != nil {
+			if !data.VnConfig.AllowedVIPPort.DisableAllowedVIPPort.IsNull() && !data.VnConfig.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 				VnConfigAllowedVIPPortMap["disable_allowed_vip_port"] = map[string]interface{}{}
 			}
-			if data.VnConfig.AllowedVIPPort.UseHTTPHTTPSPort != nil {
+			if !data.VnConfig.AllowedVIPPort.UseHTTPHTTPSPort.IsNull() && !data.VnConfig.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 				VnConfigAllowedVIPPortMap["use_http_https_port"] = map[string]interface{}{}
 			}
-			if data.VnConfig.AllowedVIPPort.UseHTTPPort != nil {
+			if !data.VnConfig.AllowedVIPPort.UseHTTPPort.IsNull() && !data.VnConfig.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 				VnConfigAllowedVIPPortMap["use_http_port"] = map[string]interface{}{}
 			}
-			if data.VnConfig.AllowedVIPPort.UseHTTPSPort != nil {
+			if !data.VnConfig.AllowedVIPPort.UseHTTPSPort.IsNull() && !data.VnConfig.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 				VnConfigAllowedVIPPortMap["use_https_port"] = map[string]interface{}{}
 			}
 			VnConfigMap["allowed_vip_port"] = VnConfigAllowedVIPPortMap
@@ -8778,16 +8971,16 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				VnConfigAllowedVIPPortSLIMap["custom_ports"] = VnConfigAllowedVIPPortSLICustomPortsMap
 			}
-			if data.VnConfig.AllowedVIPPortSLI.DisableAllowedVIPPort != nil {
+			if !data.VnConfig.AllowedVIPPortSLI.DisableAllowedVIPPort.IsNull() && !data.VnConfig.AllowedVIPPortSLI.DisableAllowedVIPPort.IsUnknown() {
 				VnConfigAllowedVIPPortSLIMap["disable_allowed_vip_port"] = map[string]interface{}{}
 			}
-			if data.VnConfig.AllowedVIPPortSLI.UseHTTPHTTPSPort != nil {
+			if !data.VnConfig.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsNull() && !data.VnConfig.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsUnknown() {
 				VnConfigAllowedVIPPortSLIMap["use_http_https_port"] = map[string]interface{}{}
 			}
-			if data.VnConfig.AllowedVIPPortSLI.UseHTTPPort != nil {
+			if !data.VnConfig.AllowedVIPPortSLI.UseHTTPPort.IsNull() && !data.VnConfig.AllowedVIPPortSLI.UseHTTPPort.IsUnknown() {
 				VnConfigAllowedVIPPortSLIMap["use_http_port"] = map[string]interface{}{}
 			}
-			if data.VnConfig.AllowedVIPPortSLI.UseHTTPSPort != nil {
+			if !data.VnConfig.AllowedVIPPortSLI.UseHTTPSPort.IsNull() && !data.VnConfig.AllowedVIPPortSLI.UseHTTPSPort.IsUnknown() {
 				VnConfigAllowedVIPPortSLIMap["use_https_port"] = map[string]interface{}{}
 			}
 			VnConfigMap["allowed_vip_port_sli"] = VnConfigAllowedVIPPortSLIMap
@@ -8969,16 +9162,16 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			VnConfigMap["inside_static_routes"] = VnConfigInsideStaticRoutesMap
 		}
-		if data.VnConfig.NoDcClusterGroup != nil {
+		if !data.VnConfig.NoDcClusterGroup.IsNull() && !data.VnConfig.NoDcClusterGroup.IsUnknown() {
 			VnConfigMap["no_dc_cluster_group"] = map[string]interface{}{}
 		}
-		if data.VnConfig.NoGlobalNetwork != nil {
+		if !data.VnConfig.NoGlobalNetwork.IsNull() && !data.VnConfig.NoGlobalNetwork.IsUnknown() {
 			VnConfigMap["no_global_network"] = map[string]interface{}{}
 		}
-		if data.VnConfig.NoInsideStaticRoutes != nil {
+		if !data.VnConfig.NoInsideStaticRoutes.IsNull() && !data.VnConfig.NoInsideStaticRoutes.IsUnknown() {
 			VnConfigMap["no_inside_static_routes"] = map[string]interface{}{}
 		}
-		if data.VnConfig.NoOutsideStaticRoutes != nil {
+		if !data.VnConfig.NoOutsideStaticRoutes.IsNull() && !data.VnConfig.NoOutsideStaticRoutes.IsUnknown() {
 			VnConfigMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.VnConfig.OutsideStaticRoutes != nil {
@@ -9093,10 +9286,10 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			VnConfigMap["outside_static_routes"] = VnConfigOutsideStaticRoutesMap
 		}
-		if data.VnConfig.SmConnectionPublicIP != nil {
+		if !data.VnConfig.SmConnectionPublicIP.IsNull() && !data.VnConfig.SmConnectionPublicIP.IsUnknown() {
 			VnConfigMap["sm_connection_public_ip"] = map[string]interface{}{}
 		}
-		if data.VnConfig.SmConnectionPvtIP != nil {
+		if !data.VnConfig.SmConnectionPvtIP.IsNull() && !data.VnConfig.SmConnectionPvtIP.IsUnknown() {
 			VnConfigMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		apiResource.Spec["vn_config"] = VnConfigMap
@@ -9354,14 +9547,14 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									return nil
 								}(),
-								ReservedInsideSubnet: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(AzNodesExisting) > AzNodesIdx {
+								ReservedInsideSubnet: func() types.Object {
+									if !isImport && len(AzNodesExisting) > AzNodesIdx && !AzNodesExisting[AzNodesIdx].ReservedInsideSubnet.IsUnknown() {
 										return AzNodesExisting[AzNodesIdx].ReservedInsideSubnet
 									}
 									if _, ok := AzNodesItemMap["reserved_inside_subnet"].(map[string]interface{}); ok {
-										return &AWSTGWSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								WorkloadSubnet: func() *AWSTGWSiteAWSParametersAzNodesWorkloadSubnetModel {
 									if WorkloadSubnetData, ok := AzNodesItemMap["workload_subnet"].(map[string]interface{}); ok {
@@ -9422,23 +9615,23 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			DisableEncryption: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			DisableEncryption: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.DisableEncryption.IsUnknown() {
 					return data.AWSParameters.DisableEncryption
 				}
 				if _, ok := blockData["disable_encryption"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DisableInternetVIP: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			DisableInternetVIP: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.DisableInternetVIP.IsUnknown() {
 					return data.AWSParameters.DisableInternetVIP
 				}
 				if _, ok := blockData["disable_internet_vip"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DiskSize: func() types.Int64 {
 				if !isImport && data.AWSParameters != nil && !data.AWSParameters.DiskSize.IsUnknown() {
@@ -9465,14 +9658,14 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			EnableInternetVIP: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			EnableInternetVIP: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.EnableInternetVIP.IsUnknown() {
 					return data.AWSParameters.EnableInternetVIP
 				}
 				if _, ok := blockData["enable_internet_vip"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			ExistingTGW: func() *AWSTGWSiteAWSParametersExistingTGWModel {
 				if !isImport && data.AWSParameters != nil && data.AWSParameters.ExistingTGW != nil {
@@ -9508,14 +9701,14 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			F5xcSecurityGroup: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			F5xcSecurityGroup: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.F5xcSecurityGroup.IsUnknown() {
 					return data.AWSParameters.F5xcSecurityGroup
 				}
 				if _, ok := blockData["f5xc_security_group"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			InstanceType: func() types.String {
 				if v, ok := blockData["instance_type"].(string); ok && v != "" {
@@ -9529,14 +9722,14 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if NewTGWData, ok := blockData["new_tgw"].(map[string]interface{}); ok {
 					return &AWSTGWSiteAWSParametersNewTGWModel{
-						SystemGenerated: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewTGW != nil {
+						SystemGenerated: func() types.Object {
+							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewTGW != nil && !data.AWSParameters.NewTGW.SystemGenerated.IsUnknown() {
 								return data.AWSParameters.NewTGW.SystemGenerated
 							}
 							if _, ok := NewTGWData["system_generated"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						UserAssigned: func() *AWSTGWSiteAWSParametersNewTGWUserAssignedModel {
 							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewTGW != nil && data.AWSParameters.NewTGW.UserAssigned != nil {
@@ -9576,14 +9769,14 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if NewVPCData, ok := blockData["new_vpc"].(map[string]interface{}); ok {
 					return &AWSTGWSiteAWSParametersNewVPCModel{
-						Autogenerate: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewVPC != nil {
+						Autogenerate: func() types.Object {
+							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewVPC != nil && !data.AWSParameters.NewVPC.Autogenerate.IsUnknown() {
 								return data.AWSParameters.NewVPC.Autogenerate
 							}
 							if _, ok := NewVPCData["autogenerate"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						NameTag: func() types.String {
 							if v, ok := NewVPCData["name_tag"].(string); ok && v != "" {
@@ -9601,14 +9794,14 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			NoWorkerNodes: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			NoWorkerNodes: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.NoWorkerNodes.IsUnknown() {
 					return data.AWSParameters.NoWorkerNodes
 				}
 				if _, ok := blockData["no_worker_nodes"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			NodesPerAz: func() types.Int64 {
 				if !isImport && data.AWSParameters != nil && !data.AWSParameters.NodesPerAz.IsUnknown() {
@@ -9619,14 +9812,14 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.Int64Null()
 			}(),
-			ReservedTGWCIDR: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.AWSParameters != nil {
+			ReservedTGWCIDR: func() types.Object {
+				if !isImport && data.AWSParameters != nil && !data.AWSParameters.ReservedTGWCIDR.IsUnknown() {
 					return data.AWSParameters.ReservedTGWCIDR
 				}
 				if _, ok := blockData["reserved_tgw_cidr"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SSHKey: func() types.String {
 				if v, ok := blockData["ssh_key"].(string); ok && v != "" {
@@ -9667,8 +9860,12 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok && isImport && data.BlockAllServices == nil {
-		data.BlockAllServices = &AWSTGWSiteEmptyModel{}
+	if !isImport && !data.BlockAllServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["block_all_services"].(map[string]interface{}); ok {
+		data.BlockAllServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BlockAllServices = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &AWSTGWSiteBlockedServicesModel{
@@ -9686,14 +9883,14 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						_ = BlockedServiceIdx
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AWSTGWSiteBlockedServicesBlockedServiceModel{
-								DNS: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								DNS: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].DNS.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
-										return &AWSTGWSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 								NetworkType: func() types.String {
 									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
@@ -9701,23 +9898,23 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									return types.StringNull()
 								}(),
-								SSH: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								SSH: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].SSH.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
-										return &AWSTGWSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
-								WebUserInterface: func() *AWSTGWSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+								WebUserInterface: func() types.Object {
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && !BlockedServiceExisting[BlockedServiceIdx].WebUserInterface.IsUnknown() {
 										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
-										return &AWSTGWSiteEmptyModel{}
+										return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 									}
-									return nil
+									return types.ObjectNull(map[string]attr.Type{})
 								}(),
 							})
 						}
@@ -9767,22 +9964,30 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok && isImport && data.DefaultBlockedServices == nil {
-		data.DefaultBlockedServices = &AWSTGWSiteEmptyModel{}
+	if !isImport && !data.DefaultBlockedServices.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["default_blocked_services"].(map[string]interface{}); ok {
+		data.DefaultBlockedServices = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DefaultBlockedServices = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["direct_connect_disabled"].(map[string]interface{}); ok && isImport && data.DirectConnectDisabled == nil {
-		data.DirectConnectDisabled = &AWSTGWSiteEmptyModel{}
+	if !isImport && !data.DirectConnectDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["direct_connect_disabled"].(map[string]interface{}); ok {
+		data.DirectConnectDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DirectConnectDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["direct_connect_enabled"].(map[string]interface{}); ok && (isImport || data.DirectConnectEnabled != nil) {
 		data.DirectConnectEnabled = &AWSTGWSiteDirectConnectEnabledModel{
-			AutoAsn: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.DirectConnectEnabled != nil {
+			AutoAsn: func() types.Object {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.AutoAsn.IsUnknown() {
 					return data.DirectConnectEnabled.AutoAsn
 				}
 				if _, ok := blockData["auto_asn"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			CustomAsn: func() types.Int64 {
 				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.CustomAsn.IsUnknown() {
@@ -9815,14 +10020,14 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						SiteRegistrationOverInternet: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil {
+						SiteRegistrationOverInternet: func() types.Object {
+							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil && !data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet.IsUnknown() {
 								return data.DirectConnectEnabled.HostedVifs.SiteRegistrationOverInternet
 							}
 							if _, ok := HostedVifsData["site_registration_over_internet"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						VifList: func() types.List {
 							if !isImport && data.DirectConnectEnabled != nil && data.DirectConnectEnabled.HostedVifs != nil && (data.DirectConnectEnabled.HostedVifs.VifList.IsNull() || len(data.DirectConnectEnabled.HostedVifs.VifList.Elements()) == 0) {
@@ -9844,14 +10049,14 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 												}
 												return types.StringNull()
 											}(),
-											SameAsSiteRegion: func() *AWSTGWSiteEmptyModel {
-												if !isImport && len(VifListExisting) > VifListIdx {
+											SameAsSiteRegion: func() types.Object {
+												if !isImport && len(VifListExisting) > VifListIdx && !VifListExisting[VifListIdx].SameAsSiteRegion.IsUnknown() {
 													return VifListExisting[VifListIdx].SameAsSiteRegion
 												}
 												if _, ok := VifListItemMap["same_as_site_region"].(map[string]interface{}); ok {
-													return &AWSTGWSiteEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											VifID: func() types.String {
 												if v, ok := VifListItemMap["vif_id"].(string); ok && v != "" {
@@ -9871,27 +10076,27 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			StandardVifs: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.DirectConnectEnabled != nil {
+			StandardVifs: func() types.Object {
+				if !isImport && data.DirectConnectEnabled != nil && !data.DirectConnectEnabled.StandardVifs.IsUnknown() {
 					return data.DirectConnectEnabled.StandardVifs
 				}
 				if _, ok := blockData["standard_vifs"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["kubernetes_upgrade_drain"].(map[string]interface{}); ok && (isImport || data.KubernetesUpgradeDrain != nil) {
 		data.KubernetesUpgradeDrain = &AWSTGWSiteKubernetesUpgradeDrainModel{
-			DisableUpgradeDrain: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.KubernetesUpgradeDrain != nil {
+			DisableUpgradeDrain: func() types.Object {
+				if !isImport && data.KubernetesUpgradeDrain != nil && !data.KubernetesUpgradeDrain.DisableUpgradeDrain.IsUnknown() {
 					return data.KubernetesUpgradeDrain.DisableUpgradeDrain
 				}
 				if _, ok := blockData["disable_upgrade_drain"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableUpgradeDrain: func() *AWSTGWSiteKubernetesUpgradeDrainEnableUpgradeDrainModel {
 				if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
@@ -9899,20 +10104,29 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if EnableUpgradeDrainData, ok := blockData["enable_upgrade_drain"].(map[string]interface{}); ok {
 					return &AWSTGWSiteKubernetesUpgradeDrainEnableUpgradeDrainModel{
-						DisableVegaUpgradeMode: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						DisableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["disable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						DrainMaxUnavailableNodeCount: func() types.Int64 {
 							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount
 							}
 							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_count"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+						DrainMaxUnavailableNodePercentage: func() types.Int64 {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage.IsUnknown() {
+								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodePercentage
+							}
+							if v, ok := EnableUpgradeDrainData["drain_max_unavailable_node_percentage"].(float64); ok && v != 0 {
 								return types.Int64Value(int64(v))
 							}
 							return types.Int64Null()
@@ -9926,14 +10140,14 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return types.Int64Null()
 						}(),
-						EnableVegaUpgradeMode: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
+						EnableVegaUpgradeMode: func() types.Object {
+							if !isImport && data.KubernetesUpgradeDrain != nil && data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode.IsUnknown() {
 								return data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode
 							}
 							if _, ok := EnableUpgradeDrainData["enable_vega_upgrade_mode"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -9963,41 +10177,45 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok && isImport && data.LogsStreamingDisabled == nil {
-		data.LogsStreamingDisabled = &AWSTGWSiteEmptyModel{}
+	if !isImport && !data.LogsStreamingDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["logs_streaming_disabled"].(map[string]interface{}); ok {
+		data.LogsStreamingDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.LogsStreamingDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["offline_survivability_mode"].(map[string]interface{}); ok && (isImport || data.OfflineSurvivabilityMode != nil) {
 		data.OfflineSurvivabilityMode = &AWSTGWSiteOfflineSurvivabilityModeModel{
-			EnableOfflineSurvivabilityMode: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			EnableOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.EnableOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["enable_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOfflineSurvivabilityMode: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.OfflineSurvivabilityMode != nil {
+			NoOfflineSurvivabilityMode: func() types.Object {
+				if !isImport && data.OfflineSurvivabilityMode != nil && !data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode.IsUnknown() {
 					return data.OfflineSurvivabilityMode.NoOfflineSurvivabilityMode
 				}
 				if _, ok := blockData["no_offline_survivability_mode"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["os"].(map[string]interface{}); ok && (isImport || data.OS != nil) {
 		data.OS = &AWSTGWSiteOSModel{
-			DefaultOSVersion: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.OS != nil {
+			DefaultOSVersion: func() types.Object {
+				if !isImport && data.OS != nil && !data.OS.DefaultOSVersion.IsUnknown() {
 					return data.OS.DefaultOSVersion
 				}
 				if _, ok := blockData["default_os_version"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OperatingSystemVersion: func() types.String {
 				if v, ok := blockData["operating_system_version"].(string); ok && v != "" {
@@ -10015,23 +10233,23 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if PerfModeL3EnhancedData, ok := blockData["perf_mode_l3_enhanced"].(map[string]interface{}); ok {
 					return &AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel{
-						Jumbo: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+						Jumbo: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo
 							}
 							if _, ok := PerfModeL3EnhancedData["jumbo"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						NoJumbo: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
+						NoJumbo: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL3Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo
 							}
 							if _, ok := PerfModeL3EnhancedData["no_jumbo"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -10043,23 +10261,23 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
 					return &AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel{
-						JumboDisabled: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+						JumboDisabled: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
 							}
 							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						JumboEnabled: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+						JumboEnabled: func() types.Object {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil && !data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled.IsUnknown() {
 								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
 							}
 							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -10094,36 +10312,36 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			Inside: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Inside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Inside.IsUnknown() {
 					return data.PrivateConnectivity.Inside
 				}
 				if _, ok := blockData["inside"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			Outside: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.PrivateConnectivity != nil {
+			Outside: func() types.Object {
+				if !isImport && data.PrivateConnectivity != nil && !data.PrivateConnectivity.Outside.IsUnknown() {
 					return data.PrivateConnectivity.Outside
 				}
 				if _, ok := blockData["outside"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["sw"].(map[string]interface{}); ok && (isImport || data.Sw != nil) {
 		data.Sw = &AWSTGWSiteSwModel{
-			DefaultSwVersion: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.Sw != nil {
+			DefaultSwVersion: func() types.Object {
+				if !isImport && data.Sw != nil && !data.Sw.DefaultSwVersion.IsUnknown() {
 					return data.Sw.DefaultSwVersion
 				}
 				if _, ok := blockData["default_sw_version"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			VolterraSoftwareVersion: func() types.String {
 				if v, ok := blockData["volterra_software_version"].(string); ok && v != "" {
@@ -10324,50 +10542,50 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			EastWestServicePolicyAllowAll: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			EastWestServicePolicyAllowAll: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.EastWestServicePolicyAllowAll.IsUnknown() {
 					return data.TGWSecurity.EastWestServicePolicyAllowAll
 				}
 				if _, ok := blockData["east_west_service_policy_allow_all"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			ForwardProxyAllowAll: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			ForwardProxyAllowAll: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.ForwardProxyAllowAll.IsUnknown() {
 					return data.TGWSecurity.ForwardProxyAllowAll
 				}
 				if _, ok := blockData["forward_proxy_allow_all"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoEastWestPolicy: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			NoEastWestPolicy: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.NoEastWestPolicy.IsUnknown() {
 					return data.TGWSecurity.NoEastWestPolicy
 				}
 				if _, ok := blockData["no_east_west_policy"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoForwardProxy: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			NoForwardProxy: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.NoForwardProxy.IsUnknown() {
 					return data.TGWSecurity.NoForwardProxy
 				}
 				if _, ok := blockData["no_forward_proxy"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoNetworkPolicy: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.TGWSecurity != nil {
+			NoNetworkPolicy: func() types.Object {
+				if !isImport && data.TGWSecurity != nil && !data.TGWSecurity.NoNetworkPolicy.IsUnknown() {
 					return data.TGWSecurity.NoNetworkPolicy
 				}
 				if _, ok := blockData["no_network_policy"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
@@ -10395,41 +10613,41 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil && !data.VnConfig.AllowedVIPPort.DisableAllowedVIPPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPort.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil && !data.VnConfig.AllowedVIPPort.UseHTTPHTTPSPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPort.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil && !data.VnConfig.AllowedVIPPort.UseHTTPPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPort.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPort != nil && !data.VnConfig.AllowedVIPPort.UseHTTPSPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPort.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -10457,41 +10675,41 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						DisableAllowedVIPPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil {
+						DisableAllowedVIPPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil && !data.VnConfig.AllowedVIPPortSLI.DisableAllowedVIPPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPortSLI.DisableAllowedVIPPort
 							}
 							if _, ok := AllowedVIPPortSLIData["disable_allowed_vip_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPHTTPSPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil {
+						UseHTTPHTTPSPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil && !data.VnConfig.AllowedVIPPortSLI.UseHTTPHTTPSPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPortSLI.UseHTTPHTTPSPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_http_https_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil {
+						UseHTTPPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil && !data.VnConfig.AllowedVIPPortSLI.UseHTTPPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPortSLI.UseHTTPPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_http_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
-						UseHTTPSPort: func() *AWSTGWSiteEmptyModel {
-							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil {
+						UseHTTPSPort: func() types.Object {
+							if !isImport && data.VnConfig != nil && data.VnConfig.AllowedVIPPortSLI != nil && !data.VnConfig.AllowedVIPPortSLI.UseHTTPSPort.IsUnknown() {
 								return data.VnConfig.AllowedVIPPortSLI.UseHTTPSPort
 							}
 							if _, ok := AllowedVIPPortSLIData["use_https_port"].(map[string]interface{}); ok {
-								return &AWSTGWSiteEmptyModel{}
+								return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 							}
-							return nil
+							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 					}
 				}
@@ -10878,41 +11096,41 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			NoDcClusterGroup: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			NoDcClusterGroup: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.NoDcClusterGroup.IsUnknown() {
 					return data.VnConfig.NoDcClusterGroup
 				}
 				if _, ok := blockData["no_dc_cluster_group"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoGlobalNetwork: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			NoGlobalNetwork: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.NoGlobalNetwork.IsUnknown() {
 					return data.VnConfig.NoGlobalNetwork
 				}
 				if _, ok := blockData["no_global_network"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoInsideStaticRoutes: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			NoInsideStaticRoutes: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.NoInsideStaticRoutes.IsUnknown() {
 					return data.VnConfig.NoInsideStaticRoutes
 				}
 				if _, ok := blockData["no_inside_static_routes"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			NoOutsideStaticRoutes: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			NoOutsideStaticRoutes: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.NoOutsideStaticRoutes.IsUnknown() {
 					return data.VnConfig.NoOutsideStaticRoutes
 				}
 				if _, ok := blockData["no_outside_static_routes"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			OutsideStaticRoutes: func() *AWSTGWSiteVnConfigOutsideStaticRoutesModel {
 				if OutsideStaticRoutesData, ok := blockData["outside_static_routes"].(map[string]interface{}); ok {
@@ -11152,23 +11370,23 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			SmConnectionPublicIP: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			SmConnectionPublicIP: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.SmConnectionPublicIP.IsUnknown() {
 					return data.VnConfig.SmConnectionPublicIP
 				}
 				if _, ok := blockData["sm_connection_public_ip"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			SmConnectionPvtIP: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.VnConfig != nil {
+			SmConnectionPvtIP: func() types.Object {
+				if !isImport && data.VnConfig != nil && !data.VnConfig.SmConnectionPvtIP.IsUnknown() {
 					return data.VnConfig.SmConnectionPvtIP
 				}
 				if _, ok := blockData["sm_connection_pvt_ip"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}

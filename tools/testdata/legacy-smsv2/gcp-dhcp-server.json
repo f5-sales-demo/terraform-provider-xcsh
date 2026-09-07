@@ -1,0 +1,161 @@
+{
+  "legacy_version": "0.12.2",
+  "source_commit": "22f029dbf14412c99502fe1daba829f7c3261017",
+  "linux_amd64_binary_sha256": "821231f24ac1d4d95075493afc1a681d601888e5bff09859eaa71fb037c478e2",
+  "case": "gcp-dhcp-server-software-defaults",
+  "request": {
+    "method": "POST",
+    "path": "/api/config/namespaces/system/securemesh_site_v2s",
+    "body": {
+      "metadata": {
+        "name": "smsv2-parity-fixture",
+        "namespace": "system",
+        "description": "independent legacy wire fixture"
+      },
+      "spec": {
+        "gcp": {
+          "not_managed": {
+            "node_list": [
+              {
+                "hostname": "parity-node",
+                "interface_list": [
+                  {
+                    "ethernet_interface": {
+                      "device": "ens6",
+                      "mac": "02:00:00:00:00:06"
+                    },
+                    "dhcp_server": {
+                      "dhcp_networks": [
+                        {
+                          "network_prefix": "192.0.2.0/24",
+                          "pools": [
+                            {
+                              "start_ip": "192.0.2.20",
+                              "end_ip": "192.0.2.30",
+                              "exclude": true
+                            }
+                          ],
+                          "dgw_address": "192.0.2.1",
+                          "dns_address": "192.0.2.53"
+                        }
+                      ],
+                      "automatic_from_start": {},
+                      "fixed_ip_map": {
+                        "02:00:00:00:00:20": "192.0.2.20"
+                      },
+                      "dhcp_option82_tag": "parity-option82"
+                    },
+                    "name": "parity-interface",
+                    "network_option": {
+                      "site_local_inside_network": {}
+                    },
+                    "no_ipv6_address": {}
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "software_settings": {
+          "sw": {
+            "default_sw_version": {}
+          },
+          "os": {
+            "default_os_version": {}
+          }
+        },
+        "logs_streaming_disabled": {},
+        "block_all_services": {},
+        "re_select": {
+          "geo_proximity": {}
+        }
+      }
+    }
+  },
+  "notes": [
+    "Captured from the installed legacy binary against a loopback HTTPS server.",
+    "enable_ha=false is omitted by the legacy SDK GetOk mapping.",
+    "This is serialization evidence, not platform live acceptance."
+  ],
+  "configuration": {
+    "name": "smsv2-parity-fixture",
+    "namespace": "system",
+    "description": "independent legacy wire fixture",
+    "block_all_services": true,
+    "logs_streaming_disabled": true,
+    "enable_ha": false,
+    "re_select": [
+      {
+        "geo_proximity": true
+      }
+    ],
+    "gcp": [
+      {
+        "not_managed": [
+          {
+            "node_list": [
+              {
+                "hostname": "parity-node",
+                "interface_list": [
+                  {
+                    "name": "parity-interface",
+                    "ethernet_interface": [
+                      {
+                        "device": "ens6",
+                        "mac": "02:00:00:00:00:06"
+                      }
+                    ],
+                    "no_ipv6_address": true,
+                    "network_option": [
+                      {
+                        "site_local_inside_network": true
+                      }
+                    ],
+                    "dhcp_server": [
+                      {
+                        "automatic_from_start": true,
+                        "dhcp_option82_tag": "parity-option82",
+                        "fixed_ip_map": {
+                          "02:00:00:00:00:20": "192.0.2.20"
+                        },
+                        "dhcp_networks": [
+                          {
+                            "network_prefix": "192.0.2.0/24",
+                            "dgw_address": "192.0.2.1",
+                            "dns_address": "192.0.2.53",
+                            "pool_settings": "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
+                            "pools": [
+                              {
+                                "start_ip": "192.0.2.20",
+                                "end_ip": "192.0.2.30",
+                                "exclude": true
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "software_settings": [
+      {
+        "os": [
+          {
+            "default_os_version": true
+          }
+        ],
+        "sw": [
+          {
+            "default_sw_version": true
+          }
+        ]
+      }
+    ]
+  }
+}

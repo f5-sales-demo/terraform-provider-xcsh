@@ -337,6 +337,7 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 				Blocks: map[string]schema.Block{
 					"absolute_timeout": schema.SingleNestedBlock{
 						MarkdownDescription: "Represents the session expiration duration.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("hours", "minutes")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"hours": schema.SingleNestedBlock{
@@ -369,6 +370,7 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 					},
 					"idle_timeout": schema.SingleNestedBlock{
 						MarkdownDescription: "Represents the cookie expiration duration.",
+						Validators:          []validator.Object{validators.ConflictingObjectAttributes("hours", "minutes")},
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"hours": schema.SingleNestedBlock{

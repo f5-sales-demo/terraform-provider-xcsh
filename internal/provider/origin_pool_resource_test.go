@@ -534,8 +534,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 `, name)
 }
@@ -560,8 +560,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 `, name)
 }
@@ -580,8 +580,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 `, name)
 }
@@ -606,8 +606,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 `, name)
 }
@@ -643,8 +643,8 @@ resource "xcsh_origin_pool" "test" {
     namespace = xcsh_healthcheck.test.namespace
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 `, name)
 }
@@ -663,8 +663,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 `, name, port)
 }
@@ -687,8 +687,8 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 `, name, env)
 }
@@ -719,15 +719,15 @@ resource "xcsh_origin_pool" "test" {
     }
   }
 
-  no_tls {}
+  no_tls = {}
   use_tls {
     tls_config {
-      default_security {}
+      default_security = {}
     }
-    no_mtls {}
-    volterra_trusted_ca {}
+    no_mtls = {}
+    volterra_trusted_ca = {}
   }
-  same_as_endpoint_port {}
+  same_as_endpoint_port = {}
 }
 `, rName),
 				ExpectError: regexp.MustCompile(`(?i)(conflict|mutually exclusive|only one|Invalid|these attributes cannot)`),
@@ -806,8 +806,8 @@ resource "xcsh_origin_pool" "test" {
     }
 %[3]s  }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
+  same_as_endpoint_port = {}
 }
 `, name, ip, labelsStr.String())
 }

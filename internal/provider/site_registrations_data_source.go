@@ -482,16 +482,16 @@ var SiteRegistrationsItemsGetSpecInfraSwInfoModelAttrTypes = map[string]attr.Typ
 
 // SiteRegistrationsItemsGetSpecPassportModel represents passport block
 type SiteRegistrationsItemsGetSpecPassportModel struct {
-	ClusterName             types.String                 `tfsdk:"cluster_name"`
-	ClusterSize             types.Int64                  `tfsdk:"cluster_size"`
-	ClusterType             types.String                 `tfsdk:"cluster_type"`
-	Latitude                types.Int64                  `tfsdk:"latitude"`
-	Longitude               types.Int64                  `tfsdk:"longitude"`
-	OperatingSystemVersion  types.String                 `tfsdk:"operating_system_version"`
-	PrivateNetworkName      types.String                 `tfsdk:"private_network_name"`
-	VolterraSoftwareVersion types.String                 `tfsdk:"volterra_software_version"`
-	DefaultOSVersion        *SiteRegistrationsEmptyModel `tfsdk:"default_os_version"`
-	DefaultSwVersion        *SiteRegistrationsEmptyModel `tfsdk:"default_sw_version"`
+	ClusterName             types.String `tfsdk:"cluster_name"`
+	ClusterSize             types.Int64  `tfsdk:"cluster_size"`
+	ClusterType             types.String `tfsdk:"cluster_type"`
+	DefaultOSVersion        types.Object `tfsdk:"default_os_version"`
+	DefaultSwVersion        types.Object `tfsdk:"default_sw_version"`
+	Latitude                types.Int64  `tfsdk:"latitude"`
+	Longitude               types.Int64  `tfsdk:"longitude"`
+	OperatingSystemVersion  types.String `tfsdk:"operating_system_version"`
+	PrivateNetworkName      types.String `tfsdk:"private_network_name"`
+	VolterraSoftwareVersion types.String `tfsdk:"volterra_software_version"`
 }
 
 // SiteRegistrationsItemsGetSpecPassportModelAttrTypes defines the attribute types for SiteRegistrationsItemsGetSpecPassportModel
@@ -499,13 +499,13 @@ var SiteRegistrationsItemsGetSpecPassportModelAttrTypes = map[string]attr.Type{
 	"cluster_name":              types.StringType,
 	"cluster_size":              types.Int64Type,
 	"cluster_type":              types.StringType,
+	"default_os_version":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"default_sw_version":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"latitude":                  types.Int64Type,
 	"longitude":                 types.Int64Type,
 	"operating_system_version":  types.StringType,
 	"private_network_name":      types.StringType,
 	"volterra_software_version": types.StringType,
-	"default_os_version":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"default_sw_version":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // SiteRegistrationsItemsMetadataModel represents metadata block
@@ -964,16 +964,16 @@ var SiteRegistrationsItemsObjectSpecGcSpecInfraSwInfoModelAttrTypes = map[string
 
 // SiteRegistrationsItemsObjectSpecGcSpecPassportModel represents passport block
 type SiteRegistrationsItemsObjectSpecGcSpecPassportModel struct {
-	ClusterName             types.String                 `tfsdk:"cluster_name"`
-	ClusterSize             types.Int64                  `tfsdk:"cluster_size"`
-	ClusterType             types.String                 `tfsdk:"cluster_type"`
-	Latitude                types.Int64                  `tfsdk:"latitude"`
-	Longitude               types.Int64                  `tfsdk:"longitude"`
-	OperatingSystemVersion  types.String                 `tfsdk:"operating_system_version"`
-	PrivateNetworkName      types.String                 `tfsdk:"private_network_name"`
-	VolterraSoftwareVersion types.String                 `tfsdk:"volterra_software_version"`
-	DefaultOSVersion        *SiteRegistrationsEmptyModel `tfsdk:"default_os_version"`
-	DefaultSwVersion        *SiteRegistrationsEmptyModel `tfsdk:"default_sw_version"`
+	ClusterName             types.String `tfsdk:"cluster_name"`
+	ClusterSize             types.Int64  `tfsdk:"cluster_size"`
+	ClusterType             types.String `tfsdk:"cluster_type"`
+	DefaultOSVersion        types.Object `tfsdk:"default_os_version"`
+	DefaultSwVersion        types.Object `tfsdk:"default_sw_version"`
+	Latitude                types.Int64  `tfsdk:"latitude"`
+	Longitude               types.Int64  `tfsdk:"longitude"`
+	OperatingSystemVersion  types.String `tfsdk:"operating_system_version"`
+	PrivateNetworkName      types.String `tfsdk:"private_network_name"`
+	VolterraSoftwareVersion types.String `tfsdk:"volterra_software_version"`
 }
 
 // SiteRegistrationsItemsObjectSpecGcSpecPassportModelAttrTypes defines the attribute types for SiteRegistrationsItemsObjectSpecGcSpecPassportModel
@@ -981,13 +981,13 @@ var SiteRegistrationsItemsObjectSpecGcSpecPassportModelAttrTypes = map[string]at
 	"cluster_name":              types.StringType,
 	"cluster_size":              types.Int64Type,
 	"cluster_type":              types.StringType,
+	"default_os_version":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"default_sw_version":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"latitude":                  types.Int64Type,
 	"longitude":                 types.Int64Type,
 	"operating_system_version":  types.StringType,
 	"private_network_name":      types.StringType,
 	"volterra_software_version": types.StringType,
-	"default_os_version":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"default_sw_version":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // SiteRegistrationsItemsObjectSpecGcSpecSiteModel represents site block
@@ -1902,15 +1902,15 @@ func (d *SiteRegistrationsDataSource) Schema(ctx context.Context, req datasource
 											MarkdownDescription: "Cluster Type. Cluster or grouping configuration",
 											Computed:            true,
 										},
-										"default_os_version": schema.SingleNestedAttribute{
+										"default_os_version": schema.ObjectAttribute{
 											MarkdownDescription: "Enable this option",
-											Attributes:          map[string]schema.Attribute{},
 											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
-										"default_sw_version": schema.SingleNestedAttribute{
+										"default_sw_version": schema.ObjectAttribute{
 											MarkdownDescription: "Enable this option",
-											Attributes:          map[string]schema.Attribute{},
 											Computed:            true,
+											AttributeTypes:      map[string]attr.Type{},
 										},
 										"latitude": schema.Int64Attribute{
 											MarkdownDescription: "Latitude. Geographic location of this site.",
@@ -2645,15 +2645,15 @@ func (d *SiteRegistrationsDataSource) Schema(ctx context.Context, req datasource
 															MarkdownDescription: "Cluster Type. Cluster or grouping configuration",
 															Computed:            true,
 														},
-														"default_os_version": schema.SingleNestedAttribute{
+														"default_os_version": schema.ObjectAttribute{
 															MarkdownDescription: "Enable this option",
-															Attributes:          map[string]schema.Attribute{},
 															Computed:            true,
+															AttributeTypes:      map[string]attr.Type{},
 														},
-														"default_sw_version": schema.SingleNestedAttribute{
+														"default_sw_version": schema.ObjectAttribute{
 															MarkdownDescription: "Enable this option",
-															Attributes:          map[string]schema.Attribute{},
 															Computed:            true,
+															AttributeTypes:      map[string]attr.Type{},
 														},
 														"latitude": schema.Int64Attribute{
 															MarkdownDescription: "Latitude. Geographic location of this site.",
@@ -4052,23 +4052,23 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 												}
 												return types.StringNull()
 											}(),
-											DefaultOSVersion: func() *SiteRegistrationsEmptyModel {
-												if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Passport != nil {
+											DefaultOSVersion: func() types.Object {
+												if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Passport != nil && !existingItemsItems[listIdx].GetSpec.Passport.DefaultOSVersion.IsUnknown() {
 													return existingItemsItems[listIdx].GetSpec.Passport.DefaultOSVersion
 												}
 												if _, ok := PassportData["default_os_version"].(map[string]interface{}); ok {
-													return &SiteRegistrationsEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
-											DefaultSwVersion: func() *SiteRegistrationsEmptyModel {
-												if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Passport != nil {
+											DefaultSwVersion: func() types.Object {
+												if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].GetSpec != nil && existingItemsItems[listIdx].GetSpec.Passport != nil && !existingItemsItems[listIdx].GetSpec.Passport.DefaultSwVersion.IsUnknown() {
 													return existingItemsItems[listIdx].GetSpec.Passport.DefaultSwVersion
 												}
 												if _, ok := PassportData["default_sw_version"].(map[string]interface{}); ok {
-													return &SiteRegistrationsEmptyModel{}
+													return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 												}
-												return nil
+												return types.ObjectNull(map[string]attr.Type{})
 											}(),
 											Latitude: func() types.Int64 {
 												if v, ok := PassportData["latitude"].(float64); ok && v != 0 {
@@ -5037,23 +5037,23 @@ func (d *SiteRegistrationsDataSource) Read(ctx context.Context, req datasource.R
 																		}
 																		return types.StringNull()
 																	}(),
-																	DefaultOSVersion: func() *SiteRegistrationsEmptyModel {
-																		if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Passport != nil {
+																	DefaultOSVersion: func() types.Object {
+																		if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Passport != nil && !existingItemsItems[listIdx].Object.Spec.GcSpec.Passport.DefaultOSVersion.IsUnknown() {
 																			return existingItemsItems[listIdx].Object.Spec.GcSpec.Passport.DefaultOSVersion
 																		}
 																		if _, ok := PassportData["default_os_version"].(map[string]interface{}); ok {
-																			return &SiteRegistrationsEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
-																	DefaultSwVersion: func() *SiteRegistrationsEmptyModel {
-																		if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Passport != nil {
+																	DefaultSwVersion: func() types.Object {
+																		if !isImport && len(existingItemsItems) > listIdx && existingItemsItems[listIdx].Object != nil && existingItemsItems[listIdx].Object.Spec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec != nil && existingItemsItems[listIdx].Object.Spec.GcSpec.Passport != nil && !existingItemsItems[listIdx].Object.Spec.GcSpec.Passport.DefaultSwVersion.IsUnknown() {
 																			return existingItemsItems[listIdx].Object.Spec.GcSpec.Passport.DefaultSwVersion
 																		}
 																		if _, ok := PassportData["default_sw_version"].(map[string]interface{}); ok {
-																			return &SiteRegistrationsEmptyModel{}
+																			return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 																		}
-																		return nil
+																		return types.ObjectNull(map[string]attr.Type{})
 																	}(),
 																	Latitude: func() types.Int64 {
 																		if v, ok := PassportData["latitude"].(float64); ok && v != 0 {

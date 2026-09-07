@@ -43,7 +43,7 @@ resource "xcsh_azure_vnet_site" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -76,17 +76,17 @@ resource "xcsh_azure_vnet_site" "example" {
 <a id="Azure-cred"></a>&#x2022; [`azure_cred`](#Azure-cred) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Azure Cred](#Azure-cred) below for details.
 
 -> **One of the following:**
-&#x2022; <a id="block-all-services"></a>[`block_all_services`](#block-all-services) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+&#x2022; <a id="block-all-services"></a>[`block_all_services`](#block-all-services) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 <br><br>&#x2022; <a id="blocked-services"></a>[`blocked_services`](#blocked-services) - Optional Block<br>Disable node local services on this site<br>See [Blocked Services](#blocked-services) below for details.
 
 <a id="coordinates"></a>&#x2022; [`coordinates`](#coordinates) - Optional Block<br>Coordinates of the site which provides the site physical location<br>See [Coordinates](#coordinates) below for details.
 
 <a id="custom-dns"></a>&#x2022; [`custom_dns`](#custom-dns) - Optional Block<br>Custom DNS is the configured for specify CE site<br>See [Custom DNS](#custom-dns) below for details.
 
-<a id="default-blocked-services"></a>&#x2022; [`default_blocked_services`](#default-blocked-services) - Optional Block<br>Enable this option
+<a id="default-blocked-services"></a>&#x2022; [`default_blocked_services`](#default-blocked-services) - Optional Object<br>Enable this option
 
 -> **One of the following:**
-&#x2022; <a id="disable-encryption"></a>[`disable_encryption`](#disable-encryption) - Optional Block<br>Configuration parameter for disable encryption
+&#x2022; <a id="disable-encryption"></a>[`disable_encryption`](#disable-encryption) - Optional Object<br>Configuration parameter for disable encryption
 
 <a id="disk-size"></a>&#x2022; [`disk_size`](#disk-size) - Optional Number<br>Disk size to be used for this instance in GiB. 80 is 80 GiB. Server applies default when omitted
 
@@ -104,12 +104,12 @@ resource "xcsh_azure_vnet_site" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="log-receiver"></a>[`log_receiver`](#log-receiver) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
-<br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+<br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Object  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
 
 <a id="machine-type"></a>&#x2022; [`machine_type`](#machine-type) - Required String<br>Select Instance size based on performance needed. The default setting for Accelerated Networking is enabled, thus make sure you select a Virtual Machine that supports accelerated networking or disable the setting under, Select Ingress Gateway or Ingress/Egress Gateway > advanced OPTIONS
 
 -> **One of the following:**
-&#x2022; <a id="no-worker-nodes"></a>[`no_worker_nodes`](#no-worker-nodes) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no worker nodes.  Server applies default when omitted
+&#x2022; <a id="no-worker-nodes"></a>[`no_worker_nodes`](#no-worker-nodes) - Optional Object  Defaults to `map[]`<br>Configuration parameter for no worker nodes.  Server applies default when omitted
 <br><br>&#x2022; <a id="nodes-per-az"></a>[`nodes_per_az`](#nodes-per-az) - Optional Number<br>Desired Worker Nodes Per AZ. Max limit is up to 21
 
 <a id="offline-survivability-mode"></a>&#x2022; [`offline_survivability_mode`](#offline-survivability-mode) - Optional Block<br>Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing
@@ -175,6 +175,10 @@ An [`azure_cred`](#Azure-cred) block supports the following:
 
 <a id="Azure-cred-tenant"></a>&#x2022; [`tenant`](#Azure-cred-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Block All Services
+
+A [`block_all_services`](#block-all-services) block supports the following:
+
 #### Blocked Services
 
 A [`blocked_services`](#blocked-services) block supports the following:
@@ -185,16 +189,28 @@ A [`blocked_services`](#blocked-services) block supports the following:
 
 A [`blocked_service`](#blocked-services-blocked-service) block (within [`blocked_services`](#blocked-services)) supports the following:
 
-<a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Block<br>Enable this option
+<a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Object<br>Enable this option
 
 <a id="type-5b1d65"></a>&#x2022; [`network_type`](#type-5b1d65) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
-<a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Block<br>Enable this option
+<a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Object<br>Enable this option
 
-<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Block<br>Enable this option
+<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Object<br>Enable this option
+
+#### Blocked Services Blocked Service DNS
+
+A [`dns`](#blocked-services-blocked-service-dns) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
+
+#### Blocked Services Blocked Service SSH
+
+A [`ssh`](#blocked-services-blocked-service-ssh) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
+
+#### Blocked Services Blocked Service Web User Interface
+
+A [`web_user_interface`](#interface-1ff33c) block (within [`blocked_services.blocked_service`](#blocked-services-blocked-service)) supports the following:
 
 #### Coordinates
 
@@ -211,6 +227,14 @@ A [`custom_dns`](#custom-dns) block supports the following:
 <a id="custom-dns-inside-nameserver"></a>&#x2022; [`inside_nameserver`](#custom-dns-inside-nameserver) - Optional String<br>Optional DNS server IP to be used for name resolution in inside network
 
 <a id="custom-dns-outside-nameserver"></a>&#x2022; [`outside_nameserver`](#custom-dns-outside-nameserver) - Optional String<br>Optional DNS server IP to be used for name resolution in outside network
+
+#### Default Blocked Services
+
+A [`default_blocked_services`](#default-blocked-services) block supports the following:
+
+#### Disable Encryption
+
+A [`disable_encryption`](#disable-encryption) block supports the following:
 
 #### Enable Encryption
 
@@ -240,7 +264,7 @@ An [`ingress_egress_gw`](#ingress-egress-gw) block supports the following:
 
 <a id="outside-vn-3594d6"></a>&#x2022; [`dc_cluster_group_outside_vn`](#outside-vn-3594d6) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group Outside Vn](#outside-vn-3594d6) below.
 
-<a id="all-8889af"></a>&#x2022; [`forward_proxy_allow_all`](#all-8889af) - Optional Block<br>Configuration parameter for forward proxy allow all
+<a id="all-8889af"></a>&#x2022; [`forward_proxy_allow_all`](#all-8889af) - Optional Object<br>Configuration parameter for forward proxy allow all
 
 <a id="ingress-egress-gw-global-network-list"></a>&#x2022; [`global_network_list`](#ingress-egress-gw-global-network-list) - Optional Block<br>Global Network Connection List. List of global network connections<br>See [Global Network List](#ingress-egress-gw-global-network-list) below.
 
@@ -248,35 +272,43 @@ An [`ingress_egress_gw`](#ingress-egress-gw) block supports the following:
 
 <a id="ingress-egress-gw-inside-static-routes"></a>&#x2022; [`inside_static_routes`](#ingress-egress-gw-inside-static-routes) - Optional Block<br>Configuration parameter for inside static routes<br>See [Inside Static Routes](#ingress-egress-gw-inside-static-routes) below.
 
-<a id="ingress-egress-gw-no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#ingress-egress-gw-no-dc-cluster-group) - Optional Block<br>Enable this option
+<a id="ingress-egress-gw-no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#ingress-egress-gw-no-dc-cluster-group) - Optional Object<br>Enable this option
 
-<a id="ingress-egress-gw-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#ingress-egress-gw-no-forward-proxy) - Optional Block<br>Configuration parameter for no forward proxy
+<a id="ingress-egress-gw-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#ingress-egress-gw-no-forward-proxy) - Optional Object<br>Configuration parameter for no forward proxy
 
-<a id="ingress-egress-gw-no-global-network"></a>&#x2022; [`no_global_network`](#ingress-egress-gw-no-global-network) - Optional Block<br>Configuration parameter for no global network
+<a id="ingress-egress-gw-no-global-network"></a>&#x2022; [`no_global_network`](#ingress-egress-gw-no-global-network) - Optional Object<br>Configuration parameter for no global network
 
-<a id="routes-b69a18"></a>&#x2022; [`no_inside_static_routes`](#routes-b69a18) - Optional Block<br>Configuration parameter for no inside static routes
+<a id="routes-b69a18"></a>&#x2022; [`no_inside_static_routes`](#routes-b69a18) - Optional Object<br>Configuration parameter for no inside static routes
 
-<a id="ingress-egress-gw-no-network-policy"></a>&#x2022; [`no_network_policy`](#ingress-egress-gw-no-network-policy) - Optional Block<br>Policy configuration for this feature
+<a id="ingress-egress-gw-no-network-policy"></a>&#x2022; [`no_network_policy`](#ingress-egress-gw-no-network-policy) - Optional Object<br>Policy configuration for this feature
 
-<a id="routes-630976"></a>&#x2022; [`no_outside_static_routes`](#routes-630976) - Optional Block<br>Configuration parameter for no outside static routes
+<a id="routes-630976"></a>&#x2022; [`no_outside_static_routes`](#routes-630976) - Optional Object<br>Configuration parameter for no outside static routes
 
-<a id="ingress-egress-gw-not-hub"></a>&#x2022; [`not_hub`](#ingress-egress-gw-not-hub) - Optional Block<br>Enable this option
+<a id="ingress-egress-gw-not-hub"></a>&#x2022; [`not_hub`](#ingress-egress-gw-not-hub) - Optional Object<br>Enable this option
 
 <a id="ingress-egress-gw-outside-static-routes"></a>&#x2022; [`outside_static_routes`](#ingress-egress-gw-outside-static-routes) - Optional Block<br>Configuration parameter for outside static routes<br>See [Outside Static Routes](#ingress-egress-gw-outside-static-routes) below.
 
 <a id="mode-4d23c2"></a>&#x2022; [`performance_enhancement_mode`](#mode-4d23c2) - Optional Block<br>Optimize the site for L3 or L7 traffic processing. L7 optimized is the default<br>See [Performance Enhancement Mode](#mode-4d23c2) below.
 
-<a id="public-ip-5f6604"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-5f6604) - Optional Block<br>Enable this option
+<a id="public-ip-5f6604"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-5f6604) - Optional Object<br>Enable this option
 
-<a id="ingress-egress-gw-sm-connection-pvt-ip"></a>&#x2022; [`sm_connection_pvt_ip`](#ingress-egress-gw-sm-connection-pvt-ip) - Optional Block<br>Enable this option
+<a id="ingress-egress-gw-sm-connection-pvt-ip"></a>&#x2022; [`sm_connection_pvt_ip`](#ingress-egress-gw-sm-connection-pvt-ip) - Optional Object<br>Enable this option
 
 #### Ingress Egress Gw Accelerated Networking
 
 An [`accelerated_networking`](#networking-28fc87) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
 
-<a id="spec-b9f35b"></a>&#x2022; [`disable_spec`](#spec-b9f35b) - Optional Block<br>Enable this option
+<a id="spec-b9f35b"></a>&#x2022; [`disable_spec`](#spec-b9f35b) - Optional Object<br>Enable this option
 
-<a id="enable-219171"></a>&#x2022; [`enable`](#enable-219171) - Optional Block<br>Enable this option
+<a id="enable-219171"></a>&#x2022; [`enable`](#enable-219171) - Optional Object<br>Enable this option
+
+#### Ingress Egress Gw Accelerated Networking Disable Spec
+
+A [`disable_spec`](#spec-b9f35b) block (within [`ingress_egress_gw.accelerated_networking`](#networking-28fc87)) supports the following:
+
+#### Ingress Egress Gw Accelerated Networking Enable
+
+An [`enable`](#enable-219171) block (within [`ingress_egress_gw.accelerated_networking`](#networking-28fc87)) supports the following:
 
 #### Ingress Egress Gw Active Enhanced Firewall Policies
 
@@ -330,6 +362,10 @@ An [`inside_subnet`](#subnet-c4f554) block (within [`ingress_egress_gw.az_nodes`
 
 <a id="deep-b03698"></a>Deeply nested **Subnet** block collapsed for readability.
 
+#### Ingress Egress Gw Az Nodes Inside Subnet Subnet VNET Resource Group
+
+<a id="deep-089a07"></a>Deeply nested **Group** block collapsed for readability.
+
 #### Ingress Egress Gw Az Nodes Inside Subnet Subnet Param
 
 <a id="deep-7b2aa4"></a>Deeply nested **Param** block collapsed for readability.
@@ -346,6 +382,10 @@ An [`outside_subnet`](#subnet-631d3b) block (within [`ingress_egress_gw.az_nodes
 
 <a id="deep-ab232b"></a>Deeply nested **Subnet** block collapsed for readability.
 
+#### Ingress Egress Gw Az Nodes Outside Subnet Subnet VNET Resource Group
+
+<a id="deep-2a1222"></a>Deeply nested **Group** block collapsed for readability.
+
 #### Ingress Egress Gw Az Nodes Outside Subnet Subnet Param
 
 <a id="deep-4b83fd"></a>Deeply nested **Param** block collapsed for readability.
@@ -357,6 +397,10 @@ An [`outside_subnet`](#subnet-631d3b) block (within [`ingress_egress_gw.az_nodes
 #### Ingress Egress Gw Dc Cluster Group Outside Vn
 
 <a id="deep-53ac3b"></a>Deeply nested **Vn** block collapsed for readability.
+
+#### Ingress Egress Gw Forward Proxy Allow All
+
+A [`forward_proxy_allow_all`](#all-8889af) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
 
 #### Ingress Egress Gw Global Network List
 
@@ -388,25 +432,29 @@ A [`global_network_list`](#ingress-egress-gw-global-network-list) block (within 
 
 A [`hub`](#ingress-egress-gw-hub) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
 
-<a id="disabled-748cf7"></a>&#x2022; [`express_route_disabled`](#disabled-748cf7) - Optional Block<br>Enable this option
+<a id="disabled-748cf7"></a>&#x2022; [`express_route_disabled`](#disabled-748cf7) - Optional Object<br>Enable this option
 
 <a id="enabled-af8996"></a>&#x2022; [`express_route_enabled`](#enabled-af8996) - Optional Block<br>Express Route Configuration. Express Route Configuration<br>See [Express Route Enabled](#enabled-af8996) below.
 
 <a id="ingress-egress-gw-hub-spoke-vnets"></a>&#x2022; [`spoke_vnets`](#ingress-egress-gw-hub-spoke-vnets) - Optional Block<br>Spoke VNET Peering (Legacy). Spoke VNET Peering<br>See [Spoke Vnets](#ingress-egress-gw-hub-spoke-vnets) below.
 
+#### Ingress Egress Gw Hub Express Route Disabled
+
+An [`express_route_disabled`](#disabled-748cf7) block (within [`ingress_egress_gw.hub`](#ingress-egress-gw-hub)) supports the following:
+
 #### Ingress Egress Gw Hub Express Route Enabled
 
 An [`express_route_enabled`](#enabled-af8996) block (within [`ingress_egress_gw.hub`](#ingress-egress-gw-hub)) supports the following:
 
-<a id="server-a50f73"></a>&#x2022; [`advertise_to_route_server`](#server-a50f73) - Optional Block<br>Configuration parameter for advertise to route server
+<a id="server-a50f73"></a>&#x2022; [`advertise_to_route_server`](#server-a50f73) - Optional Object<br>Configuration parameter for advertise to route server
 
-<a id="asn-9040f1"></a>&#x2022; [`auto_asn`](#asn-9040f1) - Optional Block<br>Enable this option
+<a id="asn-9040f1"></a>&#x2022; [`auto_asn`](#asn-9040f1) - Optional Object<br>Enable this option
 
 <a id="connections-cb7206"></a>&#x2022; [`connections`](#connections-cb7206) - Optional Block<br>Add the ExpressRoute Circuit Connections to this site<br>See [Connections](#connections-cb7206) below.
 
 <a id="asn-75fbeb"></a>&#x2022; [`custom_asn`](#asn-75fbeb) - Optional Number<br>Set custom ASN for F5XC Site
 
-<a id="server-cbee20"></a>&#x2022; [`do_not_advertise_to_route_server`](#server-cbee20) - Optional Block<br>Configuration parameter for do not advertise to route server
+<a id="server-cbee20"></a>&#x2022; [`do_not_advertise_to_route_server`](#server-cbee20) - Optional Object<br>Configuration parameter for do not advertise to route server
 
 <a id="subnet-500a14"></a>&#x2022; [`gateway_subnet`](#subnet-500a14) - Optional Block<br>Configuration parameter for gateway subnet<br>See [Gateway Subnet](#subnet-500a14) below.
 
@@ -414,15 +462,23 @@ An [`express_route_enabled`](#enabled-af8996) block (within [`ingress_egress_gw.
 
 <a id="route-bcfd74"></a>&#x2022; [`site_registration_over_express_route`](#route-bcfd74) - Optional Block<br>CloudLink ADN Network Config<br>See [Site Registration Over Express Route](#route-bcfd74) below.
 
-<a id="internet-84b00b"></a>&#x2022; [`site_registration_over_internet`](#internet-84b00b) - Optional Block<br>Enable this option
+<a id="internet-84b00b"></a>&#x2022; [`site_registration_over_internet`](#internet-84b00b) - Optional Object<br>Enable this option
 
-<a id="ergw1az-f27019"></a>&#x2022; [`sku_ergw1az`](#ergw1az-f27019) - Optional Block<br>Configuration parameter for sku ergw1az
+<a id="ergw1az-f27019"></a>&#x2022; [`sku_ergw1az`](#ergw1az-f27019) - Optional Object<br>Configuration parameter for sku ergw1az
 
-<a id="ergw2az-799446"></a>&#x2022; [`sku_ergw2az`](#ergw2az-799446) - Optional Block<br>Configuration parameter for sku ergw2az
+<a id="ergw2az-799446"></a>&#x2022; [`sku_ergw2az`](#ergw2az-799446) - Optional Object<br>Configuration parameter for sku ergw2az
 
-<a id="perf-f8e610"></a>&#x2022; [`sku_high_perf`](#perf-f8e610) - Optional Block<br>Configuration parameter for sku high perf
+<a id="perf-f8e610"></a>&#x2022; [`sku_high_perf`](#perf-f8e610) - Optional Object<br>Configuration parameter for sku high perf
 
-<a id="standard-c8e6ac"></a>&#x2022; [`sku_standard`](#standard-c8e6ac) - Optional Block<br>Configuration parameter for sku standard
+<a id="standard-c8e6ac"></a>&#x2022; [`sku_standard`](#standard-c8e6ac) - Optional Object<br>Configuration parameter for sku standard
+
+#### Ingress Egress Gw Hub Express Route Enabled Advertise To Route Server
+
+<a id="deep-4e03da"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Auto Asn
+
+<a id="deep-64020e"></a>Deeply nested **Asn** block collapsed for readability.
 
 #### Ingress Egress Gw Hub Express Route Enabled Connections
 
@@ -448,13 +504,25 @@ An [`express_route_enabled`](#enabled-af8996) block (within [`ingress_egress_gw.
 
 <a id="deep-a1a294"></a>Deeply nested **Info** block collapsed for readability.
 
+#### Ingress Egress Gw Hub Express Route Enabled Do Not Advertise To Route Server
+
+<a id="deep-29ce5e"></a>Deeply nested **Server** block collapsed for readability.
+
 #### Ingress Egress Gw Hub Express Route Enabled Gateway Subnet
 
 <a id="deep-e54791"></a>Deeply nested **Subnet** block collapsed for readability.
 
+#### Ingress Egress Gw Hub Express Route Enabled Gateway Subnet Auto
+
+<a id="deep-4f6143"></a>Deeply nested **Auto** block collapsed for readability.
+
 #### Ingress Egress Gw Hub Express Route Enabled Gateway Subnet Subnet
 
 <a id="deep-ad7509"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Gateway Subnet Subnet VNET Resource Group
+
+<a id="deep-403b85"></a>Deeply nested **Group** block collapsed for readability.
 
 #### Ingress Egress Gw Hub Express Route Enabled Gateway Subnet Subnet Param
 
@@ -464,9 +532,17 @@ An [`express_route_enabled`](#enabled-af8996) block (within [`ingress_egress_gw.
 
 <a id="deep-839302"></a>Deeply nested **Subnet** block collapsed for readability.
 
+#### Ingress Egress Gw Hub Express Route Enabled Route Server Subnet Auto
+
+<a id="deep-daa9db"></a>Deeply nested **Auto** block collapsed for readability.
+
 #### Ingress Egress Gw Hub Express Route Enabled Route Server Subnet Subnet
 
 <a id="deep-b8be72"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Route Server Subnet Subnet VNET Resource Group
+
+<a id="deep-9d3cdb"></a>Deeply nested **Group** block collapsed for readability.
 
 #### Ingress Egress Gw Hub Express Route Enabled Route Server Subnet Subnet Param
 
@@ -476,29 +552,61 @@ An [`express_route_enabled`](#enabled-af8996) block (within [`ingress_egress_gw.
 
 <a id="deep-277a06"></a>Deeply nested **Route** block collapsed for readability.
 
+#### Ingress Egress Gw Hub Express Route Enabled Site Registration Over internet
+
+<a id="deep-96294f"></a>Deeply nested **internet** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Sku Ergw1az
+
+<a id="deep-a8c301"></a>Deeply nested **Ergw1az** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Sku Ergw2az
+
+<a id="deep-24cbde"></a>Deeply nested **Ergw2az** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Sku High Perf
+
+<a id="deep-f6ee45"></a>Deeply nested **Perf** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Express Route Enabled Sku Standard
+
+<a id="deep-50afcb"></a>Deeply nested **Standard** block collapsed for readability.
+
 #### Ingress Egress Gw Hub Spoke Vnets
 
 A [`spoke_vnets`](#ingress-egress-gw-hub-spoke-vnets) block (within [`ingress_egress_gw.hub`](#ingress-egress-gw-hub)) supports the following:
 
-<a id="ingress-egress-gw-hub-spoke-vnets-auto"></a>&#x2022; [`auto`](#ingress-egress-gw-hub-spoke-vnets-auto) - Optional Block<br>Enable this option
+<a id="ingress-egress-gw-hub-spoke-vnets-auto"></a>&#x2022; [`auto`](#ingress-egress-gw-hub-spoke-vnets-auto) - Optional Object<br>Enable this option
 
 <a id="labels-9c843f"></a>&#x2022; [`labels`](#labels-9c843f) - Optional Block<br>Add Labels for each of the VNets peered with transit VNET, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace
 
-<a id="manual-6de395"></a>&#x2022; [`manual`](#manual-6de395) - Optional Block<br>Enable this option
+<a id="manual-6de395"></a>&#x2022; [`manual`](#manual-6de395) - Optional Object<br>Enable this option
 
 <a id="ingress-egress-gw-hub-spoke-vnets-vnet"></a>&#x2022; [`vnet`](#ingress-egress-gw-hub-spoke-vnets-vnet) - Optional Block<br>Resource group and name of existing Azure VNET<br>See [VNET](#ingress-egress-gw-hub-spoke-vnets-vnet) below.
+
+#### Ingress Egress Gw Hub Spoke Vnets Auto
+
+An [`auto`](#ingress-egress-gw-hub-spoke-vnets-auto) block (within [`ingress_egress_gw.hub.spoke_vnets`](#ingress-egress-gw-hub-spoke-vnets)) supports the following:
 
 #### Ingress Egress Gw Hub Spoke Vnets VNET
 
 A [`vnet`](#ingress-egress-gw-hub-spoke-vnets-vnet) block (within [`ingress_egress_gw.hub.spoke_vnets`](#ingress-egress-gw-hub-spoke-vnets)) supports the following:
 
-<a id="routing-73e1cd"></a>&#x2022; [`f5_orchestrated_routing`](#routing-73e1cd) - Optional Block<br>Enable this option
+<a id="routing-73e1cd"></a>&#x2022; [`f5_orchestrated_routing`](#routing-73e1cd) - Optional Object<br>Enable this option
 
-<a id="routing-bc490d"></a>&#x2022; [`manual_routing`](#routing-bc490d) - Optional Block<br>Enable this option
+<a id="routing-bc490d"></a>&#x2022; [`manual_routing`](#routing-bc490d) - Optional Object<br>Enable this option
 
 <a id="group-e35b03"></a>&#x2022; [`resource_group`](#group-e35b03) - Optional String<br>Existing VNET Resource Group. Resource group of existing VNET
 
 <a id="name-7ba5bf"></a>&#x2022; [`vnet_name`](#name-7ba5bf) - Optional String<br>Existing VNET Name. Name of existing VNET
+
+#### Ingress Egress Gw Hub Spoke Vnets VNET F5 Orchestrated Routing
+
+<a id="deep-8ec934"></a>Deeply nested **Routing** block collapsed for readability.
+
+#### Ingress Egress Gw Hub Spoke Vnets VNET Manual Routing
+
+<a id="deep-6a0020"></a>Deeply nested **Routing** block collapsed for readability.
 
 #### Ingress Egress Gw Inside Static Routes
 
@@ -545,6 +653,34 @@ An [`inside_static_routes`](#ingress-egress-gw-inside-static-routes) block (with
 #### Ingress Egress Gw Inside Static Routes Static Route List Custom Static Route Subnets IPv6
 
 <a id="deep-5dec85"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Ingress Egress Gw No Dc Cluster Group
+
+A [`no_dc_cluster_group`](#ingress-egress-gw-no-dc-cluster-group) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Forward Proxy
+
+A [`no_forward_proxy`](#ingress-egress-gw-no-forward-proxy) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Global Network
+
+A [`no_global_network`](#ingress-egress-gw-no-global-network) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Inside Static Routes
+
+A [`no_inside_static_routes`](#routes-b69a18) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Network Policy
+
+A [`no_network_policy`](#ingress-egress-gw-no-network-policy) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw No Outside Static Routes
+
+A [`no_outside_static_routes`](#routes-630976) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw Not Hub
+
+A [`not_hub`](#ingress-egress-gw-not-hub) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
 
 #### Ingress Egress Gw Outside Static Routes
 
@@ -604,9 +740,33 @@ A [`performance_enhancement_mode`](#mode-4d23c2) block (within [`ingress_egress_
 
 <a id="deep-4a39a0"></a>Deeply nested **Enhanced** block collapsed for readability.
 
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L3 Enhanced Jumbo
+
+<a id="deep-e1a2d3"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L3 Enhanced No Jumbo
+
+<a id="deep-02c2ce"></a>Deeply nested **Jumbo** block collapsed for readability.
+
 #### Ingress Egress Gw Performance Enhancement Mode Perf Mode L7 Enhanced
 
 <a id="deep-b9cc72"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Disabled
+
+<a id="deep-b7e34e"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Enabled
+
+<a id="deep-a84ffd"></a>Deeply nested **Enabled** block collapsed for readability.
+
+#### Ingress Egress Gw Sm Connection Public IP
+
+A [`sm_connection_public_ip`](#public-ip-5f6604) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
+
+#### Ingress Egress Gw Sm Connection Pvt IP
+
+A [`sm_connection_pvt_ip`](#ingress-egress-gw-sm-connection-pvt-ip) block (within [`ingress_egress_gw`](#ingress-egress-gw)) supports the following:
 
 #### Ingress Egress Gw Ar
 
@@ -626,7 +786,7 @@ An [`ingress_egress_gw_ar`](#ingress-egress-gw-ar) block supports the following:
 
 <a id="outside-vn-b1ca44"></a>&#x2022; [`dc_cluster_group_outside_vn`](#outside-vn-b1ca44) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group Outside Vn](#outside-vn-b1ca44) below.
 
-<a id="all-34864e"></a>&#x2022; [`forward_proxy_allow_all`](#all-34864e) - Optional Block<br>Configuration parameter for forward proxy allow all
+<a id="all-34864e"></a>&#x2022; [`forward_proxy_allow_all`](#all-34864e) - Optional Object<br>Configuration parameter for forward proxy allow all
 
 <a id="list-37dd04"></a>&#x2022; [`global_network_list`](#list-37dd04) - Optional Block<br>Global Network Connection List. List of global network connections<br>See [Global Network List](#list-37dd04) below.
 
@@ -634,37 +794,45 @@ An [`ingress_egress_gw_ar`](#ingress-egress-gw-ar) block supports the following:
 
 <a id="routes-87089c"></a>&#x2022; [`inside_static_routes`](#routes-87089c) - Optional Block<br>Configuration parameter for inside static routes<br>See [Inside Static Routes](#routes-87089c) below.
 
-<a id="group-1c537f"></a>&#x2022; [`no_dc_cluster_group`](#group-1c537f) - Optional Block<br>Enable this option
+<a id="group-1c537f"></a>&#x2022; [`no_dc_cluster_group`](#group-1c537f) - Optional Object<br>Enable this option
 
-<a id="ingress-egress-gw-ar-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#ingress-egress-gw-ar-no-forward-proxy) - Optional Block<br>Configuration parameter for no forward proxy
+<a id="ingress-egress-gw-ar-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#ingress-egress-gw-ar-no-forward-proxy) - Optional Object<br>Configuration parameter for no forward proxy
 
-<a id="ingress-egress-gw-ar-no-global-network"></a>&#x2022; [`no_global_network`](#ingress-egress-gw-ar-no-global-network) - Optional Block<br>Configuration parameter for no global network
+<a id="ingress-egress-gw-ar-no-global-network"></a>&#x2022; [`no_global_network`](#ingress-egress-gw-ar-no-global-network) - Optional Object<br>Configuration parameter for no global network
 
-<a id="routes-047d72"></a>&#x2022; [`no_inside_static_routes`](#routes-047d72) - Optional Block<br>Configuration parameter for no inside static routes
+<a id="routes-047d72"></a>&#x2022; [`no_inside_static_routes`](#routes-047d72) - Optional Object<br>Configuration parameter for no inside static routes
 
-<a id="ingress-egress-gw-ar-no-network-policy"></a>&#x2022; [`no_network_policy`](#ingress-egress-gw-ar-no-network-policy) - Optional Block<br>Policy configuration for this feature
+<a id="ingress-egress-gw-ar-no-network-policy"></a>&#x2022; [`no_network_policy`](#ingress-egress-gw-ar-no-network-policy) - Optional Object<br>Policy configuration for this feature
 
-<a id="routes-438490"></a>&#x2022; [`no_outside_static_routes`](#routes-438490) - Optional Block<br>Configuration parameter for no outside static routes
+<a id="routes-438490"></a>&#x2022; [`no_outside_static_routes`](#routes-438490) - Optional Object<br>Configuration parameter for no outside static routes
 
 <a id="ingress-egress-gw-ar-node"></a>&#x2022; [`node`](#ingress-egress-gw-ar-node) - Optional Block<br>Parameters for creating two interface Node in one AZ<br>See [Node](#ingress-egress-gw-ar-node) below.
 
-<a id="ingress-egress-gw-ar-not-hub"></a>&#x2022; [`not_hub`](#ingress-egress-gw-ar-not-hub) - Optional Block<br>Enable this option
+<a id="ingress-egress-gw-ar-not-hub"></a>&#x2022; [`not_hub`](#ingress-egress-gw-ar-not-hub) - Optional Object<br>Enable this option
 
 <a id="routes-2c1b12"></a>&#x2022; [`outside_static_routes`](#routes-2c1b12) - Optional Block<br>Configuration parameter for outside static routes<br>See [Outside Static Routes](#routes-2c1b12) below.
 
 <a id="mode-81547a"></a>&#x2022; [`performance_enhancement_mode`](#mode-81547a) - Optional Block<br>Optimize the site for L3 or L7 traffic processing. L7 optimized is the default<br>See [Performance Enhancement Mode](#mode-81547a) below.
 
-<a id="public-ip-7f583c"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-7f583c) - Optional Block<br>Enable this option
+<a id="public-ip-7f583c"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-7f583c) - Optional Object<br>Enable this option
 
-<a id="pvt-ip-7570f5"></a>&#x2022; [`sm_connection_pvt_ip`](#pvt-ip-7570f5) - Optional Block<br>Enable this option
+<a id="pvt-ip-7570f5"></a>&#x2022; [`sm_connection_pvt_ip`](#pvt-ip-7570f5) - Optional Object<br>Enable this option
 
 #### Ingress Egress Gw Ar Accelerated Networking
 
 An [`accelerated_networking`](#networking-017a12) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
 
-<a id="spec-763c3b"></a>&#x2022; [`disable_spec`](#spec-763c3b) - Optional Block<br>Enable this option
+<a id="spec-763c3b"></a>&#x2022; [`disable_spec`](#spec-763c3b) - Optional Object<br>Enable this option
 
-<a id="enable-8123c2"></a>&#x2022; [`enable`](#enable-8123c2) - Optional Block<br>Enable this option
+<a id="enable-8123c2"></a>&#x2022; [`enable`](#enable-8123c2) - Optional Object<br>Enable this option
+
+#### Ingress Egress Gw Ar Accelerated Networking Disable Spec
+
+<a id="deep-1092c8"></a>Deeply nested **Spec** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Accelerated Networking Enable
+
+An [`enable`](#enable-8123c2) block (within [`ingress_egress_gw_ar.accelerated_networking`](#networking-017a12)) supports the following:
 
 #### Ingress Egress Gw Ar Active Enhanced Firewall Policies
 
@@ -700,6 +868,10 @@ An [`active_network_policies`](#policies-f5e0fc) block (within [`ingress_egress_
 
 <a id="deep-9155be"></a>Deeply nested **Vn** block collapsed for readability.
 
+#### Ingress Egress Gw Ar Forward Proxy Allow All
+
+<a id="deep-3fcc8c"></a>Deeply nested **All** block collapsed for readability.
+
 #### Ingress Egress Gw Ar Global Network List
 
 A [`global_network_list`](#list-37dd04) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
@@ -730,15 +902,27 @@ A [`global_network_list`](#list-37dd04) block (within [`ingress_egress_gw_ar`](#
 
 A [`hub`](#ingress-egress-gw-ar-hub) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
 
-<a id="disabled-102e7f"></a>&#x2022; [`express_route_disabled`](#disabled-102e7f) - Optional Block<br>Enable this option
+<a id="disabled-102e7f"></a>&#x2022; [`express_route_disabled`](#disabled-102e7f) - Optional Object<br>Enable this option
 
 <a id="enabled-cf06b8"></a>&#x2022; [`express_route_enabled`](#enabled-cf06b8) - Optional Block<br>Express Route Configuration. Express Route Configuration<br>See [Express Route Enabled](#enabled-cf06b8) below.
 
 <a id="ingress-egress-gw-ar-hub-spoke-vnets"></a>&#x2022; [`spoke_vnets`](#ingress-egress-gw-ar-hub-spoke-vnets) - Optional Block<br>Spoke VNET Peering (Legacy). Spoke VNET Peering<br>See [Spoke Vnets](#ingress-egress-gw-ar-hub-spoke-vnets) below.
 
+#### Ingress Egress Gw Ar Hub Express Route Disabled
+
+<a id="deep-0b9def"></a>Deeply nested **Disabled** block collapsed for readability.
+
 #### Ingress Egress Gw Ar Hub Express Route Enabled
 
 <a id="deep-66e513"></a>Deeply nested **Enabled** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Advertise To Route Server
+
+<a id="deep-8a048d"></a>Deeply nested **Server** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Auto Asn
+
+<a id="deep-b61e4a"></a>Deeply nested **Asn** block collapsed for readability.
 
 #### Ingress Egress Gw Ar Hub Express Route Enabled Connections
 
@@ -764,13 +948,25 @@ A [`hub`](#ingress-egress-gw-ar-hub) block (within [`ingress_egress_gw_ar`](#ing
 
 <a id="deep-d3a5d0"></a>Deeply nested **Info** block collapsed for readability.
 
+#### Ingress Egress Gw Ar Hub Express Route Enabled Do Not Advertise To Route Server
+
+<a id="deep-87b4c0"></a>Deeply nested **Server** block collapsed for readability.
+
 #### Ingress Egress Gw Ar Hub Express Route Enabled Gateway Subnet
 
 <a id="deep-7b4661"></a>Deeply nested **Subnet** block collapsed for readability.
 
+#### Ingress Egress Gw Ar Hub Express Route Enabled Gateway Subnet Auto
+
+<a id="deep-4de9ea"></a>Deeply nested **Auto** block collapsed for readability.
+
 #### Ingress Egress Gw Ar Hub Express Route Enabled Gateway Subnet Subnet
 
 <a id="deep-520d02"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Gateway Subnet Subnet VNET Resource Group
+
+<a id="deep-208898"></a>Deeply nested **Group** block collapsed for readability.
 
 #### Ingress Egress Gw Ar Hub Express Route Enabled Gateway Subnet Subnet Param
 
@@ -780,9 +976,17 @@ A [`hub`](#ingress-egress-gw-ar-hub) block (within [`ingress_egress_gw_ar`](#ing
 
 <a id="deep-05872f"></a>Deeply nested **Subnet** block collapsed for readability.
 
+#### Ingress Egress Gw Ar Hub Express Route Enabled Route Server Subnet Auto
+
+<a id="deep-3516ef"></a>Deeply nested **Auto** block collapsed for readability.
+
 #### Ingress Egress Gw Ar Hub Express Route Enabled Route Server Subnet Subnet
 
 <a id="deep-080d0f"></a>Deeply nested **Subnet** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Route Server Subnet Subnet VNET Resource Group
+
+<a id="deep-790890"></a>Deeply nested **Group** block collapsed for readability.
 
 #### Ingress Egress Gw Ar Hub Express Route Enabled Route Server Subnet Subnet Param
 
@@ -792,21 +996,53 @@ A [`hub`](#ingress-egress-gw-ar-hub) block (within [`ingress_egress_gw_ar`](#ing
 
 <a id="deep-646d3d"></a>Deeply nested **Route** block collapsed for readability.
 
+#### Ingress Egress Gw Ar Hub Express Route Enabled Site Registration Over internet
+
+<a id="deep-ff487a"></a>Deeply nested **internet** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Sku Ergw1az
+
+<a id="deep-a3582c"></a>Deeply nested **Ergw1az** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Sku Ergw2az
+
+<a id="deep-641620"></a>Deeply nested **Ergw2az** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Sku High Perf
+
+<a id="deep-21295c"></a>Deeply nested **Perf** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Express Route Enabled Sku Standard
+
+<a id="deep-12759e"></a>Deeply nested **Standard** block collapsed for readability.
+
 #### Ingress Egress Gw Ar Hub Spoke Vnets
 
 A [`spoke_vnets`](#ingress-egress-gw-ar-hub-spoke-vnets) block (within [`ingress_egress_gw_ar.hub`](#ingress-egress-gw-ar-hub)) supports the following:
 
-<a id="auto-6f9deb"></a>&#x2022; [`auto`](#auto-6f9deb) - Optional Block<br>Enable this option
+<a id="auto-6f9deb"></a>&#x2022; [`auto`](#auto-6f9deb) - Optional Object<br>Enable this option
 
 <a id="labels-06e528"></a>&#x2022; [`labels`](#labels-06e528) - Optional Block<br>Add Labels for each of the VNets peered with transit VNET, these labels can be used in firewall policy These labels used must be from known key and label defined in shared namespace
 
-<a id="manual-f95716"></a>&#x2022; [`manual`](#manual-f95716) - Optional Block<br>Enable this option
+<a id="manual-f95716"></a>&#x2022; [`manual`](#manual-f95716) - Optional Object<br>Enable this option
 
 <a id="vnet-f6d2c3"></a>&#x2022; [`vnet`](#vnet-f6d2c3) - Optional Block<br>Resource group and name of existing Azure VNET<br>See [VNET](#vnet-f6d2c3) below.
+
+#### Ingress Egress Gw Ar Hub Spoke Vnets Auto
+
+<a id="deep-449ec2"></a>Deeply nested **Auto** block collapsed for readability.
 
 #### Ingress Egress Gw Ar Hub Spoke Vnets VNET
 
 <a id="deep-401418"></a>Deeply nested **VNET** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Spoke Vnets VNET F5 Orchestrated Routing
+
+<a id="deep-447c48"></a>Deeply nested **Routing** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Hub Spoke Vnets VNET Manual Routing
+
+<a id="deep-ff607c"></a>Deeply nested **Routing** block collapsed for readability.
 
 #### Ingress Egress Gw Ar Inside Static Routes
 
@@ -854,6 +1090,30 @@ An [`inside_static_routes`](#routes-87089c) block (within [`ingress_egress_gw_ar
 
 <a id="deep-2d5b97"></a>Deeply nested **IPv6** block collapsed for readability.
 
+#### Ingress Egress Gw Ar No Dc Cluster Group
+
+<a id="deep-a41423"></a>Deeply nested **Group** block collapsed for readability.
+
+#### Ingress Egress Gw Ar No Forward Proxy
+
+A [`no_forward_proxy`](#ingress-egress-gw-ar-no-forward-proxy) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+#### Ingress Egress Gw Ar No Global Network
+
+A [`no_global_network`](#ingress-egress-gw-ar-no-global-network) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+#### Ingress Egress Gw Ar No Inside Static Routes
+
+<a id="deep-d0585a"></a>Deeply nested **Routes** block collapsed for readability.
+
+#### Ingress Egress Gw Ar No Network Policy
+
+A [`no_network_policy`](#ingress-egress-gw-ar-no-network-policy) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
+
+#### Ingress Egress Gw Ar No Outside Static Routes
+
+<a id="deep-3eecb2"></a>Deeply nested **Routes** block collapsed for readability.
+
 #### Ingress Egress Gw Ar Node
 
 A [`node`](#ingress-egress-gw-ar-node) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
@@ -880,6 +1140,10 @@ An [`inside_subnet`](#ingress-egress-gw-ar-node-inside-subnet) block (within [`i
 
 <a id="deep-b79408"></a>Deeply nested **Subnet** block collapsed for readability.
 
+#### Ingress Egress Gw Ar Node Inside Subnet Subnet VNET Resource Group
+
+<a id="deep-53bbbf"></a>Deeply nested **Group** block collapsed for readability.
+
 #### Ingress Egress Gw Ar Node Inside Subnet Subnet Param
 
 <a id="deep-e5f785"></a>Deeply nested **Param** block collapsed for readability.
@@ -896,9 +1160,17 @@ An [`outside_subnet`](#subnet-a70a4a) block (within [`ingress_egress_gw_ar.node`
 
 <a id="deep-2ece90"></a>Deeply nested **Subnet** block collapsed for readability.
 
+#### Ingress Egress Gw Ar Node Outside Subnet Subnet VNET Resource Group
+
+<a id="deep-ec567f"></a>Deeply nested **Group** block collapsed for readability.
+
 #### Ingress Egress Gw Ar Node Outside Subnet Subnet Param
 
 <a id="deep-182910"></a>Deeply nested **Param** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Not Hub
+
+A [`not_hub`](#ingress-egress-gw-ar-not-hub) block (within [`ingress_egress_gw_ar`](#ingress-egress-gw-ar)) supports the following:
 
 #### Ingress Egress Gw Ar Outside Static Routes
 
@@ -958,9 +1230,33 @@ A [`performance_enhancement_mode`](#mode-81547a) block (within [`ingress_egress_
 
 <a id="deep-fcdd56"></a>Deeply nested **Enhanced** block collapsed for readability.
 
+#### Ingress Egress Gw Ar Performance Enhancement Mode Perf Mode L3 Enhanced Jumbo
+
+<a id="deep-1bd3fe"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Performance Enhancement Mode Perf Mode L3 Enhanced No Jumbo
+
+<a id="deep-2e810e"></a>Deeply nested **Jumbo** block collapsed for readability.
+
 #### Ingress Egress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced
 
 <a id="deep-c39f80"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Disabled
+
+<a id="deep-6ab378"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Enabled
+
+<a id="deep-bd8755"></a>Deeply nested **Enabled** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Sm Connection Public IP
+
+<a id="deep-ff465e"></a>Deeply nested **IP** block collapsed for readability.
+
+#### Ingress Egress Gw Ar Sm Connection Pvt IP
+
+<a id="deep-dd09e3"></a>Deeply nested **IP** block collapsed for readability.
 
 #### Ingress Gw
 
@@ -978,9 +1274,17 @@ An [`ingress_gw`](#ingress-gw) block supports the following:
 
 An [`accelerated_networking`](#ingress-gw-accelerated-networking) block (within [`ingress_gw`](#ingress-gw)) supports the following:
 
-<a id="spec-989141"></a>&#x2022; [`disable_spec`](#spec-989141) - Optional Block<br>Enable this option
+<a id="spec-989141"></a>&#x2022; [`disable_spec`](#spec-989141) - Optional Object<br>Enable this option
 
-<a id="enable-c21da1"></a>&#x2022; [`enable`](#enable-c21da1) - Optional Block<br>Enable this option
+<a id="enable-c21da1"></a>&#x2022; [`enable`](#enable-c21da1) - Optional Object<br>Enable this option
+
+#### Ingress Gw Accelerated Networking Disable Spec
+
+A [`disable_spec`](#spec-989141) block (within [`ingress_gw.accelerated_networking`](#ingress-gw-accelerated-networking)) supports the following:
+
+#### Ingress Gw Accelerated Networking Enable
+
+An [`enable`](#enable-c21da1) block (within [`ingress_gw.accelerated_networking`](#ingress-gw-accelerated-networking)) supports the following:
 
 #### Ingress Gw Az Nodes
 
@@ -1006,7 +1310,11 @@ A [`subnet`](#ingress-gw-az-nodes-local-subnet-subnet) block (within [`ingress_g
 
 <a id="grp-4f47e6"></a>&#x2022; [`subnet_resource_grp`](#grp-4f47e6) - Optional String<br>Specify name of Resource Group
 
-<a id="group-58e33f"></a>&#x2022; [`vnet_resource_group`](#group-58e33f) - Optional Block<br>Configuration parameter for VNET resource group
+<a id="group-58e33f"></a>&#x2022; [`vnet_resource_group`](#group-58e33f) - Optional Object<br>Configuration parameter for VNET resource group
+
+#### Ingress Gw Az Nodes Local Subnet Subnet VNET Resource Group
+
+<a id="deep-ff51fa"></a>Deeply nested **Group** block collapsed for readability.
 
 #### Ingress Gw Az Nodes Local Subnet Subnet Param
 
@@ -1024,9 +1332,25 @@ A [`performance_enhancement_mode`](#ingress-gw-performance-enhancement-mode) blo
 
 <a id="deep-690f7e"></a>Deeply nested **Enhanced** block collapsed for readability.
 
+#### Ingress Gw Performance Enhancement Mode Perf Mode L3 Enhanced Jumbo
+
+<a id="deep-7b934c"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Gw Performance Enhancement Mode Perf Mode L3 Enhanced No Jumbo
+
+<a id="deep-79581d"></a>Deeply nested **Jumbo** block collapsed for readability.
+
 #### Ingress Gw Performance Enhancement Mode Perf Mode L7 Enhanced
 
 <a id="deep-4e15d8"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Gw Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Disabled
+
+<a id="deep-4e1f91"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Ingress Gw Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Enabled
+
+<a id="deep-244a42"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Ingress Gw Ar
 
@@ -1044,9 +1368,17 @@ An [`ingress_gw_ar`](#ingress-gw-ar) block supports the following:
 
 An [`accelerated_networking`](#ingress-gw-ar-accelerated-networking) block (within [`ingress_gw_ar`](#ingress-gw-ar)) supports the following:
 
-<a id="spec-aaf375"></a>&#x2022; [`disable_spec`](#spec-aaf375) - Optional Block<br>Enable this option
+<a id="spec-aaf375"></a>&#x2022; [`disable_spec`](#spec-aaf375) - Optional Object<br>Enable this option
 
-<a id="enable-4d73a4"></a>&#x2022; [`enable`](#enable-4d73a4) - Optional Block<br>Enable this option
+<a id="enable-4d73a4"></a>&#x2022; [`enable`](#enable-4d73a4) - Optional Object<br>Enable this option
+
+#### Ingress Gw Ar Accelerated Networking Disable Spec
+
+A [`disable_spec`](#spec-aaf375) block (within [`ingress_gw_ar.accelerated_networking`](#ingress-gw-ar-accelerated-networking)) supports the following:
+
+#### Ingress Gw Ar Accelerated Networking Enable
+
+An [`enable`](#enable-4d73a4) block (within [`ingress_gw_ar.accelerated_networking`](#ingress-gw-ar-accelerated-networking)) supports the following:
 
 #### Ingress Gw Ar Node
 
@@ -1076,7 +1408,11 @@ A [`subnet`](#ingress-gw-ar-node-local-subnet-subnet) block (within [`ingress_gw
 
 <a id="grp-828930"></a>&#x2022; [`subnet_resource_grp`](#grp-828930) - Optional String<br>Specify name of Resource Group
 
-<a id="group-a864d6"></a>&#x2022; [`vnet_resource_group`](#group-a864d6) - Optional Block<br>Configuration parameter for VNET resource group
+<a id="group-a864d6"></a>&#x2022; [`vnet_resource_group`](#group-a864d6) - Optional Object<br>Configuration parameter for VNET resource group
+
+#### Ingress Gw Ar Node Local Subnet Subnet VNET Resource Group
+
+<a id="deep-e6315f"></a>Deeply nested **Group** block collapsed for readability.
 
 #### Ingress Gw Ar Node Local Subnet Subnet Param
 
@@ -1094,29 +1430,59 @@ A [`performance_enhancement_mode`](#mode-2270b9) block (within [`ingress_gw_ar`]
 
 <a id="deep-c7f2da"></a>Deeply nested **Enhanced** block collapsed for readability.
 
+#### Ingress Gw Ar Performance Enhancement Mode Perf Mode L3 Enhanced Jumbo
+
+<a id="deep-5fac22"></a>Deeply nested **Jumbo** block collapsed for readability.
+
+#### Ingress Gw Ar Performance Enhancement Mode Perf Mode L3 Enhanced No Jumbo
+
+<a id="deep-18ab9b"></a>Deeply nested **Jumbo** block collapsed for readability.
+
 #### Ingress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced
 
 <a id="deep-dcd8f3"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Disabled
+
+<a id="deep-962a10"></a>Deeply nested **Disabled** block collapsed for readability.
+
+#### Ingress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced Jumbo Enabled
+
+<a id="deep-128ff6"></a>Deeply nested **Enabled** block collapsed for readability.
 
 #### Kubernetes Upgrade Drain
 
 A [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain) block supports the following:
 
-<a id="drain-0d0936"></a>&#x2022; [`disable_upgrade_drain`](#drain-0d0936) - Optional Block<br>Configuration parameter for disable upgrade drain
+<a id="drain-0d0936"></a>&#x2022; [`disable_upgrade_drain`](#drain-0d0936) - Optional Object<br>Configuration parameter for disable upgrade drain
 
 <a id="drain-7e30d4"></a>&#x2022; [`enable_upgrade_drain`](#drain-7e30d4) - Optional Block<br>Specify batch upgrade settings for worker nodes within a site<br>See [Enable Upgrade Drain](#drain-7e30d4) below.
+
+#### Kubernetes Upgrade Drain Disable Upgrade Drain
+
+A [`disable_upgrade_drain`](#drain-0d0936) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
 
 #### Kubernetes Upgrade Drain Enable Upgrade Drain
 
 An [`enable_upgrade_drain`](#drain-7e30d4) block (within [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain)) supports the following:
 
-<a id="mode-668699"></a>&#x2022; [`disable_vega_upgrade_mode`](#mode-668699) - Optional Block<br>Configuration parameter for disable vega upgrade mode
+<a id="mode-668699"></a>&#x2022; [`disable_vega_upgrade_mode`](#mode-668699) - Optional Object<br>Configuration parameter for disable vega upgrade mode
 
 <a id="count-3aa796"></a>&#x2022; [`drain_max_unavailable_node_count`](#count-3aa796) - Optional Number<br>Node Batch Size Count
 
+<a id="percentage-7723a9"></a>&#x2022; [`drain_max_unavailable_node_percentage`](#percentage-7723a9) - Optional Number<br>Maximum percentage of nodes unavailable during upgrade draining
+
 <a id="timeout-ac4ee9"></a>&#x2022; [`drain_node_timeout`](#timeout-ac4ee9) - Optional Number<br>Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is
 
-<a id="mode-9c557b"></a>&#x2022; [`enable_vega_upgrade_mode`](#mode-9c557b) - Optional Block<br>Configuration parameter for enable vega upgrade mode
+<a id="mode-9c557b"></a>&#x2022; [`enable_vega_upgrade_mode`](#mode-9c557b) - Optional Object<br>Configuration parameter for enable vega upgrade mode
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Disable Vega Upgrade Mode
+
+<a id="deep-6040f2"></a>Deeply nested **Mode** block collapsed for readability.
+
+#### Kubernetes Upgrade Drain Enable Upgrade Drain Enable Vega Upgrade Mode
+
+<a id="deep-ea033c"></a>Deeply nested **Mode** block collapsed for readability.
 
 #### Log Receiver
 
@@ -1128,29 +1494,53 @@ A [`log_receiver`](#log-receiver) block supports the following:
 
 <a id="log-receiver-tenant"></a>&#x2022; [`tenant`](#log-receiver-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Logs Streaming Disabled
+
+A [`logs_streaming_disabled`](#logs-streaming-disabled) block supports the following:
+
+#### No Worker Nodes
+
+A [`no_worker_nodes`](#no-worker-nodes) block supports the following:
+
 #### Offline Survivability Mode
 
 An [`offline_survivability_mode`](#offline-survivability-mode) block supports the following:
 
-<a id="mode-565021"></a>&#x2022; [`enable_offline_survivability_mode`](#mode-565021) - Optional Block<br>Configuration parameter for enable offline survivability mode
+<a id="mode-565021"></a>&#x2022; [`enable_offline_survivability_mode`](#mode-565021) - Optional Object<br>Configuration parameter for enable offline survivability mode
 
-<a id="mode-02f0c8"></a>&#x2022; [`no_offline_survivability_mode`](#mode-02f0c8) - Optional Block<br>Configuration parameter for no offline survivability mode
+<a id="mode-02f0c8"></a>&#x2022; [`no_offline_survivability_mode`](#mode-02f0c8) - Optional Object<br>Configuration parameter for no offline survivability mode
+
+#### Offline Survivability Mode Enable Offline Survivability Mode
+
+An [`enable_offline_survivability_mode`](#mode-565021) block (within [`offline_survivability_mode`](#offline-survivability-mode)) supports the following:
+
+#### Offline Survivability Mode No Offline Survivability Mode
+
+A [`no_offline_survivability_mode`](#mode-02f0c8) block (within [`offline_survivability_mode`](#offline-survivability-mode)) supports the following:
 
 #### OS
 
 An [`os`](#os) block supports the following:
 
-<a id="os-default-os-version"></a>&#x2022; [`default_os_version`](#os-default-os-version) - Optional Block<br>Enable this option
+<a id="os-default-os-version"></a>&#x2022; [`default_os_version`](#os-default-os-version) - Optional Object<br>Enable this option
 
 <a id="os-operating-system-version"></a>&#x2022; [`operating_system_version`](#os-operating-system-version) - Optional String<br>Specify a OS version to be used e.g. 9.2024.6
+
+#### OS Default OS Version
+
+A [`default_os_version`](#os-default-os-version) block (within [`os`](#os)) supports the following:
 
 #### Sw
 
 A [`sw`](#sw) block supports the following:
 
-<a id="sw-default-sw-version"></a>&#x2022; [`default_sw_version`](#sw-default-sw-version) - Optional Block<br>Enable this option
+<a id="sw-default-sw-version"></a>&#x2022; [`default_sw_version`](#sw-default-sw-version) - Optional Object<br>Enable this option
 
 <a id="sw-volterra-software-version"></a>&#x2022; [`volterra_software_version`](#sw-volterra-software-version) - Optional String<br>Specify a F5XC Software Version to be used e.g. Crt-20210329-1002
+
+#### Sw Default Sw Version
+
+A [`default_sw_version`](#sw-default-sw-version) block (within [`sw`](#sw)) supports the following:
 
 #### Timeouts
 
@@ -1176,23 +1566,35 @@ A [`vnet`](#vnet) block supports the following:
 
 An [`existing_vnet`](#vnet-existing-vnet) block (within [`vnet`](#vnet)) supports the following:
 
-<a id="routing-d95408"></a>&#x2022; [`f5_orchestrated_routing`](#routing-d95408) - Optional Block<br>Enable this option
+<a id="routing-d95408"></a>&#x2022; [`f5_orchestrated_routing`](#routing-d95408) - Optional Object<br>Enable this option
 
-<a id="vnet-existing-vnet-manual-routing"></a>&#x2022; [`manual_routing`](#vnet-existing-vnet-manual-routing) - Optional Block<br>Enable this option
+<a id="vnet-existing-vnet-manual-routing"></a>&#x2022; [`manual_routing`](#vnet-existing-vnet-manual-routing) - Optional Object<br>Enable this option
 
 <a id="vnet-existing-vnet-resource-group"></a>&#x2022; [`resource_group`](#vnet-existing-vnet-resource-group) - Optional String<br>Existing VNET Resource Group. Resource group of existing VNET
 
 <a id="vnet-existing-vnet-vnet-name"></a>&#x2022; [`vnet_name`](#vnet-existing-vnet-vnet-name) - Optional String<br>Existing VNET Name. Name of existing VNET
 
+#### VNET Existing VNET F5 Orchestrated Routing
+
+A [`f5_orchestrated_routing`](#routing-d95408) block (within [`vnet.existing_vnet`](#vnet-existing-vnet)) supports the following:
+
+#### VNET Existing VNET Manual Routing
+
+A [`manual_routing`](#vnet-existing-vnet-manual-routing) block (within [`vnet.existing_vnet`](#vnet-existing-vnet)) supports the following:
+
 #### VNET New VNET
 
 A [`new_vnet`](#vnet-new-vnet) block (within [`vnet`](#vnet)) supports the following:
 
-<a id="vnet-new-vnet-autogenerate"></a>&#x2022; [`autogenerate`](#vnet-new-vnet-autogenerate) - Optional Block<br>Configuration parameter for autogenerate
+<a id="vnet-new-vnet-autogenerate"></a>&#x2022; [`autogenerate`](#vnet-new-vnet-autogenerate) - Optional Object<br>Configuration parameter for autogenerate
 
 <a id="vnet-new-vnet-name"></a>&#x2022; [`name`](#vnet-new-vnet-name) - Optional String<br>Specify the VNET Name
 
 <a id="vnet-new-vnet-primary-ipv4"></a>&#x2022; [`primary_ipv4`](#vnet-new-vnet-primary-ipv4) - Optional String<br>IPv4 CIDR block for this VNET. It has to be private address space
+
+#### VNET New VNET Autogenerate
+
+An [`autogenerate`](#vnet-new-vnet-autogenerate) block (within [`vnet.new_vnet`](#vnet-new-vnet)) supports the following:
 
 #### Voltstack Cluster
 
@@ -1212,31 +1614,31 @@ A [`voltstack_cluster`](#voltstack-cluster) block supports the following:
 
 <a id="voltstack-cluster-dc-cluster-group"></a>&#x2022; [`dc_cluster_group`](#voltstack-cluster-dc-cluster-group) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group](#voltstack-cluster-dc-cluster-group) below.
 
-<a id="voltstack-cluster-default-storage"></a>&#x2022; [`default_storage`](#voltstack-cluster-default-storage) - Optional Block<br>Configuration parameter for default storage
+<a id="voltstack-cluster-default-storage"></a>&#x2022; [`default_storage`](#voltstack-cluster-default-storage) - Optional Object<br>Configuration parameter for default storage
 
-<a id="all-48d905"></a>&#x2022; [`forward_proxy_allow_all`](#all-48d905) - Optional Block<br>Configuration parameter for forward proxy allow all
+<a id="all-48d905"></a>&#x2022; [`forward_proxy_allow_all`](#all-48d905) - Optional Object<br>Configuration parameter for forward proxy allow all
 
 <a id="voltstack-cluster-global-network-list"></a>&#x2022; [`global_network_list`](#voltstack-cluster-global-network-list) - Optional Block<br>Global Network Connection List. List of global network connections<br>See [Global Network List](#voltstack-cluster-global-network-list) below.
 
 <a id="voltstack-cluster-k8s-cluster"></a>&#x2022; [`k8s_cluster`](#voltstack-cluster-k8s-cluster) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [K8S Cluster](#voltstack-cluster-k8s-cluster) below.
 
-<a id="voltstack-cluster-no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#voltstack-cluster-no-dc-cluster-group) - Optional Block<br>Enable this option
+<a id="voltstack-cluster-no-dc-cluster-group"></a>&#x2022; [`no_dc_cluster_group`](#voltstack-cluster-no-dc-cluster-group) - Optional Object<br>Enable this option
 
-<a id="voltstack-cluster-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#voltstack-cluster-no-forward-proxy) - Optional Block<br>Configuration parameter for no forward proxy
+<a id="voltstack-cluster-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#voltstack-cluster-no-forward-proxy) - Optional Object<br>Configuration parameter for no forward proxy
 
-<a id="voltstack-cluster-no-global-network"></a>&#x2022; [`no_global_network`](#voltstack-cluster-no-global-network) - Optional Block<br>Configuration parameter for no global network
+<a id="voltstack-cluster-no-global-network"></a>&#x2022; [`no_global_network`](#voltstack-cluster-no-global-network) - Optional Object<br>Configuration parameter for no global network
 
-<a id="voltstack-cluster-no-k8s-cluster"></a>&#x2022; [`no_k8s_cluster`](#voltstack-cluster-no-k8s-cluster) - Optional Block<br>Enable this option
+<a id="voltstack-cluster-no-k8s-cluster"></a>&#x2022; [`no_k8s_cluster`](#voltstack-cluster-no-k8s-cluster) - Optional Object<br>Enable this option
 
-<a id="voltstack-cluster-no-network-policy"></a>&#x2022; [`no_network_policy`](#voltstack-cluster-no-network-policy) - Optional Block<br>Policy configuration for this feature
+<a id="voltstack-cluster-no-network-policy"></a>&#x2022; [`no_network_policy`](#voltstack-cluster-no-network-policy) - Optional Object<br>Policy configuration for this feature
 
-<a id="routes-3cc7bc"></a>&#x2022; [`no_outside_static_routes`](#routes-3cc7bc) - Optional Block<br>Configuration parameter for no outside static routes
+<a id="routes-3cc7bc"></a>&#x2022; [`no_outside_static_routes`](#routes-3cc7bc) - Optional Object<br>Configuration parameter for no outside static routes
 
 <a id="voltstack-cluster-outside-static-routes"></a>&#x2022; [`outside_static_routes`](#voltstack-cluster-outside-static-routes) - Optional Block<br>Configuration parameter for outside static routes<br>See [Outside Static Routes](#voltstack-cluster-outside-static-routes) below.
 
-<a id="public-ip-8ed01a"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-8ed01a) - Optional Block<br>Enable this option
+<a id="public-ip-8ed01a"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-8ed01a) - Optional Object<br>Enable this option
 
-<a id="voltstack-cluster-sm-connection-pvt-ip"></a>&#x2022; [`sm_connection_pvt_ip`](#voltstack-cluster-sm-connection-pvt-ip) - Optional Block<br>Enable this option
+<a id="voltstack-cluster-sm-connection-pvt-ip"></a>&#x2022; [`sm_connection_pvt_ip`](#voltstack-cluster-sm-connection-pvt-ip) - Optional Object<br>Enable this option
 
 <a id="voltstack-cluster-storage-class-list"></a>&#x2022; [`storage_class_list`](#voltstack-cluster-storage-class-list) - Optional Block<br>Add additional custom storage classes in Kubernetes for this site<br>See [Storage Class List](#voltstack-cluster-storage-class-list) below.
 
@@ -1244,9 +1646,17 @@ A [`voltstack_cluster`](#voltstack-cluster) block supports the following:
 
 An [`accelerated_networking`](#networking-7aaa63) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
 
-<a id="spec-12ebea"></a>&#x2022; [`disable_spec`](#spec-12ebea) - Optional Block<br>Enable this option
+<a id="spec-12ebea"></a>&#x2022; [`disable_spec`](#spec-12ebea) - Optional Object<br>Enable this option
 
-<a id="enable-e878e8"></a>&#x2022; [`enable`](#enable-e878e8) - Optional Block<br>Enable this option
+<a id="enable-e878e8"></a>&#x2022; [`enable`](#enable-e878e8) - Optional Object<br>Enable this option
+
+#### Voltstack Cluster Accelerated Networking Disable Spec
+
+A [`disable_spec`](#spec-12ebea) block (within [`voltstack_cluster.accelerated_networking`](#networking-7aaa63)) supports the following:
+
+#### Voltstack Cluster Accelerated Networking Enable
+
+An [`enable`](#enable-e878e8) block (within [`voltstack_cluster.accelerated_networking`](#networking-7aaa63)) supports the following:
 
 #### Voltstack Cluster Active Enhanced Firewall Policies
 
@@ -1308,7 +1718,11 @@ A [`subnet`](#subnet-4f7eec) block (within [`voltstack_cluster.az_nodes.local_su
 
 <a id="grp-1aa3ef"></a>&#x2022; [`subnet_resource_grp`](#grp-1aa3ef) - Optional String<br>Specify name of Resource Group
 
-<a id="group-ab3d37"></a>&#x2022; [`vnet_resource_group`](#group-ab3d37) - Optional Block<br>Configuration parameter for VNET resource group
+<a id="group-ab3d37"></a>&#x2022; [`vnet_resource_group`](#group-ab3d37) - Optional Object<br>Configuration parameter for VNET resource group
+
+#### Voltstack Cluster Az Nodes Local Subnet Subnet VNET Resource Group
+
+<a id="deep-848e5e"></a>Deeply nested **Group** block collapsed for readability.
 
 #### Voltstack Cluster Az Nodes Local Subnet Subnet Param
 
@@ -1323,6 +1737,14 @@ A [`dc_cluster_group`](#voltstack-cluster-dc-cluster-group) block (within [`volt
 <a id="namespace-e43a60"></a>&#x2022; [`namespace`](#namespace-e43a60) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="tenant-597aab"></a>&#x2022; [`tenant`](#tenant-597aab) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Voltstack Cluster Default Storage
+
+A [`default_storage`](#voltstack-cluster-default-storage) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster Forward Proxy Allow All
+
+A [`forward_proxy_allow_all`](#all-48d905) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
 
 #### Voltstack Cluster Global Network List
 
@@ -1359,6 +1781,30 @@ A [`k8s_cluster`](#voltstack-cluster-k8s-cluster) block (within [`voltstack_clus
 <a id="voltstack-cluster-k8s-cluster-namespace"></a>&#x2022; [`namespace`](#voltstack-cluster-k8s-cluster-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
 <a id="voltstack-cluster-k8s-cluster-tenant"></a>&#x2022; [`tenant`](#voltstack-cluster-k8s-cluster-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Voltstack Cluster No Dc Cluster Group
+
+A [`no_dc_cluster_group`](#voltstack-cluster-no-dc-cluster-group) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No Forward Proxy
+
+A [`no_forward_proxy`](#voltstack-cluster-no-forward-proxy) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No Global Network
+
+A [`no_global_network`](#voltstack-cluster-no-global-network) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No K8S Cluster
+
+A [`no_k8s_cluster`](#voltstack-cluster-no-k8s-cluster) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No Network Policy
+
+A [`no_network_policy`](#voltstack-cluster-no-network-policy) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster No Outside Static Routes
+
+A [`no_outside_static_routes`](#routes-3cc7bc) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
 
 #### Voltstack Cluster Outside Static Routes
 
@@ -1406,6 +1852,14 @@ An [`outside_static_routes`](#voltstack-cluster-outside-static-routes) block (wi
 
 <a id="deep-85f420"></a>Deeply nested **IPv6** block collapsed for readability.
 
+#### Voltstack Cluster Sm Connection Public IP
+
+A [`sm_connection_public_ip`](#public-ip-8ed01a) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
+#### Voltstack Cluster Sm Connection Pvt IP
+
+A [`sm_connection_pvt_ip`](#voltstack-cluster-sm-connection-pvt-ip) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
+
 #### Voltstack Cluster Storage Class List
 
 A [`storage_class_list`](#voltstack-cluster-storage-class-list) block (within [`voltstack_cluster`](#voltstack-cluster)) supports the following:
@@ -1436,33 +1890,33 @@ A [`voltstack_cluster_ar`](#voltstack-cluster-ar) block supports the following:
 
 <a id="voltstack-cluster-ar-dc-cluster-group"></a>&#x2022; [`dc_cluster_group`](#voltstack-cluster-ar-dc-cluster-group) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group](#voltstack-cluster-ar-dc-cluster-group) below.
 
-<a id="voltstack-cluster-ar-default-storage"></a>&#x2022; [`default_storage`](#voltstack-cluster-ar-default-storage) - Optional Block<br>Configuration parameter for default storage
+<a id="voltstack-cluster-ar-default-storage"></a>&#x2022; [`default_storage`](#voltstack-cluster-ar-default-storage) - Optional Object<br>Configuration parameter for default storage
 
-<a id="all-da6e14"></a>&#x2022; [`forward_proxy_allow_all`](#all-da6e14) - Optional Block<br>Configuration parameter for forward proxy allow all
+<a id="all-da6e14"></a>&#x2022; [`forward_proxy_allow_all`](#all-da6e14) - Optional Object<br>Configuration parameter for forward proxy allow all
 
 <a id="list-7b202d"></a>&#x2022; [`global_network_list`](#list-7b202d) - Optional Block<br>Global Network Connection List. List of global network connections<br>See [Global Network List](#list-7b202d) below.
 
 <a id="voltstack-cluster-ar-k8s-cluster"></a>&#x2022; [`k8s_cluster`](#voltstack-cluster-ar-k8s-cluster) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [K8S Cluster](#voltstack-cluster-ar-k8s-cluster) below.
 
-<a id="group-5758ca"></a>&#x2022; [`no_dc_cluster_group`](#group-5758ca) - Optional Block<br>Enable this option
+<a id="group-5758ca"></a>&#x2022; [`no_dc_cluster_group`](#group-5758ca) - Optional Object<br>Enable this option
 
-<a id="voltstack-cluster-ar-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#voltstack-cluster-ar-no-forward-proxy) - Optional Block<br>Configuration parameter for no forward proxy
+<a id="voltstack-cluster-ar-no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#voltstack-cluster-ar-no-forward-proxy) - Optional Object<br>Configuration parameter for no forward proxy
 
-<a id="voltstack-cluster-ar-no-global-network"></a>&#x2022; [`no_global_network`](#voltstack-cluster-ar-no-global-network) - Optional Block<br>Configuration parameter for no global network
+<a id="voltstack-cluster-ar-no-global-network"></a>&#x2022; [`no_global_network`](#voltstack-cluster-ar-no-global-network) - Optional Object<br>Configuration parameter for no global network
 
-<a id="voltstack-cluster-ar-no-k8s-cluster"></a>&#x2022; [`no_k8s_cluster`](#voltstack-cluster-ar-no-k8s-cluster) - Optional Block<br>Enable this option
+<a id="voltstack-cluster-ar-no-k8s-cluster"></a>&#x2022; [`no_k8s_cluster`](#voltstack-cluster-ar-no-k8s-cluster) - Optional Object<br>Enable this option
 
-<a id="voltstack-cluster-ar-no-network-policy"></a>&#x2022; [`no_network_policy`](#voltstack-cluster-ar-no-network-policy) - Optional Block<br>Policy configuration for this feature
+<a id="voltstack-cluster-ar-no-network-policy"></a>&#x2022; [`no_network_policy`](#voltstack-cluster-ar-no-network-policy) - Optional Object<br>Policy configuration for this feature
 
-<a id="routes-9655fd"></a>&#x2022; [`no_outside_static_routes`](#routes-9655fd) - Optional Block<br>Configuration parameter for no outside static routes
+<a id="routes-9655fd"></a>&#x2022; [`no_outside_static_routes`](#routes-9655fd) - Optional Object<br>Configuration parameter for no outside static routes
 
 <a id="voltstack-cluster-ar-node"></a>&#x2022; [`node`](#voltstack-cluster-ar-node) - Optional Block<br>Parameters for creating Single interface Node for Alternate Region<br>See [Node](#voltstack-cluster-ar-node) below.
 
 <a id="routes-ac3db8"></a>&#x2022; [`outside_static_routes`](#routes-ac3db8) - Optional Block<br>Configuration parameter for outside static routes<br>See [Outside Static Routes](#routes-ac3db8) below.
 
-<a id="public-ip-0b46f3"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-0b46f3) - Optional Block<br>Enable this option
+<a id="public-ip-0b46f3"></a>&#x2022; [`sm_connection_public_ip`](#public-ip-0b46f3) - Optional Object<br>Enable this option
 
-<a id="pvt-ip-d90873"></a>&#x2022; [`sm_connection_pvt_ip`](#pvt-ip-d90873) - Optional Block<br>Enable this option
+<a id="pvt-ip-d90873"></a>&#x2022; [`sm_connection_pvt_ip`](#pvt-ip-d90873) - Optional Object<br>Enable this option
 
 <a id="voltstack-cluster-ar-storage-class-list"></a>&#x2022; [`storage_class_list`](#voltstack-cluster-ar-storage-class-list) - Optional Block<br>Add additional custom storage classes in Kubernetes for this site<br>See [Storage Class List](#voltstack-cluster-ar-storage-class-list) below.
 
@@ -1470,9 +1924,17 @@ A [`voltstack_cluster_ar`](#voltstack-cluster-ar) block supports the following:
 
 An [`accelerated_networking`](#networking-5bbd2a) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
 
-<a id="spec-ddf768"></a>&#x2022; [`disable_spec`](#spec-ddf768) - Optional Block<br>Enable this option
+<a id="spec-ddf768"></a>&#x2022; [`disable_spec`](#spec-ddf768) - Optional Object<br>Enable this option
 
-<a id="enable-68a434"></a>&#x2022; [`enable`](#enable-68a434) - Optional Block<br>Enable this option
+<a id="enable-68a434"></a>&#x2022; [`enable`](#enable-68a434) - Optional Object<br>Enable this option
+
+#### Voltstack Cluster Ar Accelerated Networking Disable Spec
+
+A [`disable_spec`](#spec-ddf768) block (within [`voltstack_cluster_ar.accelerated_networking`](#networking-5bbd2a)) supports the following:
+
+#### Voltstack Cluster Ar Accelerated Networking Enable
+
+An [`enable`](#enable-68a434) block (within [`voltstack_cluster_ar.accelerated_networking`](#networking-5bbd2a)) supports the following:
 
 #### Voltstack Cluster Ar Active Enhanced Firewall Policies
 
@@ -1514,6 +1976,14 @@ A [`dc_cluster_group`](#voltstack-cluster-ar-dc-cluster-group) block (within [`v
 
 <a id="tenant-80a2c5"></a>&#x2022; [`tenant`](#tenant-80a2c5) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Voltstack Cluster Ar Default Storage
+
+A [`default_storage`](#voltstack-cluster-ar-default-storage) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar Forward Proxy Allow All
+
+A [`forward_proxy_allow_all`](#all-da6e14) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
 #### Voltstack Cluster Ar Global Network List
 
 A [`global_network_list`](#list-7b202d) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
@@ -1550,6 +2020,30 @@ A [`k8s_cluster`](#voltstack-cluster-ar-k8s-cluster) block (within [`voltstack_c
 
 <a id="voltstack-cluster-ar-k8s-cluster-tenant"></a>&#x2022; [`tenant`](#voltstack-cluster-ar-k8s-cluster-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
+#### Voltstack Cluster Ar No Dc Cluster Group
+
+A [`no_dc_cluster_group`](#group-5758ca) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar No Forward Proxy
+
+A [`no_forward_proxy`](#voltstack-cluster-ar-no-forward-proxy) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar No Global Network
+
+A [`no_global_network`](#voltstack-cluster-ar-no-global-network) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar No K8S Cluster
+
+A [`no_k8s_cluster`](#voltstack-cluster-ar-no-k8s-cluster) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar No Network Policy
+
+A [`no_network_policy`](#voltstack-cluster-ar-no-network-policy) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar No Outside Static Routes
+
+A [`no_outside_static_routes`](#routes-9655fd) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
 #### Voltstack Cluster Ar Node
 
 A [`node`](#voltstack-cluster-ar-node) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
@@ -1578,7 +2072,11 @@ A [`subnet`](#subnet-cc9194) block (within [`voltstack_cluster_ar.node.local_sub
 
 <a id="grp-a8564e"></a>&#x2022; [`subnet_resource_grp`](#grp-a8564e) - Optional String<br>Specify name of Resource Group
 
-<a id="group-7c774f"></a>&#x2022; [`vnet_resource_group`](#group-7c774f) - Optional Block<br>Configuration parameter for VNET resource group
+<a id="group-7c774f"></a>&#x2022; [`vnet_resource_group`](#group-7c774f) - Optional Object<br>Configuration parameter for VNET resource group
+
+#### Voltstack Cluster Ar Node Local Subnet Subnet VNET Resource Group
+
+<a id="deep-9a4ceb"></a>Deeply nested **Group** block collapsed for readability.
 
 #### Voltstack Cluster Ar Node Local Subnet Subnet Param
 
@@ -1629,6 +2127,14 @@ An [`outside_static_routes`](#routes-ac3db8) block (within [`voltstack_cluster_a
 #### Voltstack Cluster Ar Outside Static Routes Static Route List Custom Static Route Subnets IPv6
 
 <a id="deep-7e1352"></a>Deeply nested **IPv6** block collapsed for readability.
+
+#### Voltstack Cluster Ar Sm Connection Public IP
+
+A [`sm_connection_public_ip`](#public-ip-0b46f3) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
+
+#### Voltstack Cluster Ar Sm Connection Pvt IP
+
+A [`sm_connection_pvt_ip`](#pvt-ip-d90873) block (within [`voltstack_cluster_ar`](#voltstack-cluster-ar)) supports the following:
 
 #### Voltstack Cluster Ar Storage Class List
 

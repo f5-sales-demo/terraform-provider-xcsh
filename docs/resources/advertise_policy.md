@@ -39,7 +39,7 @@ resource "xcsh_advertise_policy" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -116,16 +116,24 @@ A [`timeouts`](#timeouts) block supports the following:
 
 A [`tls_parameters`](#tls-parameters) block supports the following:
 
-<a id="optional-56d793"></a>&#x2022; [`client_certificate_optional`](#optional-56d793) - Optional Block<br>Enable this option
+<a id="optional-56d793"></a>&#x2022; [`client_certificate_optional`](#optional-56d793) - Optional Object<br>Enable this option
 
-<a id="required-544cf5"></a>&#x2022; [`client_certificate_required`](#required-544cf5) - Optional Block<br>Enable this option
+<a id="required-544cf5"></a>&#x2022; [`client_certificate_required`](#required-544cf5) - Optional Object<br>Enable this option
 
 <a id="tls-parameters-common-params"></a>&#x2022; [`common_params`](#tls-parameters-common-params) - Optional Block<br>Information of different aspects for TLS authentication related to ciphers, certificates and trust store<br>See [Common Params](#tls-parameters-common-params) below.
 
-<a id="tls-parameters-no-client-certificate"></a>&#x2022; [`no_client_certificate`](#tls-parameters-no-client-certificate) - Optional Block<br>Enable this option
+<a id="tls-parameters-no-client-certificate"></a>&#x2022; [`no_client_certificate`](#tls-parameters-no-client-certificate) - Optional Object<br>Enable this option
 
 <a id="tls-parameters-xfcc-header-elements"></a>&#x2022; [`xfcc_header_elements`](#tls-parameters-xfcc-header-elements) - Optional List  Defaults to `XFCC_NONE`<br>Possible values are `XFCC_NONE`, `XFCC_CERT`, `XFCC_CHAIN`, `XFCC_SUBJECT`, `XFCC_URI`, `XFCC_DNS`<br>[Enum: XFCC_NONE|XFCC_CERT|XFCC_CHAIN|XFCC_SUBJECT|XFCC_URI|XFCC_DNS] X-Forwarded-Client-Cert header elements to be set in an mTLS
 enabled connections. If none are defined, the header will not be added
+
+#### TLS Parameters Client Certificate Optional
+
+A [`client_certificate_optional`](#optional-56d793) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
+#### TLS Parameters Client Certificate Required
+
+A [`client_certificate_required`](#required-544cf5) block (within [`tls_parameters`](#tls-parameters)) supports the following:
 
 #### TLS Parameters Common Params
 
@@ -151,15 +159,19 @@ A [`tls_certificates`](#certificates-c9caff) block (within [`tls_parameters.comm
 
 <a id="spec-5af02c"></a>&#x2022; [`description_spec`](#spec-5af02c) - Optional String<br>Description. Description for the certificate
 
-<a id="stapling-c091fa"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-c091fa) - Optional Block<br>Configuration parameter for disable OCSP stapling
+<a id="stapling-c091fa"></a>&#x2022; [`disable_ocsp_stapling`](#stapling-c091fa) - Optional Object<br>Configuration parameter for disable OCSP stapling
 
 <a id="key-da7979"></a>&#x2022; [`private_key`](#key-da7979) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Private Key](#key-da7979) below.
 
-<a id="defaults-f58bc7"></a>&#x2022; [`use_system_defaults`](#defaults-f58bc7) - Optional Block<br>Configuration parameter for use system defaults
+<a id="defaults-f58bc7"></a>&#x2022; [`use_system_defaults`](#defaults-f58bc7) - Optional Object<br>Configuration parameter for use system defaults
 
 #### TLS Parameters Common Params TLS Certificates Custom Hash Algorithms
 
 <a id="deep-2bb8e0"></a>Deeply nested **Algorithms** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Disable OCSP Stapling
+
+<a id="deep-4477da"></a>Deeply nested **Stapling** block collapsed for readability.
 
 #### TLS Parameters Common Params TLS Certificates Private Key
 
@@ -172,6 +184,10 @@ A [`tls_certificates`](#certificates-c9caff) block (within [`tls_parameters.comm
 #### TLS Parameters Common Params TLS Certificates Private Key Clear Secret Info
 
 <a id="deep-fbf9ed"></a>Deeply nested **Info** block collapsed for readability.
+
+#### TLS Parameters Common Params TLS Certificates Use System Defaults
+
+<a id="deep-82b16e"></a>Deeply nested **Defaults** block collapsed for readability.
 
 #### TLS Parameters Common Params Validation Params
 
@@ -193,6 +209,10 @@ A [`validation_params`](#params-6e95a6) block (within [`tls_parameters.common_pa
 
 <a id="deep-7e09ed"></a>Deeply nested **List** block collapsed for readability.
 
+#### TLS Parameters No Client Certificate
+
+A [`no_client_certificate`](#tls-parameters-no-client-certificate) block (within [`tls_parameters`](#tls-parameters)) supports the following:
+
 #### Where
 
 A [`where`](#where) block supports the following:
@@ -207,9 +227,9 @@ A [`where`](#where) block supports the following:
 
 A [`site`](#where-site) block (within [`where`](#where)) supports the following:
 
-<a id="where-site-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#where-site-disable-internet-vip) - Optional Block<br>Enable this option
+<a id="where-site-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#where-site-disable-internet-vip) - Optional Object<br>Enable this option
 
-<a id="where-site-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#where-site-enable-internet-vip) - Optional Block<br>Enable this option
+<a id="where-site-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#where-site-enable-internet-vip) - Optional Object<br>Enable this option
 
 <a id="where-site-network-type"></a>&#x2022; [`network_type`](#where-site-network-type) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
@@ -217,6 +237,14 @@ VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
 <a id="where-site-ref"></a>&#x2022; [`ref`](#where-site-ref) - Optional Block<br>Reference. A site direct reference<br>See [Ref](#where-site-ref) below.
+
+#### Where Site Disable internet VIP
+
+A [`disable_internet_vip`](#where-site-disable-internet-vip) block (within [`where.site`](#where-site)) supports the following:
+
+#### Where Site Enable internet VIP
+
+An [`enable_internet_vip`](#where-site-enable-internet-vip) block (within [`where.site`](#where-site)) supports the following:
 
 #### Where Site Ref
 
@@ -256,9 +284,9 @@ A [`ref`](#where-virtual-network-ref) block (within [`where.virtual_network`](#w
 
 A [`virtual_site`](#where-virtual-site) block (within [`where`](#where)) supports the following:
 
-<a id="where-virtual-site-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#where-virtual-site-disable-internet-vip) - Optional Block<br>Enable this option
+<a id="where-virtual-site-disable-internet-vip"></a>&#x2022; [`disable_internet_vip`](#where-virtual-site-disable-internet-vip) - Optional Object<br>Enable this option
 
-<a id="where-virtual-site-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#where-virtual-site-enable-internet-vip) - Optional Block<br>Enable this option
+<a id="where-virtual-site-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#where-virtual-site-enable-internet-vip) - Optional Object<br>Enable this option
 
 <a id="where-virtual-site-network-type"></a>&#x2022; [`network_type`](#where-virtual-site-network-type) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
@@ -266,6 +294,14 @@ VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
 <a id="where-virtual-site-ref"></a>&#x2022; [`ref`](#where-virtual-site-ref) - Optional Block<br>Reference. A virtual_site direct reference<br>See [Ref](#where-virtual-site-ref) below.
+
+#### Where Virtual Site Disable internet VIP
+
+A [`disable_internet_vip`](#where-virtual-site-disable-internet-vip) block (within [`where.virtual_site`](#where-virtual-site)) supports the following:
+
+#### Where Virtual Site Enable internet VIP
+
+An [`enable_internet_vip`](#where-virtual-site-enable-internet-vip) block (within [`where.virtual_site`](#where-virtual-site)) supports the following:
 
 #### Where Virtual Site Ref
 

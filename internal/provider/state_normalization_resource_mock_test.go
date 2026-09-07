@@ -48,8 +48,8 @@ resource "xcsh_origin_pool" "test" {
     public_name { dns_name = "example.com" }
   }
 
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls                = {}
+  same_as_endpoint_port = {}
 }
 `, mockCfg.MockProviderConfig()),
 		}},

@@ -39,7 +39,7 @@ resource "xcsh_protocol_inspection" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -104,9 +104,13 @@ In addition to all arguments above, the following attributes are exported:
 
 An [`enable_disable_compliance_checks`](#enable-disable-compliance-checks) block supports the following:
 
-<a id="checks-6c8eaa"></a>&#x2022; [`disable_compliance_checks`](#checks-6c8eaa) - Optional Block<br>Configuration parameter for disable compliance checks
+<a id="checks-6c8eaa"></a>&#x2022; [`disable_compliance_checks`](#checks-6c8eaa) - Optional Object<br>Configuration parameter for disable compliance checks
 
 <a id="checks-68d3e1"></a>&#x2022; [`enable_compliance_checks`](#checks-68d3e1) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Enable Compliance Checks](#checks-68d3e1) below.
+
+#### Enable Disable Compliance Checks Disable Compliance Checks
+
+A [`disable_compliance_checks`](#checks-6c8eaa) block (within [`enable_disable_compliance_checks`](#enable-disable-compliance-checks)) supports the following:
 
 #### Enable Disable Compliance Checks Enable Compliance Checks
 
@@ -122,9 +126,17 @@ An [`enable_compliance_checks`](#checks-68d3e1) block (within [`enable_disable_c
 
 An [`enable_disable_signatures`](#enable-disable-signatures) block supports the following:
 
-<a id="signature-dd5a1e"></a>&#x2022; [`disable_signature`](#signature-dd5a1e) - Optional Block<br>Configuration parameter for disable signature
+<a id="signature-dd5a1e"></a>&#x2022; [`disable_signature`](#signature-dd5a1e) - Optional Object<br>Configuration parameter for disable signature
 
-<a id="signature-359b96"></a>&#x2022; [`enable_signature`](#signature-359b96) - Optional Block<br>Configuration parameter for enable signature
+<a id="signature-359b96"></a>&#x2022; [`enable_signature`](#signature-359b96) - Optional Object<br>Configuration parameter for enable signature
+
+#### Enable Disable Signatures Disable Signature
+
+A [`disable_signature`](#signature-dd5a1e) block (within [`enable_disable_signatures`](#enable-disable-signatures)) supports the following:
+
+#### Enable Disable Signatures Enable Signature
+
+An [`enable_signature`](#signature-359b96) block (within [`enable_disable_signatures`](#enable-disable-signatures)) supports the following:
 
 #### Timeouts
 

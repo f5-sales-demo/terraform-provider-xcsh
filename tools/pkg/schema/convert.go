@@ -250,6 +250,7 @@ func ConvertToTerraformAttribute(name string, schema openapi.Schema, required bo
 func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, required bool, oneOfGroup string, spec *openapi.Spec, depth int, fieldPath string) openapi.TerraformAttribute {
 	// Preserve extensions from original schema before resolving $ref
 	// Extensions like x-f5xc-server-default are on the property, not the referenced schema
+	fieldMutability := schema.XFieldMutability
 	serverDefault := schema.XF5XCServerDefault
 	defaultValue := schema.Default // Preserve actual default value
 	descShort := schema.XF5XCDescriptionShort
@@ -259,6 +260,7 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 	validationRules := schema.XVesValidationRules
 	complexity := schema.XF5XCComplexity
 	useCases := schema.XF5XCUseCases
+	conflictsWith := schema.XF5XCConflictsWith
 	// Resolved BEFORE any $ref resolution: x-f5xc-wire-name describes THIS property's
 	// on-the-wire key, so it must never be inherited from a referenced component (a
 	// shared component carrying it would otherwise rename every property that $refs
@@ -280,6 +282,12 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 	if schema.Ref != "" {
 		schema = ResolveRef(schema.Ref, spec)
 		// Restore preserved extensions (property-level extensions take precedence)
+		if conflictsWith != nil {
+			schema.XF5XCConflictsWith = append([]string{}, conflictsWith...)
+		}
+		if fieldMutability != "" {
+			schema.XFieldMutability = fieldMutability
+		}
 		if serverDefault {
 			schema.XF5XCServerDefault = serverDefault
 		}
@@ -574,6 +582,17 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 			attr.Type = "string"
 			attr.GoType = "string"
 		}
+	}
+
+	// HCL cannot represent an unknown single empty block: an unknown dynamic
+	// block is decoded as a known empty object. That makes two mutually exclusive
+	// dynamic markers appear simultaneously configured during validation. Expose
+	// empty oneof markers as nullable object attributes so Terraform preserves
+	// known, null, and unknown presence distinctly.
+	if attr.IsBlock && attr.NestedBlockType == "single" && len(attr.NestedAttributes) == 0 &&
+		(len(attr.ConflictsWith) > 0 || attr.OneOfGroup != "") {
+		attr.IsBlock = false
+		attr.EmptyObjectMarker = true
 	}
 
 	if attr.Type == "int64" {

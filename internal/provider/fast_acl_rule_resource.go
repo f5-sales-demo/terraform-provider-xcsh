@@ -54,16 +54,16 @@ type FastACLRuleEmptyModel struct {
 
 // FastACLRulePortModel represents port block
 type FastACLRulePortModel struct {
-	UserDefined types.Int64            `tfsdk:"user_defined"`
-	All         *FastACLRuleEmptyModel `tfsdk:"all"`
-	DNS         *FastACLRuleEmptyModel `tfsdk:"dns"`
+	All         types.Object `tfsdk:"all"`
+	DNS         types.Object `tfsdk:"dns"`
+	UserDefined types.Int64  `tfsdk:"user_defined"`
 }
 
 // FastACLRulePortModelAttrTypes defines the attribute types for FastACLRulePortModel
 var FastACLRulePortModelAttrTypes = map[string]attr.Type{
-	"user_defined": types.Int64Type,
 	"all":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"dns":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"user_defined": types.Int64Type,
 }
 
 // FastACLRuleActionModel represents action block
@@ -252,9 +252,20 @@ func (r *FastACLRuleResource) Schema(ctx context.Context, req resource.SchemaReq
 			}),
 			"port": schema.ListNestedBlock{
 				MarkdownDescription: "Source Ports. L4 port numbers to match.",
+				Validators:          []validator.List{validators.ConflictingListObjectAttributes("all", "dns"), validators.ConflictingListObjectAttributes("all", "user_defined"), validators.ConflictingListObjectAttributes("dns", "user_defined")},
 
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
+						"all": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
+						"dns": schema.ObjectAttribute{
+							MarkdownDescription: "Enable this option",
+							Optional:            true,
+							AttributeTypes:      map[string]attr.Type{},
+						},
 						"user_defined": schema.Int64Attribute{
 							MarkdownDescription: "Exclusive with [all DNS] Matches the user defined port.",
 							Optional:            true,
@@ -263,18 +274,11 @@ func (r *FastACLRuleResource) Schema(ctx context.Context, req resource.SchemaReq
 							},
 						},
 					},
-					Blocks: map[string]schema.Block{
-						"all": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
-						"dns": schema.SingleNestedBlock{
-							MarkdownDescription: "Enable this option",
-						},
-					},
 				},
 			},
 			"action": schema.SingleNestedBlock{
 				MarkdownDescription: "FastAclRuleAction specifies possible action to be applied on traffic, possible action include dropping, forwarding or ratelimiting the traffic.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("policer_action", "protocol_policer_action"), validators.ConflictingObjectAttributes("policer_action", "simple_action"), validators.ConflictingObjectAttributes("protocol_policer_action", "simple_action")},
 
 				Attributes: map[string]schema.Attribute{
 					"simple_action": schema.StringAttribute{
@@ -560,10 +564,10 @@ func (r *FastACLRuleResource) Create(ctx context.Context, req resource.CreateReq
 			var PortList []map[string]interface{}
 			for _, PortItem := range PortElems {
 				PortItemMap := make(map[string]interface{})
-				if PortItem.All != nil {
+				if !PortItem.All.IsNull() && !PortItem.All.IsUnknown() {
 					PortItemMap["all"] = map[string]interface{}{}
 				}
-				if PortItem.DNS != nil {
+				if !PortItem.DNS.IsNull() && !PortItem.DNS.IsUnknown() {
 					PortItemMap["dns"] = map[string]interface{}{}
 				}
 				if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
@@ -713,23 +717,23 @@ func (r *FastACLRuleResource) Create(ctx context.Context, req resource.CreateReq
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PortList = append(PortList, FastACLRulePortModel{
-					All: func() *FastACLRuleEmptyModel {
-						if !isImport && len(existingPortItems) > listIdx {
+					All: func() types.Object {
+						if !isImport && len(existingPortItems) > listIdx && !existingPortItems[listIdx].All.IsUnknown() {
 							return existingPortItems[listIdx].All
 						}
 						if _, ok := itemMap["all"].(map[string]interface{}); ok {
-							return &FastACLRuleEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					DNS: func() *FastACLRuleEmptyModel {
-						if !isImport && len(existingPortItems) > listIdx {
+					DNS: func() types.Object {
+						if !isImport && len(existingPortItems) > listIdx && !existingPortItems[listIdx].DNS.IsUnknown() {
 							return existingPortItems[listIdx].DNS
 						}
 						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
-							return &FastACLRuleEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					UserDefined: func() types.Int64 {
 						if v, ok := itemMap["user_defined"].(float64); ok && v != 0 {
@@ -1093,23 +1097,23 @@ func (r *FastACLRuleResource) Read(ctx context.Context, req resource.ReadRequest
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PortList = append(PortList, FastACLRulePortModel{
-					All: func() *FastACLRuleEmptyModel {
-						if !isImport && len(existingPortItems) > listIdx {
+					All: func() types.Object {
+						if !isImport && len(existingPortItems) > listIdx && !existingPortItems[listIdx].All.IsUnknown() {
 							return existingPortItems[listIdx].All
 						}
 						if _, ok := itemMap["all"].(map[string]interface{}); ok {
-							return &FastACLRuleEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					DNS: func() *FastACLRuleEmptyModel {
-						if !isImport && len(existingPortItems) > listIdx {
+					DNS: func() types.Object {
+						if !isImport && len(existingPortItems) > listIdx && !existingPortItems[listIdx].DNS.IsUnknown() {
 							return existingPortItems[listIdx].DNS
 						}
 						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
-							return &FastACLRuleEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					UserDefined: func() types.Int64 {
 						if v, ok := itemMap["user_defined"].(float64); ok && v != 0 {
@@ -1432,10 +1436,10 @@ func (r *FastACLRuleResource) Update(ctx context.Context, req resource.UpdateReq
 			var PortList []map[string]interface{}
 			for _, PortItem := range PortElems {
 				PortItemMap := make(map[string]interface{})
-				if PortItem.All != nil {
+				if !PortItem.All.IsNull() && !PortItem.All.IsUnknown() {
 					PortItemMap["all"] = map[string]interface{}{}
 				}
-				if PortItem.DNS != nil {
+				if !PortItem.DNS.IsNull() && !PortItem.DNS.IsUnknown() {
 					PortItemMap["dns"] = map[string]interface{}{}
 				}
 				if !PortItem.UserDefined.IsNull() && !PortItem.UserDefined.IsUnknown() {
@@ -1605,23 +1609,23 @@ func (r *FastACLRuleResource) Update(ctx context.Context, req resource.UpdateReq
 			_ = listIdx
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PortList = append(PortList, FastACLRulePortModel{
-					All: func() *FastACLRuleEmptyModel {
-						if !isImport && len(existingPortItems) > listIdx {
+					All: func() types.Object {
+						if !isImport && len(existingPortItems) > listIdx && !existingPortItems[listIdx].All.IsUnknown() {
 							return existingPortItems[listIdx].All
 						}
 						if _, ok := itemMap["all"].(map[string]interface{}); ok {
-							return &FastACLRuleEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
-					DNS: func() *FastACLRuleEmptyModel {
-						if !isImport && len(existingPortItems) > listIdx {
+					DNS: func() types.Object {
+						if !isImport && len(existingPortItems) > listIdx && !existingPortItems[listIdx].DNS.IsUnknown() {
 							return existingPortItems[listIdx].DNS
 						}
 						if _, ok := itemMap["dns"].(map[string]interface{}); ok {
-							return &FastACLRuleEmptyModel{}
+							return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 						}
-						return nil
+						return types.ObjectNull(map[string]attr.Type{})
 					}(),
 					UserDefined: func() types.Int64 {
 						if v, ok := itemMap["user_defined"].(float64); ok && v != 0 {

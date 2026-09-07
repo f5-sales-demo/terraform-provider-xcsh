@@ -68,7 +68,7 @@ resource "xcsh_network_policy_view" "test" {
   namespace = "system"
 
   endpoint {
-    any {}
+    any = {}
   }
 }
 `, name))

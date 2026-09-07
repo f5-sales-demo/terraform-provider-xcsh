@@ -39,7 +39,7 @@ resource "xcsh_api_definition" "example" {
 
 ## Argument Reference
 
--> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
+-> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
 🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
 
@@ -84,8 +84,8 @@ spec: {}
 for details.
 
 -> **One of the following:**
-&#x2022; <a id="mixed-schema-origin"></a>[`mixed_schema_origin`](#mixed-schema-origin) - Optional Block<br>Configuration parameter for mixed schema origin
-<br><br>&#x2022; <a id="strict-schema-origin"></a>[`strict_schema_origin`](#strict-schema-origin) - Optional Block  Defaults to `map[]`<br>Configuration parameter for strict schema origin.  Server applies default when omitted
+&#x2022; <a id="mixed-schema-origin"></a>[`mixed_schema_origin`](#mixed-schema-origin) - Optional Object<br>Configuration parameter for mixed schema origin
+<br><br>&#x2022; <a id="strict-schema-origin"></a>[`strict_schema_origin`](#strict-schema-origin) - Optional Object  Defaults to `map[]`<br>Configuration parameter for strict schema origin.  Server applies default when omitted
 
 <a id="non-api-endpoints"></a>&#x2022; [`non_api_endpoints`](#non-api-endpoints) - Optional Block  Defaults to `[]`<br>API Discovery Exclusion List. List of Non-API Endpoints.  Server applies default when omitted<br>See [Non API Endpoints](#non-api-endpoints) below for details.
 
@@ -117,6 +117,10 @@ An [`api_inventory_inclusion_list`](#api-inventory-inclusion-list) block support
 
 <a id="api-inventory-inclusion-list-path"></a>&#x2022; [`path`](#api-inventory-inclusion-list-path) - Optional String  Specified in OpenAPI, including parameters<br>Endpoint path, as  The path should comply with RFC 3986 and may have parameters according to OpenAPI specification
 
+#### Mixed Schema Origin
+
+A [`mixed_schema_origin`](#mixed-schema-origin) block supports the following:
+
 #### Non API Endpoints
 
 A [`non_api_endpoints`](#non-api-endpoints) block supports the following:
@@ -124,6 +128,10 @@ A [`non_api_endpoints`](#non-api-endpoints) block supports the following:
 <a id="non-api-endpoints-method"></a>&#x2022; [`method`](#non-api-endpoints-method) - Optional String  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Specifies the HTTP method used to access a resource. Any HTTP Method
 
 <a id="non-api-endpoints-path"></a>&#x2022; [`path`](#non-api-endpoints-path) - Optional String  Specified in OpenAPI, including parameters<br>Endpoint path, as  The path should comply with RFC 3986 and may have parameters according to OpenAPI specification
+
+#### Strict Schema Origin
+
+A [`strict_schema_origin`](#strict-schema-origin) block supports the following:
 
 #### Timeouts
 

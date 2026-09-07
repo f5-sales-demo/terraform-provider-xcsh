@@ -67,8 +67,8 @@ var SiteMeshGroupBfdEnabledModelAttrTypes = map[string]attr.Type{
 
 // SiteMeshGroupFullMeshModel represents full_mesh block
 type SiteMeshGroupFullMeshModel struct {
-	ControlAndDataPlaneMesh *SiteMeshGroupEmptyModel `tfsdk:"control_and_data_plane_mesh"`
-	DataPlaneMesh           *SiteMeshGroupEmptyModel `tfsdk:"data_plane_mesh"`
+	ControlAndDataPlaneMesh types.Object `tfsdk:"control_and_data_plane_mesh"`
+	DataPlaneMesh           types.Object `tfsdk:"data_plane_mesh"`
 }
 
 // SiteMeshGroupFullMeshModelAttrTypes defines the attribute types for SiteMeshGroupFullMeshModel
@@ -79,8 +79,8 @@ var SiteMeshGroupFullMeshModelAttrTypes = map[string]attr.Type{
 
 // SiteMeshGroupHubMeshModel represents hub_mesh block
 type SiteMeshGroupHubMeshModel struct {
-	ControlAndDataPlaneMesh *SiteMeshGroupEmptyModel `tfsdk:"control_and_data_plane_mesh"`
-	DataPlaneMesh           *SiteMeshGroupEmptyModel `tfsdk:"data_plane_mesh"`
+	ControlAndDataPlaneMesh types.Object `tfsdk:"control_and_data_plane_mesh"`
+	DataPlaneMesh           types.Object `tfsdk:"data_plane_mesh"`
 }
 
 // SiteMeshGroupHubMeshModelAttrTypes defines the attribute types for SiteMeshGroupHubMeshModel
@@ -91,8 +91,8 @@ var SiteMeshGroupHubMeshModelAttrTypes = map[string]attr.Type{
 
 // SiteMeshGroupSpokeMeshModel represents spoke_mesh block
 type SiteMeshGroupSpokeMeshModel struct {
-	ControlAndDataPlaneMesh *SiteMeshGroupEmptyModel                 `tfsdk:"control_and_data_plane_mesh"`
-	DataPlaneMesh           *SiteMeshGroupEmptyModel                 `tfsdk:"data_plane_mesh"`
+	ControlAndDataPlaneMesh types.Object                             `tfsdk:"control_and_data_plane_mesh"`
+	DataPlaneMesh           types.Object                             `tfsdk:"data_plane_mesh"`
 	HubMeshGroup            *SiteMeshGroupSpokeMeshHubMeshGroupModel `tfsdk:"hub_mesh_group"`
 }
 
@@ -139,15 +139,15 @@ type SiteMeshGroupResourceModel struct {
 	Name              types.String                  `tfsdk:"name"`
 	Namespace         types.String                  `tfsdk:"namespace"`
 	Annotations       types.Map                     `tfsdk:"annotations"`
+	BfdDisabled       types.Object                  `tfsdk:"bfd_disabled"`
 	Description       types.String                  `tfsdk:"description"`
 	Disable           types.Bool                    `tfsdk:"disable"`
+	DisableREFallback types.Object                  `tfsdk:"disable_re_fallback"`
+	EnableREFallback  types.Object                  `tfsdk:"enable_re_fallback"`
 	Labels            types.Map                     `tfsdk:"labels"`
 	ID                types.String                  `tfsdk:"id"`
 	Timeouts          timeouts.Value                `tfsdk:"timeouts"`
-	BfdDisabled       *SiteMeshGroupEmptyModel      `tfsdk:"bfd_disabled"`
 	BfdEnabled        *SiteMeshGroupBfdEnabledModel `tfsdk:"bfd_enabled"`
-	DisableREFallback *SiteMeshGroupEmptyModel      `tfsdk:"disable_re_fallback"`
-	EnableREFallback  *SiteMeshGroupEmptyModel      `tfsdk:"enable_re_fallback"`
 	FullMesh          *SiteMeshGroupFullMeshModel   `tfsdk:"full_mesh"`
 	HubMesh           *SiteMeshGroupHubMeshModel    `tfsdk:"hub_mesh"`
 	SpokeMesh         *SiteMeshGroupSpokeMeshModel  `tfsdk:"spoke_mesh"`
@@ -187,6 +187,11 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 				Optional:            true,
 				ElementType:         types.StringType,
 			},
+			"bfd_disabled": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: bfd_disabled, bfd_enabled] Enable this option",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
@@ -194,6 +199,16 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true administratively disables the object.",
 				Optional:            true,
+			},
+			"disable_re_fallback": schema.ObjectAttribute{
+				MarkdownDescription: "[OneOf: disable_re_fallback, enable_re_fallback; Default: disable_re_fallback] Configuration parameter for disable re fallback.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
+			},
+			"enable_re_fallback": schema.ObjectAttribute{
+				MarkdownDescription: "Configuration parameter for enable re fallback.",
+				Optional:            true,
+				AttributeTypes:      map[string]attr.Type{},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
@@ -215,9 +230,6 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 				Update: true,
 				Delete: true,
 			}),
-			"bfd_disabled": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: bfd_disabled, bfd_enabled] Enable this option",
-			},
 			"bfd_enabled": schema.SingleNestedBlock{
 				MarkdownDescription: "BFD. BFD parameters.",
 				Validators:          []validator.Object{validators.RequiredObjectAttributes("multiplier", "receive_interval_milliseconds", "transmit_interval_milliseconds")},
@@ -246,49 +258,57 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 					},
 				},
 			},
-			"disable_re_fallback": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: disable_re_fallback, enable_re_fallback; Default: disable_re_fallback] Configuration parameter for disable re fallback.",
-			},
-			"enable_re_fallback": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for enable re fallback.",
-			},
 			"full_mesh": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: full_mesh, hub_mesh, spoke_mesh] Full Mesh. Details of Full Mesh Group Type.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("control_and_data_plane_mesh", "data_plane_mesh")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"control_and_data_plane_mesh": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"control_and_data_plane_mesh": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"data_plane_mesh": schema.SingleNestedBlock{
+					"data_plane_mesh": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
 			"hub_mesh": schema.SingleNestedBlock{
 				MarkdownDescription: "Hub Full Mesh. Details of Hub Full Mesh Group Type.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("control_and_data_plane_mesh", "data_plane_mesh")},
 
-				Attributes: map[string]schema.Attribute{},
-				Blocks: map[string]schema.Block{
-					"control_and_data_plane_mesh": schema.SingleNestedBlock{
+				Attributes: map[string]schema.Attribute{
+					"control_and_data_plane_mesh": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
-					"data_plane_mesh": schema.SingleNestedBlock{
+					"data_plane_mesh": schema.ObjectAttribute{
 						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
 					},
 				},
 			},
 			"spoke_mesh": schema.SingleNestedBlock{
 				MarkdownDescription: "Spoke. Details of Spoke Mesh Group Type.",
+				Validators:          []validator.Object{validators.ConflictingObjectAttributes("control_and_data_plane_mesh", "data_plane_mesh")},
 
-				Attributes: map[string]schema.Attribute{},
+				Attributes: map[string]schema.Attribute{
+					"control_and_data_plane_mesh": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+					"data_plane_mesh": schema.ObjectAttribute{
+						MarkdownDescription: "Enable this option",
+						Optional:            true,
+						AttributeTypes:      map[string]attr.Type{},
+					},
+				},
 				Blocks: map[string]schema.Block{
-					"control_and_data_plane_mesh": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
-					"data_plane_mesh": schema.SingleNestedBlock{
-						MarkdownDescription: "Enable this option",
-					},
 					"hub_mesh_group": schema.SingleNestedBlock{
 						MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 						Validators:          []validator.Object{validators.RequiredObjectAttributes("name")},
@@ -384,6 +404,14 @@ func (r *SiteMeshGroupResource) ValidateConfig(ctx context.Context, req resource
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.DisableREFallback.IsNull() && !data.DisableREFallback.IsUnknown() && !data.EnableREFallback.IsNull() && !data.EnableREFallback.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("disable_re_fallback"),
+			"Conflicting Configuration",
+			"disable_re_fallback and enable_re_fallback are mutually exclusive.",
+		)
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -484,7 +512,7 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.BfdDisabled != nil {
+	if !data.BfdDisabled.IsNull() && !data.BfdDisabled.IsUnknown() {
 		createReq.Spec["bfd_disabled"] = map[string]interface{}{}
 	}
 	if data.BfdEnabled != nil {
@@ -500,38 +528,38 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 		}
 		createReq.Spec["bfd_enabled"] = BfdEnabledMap
 	}
-	if data.DisableREFallback != nil {
+	if !data.DisableREFallback.IsNull() && !data.DisableREFallback.IsUnknown() {
 		createReq.Spec["disable_re_fallback"] = map[string]interface{}{}
 	}
-	if data.EnableREFallback != nil {
+	if !data.EnableREFallback.IsNull() && !data.EnableREFallback.IsUnknown() {
 		createReq.Spec["enable_re_fallback"] = map[string]interface{}{}
 	}
 	if data.FullMesh != nil {
 		FullMeshMap := make(map[string]interface{})
-		if data.FullMesh.ControlAndDataPlaneMesh != nil {
+		if !data.FullMesh.ControlAndDataPlaneMesh.IsNull() && !data.FullMesh.ControlAndDataPlaneMesh.IsUnknown() {
 			FullMeshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
-		if data.FullMesh.DataPlaneMesh != nil {
+		if !data.FullMesh.DataPlaneMesh.IsNull() && !data.FullMesh.DataPlaneMesh.IsUnknown() {
 			FullMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
 		createReq.Spec["full_mesh"] = FullMeshMap
 	}
 	if data.HubMesh != nil {
 		HubMeshMap := make(map[string]interface{})
-		if data.HubMesh.ControlAndDataPlaneMesh != nil {
+		if !data.HubMesh.ControlAndDataPlaneMesh.IsNull() && !data.HubMesh.ControlAndDataPlaneMesh.IsUnknown() {
 			HubMeshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
-		if data.HubMesh.DataPlaneMesh != nil {
+		if !data.HubMesh.DataPlaneMesh.IsNull() && !data.HubMesh.DataPlaneMesh.IsUnknown() {
 			HubMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
 		createReq.Spec["hub_mesh"] = HubMeshMap
 	}
 	if data.SpokeMesh != nil {
 		SpokeMeshMap := make(map[string]interface{})
-		if data.SpokeMesh.ControlAndDataPlaneMesh != nil {
+		if !data.SpokeMesh.ControlAndDataPlaneMesh.IsNull() && !data.SpokeMesh.ControlAndDataPlaneMesh.IsUnknown() {
 			SpokeMeshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
-		if data.SpokeMesh.DataPlaneMesh != nil {
+		if !data.SpokeMesh.DataPlaneMesh.IsNull() && !data.SpokeMesh.DataPlaneMesh.IsUnknown() {
 			SpokeMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.SpokeMesh.HubMeshGroup != nil {
@@ -604,8 +632,12 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["bfd_disabled"].(map[string]interface{}); ok && isImport && data.BfdDisabled == nil {
-		data.BfdDisabled = &SiteMeshGroupEmptyModel{}
+	if !isImport && !data.BfdDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["bfd_disabled"].(map[string]interface{}); ok {
+		data.BfdDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BfdDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["bfd_enabled"].(map[string]interface{}); ok && (isImport || data.BfdEnabled != nil) {
 		data.BfdEnabled = &SiteMeshGroupBfdEnabledModel{
@@ -638,75 +670,83 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_re_fallback"].(map[string]interface{}); ok && isImport && data.DisableREFallback == nil {
-		data.DisableREFallback = &SiteMeshGroupEmptyModel{}
+	if !isImport && !data.DisableREFallback.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_re_fallback"].(map[string]interface{}); ok {
+		data.DisableREFallback = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableREFallback = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["enable_re_fallback"].(map[string]interface{}); ok && isImport && data.EnableREFallback == nil {
-		data.EnableREFallback = &SiteMeshGroupEmptyModel{}
+	if !isImport && !data.EnableREFallback.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_re_fallback"].(map[string]interface{}); ok {
+		data.EnableREFallback = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableREFallback = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["full_mesh"].(map[string]interface{}); ok && (isImport || data.FullMesh != nil) {
 		data.FullMesh = &SiteMeshGroupFullMeshModel{
-			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.FullMesh != nil {
+			ControlAndDataPlaneMesh: func() types.Object {
+				if !isImport && data.FullMesh != nil && !data.FullMesh.ControlAndDataPlaneMesh.IsUnknown() {
 					return data.FullMesh.ControlAndDataPlaneMesh
 				}
 				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.FullMesh != nil {
+			DataPlaneMesh: func() types.Object {
+				if !isImport && data.FullMesh != nil && !data.FullMesh.DataPlaneMesh.IsUnknown() {
 					return data.FullMesh.DataPlaneMesh
 				}
 				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["hub_mesh"].(map[string]interface{}); ok && (isImport || data.HubMesh != nil) {
 		data.HubMesh = &SiteMeshGroupHubMeshModel{
-			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.HubMesh != nil {
+			ControlAndDataPlaneMesh: func() types.Object {
+				if !isImport && data.HubMesh != nil && !data.HubMesh.ControlAndDataPlaneMesh.IsUnknown() {
 					return data.HubMesh.ControlAndDataPlaneMesh
 				}
 				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.HubMesh != nil {
+			DataPlaneMesh: func() types.Object {
+				if !isImport && data.HubMesh != nil && !data.HubMesh.DataPlaneMesh.IsUnknown() {
 					return data.HubMesh.DataPlaneMesh
 				}
 				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["spoke_mesh"].(map[string]interface{}); ok && (isImport || data.SpokeMesh != nil) {
 		data.SpokeMesh = &SiteMeshGroupSpokeMeshModel{
-			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.SpokeMesh != nil {
+			ControlAndDataPlaneMesh: func() types.Object {
+				if !isImport && data.SpokeMesh != nil && !data.SpokeMesh.ControlAndDataPlaneMesh.IsUnknown() {
 					return data.SpokeMesh.ControlAndDataPlaneMesh
 				}
 				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.SpokeMesh != nil {
+			DataPlaneMesh: func() types.Object {
+				if !isImport && data.SpokeMesh != nil && !data.SpokeMesh.DataPlaneMesh.IsUnknown() {
 					return data.SpokeMesh.DataPlaneMesh
 				}
 				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HubMeshGroup: func() *SiteMeshGroupSpokeMeshHubMeshGroupModel {
 				if HubMeshGroupData, ok := blockData["hub_mesh_group"].(map[string]interface{}); ok {
@@ -919,8 +959,12 @@ func (r *SiteMeshGroupResource) Read(ctx context.Context, req resource.ReadReque
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["bfd_disabled"].(map[string]interface{}); ok && isImport && data.BfdDisabled == nil {
-		data.BfdDisabled = &SiteMeshGroupEmptyModel{}
+	if !isImport && !data.BfdDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["bfd_disabled"].(map[string]interface{}); ok {
+		data.BfdDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BfdDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["bfd_enabled"].(map[string]interface{}); ok && (isImport || data.BfdEnabled != nil) {
 		data.BfdEnabled = &SiteMeshGroupBfdEnabledModel{
@@ -953,75 +997,83 @@ func (r *SiteMeshGroupResource) Read(ctx context.Context, req resource.ReadReque
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_re_fallback"].(map[string]interface{}); ok && isImport && data.DisableREFallback == nil {
-		data.DisableREFallback = &SiteMeshGroupEmptyModel{}
+	if !isImport && !data.DisableREFallback.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_re_fallback"].(map[string]interface{}); ok {
+		data.DisableREFallback = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableREFallback = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["enable_re_fallback"].(map[string]interface{}); ok && isImport && data.EnableREFallback == nil {
-		data.EnableREFallback = &SiteMeshGroupEmptyModel{}
+	if !isImport && !data.EnableREFallback.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_re_fallback"].(map[string]interface{}); ok {
+		data.EnableREFallback = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableREFallback = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["full_mesh"].(map[string]interface{}); ok && (isImport || data.FullMesh != nil) {
 		data.FullMesh = &SiteMeshGroupFullMeshModel{
-			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.FullMesh != nil {
+			ControlAndDataPlaneMesh: func() types.Object {
+				if !isImport && data.FullMesh != nil && !data.FullMesh.ControlAndDataPlaneMesh.IsUnknown() {
 					return data.FullMesh.ControlAndDataPlaneMesh
 				}
 				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.FullMesh != nil {
+			DataPlaneMesh: func() types.Object {
+				if !isImport && data.FullMesh != nil && !data.FullMesh.DataPlaneMesh.IsUnknown() {
 					return data.FullMesh.DataPlaneMesh
 				}
 				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["hub_mesh"].(map[string]interface{}); ok && (isImport || data.HubMesh != nil) {
 		data.HubMesh = &SiteMeshGroupHubMeshModel{
-			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.HubMesh != nil {
+			ControlAndDataPlaneMesh: func() types.Object {
+				if !isImport && data.HubMesh != nil && !data.HubMesh.ControlAndDataPlaneMesh.IsUnknown() {
 					return data.HubMesh.ControlAndDataPlaneMesh
 				}
 				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.HubMesh != nil {
+			DataPlaneMesh: func() types.Object {
+				if !isImport && data.HubMesh != nil && !data.HubMesh.DataPlaneMesh.IsUnknown() {
 					return data.HubMesh.DataPlaneMesh
 				}
 				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["spoke_mesh"].(map[string]interface{}); ok && (isImport || data.SpokeMesh != nil) {
 		data.SpokeMesh = &SiteMeshGroupSpokeMeshModel{
-			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.SpokeMesh != nil {
+			ControlAndDataPlaneMesh: func() types.Object {
+				if !isImport && data.SpokeMesh != nil && !data.SpokeMesh.ControlAndDataPlaneMesh.IsUnknown() {
 					return data.SpokeMesh.ControlAndDataPlaneMesh
 				}
 				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.SpokeMesh != nil {
+			DataPlaneMesh: func() types.Object {
+				if !isImport && data.SpokeMesh != nil && !data.SpokeMesh.DataPlaneMesh.IsUnknown() {
 					return data.SpokeMesh.DataPlaneMesh
 				}
 				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HubMeshGroup: func() *SiteMeshGroupSpokeMeshHubMeshGroupModel {
 				if HubMeshGroupData, ok := blockData["hub_mesh_group"].(map[string]interface{}); ok {
@@ -1197,7 +1249,7 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.BfdDisabled != nil {
+	if !data.BfdDisabled.IsNull() && !data.BfdDisabled.IsUnknown() {
 		apiResource.Spec["bfd_disabled"] = map[string]interface{}{}
 	}
 	if data.BfdEnabled != nil {
@@ -1213,38 +1265,38 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 		}
 		apiResource.Spec["bfd_enabled"] = BfdEnabledMap
 	}
-	if data.DisableREFallback != nil {
+	if !data.DisableREFallback.IsNull() && !data.DisableREFallback.IsUnknown() {
 		apiResource.Spec["disable_re_fallback"] = map[string]interface{}{}
 	}
-	if data.EnableREFallback != nil {
+	if !data.EnableREFallback.IsNull() && !data.EnableREFallback.IsUnknown() {
 		apiResource.Spec["enable_re_fallback"] = map[string]interface{}{}
 	}
 	if data.FullMesh != nil {
 		FullMeshMap := make(map[string]interface{})
-		if data.FullMesh.ControlAndDataPlaneMesh != nil {
+		if !data.FullMesh.ControlAndDataPlaneMesh.IsNull() && !data.FullMesh.ControlAndDataPlaneMesh.IsUnknown() {
 			FullMeshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
-		if data.FullMesh.DataPlaneMesh != nil {
+		if !data.FullMesh.DataPlaneMesh.IsNull() && !data.FullMesh.DataPlaneMesh.IsUnknown() {
 			FullMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
 		apiResource.Spec["full_mesh"] = FullMeshMap
 	}
 	if data.HubMesh != nil {
 		HubMeshMap := make(map[string]interface{})
-		if data.HubMesh.ControlAndDataPlaneMesh != nil {
+		if !data.HubMesh.ControlAndDataPlaneMesh.IsNull() && !data.HubMesh.ControlAndDataPlaneMesh.IsUnknown() {
 			HubMeshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
-		if data.HubMesh.DataPlaneMesh != nil {
+		if !data.HubMesh.DataPlaneMesh.IsNull() && !data.HubMesh.DataPlaneMesh.IsUnknown() {
 			HubMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
 		apiResource.Spec["hub_mesh"] = HubMeshMap
 	}
 	if data.SpokeMesh != nil {
 		SpokeMeshMap := make(map[string]interface{})
-		if data.SpokeMesh.ControlAndDataPlaneMesh != nil {
+		if !data.SpokeMesh.ControlAndDataPlaneMesh.IsNull() && !data.SpokeMesh.ControlAndDataPlaneMesh.IsUnknown() {
 			SpokeMeshMap["control_and_data_plane_mesh"] = map[string]interface{}{}
 		}
-		if data.SpokeMesh.DataPlaneMesh != nil {
+		if !data.SpokeMesh.DataPlaneMesh.IsNull() && !data.SpokeMesh.DataPlaneMesh.IsUnknown() {
 			SpokeMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.SpokeMesh.HubMeshGroup != nil {
@@ -1337,8 +1389,12 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 	apiResource = fetched
 	isImport := false // Update is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if _, ok := apiResource.Spec["bfd_disabled"].(map[string]interface{}); ok && isImport && data.BfdDisabled == nil {
-		data.BfdDisabled = &SiteMeshGroupEmptyModel{}
+	if !isImport && !data.BfdDisabled.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["bfd_disabled"].(map[string]interface{}); ok {
+		data.BfdDisabled = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.BfdDisabled = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["bfd_enabled"].(map[string]interface{}); ok && (isImport || data.BfdEnabled != nil) {
 		data.BfdEnabled = &SiteMeshGroupBfdEnabledModel{
@@ -1371,75 +1427,83 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["disable_re_fallback"].(map[string]interface{}); ok && isImport && data.DisableREFallback == nil {
-		data.DisableREFallback = &SiteMeshGroupEmptyModel{}
+	if !isImport && !data.DisableREFallback.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["disable_re_fallback"].(map[string]interface{}); ok {
+		data.DisableREFallback = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.DisableREFallback = types.ObjectNull(map[string]attr.Type{})
 	}
-	if _, ok := apiResource.Spec["enable_re_fallback"].(map[string]interface{}); ok && isImport && data.EnableREFallback == nil {
-		data.EnableREFallback = &SiteMeshGroupEmptyModel{}
+	if !isImport && !data.EnableREFallback.IsUnknown() {
+		// Normal Read: preserve the configured marker presence.
+	} else if _, ok := apiResource.Spec["enable_re_fallback"].(map[string]interface{}); ok {
+		data.EnableREFallback = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+	} else {
+		data.EnableREFallback = types.ObjectNull(map[string]attr.Type{})
 	}
 	if blockData, ok := apiResource.Spec["full_mesh"].(map[string]interface{}); ok && (isImport || data.FullMesh != nil) {
 		data.FullMesh = &SiteMeshGroupFullMeshModel{
-			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.FullMesh != nil {
+			ControlAndDataPlaneMesh: func() types.Object {
+				if !isImport && data.FullMesh != nil && !data.FullMesh.ControlAndDataPlaneMesh.IsUnknown() {
 					return data.FullMesh.ControlAndDataPlaneMesh
 				}
 				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.FullMesh != nil {
+			DataPlaneMesh: func() types.Object {
+				if !isImport && data.FullMesh != nil && !data.FullMesh.DataPlaneMesh.IsUnknown() {
 					return data.FullMesh.DataPlaneMesh
 				}
 				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["hub_mesh"].(map[string]interface{}); ok && (isImport || data.HubMesh != nil) {
 		data.HubMesh = &SiteMeshGroupHubMeshModel{
-			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.HubMesh != nil {
+			ControlAndDataPlaneMesh: func() types.Object {
+				if !isImport && data.HubMesh != nil && !data.HubMesh.ControlAndDataPlaneMesh.IsUnknown() {
 					return data.HubMesh.ControlAndDataPlaneMesh
 				}
 				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.HubMesh != nil {
+			DataPlaneMesh: func() types.Object {
+				if !isImport && data.HubMesh != nil && !data.HubMesh.DataPlaneMesh.IsUnknown() {
 					return data.HubMesh.DataPlaneMesh
 				}
 				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
 	}
 	if blockData, ok := apiResource.Spec["spoke_mesh"].(map[string]interface{}); ok && (isImport || data.SpokeMesh != nil) {
 		data.SpokeMesh = &SiteMeshGroupSpokeMeshModel{
-			ControlAndDataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.SpokeMesh != nil {
+			ControlAndDataPlaneMesh: func() types.Object {
+				if !isImport && data.SpokeMesh != nil && !data.SpokeMesh.ControlAndDataPlaneMesh.IsUnknown() {
 					return data.SpokeMesh.ControlAndDataPlaneMesh
 				}
 				if _, ok := blockData["control_and_data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
-			DataPlaneMesh: func() *SiteMeshGroupEmptyModel {
-				if !isImport && data.SpokeMesh != nil {
+			DataPlaneMesh: func() types.Object {
+				if !isImport && data.SpokeMesh != nil && !data.SpokeMesh.DataPlaneMesh.IsUnknown() {
 					return data.SpokeMesh.DataPlaneMesh
 				}
 				if _, ok := blockData["data_plane_mesh"].(map[string]interface{}); ok {
-					return &SiteMeshGroupEmptyModel{}
+					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
-				return nil
+				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			HubMeshGroup: func() *SiteMeshGroupSpokeMeshHubMeshGroupModel {
 				if HubMeshGroupData, ok := blockData["hub_mesh_group"].(map[string]interface{}); ok {

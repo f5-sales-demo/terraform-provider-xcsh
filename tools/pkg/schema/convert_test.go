@@ -543,3 +543,64 @@ func TestExtractNestedAttributes_ObjectReferenceServerFieldsComputedOnly(t *test
 		t.Errorf("namespace must stay Optional+Computed+UseStateForUnknown, got %+v", ns)
 	}
 }
+
+func TestReferencedFieldPreservesPropertyMutability(t *testing.T) {
+	spec := &openapi.Spec{Components: openapi.Components{Schemas: map[string]openapi.Schema{
+		"Selector": {Type: "object", Properties: map[string]openapi.Schema{"expressions": {Type: "array", Items: &openapi.Schema{Type: "string"}}}},
+	}}}
+	for _, direct := range []bool{false, true} {
+		field := openapi.Schema{XFieldMutability: "immutable"}
+		if direct {
+			field.Ref = "#/components/schemas/Selector"
+		} else {
+			field.AllOf = []openapi.Schema{{Ref: "#/components/schemas/Selector"}}
+		}
+		got := ConvertToTerraformAttribute("site_selector", field, false, "", spec)
+		if !got.Immutable || got.PlanModifier != "RequiresReplace" || !got.IsBlock {
+			t.Fatalf("reference lost property mutability (direct=%v): %+v", direct, got)
+		}
+	}
+}
+
+func TestReferencePropertiesRetainOwnConflicts(t *testing.T) {
+	for _, wrapper := range []string{"ref", "allOf"} {
+		for _, conflicts := range [][]string{{"other_choice"}, {}} {
+			t.Run(wrapper+strings.Join(conflicts, ","), func(t *testing.T) {
+				spec := &openapi.Spec{Components: openapi.Components{Schemas: map[string]openapi.Schema{"Choice": {Type: "object", XF5XCConflictsWith: []string{"inherited"}}}}}
+				property := openapi.Schema{XF5XCConflictsWith: conflicts}
+				if wrapper == "ref" {
+					property.Ref = "#/components/schemas/Choice"
+				} else {
+					property.AllOf = []openapi.Schema{{Ref: "#/components/schemas/Choice"}}
+				}
+				got := ConvertToTerraformAttribute("choice", property, false, "", spec)
+				if !reflect.DeepEqual(got.ConflictsWith, conflicts) {
+					t.Fatalf("property conflicts lost: got %v want %v", got.ConflictsWith, conflicts)
+				}
+				if !reflect.DeepEqual(spec.Components.Schemas["Choice"].XF5XCConflictsWith, []string{"inherited"}) {
+					t.Fatal("conversion mutated the shared component")
+				}
+			})
+		}
+	}
+}
+
+func TestEmptyConflictingObjectUsesNullableAttribute(t *testing.T) {
+	spec := &openapi.Spec{Components: openapi.Components{Schemas: map[string]openapi.Schema{
+		"Empty": {Type: "object"},
+	}}}
+	for _, wrapper := range []string{"ref", "allOf"} {
+		t.Run(wrapper, func(t *testing.T) {
+			property := openapi.Schema{XF5XCConflictsWith: []string{"other"}}
+			if wrapper == "ref" {
+				property.Ref = "#/components/schemas/Empty"
+			} else {
+				property.AllOf = []openapi.Schema{{Ref: "#/components/schemas/Empty"}}
+			}
+			got := ConvertToTerraformAttributeWithDepth("marker", property, false, "choice", spec, 2, "parent.marker")
+			if got.IsBlock || got.Type != "object" || !got.EmptyObjectMarker || !got.Optional {
+				t.Fatalf("empty choice marker must preserve unknown presence as an object attribute: %+v", got)
+			}
+		})
+	}
+}
