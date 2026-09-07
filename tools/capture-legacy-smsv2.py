@@ -6,6 +6,10 @@ No cloud credentials or cloud resources are used. Terraform state and the
 short-lived test certificate stay in a temporary directory and are removed.
 """
 
+# The hyphenated CLI filename and BaseHTTPRequestHandler method names are
+# established external interfaces rather than Python identifiers we control.
+# pylint: disable=invalid-name
+
 from __future__ import annotations
 
 import argparse
@@ -40,6 +44,194 @@ PLATFORMS = (
     "rseries",
     "vmware",
 )
+
+
+def _legacy_config(
+    platform: str, server_port: int, certificate: Path, key: Path
+) -> dict[str, Any]:
+    """Build the common legacy Terraform configuration."""
+    return {
+        "terraform": {
+            "required_providers": {
+                "volterra": {
+                    "source": "volterraedge/volterra",
+                    "version": "0.12.2",
+                },
+            }
+        },
+        "provider": {
+            "volterra": {
+                "url": f"https://127.0.0.1:{server_port}/api",
+                "api_cert": str(certificate),
+                "api_key": str(key),
+                "api_ca_cert": str(certificate),
+            }
+        },
+        "resource": {
+            "volterra_securemesh_site_v2": {
+                "fixture": {
+                    "name": "smsv2-parity-fixture",
+                    "namespace": "system",
+                    "description": "independent legacy wire fixture",
+                    "block_all_services": True,
+                    "logs_streaming_disabled": True,
+                    "enable_ha": False,
+                    "re_select": [{"geo_proximity": True}],
+                    platform: [{"not_managed": [{}]}],
+                    "software_settings": [
+                        {
+                            "os": [{"default_os_version": True}],
+                            "sw": [{"default_sw_version": True}],
+                        }
+                    ],
+                }
+            }
+        },
+    }
+
+
+def _apply_scenario(
+    config: dict[str, Any], platform: str, scenario: str
+) -> None:
+    """Apply one focused legacy serialization scenario."""
+    resource = config["resource"]["volterra_securemesh_site_v2"]["fixture"]
+    if scenario in ("logging", "logging-network"):
+        resource.pop("logs_streaming_disabled")
+        receiver = [{"name": "parity-log-receiver", "namespace": "system"}]
+        if scenario == "logging":
+            resource["log_receiver"] = receiver
+        else:
+            resource["log_receiver_with_net"] = [
+                {"log_receiver": receiver, "use_slo_sli": True}
+            ]
+    if scenario == "specific-geography":
+        resource["re_select"] = [{"specific_geography": "US"}]
+    elif scenario == "drain-percentage":
+        resource["upgrade_settings"] = [
+            {
+                "kubernetes_upgrade_drain": [
+                    {
+                        "enable_upgrade_drain": [
+                            {
+                                "drain_max_unavailable_node_percentage": 50,
+                                "drain_node_timeout": 300,
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    elif scenario == "private-adn":
+        resource["private_adn"] = [{"private_adn": "parity-private-adn"}]
+    if scenario not in ("static-dns", "dhcp-server", "dhcpv6-server"):
+        return
+    interface: dict[str, Any] = {
+        "name": "parity-interface",
+        "ethernet_interface": [
+            {"device": "ens6", "mac": "02:00:00:00:00:06"}
+        ],
+        "no_ipv6_address": True,
+        "network_option": [{"site_local_inside_network": True}],
+    }
+    if scenario == "static-dns":
+        interface["static_ip"] = [
+            {
+                "ip_address": "192.0.2.10/24",
+                "default_gw": "192.0.2.1",
+                "dns_server": "192.0.2.53",
+            }
+        ]
+    elif scenario == "dhcp-server":
+        interface["dhcp_server"] = [
+            {
+                "automatic_from_start": True,
+                "dhcp_option82_tag": "parity-option82",
+                "fixed_ip_map": {"02:00:00:00:00:20": "192.0.2.20"},
+                "dhcp_networks": [
+                    {
+                        "network_prefix": "192.0.2.0/24",
+                        "dgw_address": "192.0.2.1",
+                        "dns_address": "192.0.2.53",
+                        "pool_settings": "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
+                        "pools": [
+                            {
+                                "start_ip": "192.0.2.20",
+                                "end_ip": "192.0.2.30",
+                                "exclude": True,
+                            }
+                        ],
+                    }
+                ],
+            }
+        ]
+    else:
+        interface.pop("no_ipv6_address")
+        interface["dhcp_client"] = True
+        interface["ipv6_auto_config"] = [
+            {
+                "router": [
+                    {
+                        "stateful": [
+                            {
+                                "dhcp_networks": [
+                                    {
+                                        "network_prefix": "2001:db8:1::/64",
+                                        "pool_settings": (
+                                            "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"
+                                        ),
+                                        "pools": [
+                                            {
+                                                "start_ip": "2001:db8:1::20",
+                                                "end_ip": "2001:db8:1::30",
+                                                "exclude": True,
+                                            }
+                                        ],
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    resource[platform] = [
+        {
+            "not_managed": [
+                {
+                    "node_list": [
+                        {"hostname": "parity-node", "interface_list": [interface]}
+                    ]
+                }
+            ]
+        }
+    ]
+
+
+def _run_terraform(terraform: str, root: Path, cli_config: Path) -> None:
+    """Run the isolated legacy provider fixture."""
+    env = {
+        key: value
+        for key, value in os.environ.items()
+        if not key.startswith(("VES_", "VOLTERRA_", "XCSH_", "TF_"))
+    }
+    env["TF_CLI_CONFIG_FILE"] = str(cli_config)
+    env["NO_PROXY"] = "127.0.0.1,localhost"
+    env["no_proxy"] = env["NO_PROXY"]
+    terraform_result = subprocess.run(  # noqa: S603 - isolated fixed config
+        [terraform, "apply", "-auto-approve", "-input=false", "-no-color"],
+        cwd=root,
+        env=env,
+        capture_output=True,
+        text=True,
+        timeout=90,
+        check=False,
+    )
+    if terraform_result.returncode:
+        message = (
+            "loopback Terraform failed: "
+            f"{terraform_result.stdout}\n{terraform_result.stderr}"
+        )
+        raise RuntimeError(message)
 
 
 def capture(binary: Path, platform: str, scenario: str = "discovery") -> dict[str, Any]:
@@ -127,179 +319,11 @@ def capture(binary: Path, platform: str, scenario: str = "discovery") -> dict[st
             + json.dumps(str(plugin_dir))
             + " } direct {} }"
         )
-        config = {
-            "terraform": {
-                "required_providers": {
-                    "volterra": {
-                        "source": "volterraedge/volterra",
-                        "version": "0.12.2",
-                    },
-                }
-            },
-            "provider": {
-                "volterra": {
-                    "url": f"https://127.0.0.1:{server.server_port}/api",
-                    "api_cert": str(certificate),
-                    "api_key": str(key),
-                    "api_ca_cert": str(certificate),
-                }
-            },
-            "resource": {
-                "volterra_securemesh_site_v2": {
-                    "fixture": {
-                        "name": "smsv2-parity-fixture",
-                        "namespace": "system",
-                        "description": "independent legacy wire fixture",
-                        "block_all_services": True,
-                        "logs_streaming_disabled": True,
-                        "enable_ha": False,
-                        "re_select": [{"geo_proximity": True}],
-                        platform: [{"not_managed": [{}]}],
-                        "software_settings": [
-                            {
-                                "os": [{"default_os_version": True}],
-                                "sw": [{"default_sw_version": True}],
-                            }
-                        ],
-                    }
-                }
-            },
-        }
-        if scenario in ("logging", "logging-network"):
-            resource = config["resource"]["volterra_securemesh_site_v2"]["fixture"]
-            resource.pop("logs_streaming_disabled")
-            receiver = [{"name": "parity-log-receiver", "namespace": "system"}]
-            if scenario == "logging":
-                resource["log_receiver"] = receiver
-            else:
-                resource["log_receiver_with_net"] = [
-                    {"log_receiver": receiver, "use_slo_sli": True}
-                ]
-        resource = config["resource"]["volterra_securemesh_site_v2"]["fixture"]
-        if scenario == "specific-geography":
-            resource["re_select"] = [{"specific_geography": "US"}]
-        elif scenario == "drain-percentage":
-            resource["upgrade_settings"] = [
-                {
-                    "kubernetes_upgrade_drain": [
-                        {
-                            "enable_upgrade_drain": [
-                                {
-                                    "drain_max_unavailable_node_percentage": 50,
-                                    "drain_node_timeout": 300,
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        elif scenario == "private-adn":
-            resource["private_adn"] = [{"private_adn": "parity-private-adn"}]
-        if scenario in ("static-dns", "dhcp-server", "dhcpv6-server"):
-            interface = {
-                "name": "parity-interface",
-                "ethernet_interface": [{"device": "ens6", "mac": "02:00:00:00:00:06"}],
-                "no_ipv6_address": True,
-                "network_option": [{"site_local_inside_network": True}],
-            }
-            if scenario == "static-dns":
-                interface["static_ip"] = [
-                    {
-                        "ip_address": "192.0.2.10/24",
-                        "default_gw": "192.0.2.1",
-                        "dns_server": "192.0.2.53",
-                    }
-                ]
-            elif scenario == "dhcp-server":
-                interface["dhcp_server"] = [
-                    {
-                        "automatic_from_start": True,
-                        "dhcp_option82_tag": "parity-option82",
-                        "fixed_ip_map": {"02:00:00:00:00:20": "192.0.2.20"},
-                        "dhcp_networks": [
-                            {
-                                "network_prefix": "192.0.2.0/24",
-                                "dgw_address": "192.0.2.1",
-                                "dns_address": "192.0.2.53",
-                                "pool_settings": "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
-                                "pools": [
-                                    {
-                                        "start_ip": "192.0.2.20",
-                                        "end_ip": "192.0.2.30",
-                                        "exclude": True,
-                                    }
-                                ],
-                            }
-                        ],
-                    }
-                ]
-            elif scenario == "dhcpv6-server":
-                interface.pop("no_ipv6_address")
-                interface["dhcp_client"] = True
-                interface["ipv6_auto_config"] = [
-                    {
-                        "router": [
-                            {
-                                "stateful": [
-                                    {
-                                        "dhcp_networks": [
-                                            {
-                                                "network_prefix": "2001:db8:1::/64",
-                                                "pool_settings": "INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
-                                                "pools": [
-                                                    {
-                                                        "start_ip": "2001:db8:1::20",
-                                                        "end_ip": "2001:db8:1::30",
-                                                        "exclude": True,
-                                                    }
-                                                ],
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            else:
-                message = f"unknown scenario: {scenario}"
-                raise ValueError(message)
-            config["resource"]["volterra_securemesh_site_v2"]["fixture"][platform] = [
-                {
-                    "not_managed": [
-                        {
-                            "node_list": [
-                                {
-                                    "hostname": "parity-node",
-                                    "interface_list": [interface],
-                                }
-                            ]
-                        }
-                    ],
-                }
-            ]
+        config = _legacy_config(platform, server.server_port, certificate, key)
+        _apply_scenario(config, platform, scenario)
         (root / "main.tf.json").write_text(json.dumps(config))
-        env = {
-            k: v
-            for k, v in os.environ.items()
-            if not k.startswith(("VES_", "VOLTERRA_", "XCSH_", "TF_"))
-        }
-        env["TF_CLI_CONFIG_FILE"] = str(cli_config)
-        env["NO_PROXY"] = "127.0.0.1,localhost"
-        env["no_proxy"] = env["NO_PROXY"]
         try:
-            result = subprocess.run(  # noqa: S603 - resolved Terraform, isolated fixed config
-                [terraform, "apply", "-auto-approve", "-input=false", "-no-color"],
-                cwd=root,
-                env=env,
-                capture_output=True,
-                text=True,
-                timeout=90,
-                check=False,
-            )
-            if result.returncode:
-                message = f"loopback Terraform failed: {result.stdout}\n{result.stderr}"
-                raise RuntimeError(message)
+            _run_terraform(terraform, root, cli_config)
         finally:
             server.shutdown()
             server.server_close()
@@ -312,7 +336,7 @@ def capture(binary: Path, platform: str, scenario: str = "discovery") -> dict[st
     }:
         message = "legacy platform discovery did not serialize as expected"
         raise ValueError(message)
-    result = {
+    receipt: dict[str, Any] = {
         "legacy_version": "0.12.2",
         "source_commit": SOURCE_COMMIT,
         "linux_amd64_binary_sha256": LEGACY_SHA256,
@@ -325,10 +349,10 @@ def capture(binary: Path, platform: str, scenario: str = "discovery") -> dict[st
         ],
     }
     if scenario != "discovery":
-        result["configuration"] = config["resource"]["volterra_securemesh_site_v2"][
+        receipt["configuration"] = config["resource"]["volterra_securemesh_site_v2"][
             "fixture"
         ]
-    return result
+    return receipt
 
 
 def main() -> None:
