@@ -7,6 +7,7 @@ import datetime as dt
 import hashlib
 import json
 import pathlib
+import re
 import sys
 from typing import NoReturn
 
@@ -539,40 +540,122 @@ def valid_parity_paths(paths: object) -> tuple[list[str], bool]:
     return path_names, True
 
 
+def valid_typed_sha256(value: object) -> bool:
+    """Return whether value is a canonical typed SHA-256 digest."""
+    return (
+        isinstance(value, str)
+        and re.fullmatch(r"sha256:[0-9a-f]{64}", value) is not None
+    )
+
+
+def valid_observed_date(value: object) -> bool:
+    """Return whether value is a concrete ISO calendar date."""
+    if not isinstance(value, str):
+        return False
+    try:
+        dt.date.fromisoformat(value)
+    except ValueError:
+        return False
+    return True
+
+
+def removal_path_is_absent(path: str, path_names: list[str]) -> bool:
+    """Return whether a removed field and all descendants are absent."""
+    return not any(
+        candidate == path or candidate.startswith(path + ".")
+        for candidate in path_names
+    )
+
+
+def validate_platform_removal_evidence(parity: dict, path_names: list[str]) -> bool:
+    """Validate the exact evidence-backed rSeries platform removal."""
+    removals = parity.get("current_platform_removals")
+    evidence = parity.get("platform_removal_evidence")
+    path = "spec.rseries"
+    if removals != [path] or not isinstance(evidence, dict) or set(evidence) != {path}:
+        return False
+    proof = evidence[path]
+    if not isinstance(proof, dict):
+        return False
+    return all(
+        (
+            proof.get("classification") == "current_platform_removal",
+            proof.get("proof_kind") == "explicit_api_rejection",
+            proof.get("http_status") in (400, 410, 422),
+            isinstance(proof.get("server_message"), str)
+            and proof["server_message"].strip().casefold()
+            == "Rseries provider is not supported for SecureMeshSite".casefold(),
+            valid_observed_date(proof.get("observed_date")),
+            valid_typed_sha256(proof.get("legacy_fixture_sha256")),
+            valid_typed_sha256(proof.get("probe_receipt_sha256")),
+            removal_path_is_absent(path, path_names),
+        )
+    )
+
+
+def validate_feature_removal_evidence(parity: dict, path_names: list[str]) -> bool:
+    """Validate the exact create/read evidence for the private ADN removal."""
+    removals = parity.get("verified_removals")
+    evidence = parity.get("verified_removal_evidence")
+    path = "spec.private_adn"
+    if removals != [path] or not isinstance(evidence, dict) or set(evidence) != {path}:
+        return False
+    proof = evidence[path]
+    if not isinstance(proof, dict):
+        return False
+    return all(
+        (
+            proof.get("classification") == "current_feature_removal",
+            proof.get("proof_kind") == "create_read_normalization",
+            proof.get("create_status") == 200,
+            proof.get("get_status") == 200,
+            proof.get("server_behavior") == "silently_removed",
+            proof.get("absence_after_probe_verified") is True,
+            valid_observed_date(proof.get("observed_date")),
+            valid_typed_sha256(proof.get("legacy_fixture_sha256")),
+            valid_typed_sha256(proof.get("probe_receipt_sha256")),
+            removal_path_is_absent(path, path_names),
+        )
+    )
+
+
 def validate_parity(parity: dict, version: str) -> None:
     """Validate the exhaustive SMSv2 path classifications."""
     paths = parity.get("paths")
     path_names, paths_are_valid = valid_parity_paths(paths)
     choice_groups = parity.get("choice_groups")
-    removals = {
-        "spec.segment_vrf[].segment_config.nameserver_v6",
-        "spec.segment_vrf[].segment_config.secondary_nameserver_v6",
-    }
     identity_is_valid = (
         parity.get("version") == version
         and parity.get("resource") == "securemesh_site_v2"
+        and parity.get("root_schema") == "securemesh_site_v2CreateRequest"
     )
     path_inventory_is_valid = (
         paths_are_valid
         and len(set(path_names)) == len(path_names)
         and parity.get("path_count") == len(path_names)
         and isinstance(choice_groups, dict)
+        and all(
+            isinstance(group, str)
+            and group
+            and isinstance(members, list)
+            and members
+            and len(set(members)) == len(members)
+            and all(isinstance(member, str) and member for member in members)
+            for group, members in choice_groups.items()
+        )
     )
-    classifications_are_valid = (
-        set(parity.get("deprecated_exclusions", []))
-        == {"spec.log_receiver", "spec.private_adn", "spec.rseries"}
-        and set(parity.get("current_platform_removals", [])) == removals
-    )
-    segment_contract_is_valid = (
-        "spec.segment_vrf[].segment_network" in path_names
-        and not any(path in path_names for path in removals)
-    )
+    classifications_are_valid = parity.get("deprecated_exclusions") == []
+    segment_contract_is_valid = "spec.segment_vrf[].segment_network" in path_names
+    removal_evidence_is_valid = validate_platform_removal_evidence(
+        parity, path_names
+    ) and validate_feature_removal_evidence(parity, path_names)
     if not all(
         (
             identity_is_valid,
             path_inventory_is_valid,
             classifications_are_valid,
             segment_contract_is_valid,
+            removal_evidence_is_valid,
         )
     ):
         fail("SMSv2 nested parity manifest is incomplete")

@@ -215,10 +215,7 @@ clean:
 # Clean all generated files (for full regeneration)
 clean-generated:
 	@echo "Cleaning generated files..."
-	rm -f $(PROVIDER_DIR)/*_resource.go
-	rm -f $(PROVIDER_DIR)/*_data_source.go
-	rm -f $(PROVIDER_DIR)/provider.go
-	rm -f $(CLIENT_DIR)/*_types.go
+	scripts/clean-generated-files.sh $(PROVIDER_DIR) $(CLIENT_DIR)
 	@echo "Generated files cleaned. Run 'make generate' to regenerate."
 
 # Full clean rebuild from specs

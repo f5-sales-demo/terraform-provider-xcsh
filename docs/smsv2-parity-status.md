@@ -80,6 +80,11 @@ normalizes IP spelling and rejects duplicate node/address expectations before HT
 requests, including duplicates that supply different MACs. MAC remains a transport
 correlation input; `role` selects the payload route view.
 
+The clean-break convergence contract names peer-scoped imports
+`expected_imported_routes` and requires site-scoped `expected_exported_routes`.
+Every configured prefix is normalized and matched exactly on the expected node and
+route view. An unrelated exported prefix cannot satisfy convergence.
+
 The current BGP telemetry response exposes node and remote address but no routing
 context or connector identifier. Ambiguous observations fail closed. Complete
 context-aware session identity requires an authoritative observation contract.

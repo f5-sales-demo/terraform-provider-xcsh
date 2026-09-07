@@ -815,11 +815,30 @@ func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]str
 		"exclusions": []any{},
 	})
 	writeJSON("smsv2_parity_manifest.json", map[string]any{
-		"version": version, "resource": "securemesh_site_v2", "path_count": 1,
+		"version": version, "resource": "securemesh_site_v2", "root_schema": "securemesh_site_v2CreateRequest", "path_count": 1,
 		"paths":                     []map[string]string{{"path": "spec.segment_vrf[].segment_network", "type": "object"}},
 		"choice_groups":             map[string]any{"spec.provider_choice": []string{"spec.baremetal"}},
-		"deprecated_exclusions":     []string{"spec.log_receiver", "spec.private_adn", "spec.rseries"},
-		"current_platform_removals": []string{"spec.segment_vrf[].segment_config.nameserver_v6", "spec.segment_vrf[].segment_config.secondary_nameserver_v6"},
+		"deprecated_exclusions":     []string{},
+		"current_platform_removals": []string{"spec.rseries"},
+		"platform_removal_evidence": map[string]any{
+			"spec.rseries": map[string]any{
+				"classification": "current_platform_removal", "proof_kind": "explicit_api_rejection",
+				"observed_date": "2026-09-06", "http_status": 400,
+				"server_message":        "Rseries provider is not supported for SecureMeshSite",
+				"legacy_fixture_sha256": "sha256:" + strings.Repeat("a", 64),
+				"probe_receipt_sha256":  "sha256:" + strings.Repeat("b", 64),
+			},
+		},
+		"verified_removals": []string{"spec.private_adn"},
+		"verified_removal_evidence": map[string]any{
+			"spec.private_adn": map[string]any{
+				"classification": "current_feature_removal", "proof_kind": "create_read_normalization",
+				"observed_date": "2026-09-06", "create_status": 200, "get_status": 200,
+				"server_behavior": "silently_removed", "absence_after_probe_verified": true,
+				"legacy_fixture_sha256": "sha256:" + strings.Repeat("c", 64),
+				"probe_receipt_sha256":  "sha256:" + strings.Repeat("d", 64),
+			},
+		},
 	})
 	writeJSON("upstream-contract-removals.json", map[string]any{"version": version, "removals": []any{}})
 	assets := map[string]string{"smsv2-contract.json": fileSHA256(t, filepath.Join(root, "smsv2-contract.json")), "smsv2-evidence-receipt.json": fileSHA256(t, filepath.Join(root, "smsv2-evidence-receipt.json"))}

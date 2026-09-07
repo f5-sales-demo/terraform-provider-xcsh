@@ -24,12 +24,12 @@ func bgpExpectedPeers(t *testing.T) types.Map {
 	t.Helper()
 	value, diagnostics := types.MapValueFrom(context.Background(), types.ObjectType{AttrTypes: map[string]attr.Type{
 		"node": types.StringType, "role": types.StringType, "mac": types.StringType,
-		"peer_address": types.StringType, "expected_routes": types.SetType{ElemType: types.StringType},
+		"peer_address": types.StringType, "expected_imported_routes": types.SetType{ElemType: types.StringType},
 	}}, map[string]smsv2ExpectedPeerModel{
 		"outside": {
 			Node: types.StringValue("master-0"), Role: types.StringValue("slo"),
 			MAC: types.StringValue("02-AA-BB-CC-DD-01"), PeerAddress: types.StringValue("169.254.10.1"),
-			ExpectedRoutes: types.SetValueMust(types.StringType, []attr.Value{types.StringValue("10.10.0.0/16")}),
+			ExpectedImportedRoutes: types.SetValueMust(types.StringType, []attr.Value{types.StringValue("10.10.0.0/16")}),
 		},
 	})
 	if diagnostics.HasError() {
@@ -38,11 +38,21 @@ func bgpExpectedPeers(t *testing.T) types.Map {
 	return value
 }
 
+func bgpExpectedExportedRoutes() types.Set {
+	return types.SetValueMust(types.StringType, []attr.Value{types.StringValue("10.20.0.0/16")})
+}
+
 func bgpReadRequest(t *testing.T, schemaResponse *datasource.SchemaResponse, expected types.Map, timeout, poll int64) datasource.ReadRequest {
+	return bgpReadRequestWithExport(t, schemaResponse, expected, bgpExpectedExportedRoutes(), timeout, poll)
+}
+
+func bgpReadRequestWithExport(t *testing.T, schemaResponse *datasource.SchemaResponse, expected types.Map, exported types.Set, timeout, poll int64) datasource.ReadRequest {
 	t.Helper()
 	model := SiteBGPStatusDataSourceModel{
 		ID: types.StringNull(), Namespace: types.StringValue("system"), Site: types.StringValue("lab-site"),
-		ExpectedPeers: expected, TimeoutSeconds: types.Int64Value(timeout), PollIntervalSeconds: types.Int64Value(poll),
+		ExpectedPeers:          expected,
+		ExpectedExportedRoutes: exported,
+		TimeoutSeconds:         types.Int64Value(timeout), PollIntervalSeconds: types.Int64Value(poll),
 		Peers:         types.MapNull(types.ObjectType{AttrTypes: smsv2PeerStatusAttrTypes}),
 		BGPRoutesJSON: types.StringNull(), SLORoutesJSON: types.StringNull(), SLIRoutesJSON: types.StringNull(), Converged: types.BoolNull(),
 	}
@@ -50,6 +60,67 @@ func bgpReadRequest(t *testing.T, schemaResponse *datasource.SchemaResponse, exp
 		Schema: schemaResponse.Schema,
 		Raw:    responseOperationRaw(t, model, schemaResponse.Schema.Type()),
 	}}
+}
+
+func TestNormalizeExpectedRouteSetCanonicalizesAndDeduplicates(t *testing.T) {
+	configured := types.SetValueMust(types.StringType, []attr.Value{
+		types.StringValue("10.0.0.1/24"),
+		types.StringValue("10.0.0.0/24"),
+	})
+	normalized, state, err := normalizeExpectedRouteSet(context.Background(), configured)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(normalized) != 1 || normalized[0] != "10.0.0.0/24" || len(state.Elements()) != 1 {
+		t.Fatalf("normalized=%v state=%v", normalized, state)
+	}
+}
+
+func TestSiteBGPStatusRouteExpectationsFailBeforeHTTP(t *testing.T) {
+	withSMSv2Capabilities(t, map[string]string{"runtime_status": "available", "tgw_connect": "available"})
+	ctx := context.Background()
+	for _, test := range []struct {
+		name     string
+		exported types.Set
+		want     string
+	}{
+		{name: "empty", exported: types.SetValueMust(types.StringType, nil), want: "at least one prefix"},
+		{name: "invalid", exported: types.SetValueMust(types.StringType, []attr.Value{types.StringValue("not-a-prefix")}), want: "is invalid"},
+	} {
+		t.Run(test.name, func(t *testing.T) {
+			requests := 0
+			server := httptest.NewServer(http.HandlerFunc(func(http.ResponseWriter, *http.Request) { requests++ }))
+			defer server.Close()
+			source := &SiteBGPStatusDataSource{client: client.NewClient(server.URL, "test-token", client.WithMaxRetries(0))}
+			schemaResponse := &datasource.SchemaResponse{}
+			source.Schema(ctx, datasource.SchemaRequest{}, schemaResponse)
+			response := datasource.ReadResponse{State: tfsdk.State{Schema: schemaResponse.Schema}}
+			source.Read(ctx, bgpReadRequestWithExport(t, schemaResponse, bgpExpectedPeers(t), test.exported, 1, 1), &response)
+			if !response.Diagnostics.HasError() || !strings.Contains(fmt.Sprint(response.Diagnostics), test.want) || requests != 0 {
+				t.Fatalf("invalid export reached HTTP: requests=%d diagnostics=%v", requests, response.Diagnostics)
+			}
+		})
+	}
+}
+
+func TestSMSv2BGPRequiresExactExportedRoutes(t *testing.T) {
+	configured, err := resolvedRuntimeFixture(runtimeConfiguration())
+	if err != nil {
+		t.Fatal(err)
+	}
+	expected := map[string]smsv2ExpectedPeerModel{}
+	if diagnostics := bgpExpectedPeers(t).ElementsAs(context.Background(), &expected, false); diagnostics.HasError() {
+		t.Fatal(diagnostics)
+	}
+	peers, err := extractSMSv2BGPPeers(bgpPeerFixture("Established"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	wantExport := types.SetValueMust(types.StringType, []attr.Value{types.StringValue("10.99.0.10/32")})
+	_, converged, reason := convergeSMSv2BGP(expected, wantExport, configured, peers, bgpRoutesFixture(), simplifiedRoutesFixture(), simplifiedRoutesFixture())
+	if converged || !strings.Contains(reason, "expected exported BGP route 10.99.0.10/32") {
+		t.Fatalf("unrelated export satisfied exact expectation: converged=%t reason=%q", converged, reason)
+	}
 }
 
 func bgpPeerFixture(state string) map[string]interface{} {

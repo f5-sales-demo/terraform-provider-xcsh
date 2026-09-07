@@ -72,6 +72,39 @@ func TestExtractSiteUpgradeStatusIgnoresArrayOrderAndAcceptsDuplicates(t *testin
 	}
 }
 
+func TestExtractSiteUpgradeStatusAcceptsHeterogeneousStatusRecords(t *testing.T) {
+	observation := upgradeSiteObservation(baselineSoftware, baselineOS, "COMPLETED")
+	combined := observation["status"].([]interface{})[0].(map[string]interface{})
+	observation["status"] = []interface{}{
+		map[string]interface{}{
+			"ver_status":               map[string]interface{}{"intf_status": []interface{}{}},
+			"volterra_software_status": nil,
+			"operating_system_status":  nil,
+		},
+		map[string]interface{}{
+			"volterra_software_status": combined["volterra_software_status"],
+			"operating_system_status":  nil,
+		},
+		map[string]interface{}{
+			"volterra_software_status": nil,
+			"operating_system_status":  combined["operating_system_status"],
+		},
+		map[string]interface{}{
+			"hw_info":                  map[string]interface{}{"network": []interface{}{}},
+			"volterra_software_status": nil,
+			"operating_system_status":  nil,
+		},
+	}
+
+	got, err := extractSiteUpgradeStatus(observation)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got.SoftwareInstalledVersion != baselineSoftware || got.OSInstalledVersion != baselineOS {
+		t.Fatalf("status = %#v", got)
+	}
+}
+
 func TestExtractSiteUpgradeStatusRejectsConflictsAndMissingFields(t *testing.T) {
 	conflict := upgradeSiteObservation(baselineSoftware, baselineOS, "COMPLETED")
 	other := upgradeSiteObservation("crt-conflict", baselineOS, "COMPLETED")["status"].([]interface{})[0]
@@ -90,6 +123,20 @@ func TestExtractSiteUpgradeStatusRejectsConflictsAndMissingFields(t *testing.T) 
 	incomplete["status"] = append(incomplete["status"].([]interface{}), incompleteEntry)
 	if _, err := extractSiteUpgradeStatus(incomplete); err == nil || !strings.Contains(err.Error(), "software_installed_version") {
 		t.Fatalf("partially missing status error = %v", err)
+	}
+	malformed := upgradeSiteObservation(baselineSoftware, baselineOS, "COMPLETED")
+	malformed["status"] = append(malformed["status"].([]interface{}), map[string]interface{}{"volterra_software_status": "invalid"})
+	if _, err := extractSiteUpgradeStatus(malformed); err == nil || !strings.Contains(err.Error(), "malformed") {
+		t.Fatalf("malformed applicable status error = %v", err)
+	}
+	unsupported := upgradeSiteObservation(baselineSoftware, baselineOS, "COMPLETED")
+	unsupported["status"] = []interface{}{map[string]interface{}{
+		"ver_status":               map[string]interface{}{"intf_status": []interface{}{}},
+		"volterra_software_status": nil,
+		"operating_system_status":  nil,
+	}}
+	if _, err := extractSiteUpgradeStatus(unsupported); err == nil || !strings.Contains(err.Error(), "software_installed_version") {
+		t.Fatalf("no applicable status error = %v", err)
 	}
 }
 

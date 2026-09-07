@@ -33,20 +33,22 @@ data "xcsh_site_bgp_status" "site" {
   namespace = "system"
   site      = "example-smsv2-site"
 
+  expected_exported_routes = ["10.40.0.10/32"]
+
   expected_peers = {
     node_0_slo = {
-      node            = "node-0"
-      role            = "slo"
-      mac             = "02:00:00:00:00:10"
-      peer_address    = "169.254.100.1"
-      expected_routes = ["10.20.0.0/16"]
+      node                     = "node-0"
+      role                     = "slo"
+      mac                      = "02:00:00:00:00:10"
+      peer_address             = "169.254.100.1"
+      expected_imported_routes = ["10.20.0.0/16"]
     }
     node_0_sli = {
-      node            = "node-0"
-      role            = "sli"
-      mac             = "02:00:00:00:00:11"
-      peer_address    = "169.254.101.1"
-      expected_routes = ["10.30.0.0/16"]
+      node                     = "node-0"
+      role                     = "sli"
+      mac                      = "02:00:00:00:00:11"
+      peer_address             = "169.254.101.1"
+      expected_imported_routes = ["10.30.0.0/16"]
     }
   }
 
@@ -75,6 +77,8 @@ output "bgp_peers" {
 
 ### Spec Argument Reference
 
+<a id="expected-exported-routes"></a>&#x2022; [`expected_exported_routes`](#expected-exported-routes) - Required Set<br>Exact prefixes that every expected node must export and carry in the selected SLO or SLI route view
+
 <a id="expected-peers"></a>&#x2022; [`expected_peers`](#expected-peers) - Required Map
 
 <a id="poll-interval-seconds"></a>&#x2022; [`poll_interval_seconds`](#poll-interval-seconds) - Optional Number
@@ -99,7 +103,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="slo-routes-json"></a>&#x2022; [`slo_routes_json`](#slo-routes-json) - Optional String
 
-<a id="expected-routes"></a>&#x2022; [`expected_routes`](#expected-routes) - Optional Set<br>Prefixes that must be imported from this remote peer on the expected node
+<a id="expected-imported-routes"></a>&#x2022; [`expected_imported_routes`](#expected-imported-routes) - Optional Set<br>Exact prefixes that must be imported from this remote peer on the expected node
 
 <a id="mac"></a>&#x2022; [`mac`](#mac) - Optional String
 

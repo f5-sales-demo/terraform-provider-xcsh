@@ -81,6 +81,7 @@ type Schema struct {
 
 	// Enrichment — actionable in generation
 	XF5XCConflictsWith           []string               `json:"x-f5xc-conflicts-with"`
+	XF5XCRequiredOneOfGroups     map[string][]string    `json:"x-f5xc-required-oneof-groups"`
 	XF5XCConstraints             map[string]interface{} `json:"x-f5xc-constraints"`
 	XF5XCRecommendedOneofVariant interface{}            `json:"x-f5xc-recommended-oneof-variant"`
 	XFieldMutability             string                 `json:"x-field-mutability"`

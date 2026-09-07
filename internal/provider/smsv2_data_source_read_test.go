@@ -161,9 +161,10 @@ func TestSMSv2DataSourcesDeferNestedUnknowns(t *testing.T) {
 		ID: types.StringNull(), Namespace: types.StringValue("system"), Site: types.StringValue("lab-site"),
 		ExpectedPeers: types.MapUnknown(types.ObjectType{AttrTypes: map[string]attr.Type{
 			"node": types.StringType, "role": types.StringType, "mac": types.StringType,
-			"peer_address": types.StringType, "expected_routes": types.SetType{ElemType: types.StringType},
+			"peer_address": types.StringType, "expected_imported_routes": types.SetType{ElemType: types.StringType},
 		}}),
-		TimeoutSeconds: types.Int64Null(), PollIntervalSeconds: types.Int64Null(),
+		ExpectedExportedRoutes: types.SetUnknown(types.StringType),
+		TimeoutSeconds:         types.Int64Null(), PollIntervalSeconds: types.Int64Null(),
 		Peers:         types.MapNull(types.ObjectType{AttrTypes: smsv2PeerStatusAttrTypes}),
 		BGPRoutesJSON: types.StringNull(), SLORoutesJSON: types.StringNull(), SLIRoutesJSON: types.StringNull(), Converged: types.BoolNull(),
 	}

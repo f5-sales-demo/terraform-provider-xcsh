@@ -54,7 +54,7 @@ func TestSMSv2BGPExpectedRouteRequiresSessionPath(t *testing.T) {
 			simplified := simplifiedRoutesFixture()
 			n := simplified["ver_routes"].([]interface{})[0].(map[string]interface{})
 			n["route"] = append(n["route"].([]interface{}), map[string]interface{}{"prefix": "10.10.0.0/16"})
-			_, got, reason := convergeSMSv2BGP(expected, configured, peers, client.SMSv2Observation(routes), simplified, simplified)
+			_, got, reason := convergeSMSv2BGP(expected, bgpExpectedExportedRoutes(), configured, peers, client.SMSv2Observation(routes), simplified, simplified)
 			if got != tc.want {
 				t.Fatalf("converged=%v want=%v reason=%q", got, tc.want, reason)
 			}

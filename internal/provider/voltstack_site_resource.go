@@ -4314,7 +4314,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static Routes. List of static routes.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.RequiredOneOfListObjectAttributes("default_gateway", "ip_address", "node_interface"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4414,7 +4414,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.RequiredOneOfListObjectAttributes("default_gateway", "ip_address", "node_interface"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4571,7 +4571,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static Routes. List of static routes.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.RequiredOneOfListObjectAttributes("default_gateway", "ip_address", "node_interface"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4671,7 +4671,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Blocks: map[string]schema.Block{
 									"static_routes": schema.ListNestedBlock{
 										MarkdownDescription: "Static IPv6 Routes. List of IPv6 static routes.",
-										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
+										Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.RequiredOneOfListObjectAttributes("default_gateway", "ip_address", "node_interface"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"attrs": schema.ListAttribute{
@@ -4802,7 +4802,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Blocks: map[string]schema.Block{
 							"static_routes": schema.ListNestedBlock{
 								MarkdownDescription: "Static Routes. List of static routes.",
-								Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
+								Validators:          []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"), validators.RequiredOneOfListObjectAttributes("default_gateway", "ip_address", "node_interface"), validators.ConflictingListObjectAttributes("default_gateway", "ip_address"), validators.ConflictingListObjectAttributes("default_gateway", "node_interface"), validators.ConflictingListObjectAttributes("ip_address", "node_interface")},
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"attrs": schema.ListAttribute{

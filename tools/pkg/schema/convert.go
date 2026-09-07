@@ -650,6 +650,12 @@ func ExtractNestedAttributes(schema openapi.Schema, spec *openapi.Spec, depth in
 	for _, r := range schema.Required {
 		requiredSet[r] = true
 	}
+	requiredOneOfGroup := make(map[string]string)
+	for group, members := range schema.XF5XCRequiredOneOfGroups {
+		for _, member := range members {
+			requiredOneOfGroup[member] = group
+		}
+	}
 
 	var attrs []openapi.TerraformAttribute
 	for propName, propSchema := range schema.Properties {
@@ -660,7 +666,7 @@ func ExtractNestedAttributes(schema openapi.Schema, spec *openapi.Spec, depth in
 		// Pass the required status from the parent schema's "required" array.
 		// x-ves-required remains depth-0-only; enriched create-required metadata
 		// is evaluated by the converter at every depth.
-		attr := ConvertToTerraformAttributeWithDepth(propName, propSchema, requiredSet[propName], "", spec, depth, nestedPath)
+		attr := ConvertToTerraformAttributeWithDepth(propName, propSchema, requiredSet[propName], requiredOneOfGroup[propName], spec, depth, nestedPath)
 
 		// Mark 'namespace', 'tenant', 'uid', and 'kind' fields as Computed in nested Object Reference blocks.
 		// The API always returns these values even when not specified in config,

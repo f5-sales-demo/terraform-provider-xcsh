@@ -391,6 +391,32 @@ func TestExtractNestedAttributes(t *testing.T) {
 	}
 }
 
+func TestExtractNestedAttributesRequiredOneOfGroup(t *testing.T) {
+	spec := &openapi.Spec{Components: openapi.Components{Schemas: map[string]openapi.Schema{}}}
+	s := openapi.Schema{
+		Properties: map[string]openapi.Schema{
+			"default_gateway": {Type: "object"},
+			"ip_address":      {Type: "string"},
+			"node_interface":  {Type: "object"},
+			"description":     {Type: "string"},
+		},
+		XF5XCRequiredOneOfGroups: map[string][]string{
+			"next_hop_choice": {"default_gateway", "ip_address", "node_interface"},
+		},
+	}
+
+	attrs := ExtractNestedAttributes(s, spec, 1, "route")
+	for _, attr := range attrs {
+		want := ""
+		if attr.Name != "description" {
+			want = "next_hop_choice"
+		}
+		if attr.OneOfGroup != want {
+			t.Fatalf("%s OneOfGroup=%q, want %q", attr.Name, attr.OneOfGroup, want)
+		}
+	}
+}
+
 func TestMaxNestedDepthGuard(t *testing.T) {
 	spec := &openapi.Spec{
 		Components: openapi.Components{

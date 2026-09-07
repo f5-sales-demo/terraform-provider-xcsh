@@ -17,20 +17,22 @@ data "xcsh_site_bgp_status" "site" {
   namespace = "system"
   site      = "example-smsv2-site"
 
+  expected_exported_routes = ["10.40.0.10/32"]
+
   expected_peers = {
     node_0_slo = {
-      node            = "node-0"
-      role            = "slo"
-      mac             = "02:00:00:00:00:10"
-      peer_address    = "169.254.100.1"
-      expected_routes = ["10.20.0.0/16"]
+      node                     = "node-0"
+      role                     = "slo"
+      mac                      = "02:00:00:00:00:10"
+      peer_address             = "169.254.100.1"
+      expected_imported_routes = ["10.20.0.0/16"]
     }
     node_0_sli = {
-      node            = "node-0"
-      role            = "sli"
-      mac             = "02:00:00:00:00:11"
-      peer_address    = "169.254.101.1"
-      expected_routes = ["10.30.0.0/16"]
+      node                     = "node-0"
+      role                     = "sli"
+      mac                      = "02:00:00:00:00:11"
+      peer_address             = "169.254.101.1"
+      expected_imported_routes = ["10.30.0.0/16"]
     }
   }
 

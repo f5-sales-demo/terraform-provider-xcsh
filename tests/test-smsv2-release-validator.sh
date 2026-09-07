@@ -90,13 +90,29 @@ jq -n '{
   exclusions:[{api_identity:"ves.io.schema.command.API",reason:"command endpoint"}]
 }' >"$work/concurrency_contracts.json"
 jq -n '{
-  version:"6.0.0",resource:"securemesh_site_v2",path_count:1,
+  version:"6.0.0",resource:"securemesh_site_v2",root_schema:"securemesh_site_v2CreateRequest",path_count:1,
   paths:[{path:"spec.segment_vrf[].segment_network",type:"object"}],choice_groups:{},
-  deprecated_exclusions:["spec.log_receiver","spec.private_adn","spec.rseries"],
-  current_platform_removals:[
-    "spec.segment_vrf[].segment_config.nameserver_v6",
-    "spec.segment_vrf[].segment_config.secondary_nameserver_v6"
-  ]
+  deprecated_exclusions:[],
+  current_platform_removals:["spec.rseries"],
+  platform_removal_evidence:{
+    "spec.rseries":{
+      classification:"current_platform_removal",proof_kind:"explicit_api_rejection",
+      observed_date:"2026-09-06",http_status:400,
+      server_message:"Rseries provider is not supported for SecureMeshSite",
+      legacy_fixture_sha256:("sha256:" + ("a" * 64)),
+      probe_receipt_sha256:("sha256:" + ("b" * 64))
+    }
+  },
+  verified_removals:["spec.private_adn"],
+  verified_removal_evidence:{
+    "spec.private_adn":{
+      classification:"current_feature_removal",proof_kind:"create_read_normalization",
+      observed_date:"2026-09-06",create_status:200,get_status:200,
+      server_behavior:"silently_removed",absence_after_probe_verified:true,
+      legacy_fixture_sha256:("sha256:" + ("c" * 64)),
+      probe_receipt_sha256:("sha256:" + ("d" * 64))
+    }
+  }
 }' >"$work/smsv2_parity_manifest.json"
 jq -n '{
   components:{schemas:{viewssecuremesh_site_v2Node:{properties:{
@@ -136,6 +152,24 @@ reject_contract_mutation() {
 
 refresh_manifest "$work"
 python3 "$validator" "$work" "$tag" "$commit"
+
+reject_parity_mutation() {
+  local name=$1 filter=$2 directory="$work/parity-$1"
+  mkdir "$directory"
+  cp "$work"/*.json "$directory/"
+  jq "$filter" "$directory/smsv2_parity_manifest.json" >"$directory/parity.json"
+  mv "$directory/parity.json" "$directory/smsv2_parity_manifest.json"
+  if python3 "$validator" "$directory" "$tag" "$commit" >/dev/null 2>&1; then
+    printf 'invalid parity manifest was accepted: %s\n' "$name" >&2
+    exit 1
+  fi
+}
+
+reject_parity_mutation legacy-root '.root_schema = "securemesh_site_v2"'
+reject_parity_mutation deprecated-rseries '.deprecated_exclusions = ["spec.rseries"]'
+reject_parity_mutation unrelated-rejection '.platform_removal_evidence["spec.rseries"].server_message = "provider validation failed"'
+reject_parity_mutation unverified-normalization '.verified_removal_evidence["spec.private_adn"].absence_after_probe_verified = false'
+reject_parity_mutation retained-removal '.paths += [{path:"spec.rseries",type:"object"}] | .path_count += 1'
 
 schema_only="$work/schema-only"
 mkdir "$schema_only"

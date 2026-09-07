@@ -1658,6 +1658,26 @@ func RenderBlockValidators(attr openapi.TerraformAttribute, indent string) strin
 		}
 		checks = append(checks, fmt.Sprintf("validators.Required%s(%s)", suffix, strings.Join(quoted, ", ")))
 	}
+	requiredGroups := make(map[string][]string)
+	for _, child := range attr.NestedAttributes {
+		if child.OneOfGroup != "" && child.TfsdkTag != "" {
+			requiredGroups[child.OneOfGroup] = append(requiredGroups[child.OneOfGroup], child.TfsdkTag)
+		}
+	}
+	groupNames := make([]string, 0, len(requiredGroups))
+	for group := range requiredGroups {
+		groupNames = append(groupNames, group)
+	}
+	sort.Strings(groupNames)
+	for _, group := range groupNames {
+		members := requiredGroups[group]
+		sort.Strings(members)
+		quoted := make([]string, len(members))
+		for i, name := range members {
+			quoted[i] = fmt.Sprintf("%q", name)
+		}
+		checks = append(checks, fmt.Sprintf("validators.RequiredOneOf%s(%s)", suffix, strings.Join(quoted, ", ")))
+	}
 	for _, pair := range nestedConflictPairs(attr.NestedAttributes) {
 		checks = append(checks, fmt.Sprintf("validators.Conflicting%s(%q, %q)", suffix, pair[0], pair[1]))
 	}
