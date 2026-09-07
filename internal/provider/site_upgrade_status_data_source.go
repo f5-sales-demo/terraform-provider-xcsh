@@ -152,16 +152,21 @@ func statusConsensus(observation client.SMSv2Observation, label string, path ...
 		if !ok {
 			return "", fmt.Errorf("site status entry is malformed")
 		}
+		applicable := true
 		for _, key := range path[:len(path)-1] {
-			next, exists := current[key].(map[string]interface{})
-			if !exists {
-				current = nil
+			rawNext, exists := current[key]
+			if !exists || rawNext == nil {
+				applicable = false
 				break
+			}
+			next, exists := rawNext.(map[string]interface{})
+			if !exists {
+				return "", fmt.Errorf("site status field %s is malformed", label)
 			}
 			current = next
 		}
-		if current == nil {
-			return "", fmt.Errorf("site status field %s is missing", label)
+		if !applicable {
+			continue
 		}
 		value := strings.TrimSpace(stringField(current, path[len(path)-1]))
 		if value == "" {
