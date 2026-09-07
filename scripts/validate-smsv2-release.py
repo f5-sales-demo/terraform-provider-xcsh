@@ -542,7 +542,10 @@ def valid_parity_paths(paths: object) -> tuple[list[str], bool]:
 
 def valid_typed_sha256(value: object) -> bool:
     """Return whether value is a canonical typed SHA-256 digest."""
-    return isinstance(value, str) and re.fullmatch(r"sha256:[0-9a-f]{64}", value) is not None
+    return (
+        isinstance(value, str)
+        and re.fullmatch(r"sha256:[0-9a-f]{64}", value) is not None
+    )
 
 
 def valid_observed_date(value: object) -> bool:
@@ -558,7 +561,10 @@ def valid_observed_date(value: object) -> bool:
 
 def removal_path_is_absent(path: str, path_names: list[str]) -> bool:
     """Return whether a removed field and all descendants are absent."""
-    return not any(candidate == path or candidate.startswith(path + ".") for candidate in path_names)
+    return not any(
+        candidate == path or candidate.startswith(path + ".")
+        for candidate in path_names
+    )
 
 
 def validate_platform_removal_evidence(parity: dict, path_names: list[str]) -> bool:
@@ -639,9 +645,7 @@ def validate_parity(parity: dict, version: str) -> None:
         )
     )
     classifications_are_valid = parity.get("deprecated_exclusions") == []
-    segment_contract_is_valid = (
-        "spec.segment_vrf[].segment_network" in path_names
-    )
+    segment_contract_is_valid = "spec.segment_vrf[].segment_network" in path_names
     removal_evidence_is_valid = validate_platform_removal_evidence(
         parity, path_names
     ) and validate_feature_removal_evidence(parity, path_names)
