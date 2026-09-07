@@ -184,7 +184,7 @@ func TestSMSv2BGPConvergenceUsesExactNodeScopedSchemas(t *testing.T) {
 	expected := map[string]smsv2ExpectedPeerModel{"peer-a": {
 		Node: types.StringValue("master-0"), Role: types.StringValue("slo"),
 		MAC: types.StringValue("02:aa:bb:cc:dd:01"), PeerAddress: types.StringValue("169.254.10.1"),
-		ExpectedRoutes: types.SetValueMust(types.StringType, []attr.Value{types.StringValue("10.10.0.0/16")}),
+		ExpectedImportedRoutes: types.SetValueMust(types.StringType, []attr.Value{types.StringValue("10.10.0.0/16")}),
 	}}
 	peers := []observedBGPPeer{{
 		Node: "master-0", InterfaceName: "ves-io-securemesh-site-v2-lab-site-network-master-0-eth0-0", PeerAddress: "169.254.10.1",
@@ -202,7 +202,8 @@ func TestSMSv2BGPConvergenceUsesExactNodeScopedSchemas(t *testing.T) {
 	simplified := client.SMSv2Observation{"ver_routes": []interface{}{map[string]interface{}{
 		"node": "master-0", "route": []interface{}{map[string]interface{}{"prefix": "10.20.0.0/16"}},
 	}}}
-	status, converged, reason := convergeSMSv2BGP(expected, configured, peers, bgpRoutes, simplified, simplified)
+	expectedExported := types.SetValueMust(types.StringType, []attr.Value{types.StringValue("10.20.0.0/16")})
+	status, converged, reason := convergeSMSv2BGP(expected, expectedExported, configured, peers, bgpRoutes, simplified, simplified)
 	if !converged || reason != "" || !status["peer-a"].Established.ValueBool() {
 		t.Fatalf("converged=%v reason=%q status=%#v", converged, reason, status)
 	}
@@ -210,7 +211,7 @@ func TestSMSv2BGPConvergenceUsesExactNodeScopedSchemas(t *testing.T) {
 		t.Fatalf("state_changed_at = %q", got)
 	}
 	peers[0].StateChangedAt = "not-a-freshness-claim"
-	if _, converged, reason = convergeSMSv2BGP(expected, configured, peers, bgpRoutes, simplified, simplified); !converged || reason != "" {
+	if _, converged, reason = convergeSMSv2BGP(expected, expectedExported, configured, peers, bgpRoutes, simplified, simplified); !converged || reason != "" {
 		t.Fatalf("state change timestamp was incorrectly treated as freshness: converged=%v reason=%q", converged, reason)
 	}
 }

@@ -124,3 +124,42 @@ resource "xcsh_securemesh_site_v2" "test" {
 		},
 	})
 }
+
+func TestMockSMSv2StaticRouteRequiresNextHopBeforeHTTP(t *testing.T) {
+	acctest.SkipIfNoMockMode(t)
+	mock := acctest.SetupMockTest(t)
+	defer mock.Cleanup()
+	config := acctest.ConfigCompose(mock.MockProviderConfig(), `
+resource "xcsh_securemesh_site_v2" "test" {
+  name      = "tf-acc-test-smsv2-missing-next-hop"
+  namespace = "system"
+  aws {
+    not_managed {}
+  }
+  disable_ha              = {}
+  block_all_services      = {}
+  logs_streaming_disabled = {}
+  local_vrf {
+    sli_config {
+      static_routes {
+        static_routes {
+          ip_prefixes = ["10.20.0.0/16"]
+        }
+      }
+    }
+  }
+}
+`)
+
+	resource.Test(t, resource.TestCase{
+		ProtoV6ProviderFactories: mock.ProtoV6ProviderFactories(),
+		Steps: []resource.TestStep{{
+			Config:      config,
+			PlanOnly:    true,
+			ExpectError: regexp.MustCompile("Missing Required Choice in Configured Block"),
+		}},
+	})
+	if requests := mock.Server.GetRequestLog(); len(requests) != 0 {
+		t.Fatalf("invalid static route reached XC mock API: %d requests", len(requests))
+	}
+}

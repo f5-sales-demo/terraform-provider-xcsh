@@ -2041,6 +2041,28 @@ func TestRenderBlockValidators(t *testing.T) {
 	}
 }
 
+func TestRenderBlockValidatorsRequiredOneOf(t *testing.T) {
+	children := []openapi.TerraformAttribute{
+		{TfsdkTag: "default_gateway", OneOfGroup: "next_hop_choice"},
+		{TfsdkTag: "ip_address", OneOfGroup: "next_hop_choice"},
+		{TfsdkTag: "node_interface", OneOfGroup: "next_hop_choice"},
+	}
+	for _, kind := range []string{"single", "list"} {
+		t.Run(kind, func(t *testing.T) {
+			block := openapi.TerraformAttribute{NestedBlockType: kind, NestedAttributes: children}
+			got := RenderBlockValidators(block, "")
+			constructor := "RequiredOneOfObjectAttributes"
+			if kind == "list" {
+				constructor = "RequiredOneOfListObjectAttributes"
+			}
+			want := `validators.` + constructor + `("default_gateway", "ip_address", "node_interface")`
+			if !strings.Contains(got, want) {
+				t.Fatalf("missing required OneOf validator %q: %s", want, got)
+			}
+		})
+	}
+}
+
 func TestRenderBlockValidators_ServerMaterializedViolationsView(t *testing.T) {
 	block := openapi.TerraformAttribute{
 		NestedBlockType: "single",
