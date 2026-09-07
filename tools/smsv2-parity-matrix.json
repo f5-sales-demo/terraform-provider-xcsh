@@ -1,6 +1,6 @@
 {
   "legacy_version": "0.12.2",
-  "current_version": "6.1.1",
+  "current_version": "6.1.2",
   "legacy_source_url": "https://github.com/volterraedge/terraform-provider-volterra/blob/22f029dbf14412c99502fe1daba829f7c3261017/volterra/resource_auto_volterra_securemesh_site_v2.go",
   "legacy_source_sha256": "sha256:521cab3e85928669b461fc2ccb541c324c6d0518607d9f54e1c70df446202aea",
   "legacy_installed_schema_sha256": "sha256:b267249a40d52beac95debf7b659953c73297d083b8c9e973ae0da03a3beb5a4",
