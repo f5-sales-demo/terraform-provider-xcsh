@@ -123,6 +123,11 @@ func physicalFixtureInterface(v client.SMSv2Observation) map[string]interface{} 
 }
 
 func TestSMSv2PhysicalHealthRequiresEveryRequestedNode(t *testing.T) {
+	t.Run("node publisher", func(t *testing.T) { testSMSv2PhysicalHealthRequiresEveryRequestedNode(t, false) })
+	t.Run("site publisher", func(t *testing.T) { testSMSv2PhysicalHealthRequiresEveryRequestedNode(t, true) })
+}
+
+func testSMSv2PhysicalHealthRequiresEveryRequestedNode(t *testing.T, sitePublished bool) {
 	configuration := multiNodeRuntimeConfiguration()
 	configured, err := resolvedRuntimeFixture(configuration)
 	if err != nil {
@@ -131,6 +136,7 @@ func TestSMSv2PhysicalHealthRequiresEveryRequestedNode(t *testing.T) {
 	bindings := map[string]smsv2BindingModel{}
 	observation := runtimePhysicalLinkStatus()
 	observation["status"] = []interface{}{}
+	observation["system_metadata"] = map[string]interface{}{"uid": "physical-site-uid"}
 	byNode := map[string]map[string]interface{}{}
 	for _, iface := range configured {
 		bindings[iface.Node+"/"+iface.Role] = smsv2BindingModel{Node: types.StringValue(iface.Node), Role: types.StringValue(iface.Role), MAC: types.StringValue(iface.MAC)}
@@ -138,6 +144,12 @@ func TestSMSv2PhysicalHealthRequiresEveryRequestedNode(t *testing.T) {
 		if !exists {
 			status = runtimePhysicalLinkStatus()["status"].([]interface{})[0].(map[string]interface{})
 			status["metadata"].(map[string]interface{})["creator_id"] = iface.Node
+			if sitePublished {
+				status["metadata"].(map[string]interface{})["creator_id"] = "lab-site"
+				status["metadata"].(map[string]interface{})["status_id"] = iface.Node + "_SiteStatusMgr"
+				status["ver_status"].(map[string]interface{})["ver_instance_name"] = iface.Node + "-lab-site"
+				status["object_refs"] = []interface{}{map[string]interface{}{"kind": "ves.io.vega.cfg.site.Object", "uid": "physical-site-uid"}}
+			}
 			status["ver_status"].(map[string]interface{})["intf_status"] = []interface{}{}
 			byNode[iface.Node] = status
 			observation["status"] = append(observation["status"].([]interface{}), status)
