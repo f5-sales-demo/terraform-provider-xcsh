@@ -22,7 +22,7 @@ func validateSMSv2PhysicalLinks(configuration, observation client.SMSv2Observati
 	if !ok {
 		return fmt.Errorf("physical link status has no status array")
 	}
-	statuses := map[string][]map[string]interface{}{}
+	statuses := []map[string]interface{}{}
 	for _, raw := range rawStatuses {
 		status, ok := raw.(map[string]interface{})
 		if !ok {
@@ -31,7 +31,7 @@ func validateSMSv2PhysicalLinks(configuration, observation client.SMSv2Observati
 		if status["ver_status"] == nil {
 			continue
 		}
-		ver, ok := nestedMap(status, "ver_status")
+		_, ok = nestedMap(status, "ver_status")
 		if !ok {
 			return fmt.Errorf("physical link status has a malformed interface-status document")
 		}
@@ -44,7 +44,7 @@ func validateSMSv2PhysicalLinks(configuration, observation client.SMSv2Observati
 		if node == "" {
 			return fmt.Errorf("physical link status has no node publisher identity")
 		}
-		statuses[node] = append(statuses[node], ver)
+		statuses = append(statuses, status)
 	}
 	keys := make([]string, 0, len(bindings))
 	for key := range bindings {
@@ -64,9 +64,12 @@ func validateSMSv2PhysicalLinks(configuration, observation client.SMSv2Observati
 		}
 		iface := matches[0]
 		nodes := []map[string]interface{}{}
-		for node, values := range statuses {
-			if smsv2NodeMatches(iface.Node, node) {
-				nodes = append(nodes, values...)
+		for _, status := range statuses {
+			publisher, _ := nestedMap(status, "metadata")
+			if smsv2NodeMatches(iface.Node, stringField(publisher, "creator_id")) ||
+				smsv2SitePublisherMatches(status, observation, iface.Node, stringField(expected, "name")) {
+				ver, _ := nestedMap(status, "ver_status")
+				nodes = append(nodes, ver)
 			}
 		}
 		if len(nodes) != 1 {
@@ -117,4 +120,33 @@ func validateSMSv2PhysicalInterface(status map[string]interface{}, expected smsv
 		return fmt.Errorf("link is down")
 	}
 	return nil
+}
+
+// Current SMSv2 can publish node links under the site identity. Both node
+// identifiers and the physical site's exact object reference must agree.
+func smsv2SitePublisherMatches(status map[string]interface{}, observation client.SMSv2Observation, node, site string) bool {
+	metadata, _ := nestedMap(status, "metadata")
+	ver, _ := nestedMap(status, "ver_status")
+	physical, _ := nestedMap(map[string]interface{}(observation), "system_metadata")
+	uid := stringField(physical, "uid")
+	if uid == "" || stringField(metadata, "creator_id") != site ||
+		stringField(metadata, "status_id") != node+"_SiteStatusMgr" ||
+		stringField(ver, "ver_instance_name") != node+"-"+site {
+		return false
+	}
+	refs, ok := status["object_refs"].([]interface{})
+	if !ok {
+		return false
+	}
+	matches := 0
+	for _, raw := range refs {
+		ref, ok := raw.(map[string]interface{})
+		if !ok {
+			return false
+		}
+		if stringField(ref, "kind") == "ves.io.vega.cfg.site.Object" && stringField(ref, "uid") == uid {
+			matches++
+		}
+	}
+	return matches == 1
 }
