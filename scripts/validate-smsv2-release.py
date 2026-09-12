@@ -365,28 +365,27 @@ def validate_azure_contract(azure: object) -> None:
     bgp = runtime.get("bgp_configuration") if isinstance(runtime, dict) else None
     if not isinstance(bgp, dict) or "request_mappings" in bgp:
         fail("Azure BGP response-only observation was promoted to a request input")
-    if (
-        bgp.get("method") != "GET"
-        or bgp.get("path") != "/api/config/namespaces/{namespace}/bgps/{name}"
-        or bgp.get("operation_id") != "ves.io.schema.bgp.API.Get"
-        or bgp.get("response_schema") != "bgpGetResponse"
-        or bgp.get("authority") != "f5xc"
-        or bgp.get("semantics") != "observational_read_only"
-        or bgp.get("request_eligibility")
-        != "rejected_without_authoritative_request_schema"
-        or bgp.get("response_mappings")
-        != {
+    expected_observation = {
+        "method": "GET",
+        "path": "/api/config/namespaces/{namespace}/bgps/{name}",
+        "operation_id": "ves.io.schema.bgp.API.Get",
+        "response_schema": "bgpGetResponse",
+        "authority": "f5xc",
+        "semantics": "observational_read_only",
+        "request_eligibility": "rejected_without_authoritative_request_schema",
+        "response_mappings": {
             "parameters": "spec.bgp_parameters",
             "peers": "spec.peers[]",
             "target_service": "spec.peers[].target_service",
             "family_inet_v6": "spec.peers[].external.family_inet_v6",
-        }
-        or bgp.get("response_only_fields")
-        != [
+        },
+        "response_only_fields": [
             "spec.peers[].target_service",
             "spec.peers[].external.family_inet_v6",
-        ]
-    ):
+        ],
+    }
+    observed_observation = {key: bgp.get(key) for key in expected_observation}
+    if observed_observation != expected_observation:
         fail("Azure BGP response-only observation contract is incomplete")
     source = bgp.get("source")
     if not valid_source(
@@ -402,16 +401,21 @@ def validate_azure_contract(azure: object) -> None:
         fail("Azure BGP response-only observation provenance is incomplete")
     evidence = bgp.get("evidence_receipt")
     live = bgp.get("live_evidence")
-    if (
-        not isinstance(evidence, dict)
-        or evidence.get("path")
-        != "config/evidence/azure_bgp_response_drift_v7.0.0.json"
-        or not valid_sha256_hex(evidence.get("sha256"))
-        or not isinstance(live, dict)
-        or live.get("method") != "GET"
-        or live.get("sanitized") is not True
-        or live.get("form_metadata") != {"create_form": None, "replace_form": None}
+    if not isinstance(evidence, dict) or not isinstance(live, dict):
+        fail("Azure BGP response-only evidence is incomplete")
+    if evidence.get(
+        "path"
+    ) != "config/evidence/azure_bgp_response_drift_v7.0.0.json" or not valid_sha256_hex(
+        evidence.get("sha256")
     ):
+        fail("Azure BGP response-only evidence is incomplete")
+    expected_live_evidence = {
+        "method": "GET",
+        "sanitized": True,
+        "form_metadata": {"create_form": None, "replace_form": None},
+    }
+    observed_live_evidence = {key: live.get(key) for key in expected_live_evidence}
+    if observed_live_evidence != expected_live_evidence:
         fail("Azure BGP response-only evidence is incomplete")
 
 
@@ -563,7 +567,8 @@ def validate_evidence(
             fail("evidence observation timestamp must include a timezone")
     except (KeyError, AttributeError, ValueError):
         fail("evidence observation timestamp is invalid")
-    if dt.datetime.now(dt.timezone.utc) - observed_at > dt.timedelta(days=90):
+    utc = dt.timezone.utc  # noqa: UP017 -- Python 3.9 compatibility is required.
+    if dt.datetime.now(utc) - observed_at > dt.timedelta(days=90):
         fail("evidence is stale")
     receipts = evidence.get("receipts")
     if (
