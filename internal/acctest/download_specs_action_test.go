@@ -732,7 +732,7 @@ func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]str
 	t.Helper()
 	contract := map[string]any{
 		"version":     "6.0.0",
-		"contract_id": "f5xc-ce-automation/v3",
+		"contract_id": "f5xc-smsv2-api/v1",
 		"resource":    "securemesh_site_v2",
 		"api":         map[string]any{"namespace": "system", "operations": []string{"create", "read", "replace", "delete"}},
 		"providers": map[string]any{"aws": map[string]any{
@@ -796,7 +796,7 @@ func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]str
 			"unavailable_capabilities": []any{},
 		}},
 	}
-	evidence := map[string]any{"contract_id": "f5xc-ce-automation/v3", "recorded_at": time.Now().UTC().Format(time.RFC3339), "receipts": []map[string]any{{"redaction": "fixture", "sanitized": true}}}
+	evidence := map[string]any{"contract_id": "f5xc-smsv2-api/v1", "recorded_at": time.Now().UTC().Format(time.RFC3339), "receipts": []map[string]any{{"redaction": "fixture", "sanitized": true}}}
 	writeJSON := func(name string, value any) {
 		body, err := json.Marshal(value)
 		if err != nil {
@@ -842,7 +842,7 @@ func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]str
 	})
 	writeJSON("upstream-contract-removals.json", map[string]any{"version": version, "removals": []any{}})
 	assets := map[string]string{"smsv2-contract.json": fileSHA256(t, filepath.Join(root, "smsv2-contract.json")), "smsv2-evidence-receipt.json": fileSHA256(t, filepath.Join(root, "smsv2-evidence-receipt.json"))}
-	writeJSON("smsv2-contract-manifest.json", map[string]any{"assets": map[string]string{"smsv2-contract.json": "sha256:" + assets["smsv2-contract.json"], "smsv2-evidence-receipt.json": "sha256:" + assets["smsv2-evidence-receipt.json"]}, "contract_id": "f5xc-ce-automation/v3", "contract_version": "6.0.0", "release": map[string]string{"tag": tag, "commit": commit}, "schema_version": 1})
+	writeJSON("smsv2-contract-manifest.json", map[string]any{"assets": map[string]string{"smsv2-contract.json": "sha256:" + assets["smsv2-contract.json"], "smsv2-evidence-receipt.json": "sha256:" + assets["smsv2-evidence-receipt.json"]}, "contract_id": "f5xc-smsv2-api/v1", "contract_version": "6.0.0", "release": map[string]string{"tag": tag, "commit": commit}, "schema_version": 1})
 	assets["smsv2-contract-manifest.json"] = fileSHA256(t, filepath.Join(root, "smsv2-contract-manifest.json"))
 	for _, name := range []string{"concurrency_contracts.json", "smsv2_parity_manifest.json", "upstream-contract-removals.json"} {
 		assets[name] = fileSHA256(t, filepath.Join(root, name))
