@@ -10,13 +10,13 @@ tag=v6.0.0
 commit=0123456789abcdef0123456789abcdef01234567
 observed=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 jq -n --arg observed "$observed" '{
-  contract_id:"f5xc-ce-automation/v3",
+  contract_id:"f5xc-smsv2-api/v1",
   recorded_at:$observed,
   receipts:[{operations:["create","read","replace","delete"],result:"accepted",sanitized:true,redaction:"fixture"}]
 }' >"$work/smsv2-evidence-receipt.json"
 jq -n '{
   version:"6.0.0",
-  contract_id:"f5xc-ce-automation/v3",
+  contract_id:"f5xc-smsv2-api/v1",
   resource:"securemesh_site_v2",
   api:{namespace:"system",operations:["create","read","replace","delete"]},
   providers:{aws:{
@@ -122,12 +122,13 @@ jq -n '{
 
 refresh_manifest() {
   local directory=$1
-  local contract_sha evidence_sha contract_version
+  local contract_sha evidence_sha contract_version manifest_contract_id
   contract_sha="sha256:$(sha256sum "$directory/smsv2-contract.json" | awk '{print $1}')"
   evidence_sha="sha256:$(sha256sum "$directory/smsv2-evidence-receipt.json" | awk '{print $1}')"
   contract_version=${2:-$(jq -r .version "$directory/smsv2-contract.json")}
-  jq -n --arg tag "$tag" --arg commit "$commit" --arg contract "$contract_sha" --arg evidence "$evidence_sha" --arg contract_version "$contract_version" '{
-    schema_version:1,contract_id:"f5xc-ce-automation/v3",contract_version:$contract_version,
+  manifest_contract_id=${3:-f5xc-smsv2-api/v1}
+  jq -n --arg tag "$tag" --arg commit "$commit" --arg contract "$contract_sha" --arg evidence "$evidence_sha" --arg contract_version "$contract_version" --arg contract_id "$manifest_contract_id" '{
+    schema_version:1,contract_id:$contract_id,contract_version:$contract_version,
     release:{tag:$tag,commit:$commit},
     assets:{"smsv2-contract.json":$contract,"smsv2-evidence-receipt.json":$evidence}
   }' >"$directory/smsv2-contract-manifest.json"
@@ -152,6 +153,32 @@ reject_contract_mutation() {
 
 refresh_manifest "$work"
 python3 "$validator" "$work" "$tag" "$commit"
+
+historical="$work/historical-v6.1.2"
+mkdir "$historical"
+cp "$work"/*.json "$historical/"
+jq '.contract_id = "f5xc-ce-automation/v3" | .version = "6.1.2"' \
+  "$historical/smsv2-contract.json" >"$historical/contract.json"
+mv "$historical/contract.json" "$historical/smsv2-contract.json"
+jq '.contract_id = "f5xc-ce-automation/v3"' \
+  "$historical/smsv2-evidence-receipt.json" >"$historical/evidence.json"
+mv "$historical/evidence.json" "$historical/smsv2-evidence-receipt.json"
+for asset in concurrency_contracts.json smsv2_parity_manifest.json; do
+  jq '.version = "6.1.2"' "$historical/$asset" >"$historical/updated.json"
+  mv "$historical/updated.json" "$historical/$asset"
+done
+tag=v6.1.2
+commit=a5fa987f876db955666bd94fefed35f283bb5364
+refresh_manifest "$historical" 6.1.2 f5xc-ce-automation/v3
+python3 "$validator" "$historical" "$tag" "$commit"
+commit=a5fa987f876db955666bd94fefed35f283bb5365
+refresh_manifest "$historical" 6.1.2 f5xc-ce-automation/v3
+if python3 "$validator" "$historical" "$tag" "$commit" >/dev/null 2>&1; then
+  echo "legacy manifest identity was accepted outside the exact immutable release" >&2
+  exit 1
+fi
+tag=v6.0.0
+commit=0123456789abcdef0123456789abcdef01234567
 
 reject_parity_mutation() {
   local name=$1 filter=$2 directory="$work/parity-$1"
@@ -211,7 +238,7 @@ if python3 "$validator" "$non_nullable" "$tag" "$commit" >/dev/null 2>&1; then
   exit 1
 fi
 
-reject_contract_mutation retired-v1 '.contract_id = "f5xc-ce-automation/v1"'
+reject_contract_mutation retired-ce-automation-v3 '.contract_id = "f5xc-ce-automation/v3"'
 reject_contract_mutation contract-version-mismatch '.version = "5.0.1"'
 reject_contract_mutation unavailable-only '.providers.aws.capabilities.runtime_status = "unavailable"'
 reject_contract_mutation incomplete-telemetry '.providers.aws.telemetry_intake.complete = false'
@@ -291,4 +318,4 @@ if python3 "$validator" "$work" "$tag" "$commit" >/dev/null 2>&1; then
   exit 1
 fi
 
-printf '%s\n' 'SMSv2 v3 release validator tests passed'
+printf '%s\n' 'SMSv2 API release validator tests passed'

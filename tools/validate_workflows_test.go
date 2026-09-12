@@ -106,6 +106,7 @@ func TestReleaseRecoveryPathClassifier(t *testing.T) {
 				"tools/pkg/codegen/codegen_test.go",
 				"tools/pkg/schema/scan.go",
 				"tools/pkg/schema/scan_test.go",
+				"internal/acctest/download_specs_action_test.go",
 				"internal/acctest/release_integrity_test.go",
 				"scripts/generate-provider-docs.sh",
 				"scripts/check-spec-version-freshness.sh",

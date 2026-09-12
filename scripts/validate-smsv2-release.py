@@ -11,7 +11,13 @@ import re
 import sys
 from typing import NoReturn
 
-CONTRACT_ID = "f5xc-ce-automation/v3"
+CONTRACT_ID = "f5xc-smsv2-api/v1"
+HISTORICAL_MANIFEST_IDENTITIES = {
+    (
+        "v6.1.2",
+        "a5fa987f876db955666bd94fefed35f283bb5364",
+    ): "f5xc-ce-automation/v3",
+}
 TELEMETRY_SCHEMA_ID = "f5xc-smsv2-aws-tgw-telemetry/v2"
 REQUIRED_FACTS = {
     "runtime",
@@ -281,6 +287,9 @@ def validate_site_upgrade(site_upgrade: object, contract_version: object) -> Non
 def validate_manifest(directory: pathlib.Path, tag: str, commit: str) -> dict:
     """Validate the manifest identity, asset set, and checksums."""
     manifest = load_json(directory / "smsv2-contract-manifest.json", "manifest")
+    expected_contract_id = HISTORICAL_MANIFEST_IDENTITIES.get(
+        (tag, commit), CONTRACT_ID
+    )
     if set(manifest) != {
         "assets",
         "contract_id",
@@ -289,7 +298,10 @@ def validate_manifest(directory: pathlib.Path, tag: str, commit: str) -> dict:
         "schema_version",
     }:
         fail("manifest fields are malformed")
-    if manifest["schema_version"] != 1 or manifest["contract_id"] != CONTRACT_ID:
+    if (
+        manifest["schema_version"] != 1
+        or manifest["contract_id"] != expected_contract_id
+    ):
         fail("manifest contract identity is unsupported")
     if manifest["release"] != {"tag": tag, "commit": commit}:
         fail("manifest release identity does not match the resolved tag")
