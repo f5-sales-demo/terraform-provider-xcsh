@@ -80,20 +80,7 @@ jobs:
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
       - name: Regenerate all release-derived content
-        run: |
-          set -euo pipefail
-          go run tools/generate-all-schemas.go --spec-dir=docs/specifications/api
-          scripts/go-retry.sh 3 go mod tidy
-          scripts/generate-provider-docs.sh
-
-      - name: Prove released source reproduces exactly
-        run: |
-          set -euo pipefail
-          if [ -n "$(git status --porcelain --untracked-files=all)" ]; then
-            echo "::error::Release source does not reproduce byte-for-byte from its pinned inputs"
-            git status --short
-            exit 1
-          fi
+        run: scripts/reproduce-release-source.sh --check-clean
 
   tag:
     name: Resolve Immutable Version Tag
