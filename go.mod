@@ -1,6 +1,6 @@
 module github.com/f5-sales-demo/terraform-provider-xcsh
 
-go 1.25.8
+go 1.26.0
 
 require (
 	github.com/google/go-cmp v0.7.0
@@ -11,7 +11,7 @@ require (
 	github.com/hashicorp/terraform-plugin-go v0.31.0
 	github.com/hashicorp/terraform-plugin-log v0.11.0
 	github.com/hashicorp/terraform-plugin-testing v1.16.0
-	golang.org/x/crypto v0.55.0
+	golang.org/x/crypto v0.56.0
 	golang.org/x/mod v0.39.0
 	golang.org/x/net v0.58.0
 	golang.org/x/text v0.41.0
