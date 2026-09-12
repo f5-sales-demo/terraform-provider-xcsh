@@ -11,7 +11,7 @@ import re
 import sys
 from typing import NoReturn
 
-CONTRACT_ID = "f5xc-ce-automation/v3"
+CONTRACT_ID = "f5xc-smsv2-api/v1"
 TELEMETRY_SCHEMA_ID = "f5xc-smsv2-aws-tgw-telemetry/v2"
 REQUIRED_FACTS = {
     "runtime",

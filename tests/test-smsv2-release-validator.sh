@@ -10,13 +10,13 @@ tag=v6.0.0
 commit=0123456789abcdef0123456789abcdef01234567
 observed=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 jq -n --arg observed "$observed" '{
-  contract_id:"f5xc-ce-automation/v3",
+  contract_id:"f5xc-smsv2-api/v1",
   recorded_at:$observed,
   receipts:[{operations:["create","read","replace","delete"],result:"accepted",sanitized:true,redaction:"fixture"}]
 }' >"$work/smsv2-evidence-receipt.json"
 jq -n '{
   version:"6.0.0",
-  contract_id:"f5xc-ce-automation/v3",
+  contract_id:"f5xc-smsv2-api/v1",
   resource:"securemesh_site_v2",
   api:{namespace:"system",operations:["create","read","replace","delete"]},
   providers:{aws:{
@@ -127,7 +127,7 @@ refresh_manifest() {
   evidence_sha="sha256:$(sha256sum "$directory/smsv2-evidence-receipt.json" | awk '{print $1}')"
   contract_version=${2:-$(jq -r .version "$directory/smsv2-contract.json")}
   jq -n --arg tag "$tag" --arg commit "$commit" --arg contract "$contract_sha" --arg evidence "$evidence_sha" --arg contract_version "$contract_version" '{
-    schema_version:1,contract_id:"f5xc-ce-automation/v3",contract_version:$contract_version,
+    schema_version:1,contract_id:"f5xc-smsv2-api/v1",contract_version:$contract_version,
     release:{tag:$tag,commit:$commit},
     assets:{"smsv2-contract.json":$contract,"smsv2-evidence-receipt.json":$evidence}
   }' >"$directory/smsv2-contract-manifest.json"
@@ -211,7 +211,7 @@ if python3 "$validator" "$non_nullable" "$tag" "$commit" >/dev/null 2>&1; then
   exit 1
 fi
 
-reject_contract_mutation retired-v1 '.contract_id = "f5xc-ce-automation/v1"'
+reject_contract_mutation retired-ce-automation-v3 '.contract_id = "f5xc-ce-automation/v3"'
 reject_contract_mutation contract-version-mismatch '.version = "5.0.1"'
 reject_contract_mutation unavailable-only '.providers.aws.capabilities.runtime_status = "unavailable"'
 reject_contract_mutation incomplete-telemetry '.providers.aws.telemetry_intake.complete = false'
@@ -291,4 +291,4 @@ if python3 "$validator" "$work" "$tag" "$commit" >/dev/null 2>&1; then
   exit 1
 fi
 
-printf '%s\n' 'SMSv2 v3 release validator tests passed'
+printf '%s\n' 'SMSv2 API release validator tests passed'
