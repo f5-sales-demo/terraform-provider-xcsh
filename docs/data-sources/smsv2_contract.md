@@ -2,20 +2,20 @@
 page_title: "xcsh_smsv2_contract Data Source - xcsh"
 subcategory: "Uncategorized"
 description: |-
-  Publishes the immutable clean-break SMSv2 AWS TGW Connect contract compiled into this provider release.
+  Publishes the immutable clean-break SMSv2 AWS and Azure capability contract compiled into this provider release.
 ---
 
 # xcsh_smsv2_contract (Data Source)
 
-Publishes the immutable clean-break SMSv2 AWS TGW Connect contract compiled into this provider release. This is a read-only data source.
+Publishes the immutable clean-break SMSv2 AWS and Azure capability contract compiled into this provider release. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
 ## Example Usage
 
 ```terraform
-# Read the immutable clean-break SMSv2 AWS TGW Connect contract compiled into
-# the provider. Gate infrastructure mutation on the published capabilities.
+# Read the immutable clean-break SMSv2 contract compiled into the provider.
+# Required capabilities are checked during planning before any F5 API request.
 
 terraform {
   required_version = ">= 1.0"
@@ -28,17 +28,20 @@ terraform {
   }
 }
 
-data "xcsh_smsv2_contract" "current" {}
+data "xcsh_smsv2_contract" "current" {
+  required_capabilities = ["runtime_status"]
+}
 
 output "smsv2_contract" {
   value = {
-    id                  = data.xcsh_smsv2_contract.current.contract_id
-    version             = data.xcsh_smsv2_contract.current.contract_version
-    api_release         = data.xcsh_smsv2_contract.current.api_release_tag
-    telemetry_schema_id = data.xcsh_smsv2_contract.current.telemetry_schema_id
-    capabilities        = data.xcsh_smsv2_contract.current.capabilities
-    f5xc_authorities    = data.xcsh_smsv2_contract.current.f5xc_authorities
-    aws_authorities     = data.xcsh_smsv2_contract.current.aws_authorities
+    id                               = data.xcsh_smsv2_contract.current.contract_id
+    version                          = data.xcsh_smsv2_contract.current.contract_version
+    api_release                      = data.xcsh_smsv2_contract.current.api_release_tag
+    telemetry_schema_id              = data.xcsh_smsv2_contract.current.telemetry_schema_id
+    capabilities                     = data.xcsh_smsv2_contract.current.capabilities
+    f5xc_authorities                 = data.xcsh_smsv2_contract.current.f5xc_authorities
+    aws_authorities                  = data.xcsh_smsv2_contract.current.aws_authorities
+    azure_route_server_ebgp_multihop = data.xcsh_smsv2_contract.current.azure_route_server_ebgp_multihop
   }
 }
 ```
@@ -49,6 +52,10 @@ output "smsv2_contract" {
 
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use block syntax `field_name { ... }`. Empty OneOf object attributes use `field_name = {}`; conditional selection uses `condition ? {} : null`. Boolean attributes (such as `add_hsts` and `http_redirect`) use `= true` or `= false`.
 
+### Spec Argument Reference
+
+<a id="required-capabilities"></a>&#x2022; [`required_capabilities`](#required-capabilities) - Optional Set<br>Capabilities that must be available. A known unavailable capability produces a planning diagnostic before any F5 API request
+
 ### Attributes Reference
 
 In addition to all arguments above, the following attributes are exported:
@@ -58,6 +65,8 @@ In addition to all arguments above, the following attributes are exported:
 <a id="api-release-tag"></a>&#x2022; [`api_release_tag`](#api-release-tag) - Optional String
 
 <a id="aws-authorities"></a>&#x2022; [`aws_authorities`](#aws-authorities) - Optional List
+
+<a id="Azure-route-server-ebgp-multihop"></a>&#x2022; [`azure_route_server_ebgp_multihop`](#Azure-route-server-ebgp-multihop) - Optional String<br>Authoritative Azure Route Server eBGP multihop availability and immutable source provenance
 
 <a id="capabilities"></a>&#x2022; [`capabilities`](#capabilities) - Optional Map
 
@@ -70,6 +79,24 @@ In addition to all arguments above, the following attributes are exported:
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>The ID of this resource
 
 <a id="telemetry-schema-id"></a>&#x2022; [`telemetry_schema_id`](#telemetry-schema-id) - Optional String
+
+<a id="availability"></a>&#x2022; [`availability`](#availability) - Optional String
+
+<a id="enforcement"></a>&#x2022; [`enforcement`](#enforcement) - Optional String
+
+<a id="reason"></a>&#x2022; [`reason`](#reason) - Optional String
+
+<a id="source"></a>&#x2022; [`source`](#source) - Optional String
+
+<a id="asset-path"></a>&#x2022; [`asset_path`](#asset-path) - Optional String
+
+<a id="asset-sha256"></a>&#x2022; [`asset_sha256`](#asset-sha256) - Optional String
+
+<a id="commit"></a>&#x2022; [`commit`](#commit) - Optional String
+
+<a id="repository"></a>&#x2022; [`repository`](#repository) - Optional String
+
+<a id="schema-paths"></a>&#x2022; [`schema_paths`](#schema-paths) - Optional List
 
 ---
 

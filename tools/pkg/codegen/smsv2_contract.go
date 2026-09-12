@@ -5,7 +5,6 @@ package codegen
 import (
 	"encoding/json"
 	"fmt"
-	"strconv"
 	"strings"
 )
 
@@ -16,10 +15,31 @@ type SMSv2DataSourceTemplate struct {
 	Kind string
 }
 
+type smsv2CapabilitySource struct {
+	Repository  string   `json:"repository"`
+	Commit      string   `json:"commit"`
+	AssetPath   string   `json:"asset_path"`
+	AssetSHA256 string   `json:"asset_sha256"`
+	SchemaPaths []string `json:"schema_paths"`
+}
+
+type smsv2CapabilityBoundary struct {
+	Availability              string                `json:"availability"`
+	Enforcement               string                `json:"enforcement"`
+	Reason                    string                `json:"reason"`
+	Source                    smsv2CapabilitySource `json:"source"`
+	FutureMappingRequirements map[string]string     `json:"future_mapping_requirements"`
+}
+
 type smsv2ReleaseContract struct {
 	Version    string `json:"version"`
 	ContractID string `json:"contract_id"`
 	Providers  struct {
+		Azure struct {
+			Availability            string                    `json:"availability"`
+			RouteServerEBGPMultihop smsv2CapabilityBoundary   `json:"route_server_ebgp_multihop"`
+			Runtime                 map[string]map[string]any `json:"runtime"`
+		} `json:"azure"`
 		AWS struct {
 			Availability            string                    `json:"availability"`
 			Capabilities            map[string]string         `json:"capabilities"`
@@ -40,18 +60,17 @@ type smsv2ReleaseContract struct {
 }
 
 // SMSv2DataSourceTemplates selects the clean-break provider surfaces only from
-// a v6-or-newer contract with complete F5 and AWS authority declarations.
+// the v7 API contract with complete F5, AWS, and Azure declarations.
 func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, error) {
 	var contract smsv2ReleaseContract
 	if err := json.Unmarshal(contractJSON, &contract); err != nil {
 		return nil, fmt.Errorf("decode SMSv2 contract: %w", err)
 	}
-	majorText, remainder, found := strings.Cut(contract.Version, ".")
-	major, err := strconv.Atoi(majorText)
-	minorText, _, minorFound := strings.Cut(remainder, ".")
-	minor, minorErr := strconv.Atoi(minorText)
-	if err != nil || minorErr != nil || !found || !minorFound || major < 6 || (major == 6 && minor < 1) || contract.ContractID != "f5xc-ce-automation/v3" {
-		return nil, fmt.Errorf("SMSv2 data sources require the v6.1 clean-break v3 contract")
+	if contract.Version != "7.0.0" || contract.ContractID != "f5xc-smsv2-api/v1" {
+		return nil, fmt.Errorf("SMSv2 data sources require the v7.0 clean-break API v1 contract")
+	}
+	if err := validateAzureRouteServerContract(contract.Providers.Azure); err != nil {
+		return nil, err
 	}
 	wantRuntime := map[string]struct {
 		method string
@@ -64,12 +83,12 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 		"simplified_routes": {"POST", "/api/operate/namespaces/{namespace}/sites/{site}/ver/simplified_routes"},
 	}
 	if len(contract.Providers.AWS.Runtime) != len(wantRuntime) {
-		return nil, fmt.Errorf("SMSv2 v3 runtime endpoint set is incomplete")
+		return nil, fmt.Errorf("SMSv2 API v1 runtime endpoint set is incomplete")
 	}
 	for name, want := range wantRuntime {
 		got := contract.Providers.AWS.Runtime[name]
 		if got["method"] != want.method || got["path"] != want.path || got["operation_id"] == "" || got["response_schema"] == "" {
-			return nil, fmt.Errorf("SMSv2 v3 runtime endpoint %q is incomplete", name)
+			return nil, fmt.Errorf("SMSv2 API v1 runtime endpoint %q is incomplete", name)
 		}
 	}
 	wantUpgrade := map[string]struct {
@@ -113,7 +132,7 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 	wantF5XC := []string{"smsv2_configuration", "runtime_health", "bgp_peers", "bgp_routes", "simplified_routes", "site_upgrade_observation"}
 	wantAWS := []string{"eni", "transit_gateway", "transit_gateway_connect", "gre_endpoints", "bgp_inside_cidrs", "autonomous_system_numbers"}
 	if !equalStrings(contract.Providers.AWS.Authorities["f5xc"], wantF5XC) || !equalStrings(contract.Providers.AWS.Authorities["aws"], wantAWS) {
-		return nil, fmt.Errorf("SMSv2 v3 authority mapping is incomplete")
+		return nil, fmt.Errorf("SMSv2 API v1 authority mapping is incomplete")
 	}
 	wantFacts := []string{"runtime", "gre", "bgp", "mtu", "route", "bgp_inside_cidr_block"}
 	telemetry := contract.Providers.AWS.Telemetry
@@ -121,7 +140,7 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 		!equalStringSets(telemetry.RequiredFacts, wantFacts) ||
 		!equalStringSets(telemetry.ObservedFacts, wantFacts) ||
 		len(telemetry.UnavailableFacts) != 0 {
-		return nil, fmt.Errorf("SMSv2 v3 telemetry declaration is incomplete")
+		return nil, fmt.Errorf("SMSv2 API v1 telemetry declaration is incomplete")
 	}
 	available := map[string]string{"aws_ce_create": "available", "runtime_status": "available", "site_upgrade": "available", "tgw_connect": "available"}
 	unavailable := map[string]string{"aws_ce_create": "unavailable", "runtime_status": "unavailable", "site_upgrade": "unavailable", "tgw_connect": "unavailable"}
@@ -147,6 +166,54 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 		{Name: "site_bgp_status", Kind: "convergence"},
 		{Name: "site_upgrade_status", Kind: "upgrade"},
 	}, nil
+}
+
+func validateAzureRouteServerContract(azure struct {
+	Availability            string                    `json:"availability"`
+	RouteServerEBGPMultihop smsv2CapabilityBoundary   `json:"route_server_ebgp_multihop"`
+	Runtime                 map[string]map[string]any `json:"runtime"`
+}) error {
+	boundary := azure.RouteServerEBGPMultihop
+	if azure.Availability != "evidence_backed" || boundary.Availability != "unavailable" ||
+		boundary.Enforcement != "reject_before_mutation" || boundary.Reason != "no_schema_valid_ebgp_multihop_request_control" {
+		return fmt.Errorf("Azure Route Server eBGP multihop boundary is incomplete")
+	}
+	if boundary.Source.Repository != "f5-sales-demo/api-specs-enriched" || len(boundary.Source.Commit) != 40 ||
+		boundary.Source.AssetPath != "docs/specifications/api/network.json" ||
+		!strings.HasPrefix(boundary.Source.AssetSHA256, "sha256:") || len(boundary.Source.AssetSHA256) != 71 ||
+		!equalStrings(boundary.Source.SchemaPaths, []string{
+			"components.schemas.bgpPeer",
+			"components.schemas.bgpPeerExternal",
+			"components.schemas.bgpBgpParameters",
+		}) {
+		return fmt.Errorf("Azure Route Server eBGP multihop provenance is incomplete")
+	}
+	wantRequirements := map[string]string{
+		"request_schema_path":     "explicit",
+		"request_field_path":      "explicit",
+		"request_value_semantics": "explicit",
+		"schema_validation":       "required",
+		"runtime_acceptance":      "required",
+	}
+	if !equalStringMap(boundary.FutureMappingRequirements, wantRequirements) {
+		return fmt.Errorf("Azure Route Server eBGP multihop promotion requirements are incomplete")
+	}
+	bgp := azure.Runtime["bgp_configuration"]
+	responseMappings, mappingsOK := bgp["response_mappings"].(map[string]any)
+	responseOnly, responseOnlyOK := bgp["response_only_fields"].([]any)
+	if bgp["method"] != "GET" || bgp["path"] != "/api/config/namespaces/{namespace}/bgps/{name}" ||
+		bgp["operation_id"] != "ves.io.schema.bgp.API.Get" || bgp["response_schema"] != "bgpGetResponse" ||
+		bgp["authority"] != "f5xc" || bgp["semantics"] != "observational_read_only" ||
+		bgp["request_eligibility"] != "rejected_without_authoritative_request_schema" ||
+		!mappingsOK || responseMappings["target_service"] != "spec.peers[].target_service" ||
+		responseMappings["family_inet_v6"] != "spec.peers[].external.family_inet_v6" ||
+		!responseOnlyOK || fmt.Sprint(responseOnly) != "[spec.peers[].target_service spec.peers[].external.family_inet_v6]" {
+		return fmt.Errorf("Azure BGP response-only observation contract is incomplete")
+	}
+	if _, writable := bgp["request_mappings"]; writable {
+		return fmt.Errorf("Azure BGP response-only fields cannot be promoted to request inputs")
+	}
+	return nil
 }
 
 func equalStringMap(left, right map[string]string) bool {

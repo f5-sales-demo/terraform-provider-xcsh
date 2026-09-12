@@ -6,7 +6,7 @@ validator="$root/scripts/validate-smsv2-release.py"
 work=$(mktemp -d)
 trap 'rm -rf "$work"' EXIT
 
-tag=v6.0.0
+tag=v7.0.1
 commit=0123456789abcdef0123456789abcdef01234567
 observed=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 jq -n --arg observed "$observed" '{
@@ -15,7 +15,7 @@ jq -n --arg observed "$observed" '{
   receipts:[{operations:["create","read","replace","delete"],result:"accepted",sanitized:true,redaction:"fixture"}]
 }' >"$work/smsv2-evidence-receipt.json"
 jq -n '{
-  version:"6.0.0",
+  version:"7.0.0",
   contract_id:"f5xc-smsv2-api/v1",
   resource:"securemesh_site_v2",
   api:{namespace:"system",operations:["create","read","replace","delete"]},
@@ -82,15 +82,54 @@ jq '
       correlation:["node","role"],request_mappings:{node_scope:"all_nodes",roles:["slo","sli"]},
       response_mappings:{nodes:"ver_routes[]"}
     }
+  | .providers.azure = {
+      availability:"evidence_backed",
+      route_server_ebgp_multihop:{
+        availability:"unavailable",enforcement:"reject_before_mutation",
+        reason:"no_schema_valid_ebgp_multihop_request_control",
+        source:{
+          repository:"f5-sales-demo/api-specs-enriched",
+          commit:"322c202ed49c8cfcd5015a524f3195bbd2a8f2bc",
+          asset_path:"docs/specifications/api/network.json",
+          asset_sha256:("sha256:" + ("e" * 64)),
+          schema_paths:["components.schemas.bgpPeer","components.schemas.bgpPeerExternal","components.schemas.bgpBgpParameters"]
+        },
+        future_mapping_requirements:{
+          request_schema_path:"explicit",request_field_path:"explicit",request_value_semantics:"explicit",
+          schema_validation:"required",runtime_acceptance:"required"
+        }
+      },
+      runtime:{bgp_configuration:{
+        method:"GET",path:"/api/config/namespaces/{namespace}/bgps/{name}",
+        operation_id:"ves.io.schema.bgp.API.Get",response_schema:"bgpGetResponse",
+        authority:"f5xc",semantics:"observational_read_only",
+        response_mappings:{
+          parameters:"spec.bgp_parameters",peers:"spec.peers[]",
+          target_service:"spec.peers[].target_service",
+          family_inet_v6:"spec.peers[].external.family_inet_v6"
+        },
+        response_only_fields:["spec.peers[].target_service","spec.peers[].external.family_inet_v6"],
+        request_eligibility:"rejected_without_authoritative_request_schema",
+        source:{
+          repository:"f5-sales-demo/api-specs-enriched",
+          commit:"055d32d68c14824e32d748a425bf541dec2f529e",
+          asset_path:"docs/specifications/api/network.json",
+          asset_sha256:("sha256:" + ("f" * 64)),
+          schema_paths:["components.schemas.bgpPeer","components.schemas.bgpPeerExternal","components.schemas.bgpBgpParameters","components.schemas.bgpGetResponse"]
+        },
+        evidence_receipt:{path:"config/evidence/azure_bgp_response_drift_v7.0.0.json",sha256:("1" * 64)},
+        live_evidence:{method:"GET",sanitized:true,form_metadata:{create_form:null,replace_form:null}}
+      }}
+    }
 ' "$work/smsv2-contract.json" >"$work/contract-v3.json"
 mv "$work/contract-v3.json" "$work/smsv2-contract.json"
 jq -n '{
-  version:"6.0.0",eligible_count:1,covered_count:1,excluded_count:1,
+  version:"7.0.1",eligible_count:1,covered_count:1,excluded_count:1,
   resources:[{api_identity:"ves.io.schema.probe.API",get:{schema:"probeGetResponse"},replace:{schema:"probeReplaceRequest"},token:"resource_version"}],
   exclusions:[{api_identity:"ves.io.schema.command.API",reason:"command endpoint"}]
 }' >"$work/concurrency_contracts.json"
 jq -n '{
-  version:"6.0.0",resource:"securemesh_site_v2",root_schema:"securemesh_site_v2CreateRequest",path_count:1,
+  version:"7.0.1",resource:"securemesh_site_v2",root_schema:"securemesh_site_v2CreateRequest",path_count:1,
   paths:[{path:"spec.segment_vrf[].segment_network",type:"object"}],choice_groups:{},
   deprecated_exclusions:[],
   current_platform_removals:["spec.rseries"],
@@ -141,7 +180,7 @@ reject_contract_mutation() {
   jq "$filter" "$directory/smsv2-contract.json" >"$directory/updated.json"
   mv "$directory/updated.json" "$directory/smsv2-contract.json"
   if [ "$name" = contract-version-mismatch ]; then
-    refresh_manifest "$directory" 6.0.0
+    refresh_manifest "$directory" 7.0.0
   else
     refresh_manifest "$directory"
   fi
@@ -153,32 +192,6 @@ reject_contract_mutation() {
 
 refresh_manifest "$work"
 python3 "$validator" "$work" "$tag" "$commit"
-
-historical="$work/historical-v6.1.2"
-mkdir "$historical"
-cp "$work"/*.json "$historical/"
-jq '.contract_id = "f5xc-ce-automation/v3" | .version = "6.1.2"' \
-  "$historical/smsv2-contract.json" >"$historical/contract.json"
-mv "$historical/contract.json" "$historical/smsv2-contract.json"
-jq '.contract_id = "f5xc-ce-automation/v3"' \
-  "$historical/smsv2-evidence-receipt.json" >"$historical/evidence.json"
-mv "$historical/evidence.json" "$historical/smsv2-evidence-receipt.json"
-for asset in concurrency_contracts.json smsv2_parity_manifest.json; do
-  jq '.version = "6.1.2"' "$historical/$asset" >"$historical/updated.json"
-  mv "$historical/updated.json" "$historical/$asset"
-done
-tag=v6.1.2
-commit=a5fa987f876db955666bd94fefed35f283bb5364
-refresh_manifest "$historical" 6.1.2 f5xc-ce-automation/v3
-python3 "$validator" "$historical" "$tag" "$commit"
-commit=a5fa987f876db955666bd94fefed35f283bb5365
-refresh_manifest "$historical" 6.1.2 f5xc-ce-automation/v3
-if python3 "$validator" "$historical" "$tag" "$commit" >/dev/null 2>&1; then
-  echo "legacy manifest identity was accepted outside the exact immutable release" >&2
-  exit 1
-fi
-tag=v6.0.0
-commit=0123456789abcdef0123456789abcdef01234567
 
 reject_parity_mutation() {
   local name=$1 filter=$2 directory="$work/parity-$1"
@@ -240,6 +253,11 @@ fi
 
 reject_contract_mutation retired-ce-automation-v3 '.contract_id = "f5xc-ce-automation/v3"'
 reject_contract_mutation contract-version-mismatch '.version = "5.0.1"'
+reject_contract_mutation fabricated-azure-multihop '.providers.azure.route_server_ebgp_multihop.availability = "available"'
+reject_contract_mutation weakened-azure-enforcement '.providers.azure.route_server_ebgp_multihop.enforcement = "allow_mutation"'
+reject_contract_mutation writable-target-service '.providers.azure.runtime.bgp_configuration.request_mappings = {target_service:"spec.peers[].target_service"}'
+reject_contract_mutation missing-family-inet-v6 '.providers.azure.runtime.bgp_configuration.response_only_fields = ["spec.peers[].target_service"]'
+reject_contract_mutation invalid-azure-evidence-digest '.providers.azure.runtime.bgp_configuration.evidence_receipt.sha256 = ("0" * 63)'
 reject_contract_mutation unavailable-only '.providers.aws.capabilities.runtime_status = "unavailable"'
 reject_contract_mutation incomplete-telemetry '.providers.aws.telemetry_intake.complete = false'
 reject_contract_mutation legacy-interface-path '.providers.aws.runtime.configuration.path = "/api/config/namespaces/{namespace}/sites/{site}/interface"'
@@ -260,10 +278,8 @@ fi
 site_upgrade="$work/site-upgrade"
 mkdir "$site_upgrade"
 cp "$work"/*.json "$site_upgrade/"
-tag=v6.1.0
 jq '
-  .version = "6.1.0"
-  | .providers.aws.capabilities.site_upgrade = "available"
+  .providers.aws.capabilities.site_upgrade = "available"
   | .providers.aws.authorities.f5xc += ["site_upgrade_observation"]
   | .providers.aws.site_upgrade = {
       site_status:{method:"GET",path:"/api/config/namespaces/{namespace}/sites/{site}",operation_id:"ves.io.schema.site.API.Get",response_schema:"siteGetResponse",response_mappings:{software_installed_version:"status[].volterra_software_status.last_installed_version",software_available_version:"status[].volterra_software_status.available_version",software_deployment_phase:"status[].volterra_software_status.deployment_state.phase",software_deployment_result:"status[].volterra_software_status.deployment_state.result",os_installed_version:"status[].operating_system_status.deployment_state.version",os_available_version:"status[].operating_system_status.available_version",os_deployment_phase:"status[].operating_system_status.deployment_state.phase",os_deployment_result:"status[].operating_system_status.deployment_state.result",site_state:"spec.site_state"}},
@@ -286,10 +302,6 @@ jq '.receipts += [{
   validated_facts:["installed_and_available_versions","deployment_phase_and_result","site_state","software_target_advertised","software_prechecks_passed","transient_failure_observed"]
 }]' "$site_upgrade/smsv2-evidence-receipt.json" >"$site_upgrade/evidence.json"
 mv "$site_upgrade/evidence.json" "$site_upgrade/smsv2-evidence-receipt.json"
-jq '.version = "6.1.0"' "$site_upgrade/concurrency_contracts.json" >"$site_upgrade/concurrency.json"
-mv "$site_upgrade/concurrency.json" "$site_upgrade/concurrency_contracts.json"
-jq '.version = "6.1.0"' "$site_upgrade/smsv2_parity_manifest.json" >"$site_upgrade/parity.json"
-mv "$site_upgrade/parity.json" "$site_upgrade/smsv2_parity_manifest.json"
 refresh_manifest "$site_upgrade"
 python3 "$validator" "$site_upgrade" "$tag" "$commit"
 
@@ -311,7 +323,6 @@ reject_upgrade_mutation mutable-force '.providers.aws.site_upgrade.software_upgr
 reject_upgrade_mutation terminal-failure '.providers.aws.site_upgrade.polling.failure_semantics = "terminal"'
 reject_upgrade_mutation raw-export '.providers.aws.site_upgrade.redaction.exported = "raw_response"'
 
-tag=v6.0.0
 printf x >>"$work/smsv2-contract.json"
 if python3 "$validator" "$work" "$tag" "$commit" >/dev/null 2>&1; then
   echo "tampered contract was accepted" >&2

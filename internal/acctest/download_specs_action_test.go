@@ -730,8 +730,62 @@ func fileSHA256(t *testing.T, path string) string {
 // receipt accepted by the production validator.
 func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]string {
 	t.Helper()
+	azure := map[string]any{
+		"availability": "evidence_backed",
+		"route_server_ebgp_multihop": map[string]any{
+			"availability": "unavailable",
+			"enforcement":  "reject_before_mutation",
+			"reason":       "no_schema_valid_ebgp_multihop_request_control",
+			"source": map[string]any{
+				"repository":   "f5-sales-demo/api-specs-enriched",
+				"commit":       strings.Repeat("b", 40),
+				"asset_path":   "docs/specifications/api/network.json",
+				"asset_sha256": "sha256:" + strings.Repeat("c", 64),
+				"schema_paths": []string{"components.schemas.bgpPeer", "components.schemas.bgpPeerExternal", "components.schemas.bgpBgpParameters"},
+			},
+			"future_mapping_requirements": map[string]string{
+				"request_schema_path":     "explicit",
+				"request_field_path":      "explicit",
+				"request_value_semantics": "explicit",
+				"schema_validation":       "required",
+				"runtime_acceptance":      "required",
+			},
+		},
+		"runtime": map[string]any{"bgp_configuration": map[string]any{
+			"method":              "GET",
+			"path":                "/api/config/namespaces/{namespace}/bgps/{name}",
+			"operation_id":        "ves.io.schema.bgp.API.Get",
+			"response_schema":     "bgpGetResponse",
+			"authority":           "f5xc",
+			"semantics":           "observational_read_only",
+			"request_eligibility": "rejected_without_authoritative_request_schema",
+			"response_mappings": map[string]string{
+				"parameters":     "spec.bgp_parameters",
+				"peers":          "spec.peers[]",
+				"target_service": "spec.peers[].target_service",
+				"family_inet_v6": "spec.peers[].external.family_inet_v6",
+			},
+			"response_only_fields": []string{"spec.peers[].target_service", "spec.peers[].external.family_inet_v6"},
+			"source": map[string]any{
+				"repository":   "f5-sales-demo/api-specs-enriched",
+				"commit":       strings.Repeat("d", 40),
+				"asset_path":   "docs/specifications/api/network.json",
+				"asset_sha256": "sha256:" + strings.Repeat("e", 64),
+				"schema_paths": []string{"components.schemas.bgpPeer", "components.schemas.bgpPeerExternal", "components.schemas.bgpBgpParameters", "components.schemas.bgpGetResponse"},
+			},
+			"evidence_receipt": map[string]any{
+				"path":   "config/evidence/azure_bgp_response_drift_v7.0.0.json",
+				"sha256": strings.Repeat("f", 64),
+			},
+			"live_evidence": map[string]any{
+				"method":        "GET",
+				"sanitized":     true,
+				"form_metadata": map[string]any{"create_form": nil, "replace_form": nil},
+			},
+		}},
+	}
 	contract := map[string]any{
-		"version":     "6.0.0",
+		"version":     "7.0.0",
 		"contract_id": "f5xc-smsv2-api/v1",
 		"resource":    "securemesh_site_v2",
 		"api":         map[string]any{"namespace": "system", "operations": []string{"create", "read", "replace", "delete"}},
@@ -794,7 +848,7 @@ func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]str
 			},
 			"prohibited_legacy_apis":   []string{"aws_vpc_site", "aws_tgw_site"},
 			"unavailable_capabilities": []any{},
-		}},
+		}, "azure": azure},
 	}
 	evidence := map[string]any{"contract_id": "f5xc-smsv2-api/v1", "recorded_at": time.Now().UTC().Format(time.RFC3339), "receipts": []map[string]any{{"redaction": "fixture", "sanitized": true}}}
 	writeJSON := func(name string, value any) {
@@ -842,7 +896,7 @@ func writeTestSMSv2Assets(t *testing.T, root, tag, commit string) map[string]str
 	})
 	writeJSON("upstream-contract-removals.json", map[string]any{"version": version, "removals": []any{}})
 	assets := map[string]string{"smsv2-contract.json": fileSHA256(t, filepath.Join(root, "smsv2-contract.json")), "smsv2-evidence-receipt.json": fileSHA256(t, filepath.Join(root, "smsv2-evidence-receipt.json"))}
-	writeJSON("smsv2-contract-manifest.json", map[string]any{"assets": map[string]string{"smsv2-contract.json": "sha256:" + assets["smsv2-contract.json"], "smsv2-evidence-receipt.json": "sha256:" + assets["smsv2-evidence-receipt.json"]}, "contract_id": "f5xc-smsv2-api/v1", "contract_version": "6.0.0", "release": map[string]string{"tag": tag, "commit": commit}, "schema_version": 1})
+	writeJSON("smsv2-contract-manifest.json", map[string]any{"assets": map[string]string{"smsv2-contract.json": "sha256:" + assets["smsv2-contract.json"], "smsv2-evidence-receipt.json": "sha256:" + assets["smsv2-evidence-receipt.json"]}, "contract_id": "f5xc-smsv2-api/v1", "contract_version": "7.0.0", "release": map[string]string{"tag": tag, "commit": commit}, "schema_version": 1})
 	assets["smsv2-contract-manifest.json"] = fileSHA256(t, filepath.Join(root, "smsv2-contract-manifest.json"))
 	for _, name := range []string{"concurrency_contracts.json", "smsv2_parity_manifest.json", "upstream-contract-removals.json"} {
 		assets[name] = fileSHA256(t, filepath.Join(root, name))
