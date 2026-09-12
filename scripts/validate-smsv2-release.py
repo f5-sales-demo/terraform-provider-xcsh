@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # pylint: disable=invalid-name,too-many-branches
 # ruff: noqa: TRY003,EM102,PLR2004,FURB162
-"""Reject unproven or tampered AWS SMSv2 release capability assets."""
+"""Reject unproven or tampered SMSv2 release capability assets."""
 
 import datetime as dt
 import hashlib
@@ -12,12 +12,7 @@ import sys
 from typing import NoReturn
 
 CONTRACT_ID = "f5xc-smsv2-api/v1"
-HISTORICAL_MANIFEST_IDENTITIES = {
-    (
-        "v6.1.2",
-        "a5fa987f876db955666bd94fefed35f283bb5364",
-    ): "f5xc-ce-automation/v3",
-}
+CONTRACT_VERSION = "7.0.0"
 TELEMETRY_SCHEMA_ID = "f5xc-smsv2-aws-tgw-telemetry/v2"
 REQUIRED_FACTS = {
     "runtime",
@@ -287,9 +282,6 @@ def validate_site_upgrade(site_upgrade: object, contract_version: object) -> Non
 def validate_manifest(directory: pathlib.Path, tag: str, commit: str) -> dict:
     """Validate the manifest identity, asset set, and checksums."""
     manifest = load_json(directory / "smsv2-contract-manifest.json", "manifest")
-    expected_contract_id = HISTORICAL_MANIFEST_IDENTITIES.get(
-        (tag, commit), CONTRACT_ID
-    )
     if set(manifest) != {
         "assets",
         "contract_id",
@@ -300,7 +292,8 @@ def validate_manifest(directory: pathlib.Path, tag: str, commit: str) -> dict:
         fail("manifest fields are malformed")
     if (
         manifest["schema_version"] != 1
-        or manifest["contract_id"] != expected_contract_id
+        or manifest["contract_id"] != CONTRACT_ID
+        or manifest["contract_version"] != CONTRACT_VERSION
     ):
         fail("manifest contract identity is unsupported")
     if manifest["release"] != {"tag": tag, "commit": commit}:
@@ -316,15 +309,122 @@ def validate_manifest(directory: pathlib.Path, tag: str, commit: str) -> dict:
     return manifest
 
 
+def valid_source(value: object, *, schema_paths: list[str], asset_path: str) -> bool:
+    """Return whether a capability source is immutable and schema-specific."""
+    if not isinstance(value, dict):
+        return False
+    return (
+        set(value)
+        == {"repository", "commit", "asset_path", "asset_sha256", "schema_paths"}
+        and value.get("repository") == "f5-sales-demo/api-specs-enriched"
+        and value.get("asset_path") == asset_path
+        and isinstance(value.get("commit"), str)
+        and re.fullmatch(r"[0-9a-f]{40}", value["commit"]) is not None
+        and valid_typed_sha256(value.get("asset_sha256"))
+        and value.get("schema_paths") == schema_paths
+    )
+
+
+def validate_azure_contract(azure: object) -> None:
+    """Validate the fail-closed Azure multihop and response-only BGP boundary."""
+    if not isinstance(azure, dict) or azure.get("availability") != "evidence_backed":
+        fail("Azure SMSv2 availability is unsupported")
+    boundary = azure.get("route_server_ebgp_multihop")
+    if not isinstance(boundary, dict) or set(boundary) != {
+        "availability",
+        "enforcement",
+        "reason",
+        "source",
+        "future_mapping_requirements",
+    }:
+        fail("Azure Route Server eBGP multihop boundary is incomplete")
+    if (
+        boundary.get("availability") != "unavailable"
+        or boundary.get("enforcement") != "reject_before_mutation"
+        or boundary.get("reason") != "no_schema_valid_ebgp_multihop_request_control"
+        or boundary.get("future_mapping_requirements")
+        != {
+            "request_schema_path": "explicit",
+            "request_field_path": "explicit",
+            "request_value_semantics": "explicit",
+            "schema_validation": "required",
+            "runtime_acceptance": "required",
+        }
+        or not valid_source(
+            boundary.get("source"),
+            asset_path="docs/specifications/api/network.json",
+            schema_paths=[
+                "components.schemas.bgpPeer",
+                "components.schemas.bgpPeerExternal",
+                "components.schemas.bgpBgpParameters",
+            ],
+        )
+    ):
+        fail("Azure Route Server eBGP multihop boundary is not fail-closed")
+    runtime = azure.get("runtime")
+    bgp = runtime.get("bgp_configuration") if isinstance(runtime, dict) else None
+    if not isinstance(bgp, dict) or "request_mappings" in bgp:
+        fail("Azure BGP response-only observation was promoted to a request input")
+    if (
+        bgp.get("method") != "GET"
+        or bgp.get("path") != "/api/config/namespaces/{namespace}/bgps/{name}"
+        or bgp.get("operation_id") != "ves.io.schema.bgp.API.Get"
+        or bgp.get("response_schema") != "bgpGetResponse"
+        or bgp.get("authority") != "f5xc"
+        or bgp.get("semantics") != "observational_read_only"
+        or bgp.get("request_eligibility")
+        != "rejected_without_authoritative_request_schema"
+        or bgp.get("response_mappings")
+        != {
+            "parameters": "spec.bgp_parameters",
+            "peers": "spec.peers[]",
+            "target_service": "spec.peers[].target_service",
+            "family_inet_v6": "spec.peers[].external.family_inet_v6",
+        }
+        or bgp.get("response_only_fields")
+        != [
+            "spec.peers[].target_service",
+            "spec.peers[].external.family_inet_v6",
+        ]
+    ):
+        fail("Azure BGP response-only observation contract is incomplete")
+    source = bgp.get("source")
+    if not valid_source(
+        source,
+        asset_path="docs/specifications/api/network.json",
+        schema_paths=[
+            "components.schemas.bgpPeer",
+            "components.schemas.bgpPeerExternal",
+            "components.schemas.bgpBgpParameters",
+            "components.schemas.bgpGetResponse",
+        ],
+    ):
+        fail("Azure BGP response-only observation provenance is incomplete")
+    evidence = bgp.get("evidence_receipt")
+    live = bgp.get("live_evidence")
+    if (
+        not isinstance(evidence, dict)
+        or evidence.get("path")
+        != "config/evidence/azure_bgp_response_drift_v7.0.0.json"
+        or not valid_sha256_hex(evidence.get("sha256"))
+        or not isinstance(live, dict)
+        or live.get("method") != "GET"
+        or live.get("sanitized") is not True
+        or live.get("form_metadata") != {"create_form": None, "replace_form": None}
+    ):
+        fail("Azure BGP response-only evidence is incomplete")
+
+
 def validate_contract(contract: dict, contract_id: str, contract_version: str) -> None:
-    """Validate the exact MAC-bound SMSv2 runtime and authority contract."""
+    """Validate the exact SMSv2 runtime, authority, and fail-closed capability contract."""
     aws = contract.get("providers", {}).get("aws", {})
     if (
         contract.get("contract_id") != contract_id
         or contract.get("version") != contract_version
+        or contract_version != CONTRACT_VERSION
         or contract.get("resource") != "securemesh_site_v2"
     ):
-        fail("AWS contract identity is invalid")
+        fail("SMSv2 contract identity is invalid")
     api = contract.get("api", {})
     if api.get("namespace") != "system" or set(api.get("operations", [])) != {
         "create",
@@ -433,6 +533,7 @@ def validate_contract(contract: dict, contract_id: str, contract_version: str) -
             fail("schema-only AWS capabilities and telemetry must fail closed")
     else:
         fail("AWS contract availability is unsupported")
+    validate_azure_contract(contract.get("providers", {}).get("azure"))
 
 
 def validate_openapi(openapi: dict) -> None:
@@ -462,7 +563,7 @@ def validate_evidence(
             fail("evidence observation timestamp must include a timezone")
     except (KeyError, AttributeError, ValueError):
         fail("evidence observation timestamp is invalid")
-    if dt.datetime.now(dt.UTC) - observed_at > dt.timedelta(days=90):
+    if dt.datetime.now(dt.timezone.utc) - observed_at > dt.timedelta(days=90):
         fail("evidence is stale")
     receipts = evidence.get("receipts")
     if (
@@ -558,6 +659,11 @@ def valid_typed_sha256(value: object) -> bool:
         isinstance(value, str)
         and re.fullmatch(r"sha256:[0-9a-f]{64}", value) is not None
     )
+
+
+def valid_sha256_hex(value: object) -> bool:
+    """Return whether value is the contract's bare lowercase SHA-256 form."""
+    return isinstance(value, str) and re.fullmatch(r"[0-9a-f]{64}", value) is not None
 
 
 def valid_observed_date(value: object) -> bool:

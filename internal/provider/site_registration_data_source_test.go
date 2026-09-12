@@ -53,6 +53,7 @@ func TestSelectRegistration_SingleMatch(t *testing.T) {
 	}
 	if got == nil {
 		t.Fatal("selectRegistration() = nil, want the single registration")
+		return
 	}
 	if got.Name != "r-dcec2400-52d5-4154-9fd0-4b042d3fe18d" {
 		t.Errorf("Name = %q, want %q", got.Name, "r-dcec2400-52d5-4154-9fd0-4b042d3fe18d")
@@ -96,6 +97,7 @@ func TestSelectRegistration_HostnameDiscriminator(t *testing.T) {
 	}
 	if got == nil {
 		t.Fatal("selectRegistration() = nil, want the master-1 registration")
+		return
 	}
 	if got.Name != "r-bbb" {
 		t.Errorf("Name = %q, want %q", got.Name, "r-bbb")
@@ -191,6 +193,7 @@ func TestSelectRegistration_StaleRegistrationIsSkipped(t *testing.T) {
 	}
 	if got == nil {
 		t.Fatal("selectRegistration() = nil, want the live ONLINE registration")
+		return
 	}
 	if got.Name != "r-live" {
 		t.Errorf("Name = %q, want %q", got.Name, "r-live")

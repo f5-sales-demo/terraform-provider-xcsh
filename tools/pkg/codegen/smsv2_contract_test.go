@@ -8,10 +8,33 @@ import (
 	"testing"
 )
 
-const syntheticSMSv2V6Contract = `{
-  "version":"6.1.0",
-  "contract_id":"f5xc-ce-automation/v3",
-  "providers":{"aws":{
+const syntheticSMSv2V7Contract = `{
+  "version":"7.0.0",
+  "contract_id":"f5xc-smsv2-api/v1",
+  "providers":{
+  "azure":{
+    "availability":"evidence_backed",
+    "route_server_ebgp_multihop":{
+      "availability":"unavailable","enforcement":"reject_before_mutation","reason":"no_schema_valid_ebgp_multihop_request_control",
+      "source":{
+        "repository":"f5-sales-demo/api-specs-enriched","commit":"322c202ed49c8cfcd5015a524f3195bbd2a8f2bc",
+        "asset_path":"docs/specifications/api/network.json","asset_sha256":"sha256:a7398d85475409c93750a04ccdec7c0b1a7ae12bc362ebfbc76866275904762a",
+        "schema_paths":["components.schemas.bgpPeer","components.schemas.bgpPeerExternal","components.schemas.bgpBgpParameters"]
+      },
+      "future_mapping_requirements":{
+        "request_schema_path":"explicit","request_field_path":"explicit","request_value_semantics":"explicit",
+        "schema_validation":"required","runtime_acceptance":"required"
+      }
+    },
+    "runtime":{"bgp_configuration":{
+      "method":"GET","path":"/api/config/namespaces/{namespace}/bgps/{name}","operation_id":"ves.io.schema.bgp.API.Get",
+      "response_schema":"bgpGetResponse","authority":"f5xc","semantics":"observational_read_only",
+      "response_mappings":{"target_service":"spec.peers[].target_service","family_inet_v6":"spec.peers[].external.family_inet_v6"},
+      "response_only_fields":["spec.peers[].target_service","spec.peers[].external.family_inet_v6"],
+      "request_eligibility":"rejected_without_authoritative_request_schema"
+    }}
+  },
+  "aws":{
 	"availability":"evidence_backed",
     "capabilities":{"aws_ce_create":"available","runtime_status":"available","site_upgrade":"available","tgw_connect":"available"},
 	"unavailable_capabilities":[],
@@ -42,12 +65,12 @@ const syntheticSMSv2V6Contract = `{
       "f5xc":["smsv2_configuration","runtime_health","bgp_peers","bgp_routes","simplified_routes","site_upgrade_observation"],
       "aws":["eni","transit_gateway","transit_gateway_connect","gre_endpoints","bgp_inside_cidrs","autonomous_system_numbers"]
     }
-  }}
+	}}
 }`
 
 func TestSMSv2DataSourceTemplatesSelectsCleanBreakSurfaces(t *testing.T) {
 	t.Parallel()
-	got, err := SMSv2DataSourceTemplates([]byte(syntheticSMSv2V6Contract))
+	got, err := SMSv2DataSourceTemplates([]byte(syntheticSMSv2V7Contract))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -64,18 +87,20 @@ func TestSMSv2DataSourceTemplatesRejectsLegacyAndIncompleteContracts(t *testing.
 		from string
 		to   string
 	}{
-		{name: "v2 identity", from: "f5xc-ce-automation/v3", to: "f5xc-ce-automation/v2"},
-		{name: "pre-v6.1 release", from: `"version":"6.1.0"`, to: `"version":"6.0.0"`},
+		{name: "retired v3 identity", from: "f5xc-smsv2-api/v1", to: "f5xc-ce-automation/v3"},
+		{name: "pre-v7 contract", from: `"version":"7.0.0"`, to: `"version":"6.1.0"`},
 		{name: "unavailable runtime", from: `"runtime_status":"available"`, to: `"runtime_status":"unavailable"`},
 		{name: "legacy interface endpoint", from: "/securemesh_site_v2s/{site}", to: "/sites/{site}/interface"},
 		{name: "legacy routes endpoint", from: "/ver/simplified_routes", to: "/ver/routes"},
 		{name: "missing site upgrade capability", from: `"site_upgrade":"available",`, to: ""},
 		{name: "mutable upgrade force", from: `"force":false`, to: `"force":true`},
 		{name: "authority mismatch", from: `"gre_endpoints","bgp_inside_cidrs"`, to: `"runtime_health","bgp_inside_cidrs"`},
+		{name: "fabricated multihop", from: `"availability":"unavailable","enforcement":"reject_before_mutation"`, to: `"availability":"available","enforcement":"allow"`},
+		{name: "writable response field", from: `"request_eligibility":"rejected_without_authoritative_request_schema"`, to: `"request_eligibility":"allowed","request_mappings":{"target_service":"spec.peers[].target_service"}`},
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			fixture := strings.Replace(syntheticSMSv2V6Contract, test.from, test.to, 1)
+			fixture := strings.Replace(syntheticSMSv2V7Contract, test.from, test.to, 1)
 			if _, err := SMSv2DataSourceTemplates([]byte(fixture)); err == nil {
 				t.Fatal("expected contract selection error")
 			}
@@ -86,11 +111,13 @@ func TestSMSv2DataSourceTemplatesRejectsLegacyAndIncompleteContracts(t *testing.
 func TestSMSv2DataSourceTemplatesRetainsSchemasWhenCapabilitiesFailClosed(t *testing.T) {
 	t.Parallel()
 	fixture := strings.NewReplacer(
-		`"availability":"evidence_backed"`, `"availability":"schema_only"`,
+		`"aws":{
+	"availability":"evidence_backed"`, `"aws":{
+	"availability":"schema_only"`,
 		`"aws_ce_create":"available","runtime_status":"available","site_upgrade":"available","tgw_connect":"available"`, `"aws_ce_create":"unavailable","runtime_status":"unavailable","site_upgrade":"unavailable","tgw_connect":"unavailable"`,
 		`"unavailable_capabilities":[]`, `"unavailable_capabilities":["aws_ce_create","runtime_status","site_upgrade","tgw_connect"]`,
 		`"availability":"available","complete":true`, `"availability":"unavailable","complete":false`,
-	).Replace(syntheticSMSv2V6Contract)
+	).Replace(syntheticSMSv2V7Contract)
 	got, err := SMSv2DataSourceTemplates([]byte(fixture))
 	if err != nil {
 		t.Fatal(err)

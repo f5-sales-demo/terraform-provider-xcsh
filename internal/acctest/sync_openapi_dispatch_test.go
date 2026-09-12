@@ -295,6 +295,7 @@ func TestSyncOpenAPIRetryPushUsesPATAndTriggersChecks(t *testing.T) {
 	}
 	if checkout == nil || push == nil {
 		t.Fatal("sync checkout or branch-push step is missing")
+		return
 	}
 	if checkout.With["persist-credentials"] != false ||
 		checkout.With["token"] != "${{ secrets.REPO_SYNC_TOKEN }}" {

@@ -58,6 +58,7 @@ func GenerateSMSv2ContractConstants(specDir, outputDir string) ([]SMSv2DataSourc
 		"tgw_connect", contract.Providers.AWS.Capabilities["tgw_connect"])
 	f5xcAuthorities := goStringSlice(contract.Providers.AWS.Authorities["f5xc"])
 	awsAuthorities := goStringSlice(contract.Providers.AWS.Authorities["aws"])
+	azureMultihop := contract.Providers.Azure.RouteServerEBGPMultihop
 	source := fmt.Sprintf(`// Code generated from api-specs-enriched %s smsv2-contract.json. DO NOT EDIT.
 
 package provider
@@ -73,7 +74,22 @@ const (
 var smsv2ContractCapabilities = %s
 var smsv2ContractF5XCAuthorities = %s
 var smsv2ContractAWSAuthorities = %s
-`, manifest.Release.Tag, contract.ContractID, contract.Version, manifest.Release.Tag, manifest.Release.Commit, contract.Providers.AWS.Telemetry.SchemaID, capabilities, f5xcAuthorities, awsAuthorities)
+var smsv2AzureRouteServerEBGPMultihop = smsv2CapabilityBoundaryContract{
+	Availability: %q,
+	Enforcement: %q,
+	Reason: %q,
+	Source: smsv2CapabilitySourceContract{
+		Repository: %q,
+		Commit: %q,
+		AssetPath: %q,
+		AssetSHA256: %q,
+		SchemaPaths: %s,
+	},
+}
+`, manifest.Release.Tag, contract.ContractID, contract.Version, manifest.Release.Tag, manifest.Release.Commit, contract.Providers.AWS.Telemetry.SchemaID, capabilities, f5xcAuthorities, awsAuthorities,
+		azureMultihop.Availability, azureMultihop.Enforcement, azureMultihop.Reason,
+		azureMultihop.Source.Repository, azureMultihop.Source.Commit, azureMultihop.Source.AssetPath,
+		azureMultihop.Source.AssetSHA256, goStringSlice(azureMultihop.Source.SchemaPaths))
 	formatted, err := format.Source([]byte(source))
 	if err != nil {
 		return nil, fmt.Errorf("format SMSv2 generated constants: %w", err)
