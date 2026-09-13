@@ -362,6 +362,41 @@ func TestRenderUnmarshalScalarChild_PreserveGuardsUnknown(t *testing.T) {
 	}
 }
 
+func TestRenderUnmarshalScalarChild_OptionalStringPreservesKnownStateWhenAPIOmitsIt(t *testing.T) {
+	attr := openapi.TerraformAttribute{
+		GoName: "Mac", TfsdkTag: "mac", JsonName: "mac",
+		Type: "string", Optional: true,
+	}
+	var sb strings.Builder
+	renderUnmarshalScalarChild(&sb, "SecuremeshSiteV2", attr, "ethernetInterfaceData", "existing.Interface", "existing.Interface != nil", "single", "\t")
+	got := sb.String()
+
+	for _, want := range []string{
+		"if v, ok := ethernetInterfaceData[\"mac\"].(string); ok && v != \"\" {",
+		"if !isImport && existing.Interface != nil && !existing.Interface.Mac.IsUnknown() {",
+		"return existing.Interface.Mac",
+	} {
+		if !strings.Contains(got, want) {
+			t.Errorf("optional nested string omission must preserve known prior state; missing %q:\n%s", want, got)
+		}
+	}
+	if strings.Index(got, "return types.StringValue(v)") > strings.Index(got, "return existing.Interface.Mac") {
+		t.Errorf("API-provided string must win over preserved prior state:\n%s", got)
+	}
+}
+
+func TestRenderUnmarshalScalarChild_OptionalStringDoesNotBroadenSMSv2MACPreservation(t *testing.T) {
+	attr := openapi.TerraformAttribute{
+		GoName: "Device", TfsdkTag: "device", JsonName: "device",
+		Type: "string", Optional: true,
+	}
+	var sb strings.Builder
+	renderUnmarshalScalarChild(&sb, "SecuremeshSiteV2", attr, "ethernetInterfaceData", "existing.Interface", "existing.Interface != nil", "single", "\t")
+	if strings.Contains(sb.String(), "return existing.Interface.Device") {
+		t.Fatalf("only the observed SMSv2 MAC omission contract may preserve prior state:\n%s", sb.String())
+	}
+}
+
 // Server-default oneof empty-marker members must not be populated from the API
 // response on import (they cause spurious post-import drift). The flatten must
 // guard the response-populate with !isImport for suppressed members, and leave

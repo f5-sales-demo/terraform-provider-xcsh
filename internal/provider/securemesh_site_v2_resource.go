@@ -19388,6 +19388,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -20165,6 +20168,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -20941,6 +20947,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -22090,6 +22099,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -22874,6 +22886,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -23650,6 +23665,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -25283,6 +25301,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -26059,6 +26080,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -26859,6 +26883,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -27635,6 +27662,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -29062,6 +29092,9 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -30139,6 +30172,9 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -30916,6 +30952,9 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -31692,6 +31731,9 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -32841,6 +32883,9 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -33625,6 +33670,9 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -34401,6 +34449,9 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -36034,6 +36085,9 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -36810,6 +36864,9 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -37610,6 +37667,9 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -38386,6 +38446,9 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -39813,6 +39876,9 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -46206,6 +46272,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -46983,6 +47052,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -47759,6 +47831,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -48908,6 +48983,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -49692,6 +49770,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -50468,6 +50549,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -52101,6 +52185,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -52877,6 +52964,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -53677,6 +53767,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
 																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
+																				}
 																				return types.StringNull()
 																			}(),
 																		}
@@ -54453,6 +54546,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),
@@ -55880,6 +55976,9 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																			Mac: func() types.String {
 																				if v, ok := EthernetInterfaceData["mac"].(string); ok && v != "" {
 																					return types.StringValue(v)
+																				}
+																				if !isImport && len(InterfaceListExisting) > InterfaceListIdx && InterfaceListExisting[InterfaceListIdx].EthernetInterface != nil && !InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac.IsUnknown() {
+																					return InterfaceListExisting[InterfaceListIdx].EthernetInterface.Mac
 																				}
 																				return types.StringNull()
 																			}(),

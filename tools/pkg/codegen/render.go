@@ -753,6 +753,16 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 		sb.WriteString(fmt.Sprintf("%s\tif v, ok := %s[\"%s\"].(string); ok && v != \"\" {\n", indent, srcMap, jsonName))
 		sb.WriteString(fmt.Sprintf("%s\t\treturn types.StringValue(v)\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		// Optional nested strings are user intent. Some site GET responses omit
+		// a configured leaf (notably interface MAC addresses), which must not turn
+		// a known value into null during a normal refresh. Import remains an API
+		// observation, and an unknown planned value must resolve to null rather
+		// than being returned in state after apply.
+		if rc == "SecuremeshSiteV2" && attr.TfsdkTag == "mac" && container == "single" && attr.Optional && stateBase != "" {
+			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		}
 		sb.WriteString(fmt.Sprintf("%s\treturn types.StringNull()\n", indent))
 		sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
 	case "int64":
