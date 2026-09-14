@@ -44,6 +44,7 @@ type CatalogOperation struct {
 	TerraformName  string
 	RequestSchema  string
 	ResponseSchema string
+	Prerequisites  []ResponseOperationPrerequisite
 }
 
 // ResolvedResponseOperation is an exact source-owned non-CRUD operation that
@@ -56,6 +57,7 @@ type ResolvedResponseOperation struct {
 	OperationID    string
 	RequestSchema  string
 	ResponseSchema string
+	Prerequisites  []ResponseOperationPrerequisite
 }
 
 // APIOperationIdentity groups the exact operations published for one
@@ -124,6 +126,27 @@ type catalogOperationWire struct {
 	RequestSchema  json.RawMessage `json:"requestSchema"`
 	ResponseSchema json.RawMessage `json:"responseSchema"`
 	TerraformName  json.RawMessage `json:"terraformName"`
+	Prerequisites  json.RawMessage `json:"prerequisites"`
+}
+
+type responseOperationPrerequisiteWire struct {
+	ID           *string         `json:"id"`
+	Resource     *string         `json:"resource"`
+	Cardinality  json.RawMessage `json:"cardinality"`
+	Enforcement  *string         `json:"enforcement"`
+	Availability *string         `json:"availability"`
+	Reason       *string         `json:"reason"`
+	Source       json.RawMessage `json:"source"`
+}
+
+type responseOperationPrerequisiteCardinalityWire struct {
+	Exactly *int `json:"exactly"`
+}
+
+type responseOperationPrerequisiteSourceWire struct {
+	Kind      *string `json:"kind"`
+	Operation *string `json:"operation"`
+	Immutable *bool   `json:"immutable"`
 }
 
 type apiExclusionWire struct {
@@ -289,6 +312,7 @@ func (catalog *OperationCatalog) ResponseOperationsForSpec(spec *Spec) ([]Resolv
 				OperationID:    operation.OperationID,
 				RequestSchema:  operation.RequestSchema,
 				ResponseSchema: operation.ResponseSchema,
+				Prerequisites:  operation.Prerequisites,
 			})
 		}
 	}
@@ -665,6 +689,13 @@ func parseCatalogOperation(raw json.RawMessage, apiIdentity string) (CatalogOper
 	} else if terraformName != "" {
 		return CatalogOperation{}, fmt.Errorf("terraformName requires a response-operation role")
 	}
+	prerequisites, err := parseResponseOperationPrerequisites(wire.Prerequisites, *wire.OperationID)
+	if err != nil {
+		return CatalogOperation{}, err
+	}
+	if len(prerequisites) > 0 && role == "" {
+		return CatalogOperation{}, fmt.Errorf("prerequisites require a response-operation role")
+	}
 	return CatalogOperation{
 		Method:         *wire.Method,
 		Path:           *wire.Path,
@@ -674,7 +705,65 @@ func parseCatalogOperation(raw json.RawMessage, apiIdentity string) (CatalogOper
 		TerraformName:  terraformName,
 		RequestSchema:  requestSchema,
 		ResponseSchema: responseSchema,
+		Prerequisites:  prerequisites,
 	}, nil
+}
+
+// parseResponseOperationPrerequisites accepts only the source-owned tenant
+// prerequisite contract published for a response operation. These facts are
+// observations about an externally managed tenant, never provider CRUD input.
+func parseResponseOperationPrerequisites(raw json.RawMessage, operationID string) ([]ResponseOperationPrerequisite, error) {
+	if len(raw) == 0 {
+		return nil, nil
+	}
+	if bytes.Equal(bytes.TrimSpace(raw), []byte("null")) {
+		return nil, fmt.Errorf("prerequisites must be absent or a non-empty array")
+	}
+	var entries []json.RawMessage
+	if err := json.Unmarshal(raw, &entries); err != nil || len(entries) == 0 {
+		return nil, fmt.Errorf("prerequisites must be absent or a non-empty array")
+	}
+	prerequisites := make([]ResponseOperationPrerequisite, 0, len(entries))
+	seenIDs := make(map[string]bool, len(entries))
+	for index, entry := range entries {
+		var wire responseOperationPrerequisiteWire
+		if err := decodeStrictJSONObject(entry, &wire, "response operation prerequisite"); err != nil {
+			return nil, fmt.Errorf("prerequisites[%d]: %w", index, err)
+		}
+		if wire.ID == nil || !terraformNamePattern.MatchString(*wire.ID) {
+			return nil, fmt.Errorf("prerequisites[%d]: id is required and must match %s", index, terraformNamePattern)
+		}
+		if seenIDs[*wire.ID] {
+			return nil, fmt.Errorf("prerequisites[%d]: duplicate id %q", index, *wire.ID)
+		}
+		if wire.Resource == nil || *wire.Resource == "" || strings.TrimSpace(*wire.Resource) != *wire.Resource {
+			return nil, fmt.Errorf("prerequisites[%d]: resource is required and must not have surrounding whitespace", index)
+		}
+		if wire.Enforcement == nil || *wire.Enforcement != "server" {
+			return nil, fmt.Errorf("prerequisites[%d]: enforcement must be server", index)
+		}
+		if wire.Availability == nil || *wire.Availability != "external_tenant_prerequisite" {
+			return nil, fmt.Errorf("prerequisites[%d]: availability must be external_tenant_prerequisite", index)
+		}
+		if wire.Reason == nil || *wire.Reason == "" || strings.TrimSpace(*wire.Reason) != *wire.Reason {
+			return nil, fmt.Errorf("prerequisites[%d]: reason is required and must not have surrounding whitespace", index)
+		}
+		var cardinality responseOperationPrerequisiteCardinalityWire
+		if err := decodeStrictJSONObject(wire.Cardinality, &cardinality, "prerequisite cardinality"); err != nil || cardinality.Exactly == nil || *cardinality.Exactly < 1 {
+			return nil, fmt.Errorf("prerequisites[%d]: cardinality must contain exactly one positive exactly value", index)
+		}
+		var source responseOperationPrerequisiteSourceWire
+		if err := decodeStrictJSONObject(wire.Source, &source, "prerequisite source"); err != nil || source.Kind == nil || *source.Kind != "runtime_api_error" || source.Operation == nil || *source.Operation != operationID || source.Immutable == nil || !*source.Immutable {
+			return nil, fmt.Errorf("prerequisites[%d]: source must be the immutable runtime_api_error for operation %q", index, operationID)
+		}
+		seenIDs[*wire.ID] = true
+		prerequisites = append(prerequisites, ResponseOperationPrerequisite{
+			ID: *wire.ID, Resource: *wire.Resource, Exactly: *cardinality.Exactly,
+			Enforcement: *wire.Enforcement, Availability: *wire.Availability, Reason: *wire.Reason,
+			SourceKind: *source.Kind, SourceOperation: *source.Operation, SourceImmutable: *source.Immutable,
+		})
+	}
+	return prerequisites, nil
 }
 
 func parseAPIExclusion(raw json.RawMessage) (APIExclusion, error) {

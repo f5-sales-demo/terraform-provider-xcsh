@@ -78,7 +78,11 @@ func (d *SiteImageDataSource) Read(ctx context.Context, req datasource.ReadReque
 	}
 	apiResult := map[string]interface{}{}
 	if err := d.client.Post(ctx, apiPath, body, &apiResult); err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to invoke response operation: %s", err))
+		if title, detail, matched := responseOperationPrerequisiteDiagnostic(err, []responseOperationPrerequisite{{ID: "maurice_config_cardinality_exactly_one", Resource: "maurice_config", Exactly: 1, Enforcement: "server", Availability: "external_tenant_prerequisite", Reason: "The tenant must contain exactly one maurice_config object before the platform can issue a Customer Edge image download URL.", SourceKind: "runtime_api_error", SourceOperation: "ves.io.schema.registration.CustomAPI.GetImageDownloadUrl", SourceImmutable: true}}); matched {
+			resp.Diagnostics.AddError(title, detail)
+		} else {
+			resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to invoke response operation: %s", err))
+		}
 		return
 	}
 	apiResource := struct{ Spec map[string]interface{} }{Spec: apiResult}

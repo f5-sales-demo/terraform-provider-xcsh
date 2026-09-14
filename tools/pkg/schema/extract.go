@@ -225,7 +225,7 @@ func ExtractResponseOperationSchema(spec *openapi.Spec, operation openapi.Resolv
 		Name: operation.Name, Role: operation.Role, TitleCase: naming.ToResourceTypeName(operation.Name), Method: operation.Method,
 		APIPath: operation.Path, OperationID: operation.OperationID, RequestSchema: operation.RequestSchema,
 		ResponseSchema: operation.ResponseSchema, Description: descriptionText, Inputs: inputs, ResponseAttributes: responseAttrs,
-		ResponseIsScalar: response.Type != "object",
+		ResponseIsScalar: response.Type != "object", Prerequisites: operation.Prerequisites,
 	}, nil
 }
 
