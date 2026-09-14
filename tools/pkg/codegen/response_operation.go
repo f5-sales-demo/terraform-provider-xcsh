@@ -374,11 +374,28 @@ func renderResponseOperationInvoke(operation *openapi.ResponseOperationTemplate,
 		method += "Lenient"
 	}
 	fmt.Fprintf(&result, "\tif err := %s.client.%s(%s); err != nil {\n", receiver, method, arguments)
-	result.WriteString("\t\tresp.Diagnostics.AddError(\"Client Error\", fmt.Sprintf(\"Unable to invoke response operation: %s\", err))\n\t\treturn\n\t}\n")
+	result.WriteString(renderResponseOperationDiagnostic(operation))
+	result.WriteString("\t\treturn\n\t}\n")
 	if operation.ResponseIsScalar && useResult {
 		result.WriteString("\tapiResult := map[string]interface{}{\"result\": scalarResult}\n")
 	}
 	return result.String()
+}
+
+func renderResponseOperationDiagnostic(operation *openapi.ResponseOperationTemplate) string {
+	if len(operation.Prerequisites) == 0 {
+		return "\t\tresp.Diagnostics.AddError(\"Client Error\", fmt.Sprintf(\"Unable to invoke response operation: %s\", err))\n"
+	}
+	var prerequisites strings.Builder
+	prerequisites.WriteString("[]responseOperationPrerequisite{")
+	for _, prerequisite := range operation.Prerequisites {
+		fmt.Fprintf(&prerequisites, "{ID: %s, Resource: %s, Exactly: %d, Enforcement: %s, Availability: %s, Reason: %s, SourceKind: %s, SourceOperation: %s, SourceImmutable: %t},",
+			strconv.Quote(prerequisite.ID), strconv.Quote(prerequisite.Resource), prerequisite.Exactly,
+			strconv.Quote(prerequisite.Enforcement), strconv.Quote(prerequisite.Availability), strconv.Quote(prerequisite.Reason),
+			strconv.Quote(prerequisite.SourceKind), strconv.Quote(prerequisite.SourceOperation), prerequisite.SourceImmutable)
+	}
+	prerequisites.WriteString("}")
+	return fmt.Sprintf("\t\tif title, detail, matched := responseOperationPrerequisiteDiagnostic(err, %s); matched {\n\t\t\tresp.Diagnostics.AddError(title, detail)\n\t\t} else {\n\t\t\tresp.Diagnostics.AddError(\"Client Error\", fmt.Sprintf(\"Unable to invoke response operation: %%s\", err))\n\t\t}\n", prerequisites.String())
 }
 
 func renderResponseOperationUnmarshal(operation *openapi.ResponseOperationTemplate) (string, error) {

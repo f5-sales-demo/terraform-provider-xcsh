@@ -314,6 +314,21 @@ type ResponseOperationInput struct {
 	Bindings  []OperationBinding
 }
 
+// ResponseOperationPrerequisite is an immutable, server-enforced tenant fact
+// published with a response operation. It describes a prerequisite only; the
+// provider must not infer a writable lifecycle for the referenced resource.
+type ResponseOperationPrerequisite struct {
+	ID              string
+	Resource        string
+	Exactly         int
+	Enforcement     string
+	Availability    string
+	Reason          string
+	SourceKind      string
+	SourceOperation string
+	SourceImmutable bool
+}
+
 // ResponseOperationTemplate is the common IR for generated non-CRUD surfaces.
 type ResponseOperationTemplate struct {
 	Name               string
@@ -328,6 +343,7 @@ type ResponseOperationTemplate struct {
 	Inputs             []ResponseOperationInput
 	ResponseAttributes []TerraformAttribute
 	ResponseIsScalar   bool
+	Prerequisites      []ResponseOperationPrerequisite
 }
 
 // ActionDerivedField declares one server-derived field of an action request

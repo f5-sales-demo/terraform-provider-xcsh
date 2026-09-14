@@ -121,6 +121,34 @@ func TestGenerateResponseOperationGETDoesNotDeclareBody(t *testing.T) {
 	}
 }
 
+func TestGenerateResponseOperationRendersImmutablePrerequisiteDiagnostic(t *testing.T) {
+	dir := t.TempDir()
+	template := responseOperationTemplate("query")
+	template.Prerequisites = []openapi.ResponseOperationPrerequisite{{
+		ID:              "maurice_config_cardinality_exactly_one",
+		Resource:        "maurice_config",
+		Exactly:         1,
+		Enforcement:     "server",
+		Availability:    "external_tenant_prerequisite",
+		Reason:          "The tenant must contain exactly one maurice_config object before image issuance.",
+		SourceKind:      "runtime_api_error",
+		SourceOperation: "ves.io.schema.registration.CustomAPI.GetImageDownloadUrl",
+		SourceImmutable: true,
+	}}
+	if err := GenerateResponseOperation(template, dir); err != nil {
+		t.Fatal(err)
+	}
+	content, err := os.ReadFile(filepath.Join(dir, "probe_data_source.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, want := range []string{"responseOperationPrerequisiteDiagnostic", "maurice_config_cardinality_exactly_one", "external_tenant_prerequisite"} {
+		if !strings.Contains(string(content), want) {
+			t.Fatalf("generated response operation missing %q:\n%s", want, content)
+		}
+	}
+}
+
 func TestResponseOperationEmptyChoiceMarkerUsesObjectAttribute(t *testing.T) {
 	marker := openapi.TerraformAttribute{
 		Name: "marker", GoName: "Marker", TfsdkTag: "marker", Type: "object",

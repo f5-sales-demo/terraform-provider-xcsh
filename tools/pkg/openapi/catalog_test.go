@@ -171,6 +171,58 @@ func TestParseOperationCatalogPreservesTerraformResponseOperationContract(t *tes
 	}
 }
 
+func TestParseOperationCatalogPreservesResponseOperationPrerequisite(t *testing.T) {
+	raw := strings.Replace(
+		validOperationCatalog,
+		`"surface": "config"`,
+		`"surface": "config", "role": "query", "terraformName": "site_image", "responseSchema": "probeResponse", "prerequisites": [{"id":"maurice_config_cardinality_exactly_one","resource":"maurice_config","cardinality":{"exactly":1},"enforcement":"server","availability":"external_tenant_prerequisite","reason":"The tenant must contain exactly one maurice_config object before image issuance.","source":{"kind":"runtime_api_error","operation":"ves.io.schema.probe.CustomApi.List","immutable":true}}]`,
+		1,
+	)
+	catalog, err := ParseOperationCatalog([]byte(raw))
+	if err != nil {
+		t.Fatalf("ParseOperationCatalog() error = %v", err)
+	}
+	prerequisites := catalog.APIOperations[0].Operations[0].Prerequisites
+	if len(prerequisites) != 1 {
+		t.Fatalf("prerequisites = %+v, want one", prerequisites)
+	}
+	got := prerequisites[0]
+	if got.ID != "maurice_config_cardinality_exactly_one" || got.Resource != "maurice_config" || got.Exactly != 1 || got.Enforcement != "server" || got.Availability != "external_tenant_prerequisite" || got.SourceKind != "runtime_api_error" || got.SourceOperation != "ves.io.schema.probe.CustomApi.List" || !got.SourceImmutable {
+		t.Fatalf("prerequisite was not preserved exactly: %+v", got)
+	}
+}
+
+func TestParseOperationCatalogRejectsInvalidResponseOperationPrerequisite(t *testing.T) {
+	base := `"surface": "config", "role": "query", "terraformName": "site_image", "responseSchema": "probeResponse", "prerequisites": [{"id":"maurice_config_cardinality_exactly_one","resource":"maurice_config","cardinality":{"exactly":1},"enforcement":"server","availability":"external_tenant_prerequisite","reason":"The tenant must contain exactly one maurice_config object before image issuance.","source":{"kind":"runtime_api_error","operation":"ves.io.schema.probe.CustomApi.List","immutable":true}}]`
+	tests := []struct {
+		name    string
+		mutate  func(string) string
+		wantErr string
+	}{
+		{name: "empty array", mutate: func(raw string) string {
+			return strings.Replace(raw, `"prerequisites": [{`, `"prerequisites": [] /*`, 1)
+		}, wantErr: "invalid character"},
+		{name: "non-response operation", mutate: func(raw string) string {
+			return strings.Replace(raw, `"role": "query", "terraformName": "site_image", "responseSchema": "probeResponse", `, "", 1)
+		}, wantErr: "prerequisites require a response-operation role"},
+		{name: "wrong source operation", mutate: func(raw string) string {
+			return strings.Replace(raw, `ves.io.schema.probe.CustomApi.List`, `ves.io.schema.probe.CustomApi.Get`, 1)
+		}, wantErr: "immutable runtime_api_error"},
+		{name: "writable claim", mutate: func(raw string) string {
+			return strings.Replace(raw, `"enforcement":"server"`, `"enforcement":"provider"`, 1)
+		}, wantErr: "enforcement must be server"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			raw := strings.Replace(validOperationCatalog, `"surface": "config"`, tt.mutate(base), 1)
+			_, err := ParseOperationCatalog([]byte(raw))
+			if err == nil || !strings.Contains(err.Error(), tt.wantErr) {
+				t.Fatalf("ParseOperationCatalog() error = %v, want substring %q", err, tt.wantErr)
+			}
+		})
+	}
+}
+
 func TestParseOperationCatalogRejectsInvalidOperationRole(t *testing.T) {
 	tests := []struct {
 		name     string
