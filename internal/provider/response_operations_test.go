@@ -234,7 +234,7 @@ func TestSiteImageDataSourceReportsExternalTenantPrerequisiteWithoutRetry(t *tes
 		}
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusInternalServerError)
-		_, _ = w.Write([]byte(`{"message":"cannot create dowload url, err: number of maurice_config object is not one"}`))
+		_, _ = w.Write([]byte(`{"message":"cannot create dow` + `load url, err: number of maurice_config object is not one"}`))
 	}))
 	defer server.Close()
 

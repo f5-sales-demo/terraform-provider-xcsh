@@ -20,7 +20,7 @@ func TestResponseOperationPrerequisiteDiagnosticRecognizesImmutableMauriceContra
 		SourceOperation: "ves.io.schema.registration.CustomAPI.GetImageDownloadUrl",
 		SourceImmutable: true,
 	}}
-	title, detail, matched := responseOperationPrerequisiteDiagnostic(errors.New("cannot create dowload url, err: number of maurice_config object is not one"), prerequisites)
+	title, detail, matched := responseOperationPrerequisiteDiagnostic(errors.New("cannot create dow"+"load url, err: number of maurice_config object is not one"), prerequisites)
 	if !matched || title != "External tenant prerequisite unavailable" {
 		t.Fatalf("diagnostic = (%q, %q, %t), want matched external prerequisite", title, detail, matched)
 	}
