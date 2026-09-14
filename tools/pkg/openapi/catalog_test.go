@@ -200,8 +200,12 @@ func TestParseOperationCatalogRejectsInvalidResponseOperationPrerequisite(t *tes
 		wantErr string
 	}{
 		{name: "empty array", mutate: func(raw string) string {
-			return strings.Replace(raw, `"prerequisites": [{`, `"prerequisites": [] /*`, 1)
-		}, wantErr: "invalid character"},
+			prefix, _, found := strings.Cut(raw, `"prerequisites":`)
+			if !found {
+				t.Fatal("test fixture has no prerequisites field")
+			}
+			return prefix + `"prerequisites":[]`
+		}, wantErr: "prerequisites must be absent or a non-empty array"},
 		{name: "non-response operation", mutate: func(raw string) string {
 			return strings.Replace(raw, `"role": "query", "terraformName": "site_image", "responseSchema": "probeResponse", `, "", 1)
 		}, wantErr: "prerequisites require a response-operation role"},

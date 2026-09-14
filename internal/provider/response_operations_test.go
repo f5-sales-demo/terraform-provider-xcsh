@@ -9,6 +9,7 @@ import (
 	"net/http/httptest"
 	"net/url"
 	"os"
+	"strings"
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-framework/action"
@@ -220,6 +221,48 @@ func TestGeneratedResponseOperationsRouteAndDecode(t *testing.T) {
 	assertResponseOperationRequest(t, <-requests, http.MethodPost, "/api/config/namespaces/system/sites/site-a/upgrade_os", nil, map[string]interface{}{"name": "site-a", "namespace": "system", "version": "10.0.0", "force": true})
 	if len(requests) != 0 {
 		t.Fatalf("actions performed unexpected polling requests: %+v", <-requests)
+	}
+}
+
+func TestSiteImageDataSourceReportsExternalTenantPrerequisiteWithoutRetry(t *testing.T) {
+	ctx := context.Background()
+	requests := 0
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, request *http.Request) {
+		requests++
+		if request.Method != http.MethodPost || request.URL.Path != "/api/register/namespaces/system/get-image-download-url" {
+			t.Errorf("request = %s %s, want POST image-download-url", request.Method, request.URL.Path)
+		}
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusInternalServerError)
+		_, _ = w.Write([]byte(`{"message":"cannot create dowload url, err: number of maurice_config object is not one"}`))
+	}))
+	defer server.Close()
+
+	dataSource := &SiteImageDataSource{client: client.NewClient(server.URL, "test-token", client.WithMaxRetries(0))}
+	schemaResponse := &datasource.SchemaResponse{}
+	dataSource.Schema(ctx, datasource.SchemaRequest{}, schemaResponse)
+	config := SiteImageDataSourceModel{
+		ProviderRef:         types.StringValue("KVM"),
+		ImageDownloadURL:    types.StringNull(),
+		ImageMD5DownloadURL: types.StringNull(),
+	}
+	response := datasource.ReadResponse{State: tfsdk.State{Schema: schemaResponse.Schema}}
+	dataSource.Read(ctx, datasource.ReadRequest{Config: tfsdk.Config{Schema: schemaResponse.Schema, Raw: responseOperationRaw(t, config, schemaResponse.Schema.Type())}}, &response)
+
+	if requests != 1 {
+		t.Fatalf("image lookup made %d requests, want exactly 1", requests)
+	}
+	if !response.Diagnostics.HasError() || len(response.Diagnostics.Errors()) != 1 {
+		t.Fatalf("image lookup diagnostics = %v, want one prerequisite error", response.Diagnostics)
+	}
+	diagnostic := response.Diagnostics.Errors()[0]
+	if diagnostic.Summary() != "External tenant prerequisite unavailable" {
+		t.Fatalf("diagnostic summary = %q", diagnostic.Summary())
+	}
+	for _, want := range []string{"maurice_config_cardinality_exactly_one", "exactly one maurice_config", "cannot create or repair"} {
+		if !strings.Contains(diagnostic.Detail(), want) {
+			t.Fatalf("diagnostic detail %q does not contain %q", diagnostic.Detail(), want)
+		}
 	}
 }
 
