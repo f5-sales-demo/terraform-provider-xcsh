@@ -1,0 +1,225 @@
+---
+name: Attest provider benchmark runner
+description: Record a sanitized attestation for one fixed provider runner profile.
+inputs:
+  baseline-dir:
+    description: Downloaded D8 validation receipts; required only by d16.
+    required: false
+    default: ''
+  profile:
+    description: Fixed runner profile identifier (d8 or d16).
+    required: true
+  token:
+    description: Read-only token for the pinned public specification release.
+    required: true
+  variant:
+    description: Fixed profile configuration identifier.
+    required: true
+  workload:
+    description: Fixed workload identifier.
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Attest fixed runner profile
+      shell: bash
+      env:
+        BENCHMARK_COMMIT: ${{ github.event.pull_request.head.sha }}
+        BENCHMARK_PROFILE: ${{ inputs.profile }}
+      run: |
+        set -euo pipefail
+
+        case "$BENCHMARK_PROFILE" in
+          d8)
+            expected_label=managed-socketless
+            expected_profile=socketless
+            expected_vm_size=Standard_D8ads_v5
+            expected_cpu=7
+            expected_memory=30064771072
+            ;;
+          d16)
+            expected_label=terraform-provider-xcsh-compute
+            expected_profile=compute
+            expected_vm_size=Standard_D16ads_v5
+            expected_cpu=15
+            expected_memory=60129542144
+            ;;
+          *)
+            echo "::error::profile must be the fixed d8 or d16 identifier"
+            exit 2
+            ;;
+        esac
+
+        expected_image=sha256:2a0243be5404daa0f52bae16384f53dbc04554e31406ed0db45152d92f6187e1
+        output_dir="$RUNNER_TEMP/workload-attestation"
+        output="$output_dir/$BENCHMARK_PROFILE.json"
+        mkdir -p "$output_dir"
+
+        cgroup_relative=$(awk -F: '$1 == "0" { print $3; exit }' /proc/self/cgroup)
+        cgroup_dir="/sys/fs/cgroup/${cgroup_relative#/}"
+        read -r cpu_quota cpu_period <"$cgroup_dir/cpu.max"
+        test "$cpu_quota" != max
+        observed_cpu=$((cpu_quota / cpu_period))
+        test "$observed_cpu" -eq "$expected_cpu"
+        observed_memory=$(tr -d '[:space:]' <"$cgroup_dir/memory.max")
+        test "$observed_memory" = "$expected_memory"
+
+        docker_access=false
+        for socket in /var/run/docker.sock /run/docker.sock /run/containerd/containerd.sock; do
+          if test -S "$socket" || test -e "$socket"; then
+            echo "::error::container socket is unexpectedly visible at $socket"
+            exit 1
+          fi
+        done
+        if command -v docker >/dev/null 2>&1 && docker info >/dev/null 2>&1; then
+          echo "::error::Docker daemon access is unexpectedly available"
+          exit 1
+        fi
+
+        observed_vm_size=$(curl --fail --silent --show-error --max-time 10 \
+          --noproxy '*' -H Metadata:true \
+          'http://169.254.169.254/metadata/instance/compute/vmSize?api-version=2021-02-01&format=text')
+        test "$observed_vm_size" = "$expected_vm_size"
+
+        runner-profile \
+          --name runner-attestation \
+          --output "$output" \
+          --commit "$BENCHMARK_COMMIT" \
+          --cache-state unknown \
+          --variant "$BENCHMARK_PROFILE" \
+          --pair-id attestation \
+          -- /usr/bin/true
+
+        jq \
+          --arg expected_repository "$GITHUB_REPOSITORY" \
+          --arg expected_commit "$BENCHMARK_COMMIT" \
+          --arg expected_profile "$expected_profile" \
+          --arg expected_image "$expected_image" \
+          --arg runner_label "$expected_label" \
+          --arg vm_size "$observed_vm_size" \
+          --argjson cpu_limit "$observed_cpu" \
+          --argjson memory_limit "$observed_memory" \
+          --argjson docker_socket "$docker_access" \
+          '
+            if .repository != $expected_repository then error("repository mismatch")
+            elif .commit != $expected_commit then error("commit mismatch")
+            elif .runner_profile != $expected_profile then error("runner profile mismatch")
+            elif .image_digest != $expected_image then error("runner image mismatch")
+            elif .memory.limit_bytes != $memory_limit then error("memory limit mismatch")
+            elif .exit.code != 0 then error("attestation command failed")
+            else . + {
+              runner_label: $runner_label,
+              vm_size: $vm_size,
+              cpu_limit: $cpu_limit,
+              memory_limit: $memory_limit,
+              docker_socket: $docker_socket
+            } end
+          ' "$output" >"$output.tmp"
+        mv "$output.tmp" "$output"
+
+        jq -r '
+          "### " + .runner_label + " attestation\n\n" +
+          "| Image | Profile | VM size | CPU | Memory | Docker socket |\n" +
+          "|---|---|---|---:|---:|---|\n" +
+          "| `" + .image_digest + "` | `" + .runner_profile + "` | `" +
+          .vm_size + "` | " + (.cpu_limit | tostring) + " | " +
+          ((.memory_limit / 1073741824) | tostring) + " GiB | `false` |"
+        ' "$output" >>"$GITHUB_STEP_SUMMARY"
+
+    - name: Upload sanitized runner attestation
+      if: always()
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      with:
+        name: runner-attestation-${{ inputs.profile }}-${{ inputs.workload }}-${{ inputs.variant }}-${{ github.run_id }}-${{ github.run_attempt }}
+        path: ${{ runner.temp }}/workload-attestation/*.json
+        if-no-files-found: error
+        retention-days: 30
+
+    - name: Download pinned API specifications once
+      uses: ./.github/actions/download-api-specs
+      with:
+        token: ${{ inputs.token }}
+
+    - name: Run fixed D8 workload samples
+      if: inputs.profile == 'd8' && inputs.variant != 'd8-example-suite'
+      shell: bash
+      env:
+        BENCHMARK_COMMIT: ${{ github.event.pull_request.head.sha }}
+        BENCHMARK_PROFILE: ${{ inputs.profile }}
+        BENCHMARK_VARIANT: ${{ inputs.variant }}
+        BENCHMARK_WORKLOAD: ${{ inputs.workload }}
+      run: |
+        go run ./tools/workload-benchmark run \
+          --profile "$BENCHMARK_PROFILE" \
+          --workload "$BENCHMARK_WORKLOAD" \
+          --variant "$BENCHMARK_VARIANT" \
+          --commit "$BENCHMARK_COMMIT" \
+          --source-root "$GITHUB_WORKSPACE" \
+          --spec-source "$GITHUB_WORKSPACE/docs/specifications/api" \
+          --cache-root "$RUNNER_TEMP/workload-cache" \
+          --output-dir "$RUNNER_TEMP/workload-receipts"
+
+    - name: Run fixed D16 workload samples
+      if: inputs.profile == 'd16' && inputs.variant != 'd16-example-suite'
+      shell: bash
+      env:
+        BASELINE_DIR: ${{ inputs.baseline-dir }}
+        BENCHMARK_COMMIT: ${{ github.event.pull_request.head.sha }}
+        BENCHMARK_PROFILE: ${{ inputs.profile }}
+        BENCHMARK_VARIANT: ${{ inputs.variant }}
+        BENCHMARK_WORKLOAD: ${{ inputs.workload }}
+      run: |
+        test -n "$BASELINE_DIR"
+        go run ./tools/workload-benchmark run \
+          --profile "$BENCHMARK_PROFILE" \
+          --workload "$BENCHMARK_WORKLOAD" \
+          --variant "$BENCHMARK_VARIANT" \
+          --commit "$BENCHMARK_COMMIT" \
+          --source-root "$GITHUB_WORKSPACE" \
+          --spec-source "$GITHUB_WORKSPACE/docs/specifications/api" \
+          --cache-root "$RUNNER_TEMP/workload-cache" \
+          --output-dir "$RUNNER_TEMP/workload-receipts" \
+          --baseline-dir "$BASELINE_DIR"
+
+    - name: Run fixed D8 example screening and concurrency suite
+      if: inputs.profile == 'd8' && inputs.variant == 'd8-example-suite'
+      shell: bash
+      env:
+        BENCHMARK_COMMIT: ${{ github.event.pull_request.head.sha }}
+      run: |
+        go run ./tools/workload-benchmark run-example-suite \
+          --profile d8 \
+          --commit "$BENCHMARK_COMMIT" \
+          --source-root "$GITHUB_WORKSPACE" \
+          --spec-source "$GITHUB_WORKSPACE/docs/specifications/api" \
+          --cache-root "$RUNNER_TEMP/workload-cache" \
+          --output-dir "$RUNNER_TEMP/workload-receipts"
+
+    - name: Run fixed D16 example screening and concurrency suite
+      if: inputs.profile == 'd16' && inputs.variant == 'd16-example-suite'
+      shell: bash
+      env:
+        BASELINE_DIR: ${{ inputs.baseline-dir }}
+        BENCHMARK_COMMIT: ${{ github.event.pull_request.head.sha }}
+      run: |
+        test -n "$BASELINE_DIR"
+        go run ./tools/workload-benchmark run-example-suite \
+          --profile d16 \
+          --commit "$BENCHMARK_COMMIT" \
+          --source-root "$GITHUB_WORKSPACE" \
+          --spec-source "$GITHUB_WORKSPACE/docs/specifications/api" \
+          --cache-root "$RUNNER_TEMP/workload-cache" \
+          --output-dir "$RUNNER_TEMP/workload-receipts" \
+          --baseline-dir "$BASELINE_DIR"
+
+    - name: Upload sanitized workload receipts
+      if: always()
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      with:
+        name: workload-receipts-${{ inputs.profile }}-${{ inputs.workload }}-${{ inputs.variant }}-${{ github.run_id }}-${{ github.run_attempt }}
+        path: ${{ runner.temp }}/workload-receipts/*.json
+        # Benchmark probes retain their sanitized raw receipts under a dot-prefixed
+        # filename so interrupted or failed samples remain auditable.
+        include-hidden-files: true
+        if-no-files-found: error
+        retention-days: 30
