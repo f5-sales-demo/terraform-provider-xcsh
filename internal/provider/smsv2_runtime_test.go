@@ -3,14 +3,48 @@
 package provider
 
 import (
+	"context"
 	"fmt"
 	"strings"
 	"testing"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
+	"github.com/hashicorp/terraform-plugin-framework/datasource"
+	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 )
+
+func TestSMSv2RuntimeReadinessTimeoutContract(t *testing.T) {
+	t.Parallel()
+
+	dataSource := NewSmsv2AWSRuntimeDataSource()
+	var response datasource.SchemaResponse
+	dataSource.Schema(context.Background(), datasource.SchemaRequest{}, &response)
+	timeout, ok := response.Schema.Attributes["timeout_seconds"].(schema.Int64Attribute)
+	if !ok {
+		t.Fatalf("timeout_seconds schema attribute = %T, want schema.Int64Attribute", response.Schema.Attributes["timeout_seconds"])
+	}
+
+	for _, value := range []int64{1, 7200} {
+		for _, validate := range timeout.Validators {
+			var result validator.Int64Response
+			validate.ValidateInt64(context.Background(), validator.Int64Request{ConfigValue: types.Int64Value(value)}, &result)
+			if result.Diagnostics.HasError() {
+				t.Fatalf("timeout_seconds %d was rejected: %v", value, result.Diagnostics)
+			}
+		}
+	}
+
+	for _, validate := range timeout.Validators {
+		var result validator.Int64Response
+		validate.ValidateInt64(context.Background(), validator.Int64Request{ConfigValue: types.Int64Value(7201)}, &result)
+		if !result.Diagnostics.HasError() {
+			t.Fatal("timeout_seconds 7201 was accepted")
+		}
+	}
+}
 
 func runtimeConfiguration() client.SMSv2Observation {
 	interfaces := []interface{}{

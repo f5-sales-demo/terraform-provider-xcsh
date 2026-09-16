@@ -104,7 +104,7 @@ func (d *Smsv2AWSRuntimeDataSource) Schema(_ context.Context, _ datasource.Schem
 		"id":                    schema.StringAttribute{Computed: true},
 		"namespace":             schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.OneOf("system")}},
 		"site":                  schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}},
-		"timeout_seconds":       schema.Int64Attribute{Optional: true, Computed: true, Validators: []validator.Int64{int64validator.Between(1, 1800)}},
+		"timeout_seconds":       schema.Int64Attribute{Optional: true, Computed: true, Validators: []validator.Int64{int64validator.Between(1, 7200)}},
 		"poll_interval_seconds": schema.Int64Attribute{Optional: true, Computed: true, Validators: []validator.Int64{int64validator.Between(1, 60)}},
 		"nodes": schema.MapNestedAttribute{Required: true, NestedObject: schema.NestedAttributeObject{Attributes: map[string]schema.Attribute{
 			"node": schema.StringAttribute{Required: true, Validators: []validator.String{stringvalidator.LengthAtLeast(1)}},
