@@ -1153,6 +1153,24 @@ func TestResourceTemplate_DeleteRetriesTransient400(t *testing.T) {
 	}
 }
 
+// A remote object must never disappear from Terraform state merely because its
+// DELETE endpoint returned NOT_IMPLEMENTED. Only a verified absence (404) is an
+// idempotent success; 501 and every other error must remain a diagnostic so
+// Terraform retains the prior state for a later recovery attempt.
+func TestResourceTemplate_DeleteRetainsStateOnNotImplemented(t *testing.T) {
+	for _, forbidden := range []string{
+		"delete not supported by API (501), removing from state only",
+		"If delete is not implemented (501), warn and remove from state",
+	} {
+		if strings.Contains(ResourceTemplate, forbidden) {
+			t.Errorf("Delete template still suppresses 501 with %q", forbidden)
+		}
+	}
+	if !strings.Contains(ResourceTemplate, `resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to delete {{.TitleCase}}: %s", err))`) {
+		t.Error("Delete template must return every non-404 failure as a diagnostic")
+	}
+}
+
 func TestResourceTemplate_AlertPolicyDeleteConfirmsAbsenceAfterError(t *testing.T) {
 	for _, want := range []string{
 		`{{- if eq .TitleCase "AlertPolicy"}}`,

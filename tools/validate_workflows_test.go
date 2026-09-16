@@ -50,6 +50,37 @@ type jobContract struct {
 
 func strptr(value string) *string { return &value }
 
+func TestTerraformToolchainPinnedToLatestStable(t *testing.T) {
+	const expected = "1.16.2"
+	versionBytes, err := os.ReadFile(filepath.Join("..", ".terraform-version"))
+	if err != nil {
+		t.Fatalf("read Terraform version pin: %v", err)
+	}
+	if actual := strings.TrimSpace(string(versionBytes)); actual != expected {
+		t.Fatalf("Terraform version pin = %q, want latest stable %q", actual, expected)
+	}
+
+	workflows, err := filepath.Glob(filepath.Join("..", ".github", "workflows", "*.yml"))
+	if err != nil {
+		t.Fatalf("list workflows: %v", err)
+	}
+	for _, workflowPath := range workflows {
+		content, readErr := os.ReadFile(workflowPath)
+		if readErr != nil {
+			t.Fatalf("read %s: %v", filepath.Base(workflowPath), readErr)
+		}
+		workflow := string(content)
+		if !strings.Contains(workflow, "hashicorp/setup-terraform@") {
+			continue
+		}
+		for _, line := range strings.Split(workflow, "\n") {
+			if strings.Contains(line, "terraform_version:") && !strings.Contains(line, "terraform_version: "+expected) {
+				t.Errorf("%s has a Terraform setup pin inconsistent with %s: %s", filepath.Base(workflowPath), expected, strings.TrimSpace(line))
+			}
+		}
+	}
+}
+
 func TestOnMergeRegenerationSubjectBindsSquashPRNumber(t *testing.T) {
 	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "on-merge.yml"))
 	if err != nil {
