@@ -80,7 +80,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   mock-tests:
     name: Mock Tests (Parallel)
-    runs-on: managed-socketless
+    runs-on: ubuntu-latest
     # Always run mock tests except for real-only mode
     if: |
       github.event_name != 'workflow_dispatch' ||
@@ -100,6 +100,12 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: '1.25.12'
+          cache: true
 
       - name: Verify immutable Go toolchain
         run: |
@@ -507,7 +513,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   compare-results:
     name: Compare Mock vs Real
-    runs-on: managed-socketless
+    runs-on: ubuntu-latest
     needs: [mock-tests, real-api-tests]
     # Only run when both mock and real tests have completed
     if: |
@@ -527,6 +533,12 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: '1.25.12'
+          cache: true
 
       - name: Verify immutable Go toolchain
         run: |
@@ -626,7 +638,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   summary:
     name: Test Summary
-    runs-on: managed-socketless
+    runs-on: ubuntu-latest
     needs: [mock-tests, real-api-tests, compare-results, cleanup]
     if: always()
 
