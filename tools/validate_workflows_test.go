@@ -23,6 +23,7 @@ const repositoryRunnerLabel = "terraform-provider-xcsh"
 const repositoryRunnerExpression = "${{ github.event.repository.name }}"
 const sharedSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/xcsh' && 'xcsh-socketless' || 'managed-socketless' }}"
 const docsSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless' }}"
+const releaseChainHostedRunnerExpression = "${{ (github.repository == 'f5-sales-demo/api-specs-enriched' || github.repository == 'f5-sales-demo/marketplace' || github.repository == 'f5-sales-demo/mcn' || github.repository == 'f5-sales-demo/terraform-provider-xcsh') && 'ubuntu-latest' || (github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless') }}"
 
 var canonicalManagedSocketlessRunsOn = []string{
 	"managed-socketless",
@@ -528,6 +529,8 @@ func canonicalizeRunsOn(runsOn []string, errors *[]string, jobID string) []strin
 			canonical[index] = canonicalManagedSocketlessRunsOn[0]
 		case docsSocketlessRunnerExpression:
 			canonical[index] = canonicalManagedSocketlessRunsOn[0]
+		case releaseChainHostedRunnerExpression:
+			canonical[index] = canonicalGitHubHostedRunsOn[0]
 		default:
 			*errors = append(*errors, jobID+": dynamic runs-on is forbidden")
 		}
@@ -889,7 +892,6 @@ func TestProviderWorkflowContracts(t *testing.T) {
 	}
 	delete(expected, "enforce-repo-settings.yml/resolve-source")
 	delete(expected, "require-linked-issue.yml/check")
-	expected["require-linked-issue.yml/check-linked-issues"] = true
 	expected["self-hosted-runner-python-uv-smoke.yml/tool-cache-smoke"] = true
 	if !reflect.DeepEqual(managedSocketless, expected) {
 		t.Fatalf("managed socketless inventory mismatch: %v", managedSocketless)
@@ -969,6 +971,33 @@ jobs:
 	unsafe := []byte(strings.Replace(string(valid), "github.event.repository.name", "github.event.inputs.runner", 1))
 	if issues := validateWorkflowBytes("fixture.yml", unsafe); len(issues) == 0 {
 		t.Fatal("non-canonical dynamic runner passed validation")
+	}
+}
+
+func TestReleaseChainLinkedIssueRunnerIsCanonicalHosted(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "require-linked-issue.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var workflow workflowDocument
+	if err := yaml.Unmarshal(content, &workflow); err != nil {
+		t.Fatal(err)
+	}
+	job, ok := workflow.Jobs["check-linked-issues"]
+	if !ok {
+		t.Fatal("missing check-linked-issues job")
+	}
+	runsOn, err := stringSlice(job["runs-on"])
+	if err != nil {
+		t.Fatal(err)
+	}
+	issues := []string{}
+	canonical := canonicalizeRunsOn(runsOn, &issues, "check-linked-issues")
+	if len(issues) != 0 {
+		t.Fatalf("release-chain linked-issue runner failed validation: %v", issues)
+	}
+	if !reflect.DeepEqual(canonical, canonicalGitHubHostedRunsOn) {
+		t.Fatalf("release-chain linked-issue runner = %v, want %v", canonical, canonicalGitHubHostedRunsOn)
 	}
 }
 
