@@ -3957,15 +3957,9 @@ func (r *NetworkPolicyViewResource) Delete(ctx context.Context, req resource.Del
 			})
 			return
 		}
-		// If delete is not implemented (501), warn and remove from state
-		// Some F5 XC resources don't support deletion via API
-		if strings.Contains(err.Error(), "501") {
-			tflog.Warn(ctx, "NetworkPolicyView delete not supported by API (501), removing from state only", map[string]interface{}{
-				"name":      data.Name.ValueString(),
-				"namespace": data.Namespace.ValueString(),
-			})
-			return
-		}
+		// Every non-404 failure, including NOT_IMPLEMENTED/501, must remain a
+		// diagnostic. Returning success here would make Terraform forget a remote
+		// object that the API did not delete, creating an unrecoverable orphan.
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to delete NetworkPolicyView: %s", err))
 		return
 	}
