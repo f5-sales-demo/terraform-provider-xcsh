@@ -1621,6 +1621,7 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 		Jobs map[string]struct {
 			ContinueOnError any    `yaml:"continue-on-error"`
 			If              string `yaml:"if"`
+			RunsOn          string `yaml:"runs-on"`
 			Steps           []struct {
 				Name            string            `yaml:"name"`
 				Env             map[string]string `yaml:"env"`
@@ -1701,7 +1702,7 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 		strings.Contains(workflowText, "Timeout per test") {
 		t.Fatal("acceptance timeout is not documented and defaulted as a 300-minute suite timeout")
 	}
-	for _, forbidden := range []string{"P12", "p12", "GO_VERSION", "go-version:", "RUNNER_NAME", "batch_delay"} {
+	for _, forbidden := range []string{"P12", "p12", "GO_VERSION", "RUNNER_NAME", "batch_delay"} {
 		if strings.Contains(workflowText, forbidden) {
 			t.Fatalf("acceptance workflow retains pre-production compatibility or moving-toolchain marker %q", forbidden)
 		}
@@ -1710,12 +1711,19 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 	if strings.Count(workflowText, modeExpression) != 2 {
 		t.Fatalf("acceptance mode is not reported and gated with the same event-aware expression")
 	}
-	setupGoCount := 0
+	const pinnedSetupGo = "actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e"
+	setupGoByJob := map[string]bool{}
 	verifiedImageGo := map[string]bool{}
 	for jobName, job := range workflow.Jobs {
 		for _, step := range job.Steps {
 			if strings.HasPrefix(step.Uses, "actions/setup-go@") {
-				setupGoCount++
+				setupGoByJob[jobName] = true
+				if step.Uses != pinnedSetupGo {
+					t.Errorf("acceptance job %s setup-go action = %q, want %q", jobName, step.Uses, pinnedSetupGo)
+				}
+				if got, _ := step.With["go-version"].(string); got != "1.25.12" {
+					t.Errorf("acceptance job %s Go version = %q, want 1.25.12", jobName, got)
+				}
 			}
 			if step.Name == "Verify immutable Go toolchain" &&
 				strings.Contains(step.Run, `test "$(go env GOVERSION)" = go1.25.12`) {
@@ -1723,12 +1731,25 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 			}
 		}
 	}
-	if setupGoCount != 0 {
-		t.Fatalf("acceptance workflow downloads Go in %d managed-socketless jobs", setupGoCount)
+	for _, jobName := range []string{"mock-tests", "compare-results"} {
+		if workflow.Jobs[jobName].RunsOn != "ubuntu-latest" {
+			t.Errorf("acceptance job %s does not use ubuntu-latest", jobName)
+		}
+		if !setupGoByJob[jobName] {
+			t.Errorf("acceptance job %s does not install the pinned Go toolchain", jobName)
+		}
+	}
+	for _, jobName := range []string{"real-api-tests", "cleanup"} {
+		if workflow.Jobs[jobName].RunsOn != "managed-socketless" {
+			t.Errorf("acceptance job %s does not use managed-socketless", jobName)
+		}
+		if setupGoByJob[jobName] {
+			t.Errorf("acceptance job %s downloads Go instead of using the immutable runner toolchain", jobName)
+		}
 	}
 	for _, jobName := range []string{"mock-tests", "real-api-tests", "cleanup", "compare-results"} {
 		if !verifiedImageGo[jobName] {
-			t.Errorf("acceptance job %s does not verify the immutable Go 1.25.12 image toolchain", jobName)
+			t.Errorf("acceptance job %s does not verify the pinned Go 1.25.12 toolchain", jobName)
 		}
 	}
 	for _, line := range strings.Split(workflowText, "\n") {

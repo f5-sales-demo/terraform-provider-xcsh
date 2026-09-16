@@ -23,9 +23,14 @@ const repositoryRunnerLabel = "terraform-provider-xcsh"
 const repositoryRunnerExpression = "${{ github.event.repository.name }}"
 const sharedSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/xcsh' && 'xcsh-socketless' || 'managed-socketless' }}"
 const docsSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless' }}"
+const releaseChainHostedRunnerExpression = "${{ (github.repository == 'f5-sales-demo/api-specs-enriched' || github.repository == 'f5-sales-demo/marketplace' || github.repository == 'f5-sales-demo/mcn' || github.repository == 'f5-sales-demo/terraform-provider-xcsh') && 'ubuntu-latest' || (github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless') }}"
 
 var canonicalManagedSocketlessRunsOn = []string{
 	"managed-socketless",
+}
+
+var canonicalGitHubHostedRunsOn = []string{
+	"ubuntu-latest",
 }
 
 var canonicalLegacySelfHostedRunsOn = []string{
@@ -285,8 +290,6 @@ func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 	workflowDir := filepath.Join("..", ".github", "workflows")
 	expectedImageJobs := map[string][]string{
 		"acc-tests.yml/cleanup":               {`test "$(go env GOVERSION)" = go1.25.12`},
-		"acc-tests.yml/compare-results":       {`test "$(go env GOVERSION)" = go1.25.12`},
-		"acc-tests.yml/mock-tests":            {`test "$(go env GOVERSION)" = go1.25.12`},
 		"acc-tests.yml/real-api-tests":        {`test "$(go env GOVERSION)" = go1.25.12`},
 		"ci.yml/validate-docs-generation":     {`test "$(go env GOVERSION)" = go1.25.12`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
 		"ci.yml/validate-mock-fixtures":       {`test "$(go env GOVERSION)" = go1.25.12`},
@@ -348,6 +351,11 @@ func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 
 func TestGitHubHostedJobsPreserveGoSetup(t *testing.T) {
 	hostedContracts := map[string][]string{
+		"acc-tests.yml": {
+			"runs-on: ubuntu-latest",
+			"actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+			"go-version: '1.25.12'",
+		},
 		"_build-test.yml": {
 			"runs-on: ubuntu-latest",
 			"actions/setup-go@",
@@ -380,8 +388,64 @@ func TestGitHubHostedJobsPreserveGoSetup(t *testing.T) {
 	}
 }
 
+func TestAcceptanceHostedJobsPinGoToolchain(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "acc-tests.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var workflow workflowDocument
+	if err := yaml.Unmarshal(content, &workflow); err != nil {
+		t.Fatal(err)
+	}
+
+	const setupGo = "actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e"
+	for _, jobID := range []string{"mock-tests", "compare-results"} {
+		job, ok := workflow.Jobs[jobID]
+		if !ok {
+			t.Fatalf("missing acceptance job %s", jobID)
+		}
+		runsOn, _ := stringSlice(job["runs-on"])
+		if !reflect.DeepEqual(runsOn, canonicalGitHubHostedRunsOn) {
+			t.Errorf("%s runs-on = %v, want %v", jobID, runsOn, canonicalGitHubHostedRunsOn)
+		}
+		assertPinnedSetupGoStep(t, jobID, job, setupGo, "1.25.12", true)
+	}
+
+	for _, jobID := range []string{"real-api-tests", "cleanup"} {
+		job, ok := workflow.Jobs[jobID]
+		if !ok {
+			t.Fatalf("missing acceptance job %s", jobID)
+		}
+		assertPinnedSetupGoStep(t, jobID, job, setupGo, "1.25.12", false)
+	}
+}
+
+func assertPinnedSetupGoStep(t *testing.T, jobID string, job map[string]any, setupGo, goVersion string, want bool) {
+	t.Helper()
+	found := false
+	steps, _ := job["steps"].([]any)
+	for _, raw := range steps {
+		step, _ := raw.(map[string]any)
+		uses, _ := step["uses"].(string)
+		if !strings.HasPrefix(uses, "actions/setup-go@") {
+			continue
+		}
+		found = true
+		if uses != setupGo {
+			t.Errorf("%s setup-go action = %q, want %q", jobID, uses, setupGo)
+		}
+		with, _ := step["with"].(map[string]any)
+		if got, _ := with["go-version"].(string); got != goVersion {
+			t.Errorf("%s Go version = %q, want %q", jobID, got, goVersion)
+		}
+	}
+	if found != want {
+		t.Errorf("%s setup-go presence = %v, want %v", jobID, found, want)
+	}
+}
+
 var protectedJobs = []jobContract{
-	{"acc-tests.yml", "mock-tests", canonicalManagedSocketlessRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
+	{"acc-tests.yml", "mock-tests", canonicalGitHubHostedRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
 	{"acc-tests.yml", "real-api-tests", canonicalManagedSocketlessRunsOn, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
 	{"acc-tests.yml", "cleanup", canonicalManagedSocketlessRunsOn, "acceptance-tests", map[string]string{"contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\nneeds.real-api-tests.result != 'skipped'\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
 	{"discover-defaults.yml", "discover", canonicalManagedSocketlessRunsOn, "default-discovery", map[string]string{}, []string{"schedule", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN", "XCSH_API_TOKEN", "XCSH_API_URL"}},
@@ -465,6 +529,8 @@ func canonicalizeRunsOn(runsOn []string, errors *[]string, jobID string) []strin
 			canonical[index] = canonicalManagedSocketlessRunsOn[0]
 		case docsSocketlessRunnerExpression:
 			canonical[index] = canonicalManagedSocketlessRunsOn[0]
+		case releaseChainHostedRunnerExpression:
+			canonical[index] = canonicalGitHubHostedRunsOn[0]
 		default:
 			*errors = append(*errors, jobID+": dynamic runs-on is forbidden")
 		}
@@ -792,10 +858,7 @@ func TestProviderWorkflowContracts(t *testing.T) {
 	}
 	expected := map[string]bool{
 		"acc-tests.yml/cleanup":                    true,
-		"acc-tests.yml/compare-results":            true,
-		"acc-tests.yml/mock-tests":                 true,
 		"acc-tests.yml/real-api-tests":             true,
-		"acc-tests.yml/summary":                    true,
 		"ci.yml/check-constitution":                true,
 		"ci.yml/validate-docs-generation":          true,
 		"ci.yml/validate-mock-fixtures":            true,
@@ -829,7 +892,6 @@ func TestProviderWorkflowContracts(t *testing.T) {
 	}
 	delete(expected, "enforce-repo-settings.yml/resolve-source")
 	delete(expected, "require-linked-issue.yml/check")
-	expected["require-linked-issue.yml/check-linked-issues"] = true
 	expected["self-hosted-runner-python-uv-smoke.yml/tool-cache-smoke"] = true
 	if !reflect.DeepEqual(managedSocketless, expected) {
 		t.Fatalf("managed socketless inventory mismatch: %v", managedSocketless)
@@ -909,6 +971,33 @@ jobs:
 	unsafe := []byte(strings.Replace(string(valid), "github.event.repository.name", "github.event.inputs.runner", 1))
 	if issues := validateWorkflowBytes("fixture.yml", unsafe); len(issues) == 0 {
 		t.Fatal("non-canonical dynamic runner passed validation")
+	}
+}
+
+func TestReleaseChainLinkedIssueRunnerIsCanonicalHosted(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "require-linked-issue.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var workflow workflowDocument
+	if err := yaml.Unmarshal(content, &workflow); err != nil {
+		t.Fatal(err)
+	}
+	job, ok := workflow.Jobs["check-linked-issues"]
+	if !ok {
+		t.Fatal("missing check-linked-issues job")
+	}
+	runsOn, err := stringSlice(job["runs-on"])
+	if err != nil {
+		t.Fatal(err)
+	}
+	issues := []string{}
+	canonical := canonicalizeRunsOn(runsOn, &issues, "check-linked-issues")
+	if len(issues) != 0 {
+		t.Fatalf("release-chain linked-issue runner failed validation: %v", issues)
+	}
+	if !reflect.DeepEqual(canonical, canonicalGitHubHostedRunsOn) {
+		t.Fatalf("release-chain linked-issue runner = %v, want %v", canonical, canonicalGitHubHostedRunsOn)
 	}
 }
 
