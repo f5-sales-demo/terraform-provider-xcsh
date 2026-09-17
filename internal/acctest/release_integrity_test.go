@@ -1142,7 +1142,7 @@ func TestReleaseWorkflowSerializesAndClassifiesReleaseState(t *testing.T) {
 		"absent":    {mode: "absent", wantState: "absent"},
 		"draft":     {mode: "draft", wantState: "draft"},
 		"published": {mode: "published", wantState: "published"},
-		"duplicate": {mode: "duplicate", wantError: "Release tag resolves to multiple releases"},
+		"duplicate": {mode: "duplicate", wantState: "draft"},
 		"forbidden": {mode: "forbidden", wantError: "Failed to resolve existing release state"},
 	} {
 		t.Run(name, func(t *testing.T) {
@@ -2247,10 +2247,10 @@ func setRegenerationReceiptSource(t *testing.T, repo, source string) {
 	receipt["source_commit"] = source
 	writeReleaseTestJSON(t, path, receipt)
 }
-func TestDraftCleanupDeletesEveryMeasuredAsset(t *testing.T) {
-	script := extractWorkflowRunStep(t, "_tag-release.yml", "publish", "Clear repairable draft artifacts")
+func TestDraftCleanupDeletesEverySameTagDraftRelease(t *testing.T) {
+	script := extractWorkflowRunStep(t, "_tag-release.yml", "publish", "Clear repairable draft releases")
 	tmp := t.TempDir()
-	writeReleaseTestFile(t, tmp, "release-initial.json", `{"assets":[{"id":11},{"id":22}]}`+"\n", 0o600)
+	writeReleaseTestFile(t, tmp, "release-initial.json", `[{"id":11},{"id":22}]`+"\n", 0o600)
 	bin := filepath.Join(tmp, "bin")
 	logPath := filepath.Join(tmp, "deletions")
 	stub := "#!/usr/bin/env bash\nprintf '%s\\n' \"$*\" >> \"$DELETE_LOG\"\n"
@@ -2269,10 +2269,10 @@ func TestDraftCleanupDeletesEveryMeasuredAsset(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	want := "api --method DELETE repos/f5-sales-demo/terraform-provider-xcsh/releases/assets/11\n" +
-		"api --method DELETE repos/f5-sales-demo/terraform-provider-xcsh/releases/assets/22\n"
+	want := "api --method DELETE repos/f5-sales-demo/terraform-provider-xcsh/releases/11\n" +
+		"api --method DELETE repos/f5-sales-demo/terraform-provider-xcsh/releases/22\n"
 	if string(deletions) != want {
-		t.Fatalf("draft cleanup did not delete the exact measured set:\nwant:\n%s\ngot:\n%s", want, deletions)
+		t.Fatalf("draft cleanup did not delete the exact same-tag draft releases:\nwant:\n%s\ngot:\n%s", want, deletions)
 	}
 }
 

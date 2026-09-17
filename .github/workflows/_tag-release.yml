@@ -250,6 +250,25 @@ jobs:
           if gh api "repos/${REPOSITORY}/releases/tags/${RELEASE_TAG}" \
             > "$RUNNER_TEMP/release-initial.json" 2> "$RUNNER_TEMP/release-probe.err"; then
             if jq -e '.draft == true' "$RUNNER_TEMP/release-initial.json" >/dev/null; then
+              if ! gh api --paginate \
+                "repos/${REPOSITORY}/releases?per_page=100" \
+                > "$RUNNER_TEMP/release-pages.json" \
+                2> "$RUNNER_TEMP/release-list.err"; then
+                cat "$RUNNER_TEMP/release-list.err" >&2
+                echo "::error::Failed to resolve draft release state"
+                exit 1
+              fi
+              jq -se --arg tag "$RELEASE_TAG" \
+                '[.[][] | select(.tag_name == $tag)]' \
+                "$RUNNER_TEMP/release-pages.json" \
+                > "$RUNNER_TEMP/release-matches.json"
+              jq -e 'length > 0 and all(.[]; .draft == true and .prerelease == false)' \
+                "$RUNNER_TEMP/release-matches.json" \
+                >/dev/null || {
+                echo "::error::Release collection returned an invalid draft state"
+                exit 1
+              }
+              cp "$RUNNER_TEMP/release-matches.json" "$RUNNER_TEMP/release-initial.json"
               echo "state=draft" >> "$GITHUB_OUTPUT"
             else
               jq -e '.draft == false and .prerelease == false' \
@@ -275,18 +294,17 @@ jobs:
             MATCH_COUNT=$(jq 'length' "$RUNNER_TEMP/release-matches.json")
             if [ "$MATCH_COUNT" -eq 0 ]; then
               echo "state=absent" >> "$GITHUB_OUTPUT"
-            elif [ "$MATCH_COUNT" -eq 1 ]; then
-              jq -e '.[0].draft == true and .[0].prerelease == false' \
+            elif [ "$MATCH_COUNT" -ge 1 ]; then
+              jq -e 'all(.[]; .draft == true and .prerelease == false)' \
                 "$RUNNER_TEMP/release-matches.json" \
                 >/dev/null || {
                 echo "::error::Release collection returned an invalid draft state"
                 exit 1
               }
-              jq '.[0]' "$RUNNER_TEMP/release-matches.json" \
-                > "$RUNNER_TEMP/release-initial.json"
+              cp "$RUNNER_TEMP/release-matches.json" "$RUNNER_TEMP/release-initial.json"
               echo "state=draft" >> "$GITHUB_OUTPUT"
             else
-              echo "::error::Release tag resolves to multiple releases"
+              echo "::error::Release collection returned an invalid draft state"
               exit 1
             fi
           else
@@ -328,20 +346,20 @@ jobs:
             exit 1
           }
 
-      - name: Clear repairable draft artifacts
+      - name: Clear repairable draft releases
         if: steps.release_state.outputs.state == 'draft'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
-          while IFS= read -r ASSET_ID; do
-            [[ "$ASSET_ID" =~ ^[0-9]+$ ]] || {
-              echo "::error::Draft release returned a malformed asset ID"
+          while IFS= read -r RELEASE_ID; do
+            [[ "$RELEASE_ID" =~ ^[0-9]+$ ]] || {
+              echo "::error::Draft release returned a malformed release ID"
               exit 1
             }
-            gh api --method DELETE "repos/${REPOSITORY}/releases/assets/${ASSET_ID}"
-          done < <(jq -r '.assets[].id' "$RUNNER_TEMP/release-initial.json")
+            gh api --method DELETE "repos/${REPOSITORY}/releases/${RELEASE_ID}"
+          done < <(jq -r '.[].id' "$RUNNER_TEMP/release-initial.json")
 
       - name: Build or repair draft release
         if: steps.release_state.outputs.state != 'published'
