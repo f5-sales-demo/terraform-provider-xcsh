@@ -19,14 +19,17 @@ func canUpdateSMSv2AWSDevices(ctx context.Context, plan, state SecuremeshSiteV2R
 		return false
 	}
 	planned, previous := plan.AWS.NotManaged.NodeList, state.AWS.NotManaged.NodeList
-	if planned.IsNull() || planned.IsUnknown() || previous.IsNull() || previous.IsUnknown() {
+	if planned.IsNull() || planned.IsUnknown() || previous.IsUnknown() {
 		return false
 	}
 	var nodes, oldNodes []SecuremeshSiteV2AWSNotManagedNodeListModel
-	if planned.ElementsAs(ctx, &nodes, false).HasError() || previous.ElementsAs(ctx, &oldNodes, false).HasError() || len(nodes) != 1 {
+	if planned.ElementsAs(ctx, &nodes, false).HasError() || len(nodes) != 1 {
 		return false
 	}
-	if len(oldNodes) == 0 {
+	if !previous.IsNull() && previous.ElementsAs(ctx, &oldNodes, false).HasError() {
+		return false
+	}
+	if previous.IsNull() || len(oldNodes) == 0 {
 		// Discovery creates the immutable site identity without a node. The first
 		// validated non-HA node binding is an in-place configuration update.
 		if !configuredSMSv2AWSNodeIsKnown(ctx, nodes[0]) {
@@ -34,7 +37,11 @@ func canUpdateSMSv2AWSDevices(ctx context.Context, plan, state SecuremeshSiteV2R
 		}
 		normalizedAWS := *plan.AWS
 		normalizedNotManaged := *plan.AWS.NotManaged
-		normalizedNotManaged.NodeList = previous
+		if previous.IsNull() {
+			normalizedNotManaged.NodeList = types.ListNull(planned.ElementType(ctx))
+		} else {
+			normalizedNotManaged.NodeList = previous
+		}
 		normalizedAWS.NotManaged = &normalizedNotManaged
 		return sameSMSv2AWSInputs(ctx, &normalizedAWS, state.AWS)
 	}
@@ -78,6 +85,39 @@ func canUpdateSMSv2AWSDevices(ctx context.Context, plan, state SecuremeshSiteV2R
 	normalizedNotManaged.NodeList = normalizedNodes
 	normalizedAWS.NotManaged = &normalizedNotManaged
 	return sameSMSv2AWSInputs(ctx, &normalizedAWS, state.AWS)
+}
+
+// pendingSMSv2AWSDiscoveryBinding reports the one transition whose concrete
+// interface identity is often produced by a data source during planning. An
+// initial ModifyPlan pass can therefore see the single node but not its
+// device/MAC values. Terraform invokes ModifyPlan again after those values are
+// known; recording replacement in the preliminary pass is irreversible even
+// when the later pass proves this is the supported in-place transition.
+func pendingSMSv2AWSDiscoveryBinding(ctx context.Context, plan, state SecuremeshSiteV2ResourceModel) bool {
+	if !emptyObjectMarkerConfigured(plan.DisableHA) || !emptyObjectMarkerConfigured(state.DisableHA) ||
+		emptyObjectMarkerConfigured(plan.EnableHA) || emptyObjectMarkerConfigured(state.EnableHA) ||
+		plan.AWS == nil || state.AWS == nil || plan.AWS.NotManaged == nil || state.AWS.NotManaged == nil {
+		return false
+	}
+	planned, previous := plan.AWS.NotManaged.NodeList, state.AWS.NotManaged.NodeList
+	if previous.IsUnknown() {
+		return false
+	}
+	var oldNodes []SecuremeshSiteV2AWSNotManagedNodeListModel
+	if !previous.IsNull() && (previous.ElementsAs(ctx, &oldNodes, false).HasError() || len(oldNodes) != 0) {
+		return false
+	}
+	if planned.IsUnknown() {
+		return true
+	}
+	if planned.IsNull() {
+		return false
+	}
+	var nodes []SecuremeshSiteV2AWSNotManagedNodeListModel
+	if planned.ElementsAs(ctx, &nodes, false).HasError() || len(nodes) != 1 {
+		return false
+	}
+	return !configuredSMSv2AWSNodeIsKnown(ctx, nodes[0])
 }
 
 // configuredSMSv2AWSNodeIsKnown prevents an unknown binding from silently
