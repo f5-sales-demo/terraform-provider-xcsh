@@ -100,7 +100,6 @@ validate_ledgers() {
       (.value.publication.spec_release_sha256 | test("^[0-9a-f]{64}$")) and
       (.value.publication.tag == ("v" + .value.publication.version)) and
       (.value.publication.assets | keys | sort) == [
-        ("mcp-data-" + .value.publication.version + ".tar.gz"),
         ("terraform-provider-xcsh_" + .value.publication.version + "_SHA256SUMS"),
         ("terraform-provider-xcsh_" + .value.publication.version + "_SHA256SUMS.sig"),
         ("terraform-provider-xcsh_" + .value.publication.version + "_darwin_amd64.zip"),
@@ -226,7 +225,7 @@ jq -e \
   .commit == $commit and .tag == $tag and .version == $version and
   .spec_release_sha256 == $pin_sha and
   (.assets | type == "object") and
-  (.assets | length == 14) and
+  (.assets | length == 13) and
   ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
 ' "$provider_receipt" >/dev/null || fail "Provider publication receipt has the wrong identity"
 actual_assets=$(jq -r '.assets[].name' "$release_json" | LC_ALL=C sort)

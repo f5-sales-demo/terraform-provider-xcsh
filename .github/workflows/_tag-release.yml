@@ -333,19 +333,6 @@ jobs:
           go-version-file: go.mod
           cache: false
 
-      - name: Build MCP archive twice
-        if: steps.release_state.outputs.state != 'published'
-        env:
-          RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
-        run: |
-          set -euo pipefail
-          scripts/build-mcp-data.sh "$RELEASE_TAG" "$RUNNER_TEMP/mcp-a.tar.gz"
-          scripts/build-mcp-data.sh "$RELEASE_TAG" "$RUNNER_TEMP/mcp-b.tar.gz"
-          cmp "$RUNNER_TEMP/mcp-a.tar.gz" "$RUNNER_TEMP/mcp-b.tar.gz" || {
-            echo "::error::MCP archive is not byte-reproducible"
-            exit 1
-          }
-
       - name: Clear repairable draft releases
         if: steps.release_state.outputs.state == 'draft'
         env:
@@ -371,17 +358,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
-
-      - name: Attach deterministic MCP archive to draft
-        if: steps.release_state.outputs.state != 'published'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
-        run: |
-          set -euo pipefail
-          VERSION=${RELEASE_TAG#v}
-          cp "$RUNNER_TEMP/mcp-a.tar.gz" "mcp-data-${VERSION}.tar.gz"
-          gh release upload "$RELEASE_TAG" "mcp-data-${VERSION}.tar.gz" --clobber
 
       - name: Download and measure all release assets
         env:

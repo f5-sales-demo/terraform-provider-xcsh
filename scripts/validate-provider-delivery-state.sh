@@ -105,7 +105,6 @@ while IFS= read -r entry; do
     (.value.publication.spec_release_sha256 | test("^[0-9a-f]{64}$")) and
     .value.publication.tag == ("v" + .value.publication.version) and
     (.value.publication.assets | keys | sort) == [
-      ("mcp-data-" + .value.publication.version + ".tar.gz"),
       ("terraform-provider-xcsh_" + .value.publication.version + "_SHA256SUMS"),
       ("terraform-provider-xcsh_" + .value.publication.version + "_SHA256SUMS.sig"),
       ("terraform-provider-xcsh_" + .value.publication.version + "_darwin_amd64.zip"),

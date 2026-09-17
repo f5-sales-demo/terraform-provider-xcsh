@@ -16,75 +16,9 @@ import (
 	"strconv"
 	"strings"
 	"testing"
-	"time"
 
 	"gopkg.in/yaml.v3"
 )
-
-func TestMCPArchiveIsByteReproducible(t *testing.T) {
-	root := testRepositoryRoot(t)
-	repo := t.TempDir()
-	for name, body := range map[string]string{
-		"docs/resources/a.md":                    "resource\n",
-		"docs/data-sources/a.md":                 "data source\n",
-		"docs/functions/a.md":                    "function\n",
-		"docs/guides/a.md":                       "guide\n",
-		"docs/index.md":                          "index\n",
-		"docs/specifications/api/index.json":     "{}\n",
-		"docs/specifications/api/domains/a.json": "{}\n",
-		"tools/minimum-configs.json":             "{}\n",
-	} {
-		writeReleaseTestFile(t, repo, name, body, 0o600)
-	}
-	runReleaseTestCommand(t, repo, nil, "git", "init", "-q")
-	runReleaseTestCommand(t, repo, nil, "git", "config", "user.name", "Release Test")
-	runReleaseTestCommand(t, repo, nil, "git", "config", "user.email", "release@example.com")
-	runReleaseTestCommand(t, repo, nil, "git", "add", ".")
-	runReleaseTestCommand(t, repo, []string{"GIT_AUTHOR_DATE=2026-01-02T03:04:05Z", "GIT_COMMITTER_DATE=2026-01-02T03:04:05Z"}, "git", "commit", "-qm", "fixture")
-	runReleaseTestCommand(t, repo, nil, "git", "tag", "v1.2.3")
-
-	first := filepath.Join(repo, "first.tar.gz")
-	second := filepath.Join(repo, "second.tar.gz")
-	script := filepath.Join(root, "scripts", "build-mcp-data.sh")
-	runReleaseTestCommand(t, repo, nil, script, "v1.2.3", first)
-	if err := os.Chtimes(filepath.Join(repo, "docs", "resources", "a.md"), testFutureTime(), testFutureTime()); err != nil {
-		t.Fatal(err)
-	}
-	runReleaseTestCommand(t, repo, nil, script, "v1.2.3", second)
-	firstBytes, err := os.ReadFile(first) //nolint:gosec // isolated test fixture
-	if err != nil {
-		t.Fatal(err)
-	}
-	secondBytes, err := os.ReadFile(second) //nolint:gosec // isolated test fixture
-	if err != nil {
-		t.Fatal(err)
-	}
-	if string(firstBytes) != string(secondBytes) {
-		t.Fatal("MCP archive bytes changed when only source mtimes changed")
-	}
-	listing := runReleaseTestCommand(t, repo, nil, "tar", "-tzf", first)
-	var archiveFiles []string
-	for _, entry := range strings.Split(strings.TrimSpace(listing), "\n") {
-		if entry != "" && !strings.HasSuffix(entry, "/") {
-			archiveFiles = append(archiveFiles, entry)
-		}
-	}
-	sort.Strings(archiveFiles)
-	expectedFiles := []string{
-		"mcp-data/docs/data-sources/a.md",
-		"mcp-data/docs/functions/a.md",
-		"mcp-data/docs/guides/a.md",
-		"mcp-data/docs/index.md",
-		"mcp-data/docs/resources/a.md",
-		"mcp-data/docs/specifications/api/index.json",
-		"mcp-data/docs/specifications/api/domains/a.json",
-		"mcp-data/tools/minimum-configs.json",
-	}
-	sort.Strings(expectedFiles)
-	if strings.Join(archiveFiles, "\n") != strings.Join(expectedFiles, "\n") {
-		t.Fatalf("MCP archive file set differs:\nwant:\n%s\ngot:\n%s", strings.Join(expectedFiles, "\n"), strings.Join(archiveFiles, "\n"))
-	}
-}
 
 func TestProviderReleaseVerifierMeasuresAllAssetsAndSignedChecksums(t *testing.T) {
 	root := testRepositoryRoot(t)
@@ -106,7 +40,7 @@ func TestProviderReleaseVerifierMeasuresAllAssetsAndSignedChecksums(t *testing.T
 	checksumName := "terraform-provider-xcsh_" + version + "_SHA256SUMS"
 	var checksumLines []string
 	for _, name := range names {
-		if strings.Contains(name, "SHA256SUMS") || strings.HasPrefix(name, "mcp-data-") {
+		if strings.Contains(name, "SHA256SUMS") {
 			continue
 		}
 		checksumLines = append(checksumLines, releaseTestSHA(t, filepath.Join(assets, name))+"  "+name)
@@ -131,13 +65,24 @@ func TestProviderReleaseVerifierMeasuresAllAssetsAndSignedChecksums(t *testing.T
 	writeReleaseTestFile(t, work, "receipt.json", receipt, 0o600)
 	runReleaseTestCommand(t, work, env, script, tag, commit, releasePath, assets, receiptPath)
 
-	writeReleaseTestFile(t, assets, "mcp-data-"+version+".tar.gz", "tampered\n", 0o600)
+	var release map[string]any
+	releaseBytes, err := os.ReadFile(releasePath) //nolint:gosec // isolated test fixture
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := json.Unmarshal(releaseBytes, &release); err != nil {
+		t.Fatal(err)
+	}
+	release["assets"] = append(release["assets"].([]any), map[string]string{
+		"name": "mcp-data-" + version + ".tar.gz", "digest": "sha256:" + strings.Repeat("0", 64),
+	})
+	writeReleaseTestJSON(t, releasePath, release)
 	cmd := exec.Command(script, tag, commit, releasePath, assets)
 	cmd.Dir = work
 	cmd.Env = append(os.Environ(), env...)
 	output, err := cmd.CombinedOutput()
-	if err == nil || !strings.Contains(string(output), "GitHub digest") {
-		t.Fatalf("tampered asset was not rejected by measured digest: err=%v\n%s", err, output)
+	if err == nil || !strings.Contains(string(output), "asset set is incomplete or unexpected") {
+		t.Fatalf("legacy MCP asset was not rejected: err=%v\n%s", err, output)
 	}
 }
 
@@ -1238,20 +1183,16 @@ func TestMutableDraftLookupUsesReleaseCollection(t *testing.T) {
 	}
 }
 
-func TestMCPArchiveDoesNotDirtyGoReleaserCheckout(t *testing.T) {
-	buildScript := extractWorkflowRunStep(t, "_tag-release.yml", "publish", "Build MCP archive twice")
-	canonicalArchive := `mcp-data-${VERSION}.tar.gz`
-	if strings.Contains(buildScript, canonicalArchive) {
-		t.Fatalf("MCP reproducibility step writes the canonical archive into the GoReleaser checkout:\n%s", buildScript)
+func TestReleaseWorkflowDoesNotPublishMCPAssets(t *testing.T) {
+	root := testRepositoryRoot(t)
+	data, err := os.ReadFile(filepath.Join(root, ".github", "workflows", "_tag-release.yml")) //nolint:gosec // fixed repository path
+	if err != nil {
+		t.Fatal(err)
 	}
-
-	attachScript := extractWorkflowRunStep(t, "_tag-release.yml", "publish", "Attach deterministic MCP archive to draft")
-	copyCommand := `cp "$RUNNER_TEMP/mcp-a.tar.gz" "mcp-data-${VERSION}.tar.gz"`
-	uploadCommand := `gh release upload "$RELEASE_TAG" "mcp-data-${VERSION}.tar.gz" --clobber`
-	copyIndex := strings.Index(attachScript, copyCommand)
-	uploadIndex := strings.Index(attachScript, uploadCommand)
-	if copyIndex < 0 || uploadIndex < 0 || copyIndex >= uploadIndex {
-		t.Fatalf("MCP archive is not copied to its canonical name immediately before upload:\n%s", attachScript)
+	for _, legacy := range []string{"MCP", "mcp-data", "build-mcp"} {
+		if strings.Contains(string(data), legacy) {
+			t.Fatalf("release workflow retains decommissioned MCP publication path %q", legacy)
+		}
 	}
 }
 
@@ -2656,7 +2597,7 @@ func newReceiptFixture(t *testing.T, forgedLedger, falseDigest bool) *receiptFix
 	releaseAssets := make([]map[string]string, 0, len(providerAssets))
 	for _, name := range providerReleaseAssetNames("9.8.7") {
 		digest := providerAssets[name]
-		if falseDigest && name == "mcp-data-9.8.7.tar.gz" {
+		if falseDigest && name == "terraform-provider-xcsh_9.8.7_linux_amd64.zip" {
 			digest = strings.Repeat("0", 64)
 		}
 		releaseAssets = append(releaseAssets, map[string]string{"name": name, "digest": "sha256:" + digest})
@@ -2732,7 +2673,6 @@ func providerReleaseAssetNames(version string) []string {
 		"terraform-provider-xcsh_" + version + "_SHA256SUMS.sig",
 		"terraform-provider-xcsh_" + version + "_windows_386.zip",
 		"terraform-provider-xcsh_" + version + "_windows_amd64.zip",
-		"mcp-data-" + version + ".tar.gz",
 	}
 }
 
@@ -2862,8 +2802,4 @@ func testRepositoryRoot(t *testing.T) string {
 		t.Fatal(err)
 	}
 	return root
-}
-
-func testFutureTime() (value time.Time) {
-	return time.Unix(2_000_000_000, 0)
 }

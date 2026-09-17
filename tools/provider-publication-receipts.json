@@ -8,7 +8,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-4.0.0.tar.gz": "sha256:eb355ea83838bd4f0335ae4aab2cbd30495342216d938c30d29ee04b51fe4c1c",
           "terraform-provider-xcsh_4.0.0_SHA256SUMS": "sha256:1017f62cd01f304f939327e94df527892b1b185e5727f93acbbd76ec37fa4cf0",
           "terraform-provider-xcsh_4.0.0_SHA256SUMS.sig": "sha256:7501ebe7f912cb0ef6b619b5ec6ac3525d8b0c4fdbf8d1a4e6e1543f025b6763",
           "terraform-provider-xcsh_4.0.0_darwin_amd64.zip": "sha256:66cd22754b192de4c2d5451017c7c16f4b3108f424d7654579852248530a1632",
@@ -37,7 +36,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-5.0.0.tar.gz": "sha256:ae57b87a66cf0181729fca35c839d6ba364481e8369f8fa5733fbb382c09db34",
           "terraform-provider-xcsh_5.0.0_SHA256SUMS": "sha256:6bb014dc9b57b93f6dbcb819f3ccf9ad6a9e2e3fa4a8f3b2821d585560096585",
           "terraform-provider-xcsh_5.0.0_SHA256SUMS.sig": "sha256:27d175b1ee94d5c5f729dbed3ca4e2e99ee5195873c6f0e5096102ac56b11700",
           "terraform-provider-xcsh_5.0.0_darwin_amd64.zip": "sha256:5d2f1223fd14ee3002b38d1a3cac27aaa46a09339061d2ebe1d7744f9ac1b6bb",
@@ -66,7 +64,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-6.1.0.tar.gz": "sha256:027b1bffafcee578fd6f997437057c2702529a984b6cb9ba3640870b6be4c058",
           "terraform-provider-xcsh_6.1.0_SHA256SUMS": "sha256:e1582a66d8be4ee0f9829623ce2df01ff4ce42e019fbb0c656a36ab7099020e7",
           "terraform-provider-xcsh_6.1.0_SHA256SUMS.sig": "sha256:88af9bf338bd3064dec2626d73ffd7c12a105f894edd4fa9b6d949792eb6390a",
           "terraform-provider-xcsh_6.1.0_darwin_amd64.zip": "sha256:5280dbe0f1e761d2d488db5143d3437968cda1290913e560d49905f8eb0ff6d4",
@@ -95,7 +92,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-7.4.0.tar.gz": "sha256:ed979cb91386f2b69c3a7724822fbdd324ddb57a2562ce59755d99d547a484fd",
           "terraform-provider-xcsh_7.4.0_SHA256SUMS": "sha256:e94775d174cc3965248251b261e6d1ab64d36442109762f41ab7a7d6fcb8966c",
           "terraform-provider-xcsh_7.4.0_SHA256SUMS.sig": "sha256:eb0f4e831c3ee636abb2f01597a1134213ca72d2afe8e8df7db3bd7716e50e76",
           "terraform-provider-xcsh_7.4.0_darwin_amd64.zip": "sha256:b4b55f4f423d3dd7350bc237205a61cac41742228375ec60654a5823ffcd3f8c",
@@ -124,7 +120,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-6.0.0.tar.gz": "sha256:945f9c597b5e11e4f85df599e1662ad2ee9cb85dd43b5b24babc00efbded590c",
           "terraform-provider-xcsh_6.0.0_SHA256SUMS": "sha256:73887d902d73d4451a100626b1314df3c6d40ae2f9ec911c95d6ee3a92eddc6a",
           "terraform-provider-xcsh_6.0.0_SHA256SUMS.sig": "sha256:10dae94472c56e4a4ee898fc2c5f68ea6553a831876f26850257bedc5a3f2c92",
           "terraform-provider-xcsh_6.0.0_darwin_amd64.zip": "sha256:3d807c9f138858a69cb2493988344237ce1e1e8e8340d42b8813f4fce65495f2",
@@ -153,7 +148,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-7.2.0.tar.gz": "sha256:5caba92342d86142539e2612ee550e4606f004349ce2d93b75c663ac24b6213a",
           "terraform-provider-xcsh_7.2.0_SHA256SUMS": "sha256:5f8d5759baa04e027f514d69282b646b0c9b36b8fe1e27745b4c42bf7fc94727",
           "terraform-provider-xcsh_7.2.0_SHA256SUMS.sig": "sha256:27f5970f990d772865bd23869c5a1bbf10ca57f17d2a09cb91afbc212a391592",
           "terraform-provider-xcsh_7.2.0_darwin_amd64.zip": "sha256:4a8d809c14cb85d26763259f5386283b7c91e6562ad23a8d6bc56859b46aec23",
@@ -182,7 +176,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-3.90.2.tar.gz": "sha256:e429aaab67edecb051b97dec4686cc6037704f36f1342cd6fdb7b072ba384f41",
           "terraform-provider-xcsh_3.90.2_SHA256SUMS": "sha256:9feb824afd79d942f0045d8c8452624587b37c14380bc220297f8e41d4286160",
           "terraform-provider-xcsh_3.90.2_SHA256SUMS.sig": "sha256:48db97411d30e3b9b73bd2adce145b2dfcb21bdc52cec9906d85533ec93a7998",
           "terraform-provider-xcsh_3.90.2_darwin_amd64.zip": "sha256:a3161a4e44b939491b789adfcd2a9e1a7edf56a0bdc1a6a60af3565902b60ae6",
@@ -211,7 +204,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-9.1.0.tar.gz": "sha256:8654ef9c67396b82a11bf6da0c4985d24f44fce13ba8b4aa79d3450a60c45211",
           "terraform-provider-xcsh_9.1.0_SHA256SUMS": "sha256:9894580606063a7474b6c1e5ed697f11d4d578b2dac75e7e1fb203dc9a411746",
           "terraform-provider-xcsh_9.1.0_SHA256SUMS.sig": "sha256:33a8c85062b147674b320568ef5872e51ecb44ca9f933ec863a82841e8d3cc00",
           "terraform-provider-xcsh_9.1.0_darwin_amd64.zip": "sha256:46fef028f10d7ff7b8b00f841c0b68cd36e9ee620562c192b9e7a955c8f8b68d",
@@ -240,7 +232,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-9.2.0.tar.gz": "sha256:f904cbd86c9934d7ef865d3a845620f4d033038bc4c1faf5ea5024f7668ea94c",
           "terraform-provider-xcsh_9.2.0_SHA256SUMS": "sha256:caa9bac6fd7a1916219285fec08a846b5bc5eec6c4bd08d5e83813158939f9f1",
           "terraform-provider-xcsh_9.2.0_SHA256SUMS.sig": "sha256:dd8d7061db323c3e9da2808117860399af392ba125ab6469a08c7c1e30369733",
           "terraform-provider-xcsh_9.2.0_darwin_amd64.zip": "sha256:517b91866611afa4b51811a8e4e397c2aad0db13ab4fcec2d6e18480e1aea1db",
@@ -269,7 +260,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-5.3.0.tar.gz": "sha256:d1bcf19ed98d8128ed40279834a99a7b4e8086b812544133ddb43ae8fedc0f0f",
           "terraform-provider-xcsh_5.3.0_SHA256SUMS": "sha256:15c73bc7814b86bb0cc638f165ee89a5e30a82cdc63b8afeb9627186397e2ff8",
           "terraform-provider-xcsh_5.3.0_SHA256SUMS.sig": "sha256:fe6dff149b581dff8ceefb9cdc1a6cae0f3bfd6e33a54b5c512a7351e7421a2c",
           "terraform-provider-xcsh_5.3.0_darwin_amd64.zip": "sha256:ecbd7e7c9bf6d051c3c77f9687cce1a204a22cee6812be7a49df1a61c60bcf4f",
@@ -298,7 +288,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-7.3.0.tar.gz": "sha256:79780773791b8e64ee415fdb55255e61c11ee2c02d9305c66f7def722b282a96",
           "terraform-provider-xcsh_7.3.0_SHA256SUMS": "sha256:08538bdd2e6d9a619f5bcdad20e61c41ec01b0b84b49f236bbf5298918500064",
           "terraform-provider-xcsh_7.3.0_SHA256SUMS.sig": "sha256:5b27f073bcbc0f25ab48211b10d916c56185c446b936f097e2b241c47f0d3b84",
           "terraform-provider-xcsh_7.3.0_darwin_amd64.zip": "sha256:eb401c5c742dc914e34579765be0b6800a877567b2ed5e8838c341b114792df8",
@@ -327,7 +316,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-3.93.0.tar.gz": "sha256:01a0fce115d7ecd624a1e8dc05ca370d4077accad5a3a853f01f6c2dd76e9663",
           "terraform-provider-xcsh_3.93.0_SHA256SUMS": "sha256:d92594a519b7a33389ad1b203791746e67892d1c2ef06d38f672d518b763b4fd",
           "terraform-provider-xcsh_3.93.0_SHA256SUMS.sig": "sha256:7035a1272b9a3d42640f539067099b5b90d1cdff2dffc9df28e1c6c3944584bf",
           "terraform-provider-xcsh_3.93.0_darwin_amd64.zip": "sha256:edfe04f3cbe5321d4e13bba9deb1ecb453f23b736266a031c619a67bca8f46f2",
@@ -356,7 +344,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-3.91.0.tar.gz": "sha256:da3915ef5e5855e707cd876724c5536178705601c3d1944a068818c9a95be790",
           "terraform-provider-xcsh_3.91.0_SHA256SUMS": "sha256:6d722aa92a7dd4584437f2c651ee4a6ad0cb535175475410f66bc4178f6af245",
           "terraform-provider-xcsh_3.91.0_SHA256SUMS.sig": "sha256:7e1b7da97f0590e4cbd1d1b173f1ac6cbc71f5f29e04c32950f5eef549b1689a",
           "terraform-provider-xcsh_3.91.0_darwin_amd64.zip": "sha256:902fef4b79cd34d152323c4d968afe8ca435d9cbf0d8629459432c3f37fa8716",
@@ -385,7 +372,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-5.2.0.tar.gz": "sha256:970e0745480abe1fba0b54ab54dc24c902584dc9d09282b5597a9a50cd1726f5",
           "terraform-provider-xcsh_5.2.0_SHA256SUMS": "sha256:2ac9a4ec95479791106e072c12c7ca132c50eaf949d78ea6e60c7f8e3c461f26",
           "terraform-provider-xcsh_5.2.0_SHA256SUMS.sig": "sha256:5016321cf1f9acb1e2cc006322b4e5baa97a791ff3246b27402808431ec4db4a",
           "terraform-provider-xcsh_5.2.0_darwin_amd64.zip": "sha256:3bffed7e0dcc019e4532eb91f50e20362af9fa0712e34feefac023ffcbdff1ce",
@@ -414,7 +400,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-3.92.0.tar.gz": "sha256:5447c7afdf2ee8b3105eafc0a948fcce0bf4e03f458ef62d6e82b4677f2b7ce8",
           "terraform-provider-xcsh_3.92.0_SHA256SUMS": "sha256:399cd1502416905f4edd5a94bb33c15ff997df98754a220286954e45970938a5",
           "terraform-provider-xcsh_3.92.0_SHA256SUMS.sig": "sha256:99c1c66d724ce4b8fc011f75b7df3f7f8a8263f746f6f3118d42059615b309c5",
           "terraform-provider-xcsh_3.92.0_darwin_amd64.zip": "sha256:2e4e3e2ca516a363f0df03ae01c8d41e21d984adbbf5757a0bcf428caca03d10",
@@ -443,7 +428,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-7.0.0.tar.gz": "sha256:2a1d3db091cc85f5bd9a28538618f57a3447a5613255a869c43717238770d197",
           "terraform-provider-xcsh_7.0.0_SHA256SUMS": "sha256:fcbdc3cb32ab292a4dfd75d4c192716c363413a14ec405d466fe317673a37978",
           "terraform-provider-xcsh_7.0.0_SHA256SUMS.sig": "sha256:7df7f8e539a0cb8e0c32be15964c5bb0d3614fd5ff27d87f4cac45b13e43aa03",
           "terraform-provider-xcsh_7.0.0_darwin_amd64.zip": "sha256:dc1ec922c963bc4714b22ca9d2ac00e6a47593d9384d3235377a5fa53f1e1af2",
@@ -472,7 +456,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-8.0.0.tar.gz": "sha256:96ef4a58aec82d0fb4a0367c7de78423df235ebf66b6a929f8135a19639e5a51",
           "terraform-provider-xcsh_8.0.0_SHA256SUMS": "sha256:75d9e4a31c8a0468ae0dc79cada0703f5f66e554cea8834973d249beaed12454",
           "terraform-provider-xcsh_8.0.0_SHA256SUMS.sig": "sha256:8f22f3300b134586c3ef146424a2713e18a39f856dfbfed2a7d87ca71fdb8991",
           "terraform-provider-xcsh_8.0.0_darwin_amd64.zip": "sha256:7d0711ac587292294a3f535fcf3960e70e381de68649009ef4a36328bb96e813",
@@ -501,7 +484,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-7.1.0.tar.gz": "sha256:cb6aa3c7be7e6e9dd1251aae6cdc79ec5fffd59770eda859239b1651ced1d2c2",
           "terraform-provider-xcsh_7.1.0_SHA256SUMS": "sha256:a196aafd87a0fc78b64273aa504cfce505876591761685cb87f149987158bcc1",
           "terraform-provider-xcsh_7.1.0_SHA256SUMS.sig": "sha256:9ae841823422bc00f32b9ed6d96563f4447c7bd71c56b337e435740c38f108b3",
           "terraform-provider-xcsh_7.1.0_darwin_amd64.zip": "sha256:233a6c2d7329e503d52fb1dd4781328b8aafd4b8c1a39902bf641eb06696090e",
@@ -530,7 +512,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-4.1.0.tar.gz": "sha256:c72120db3864cd679bb013ba8a030da222dfe73f502aba268e07fe0aee871289",
           "terraform-provider-xcsh_4.1.0_SHA256SUMS": "sha256:fa1198170d3381ce5c41b52cdde7bbb27fe904ebec3bd3578e8e87ad2a74e128",
           "terraform-provider-xcsh_4.1.0_SHA256SUMS.sig": "sha256:423a612ecb519fd9675ecc24969308ef718fcd1a020f230a0a879707683facd0",
           "terraform-provider-xcsh_4.1.0_darwin_amd64.zip": "sha256:3cac9d12f94a1721be126c5c5e86cf1381c14e47a42387b5562054f4363b7567",
@@ -559,7 +540,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-5.1.0.tar.gz": "sha256:f51f2ce9cbe4c1f568db1af2b0b7b43c612976276b756916039cbf1e07e9e143",
           "terraform-provider-xcsh_5.1.0_SHA256SUMS": "sha256:2f48f73b71e8e2871de150feaa94706f1b32cf3685ccfc17546ab3ff0ed00b77",
           "terraform-provider-xcsh_5.1.0_SHA256SUMS.sig": "sha256:75ec9c206e8ee496df9c86340059d279bd3299b692fdc677cf00027abc1be01a",
           "terraform-provider-xcsh_5.1.0_darwin_amd64.zip": "sha256:e40ed3021941d2c2170f3ba1676d46cb32b4c9ba3c178be730a00d6c54d14abf",
@@ -588,7 +568,6 @@
       },
       "publication": {
         "assets": {
-          "mcp-data-9.0.0.tar.gz": "sha256:5cc220edb1797f8cf5f36f5df9a5a7d8da959b139e7ce77a629321063330e083",
           "terraform-provider-xcsh_9.0.0_SHA256SUMS": "sha256:6c84fee9e4e6f1f54a8bfe50f46edadf1f1739d2309db36952bf6bffc3e4aa7a",
           "terraform-provider-xcsh_9.0.0_SHA256SUMS.sig": "sha256:409b7b1a82ff3724b2d4ee6f010c9ca4178e518d7b3cd5b8ed71c8f9c3ecf48d",
           "terraform-provider-xcsh_9.0.0_darwin_amd64.zip": "sha256:5efba6b734a9c668038fc165b21aa8bdf4e412ec0af66ea240d738c46251b4d8",
