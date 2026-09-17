@@ -454,6 +454,10 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
+          # A failed seal response can be transient even after GitHub has received
+          # the request. Re-verify the still-mutable draft before each retry; never
+          # retry a non-transient failure or seal a draft whose bytes have changed.
+          for seal_attempt in 1 2 3 4; do
           REMOTE_TAG_COMMIT=$(gh api \
             "repos/${REPOSITORY}/commits/${RELEASE_TAG}" --jq '.sha')
           [ "$REMOTE_TAG_COMMIT" = "$RELEASE_COMMIT" ] || {
@@ -494,7 +498,21 @@ jobs:
             echo "::error::Draft release assets changed before publication"
             exit 1
           }
-          gh release edit "$RELEASE_TAG" --draft=false --prerelease=false
+          if seal_error=$(gh release edit "$RELEASE_TAG" --draft=false --prerelease=false 2>&1); then
+            break
+          fi
+          if ! printf '%s\n' "$seal_error" | grep -Eq 'HTTP (408|429|500|502|503|504)'; then
+            printf '%s\n' "$seal_error" >&2
+            exit 1
+          fi
+          if [ "$seal_attempt" -eq 4 ]; then
+            printf '%s\n' "$seal_error" >&2
+            echo '::error::Release sealing failed after four transient attempts; draft remains unsealed'
+            exit 1
+          fi
+          echo "::warning::Transient release sealing failure on attempt ${seal_attempt}; re-verifying draft before retry"
+          sleep "$seal_attempt"
+          done
 
       - name: Verify sealed publication
         if: steps.release_state.outputs.state != 'published'
