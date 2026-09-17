@@ -57,6 +57,96 @@ func TestSMSv2DeviceEditPlansUpdateForSingleNodeNonHA(t *testing.T) {
 	if len(resp.RequiresReplace) != 0 {
 		t.Fatalf("device-only edit would replace site: %v", resp.RequiresReplace)
 	}
+
+	// Discovery persists the site identity with no registered node. Its first
+	// concrete non-HA node binding must use the same in-place lifecycle path as
+	// a device-only update; a replacement would delete the immutable site name.
+	discovery := before
+	discovery.AWS.NotManaged.NodeList = types.ListValueMust(
+		discovery.AWS.NotManaged.NodeList.ElementType(ctx),
+		[]attr.Value{},
+	)
+	resp = resource.ModifyPlanResponse{}
+	req.Plan.Raw = raw(after)
+	req.State.Raw = raw(discovery)
+	var decodedPlan, decodedState SecuremeshSiteV2ResourceModel
+	if diags := req.Plan.Get(ctx, &decodedPlan); diags.HasError() {
+		t.Fatal(diags)
+	}
+	if diags := req.State.Get(ctx, &decodedState); diags.HasError() {
+		t.Fatal(diags)
+	}
+	if !canUpdateSMSv2AWSDevices(ctx, decodedPlan, decodedState) {
+		t.Fatal("decoded discovery-to-configured transition is not eligible for in-place update")
+	}
+	r.ModifyPlan(ctx, req, &resp)
+	if resp.Diagnostics.HasError() {
+		t.Fatal(resp.Diagnostics)
+	}
+	if len(resp.RequiresReplace) != 0 {
+		t.Fatalf("discovery-to-configured binding would replace site: %v", resp.RequiresReplace)
+	}
+
+	// The API persists the initial discovery result with an omitted node list,
+	// which Terraform represents as null rather than an empty list. The first
+	// concrete binding must retain that site identity in place as well.
+	nullDiscovery := discovery
+	nullDiscovery.AWS.NotManaged.NodeList = types.ListNull(
+		nullDiscovery.AWS.NotManaged.NodeList.ElementType(ctx),
+	)
+	resp = resource.ModifyPlanResponse{}
+	req.Plan.Raw = raw(after)
+	req.State.Raw = raw(nullDiscovery)
+	if diags := req.Plan.Get(ctx, &decodedPlan); diags.HasError() {
+		t.Fatal(diags)
+	}
+	if diags := req.State.Get(ctx, &decodedState); diags.HasError() {
+		t.Fatal(diags)
+	}
+	if !canUpdateSMSv2AWSDevices(ctx, decodedPlan, decodedState) {
+		t.Fatal("decoded null-discovery-to-configured transition is not eligible for in-place update")
+	}
+	r.ModifyPlan(ctx, req, &resp)
+	if resp.Diagnostics.HasError() {
+		t.Fatal(resp.Diagnostics)
+	}
+	if len(resp.RequiresReplace) != 0 {
+		t.Fatalf("null discovery-to-configured binding would replace site: %v", resp.RequiresReplace)
+	}
+
+	// Terraform may call ModifyPlan before registration-derived interface
+	// values become known. That preliminary pass must not irreversibly mark the
+	// supported discovery transition for replacement.
+	pending := after
+	var nodes []SecuremeshSiteV2AWSNotManagedNodeListModel
+	if diags := pending.AWS.NotManaged.NodeList.ElementsAs(ctx, &nodes, false); diags.HasError() {
+		t.Fatal(diags)
+	}
+	var interfaces []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel
+	if diags := nodes[0].InterfaceList.ElementsAs(ctx, &interfaces, false); diags.HasError() {
+		t.Fatal(diags)
+	}
+	interfaces[0].EthernetInterface.Device = types.StringUnknown()
+	value, diags := types.ListValueFrom(ctx, nodes[0].InterfaceList.ElementType(ctx), interfaces)
+	if diags.HasError() {
+		t.Fatal(diags)
+	}
+	nodes[0].InterfaceList = value
+	value, diags = types.ListValueFrom(ctx, pending.AWS.NotManaged.NodeList.ElementType(ctx), nodes)
+	if diags.HasError() {
+		t.Fatal(diags)
+	}
+	pending.AWS.NotManaged.NodeList = value
+	resp = resource.ModifyPlanResponse{}
+	req.Plan.Raw = raw(pending)
+	req.State.Raw = raw(nullDiscovery)
+	r.ModifyPlan(ctx, req, &resp)
+	if resp.Diagnostics.HasError() {
+		t.Fatal(resp.Diagnostics)
+	}
+	if len(resp.RequiresReplace) != 0 {
+		t.Fatalf("pending discovery binding would replace site: %v", resp.RequiresReplace)
+	}
 }
 
 func smsv2ComputedInterfaceFixture(t *testing.T, model SecuremeshSiteV2ResourceModel, unknown bool) SecuremeshSiteV2ResourceModel {

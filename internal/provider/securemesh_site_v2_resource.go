@@ -13520,8 +13520,13 @@ func (r *SecuremeshSiteV2Resource) ModifyPlan(ctx context.Context, req resource.
 		}
 		// Preserve replacement for unverified AWS topology edits. The API
 		// supports device-only edits on explicitly non-HA, single-node sites.
-		if plan.AWS != nil && state.AWS != nil && !sameSMSv2AWSInputs(ctx, plan.AWS, state.AWS) && !canUpdateSMSv2AWSDevices(ctx, plan, state) {
-			resp.RequiresReplace = append(resp.RequiresReplace, path.Root("aws"))
+		if plan.AWS != nil && state.AWS != nil {
+			sameAWSInputs := sameSMSv2AWSInputs(ctx, plan.AWS, state.AWS)
+			canUpdateAWSDevices := canUpdateSMSv2AWSDevices(ctx, plan, state)
+			pendingAWSDiscoveryBinding := pendingSMSv2AWSDiscoveryBinding(ctx, plan, state)
+			if !sameAWSInputs && !canUpdateAWSDevices && !pendingAWSDiscoveryBinding {
+				resp.RequiresReplace = append(resp.RequiresReplace, path.Root("aws"))
+			}
 		}
 	}
 }
