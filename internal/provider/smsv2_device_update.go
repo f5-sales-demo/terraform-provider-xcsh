@@ -23,7 +23,22 @@ func canUpdateSMSv2AWSDevices(ctx context.Context, plan, state SecuremeshSiteV2R
 		return false
 	}
 	var nodes, oldNodes []SecuremeshSiteV2AWSNotManagedNodeListModel
-	if planned.ElementsAs(ctx, &nodes, false).HasError() || previous.ElementsAs(ctx, &oldNodes, false).HasError() || len(nodes) != 1 || len(oldNodes) != 1 {
+	if planned.ElementsAs(ctx, &nodes, false).HasError() || previous.ElementsAs(ctx, &oldNodes, false).HasError() || len(nodes) != 1 {
+		return false
+	}
+	if len(oldNodes) == 0 {
+		// Discovery creates the immutable site identity without a node. The first
+		// validated non-HA node binding is an in-place configuration update.
+		if !configuredSMSv2AWSNodeIsKnown(ctx, nodes[0]) {
+			return false
+		}
+		normalizedAWS := *plan.AWS
+		normalizedNotManaged := *plan.AWS.NotManaged
+		normalizedNotManaged.NodeList = previous
+		normalizedAWS.NotManaged = &normalizedNotManaged
+		return sameSMSv2AWSInputs(ctx, &normalizedAWS, state.AWS)
+	}
+	if len(oldNodes) != 1 {
 		return false
 	}
 	interfaces, oldInterfaces := nodes[0].InterfaceList, oldNodes[0].InterfaceList
@@ -63,6 +78,28 @@ func canUpdateSMSv2AWSDevices(ctx context.Context, plan, state SecuremeshSiteV2R
 	normalizedNotManaged.NodeList = normalizedNodes
 	normalizedAWS.NotManaged = &normalizedNotManaged
 	return sameSMSv2AWSInputs(ctx, &normalizedAWS, state.AWS)
+}
+
+// configuredSMSv2AWSNodeIsKnown prevents an unknown binding from silently
+// changing the lifecycle decision after planning. Full schema validation stays
+// authoritative for configuration semantics; this guard only establishes that
+// Terraform has a concrete identity-bearing binding to update in place.
+func configuredSMSv2AWSNodeIsKnown(ctx context.Context, node SecuremeshSiteV2AWSNotManagedNodeListModel) bool {
+	if node.InterfaceList.IsNull() || node.InterfaceList.IsUnknown() {
+		return false
+	}
+	var interfaces []SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModel
+	if node.InterfaceList.ElementsAs(ctx, &interfaces, false).HasError() || len(interfaces) == 0 {
+		return false
+	}
+	for _, entry := range interfaces {
+		if entry.EthernetInterface == nil ||
+			entry.EthernetInterface.Mac.IsNull() || entry.EthernetInterface.Mac.IsUnknown() ||
+			entry.EthernetInterface.Device.IsNull() || entry.EthernetInterface.Device.IsUnknown() {
+			return false
+		}
+	}
+	return true
 }
 
 func emptyObjectMarkerConfigured(value types.Object) bool {

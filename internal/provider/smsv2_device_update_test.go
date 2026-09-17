@@ -12,7 +12,7 @@ import (
 )
 
 func TestSMSv2DeviceUpdateRetainsTopologyReplacementGuards(t *testing.T) {
-	for _, scenario := range []string{"non-HA device edit", "HA unspecified", "HA enabled", "MAC edit", "unknown device", "empty node list", "two nodes"} {
+	for _, scenario := range []string{"non-HA device edit", "discovery to configured", "discovery unknown device", "discovery unknown MAC", "HA unspecified", "HA enabled", "MAC edit", "unknown device", "empty node list", "two nodes"} {
 		t.Run(scenario, func(t *testing.T) {
 			fixtures := []contractInterface{{mac: "02:00:00:00:00:01", role: "slo"}, {mac: "02:00:00:00:00:02", role: "sli"}}
 			before := awsSMSv2ContractFixture(t, fixtures)
@@ -27,6 +27,18 @@ func TestSMSv2DeviceUpdateRetainsTopologyReplacementGuards(t *testing.T) {
 			before.DisableHA = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 			after.DisableHA = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 			switch scenario {
+			case "discovery to configured":
+				before.AWS.NotManaged.NodeList = types.ListValueMust(before.AWS.NotManaged.NodeList.ElementType(context.Background()), []attr.Value{})
+			case "discovery unknown device":
+				before.AWS.NotManaged.NodeList = types.ListValueMust(before.AWS.NotManaged.NodeList.ElementType(context.Background()), []attr.Value{})
+				fixtures[1].device = "unknown"
+				after = awsSMSv2ContractFixture(t, fixtures)
+				after.DisableHA = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
+			case "discovery unknown MAC":
+				before.AWS.NotManaged.NodeList = types.ListValueMust(before.AWS.NotManaged.NodeList.ElementType(context.Background()), []attr.Value{})
+				fixtures[1].mac = "unknown"
+				after = awsSMSv2ContractFixture(t, fixtures)
+				after.DisableHA = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 			case "HA unspecified":
 				after.DisableHA = types.ObjectNull(map[string]attr.Type{})
 			case "HA enabled":
@@ -37,7 +49,7 @@ func TestSMSv2DeviceUpdateRetainsTopologyReplacementGuards(t *testing.T) {
 				nodes := after.AWS.NotManaged.NodeList.Elements()
 				after.AWS.NotManaged.NodeList = types.ListValueMust(after.AWS.NotManaged.NodeList.ElementType(context.Background()), append(nodes, nodes[0]))
 			}
-			if got := canUpdateSMSv2AWSDevices(context.Background(), after, before); got != (scenario == "non-HA device edit") {
+			if got := canUpdateSMSv2AWSDevices(context.Background(), after, before); got != (scenario == "non-HA device edit" || scenario == "discovery to configured") {
 				t.Fatalf("update eligibility=%v", got)
 			}
 			if scenario == "non-HA device edit" {
