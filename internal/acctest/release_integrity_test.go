@@ -1196,6 +1196,108 @@ func TestReleaseWorkflowDoesNotPublishMCPAssets(t *testing.T) {
 	}
 }
 
+func TestReleaseSealRetriesOnlyAfterReverifyingTransientFailures(t *testing.T) {
+	seal := extractWorkflowRunStep(t, "_tag-release.yml", "publish", "Publish verified draft")
+	for _, fragment := range []string{
+		"for seal_attempt in 1 2 3 4",
+		"HTTP (408|429|500|502|503|504)",
+		"gh release edit \"$RELEASE_TAG\" --draft=false --prerelease=false",
+		"scripts/verify-provider-release.sh",
+		"sleep \"$seal_attempt\"",
+	} {
+		if !strings.Contains(seal, fragment) {
+			t.Fatalf("release sealing does not implement bounded transient retry; missing %q", fragment)
+		}
+	}
+
+	verifyOffset := strings.Index(seal, "scripts/verify-provider-release.sh")
+	loopOffset := strings.Index(seal, "for seal_attempt in 1 2 3 4")
+	if verifyOffset < loopOffset {
+		t.Fatal("release draft verification occurs outside the retry loop")
+	}
+	if strings.Contains(seal, "gh release edit \"$RELEASE_TAG\" --draft=false --prerelease=false\n") {
+		t.Fatal("release sealing still has an unguarded one-shot publication command")
+	}
+}
+
+func TestReleaseSealRetriesTransientFailureAfterReverification(t *testing.T) {
+	script := extractWorkflowRunStep(t, "_tag-release.yml", "publish", "Publish verified draft")
+	tmp := t.TempDir()
+	bin := filepath.Join(tmp, "bin")
+	logPath := filepath.Join(tmp, "gh.log")
+	countPath := filepath.Join(tmp, "seal-count")
+	expected := strings.Repeat("a", 40)
+	writeReleaseTestFile(t, tmp, "release-notes.md", "notes\n", 0o600)
+	writeReleaseTestFile(t, tmp, "provider-receipt.json", "{}\n", 0o600)
+	writeReleaseTestJSON(t, filepath.Join(tmp, "release.json"), map[string]any{
+		"body": "notes\n", "tag_name": "v1.2.3", "draft": true, "prerelease": false,
+	})
+	writeReleaseTestFile(t, tmp, "scripts/verify-provider-release.sh", `#!/usr/bin/env bash
+set -euo pipefail
+grep -qx expected "$4/asset"
+`, 0o700)
+	writeReleaseTestFile(t, bin, "gh", `#!/usr/bin/env bash
+set -euo pipefail
+printf '%s\n' "$*" >> "$GH_LOG"
+if [[ "$*" == *"/commits/"* ]]; then
+  printf '%s\n' "$EXPECTED_COMMIT"
+elif [ "$1 $2" = "api --paginate" ]; then
+  jq -c -s '.' "$RELEASE_JSON"
+elif [ "$1 $2" = "release download" ]; then
+  while [ "$#" -gt 0 ]; do
+    if [ "$1" = --dir ]; then
+      printf 'expected\n' > "$2/asset"
+      exit 0
+    fi
+    shift
+  done
+  exit 2
+elif [ "$1 $2" = "release edit" ]; then
+  count=0
+  if [ -f "$SEAL_COUNT" ]; then count=$(cat "$SEAL_COUNT"); fi
+  count=$((count + 1))
+  printf '%s' "$count" > "$SEAL_COUNT"
+  if [ "$count" -eq 1 ]; then
+    printf '%s\n' 'gh: Internal Server Error (HTTP 500)' >&2
+    exit 1
+  fi
+else
+  printf '%s\n' "unexpected gh command: $*" >&2
+  exit 2
+fi
+`, 0o700)
+
+	result, runErr := runWorkflowScript(tmp, script, []string{
+		"PATH=" + bin + string(os.PathListSeparator) + os.Getenv("PATH"),
+		"GH_LOG=" + logPath,
+		"SEAL_COUNT=" + countPath,
+		"EXPECTED_COMMIT=" + expected,
+		"RELEASE_JSON=" + filepath.Join(tmp, "release.json"),
+		"RUNNER_TEMP=" + tmp,
+		"GH_TOKEN=fixture",
+		"RELEASE_TAG=v1.2.3",
+		"RELEASE_COMMIT=" + expected,
+		"REPOSITORY=" + dispatchTarget,
+	})
+	if runErr != nil {
+		t.Fatalf("transient sealing failure was not retried: %v\n%s", runErr, result)
+	}
+	count, err := os.ReadFile(countPath) //nolint:gosec // isolated test fixture
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(count) != "2" {
+		t.Fatalf("expected exactly two sealing attempts, got %q", count)
+	}
+	logBytes, err := os.ReadFile(logPath) //nolint:gosec // isolated test fixture
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Count(string(logBytes), "release download") != 2 {
+		t.Fatalf("draft assets were not re-downloaded before the retry:\n%s", logBytes)
+	}
+}
+
 func TestReleaseImmutabilityChecksUseAdministrationToken(t *testing.T) {
 	root := testRepositoryRoot(t)
 	releaseData, err := os.ReadFile(filepath.Join(root, ".github/workflows/_tag-release.yml")) //nolint:gosec // fixed repository path
