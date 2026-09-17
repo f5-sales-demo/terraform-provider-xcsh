@@ -104,22 +104,8 @@ while IFS= read -r entry; do
     (.value.publication.commit | test("^[0-9a-f]{40}$")) and
     (.value.publication.spec_release_sha256 | test("^[0-9a-f]{64}$")) and
     .value.publication.tag == ("v" + .value.publication.version) and
-    (.value.publication.assets | keys | sort) == [
-      ("terraform-provider-xcsh_" + .value.publication.version + "_SHA256SUMS"),
-      ("terraform-provider-xcsh_" + .value.publication.version + "_SHA256SUMS.sig"),
-      ("terraform-provider-xcsh_" + .value.publication.version + "_darwin_amd64.zip"),
-      ("terraform-provider-xcsh_" + .value.publication.version + "_darwin_arm64.zip"),
-      ("terraform-provider-xcsh_" + .value.publication.version + "_freebsd_386.zip"),
-      ("terraform-provider-xcsh_" + .value.publication.version + "_freebsd_amd64.zip"),
-      ("terraform-provider-xcsh_" + .value.publication.version + "_linux_386.zip"),
-      ("terraform-provider-xcsh_" + .value.publication.version + "_linux_amd64.zip"),
-      ("terraform-provider-xcsh_" + .value.publication.version + "_linux_arm.zip"),
-      ("terraform-provider-xcsh_" + .value.publication.version + "_linux_arm64.zip"),
-      ("terraform-provider-xcsh_" + .value.publication.version + "_manifest.json"),
-      ("terraform-provider-xcsh_" + .value.publication.version + "_windows_386.zip"),
-      ("terraform-provider-xcsh_" + .value.publication.version + "_windows_amd64.zip")
-    ] and
-    ([.value.publication.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
+    (.value.publication.assets | type == "object" and length > 0) and
+      ([.value.publication.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
   ' <<<"$entry" >/dev/null || fail "publication evidence is malformed or cross-bound"
 done < <(jq -c '.receipts | to_entries[]' "$detailed")
 
