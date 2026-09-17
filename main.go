@@ -8,7 +8,6 @@
 //
 // Version tagging and releases are automated via CI/CD using semantic versioning.
 // Release workflow uses forked action with updated dependencies for improved cache performance.
-// MCP server documentation is available at https://github.com/f5-sales-demo/terraform-provider-xcsh/tree/main/mcp-server
 // Rebranded from f5xc to xcsh. The GitHub org f5-sales-demo is unchanged.
 
 package main

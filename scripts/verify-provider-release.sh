@@ -40,8 +40,7 @@ expected_assets=$(printf '%s\n' \
   "terraform-provider-xcsh_${version}_SHA256SUMS" \
   "terraform-provider-xcsh_${version}_SHA256SUMS.sig" \
   "terraform-provider-xcsh_${version}_windows_386.zip" \
-  "terraform-provider-xcsh_${version}_windows_amd64.zip" \
-  "mcp-data-${version}.tar.gz" | LC_ALL=C sort)
+  "terraform-provider-xcsh_${version}_windows_amd64.zip" | LC_ALL=C sort)
 actual_assets=$(jq -r '.assets[].name' "$release_json" | LC_ALL=C sort)
 [ "$actual_assets" = "$expected_assets" ] || {
   echo "provider release asset set is incomplete or unexpected" >&2
@@ -73,7 +72,7 @@ checksums="terraform-provider-xcsh_${version}_SHA256SUMS"
 signature="${checksums}.sig"
 checksum_names=$(awk '{print $2}' "${asset_dir}/${checksums}" | LC_ALL=C sort)
 expected_checksum_names=$(printf '%s\n' "$expected_assets" |
-  grep -vE "(_SHA256SUMS|_SHA256SUMS\.sig|^mcp-data-)" |
+  grep -vE "(_SHA256SUMS|_SHA256SUMS\.sig)" |
   LC_ALL=C sort)
 [ "$checksum_names" = "$expected_checksum_names" ] || {
   echo "signed checksum manifest has an incomplete or unexpected file set" >&2
