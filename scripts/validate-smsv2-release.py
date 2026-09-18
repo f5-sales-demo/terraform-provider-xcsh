@@ -27,15 +27,31 @@ BASE_CAPABILITIES = {
     "runtime_status": "available",
     "tgw_connect": "available",
 }
+NODE_CONFIGURATION_CAPABILITIES = {
+    **BASE_CAPABILITIES,
+    "aws_node_configuration": "available",
+}
 UPGRADE_CAPABILITIES = {**BASE_CAPABILITIES, "site_upgrade": "available"}
+UPGRADE_NODE_CONFIGURATION_CAPABILITIES = {
+    **UPGRADE_CAPABILITIES,
+    "aws_node_configuration": "available",
+}
 BASE_UNAVAILABLE_CAPABILITIES = {
     "aws_ce_create": "unavailable",
     "runtime_status": "unavailable",
     "tgw_connect": "unavailable",
 }
+NODE_CONFIGURATION_UNAVAILABLE_CAPABILITIES = {
+    **BASE_UNAVAILABLE_CAPABILITIES,
+    "aws_node_configuration": "unavailable",
+}
 UPGRADE_UNAVAILABLE_CAPABILITIES = {
     **BASE_UNAVAILABLE_CAPABILITIES,
     "site_upgrade": "unavailable",
+}
+UPGRADE_NODE_CONFIGURATION_UNAVAILABLE_CAPABILITIES = {
+    **UPGRADE_UNAVAILABLE_CAPABILITIES,
+    "aws_node_configuration": "unavailable",
 }
 BLOCKING_CONDITIONS = [
     "mac_only_interface_rejected_by_live_api",
@@ -504,6 +520,7 @@ def validate_contract(contract: dict, contract_id: str, contract_version: str) -
     has_site_upgrade = site_upgrade is not None
     if has_site_upgrade:
         validate_site_upgrade(site_upgrade, contract_version)
+    has_node_configuration = aws.get("node_configuration") is not None
     expected_authorities = UPGRADE_AUTHORITIES if has_site_upgrade else BASE_AUTHORITIES
     if aws.get("authorities") != expected_authorities:
         fail("F5 and AWS authority declarations do not match the v3 contract")
@@ -511,11 +528,21 @@ def validate_contract(contract: dict, contract_id: str, contract_version: str) -
         fail("legacy AWS site APIs must remain prohibited")
     availability = aws.get("availability")
     available_capabilities = (
-        UPGRADE_CAPABILITIES if has_site_upgrade else BASE_CAPABILITIES
+        UPGRADE_NODE_CONFIGURATION_CAPABILITIES
+        if has_site_upgrade and has_node_configuration
+        else UPGRADE_CAPABILITIES
+        if has_site_upgrade
+        else NODE_CONFIGURATION_CAPABILITIES
+        if has_node_configuration
+        else BASE_CAPABILITIES
     )
     unavailable_capabilities = (
-        UPGRADE_UNAVAILABLE_CAPABILITIES
+        UPGRADE_NODE_CONFIGURATION_UNAVAILABLE_CAPABILITIES
+        if has_site_upgrade and has_node_configuration
+        else UPGRADE_UNAVAILABLE_CAPABILITIES
         if has_site_upgrade
+        else NODE_CONFIGURATION_UNAVAILABLE_CAPABILITIES
+        if has_node_configuration
         else BASE_UNAVAILABLE_CAPABILITIES
     )
     if availability == "evidence_backed":
