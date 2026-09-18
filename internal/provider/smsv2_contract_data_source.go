@@ -33,6 +33,7 @@ type Smsv2ContractDataSourceModel struct {
 	F5XCAuthorities              types.List   `tfsdk:"f5xc_authorities"`
 	AWSAuthorities               types.List   `tfsdk:"aws_authorities"`
 	AzureRouteServerEBGPMultihop types.Object `tfsdk:"azure_route_server_ebgp_multihop"`
+	AWSNodeConfiguration         types.String `tfsdk:"aws_node_configuration"`
 }
 
 type smsv2CapabilitySourceContract struct {
@@ -79,14 +80,15 @@ func (d *Smsv2ContractDataSource) Schema(_ context.Context, _ datasource.SchemaR
 				ElementType:         types.StringType,
 				MarkdownDescription: "Capabilities that must be available. A known unavailable capability produces a planning diagnostic before any F5 API request.",
 			},
-			"contract_id":         schema.StringAttribute{Computed: true},
-			"contract_version":    schema.StringAttribute{Computed: true},
-			"api_release_tag":     schema.StringAttribute{Computed: true},
-			"api_release_commit":  schema.StringAttribute{Computed: true},
-			"telemetry_schema_id": schema.StringAttribute{Computed: true},
-			"capabilities":        schema.MapAttribute{Computed: true, ElementType: types.StringType},
-			"f5xc_authorities":    schema.ListAttribute{Computed: true, ElementType: types.StringType},
-			"aws_authorities":     schema.ListAttribute{Computed: true, ElementType: types.StringType},
+			"contract_id":            schema.StringAttribute{Computed: true},
+			"contract_version":       schema.StringAttribute{Computed: true},
+			"api_release_tag":        schema.StringAttribute{Computed: true},
+			"api_release_commit":     schema.StringAttribute{Computed: true},
+			"telemetry_schema_id":    schema.StringAttribute{Computed: true},
+			"capabilities":           schema.MapAttribute{Computed: true, ElementType: types.StringType},
+			"f5xc_authorities":       schema.ListAttribute{Computed: true, ElementType: types.StringType},
+			"aws_authorities":        schema.ListAttribute{Computed: true, ElementType: types.StringType},
+			"aws_node_configuration": schema.StringAttribute{Computed: true, MarkdownDescription: "Canonical immutable AWS node-configuration contract JSON from the pinned API release."},
 			"azure_route_server_ebgp_multihop": schema.SingleNestedAttribute{
 				Computed:            true,
 				MarkdownDescription: "Authoritative Azure Route Server eBGP multihop availability and immutable source provenance.",
@@ -172,6 +174,7 @@ func (d *Smsv2ContractDataSource) Read(ctx context.Context, req datasource.ReadR
 	state.Capabilities = capabilities
 	state.F5XCAuthorities = f5xc
 	state.AWSAuthorities = aws
+	state.AWSNodeConfiguration = types.StringValue(smsv2AWSNodeConfigurationJSON)
 	state.AzureRouteServerEBGPMultihop = azureMultihop
 	resp.Diagnostics.Append(resp.State.Set(ctx, &state)...)
 }

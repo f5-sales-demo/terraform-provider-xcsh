@@ -43,6 +43,7 @@ func TestSMSv2ContractDataSourceRead(t *testing.T) {
 		APIReleaseCommit: types.StringNull(), TelemetrySchema: types.StringNull(),
 		Capabilities: types.MapNull(types.StringType), F5XCAuthorities: types.ListNull(types.StringType),
 		AWSAuthorities:               types.ListNull(types.StringType),
+		AWSNodeConfiguration:         types.StringNull(),
 		AzureRouteServerEBGPMultihop: types.ObjectNull(smsv2CapabilityBoundaryAttrTypes),
 	}
 	response := datasource.ReadResponse{State: tfsdk.State{Schema: schemaResponse.Schema}}
@@ -62,6 +63,14 @@ func TestSMSv2ContractDataSourceRead(t *testing.T) {
 		!hasSiteUpgrade || siteUpgrade.ValueString() != "available" {
 		t.Fatalf("unexpected contract state: %#v diagnostics=%v", state, response.Diagnostics)
 	}
+	var nodeContract map[string]any
+	if err := json.Unmarshal([]byte(state.AWSNodeConfiguration.ValueString()), &nodeContract); err != nil ||
+		nodeContract["strategy"] != "discovery_rebuild" ||
+		nodeContract["availability"] != "evidence_backed" ||
+		nodeContract["unsupported_reasons"].(map[string]any)["direct_rebuild_mode_transition"] != "aws_node_configuration_discovery_rebuild_requires_distinct_site" {
+		t.Fatalf("unexpected AWS node configuration contract: %q err=%v", state.AWSNodeConfiguration.ValueString(), err)
+	}
+
 	if azure["availability"].(types.String).ValueString() != "unavailable" ||
 		azure["enforcement"].(types.String).ValueString() != "reject_before_mutation" ||
 		azure["reason"].(types.String).ValueString() != "no_schema_valid_ebgp_multihop_request_control" {

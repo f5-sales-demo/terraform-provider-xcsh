@@ -66,6 +66,8 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="aws-authorities"></a>&#x2022; [`aws_authorities`](#aws-authorities) - Optional List
 
+<a id="aws-node-configuration"></a>&#x2022; [`aws_node_configuration`](#aws-node-configuration) - Optional String<br>Canonical immutable AWS node-configuration contract JSON from the pinned API release
+
 <a id="Azure-route-server-ebgp-multihop"></a>&#x2022; [`azure_route_server_ebgp_multihop`](#Azure-route-server-ebgp-multihop) - Optional String<br>Authoritative Azure Route Server eBGP multihop availability and immutable source provenance
 
 <a id="capabilities"></a>&#x2022; [`capabilities`](#capabilities) - Optional Map

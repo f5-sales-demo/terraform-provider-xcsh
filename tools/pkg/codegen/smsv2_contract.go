@@ -55,6 +55,7 @@ type smsv2ReleaseContract struct {
 				ObservedFacts    []string `json:"observed_facts"`
 				UnavailableFacts []string `json:"unavailable_facts"`
 			} `json:"telemetry_intake"`
+			NodeConfiguration map[string]any `json:"node_configuration"`
 		} `json:"aws"`
 	} `json:"providers"`
 }
@@ -70,6 +71,9 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 		return nil, fmt.Errorf("SMSv2 data sources require the v7.0 clean-break API v1 contract")
 	}
 	if err := validateAzureRouteServerContract(contract.Providers.Azure); err != nil {
+		return nil, err
+	}
+	if err := validateAWSNodeConfigurationContract(contract.Providers.AWS.NodeConfiguration); err != nil {
 		return nil, err
 	}
 	wantRuntime := map[string]struct {
@@ -142,8 +146,8 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 		len(telemetry.UnavailableFacts) != 0 {
 		return nil, fmt.Errorf("SMSv2 API v1 telemetry declaration is incomplete")
 	}
-	available := map[string]string{"aws_ce_create": "available", "runtime_status": "available", "site_upgrade": "available", "tgw_connect": "available"}
-	unavailable := map[string]string{"aws_ce_create": "unavailable", "runtime_status": "unavailable", "site_upgrade": "unavailable", "tgw_connect": "unavailable"}
+	available := map[string]string{"aws_ce_create": "available", "aws_node_configuration": "available", "runtime_status": "available", "site_upgrade": "available", "tgw_connect": "available"}
+	unavailable := map[string]string{"aws_ce_create": "unavailable", "aws_node_configuration": "unavailable", "runtime_status": "unavailable", "site_upgrade": "unavailable", "tgw_connect": "unavailable"}
 	switch contract.Providers.AWS.Availability {
 	case "evidence_backed":
 		if !equalStringMap(contract.Providers.AWS.Capabilities, available) ||
@@ -153,7 +157,7 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 		}
 	case "schema_only":
 		if !equalStringMap(contract.Providers.AWS.Capabilities, unavailable) ||
-			!equalStringSets(contract.Providers.AWS.UnavailableCapabilities, []string{"aws_ce_create", "runtime_status", "site_upgrade", "tgw_connect"}) ||
+			!equalStringSets(contract.Providers.AWS.UnavailableCapabilities, []string{"aws_ce_create", "aws_node_configuration", "runtime_status", "site_upgrade", "tgw_connect"}) ||
 			telemetry.Availability != "unavailable" || telemetry.Complete {
 			return nil, fmt.Errorf("SMSv2 schema-only capabilities must fail closed")
 		}
@@ -166,6 +170,19 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 		{Name: "site_bgp_status", Kind: "convergence"},
 		{Name: "site_upgrade_status", Kind: "upgrade"},
 	}, nil
+}
+
+func validateAWSNodeConfigurationContract(node map[string]any) error {
+	operation, operationOK := node["operation"].(map[string]any)
+	reasons, reasonsOK := node["unsupported_reasons"].(map[string]any)
+	if !operationOK || !reasonsOK || node["availability"] != "evidence_backed" || node["enforcement"] != "required" ||
+		(node["strategy"] != "same_site_replace" && node["strategy"] != "discovery_rebuild") ||
+		operation["method"] != "PUT" || operation["path"] != "/api/config/namespaces/{metadata.namespace}/securemesh_site_v2s/{metadata.name}" ||
+		operation["operation_id"] != "ves.io.schema.views.securemesh_site_v2.API.Replace" || operation["request_schema"] != "securemesh_site_v2ReplaceRequest" ||
+		reasons["direct_rebuild_mode_transition"] != "aws_node_configuration_discovery_rebuild_requires_distinct_site" {
+		return fmt.Errorf("AWS node configuration contract is incomplete")
+	}
+	return nil
 }
 
 func validateAzureRouteServerContract(azure struct {

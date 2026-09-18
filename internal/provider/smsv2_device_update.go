@@ -4,15 +4,30 @@ package provider
 
 import (
 	"context"
+	"encoding/json"
 	"reflect"
 
 	"github.com/hashicorp/terraform-plugin-framework/types"
 )
 
+func smsv2AWSNodeConfigurationStrategy() string {
+	var contract struct {
+		Strategy string `json:"strategy"`
+	}
+	if err := json.Unmarshal([]byte(smsv2AWSNodeConfigurationJSON), &contract); err != nil {
+		return ""
+	}
+	return contract.Strategy
+}
+
 // canUpdateSMSv2AWSDevices recognizes the narrow in-place update verified against
 // the API: ethernet device edits on an explicitly non-HA, single-node site. It
 // preserves replacement behavior for node identities/counts and other AWS edits.
 func canUpdateSMSv2AWSDevices(ctx context.Context, plan, state SecuremeshSiteV2ResourceModel) bool {
+	if smsv2AWSNodeConfigurationStrategy() == "discovery_rebuild" && smsv2AWSDiscoveryToConfigured(ctx, plan, state) {
+		return false
+	}
+
 	if !emptyObjectMarkerConfigured(plan.DisableHA) || !emptyObjectMarkerConfigured(state.DisableHA) ||
 		emptyObjectMarkerConfigured(plan.EnableHA) || emptyObjectMarkerConfigured(state.EnableHA) ||
 		plan.AWS == nil || state.AWS == nil || plan.AWS.NotManaged == nil || state.AWS.NotManaged == nil {
@@ -140,6 +155,24 @@ func configuredSMSv2AWSNodeIsKnown(ctx context.Context, node SecuremeshSiteV2AWS
 		}
 	}
 	return true
+}
+
+func smsv2AWSDiscoveryToConfigured(ctx context.Context, plan, state SecuremeshSiteV2ResourceModel) bool {
+	if plan.AWS == nil || state.AWS == nil || plan.AWS.NotManaged == nil || state.AWS.NotManaged == nil {
+		return false
+	}
+	planned, previous := plan.AWS.NotManaged.NodeList, state.AWS.NotManaged.NodeList
+	if planned.IsNull() || planned.IsUnknown() || previous.IsUnknown() {
+		return false
+	}
+	var oldNodes, newNodes []SecuremeshSiteV2AWSNotManagedNodeListModel
+	if !previous.IsNull() && previous.ElementsAs(ctx, &oldNodes, false).HasError() {
+		return false
+	}
+	if planned.ElementsAs(ctx, &newNodes, false).HasError() {
+		return false
+	}
+	return (previous.IsNull() || len(oldNodes) == 0) && len(newNodes) > 0
 }
 
 func emptyObjectMarkerConfigured(value types.Object) bool {
