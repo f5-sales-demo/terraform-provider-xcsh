@@ -23,7 +23,7 @@ const repositoryRunnerLabel = "terraform-provider-xcsh"
 const repositoryRunnerExpression = "${{ github.event.repository.name }}"
 const sharedSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/xcsh' && 'xcsh-socketless' || 'managed-socketless' }}"
 const docsSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless' }}"
-const releaseChainHostedRunnerExpression = "${{ (github.repository == 'f5-sales-demo/api-specs-enriched' || github.repository == 'f5-sales-demo/marketplace' || github.repository == 'f5-sales-demo/mcn' || github.repository == 'f5-sales-demo/terraform-provider-xcsh') && 'ubuntu-latest' || (github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless') }}"
+const releaseChainHostedRunnerExpression = "${{ (github.repository == 'f5-sales-demo/api-specs-enriched' || github.repository == 'f5-sales-demo/marketplace' || github.repository == 'f5-sales-demo/multi-cloud-networking' || github.repository == 'f5-sales-demo/terraform-provider-xcsh') && 'ubuntu-latest' || (github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless') }}"
 
 var canonicalManagedSocketlessRunsOn = []string{
 	"managed-socketless",
