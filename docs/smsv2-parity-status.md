@@ -3,7 +3,7 @@
 This candidate is incomplete and must not be published. Track the remaining work in
 [f5-sales-demo/terraform-provider-xcsh#2031](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues/2031),
 [enrichment #1738](https://github.com/f5-sales-demo/api-specs-enriched/issues/1738), and
-[MCN #1097](https://github.com/f5-sales-demo/mcn/issues/1097).
+[MCN #1097](https://github.com/f5-sales-demo/multi-cloud-networking/issues/1097).
 
 ## Independent baseline
 
