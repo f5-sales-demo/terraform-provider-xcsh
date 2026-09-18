@@ -16,8 +16,8 @@ func TestGenerateSMSv2ContractConstantsIsDeterministic(t *testing.T) {
 		`"aws":{
 	"availability":"evidence_backed"`, `"aws":{
 	"availability":"schema_only"`,
-		`"aws_ce_create":"available","runtime_status":"available","site_upgrade":"available","tgw_connect":"available"`, `"aws_ce_create":"unavailable","runtime_status":"unavailable","site_upgrade":"unavailable","tgw_connect":"unavailable"`,
-		`"unavailable_capabilities":[]`, `"unavailable_capabilities":["aws_ce_create","runtime_status","site_upgrade","tgw_connect"]`,
+		`"aws_ce_create":"available","aws_node_configuration":"available","runtime_status":"available","site_upgrade":"available","tgw_connect":"available"`, `"aws_ce_create":"unavailable","aws_node_configuration":"unavailable","runtime_status":"unavailable","site_upgrade":"unavailable","tgw_connect":"unavailable"`,
+		`"unavailable_capabilities":[]`, `"unavailable_capabilities":["aws_ce_create","aws_node_configuration","runtime_status","site_upgrade","tgw_connect"]`,
 		`"availability":"available","complete":true`, `"availability":"unavailable","complete":false`,
 	).Replace(syntheticSMSv2V7Contract)
 	manifest := `{"contract_id":"f5xc-smsv2-api/v1","contract_version":"7.0.0","release":{"tag":"v7.0.1","commit":"3a647f1bf0c2447a71750c69136fab96fb073902"}}`

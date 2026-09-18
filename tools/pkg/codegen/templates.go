@@ -369,6 +369,14 @@ func (r *{{.TitleCase}}Resource) ModifyPlan(ctx context.Context, req resource.Mo
 		// Preserve replacement for unverified AWS topology edits. The API
 		// supports device-only edits on explicitly non-HA, single-node sites.
 		if plan.AWS != nil && state.AWS != nil {
+			if smsv2AWSNodeConfigurationStrategy() == "discovery_rebuild" && smsv2AWSDiscoveryToConfigured(ctx, plan, state) {
+				resp.Diagnostics.AddAttributeError(
+					path.Root("aws"),
+					"AWS SMSv2 Discovery Rebuild Requires a Distinct Site",
+					"aws_node_configuration_discovery_rebuild_requires_distinct_site",
+				)
+				return
+			}
 			sameAWSInputs := sameSMSv2AWSInputs(ctx, plan.AWS, state.AWS)
 			canUpdateAWSDevices := canUpdateSMSv2AWSDevices(ctx, plan, state)
 			pendingAWSDiscoveryBinding := pendingSMSv2AWSDiscoveryBinding(ctx, plan, state)

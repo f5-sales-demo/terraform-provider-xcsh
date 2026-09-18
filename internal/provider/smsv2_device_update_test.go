@@ -49,7 +49,7 @@ func TestSMSv2DeviceUpdateRetainsTopologyReplacementGuards(t *testing.T) {
 				nodes := after.AWS.NotManaged.NodeList.Elements()
 				after.AWS.NotManaged.NodeList = types.ListValueMust(after.AWS.NotManaged.NodeList.ElementType(context.Background()), append(nodes, nodes[0]))
 			}
-			if got := canUpdateSMSv2AWSDevices(context.Background(), after, before); got != (scenario == "non-HA device edit" || scenario == "discovery to configured") {
+			if got := canUpdateSMSv2AWSDevices(context.Background(), after, before); got != (scenario == "non-HA device edit") {
 				t.Fatalf("update eligibility=%v", got)
 			}
 			if scenario == "non-HA device edit" {

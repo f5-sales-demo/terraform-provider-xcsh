@@ -51,13 +51,19 @@ func GenerateSMSv2ContractConstants(specDir, outputDir string) ([]SMSv2DataSourc
 		contractMajor != releaseMajor || len(manifest.Release.Commit) != 40 {
 		return nil, fmt.Errorf("SMSv2 contract manifest identity mismatch")
 	}
-	capabilities := fmt.Sprintf("map[string]string{%q: %q, %q: %q, %q: %q, %q: %q}",
+	capabilities := fmt.Sprintf("map[string]string{%q: %q, %q: %q, %q: %q, %q: %q, %q: %q}",
 		"aws_ce_create", contract.Providers.AWS.Capabilities["aws_ce_create"],
+		"aws_node_configuration", contract.Providers.AWS.Capabilities["aws_node_configuration"],
 		"runtime_status", contract.Providers.AWS.Capabilities["runtime_status"],
 		"site_upgrade", contract.Providers.AWS.Capabilities["site_upgrade"],
 		"tgw_connect", contract.Providers.AWS.Capabilities["tgw_connect"])
 	f5xcAuthorities := goStringSlice(contract.Providers.AWS.Authorities["f5xc"])
 	awsAuthorities := goStringSlice(contract.Providers.AWS.Authorities["aws"])
+	nodeConfigurationJSON, err := json.Marshal(contract.Providers.AWS.NodeConfiguration)
+	if err != nil {
+		return nil, fmt.Errorf("encode AWS node configuration contract: %w", err)
+	}
+
 	azureMultihop := contract.Providers.Azure.RouteServerEBGPMultihop
 	source := fmt.Sprintf(`// Code generated from api-specs-enriched %s smsv2-contract.json. DO NOT EDIT.
 
@@ -72,6 +78,7 @@ const (
 )
 
 var smsv2ContractCapabilities = %s
+var smsv2AWSNodeConfigurationJSON = %q
 var smsv2ContractF5XCAuthorities = %s
 var smsv2ContractAWSAuthorities = %s
 var smsv2AzureRouteServerEBGPMultihop = smsv2CapabilityBoundaryContract{
@@ -86,7 +93,7 @@ var smsv2AzureRouteServerEBGPMultihop = smsv2CapabilityBoundaryContract{
 		SchemaPaths: %s,
 	},
 }
-`, manifest.Release.Tag, contract.ContractID, contract.Version, manifest.Release.Tag, manifest.Release.Commit, contract.Providers.AWS.Telemetry.SchemaID, capabilities, f5xcAuthorities, awsAuthorities,
+`, manifest.Release.Tag, contract.ContractID, contract.Version, manifest.Release.Tag, manifest.Release.Commit, contract.Providers.AWS.Telemetry.SchemaID, capabilities, string(nodeConfigurationJSON), f5xcAuthorities, awsAuthorities,
 		azureMultihop.Availability, azureMultihop.Enforcement, azureMultihop.Reason,
 		azureMultihop.Source.Repository, azureMultihop.Source.Commit, azureMultihop.Source.AssetPath,
 		azureMultihop.Source.AssetSHA256, goStringSlice(azureMultihop.Source.SchemaPaths))

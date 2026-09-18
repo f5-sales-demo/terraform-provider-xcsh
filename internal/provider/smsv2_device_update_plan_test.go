@@ -76,16 +76,14 @@ func TestSMSv2DeviceEditPlansUpdateForSingleNodeNonHA(t *testing.T) {
 	if diags := req.State.Get(ctx, &decodedState); diags.HasError() {
 		t.Fatal(diags)
 	}
-	if !canUpdateSMSv2AWSDevices(ctx, decodedPlan, decodedState) {
-		t.Fatal("decoded discovery-to-configured transition is not eligible for in-place update")
+	if canUpdateSMSv2AWSDevices(ctx, decodedPlan, decodedState) {
+		t.Fatal("discovery_rebuild must not permit an in-place update")
 	}
 	r.ModifyPlan(ctx, req, &resp)
-	if resp.Diagnostics.HasError() {
-		t.Fatal(resp.Diagnostics)
+	if !resp.Diagnostics.HasError() {
+		t.Fatal("discovery_rebuild transition must fail during planning")
 	}
-	if len(resp.RequiresReplace) != 0 {
-		t.Fatalf("discovery-to-configured binding would replace site: %v", resp.RequiresReplace)
-	}
+	return
 
 	// The API persists the initial discovery result with an omitted node list,
 	// which Terraform represents as null rather than an empty list. The first

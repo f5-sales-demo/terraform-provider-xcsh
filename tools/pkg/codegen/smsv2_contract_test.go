@@ -36,8 +36,12 @@ const syntheticSMSv2V7Contract = `{
   },
   "aws":{
 	"availability":"evidence_backed",
-    "capabilities":{"aws_ce_create":"available","runtime_status":"available","site_upgrade":"available","tgw_connect":"available"},
+    "capabilities":{"aws_ce_create":"available","aws_node_configuration":"available","runtime_status":"available","site_upgrade":"available","tgw_connect":"available"},
 	"unavailable_capabilities":[],
+    "node_configuration":{"availability":"evidence_backed","enforcement":"required","strategy":"discovery_rebuild",
+      "operation":{"method":"PUT","path":"/api/config/namespaces/{metadata.namespace}/securemesh_site_v2s/{metadata.name}","operation_id":"ves.io.schema.views.securemesh_site_v2.API.Replace","request_schema":"securemesh_site_v2ReplaceRequest"},
+      "unsupported_reasons":{"direct_rebuild_mode_transition":"aws_node_configuration_discovery_rebuild_requires_distinct_site"}
+    },
 	"telemetry_intake":{
 	  "schema_id":"f5xc-smsv2-aws-tgw-telemetry/v2","availability":"available","complete":true,
 	  "required_facts":["runtime","gre","bgp","mtu","route","bgp_inside_cidr_block"],
@@ -114,8 +118,8 @@ func TestSMSv2DataSourceTemplatesRetainsSchemasWhenCapabilitiesFailClosed(t *tes
 		`"aws":{
 	"availability":"evidence_backed"`, `"aws":{
 	"availability":"schema_only"`,
-		`"aws_ce_create":"available","runtime_status":"available","site_upgrade":"available","tgw_connect":"available"`, `"aws_ce_create":"unavailable","runtime_status":"unavailable","site_upgrade":"unavailable","tgw_connect":"unavailable"`,
-		`"unavailable_capabilities":[]`, `"unavailable_capabilities":["aws_ce_create","runtime_status","site_upgrade","tgw_connect"]`,
+		`"aws_ce_create":"available","aws_node_configuration":"available","runtime_status":"available","site_upgrade":"available","tgw_connect":"available"`, `"aws_ce_create":"unavailable","aws_node_configuration":"unavailable","runtime_status":"unavailable","site_upgrade":"unavailable","tgw_connect":"unavailable"`,
+		`"unavailable_capabilities":[]`, `"unavailable_capabilities":["aws_ce_create","aws_node_configuration","runtime_status","site_upgrade","tgw_connect"]`,
 		`"availability":"available","complete":true`, `"availability":"unavailable","complete":false`,
 	).Replace(syntheticSMSv2V7Contract)
 	got, err := SMSv2DataSourceTemplates([]byte(fixture))
