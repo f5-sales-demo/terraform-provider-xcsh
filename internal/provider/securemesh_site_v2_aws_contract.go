@@ -26,6 +26,9 @@ func validateSecuremeshSiteV2AWSCreateCapability(
 	if data.AWS == nil {
 		return nil
 	}
+	if data.AWS.NotManaged != nil && !data.AWS.NotManaged.NodeList.IsNull() {
+		return validateSMSv2Capabilities(capabilities, apiRelease, "aws_ce_create", "aws_node_configuration")
+	}
 	return validateSMSv2Capabilities(capabilities, apiRelease, "aws_ce_create")
 }
 

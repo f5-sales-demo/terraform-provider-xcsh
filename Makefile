@@ -113,11 +113,9 @@ download-specs:
 		trap 'rm -rf "$$STAGING_ROOT"' EXIT; \
 		SPEC_ZIP="$$STAGING_ROOT/specs.zip"; \
 		BUNDLE_NAME="f5xc-api-specs-$$RELEASE_TAG.zip"; \
-		ASSET_ID=$$(gh api repos/$(ENRICHED_REPO)/releases/tags/$$RELEASE_TAG --jq \
-			"[.assets[] | select(.name==\"$$BUNDLE_NAME\")] | if length == 1 then .[0].id else empty end"); \
-		[ -n "$$ASSET_ID" ] || { echo "Missing required release asset: $$BUNDLE_NAME" >&2; exit 1; }; \
-		gh api repos/$(ENRICHED_REPO)/releases/assets/$$ASSET_ID \
-			-H "Accept: application/octet-stream" > "$$SPEC_ZIP"; \
+		ASSET_URL="https://github.com/$(ENRICHED_REPO)/releases/download/$$RELEASE_TAG/$$BUNDLE_NAME"; \
+		curl --fail --location --silent --show-error --retry 3 --retry-all-errors --connect-timeout 20 \
+			--output "$$SPEC_ZIP" "$$ASSET_URL"; \
 		EXPECTED_SHA=$$(jq -r --arg name "$$BUNDLE_NAME" '.assets[$$name]' tools/spec-release.json); \
 		ACTUAL_SHA="sha256:$$(sha256sum "$$SPEC_ZIP" | awk '{print $$1}')"; \
 		[ "$$ACTUAL_SHA" = "$$EXPECTED_SHA" ] || { echo "Release digest mismatch: $$BUNDLE_NAME" >&2; exit 1; }; \
@@ -134,11 +132,9 @@ download-specs:
 			smsv2-evidence-receipt.json \
 			smsv2_parity_manifest.json \
 			upstream-contract-removals.json; do \
-			AID=$$(gh api repos/$(ENRICHED_REPO)/releases/tags/$$RELEASE_TAG --jq \
-				"[.assets[] | select(.name==\"$$asset\")] | if length == 1 then .[0].id else empty end"); \
-			[ -n "$$AID" ] || { echo "Missing required release asset: $$asset" >&2; exit 1; }; \
-			gh api repos/$(ENRICHED_REPO)/releases/assets/$$AID \
-				-H "Accept: application/octet-stream" > $(SPEC_DIR)/$$asset; \
+			ASSET_URL="https://github.com/$(ENRICHED_REPO)/releases/download/$$RELEASE_TAG/$$asset"; \
+			curl --fail --location --silent --show-error --retry 3 --retry-all-errors --connect-timeout 20 \
+				--output $(SPEC_DIR)/$$asset "$$ASSET_URL"; \
 			EXPECTED_SHA=$$(jq -r --arg name "$$asset" '.assets[$$name]' tools/spec-release.json); \
 			ACTUAL_SHA="sha256:$$(sha256sum $(SPEC_DIR)/$$asset | awk '{print $$1}')"; \
 			[ "$$ACTUAL_SHA" = "$$EXPECTED_SHA" ] || { echo "Release digest mismatch: $$asset" >&2; exit 1; }; \
