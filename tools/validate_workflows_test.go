@@ -23,7 +23,8 @@ const repositoryRunnerLabel = "terraform-provider-xcsh"
 const repositoryRunnerExpression = "${{ github.event.repository.name }}"
 const sharedSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/xcsh' && 'xcsh-socketless' || 'managed-socketless' }}"
 const docsSocketlessRunnerExpression = "${{ github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless' }}"
-const releaseChainHostedRunnerExpression = "${{ (github.repository == 'f5-sales-demo/api-specs-enriched' || github.repository == 'f5-sales-demo/marketplace' || github.repository == 'f5-sales-demo/multi-cloud-networking' || github.repository == 'f5-sales-demo/terraform-provider-xcsh') && 'ubuntu-latest' || (github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless') }}"
+
+var releaseChainHostedRunnerPattern = regexp.MustCompile(`^\$\{\{ \(github\.repository == 'f5-sales-demo/api-specs-enriched' \|\| github\.repository == 'f5-sales-demo/marketplace' \|\| github\.repository == 'f5-sales-demo/[a-z0-9-]+' \|\| github\.repository == 'f5-sales-demo/terraform-provider-xcsh'\) && 'ubuntu-latest' \|\| \(github\.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' \|\| 'managed-socketless'\) \}\}$`)
 
 var canonicalManagedSocketlessRunsOn = []string{
 	"managed-socketless",
@@ -560,10 +561,12 @@ func canonicalizeRunsOn(runsOn []string, errors *[]string, jobID string) []strin
 			canonical[index] = canonicalManagedSocketlessRunsOn[0]
 		case docsSocketlessRunnerExpression:
 			canonical[index] = canonicalManagedSocketlessRunsOn[0]
-		case releaseChainHostedRunnerExpression:
-			canonical[index] = canonicalGitHubHostedRunsOn[0]
 		default:
-			*errors = append(*errors, jobID+": dynamic runs-on is forbidden")
+			if releaseChainHostedRunnerPattern.MatchString(label) {
+				canonical[index] = canonicalGitHubHostedRunsOn[0]
+			} else {
+				*errors = append(*errors, jobID+": dynamic runs-on is forbidden")
+			}
 		}
 	}
 	return canonical
@@ -1002,6 +1005,18 @@ jobs:
 	unsafe := []byte(strings.Replace(string(valid), "github.event.repository.name", "github.event.inputs.runner", 1))
 	if issues := validateWorkflowBytes("fixture.yml", unsafe); len(issues) == 0 {
 		t.Fatal("non-canonical dynamic runner passed validation")
+	}
+}
+
+func TestReleaseChainLinkedIssueRunnerAcceptsRenamedRepository(t *testing.T) {
+	runsOn := []string{"${{ (github.repository == 'f5-sales-demo/api-specs-enriched' || github.repository == 'f5-sales-demo/marketplace' || github.repository == 'f5-sales-demo/multi-cloud-networking' || github.repository == 'f5-sales-demo/terraform-provider-xcsh') && 'ubuntu-latest' || (github.repository == 'f5-sales-demo/docs-icons' && 'docs-socketless' || 'managed-socketless') }}"}
+	issues := []string{}
+	canonical := canonicalizeRunsOn(runsOn, &issues, "check-linked-issues")
+	if len(issues) != 0 {
+		t.Fatalf("renamed release-chain runner failed validation: %v", issues)
+	}
+	if !reflect.DeepEqual(canonical, canonicalGitHubHostedRunsOn) {
+		t.Fatalf("renamed release-chain runner = %v, want %v", canonical, canonicalGitHubHostedRunsOn)
 	}
 }
 
