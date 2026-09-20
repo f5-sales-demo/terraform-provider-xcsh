@@ -5,7 +5,6 @@ package provider
 
 import (
 	"context"
-	"fmt"
 	"net/url"
 	"strings"
 
@@ -95,7 +94,7 @@ func (a *SiteUpgradeSwAction) Invoke(ctx context.Context, req action.InvokeReque
 		body["force"] = data.Force.ValueBool()
 	}
 	if err := a.client.Post(ctx, apiPath, body, nil); err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to invoke response operation: %s", err))
+		resp.Diagnostics.AddError("Client Error", "Unable to invoke response operation. Raw API diagnostics are suppressed.")
 		return
 	}
 }

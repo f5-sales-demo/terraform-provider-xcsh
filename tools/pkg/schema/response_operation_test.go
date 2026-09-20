@@ -9,6 +9,35 @@ import (
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
 
+func TestResponseOperationPreservesTypedObjectMap(t *testing.T) {
+	spec := responseOperationProbeSpec()
+	response := openapi.Schema{Type: "object", Required: []string{"images"}, Properties: map[string]openapi.Schema{
+		"images": {Type: "object", AdditionalProperties: map[string]any{"type": "object", "required": []any{"url"}, "properties": map[string]any{"url": map[string]any{"type": "string", "minLength": 1, "format": "uri"}}}},
+	}}
+	attrs, err := responseOperationAttributes(spec, "probe", response)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(attrs) != 1 || attrs[0].NestedBlockType != "map" || len(attrs[0].NestedAttributes) != 1 || attrs[0].NestedAttributes[0].TfsdkTag != "url" {
+		t.Fatal("typed response map lost its object fields")
+	}
+}
+
+func TestResponseOperationRetainsStandardArrayConstraints(t *testing.T) {
+	spec := responseOperationProbeSpec()
+	request := spec.Components.Schemas["probeRequest"]
+	request.Properties["uids"] = openapi.Schema{Type: "array", MinItems: 1, MaxItems: 100, UniqueItems: true, Items: &openapi.Schema{Type: "string"}}
+	spec.Components.Schemas["probeRequest"] = request
+	result, err := ExtractResponseOperationSchema(spec, openapi.ResolvedResponseOperation{Name: "site_os_images", Role: "query", Method: "POST", Path: "/api/register/namespaces/{namespace}/probe", OperationID: "ves.io.schema.probe.CustomAPI.List", RequestSchema: "probeRequest", ResponseSchema: "probeResponse"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	input := operationInputsByTag(result.Inputs)["uids"].Attribute
+	if input.MinItems != 1 || input.MaxItems != 100 || !input.UniqueItems {
+		t.Fatal("standard array constraints were lost")
+	}
+}
+
 func TestExtractResponseOperationSchemaBindsPathQueryAndBody(t *testing.T) {
 	spec := responseOperationProbeSpec()
 	operation := openapi.ResolvedResponseOperation{
@@ -221,12 +250,54 @@ func responseOperationProbeSpec() *openapi.Spec {
 	}
 }
 
+func TestResponseOperationPreservesSuccessfulResponseConstraints(t *testing.T) {
+	spec := responseOperationProbeSpec()
+	response := spec.Components.Schemas["probeResponse"]
+	response.Required = []string{"secret"}
+	response.Properties["secret"] = openapi.Schema{Type: "string", MinLength: 1, Format: "uri", XF5XCSensitive: true}
+	spec.Components.Schemas["probeResponse"] = response
+	result, err := ExtractResponseOperationSchema(spec, openapi.ResolvedResponseOperation{
+		Name: "probe", Role: "query", Method: "GET",
+		Path:        "/api/register/namespaces/{namespace}/probe",
+		OperationID: "ves.io.schema.probe.CustomAPI.List", ResponseSchema: "probeResponse",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, field := range result.ResponseFields {
+		if field.Name == "secret" {
+			if !field.Required || field.MinLength != 1 || field.Format != "uri" {
+				t.Fatalf("lost constraints: %+v", field)
+			}
+			for _, attr := range result.ResponseAttributes {
+				if attr.Name == "secret" && (attr.Required || !attr.Computed) {
+					t.Fatal("response constraints changed Terraform input requiredness")
+				}
+			}
+			return
+		}
+	}
+	t.Fatal("missing response constraint")
+}
+
 func operationInputsByTag(inputs []openapi.ResponseOperationInput) map[string]*openapi.ResponseOperationInput {
 	result := make(map[string]*openapi.ResponseOperationInput, len(inputs))
 	for index := range inputs {
 		result[inputs[index].Attribute.TfsdkTag] = &inputs[index]
 	}
 	return result
+}
+
+func TestResponseFieldsUseWireIdentity(t *testing.T) {
+	fields, err := responseOperationFields(openapi.Schema{Type: "object", Required: []string{"payload"}, Properties: map[string]openapi.Schema{
+		"payload": {Type: "string", XF5xcWireName: "wire_payload", MinLength: 1},
+	}}, &openapi.Spec{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(fields) != 1 || fields[0].Name != "wire_payload" || !fields[0].Required || fields[0].MinLength != 1 {
+		t.Fatalf("response constraints lost wire identity: %+v", fields)
+	}
 }
 
 func terraformAttributesByTag(attributes []openapi.TerraformAttribute) map[string]*openapi.TerraformAttribute {

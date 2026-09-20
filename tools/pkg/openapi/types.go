@@ -39,6 +39,11 @@ type Schema struct {
 	Description          string            `json:"description"`
 	Title                string            `json:"title"`
 	Format               string            `json:"format"`
+	MinLength            int               `json:"minLength"`
+	Pattern              string            `json:"pattern"`
+	MinItems             int               `json:"minItems"`
+	MaxItems             int               `json:"maxItems"`
+	UniqueItems          bool              `json:"uniqueItems"`
 	Enum                 []interface{}     `json:"enum"`
 	Default              interface{}       `json:"default"`
 	ReadOnly             bool              `json:"readOnly"`
@@ -194,6 +199,7 @@ type TerraformAttribute struct {
 	ETLDPlusOne           bool              // From ves.io.schema.rules.string.etld_plus_one — value must be an eTLD+1 domain
 	MinItems              int               // From x-f5xc-constraints.min_items
 	MaxItems              int               // From x-f5xc-constraints.max_items
+	UniqueItems           bool              // From the standard uniqueItems constraint
 	Minimum               int
 	Maximum               int
 	// HasMinimum/HasMaximum record presence of the numeric bound (independent of
@@ -314,7 +320,7 @@ type ResponseOperationInput struct {
 	Bindings  []OperationBinding
 }
 
-// ResponseOperationPrerequisite is an immutable, server-enforced tenant fact
+// ResponseOperationPrerequisite is an immutable, server-observed lookup fact
 // published with a response operation. It describes a prerequisite only; the
 // provider must not infer a writable lifecycle for the referenced resource.
 type ResponseOperationPrerequisite struct {
@@ -327,6 +333,12 @@ type ResponseOperationPrerequisite struct {
 	SourceKind      string
 	SourceOperation string
 	SourceImmutable bool
+	LookupScope     string
+	LookupCount     string
+	SourceCommit    string
+	SpecSHA256      string
+	ReceiptPath     string
+	ReceiptSHA256   string
 }
 
 // ResponseOperationTemplate is the common IR for generated non-CRUD surfaces.
@@ -343,7 +355,21 @@ type ResponseOperationTemplate struct {
 	Inputs             []ResponseOperationInput
 	ResponseAttributes []TerraformAttribute
 	ResponseIsScalar   bool
+	ResponseFields     []ResponseField
 	Prerequisites      []ResponseOperationPrerequisite
+}
+
+// ResponseField retains wire-response constraints independently of computed
+// Terraform attributes. The API schema is the source of these requirements.
+type ResponseField struct {
+	Name       string
+	Type       string
+	Required   bool
+	MinLength  int
+	Format     string
+	Pattern    string
+	MapFields  []ResponseField
+	Properties []ResponseField
 }
 
 // ActionDerivedField declares one server-derived field of an action request

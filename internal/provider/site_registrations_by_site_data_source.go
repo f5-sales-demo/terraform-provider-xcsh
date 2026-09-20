@@ -5,7 +5,6 @@ package provider
 
 import (
 	"context"
-	"fmt"
 	"net/url"
 	"strings"
 
@@ -3150,12 +3149,19 @@ func (d *SiteRegistrationsBySiteDataSource) Read(ctx context.Context, req dataso
 	}
 	apiResult := map[string]interface{}{}
 	if err := d.client.GetLenient(ctx, apiPath, &apiResult); err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to invoke response operation: %s", err))
+		resp.Diagnostics.AddError("Client Error", "Unable to invoke response operation. Raw API diagnostics are suppressed.")
 		return
 	}
 	apiResource := struct{ Spec map[string]interface{} }{Spec: apiResult}
 	isImport := true
 	_ = isImport
+	if err := client.ValidateResponseFields(apiResult, []client.ResponseField{
+		{Name: "errors", Type: "array", Required: false, MinLength: 0, Format: "", Pattern: ""},
+		{Name: "items", Type: "array", Required: false, MinLength: 0, Format: "", Pattern: ""},
+	}); err != nil {
+		resp.Diagnostics.AddError("Incomplete API Response", err.Error())
+		return
+	}
 	if !isImport && (data.Errors.IsNull() || len(data.Errors.Elements()) == 0) {
 		data.Errors = types.ListNull(types.ObjectType{AttrTypes: SiteRegistrationsBySiteErrorsModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["errors"].([]interface{}); ok && len(listData) > 0 {

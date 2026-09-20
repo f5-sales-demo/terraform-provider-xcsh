@@ -1,4 +1,4 @@
-# SiteCloudInit Resource Example
+# SiteCloudInit DataSource Example
 
 terraform {
   required_version = ">= 1.14"
@@ -11,7 +11,12 @@ terraform {
   }
 }
 
-resource "xcsh_site_cloud_init" "example" {
+data "xcsh_site_cloud_init" "example" {
   provider_ref = "example-value"
   site_name    = "example-value"
+}
+
+output "site_cloud_init_result" {
+  value     = data.xcsh_site_cloud_init.example
+  sensitive = true
 }

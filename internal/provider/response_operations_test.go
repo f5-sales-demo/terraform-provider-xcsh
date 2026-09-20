@@ -15,7 +15,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/action"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
-	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/tfsdk"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-go/tftypes"
@@ -23,30 +22,19 @@ import (
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 )
 
-func TestCreateOnceIssuanceDocumentationOmitsImportSyntax(t *testing.T) {
-	data, err := os.ReadFile("../../docs/terraform-llms-index.json")
+func TestSiteCloudInitDocumentationIsReadOnlyTemplate(t *testing.T) {
+	data, err := os.ReadFile("../../docs/data-sources/site_cloud_init.md")
 	if err != nil {
 		t.Fatal(err)
 	}
-	var index struct {
-		Resources []struct {
-			Name         string `json:"name"`
-			ImportSyntax string `json:"import_syntax"`
-		} `json:"resources"`
-	}
-	if err := json.Unmarshal(data, &index); err != nil {
-		t.Fatal(err)
-	}
-	for _, item := range index.Resources {
-		if item.Name != "site_cloud_init" {
-			continue
+	for _, fragment := range []string{"# xcsh_site_cloud_init (Data Source)", "This is a read-only data source.", "separately issued site-bound JWT"} {
+		if !strings.Contains(string(data), fragment) {
+			t.Fatalf("cloud-init data-source documentation is missing %q", fragment)
 		}
-		if item.ImportSyntax != "" {
-			t.Fatalf("create-once issuance advertises unsupported import syntax: %q", item.ImportSyntax)
-		}
-		return
 	}
-	t.Fatal("site_cloud_init is absent from the documentation index")
+	if _, err := os.Stat("../../docs/resources/site_cloud_init.md"); !os.IsNotExist(err) {
+		t.Fatalf("retired cloud-init resource documentation remains: %v", err)
+	}
 }
 
 type responseOperationRequest struct {
@@ -89,7 +77,7 @@ func TestGeneratedResponseOperationsRouteAndDecode(t *testing.T) {
 			"/api/register/namespaces/system/listregistrationsbystate":
 			_, _ = w.Write([]byte(`{"items":[],"errors":[]}`))
 		case "/api/register/namespaces/system/get-cloud-init-config":
-			_, _ = w.Write([]byte(`{"cloud_init_config":"sensitive-cloud-init"}`))
+			_, _ = w.Write([]byte(`{"cloud_init_config":"#cloud-config\nwrite_files:\n  - path: /etc/vpm/user_data\n    content: {{ .token }}"}`))
 		default:
 			w.WriteHeader(http.StatusAccepted)
 			_, _ = w.Write([]byte(`{}`))
@@ -97,29 +85,6 @@ func TestGeneratedResponseOperationsRouteAndDecode(t *testing.T) {
 	}))
 	defer server.Close()
 	apiClient := client.NewClient(server.URL, "test-token", client.WithMaxRetries(0))
-
-	image := &SiteImageDataSource{client: apiClient}
-	imageSchema := &datasource.SchemaResponse{}
-	image.Schema(ctx, datasource.SchemaRequest{}, imageSchema)
-	for _, name := range []string{"image_download_url", "image_md5_download_url"} {
-		if !imageSchema.Schema.Attributes[name].IsSensitive() {
-			t.Fatalf("site image attribute %s is not sensitive", name)
-		}
-	}
-	imageConfig := SiteImageDataSourceModel{
-		ProviderRef: types.StringValue("KVM"), ImageDownloadURL: types.StringNull(), ImageMD5DownloadURL: types.StringNull(),
-	}
-	imageResp := datasource.ReadResponse{State: tfsdk.State{Schema: imageSchema.Schema}}
-	image.Read(ctx, datasource.ReadRequest{Config: tfsdk.Config{Schema: imageSchema.Schema, Raw: responseOperationRaw(t, imageConfig, imageSchema.Schema.Type())}}, &imageResp)
-	if imageResp.Diagnostics.HasError() {
-		t.Fatalf("site image read: %v", imageResp.Diagnostics)
-	}
-	var imageState SiteImageDataSourceModel
-	imageResp.Diagnostics.Append(imageResp.State.Get(ctx, &imageState)...)
-	if imageState.ImageDownloadURL.ValueString() != "https://download.example/image" || imageState.ImageMD5DownloadURL.ValueString() != "https://download.example/md5" {
-		t.Fatalf("site image response was not decoded: %+v", imageState)
-	}
-	assertResponseOperationRequest(t, <-requests, http.MethodPost, "/api/register/namespaces/system/get-image-download-url", nil, map[string]interface{}{"provider": "KVM"})
 
 	registrations := &SiteRegistrationsDataSource{client: apiClient}
 	registrationsSchema := &datasource.SchemaResponse{}
@@ -175,45 +140,27 @@ func TestGeneratedResponseOperationsRouteAndDecode(t *testing.T) {
 	}
 	assertResponseOperationRequest(t, <-requests, http.MethodPost, "/api/register/namespaces/system/listregistrationsbystate", nil, map[string]interface{}{"namespace": "system", "state": "ONLINE"})
 
-	issuance := &SiteCloudInitResource{client: apiClient}
-	issuanceSchema := &resource.SchemaResponse{}
-	issuance.Schema(ctx, resource.SchemaRequest{}, issuanceSchema)
-	if !issuanceSchema.Schema.Attributes["cloud_init_config"].IsSensitive() {
+	cloudInit := &SiteCloudInitDataSource{client: apiClient}
+	cloudInitSchema := &datasource.SchemaResponse{}
+	cloudInit.Schema(ctx, datasource.SchemaRequest{}, cloudInitSchema)
+	if !cloudInitSchema.Schema.Attributes["cloud_init_config"].IsSensitive() {
 		t.Fatal("cloud_init_config is not sensitive")
 	}
-	if _, supportsImport := interface{}(issuance).(resource.ResourceWithImportState); supportsImport {
-		t.Fatal("create-once issuance must not support import")
-	}
-	issuancePlan := SiteCloudInitResourceModel{
+	cloudInitConfig := SiteCloudInitDataSourceModel{
 		Provider: types.StringValue("KVM"), SiteName: types.StringValue("site-a"), EnableManagementNetwork: types.BoolNull(),
-		CloudInitConfig: types.StringNull(), ID: types.StringNull(),
+		CloudInitConfig: types.StringNull(),
 	}
-	issuanceResp := resource.CreateResponse{State: tfsdk.State{Schema: issuanceSchema.Schema}}
-	issuance.Create(ctx, resource.CreateRequest{Plan: tfsdk.Plan{Schema: issuanceSchema.Schema, Raw: responseOperationRaw(t, issuancePlan, issuanceSchema.Schema.Type())}}, &issuanceResp)
-	if issuanceResp.Diagnostics.HasError() {
-		t.Fatalf("cloud-init issuance: %v", issuanceResp.Diagnostics)
+	cloudInitResp := datasource.ReadResponse{State: tfsdk.State{Schema: cloudInitSchema.Schema}}
+	cloudInit.Read(ctx, datasource.ReadRequest{Config: tfsdk.Config{Schema: cloudInitSchema.Schema, Raw: responseOperationRaw(t, cloudInitConfig, cloudInitSchema.Schema.Type())}}, &cloudInitResp)
+	if cloudInitResp.Diagnostics.HasError() {
+		t.Fatalf("cloud-init template query: %v", cloudInitResp.Diagnostics)
 	}
-	var issuanceState SiteCloudInitResourceModel
-	issuanceResp.Diagnostics.Append(issuanceResp.State.Get(ctx, &issuanceState)...)
-	if issuanceState.CloudInitConfig.ValueString() != "sensitive-cloud-init" || issuanceState.ID.IsNull() || issuanceState.ID.ValueString() == "" {
-		t.Fatalf("issuance response/state not retained: %+v", issuanceState)
+	var cloudInitState SiteCloudInitDataSourceModel
+	cloudInitResp.Diagnostics.Append(cloudInitResp.State.Get(ctx, &cloudInitState)...)
+	if !strings.Contains(cloudInitState.CloudInitConfig.ValueString(), "/etc/vpm/user_data") || !strings.Contains(cloudInitState.CloudInitConfig.ValueString(), "{{ .token }}") {
+		t.Fatalf("cloud-init template response was not decoded: %+v", cloudInitState)
 	}
 	assertResponseOperationRequest(t, <-requests, http.MethodGet, "/api/register/namespaces/system/get-cloud-init-config", url.Values{"provider": {"KVM"}, "site_name": {"site-a"}}, nil)
-	issuanceReadResp := resource.ReadResponse{State: tfsdk.State{Schema: issuanceSchema.Schema}}
-	issuance.Read(ctx, resource.ReadRequest{State: issuanceResp.State}, &issuanceReadResp)
-	if issuanceReadResp.Diagnostics.HasError() {
-		t.Fatalf("cloud-init retained read: %v", issuanceReadResp.Diagnostics)
-	}
-	var retainedIssuance SiteCloudInitResourceModel
-	issuanceReadResp.Diagnostics.Append(issuanceReadResp.State.Get(ctx, &retainedIssuance)...)
-	if retainedIssuance.CloudInitConfig.ValueString() != "sensitive-cloud-init" || retainedIssuance.ID.ValueString() != issuanceState.ID.ValueString() {
-		t.Fatalf("issuance read did not retain create-once state: %+v", retainedIssuance)
-	}
-	issuanceDeleteResp := &resource.DeleteResponse{}
-	issuance.Delete(ctx, resource.DeleteRequest{State: issuanceResp.State}, issuanceDeleteResp)
-	if issuanceDeleteResp.Diagnostics.HasError() || len(requests) != 0 {
-		t.Fatalf("issuance delete contacted API or returned diagnostics: requests=%d diagnostics=%v", len(requests), issuanceDeleteResp.Diagnostics)
-	}
 
 	invokeUpgradeAction(t, ctx, &SiteUpgradeSwAction{client: apiClient}, SiteUpgradeSwActionModel{Name: types.StringValue("site-a"), Namespace: types.StringValue("system"), Version: types.StringValue("9.0.0"), Force: types.BoolNull()})
 	assertResponseOperationRequest(t, <-requests, http.MethodPost, "/api/config/namespaces/system/sites/site-a/upgrade_sw", nil, map[string]interface{}{"name": "site-a", "namespace": "system", "version": "9.0.0", "force": false})
@@ -221,48 +168,6 @@ func TestGeneratedResponseOperationsRouteAndDecode(t *testing.T) {
 	assertResponseOperationRequest(t, <-requests, http.MethodPost, "/api/config/namespaces/system/sites/site-a/upgrade_os", nil, map[string]interface{}{"name": "site-a", "namespace": "system", "version": "10.0.0", "force": true})
 	if len(requests) != 0 {
 		t.Fatalf("actions performed unexpected polling requests: %+v", <-requests)
-	}
-}
-
-func TestSiteImageDataSourceReportsExternalTenantPrerequisiteWithoutRetry(t *testing.T) {
-	ctx := context.Background()
-	requests := 0
-	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, request *http.Request) {
-		requests++
-		if request.Method != http.MethodPost || request.URL.Path != "/api/register/namespaces/system/get-image-download-url" {
-			t.Errorf("request = %s %s, want POST image-download-url", request.Method, request.URL.Path)
-		}
-		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(http.StatusInternalServerError)
-		_, _ = w.Write([]byte(`{"message":"cannot create dow` + `load url, err: number of maurice_config object is not one"}`))
-	}))
-	defer server.Close()
-
-	dataSource := &SiteImageDataSource{client: client.NewClient(server.URL, "test-token", client.WithMaxRetries(0))}
-	schemaResponse := &datasource.SchemaResponse{}
-	dataSource.Schema(ctx, datasource.SchemaRequest{}, schemaResponse)
-	config := SiteImageDataSourceModel{
-		ProviderRef:         types.StringValue("KVM"),
-		ImageDownloadURL:    types.StringNull(),
-		ImageMD5DownloadURL: types.StringNull(),
-	}
-	response := datasource.ReadResponse{State: tfsdk.State{Schema: schemaResponse.Schema}}
-	dataSource.Read(ctx, datasource.ReadRequest{Config: tfsdk.Config{Schema: schemaResponse.Schema, Raw: responseOperationRaw(t, config, schemaResponse.Schema.Type())}}, &response)
-
-	if requests != 1 {
-		t.Fatalf("image lookup made %d requests, want exactly 1", requests)
-	}
-	if !response.Diagnostics.HasError() || len(response.Diagnostics.Errors()) != 1 {
-		t.Fatalf("image lookup diagnostics = %v, want one prerequisite error", response.Diagnostics)
-	}
-	diagnostic := response.Diagnostics.Errors()[0]
-	if diagnostic.Summary() != "External tenant prerequisite unavailable" {
-		t.Fatalf("diagnostic summary = %q", diagnostic.Summary())
-	}
-	for _, want := range []string{"maurice_config_cardinality_exactly_one", "exactly one maurice_config", "cannot create or repair"} {
-		if !strings.Contains(diagnostic.Detail(), want) {
-			t.Fatalf("diagnostic detail %q does not contain %q", diagnostic.Detail(), want)
-		}
 	}
 }
 

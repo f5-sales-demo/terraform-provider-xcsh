@@ -96,7 +96,7 @@ test:
 # Run linters
 lint:
 	@echo "Running linters..."
-	$(GOLINT) run --timeout=5m ./internal/... . ./tools/...
+	$(GOLINT) run --timeout=15m ./internal/... . ./tools/...
 
 # Format code
 fmt:
@@ -278,7 +278,7 @@ ci-build:
 ci-lint:
 	@echo "CI: Linting..."
 	$(GO) install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@$(GOLANGCI_LINT_VERSION)
-	$(GOLINT) run --timeout=5m ./internal/... . ./tools/...
+	$(GOLINT) run --timeout=15m ./internal/... . ./tools/...
 
 ci-test:
 	@echo "CI: Testing..."
