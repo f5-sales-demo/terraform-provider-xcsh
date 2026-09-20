@@ -4,12 +4,50 @@ package parity
 
 import (
 	"encoding/json"
+	"os"
+	"path/filepath"
 	"slices"
 	"strings"
 	"testing"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
+
+func TestLoadLegacyAcceptsOnlyReviewedSourceProfiles(t *testing.T) {
+	t.Parallel()
+	profile, ok := LegacySourceProfileForSHA256("dd68adc6b0b75891f19ad80e06352daf417f395451011bb047e57b6607dda1d4")
+	if !ok || profile.Version != "0.13.2" {
+		t.Fatalf("latest reviewed legacy profile is missing: %+v, %t", profile, ok)
+	}
+	directory := t.TempDir()
+	manifest := LegacyManifest{
+		Version: profile.Version, Resource: "volterra_securemesh_site_v2", SourceURL: profile.SourceURL,
+		SourceSHA256: profile.SourceSHA256, InstalledSchemaSHA256: "sha256:" + strings.Repeat("a", 64),
+		PathCount: 1, Paths: []LegacyField{{Path: "eks_k8s", Type: "list", Optional: true}},
+	}
+	path := filepath.Join(directory, "legacy.json")
+	encoded, err := json.Marshal(manifest)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(path, encoded, 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := LoadLegacy(path); err != nil {
+		t.Fatalf("reviewed 0.13.2 manifest was rejected: %v", err)
+	}
+	manifest.SourceURL = "https://example.invalid/unreviewed.go"
+	encoded, err = json.Marshal(manifest)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(path, encoded, 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := LoadLegacy(path); err == nil {
+		t.Fatal("manifest with substituted source URL was accepted")
+	}
+}
 
 func TestBuildSMSv2MatrixFailsUnclassifiedGap(t *testing.T) {
 	legacy := &LegacyManifest{Version: "0.12.2", SourceURL: "source", SourceSHA256: "sha256:test", PathCount: 1, Paths: []LegacyField{{Path: "missing", Type: "string", Optional: true}}}
