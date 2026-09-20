@@ -126,9 +126,26 @@ runs:
         mkdir -p "$STAGED_SPECS"
         RELEASE_ENDPOINT="repos/${ENRICHED_REPO}/releases/tags/${RELEASE_TAG}"
         RELEASE_METADATA="${STAGING_ROOT}/release.json"
+        fetch_release_metadata() {
+          local attempt=1 candidate
+          while [ "$attempt" -le 3 ]; do
+            candidate="${STAGING_ROOT}/release-${attempt}.json"
+            if gh api "$RELEASE_ENDPOINT" > "$candidate" 2>"${candidate}.err" && \
+              jq -e 'type == "object"' "$candidate" >/dev/null 2>&1; then
+              mv "$candidate" "$RELEASE_METADATA"
+              return 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              sleep "$attempt"
+            fi
+            attempt=$((attempt + 1))
+          done
+          echo "::error::Release metadata request did not produce a complete JSON document after 3 attempts"
+          return 1
+        }
 
         echo "Downloading verified ${RELEASE_TAG} release from ${ENRICHED_REPO}"
-        gh api "$RELEASE_ENDPOINT" > "$RELEASE_METADATA"
+        fetch_release_metadata
         jq -e --arg tag "$RELEASE_TAG" '
           .tag_name == $tag and
           .draft == false and
