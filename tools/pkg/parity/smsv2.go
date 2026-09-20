@@ -26,6 +26,35 @@ type LegacyManifest struct {
 	Paths                 []LegacyField `json:"paths"`
 }
 
+// LegacySourceProfile pins a legacy provider source identity that may be used
+// as a parity input. A version label alone is never sufficient: the source
+// URL and content digest bind every extracted field to its reviewed upstream.
+type LegacySourceProfile struct {
+	Version      string
+	SourceURL    string
+	SourceSHA256 string
+}
+
+var legacySourceProfiles = map[string]LegacySourceProfile{
+	"521cab3e85928669b461fc2ccb541c324c6d0518607d9f54e1c70df446202aea": {
+		Version:      "0.12.2",
+		SourceURL:    "https://github.com/volterraedge/terraform-provider-volterra/blob/22f029dbf14412c99502fe1daba829f7c3261017/volterra/resource_auto_volterra_securemesh_site_v2.go",
+		SourceSHA256: "sha256:521cab3e85928669b461fc2ccb541c324c6d0518607d9f54e1c70df446202aea",
+	},
+	"dd68adc6b0b75891f19ad80e06352daf417f395451011bb047e57b6607dda1d4": {
+		Version:      "0.13.2",
+		SourceURL:    "https://github.com/volterraedge/terraform-provider-volterra/blob/ca5bae39a31ea3c0e0fa5b5675338139de41bca8/volterra/resource_auto_volterra_securemesh_site_v2.go",
+		SourceSHA256: "sha256:dd68adc6b0b75891f19ad80e06352daf417f395451011bb047e57b6607dda1d4",
+	},
+}
+
+// LegacySourceProfileForSHA256 returns the exact reviewed source profile for a
+// bare SHA-256 digest. It deliberately refuses unknown revisions.
+func LegacySourceProfileForSHA256(digest string) (LegacySourceProfile, bool) {
+	profile, ok := legacySourceProfiles[digest]
+	return profile, ok
+}
+
 type LegacyField struct {
 	Path          string      `json:"path"`
 	WireKey       string      `json:"wire_key"`
@@ -123,9 +152,9 @@ func LoadLegacy(path string) (*LegacyManifest, error) {
 	if err := load(path, &value); err != nil {
 		return nil, err
 	}
-	if value.PathCount != len(value.Paths) || value.Version != "0.12.2" || value.SourceSHA256 != "sha256:521cab3e85928669b461fc2ccb541c324c6d0518607d9f54e1c70df446202aea" ||
-		!validSHA256(value.InstalledSchemaSHA256) || value.Resource != "volterra_securemesh_site_v2" ||
-		value.SourceURL != "https://github.com/volterraedge/terraform-provider-volterra/blob/22f029dbf14412c99502fe1daba829f7c3261017/volterra/resource_auto_volterra_securemesh_site_v2.go" {
+	profile, found := LegacySourceProfileForSHA256(strings.TrimPrefix(value.SourceSHA256, "sha256:"))
+	if value.PathCount != len(value.Paths) || !found || value.Version != profile.Version || value.SourceSHA256 != profile.SourceSHA256 ||
+		!validSHA256(value.InstalledSchemaSHA256) || value.Resource != "volterra_securemesh_site_v2" || value.SourceURL != profile.SourceURL {
 		return nil, fmt.Errorf("invalid legacy SMSv2 manifest metadata")
 	}
 	return &value, nil

@@ -2,10 +2,10 @@
 
 //go:build ignore
 
-// Command extract-legacy-smsv2 converts the generated v0.12.2 SDK resource
-// schema into a compact, reviewable path manifest. The upstream Go source is
-// an input rather than a vendored dependency; the recorded SHA-256 makes any
-// source substitution fail closed.
+// Command extract-legacy-smsv2 converts a reviewed generated legacy SDK
+// resource schema into a compact, reviewable path manifest. The upstream Go
+// source is an input rather than a vendored dependency; an exact profile and
+// SHA-256 make any source substitution fail closed.
 package main
 
 import (
@@ -23,10 +23,6 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/parity"
 )
-
-const legacySourceSHA256 = "521cab3e85928669b461fc2ccb541c324c6d0518607d9f54e1c70df446202aea"
-
-const legacySourceURL = "https://github.com/volterraedge/terraform-provider-volterra/blob/22f029dbf14412c99502fe1daba829f7c3261017/volterra/resource_auto_volterra_securemesh_site_v2.go"
 
 type legacyManifest struct {
 	Version               string        `json:"version"`
@@ -61,8 +57,9 @@ func main() {
 		fatalf("read source: %v", err)
 	}
 	digest := sha256.Sum256(source)
-	if hex.EncodeToString(digest[:]) != legacySourceSHA256 {
-		fatalf("legacy source does not match pinned Volterra 0.12.2 revision")
+	profile, found := parity.LegacySourceProfileForSHA256(hex.EncodeToString(digest[:]))
+	if !found {
+		fatalf("legacy source does not match a reviewed Volterra source profile")
 	}
 	parsed, err := parser.ParseFile(token.NewFileSet(), os.Args[1], source, 0)
 	if err != nil {
@@ -106,9 +103,9 @@ func main() {
 	installedDigest := sha256.Sum256(installed)
 
 	document := legacyManifest{
-		Version:               "0.12.2",
+		Version:               profile.Version,
 		Resource:              "volterra_securemesh_site_v2",
-		SourceURL:             legacySourceURL,
+		SourceURL:             profile.SourceURL,
 		SourceSHA256:          "sha256:" + hex.EncodeToString(digest[:]),
 		InstalledSchemaSHA256: "sha256:" + hex.EncodeToString(installedDigest[:]),
 		PathCount:             len(paths),
