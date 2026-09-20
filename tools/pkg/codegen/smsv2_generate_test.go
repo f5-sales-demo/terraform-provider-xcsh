@@ -44,11 +44,21 @@ func TestGenerateSMSv2ContractConstantsIsDeterministic(t *testing.T) {
 	if string(first) != string(second) {
 		t.Fatal("SMSv2 contract generation is not deterministic")
 	}
+	dataSource, err := os.ReadFile(filepath.Join(outputDir, "smsv2_contract_data_source.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, want := range []string{"Code generated", `tfsdk:"kvm_image_resolution"`, `"kvm_image_resolution":`, "types.StringValue(smsv2KVMImageResolutionJSON)"} {
+		if !strings.Contains(string(dataSource), want) {
+			t.Errorf("generated contract data source missing %q", want)
+		}
+	}
 	for _, want := range []string{
 		"f5xc-smsv2-api/v1", "7.0.0", "v7.0.1", `"aws_ce_create": "unavailable"`,
 		`"site_upgrade": "unavailable"`, "3a647f1bf0c2447a71750c69136fab96fb073902",
 		"f5xc-smsv2-aws-tgw-telemetry/v2", "no_schema_valid_ebgp_multihop_request_control",
 		"reject_before_mutation", "322c202ed49c8cfcd5015a524f3195bbd2a8f2bc",
+		"smsv2KVMImageResolutionJSON", "site_uid_os_image", "boot_acceptance_required",
 	} {
 		if !strings.Contains(string(first), want) {
 			t.Errorf("generated constants missing %q", want)

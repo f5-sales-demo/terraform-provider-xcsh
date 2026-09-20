@@ -100,7 +100,9 @@ func renderResponseOperationModelFields(operation *openapi.ResponseOperationTemp
 	var result strings.Builder
 	for _, attribute := range attributes {
 		if attribute.IsBlock {
-			if attribute.NestedBlockType == "list" {
+			if attribute.NestedBlockType == "map" {
+				fmt.Fprintf(&result, "\t%s types.Map `tfsdk:%q`\n", attribute.GoName, attribute.TfsdkTag)
+			} else if attribute.NestedBlockType == "list" {
 				fmt.Fprintf(&result, "\t%s types.List `tfsdk:%q`\n", attribute.GoName, attribute.TfsdkTag)
 			} else {
 				typeName := operation.TitleCase + naming.ToResourceTypeName(attribute.TfsdkTag) + "Model"
@@ -141,10 +143,12 @@ func renderResponseOperationSchemaMap(attributes []openapi.TerraformAttribute, i
 			typeName := "SingleNestedAttribute"
 			if attribute.NestedBlockType == "list" {
 				typeName = "ListNestedAttribute"
+			} else if attribute.NestedBlockType == "map" {
+				typeName = "MapNestedAttribute"
 			}
 			fmt.Fprintf(&result, "%s\t%q: schema.%s{\n", indent, attribute.TfsdkTag, typeName)
 			fmt.Fprintf(&result, "%s\t\tMarkdownDescription: %q,\n", indent, description)
-			if attribute.NestedBlockType == "list" {
+			if attribute.NestedBlockType == "list" || attribute.NestedBlockType == "map" {
 				fmt.Fprintf(&result, "%s\t\tNestedObject: schema.NestedAttributeObject{\n", indent)
 				result.WriteString(renderResponseOperationSchemaMap(attribute.NestedAttributes, indent+"\t\t\t", false))
 				fmt.Fprintf(&result, "%s\t\t},\n", indent)
@@ -231,15 +235,18 @@ func renderResponseOperationValidators(result *strings.Builder, attribute openap
 			result.WriteString(indent + "},\n")
 		}
 	}
-	if attribute.Type == "list" && (attribute.MinItems > 0 || attribute.MaxItems > 0) {
+	if attribute.Type == "list" && (attribute.MinItems > 0 || attribute.MaxItems > 0 || attribute.UniqueItems) {
 		result.WriteString(indent + "Validators: []validator.List{\n")
 		switch {
 		case attribute.MinItems > 0 && attribute.MaxItems > 0:
 			fmt.Fprintf(result, "%s\tlistvalidator.SizeBetween(%d, %d),\n", indent, attribute.MinItems, attribute.MaxItems)
 		case attribute.MinItems > 0:
 			fmt.Fprintf(result, "%s\tlistvalidator.SizeAtLeast(%d),\n", indent, attribute.MinItems)
-		default:
+		case attribute.MaxItems > 0:
 			fmt.Fprintf(result, "%s\tlistvalidator.SizeAtMost(%d),\n", indent, attribute.MaxItems)
+		}
+		if attribute.UniqueItems {
+			fmt.Fprintf(result, "%s\tlistvalidator.UniqueValues(),\n", indent)
 		}
 		result.WriteString(indent + "},\n")
 	}
@@ -268,6 +275,34 @@ func renderResponseOperationValidators(result *strings.Builder, attribute openap
 		fmt.Fprintf(result, "%s\tint64validator.AtMost(%d),\n", indent, attribute.Maximum)
 	}
 	result.WriteString(indent + "},\n")
+}
+
+func renderResponseObjectMap(code *strings.Builder, attribute openapi.TerraformAttribute) error {
+	var fieldTypes strings.Builder
+	fieldTypes.WriteString("map[string]attr.Type{")
+	for _, child := range attribute.NestedAttributes {
+		typeName := map[string]string{"string": "String", "int64": "Int64", "bool": "Bool"}[child.Type]
+		if typeName == "" {
+			return fmt.Errorf("unsupported response map field type")
+		}
+		fmt.Fprintf(&fieldTypes, "%q: types.%sType,", child.TfsdkTag, typeName)
+	}
+	fieldTypes.WriteString("}")
+	fmt.Fprintf(code, "{\nfieldTypes := %s\nelementType := types.ObjectType{AttrTypes: fieldTypes}\n", fieldTypes.String())
+	fmt.Fprintf(code, "if raw, exists := apiResource.Spec[%q]; exists && raw != nil {\n", attribute.JsonName)
+	code.WriteString("entries, ok := raw.(map[string]interface{})\nif !ok { resp.Diagnostics.AddError(\"Incomplete API Response\", \"Expected an object map.\"); return }\nvalues := map[string]attr.Value{}\nfor key, rawEntry := range entries {\nentry, ok := rawEntry.(map[string]interface{})\nif !ok { resp.Diagnostics.AddError(\"Incomplete API Response\", \"Expected a typed map entry.\"); return }\nfields := map[string]attr.Value{}\n")
+	for _, child := range attribute.NestedAttributes {
+		typeName := map[string]string{"string": "String", "int64": "Int64", "bool": "Bool"}[child.Type]
+		goType := map[string]string{"string": "string", "int64": "float64", "bool": "bool"}[child.Type]
+		valueExpr := "value"
+		if child.Type == "int64" {
+			valueExpr = "int64(value)"
+		}
+		fmt.Fprintf(code, "if rawField, exists := entry[%q]; exists && rawField != nil {\nvalue, ok := rawField.(%s)\nif !ok { resp.Diagnostics.AddError(\"Incomplete API Response\", \"Invalid typed map field.\"); return }\nfields[%q] = types.%sValue(%s)\n} else { fields[%q] = types.%sNull() }\n", child.JsonName, goType, child.TfsdkTag, typeName, valueExpr, child.TfsdkTag, typeName)
+	}
+	code.WriteString("object, diags := types.ObjectValue(fieldTypes, fields)\nif diags.HasError() { resp.Diagnostics.AddError(\"Incomplete API Response\", \"Invalid typed map object.\"); return }\nvalues[key] = object\n}\nvalue, diags := types.MapValue(elementType, values)\nif diags.HasError() { resp.Diagnostics.AddError(\"Incomplete API Response\", \"Invalid typed map response.\"); return }\n")
+	fmt.Fprintf(code, "data.%s = value\n} else { data.%s = types.MapNull(elementType) }\n}\n", attribute.GoName, attribute.GoName)
+	return nil
 }
 
 func renderResponseOperationRequestSetup(operation *openapi.ResponseOperationTemplate) string {
@@ -365,6 +400,9 @@ func renderResponseOperationInvoke(operation *openapi.ResponseOperationTemplate,
 		}
 	}
 	method := "Get"
+	if operation.Role == "issuance" {
+		method = "GetOnce"
+	}
 	arguments := "ctx, apiPath, " + resultTarget
 	if operation.Method == "POST" {
 		method = "Post"
@@ -384,18 +422,21 @@ func renderResponseOperationInvoke(operation *openapi.ResponseOperationTemplate,
 
 func renderResponseOperationDiagnostic(operation *openapi.ResponseOperationTemplate) string {
 	if len(operation.Prerequisites) == 0 {
-		return "\t\tresp.Diagnostics.AddError(\"Client Error\", fmt.Sprintf(\"Unable to invoke response operation: %s\", err))\n"
+		return "\t\tresp.Diagnostics.AddError(\"Client Error\", \"Unable to invoke response operation. Raw API diagnostics are suppressed.\")\n"
 	}
 	var prerequisites strings.Builder
 	prerequisites.WriteString("[]responseOperationPrerequisite{")
 	for _, prerequisite := range operation.Prerequisites {
-		fmt.Fprintf(&prerequisites, "{ID: %s, Resource: %s, Exactly: %d, Enforcement: %s, Availability: %s, Reason: %s, SourceKind: %s, SourceOperation: %s, SourceImmutable: %t},",
+		fmt.Fprintf(&prerequisites, "{ID: %s, Resource: %s, Exactly: %d, Enforcement: %s, Availability: %s, Reason: %s, SourceKind: %s, SourceOperation: %s, SourceImmutable: %t, LookupScope: %s, LookupCount: %s, SourceCommit: %s, SpecSHA256: %s, ReceiptPath: %s, ReceiptSHA256: %s},",
 			strconv.Quote(prerequisite.ID), strconv.Quote(prerequisite.Resource), prerequisite.Exactly,
 			strconv.Quote(prerequisite.Enforcement), strconv.Quote(prerequisite.Availability), strconv.Quote(prerequisite.Reason),
-			strconv.Quote(prerequisite.SourceKind), strconv.Quote(prerequisite.SourceOperation), prerequisite.SourceImmutable)
+			strconv.Quote(prerequisite.SourceKind), strconv.Quote(prerequisite.SourceOperation), prerequisite.SourceImmutable,
+			strconv.Quote(prerequisite.LookupScope), strconv.Quote(prerequisite.LookupCount),
+			strconv.Quote(prerequisite.SourceCommit), strconv.Quote(prerequisite.SpecSHA256),
+			strconv.Quote(prerequisite.ReceiptPath), strconv.Quote(prerequisite.ReceiptSHA256))
 	}
 	prerequisites.WriteString("}")
-	return fmt.Sprintf("\t\tif title, detail, matched := responseOperationPrerequisiteDiagnostic(err, %s); matched {\n\t\t\tresp.Diagnostics.AddError(title, detail)\n\t\t} else {\n\t\t\tresp.Diagnostics.AddError(\"Client Error\", fmt.Sprintf(\"Unable to invoke response operation: %%s\", err))\n\t\t}\n", prerequisites.String())
+	return fmt.Sprintf("\t\tif title, detail, matched := responseOperationPrerequisiteDiagnostic(err, %s); matched {\n\t\t\tresp.Diagnostics.AddError(title, detail)\n\t\t} else {\n\t\t\tresp.Diagnostics.AddError(\"Client Error\", \"Unable to invoke response operation. Raw API diagnostics are suppressed.\")\n\t\t}\n", prerequisites.String())
 }
 
 func renderResponseOperationUnmarshal(operation *openapi.ResponseOperationTemplate) (string, error) {
@@ -403,9 +444,18 @@ func renderResponseOperationUnmarshal(operation *openapi.ResponseOperationTempla
 		return "", nil
 	}
 	var code strings.Builder
+	if len(operation.ResponseFields) > 0 {
+		code.WriteString("\tif err := client.ValidateResponseFields(apiResult, []client.ResponseField{\n")
+		for _, field := range operation.ResponseFields {
+			renderResponseFieldConstraint(&code, field)
+		}
+		code.WriteString("}); err != nil {\n\t\tresp.Diagnostics.AddError(\"Incomplete API Response\", err.Error())\n\t\treturn\n\t}\n")
+	}
 	for _, attribute := range operation.ResponseAttributes {
 		var err error
 		switch {
+		case attribute.IsBlock && attribute.NestedBlockType == "map":
+			err = renderResponseObjectMap(&code, attribute)
 		case attribute.IsBlock && attribute.NestedBlockType == "list":
 			err = renderUnmarshalTopLevelList(&code, operation.TitleCase, attribute, "\t")
 		case attribute.IsBlock:
@@ -418,6 +468,25 @@ func renderResponseOperationUnmarshal(operation *openapi.ResponseOperationTempla
 		}
 	}
 	return "\tapiResource := struct{ Spec map[string]interface{} }{Spec: apiResult}\n\tisImport := true\n\t_ = isImport\n" + code.String(), nil
+}
+
+func renderResponseFieldConstraint(code *strings.Builder, field openapi.ResponseField) {
+	fmt.Fprintf(code, "{Name: %q, Type: %q, Required: %t, MinLength: %d, Format: %q, Pattern: %q,", field.Name, field.Type, field.Required, field.MinLength, field.Format, field.Pattern)
+	if len(field.MapFields) > 0 {
+		code.WriteString("MapFields: []client.ResponseField{")
+		for _, child := range field.MapFields {
+			renderResponseFieldConstraint(code, child)
+		}
+		code.WriteString("},")
+	}
+	if len(field.Properties) > 0 {
+		code.WriteString("Properties: []client.ResponseField{")
+		for _, child := range field.Properties {
+			renderResponseFieldConstraint(code, child)
+		}
+		code.WriteString("},")
+	}
+	code.WriteString("},\n")
 }
 
 func renderIssuanceIdentifier(operation *openapi.ResponseOperationTemplate) string {

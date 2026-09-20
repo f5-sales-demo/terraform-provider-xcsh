@@ -30,6 +30,9 @@ var (
 	terraformNamePattern = regexp.MustCompile(`^[a-z][a-z0-9_]*$`)
 	schemaNamePattern    = regexp.MustCompile(`^[A-Za-z_][A-Za-z0-9_.]*$`)
 	placeholderPattern   = regexp.MustCompile(`^\{[A-Za-z_][A-Za-z0-9_.-]*\}$`)
+	lookupSHA256Pattern  = regexp.MustCompile(`^[a-f0-9]{64}$`)
+	lookupCommitPattern  = regexp.MustCompile(`^[a-f0-9]{40}$`)
+	lookupReceiptPattern = regexp.MustCompile(`^config/evidence/[a-z0-9-]+\.json$`)
 )
 
 // CatalogOperation is one exact operation fact published by api-specs-enriched.
@@ -137,6 +140,8 @@ type responseOperationPrerequisiteWire struct {
 	Availability *string         `json:"availability"`
 	Reason       *string         `json:"reason"`
 	Source       json.RawMessage `json:"source"`
+	LookupScope  *string         `json:"lookup_scope"`
+	LookupCount  *string         `json:"lookup_count"`
 }
 
 type responseOperationPrerequisiteCardinalityWire struct {
@@ -144,9 +149,13 @@ type responseOperationPrerequisiteCardinalityWire struct {
 }
 
 type responseOperationPrerequisiteSourceWire struct {
-	Kind      *string `json:"kind"`
-	Operation *string `json:"operation"`
-	Immutable *bool   `json:"immutable"`
+	Kind          *string `json:"kind"`
+	Operation     *string `json:"operation"`
+	Immutable     *bool   `json:"immutable"`
+	SourceCommit  *string `json:"source_commit"`
+	SpecSHA256    *string `json:"spec_sha256"`
+	ReceiptPath   *string `json:"receipt_path"`
+	ReceiptSHA256 *string `json:"receipt_sha256"`
 }
 
 type apiExclusionWire struct {
@@ -709,9 +718,8 @@ func parseCatalogOperation(raw json.RawMessage, apiIdentity string) (CatalogOper
 	}, nil
 }
 
-// parseResponseOperationPrerequisites accepts only the source-owned tenant
-// prerequisite contract published for a response operation. These facts are
-// observations about an externally managed tenant, never provider CRUD input.
+// parseResponseOperationPrerequisites accepts only digest-bound observations.
+// A cardinality error does not establish lookup scope, actual count, or CRUD.
 func parseResponseOperationPrerequisites(raw json.RawMessage, operationID string) ([]ResponseOperationPrerequisite, error) {
 	if len(raw) == 0 {
 		return nil, nil
@@ -742,8 +750,11 @@ func parseResponseOperationPrerequisites(raw json.RawMessage, operationID string
 		if wire.Enforcement == nil || *wire.Enforcement != "server" {
 			return nil, fmt.Errorf("prerequisites[%d]: enforcement must be server", index)
 		}
-		if wire.Availability == nil || *wire.Availability != "external_tenant_prerequisite" {
-			return nil, fmt.Errorf("prerequisites[%d]: availability must be external_tenant_prerequisite", index)
+		if wire.Availability == nil || *wire.Availability != "unresolved_server_lookup" {
+			return nil, fmt.Errorf("prerequisites[%d]: availability must be unresolved_server_lookup", index)
+		}
+		if wire.LookupScope == nil || *wire.LookupScope != "unknown" || wire.LookupCount == nil || *wire.LookupCount != "unknown" {
+			return nil, fmt.Errorf("prerequisites[%d]: lookup scope and count must remain unknown", index)
 		}
 		if wire.Reason == nil || *wire.Reason == "" || strings.TrimSpace(*wire.Reason) != *wire.Reason {
 			return nil, fmt.Errorf("prerequisites[%d]: reason is required and must not have surrounding whitespace", index)
@@ -756,11 +767,20 @@ func parseResponseOperationPrerequisites(raw json.RawMessage, operationID string
 		if err := decodeStrictJSONObject(wire.Source, &source, "prerequisite source"); err != nil || source.Kind == nil || *source.Kind != "runtime_api_error" || source.Operation == nil || *source.Operation != operationID || source.Immutable == nil || !*source.Immutable {
 			return nil, fmt.Errorf("prerequisites[%d]: source must be the immutable runtime_api_error for operation %q", index, operationID)
 		}
+		if source.SourceCommit == nil || !lookupCommitPattern.MatchString(*source.SourceCommit) ||
+			source.SpecSHA256 == nil || !lookupSHA256Pattern.MatchString(*source.SpecSHA256) ||
+			source.ReceiptSHA256 == nil || !lookupSHA256Pattern.MatchString(*source.ReceiptSHA256) ||
+			source.ReceiptPath == nil || !lookupReceiptPattern.MatchString(*source.ReceiptPath) {
+			return nil, fmt.Errorf("prerequisites[%d]: source requires immutable commit, spec and receipt digests", index)
+		}
 		seenIDs[*wire.ID] = true
 		prerequisites = append(prerequisites, ResponseOperationPrerequisite{
 			ID: *wire.ID, Resource: *wire.Resource, Exactly: *cardinality.Exactly,
 			Enforcement: *wire.Enforcement, Availability: *wire.Availability, Reason: *wire.Reason,
 			SourceKind: *source.Kind, SourceOperation: *source.Operation, SourceImmutable: *source.Immutable,
+			LookupScope: *wire.LookupScope, LookupCount: *wire.LookupCount,
+			SourceCommit: *source.SourceCommit, SpecSHA256: *source.SpecSHA256,
+			ReceiptPath: *source.ReceiptPath, ReceiptSHA256: *source.ReceiptSHA256,
 		})
 	}
 	return prerequisites, nil

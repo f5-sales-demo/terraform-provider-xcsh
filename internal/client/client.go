@@ -339,6 +339,33 @@ func (c *Client) boundedRetryAfter(value string, now time.Time) (time.Duration, 
 
 // doRequest performs an HTTP request with retry logic and returns the response
 func (c *Client) doRequest(ctx context.Context, method, path string, body interface{}) ([]byte, error) {
+	return c.doRequestWithRetry(ctx, method, path, body, isRetryableMethod(method))
+}
+
+// Operation semantics can prohibit retries even for an HTTP GET. Credential
+// issuance is not idempotent merely because the server exposes it as GET.
+func (c *Client) doRequestWithRetry(ctx context.Context, method, path string, body interface{}, allowRetry bool) ([]byte, error) {
+	requestClient := c.HTTPClient
+	if !allowRetry {
+		// The standard transport can transparently replay GET on a reused
+		// connection, and Client.Do follows redirects by default. Isolate this
+		// operation without changing the shared client's retry/transport state.
+		isolated := *c.HTTPClient
+		isolated.CheckRedirect = func(*http.Request, []*http.Request) error { return http.ErrUseLastResponse }
+		transport := isolated.Transport
+		if transport == nil {
+			transport = http.DefaultTransport
+		}
+		if standard, ok := transport.(*http.Transport); ok {
+			single := standard.Clone()
+			single.DisableKeepAlives = true
+			single.Protocols = new(http.Protocols)
+			single.Protocols.SetHTTP1(true)
+			isolated.Transport = single
+			defer single.CloseIdleConnections()
+		}
+		requestClient = &isolated
+	}
 	var bodyBytes []byte
 	if body != nil {
 		var err error
@@ -375,12 +402,12 @@ func (c *Client) doRequest(ctx context.Context, method, path string, body interf
 		req.Header.Set("Content-Type", "application/json")
 		req.Header.Set("Accept", "application/json")
 
-		resp, err := c.HTTPClient.Do(req)
+		resp, err := requestClient.Do(req)
 		if err != nil {
 			lastErr = xcsherrors.NewNetworkError(err)
 			// A failed mutation may already have reached the API. Retry only methods
 			// whose HTTP semantics are idempotent.
-			if isRetryableMethod(method) && attempt < c.MaxRetries {
+			if allowRetry && attempt < c.MaxRetries {
 				select {
 				case <-ctx.Done():
 					return nil, xcsherrors.NewTimeoutError("request", method+" "+path, ctx.Err())
@@ -407,7 +434,7 @@ func (c *Client) doRequest(ctx context.Context, method, path string, body interf
 		lastErr = apiErr
 
 		// Check if error is retryable
-		if !isRetryableMethod(method) || !isRetryableStatus(resp.StatusCode) || attempt >= c.MaxRetries {
+		if !allowRetry || !isRetryableStatus(resp.StatusCode) || attempt >= c.MaxRetries {
 			return nil, apiErr
 		}
 
@@ -432,6 +459,18 @@ func (c *Client) doRequest(ctx context.Context, method, path string, body interf
 // Get performs a GET request
 func (c *Client) Get(ctx context.Context, path string, result interface{}) error {
 	body, err := c.doRequest(ctx, http.MethodGet, path, nil)
+	if err != nil {
+		return err
+	}
+	if result != nil && len(body) > 0 {
+		return json.Unmarshal(body, result)
+	}
+	return nil
+}
+
+// GetOnce invokes a non-idempotent GET operation without automatic replay.
+func (c *Client) GetOnce(ctx context.Context, path string, result interface{}) error {
+	body, err := c.doRequestWithRetry(ctx, http.MethodGet, path, nil, false)
 	if err != nil {
 		return err
 	}

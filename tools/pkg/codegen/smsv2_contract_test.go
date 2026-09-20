@@ -12,6 +12,7 @@ const syntheticSMSv2V7Contract = `{
   "version":"7.0.0",
   "contract_id":"f5xc-smsv2-api/v1",
   "providers":{
+  "kvm":{"availability":"image_api_verified_runtime_pending","image_resolution":` + syntheticKVMImageContract + `},
   "azure":{
     "availability":"evidence_backed",
     "route_server_ebgp_multihop":{
@@ -78,7 +79,7 @@ func TestSMSv2DataSourceTemplatesSelectsCleanBreakSurfaces(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	want := []SMSv2DataSourceTemplate{{Name: "smsv2_contract", Kind: "contract"}, {Name: "smsv2_aws_runtime", Kind: "runtime"}, {Name: "site_bgp_status", Kind: "convergence"}, {Name: "site_upgrade_status", Kind: "upgrade"}}
+	want := []SMSv2DataSourceTemplate{{Name: "smsv2_contract", Kind: "contract"}, {Name: "smsv2_aws_runtime", Kind: "runtime"}, {Name: "site_bgp_status", Kind: "convergence"}, {Name: "site_upgrade_status", Kind: "upgrade"}, {Name: "site_image", Kind: "kvm_image"}}
 	if fmt.Sprint(got) != fmt.Sprint(want) {
 		t.Fatalf("templates = %#v, want %#v", got, want)
 	}
@@ -126,7 +127,7 @@ func TestSMSv2DataSourceTemplatesRetainsSchemasWhenCapabilitiesFailClosed(t *tes
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(got) != 4 {
-		t.Fatalf("templates = %#v, want all four fail-closed schemas", got)
+	if len(got) != 5 {
+		t.Fatalf("templates = %#v, want all five fail-closed schemas", got)
 	}
 }

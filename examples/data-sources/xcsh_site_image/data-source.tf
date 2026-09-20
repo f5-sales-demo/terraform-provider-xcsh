@@ -12,7 +12,7 @@ terraform {
 }
 
 data "xcsh_site_image" "example" {
-  provider_ref = "example-value"
+  site_name = "example-value"
 }
 
 output "site_image_result" {

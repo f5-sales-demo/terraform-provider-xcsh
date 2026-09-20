@@ -35,6 +35,10 @@ type smsv2ReleaseContract struct {
 	Version    string `json:"version"`
 	ContractID string `json:"contract_id"`
 	Providers  struct {
+		KVM struct {
+			Availability    string         `json:"availability"`
+			ImageResolution map[string]any `json:"image_resolution"`
+		} `json:"kvm"`
 		Azure struct {
 			Availability            string                    `json:"availability"`
 			RouteServerEBGPMultihop smsv2CapabilityBoundary   `json:"route_server_ebgp_multihop"`
@@ -74,6 +78,9 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 		return nil, err
 	}
 	if err := validateAWSNodeConfigurationContract(contract.Providers.AWS.NodeConfiguration); err != nil {
+		return nil, err
+	}
+	if err := validateKVMImageResolution(contract.Providers.KVM.ImageResolution); err != nil {
 		return nil, err
 	}
 	wantRuntime := map[string]struct {
@@ -169,6 +176,7 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 		{Name: "smsv2_aws_runtime", Kind: "runtime"},
 		{Name: "site_bgp_status", Kind: "convergence"},
 		{Name: "site_upgrade_status", Kind: "upgrade"},
+		{Name: "site_image", Kind: "kvm_image"},
 	}, nil
 }
 

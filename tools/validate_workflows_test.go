@@ -52,7 +52,7 @@ type jobContract struct {
 func strptr(value string) *string { return &value }
 
 func TestTerraformToolchainPinnedToLatestStable(t *testing.T) {
-	const expected = "1.16.2"
+	const expected = "1.16.3"
 	versionBytes, err := os.ReadFile(filepath.Join("..", ".terraform-version"))
 	if err != nil {
 		t.Fatalf("read Terraform version pin: %v", err)

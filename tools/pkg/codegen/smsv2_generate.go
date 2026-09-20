@@ -3,6 +3,7 @@
 package codegen
 
 import (
+	_ "embed"
 	"encoding/json"
 	"fmt"
 	"go/format"
@@ -11,6 +12,9 @@ import (
 	"strconv"
 	"strings"
 )
+
+//go:embed templates/smsv2_contract_data_source.go.tmpl
+var smsv2ContractDataSourceTemplate []byte
 
 type smsv2GenerationManifest struct {
 	ContractID      string `json:"contract_id"`
@@ -63,6 +67,10 @@ func GenerateSMSv2ContractConstants(specDir, outputDir string) ([]SMSv2DataSourc
 	if err != nil {
 		return nil, fmt.Errorf("encode AWS node configuration contract: %w", err)
 	}
+	kvmImageJSON, err := json.Marshal(contract.Providers.KVM.ImageResolution)
+	if err != nil {
+		return nil, fmt.Errorf("encode KVM image resolution contract: %w", err)
+	}
 
 	azureMultihop := contract.Providers.Azure.RouteServerEBGPMultihop
 	source := fmt.Sprintf(`// Code generated from api-specs-enriched %s smsv2-contract.json. DO NOT EDIT.
@@ -79,6 +87,7 @@ const (
 
 var smsv2ContractCapabilities = %s
 var smsv2AWSNodeConfigurationJSON = %q
+var smsv2KVMImageResolutionJSON = %q
 var smsv2ContractF5XCAuthorities = %s
 var smsv2ContractAWSAuthorities = %s
 var smsv2AzureRouteServerEBGPMultihop = smsv2CapabilityBoundaryContract{
@@ -93,7 +102,7 @@ var smsv2AzureRouteServerEBGPMultihop = smsv2CapabilityBoundaryContract{
 		SchemaPaths: %s,
 	},
 }
-`, manifest.Release.Tag, contract.ContractID, contract.Version, manifest.Release.Tag, manifest.Release.Commit, contract.Providers.AWS.Telemetry.SchemaID, capabilities, string(nodeConfigurationJSON), f5xcAuthorities, awsAuthorities,
+`, manifest.Release.Tag, contract.ContractID, contract.Version, manifest.Release.Tag, manifest.Release.Commit, contract.Providers.AWS.Telemetry.SchemaID, capabilities, string(nodeConfigurationJSON), string(kvmImageJSON), f5xcAuthorities, awsAuthorities,
 		azureMultihop.Availability, azureMultihop.Enforcement, azureMultihop.Reason,
 		azureMultihop.Source.Repository, azureMultihop.Source.Commit, azureMultihop.Source.AssetPath,
 		azureMultihop.Source.AssetSHA256, goStringSlice(azureMultihop.Source.SchemaPaths))
@@ -103,6 +112,12 @@ var smsv2AzureRouteServerEBGPMultihop = smsv2CapabilityBoundaryContract{
 	}
 	if err := os.WriteFile(filepath.Join(outputDir, "smsv2_contract_generated.go"), formatted, 0o644); err != nil {
 		return nil, fmt.Errorf("write SMSv2 generated constants: %w", err)
+	}
+	if err := generateKVMImageDataSource(contract.Providers.KVM.ImageResolution, outputDir); err != nil {
+		return nil, err
+	}
+	if err := os.WriteFile(filepath.Join(outputDir, "smsv2_contract_data_source.go"), smsv2ContractDataSourceTemplate, 0o644); err != nil {
+		return nil, fmt.Errorf("write SMSv2 contract data source: %w", err)
 	}
 	return templates, nil
 }

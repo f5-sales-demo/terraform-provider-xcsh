@@ -1,20 +1,20 @@
 ---
-page_title: "xcsh_site_cloud_init Resource - xcsh"
+page_title: "xcsh_site_cloud_init Data Source - xcsh"
 subcategory: "Uncategorized"
 description: |-
-  Issue site-scoped Customer Edge cloud-init.
+  Retrieve Customer Edge cloud-init template.
 ---
 
-# xcsh_site_cloud_init (Resource)
+# xcsh_site_cloud_init (Data Source)
 
-Issue site-scoped Customer Edge cloud-init.
+Retrieve Customer Edge cloud-init template. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
 ## Example Usage
 
 ```terraform
-# SiteCloudInit Resource Example
+# SiteCloudInit DataSource Example
 
 terraform {
   required_version = ">= 1.14"
@@ -27,9 +27,14 @@ terraform {
   }
 }
 
-resource "xcsh_site_cloud_init" "example" {
+data "xcsh_site_cloud_init" "example" {
   provider_ref = "example-value"
   site_name    = "example-value"
+}
+
+output "site_cloud_init_result" {
+  value     = data.xcsh_site_cloud_init.example
+  sensitive = true
 }
 ```
 
@@ -51,9 +56,7 @@ resource "xcsh_site_cloud_init" "example" {
 
 In addition to all arguments above, the following attributes are exported:
 
-<a id="cloud-init-config"></a>&#x2022; [`cloud_init_config`](#cloud-init-config) - Optional String<br>Complete cloud-init containing the site-scoped one-time node token. This sensitive value is stored in Terraform state; protect state access accordingly
-
-<a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Stable Terraform identifier for this create-once issuance
+<a id="cloud-init-config"></a>&#x2022; [`cloud_init_config`](#cloud-init-config) - Optional String<br>Cloud-init template with an unresolved token placeholder; substitute a separately issued site-bound JWT before deployment. This sensitive value is stored in Terraform state; protect state access accordingly
 
 ---
 

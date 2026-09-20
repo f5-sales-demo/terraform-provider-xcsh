@@ -3,14 +3,45 @@
 package codegen
 
 import (
+	"encoding/json"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
 
+	"github.com/hashicorp/terraform-plugin-framework/attr"
+	"github.com/hashicorp/terraform-plugin-framework/types"
+
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
+
+func TestResponseOperationTypedMapConversion(t *testing.T) {
+	fieldTypes := map[string]attr.Type{"url": types.StringType}
+	entry, diags := types.ObjectValue(fieldTypes, map[string]attr.Value{"url": types.StringValue("https://example.com/image")})
+	if diags.HasError() {
+		t.Fatal(diags)
+	}
+	value, diags := types.MapValue(types.ObjectType{AttrTypes: fieldTypes}, map[string]attr.Value{"example": entry})
+	if diags.HasError() || value.IsNull() || len(value.Elements()) != 1 {
+		t.Fatalf("typed map conversion: %v", diags)
+	}
+	operation := responseOperationTemplate("query")
+	operation.ResponseAttributes = []openapi.TerraformAttribute{{Name: "images", JsonName: "images", TfsdkTag: "images", GoName: "Images", Type: "map", IsBlock: true, NestedBlockType: "map", Computed: true, NestedAttributes: []openapi.TerraformAttribute{{Name: "url", JsonName: "url", TfsdkTag: "url", GoName: "URL", Type: "string", Computed: true}}}}
+	dir := t.TempDir()
+	if err := GenerateResponseOperation(operation, dir); err != nil {
+		t.Fatal(err)
+	}
+	data, err := os.ReadFile(filepath.Join(dir, operation.Name+"_data_source.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, want := range []string{"MapNestedAttribute", "types.Map", "types.MapValue"} {
+		if !strings.Contains(string(data), want) {
+			t.Errorf("missing typed response map code %s", want)
+		}
+	}
+}
 
 func TestGeneratedResponseOperationsCompile(t *testing.T) {
 	if testing.Short() {
@@ -26,9 +57,12 @@ func TestGeneratedResponseOperationsCompile(t *testing.T) {
 	roles := []string{"query", "collection", "issuance", "action"}
 	for index, role := range roles {
 		operation := responseOperationTemplate(role)
+		operation.ResponseFields = []openapi.ResponseField{{Name: "secret", Type: "string", Required: true, MinLength: 1}}
+		operation.ResponseAttributes = append(operation.ResponseAttributes, openapi.TerraformAttribute{Name: "images", JsonName: "images", TfsdkTag: "images", GoName: "Images", Type: "map", IsBlock: true, NestedBlockType: "map", Computed: true, NestedAttributes: []openapi.TerraformAttribute{{Name: "url", JsonName: "url", TfsdkTag: "url", GoName: "URL", Type: "string", Computed: true}}})
+		operation.ResponseFields = append(operation.ResponseFields, openapi.ResponseField{Name: "images", Type: "object", MapFields: []openapi.ResponseField{{Name: "url", Type: "string", Required: true}}})
 		operation.Name = "zz_response_" + role
 		operation.TitleCase = "ZzResponse" + strings.ToUpper(role[:1]) + role[1:]
-		if role == "query" {
+		if role == "query" || role == "issuance" {
 			operation.Method = "GET"
 			for inputIndex := range operation.Inputs {
 				operation.Inputs[inputIndex].Bindings = []openapi.OperationBinding{{Location: "query", Name: operation.Inputs[inputIndex].Attribute.JsonName}}
@@ -39,10 +73,75 @@ func TestGeneratedResponseOperationsCompile(t *testing.T) {
 		}
 	}
 
+	var image map[string]any
+	if err := json.Unmarshal([]byte(syntheticKVMImageContract), &image); err != nil {
+		t.Fatal(err)
+	}
+	if err := generateKVMImageDataSource(image, providerDir); err != nil {
+		t.Fatal(err)
+	}
 	cmd := exec.Command("go", "build", "./internal/"+filepath.Base(providerDir)+"/")
 	cmd.Dir = root
 	if output, err := cmd.CombinedOutput(); err != nil {
 		t.Fatalf("generated response operations failed to compile (%v):\n%s", err, output)
+	}
+}
+
+func TestResponseOperationRetryPolicyUsesOperationRole(t *testing.T) {
+	for _, role := range []string{"query", "issuance"} {
+		operation := responseOperationTemplate(role)
+		operation.Method = "GET"
+		code := renderResponseOperationInvoke(operation, "r", true)
+		want := ".Get("
+		if role == "issuance" {
+			want = ".GetOnce("
+		}
+		if !strings.Contains(code, want) {
+			t.Fatalf("role %s omitted %s", role, want)
+		}
+		operation.Method = "POST"
+		if code = renderResponseOperationInvoke(operation, "r", true); !strings.Contains(code, ".Post(") {
+			t.Fatalf("role %s did not use non-retrying POST", role)
+		}
+	}
+}
+
+func TestResponseOperationDiagnosticsDoNotRenderRawBackendErrors(t *testing.T) {
+	code := renderResponseOperationDiagnostic(responseOperationTemplate("query"))
+	if strings.Contains(code, "fmt.Sprintf") || !strings.Contains(code, "Raw API diagnostics are suppressed") {
+		t.Fatal("generic response operation would expose raw backend error data")
+	}
+}
+
+func TestResponseOperationArrayValidatorsPreserveUniqueness(t *testing.T) {
+	var code strings.Builder
+	renderResponseOperationValidators(&code, openapi.TerraformAttribute{Type: "list", MinItems: 1, MaxItems: 100, UniqueItems: true}, "")
+	if !strings.Contains(code.String(), "listvalidator.SizeBetween(1, 100)") || !strings.Contains(code.String(), "listvalidator.UniqueValues()") {
+		t.Fatal("missing image query array validators")
+	}
+}
+
+func TestResponseOperationValidationPrecedesStateAssignment(t *testing.T) {
+	operation := responseOperationTemplate("query")
+	operation.ResponseFields = []openapi.ResponseField{{Name: "secret", Type: "string", Required: true, MinLength: 1, Format: "uri"}}
+	dir := t.TempDir()
+	if err := GenerateResponseOperation(operation, dir); err != nil {
+		t.Fatal(err)
+	}
+	content, err := os.ReadFile(filepath.Join(dir, operation.Name+"_data_source.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	source := string(content)
+	validation := strings.Index(source, "client.ValidateResponseFields")
+	state := strings.Index(source, "resp.State.Set")
+	if validation < 0 || state < validation {
+		t.Fatal("response validation must precede writing state")
+	}
+	for _, want := range []string{`Required: true`, `MinLength: 1`, `Format: "uri"`, `AddError("Incomplete API Response", err.Error())`} {
+		if !strings.Contains(source, want) {
+			t.Errorf("missing %s", want)
+		}
 	}
 }
 
@@ -129,11 +228,14 @@ func TestGenerateResponseOperationRendersImmutablePrerequisiteDiagnostic(t *test
 		Resource:        "maurice_config",
 		Exactly:         1,
 		Enforcement:     "server",
-		Availability:    "external_tenant_prerequisite",
-		Reason:          "The tenant must contain exactly one maurice_config object before image issuance.",
+		Availability:    "unresolved_server_lookup",
+		Reason:          "Server lookup scope and count are unknown.",
 		SourceKind:      "runtime_api_error",
 		SourceOperation: "ves.io.schema.registration.CustomAPI.GetImageDownloadUrl",
 		SourceImmutable: true,
+		LookupScope:     "unknown", LookupCount: "unknown",
+		SourceCommit: strings.Repeat("a", 40), SpecSHA256: strings.Repeat("b", 64),
+		ReceiptPath: "config/evidence/test-receipt.json", ReceiptSHA256: strings.Repeat("c", 64),
 	}}
 	if err := GenerateResponseOperation(template, dir); err != nil {
 		t.Fatal(err)
@@ -142,7 +244,7 @@ func TestGenerateResponseOperationRendersImmutablePrerequisiteDiagnostic(t *test
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, want := range []string{"responseOperationPrerequisiteDiagnostic", "maurice_config_cardinality_exactly_one", "external_tenant_prerequisite"} {
+	for _, want := range []string{"responseOperationPrerequisiteDiagnostic", "maurice_config_cardinality_exactly_one", "unresolved_server_lookup", "LookupScope", "LookupCount", "SourceCommit", "SpecSHA256", "ReceiptPath", "ReceiptSHA256", strings.Repeat("c", 64)} {
 		if !strings.Contains(string(content), want) {
 			t.Fatalf("generated response operation missing %q:\n%s", want, content)
 		}

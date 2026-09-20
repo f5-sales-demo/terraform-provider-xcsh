@@ -199,6 +199,16 @@ func main() {
 // processV2Specs processes v2 format specs (domain-organized files from api-specs-enriched)
 func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 	var err error
+	contractJSON, err := os.ReadFile(filepath.Join(specDir, "smsv2-contract.json"))
+	if err != nil {
+		fmt.Printf("SMSv2 contract read failed: %v\n", err)
+		os.Exit(1)
+	}
+	suppressedImageOperations, err := codegen.SMSv2ImageSuppressedOperations(contractJSON)
+	if err != nil {
+		fmt.Printf("SMSv2 image contract validation failed: %v\n", err)
+		os.Exit(1)
+	}
 	operationCatalog, err = openapi.ParseOperationCatalogFromDir(specDir)
 	if err != nil {
 		fmt.Printf("❌ Error parsing api-catalog.json: %v\n", err)
@@ -389,6 +399,9 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 			continue
 		}
 		for _, operation := range responseOperations {
+			if _, suppressed := suppressedImageOperations[operation.OperationID]; suppressed {
+				continue
+			}
 			if processedResources[operation.Name] {
 				results = append(results, GenerationResult{ResourceName: operation.Name, Success: false, Error: "Terraform response-operation name collides with another generated surface"})
 				failCount++
@@ -415,11 +428,6 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 	}
 	if err := generateSMSv2ParityMatrix(specDir, smsv2Attributes); err != nil {
 		fmt.Printf("❌ SMSv2 parity validation failed: %v\n", err)
-		os.Exit(1)
-	}
-	contractJSON, err := os.ReadFile(filepath.Join(specDir, "smsv2-contract.json"))
-	if err != nil {
-		fmt.Printf("❌ SMSv2 data-source contract read failed: %v\n", err)
 		os.Exit(1)
 	}
 	smsv2Templates, err := codegen.SMSv2DataSourceTemplates(contractJSON)

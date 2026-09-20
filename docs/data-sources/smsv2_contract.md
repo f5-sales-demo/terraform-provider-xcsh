@@ -2,12 +2,12 @@
 page_title: "xcsh_smsv2_contract Data Source - xcsh"
 subcategory: "Uncategorized"
 description: |-
-  Publishes the immutable clean-break SMSv2 AWS and Azure capability contract compiled into this provider release.
+  Publishes the immutable clean-break SMSv2 AWS, Azure, and KVM capability contracts compiled into this provider release.
 ---
 
 # xcsh_smsv2_contract (Data Source)
 
-Publishes the immutable clean-break SMSv2 AWS and Azure capability contract compiled into this provider release. This is a read-only data source.
+Publishes the immutable clean-break SMSv2 AWS, Azure, and KVM capability contracts compiled into this provider release. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
@@ -79,6 +79,8 @@ In addition to all arguments above, the following attributes are exported:
 <a id="f5xc-authorities"></a>&#x2022; [`f5xc_authorities`](#f5xc-authorities) - Optional List
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>The ID of this resource
+
+<a id="kvm-image-resolution"></a>&#x2022; [`kvm_image_resolution`](#kvm-image-resolution) - Optional String<br>Complete canonical KVM image-resolution contract JSON, including ownership, validation, and evidence provenance, from the pinned API release
 
 <a id="telemetry-schema-id"></a>&#x2022; [`telemetry_schema_id`](#telemetry-schema-id) - Optional String
 

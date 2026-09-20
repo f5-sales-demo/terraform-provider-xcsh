@@ -9,58 +9,41 @@ import (
 )
 
 func TestResponseOperationPrerequisiteDiagnosticRecognizesImmutableMauriceContract(t *testing.T) {
-	prerequisites := []responseOperationPrerequisite{{
-		ID:              "maurice_config_cardinality_exactly_one",
-		Resource:        "maurice_config",
-		Exactly:         1,
-		Enforcement:     "server",
-		Availability:    "external_tenant_prerequisite",
-		Reason:          "The tenant must contain exactly one maurice_config object before the platform can issue a Customer Edge image download URL.",
-		SourceKind:      "runtime_api_error",
-		SourceOperation: "ves.io.schema.registration.CustomAPI.GetImageDownloadUrl",
-		SourceImmutable: true,
-	}}
-	title, detail, matched := responseOperationPrerequisiteDiagnostic(errors.New("cannot create dow"+"load url, err: number of maurice_config object is not one"), prerequisites)
-	if !matched || title != "External tenant prerequisite unavailable" {
-		t.Fatalf("diagnostic = (%q, %q, %t), want matched external prerequisite", title, detail, matched)
+	prerequisites := []responseOperationPrerequisite{verifiedImageLookupPrerequisite()}
+	title, detail, matched := responseOperationPrerequisiteDiagnostic(errors.New(mauriceConfigCardinalityError), prerequisites)
+	if !matched || title != "Image lookup unresolved" {
+		t.Fatalf("diagnostic = (%q, %q, %t), want unresolved lookup", title, detail, matched)
 	}
-	for _, want := range []string{"maurice_config_cardinality_exactly_one", "exactly one maurice_config", "cannot create or repair"} {
+	for _, want := range []string{"exactly one", "unknown", "test-receipt.json", strings.Repeat("c", 64)} {
 		if !strings.Contains(detail, want) {
-			t.Fatalf("detail = %q, want %q", detail, want)
+			t.Fatalf("detail is missing %q", want)
 		}
 	}
 }
 
 func TestResponseOperationPrerequisiteDiagnosticLeavesUnrelatedErrorsUntouched(t *testing.T) {
-	prerequisites := []responseOperationPrerequisite{{
-		ID:              "maurice_config_cardinality_exactly_one",
-		Resource:        "maurice_config",
-		Exactly:         1,
-		Enforcement:     "server",
-		Availability:    "external_tenant_prerequisite",
-		Reason:          "tenant prerequisite",
-		SourceKind:      "runtime_api_error",
-		SourceOperation: "ves.io.schema.registration.CustomAPI.GetImageDownloadUrl",
-		SourceImmutable: true,
-	}}
-	if title, detail, matched := responseOperationPrerequisiteDiagnostic(errors.New("connection refused"), prerequisites); matched || title != "" || detail != "" {
-		t.Fatalf("diagnostic = (%q, %q, %t), want no match", title, detail, matched)
+	for _, err := range []error{nil, errors.New("connection refused")} {
+		if title, detail, matched := responseOperationPrerequisiteDiagnostic(err, []responseOperationPrerequisite{verifiedImageLookupPrerequisite()}); matched || title != "" || detail != "" {
+			t.Fatal("unrelated errors must not become lookup diagnostics")
+		}
 	}
 }
 
 func TestResponseOperationPrerequisiteDiagnosticRejectsMutableOrUnprovenContract(t *testing.T) {
-	prerequisite := responseOperationPrerequisite{
-		ID:              "maurice_config_cardinality_exactly_one",
-		Resource:        "maurice_config",
-		Exactly:         1,
-		Enforcement:     "provider",
-		Availability:    "external_tenant_prerequisite",
-		Reason:          "tenant prerequisite",
-		SourceKind:      "runtime_api_error",
-		SourceOperation: "ves.io.schema.registration.CustomAPI.GetImageDownloadUrl",
-		SourceImmutable: true,
-	}
-	if _, _, matched := responseOperationPrerequisiteDiagnostic(errors.New(mauriceConfigCardinalityError), []responseOperationPrerequisite{prerequisite}); matched {
-		t.Fatal("mutable contract must not produce a prerequisite diagnostic")
+	for _, mutate := range []func(*responseOperationPrerequisite){
+		func(p *responseOperationPrerequisite) { p.Enforcement = "provider" },
+		func(p *responseOperationPrerequisite) { p.LookupScope = "tenant" },
+		func(p *responseOperationPrerequisite) { p.LookupCount = "0" },
+		func(p *responseOperationPrerequisite) { p.SourceImmutable = false },
+		func(p *responseOperationPrerequisite) { p.SourceCommit = "" },
+		func(p *responseOperationPrerequisite) { p.SpecSHA256 = strings.Repeat("x", 64) },
+		func(p *responseOperationPrerequisite) { p.ReceiptSHA256 = "" },
+		func(p *responseOperationPrerequisite) { p.ReceiptPath = "config/evidence/../../unverified.json" },
+	} {
+		prerequisite := verifiedImageLookupPrerequisite()
+		mutate(&prerequisite)
+		if _, _, matched := responseOperationPrerequisiteDiagnostic(errors.New(mauriceConfigCardinalityError), []responseOperationPrerequisite{prerequisite}); matched {
+			t.Fatal("mutable or unproven contract must not produce a lookup diagnostic")
+		}
 	}
 }

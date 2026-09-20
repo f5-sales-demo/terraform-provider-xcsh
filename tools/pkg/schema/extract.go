@@ -71,6 +71,11 @@ func ExtractResponseOperationSchema(spec *openapi.Spec, operation openapi.Resolv
 	inputsByTag := make(map[string]*openapi.ResponseOperationInput)
 	addInput := func(name, location string, property openapi.Schema, isRequired bool) error {
 		attr := ConvertToTerraformAttribute(name, property, isRequired, "", spec)
+		attr.MinItems = max(attr.MinItems, property.MinItems)
+		if property.MaxItems > 0 && (attr.MaxItems == 0 || property.MaxItems < attr.MaxItems) {
+			attr.MaxItems = property.MaxItems
+		}
+		attr.UniqueItems = property.UniqueItems
 		if attr.ConversionError != "" {
 			return fmt.Errorf("response operation %s input %q: %s", operation.Name, name, attr.ConversionError)
 		}
@@ -188,6 +193,10 @@ func ExtractResponseOperationSchema(spec *openapi.Spec, operation openapi.Resolv
 	if err != nil {
 		return nil, err
 	}
+	responseFields, err := responseOperationFields(response, spec)
+	if err != nil {
+		return nil, err
+	}
 	for _, attr := range responseAttrs {
 		if input := inputsByTag[attr.TfsdkTag]; input != nil {
 			return nil, fmt.Errorf("response operation %s input %q collides with response attribute %q", operation.Name, input.Attribute.Name, attr.Name)
@@ -226,7 +235,50 @@ func ExtractResponseOperationSchema(spec *openapi.Spec, operation openapi.Resolv
 		APIPath: operation.Path, OperationID: operation.OperationID, RequestSchema: operation.RequestSchema,
 		ResponseSchema: operation.ResponseSchema, Description: descriptionText, Inputs: inputs, ResponseAttributes: responseAttrs,
 		ResponseIsScalar: response.Type != "object", Prerequisites: operation.Prerequisites,
+		ResponseFields: responseFields,
 	}, nil
+}
+
+func responseOperationFields(response openapi.Schema, spec *openapi.Spec) ([]openapi.ResponseField, error) {
+	properties := response.Properties
+	required := map[string]bool{}
+	for _, name := range response.Required {
+		required[name] = true
+	}
+	if response.Type != "object" {
+		properties = map[string]openapi.Schema{"result": response}
+		required["result"] = true
+	}
+	fields := make([]openapi.ResponseField, 0, len(properties))
+	for _, name := range sortedSchemaPropertyNames(properties) {
+		property := properties[name]
+		if property.Ref != "" {
+			property = ResolveRef(property.Ref, spec)
+		}
+		field := openapi.ResponseField{Name: property.WireName(name), Type: property.Type,
+			Required: required[name], MinLength: property.MinLength, Format: property.Format, Pattern: property.Pattern}
+		if raw, ok := property.AdditionalProperties.(map[string]any); ok {
+			encoded, err := json.Marshal(raw)
+			if err != nil {
+				return nil, err
+			}
+			var element openapi.Schema
+			if err := json.Unmarshal(encoded, &element); err != nil {
+				return nil, err
+			}
+			if element.Ref != "" {
+				element = ResolveRef(element.Ref, spec)
+			}
+			if element.Type == "object" && len(element.Properties) > 0 {
+				field.MapFields, err = responseOperationFields(element, spec)
+				if err != nil {
+					return nil, err
+				}
+			}
+		}
+		fields = append(fields, field)
+	}
+	return fields, nil
 }
 
 func supportedResponseOperationInput(attribute openapi.TerraformAttribute) bool {
@@ -277,9 +329,37 @@ func responseOperationAttributes(spec *openapi.Spec, operationName string, respo
 	}
 	attributes := make([]openapi.TerraformAttribute, 0, len(properties))
 	for _, name := range sortedSchemaPropertyNames(properties) {
-		attr := ConvertToTerraformAttribute(name, properties[name], false, "", spec)
+		property := properties[name]
+		objectMap := false
+		if raw, ok := property.AdditionalProperties.(map[string]any); ok {
+			encoded, err := json.Marshal(raw)
+			if err != nil {
+				return nil, err
+			}
+			var element openapi.Schema
+			if err := json.Unmarshal(encoded, &element); err != nil {
+				return nil, err
+			}
+			if element.Ref != "" {
+				element = ResolveRef(element.Ref, spec)
+			}
+			if element.Type == "object" && len(element.Properties) > 0 {
+				objectMap = true
+				property.Properties = element.Properties
+				property.AdditionalProperties = nil
+			}
+		}
+		attr := ConvertToTerraformAttribute(name, property, false, "", spec)
 		if attr.ConversionError != "" {
 			return nil, fmt.Errorf("response operation %s response field %q: %s", operationName, name, attr.ConversionError)
+		}
+		if objectMap {
+			attr.Type, attr.NestedBlockType = "map", "map"
+			for _, child := range attr.NestedAttributes {
+				if child.IsBlock || (child.Type != "string" && child.Type != "int64" && child.Type != "bool") {
+					return nil, fmt.Errorf("response operation %s field %q has unsupported nested map elements", operationName, name)
+				}
+			}
 		}
 		markResponseAttributeComputed(&attr)
 		attributes = append(attributes, attr)

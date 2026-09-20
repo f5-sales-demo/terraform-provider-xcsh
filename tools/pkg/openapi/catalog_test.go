@@ -175,7 +175,7 @@ func TestParseOperationCatalogPreservesResponseOperationPrerequisite(t *testing.
 	raw := strings.Replace(
 		validOperationCatalog,
 		`"surface": "config"`,
-		`"surface": "config", "role": "query", "terraformName": "site_image", "responseSchema": "probeResponse", "prerequisites": [{"id":"maurice_config_cardinality_exactly_one","resource":"maurice_config","cardinality":{"exactly":1},"enforcement":"server","availability":"external_tenant_prerequisite","reason":"The tenant must contain exactly one maurice_config object before image issuance.","source":{"kind":"runtime_api_error","operation":"ves.io.schema.probe.CustomApi.List","immutable":true}}]`,
+		`"surface": "config", "role": "query", "terraformName": "site_image", "responseSchema": "probeResponse", "prerequisites": [{"id":"maurice_config_cardinality_exactly_one","resource":"maurice_config","cardinality":{"exactly":1},"enforcement":"server","availability":"unresolved_server_lookup","lookup_scope":"unknown","lookup_count":"unknown","reason":"Server lookup scope and count are unknown.","source":{"kind":"runtime_api_error","operation":"ves.io.schema.probe.CustomApi.List","immutable":true,"source_commit":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","spec_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","receipt_path":"config/evidence/test-receipt.json","receipt_sha256":"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"}}]`,
 		1,
 	)
 	catalog, err := ParseOperationCatalog([]byte(raw))
@@ -187,13 +187,16 @@ func TestParseOperationCatalogPreservesResponseOperationPrerequisite(t *testing.
 		t.Fatalf("prerequisites = %+v, want one", prerequisites)
 	}
 	got := prerequisites[0]
-	if got.ID != "maurice_config_cardinality_exactly_one" || got.Resource != "maurice_config" || got.Exactly != 1 || got.Enforcement != "server" || got.Availability != "external_tenant_prerequisite" || got.SourceKind != "runtime_api_error" || got.SourceOperation != "ves.io.schema.probe.CustomApi.List" || !got.SourceImmutable {
+	if got.LookupScope != "unknown" || got.LookupCount != "unknown" || got.SourceCommit != strings.Repeat("a", 40) || got.SpecSHA256 != strings.Repeat("b", 64) || got.ReceiptSHA256 != strings.Repeat("c", 64) || got.ReceiptPath != "config/evidence/test-receipt.json" {
+		t.Fatal("lookup uncertainty and provenance must be preserved exactly")
+	}
+	if got.ID != "maurice_config_cardinality_exactly_one" || got.Resource != "maurice_config" || got.Exactly != 1 || got.Enforcement != "server" || got.Availability != "unresolved_server_lookup" || got.SourceKind != "runtime_api_error" || got.SourceOperation != "ves.io.schema.probe.CustomApi.List" || !got.SourceImmutable {
 		t.Fatalf("prerequisite was not preserved exactly: %+v", got)
 	}
 }
 
 func TestParseOperationCatalogRejectsInvalidResponseOperationPrerequisite(t *testing.T) {
-	base := `"surface": "config", "role": "query", "terraformName": "site_image", "responseSchema": "probeResponse", "prerequisites": [{"id":"maurice_config_cardinality_exactly_one","resource":"maurice_config","cardinality":{"exactly":1},"enforcement":"server","availability":"external_tenant_prerequisite","reason":"The tenant must contain exactly one maurice_config object before image issuance.","source":{"kind":"runtime_api_error","operation":"ves.io.schema.probe.CustomApi.List","immutable":true}}]`
+	base := `"surface": "config", "role": "query", "terraformName": "site_image", "responseSchema": "probeResponse", "prerequisites": [{"id":"maurice_config_cardinality_exactly_one","resource":"maurice_config","cardinality":{"exactly":1},"enforcement":"server","availability":"unresolved_server_lookup","lookup_scope":"unknown","lookup_count":"unknown","reason":"Server lookup scope and count are unknown.","source":{"kind":"runtime_api_error","operation":"ves.io.schema.probe.CustomApi.List","immutable":true,"source_commit":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","spec_sha256":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","receipt_path":"config/evidence/test-receipt.json","receipt_sha256":"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"}}]`
 	tests := []struct {
 		name    string
 		mutate  func(string) string
@@ -215,6 +218,21 @@ func TestParseOperationCatalogRejectsInvalidResponseOperationPrerequisite(t *tes
 		{name: "writable claim", mutate: func(raw string) string {
 			return strings.Replace(raw, `"enforcement":"server"`, `"enforcement":"provider"`, 1)
 		}, wantErr: "enforcement must be server"},
+		{name: "obsolete tenant claim", mutate: func(raw string) string {
+			return strings.Replace(raw, `"availability":"unresolved_server_lookup"`, `"availability":"external_tenant_prerequisite"`, 1)
+		}, wantErr: "availability must be unresolved_server_lookup"},
+		{name: "guessed scope", mutate: func(raw string) string {
+			return strings.Replace(raw, `"lookup_scope":"unknown"`, `"lookup_scope":"tenant"`, 1)
+		}, wantErr: "scope and count must remain unknown"},
+		{name: "guessed count", mutate: func(raw string) string {
+			return strings.Replace(raw, `"lookup_count":"unknown"`, `"lookup_count":"0"`, 1)
+		}, wantErr: "scope and count must remain unknown"},
+		{name: "missing digest", mutate: func(raw string) string {
+			return strings.Replace(raw, `"receipt_sha256":"`+strings.Repeat("c", 64)+`"`, `"receipt_sha256":""`, 1)
+		}, wantErr: "source requires immutable"},
+		{name: "receipt path traversal", mutate: func(raw string) string {
+			return strings.Replace(raw, `config/evidence/test-receipt.json`, `config/evidence/../../private.json`, 1)
+		}, wantErr: "source requires immutable"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

@@ -2,12 +2,12 @@
 page_title: "xcsh_site_image Data Source - xcsh"
 subcategory: "Uncategorized"
 description: |-
-  Retrieve signed Customer Edge image download URLs.
+  Resolve the current KVM image using exactly one Site owned by the named SMSv2 configuration. No caller UID or static fallback is supported. Verify the artifact MD5 before use; image resolution does not imply successful boot.
 ---
 
 # xcsh_site_image (Data Source)
 
-Retrieve signed Customer Edge image download URLs. This is a read-only data source.
+Resolve the current KVM image using exactly one Site owned by the named SMSv2 configuration. No caller UID or static fallback is supported. Verify the artifact MD5 before use; image resolution does not imply successful boot. This is a read-only data source.
 
 ~> **Note:** For more information, see the [F5 Distributed Cloud API documentation](https://docs.cloud.f5.com/docs/api/).
 
@@ -28,7 +28,7 @@ terraform {
 }
 
 data "xcsh_site_image" "example" {
-  provider_ref = "example-value"
+  site_name = "example-value"
 }
 
 output "site_image_result" {
@@ -45,15 +45,17 @@ output "site_image_result" {
 
 ### Spec Argument Reference
 
-<a id="provider-ref"></a>&#x2022; [`provider_ref`](#provider-ref) - Required String<br>Deployment platform identifier for the requested Customer Edge image. Recommended: `KVM`
+<a id="site-name"></a>&#x2022; [`site_name`](#site-name) - Required String<br>Existing KVM SMSv2 configuration name in system. Ownership is revalidated on each read
 
 ### Attributes Reference
 
 In addition to all arguments above, the following attributes are exported:
 
-<a id="image-download-url"></a>&#x2022; [`image_download_url`](#image-download-url) - Optional String<br>Signed URL for the requested Customer Edge image. This sensitive value is stored in Terraform state; protect state access accordingly
+<a id="image-download-url"></a>&#x2022; [`image_download_url`](#image-download-url) - Optional String<br>Validated HTTPS image URL. Protect Terraform state
 
-<a id="image-md5-download-url"></a>&#x2022; [`image_md5_download_url`](#image-md5-download-url) - Optional String<br>Signed URL for the requested Customer Edge image MD5 checksum. This sensitive value is stored in Terraform state; protect state access accordingly
+<a id="image-md5-sum"></a>&#x2022; [`image_md5_sum`](#image-md5-sum) - Optional String<br>Expected artifact MD5, which the consumer must verify before boot
+
+<a id="image-name"></a>&#x2022; [`image_name`](#image-name) - Optional String<br>Image name returned by the Site-UID query. May contain a download URL; protect Terraform state
 
 ---
 

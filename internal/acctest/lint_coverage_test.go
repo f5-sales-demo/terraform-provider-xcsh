@@ -28,19 +28,19 @@ func TestLintCoverageIncludesTools(t *testing.T) {
 		{
 			file: "Makefile",
 			mustHave: []string{
-				"$(GOLINT) run --timeout=5m ./internal/... . ./tools/...",
+				"$(GOLINT) run --timeout=15m ./internal/... . ./tools/...",
 			},
 		},
 		{
 			file: "scripts/pre-commit-local.sh",
 			mustHave: []string{
-				"golangci-lint run --timeout=5m ./internal/... . ./tools/...",
+				"golangci-lint run --timeout=15m ./internal/... . ./tools/...",
 			},
 		},
 		{
 			file: "scripts/lint-generated-preview.sh",
 			mustHave: []string{
-				"golangci-lint run --timeout=5m ./internal/... . ./tools/...",
+				"golangci-lint run --timeout=15m ./internal/... . ./tools/...",
 			},
 		},
 	}
