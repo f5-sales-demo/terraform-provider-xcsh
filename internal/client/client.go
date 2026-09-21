@@ -342,6 +342,27 @@ func (c *Client) doRequest(ctx context.Context, method, path string, body interf
 	return c.doRequestWithRetry(ctx, method, path, body, isRetryableMethod(method))
 }
 
+func cloneSingleUseHTTP1Transport(standard *http.Transport) *http.Transport {
+	single := standard.Clone()
+	single.DisableKeepAlives = true
+	single.ForceAttemptHTTP2 = false
+	single.Protocols = new(http.Protocols)
+	single.Protocols.SetHTTP1(true)
+	// Transport.Clone initializes the source before copying it. When the source
+	// is http.DefaultTransport, that initialization can leave "h2" in the
+	// cloned TLS ALPN list even after Protocols is restricted to HTTP/1. The
+	// server may then select h2 although this clone has no HTTP/2 round tripper,
+	// causing a peer close/EOF before response headers. Keep the TLS offer and
+	// the transport protocol set consistent.
+	single.TLSNextProto = map[string]func(string, *tls.Conn) http.RoundTripper{}
+	if single.TLSClientConfig != nil {
+		tlsConfig := single.TLSClientConfig.Clone()
+		tlsConfig.NextProtos = []string{"http/1.1"}
+		single.TLSClientConfig = tlsConfig
+	}
+	return single
+}
+
 // Operation semantics can prohibit retries even for an HTTP GET. Credential
 // issuance is not idempotent merely because the server exposes it as GET.
 func (c *Client) doRequestWithRetry(ctx context.Context, method, path string, body interface{}, allowRetry bool) ([]byte, error) {
@@ -357,10 +378,7 @@ func (c *Client) doRequestWithRetry(ctx context.Context, method, path string, bo
 			transport = http.DefaultTransport
 		}
 		if standard, ok := transport.(*http.Transport); ok {
-			single := standard.Clone()
-			single.DisableKeepAlives = true
-			single.Protocols = new(http.Protocols)
-			single.Protocols.SetHTTP1(true)
+			single := cloneSingleUseHTTP1Transport(standard)
 			isolated.Transport = single
 			defer single.CloseIdleConnections()
 		}
