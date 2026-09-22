@@ -38,6 +38,13 @@ jobs:
       # Gitignored working location for the released API spec bundle — the same
       # path tools/generate-all-schemas.go defaults to.
       SPEC_DIR: docs/specifications/api
+      # Generated provider/client packages are large enough for parallel
+      # compiler processes to exhaust a GitHub-hosted runner. Keep every Go
+      # compile gate in this job within one bounded process budget.
+      GOGC: "20"
+      GOMEMLIMIT: 4GiB
+      GOMAXPROCS: "1"
+      GOFLAGS: "-p=1"
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

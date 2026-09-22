@@ -318,6 +318,31 @@ func TestProviderRegenerationVerificationIsMemoryBounded(t *testing.T) {
 	}
 }
 
+func TestBuildTestWorkflowBoundsCompilerMemory(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "_build-test.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var workflow struct {
+		Jobs map[string]struct {
+			Env map[string]string `yaml:"env"`
+		} `yaml:"jobs"`
+	}
+	if err := yaml.Unmarshal(content, &workflow); err != nil {
+		t.Fatal(err)
+	}
+	for key, want := range map[string]string{
+		"GOGC":       "20",
+		"GOMEMLIMIT": "4GiB",
+		"GOMAXPROCS": "1",
+		"GOFLAGS":    "-p=1",
+	} {
+		if got := workflow.Jobs["build"].Env[key]; got != want {
+			t.Errorf("build job %s = %q, want %q", key, got, want)
+		}
+	}
+}
+
 func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 	workflowDir := filepath.Join("..", ".github", "workflows")
 	expectedImageJobs := map[string][]string{
