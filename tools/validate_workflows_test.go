@@ -325,7 +325,11 @@ func TestBuildTestWorkflowBoundsCompilerMemory(t *testing.T) {
 	}
 	var workflow struct {
 		Jobs map[string]struct {
-			Env map[string]string `yaml:"env"`
+			Env   map[string]string `yaml:"env"`
+			Steps []struct {
+				Name string `yaml:"name"`
+				Run  string `yaml:"run"`
+			} `yaml:"steps"`
 		} `yaml:"jobs"`
 	}
 	if err := yaml.Unmarshal(content, &workflow); err != nil {
@@ -335,11 +339,30 @@ func TestBuildTestWorkflowBoundsCompilerMemory(t *testing.T) {
 		"GOGC":       "20",
 		"GOMEMLIMIT": "4GiB",
 		"GOMAXPROCS": "1",
-		"GOFLAGS":    "-p=1",
 	} {
 		if got := workflow.Jobs["build"].Env[key]; got != want {
 			t.Errorf("build job %s = %q, want %q", key, got, want)
 		}
+	}
+	if _, exists := workflow.Jobs["build"].Env["GOFLAGS"]; exists {
+		t.Error("build job must not serialize the independent test packages")
+	}
+	requiredCommands := map[string]string{
+		"Build": "go build -p 1 -v ./...",
+		"Vet":   "go vet -p 1 ./...",
+	}
+	for _, step := range workflow.Jobs["build"].Steps {
+		want, ok := requiredCommands[step.Name]
+		if !ok {
+			continue
+		}
+		if !strings.Contains(step.Run, want) {
+			t.Errorf("%s step does not use %q: %s", step.Name, want, step.Run)
+		}
+		delete(requiredCommands, step.Name)
+	}
+	if len(requiredCommands) != 0 {
+		t.Errorf("build workflow is missing memory-bounded steps: %v", requiredCommands)
 	}
 }
 
